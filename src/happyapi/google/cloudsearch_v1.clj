@@ -10,7 +10,7 @@ https://developers.google.com/cloud-search/docs/guides/v1/reference/rest/v1/oper
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudsearch.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -34,7 +34,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (operations-lro-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudsearch.googleapis.com/v1/{+name}/lro",
@@ -61,7 +61,7 @@ debugOptions.enableDebugging <boolean> If you are asked by Google to help with d
   ([name Principal]
     (debug-datasources-items-checkAccess name Principal nil))
   ([name Principal optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://cloudsearch.googleapis.com/v1/debug/{+name}:checkAccess",
@@ -80,7 +80,7 @@ name <>
 SearchItemsByViewUrlRequest:
 SearchItemsByViewUrlRequest"
   [name SearchItemsByViewUrlRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudsearch.googleapis.com/v1/debug/{+name}/items:searchByViewUrl",
@@ -102,7 +102,7 @@ pageSize <integer> Maximum number of items to fetch in a request. Defaults to 10
 debugOptions.enableDebugging <boolean> If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field."
   ([parent] (debug-datasources-items-unmappedids-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudsearch.googleapis.com/v1/debug/{+parent}/unmappedids",
@@ -124,7 +124,7 @@ pageSize <integer> Maximum number of items to fetch in a request. Defaults to 10
 debugOptions.enableDebugging <boolean> If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field."
   ([parent] (debug-identitysources-unmappedids-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudsearch.googleapis.com/v1/debug/{+parent}/unmappedids",
@@ -148,7 +148,7 @@ debugOptions.enableDebugging <boolean> If you are asked by Google to help with d
   ([parent]
     (debug-identitysources-items-listForunmappedidentity parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudsearch.googleapis.com/v1/debug/{+parent}/items:forunmappedidentity",
@@ -162,7 +162,7 @@ debugOptions.enableDebugging <boolean> If you are asked by Google to help with d
   "Get customer settings. **Note:** This API requires an admin account to execute.
 https://developers.google.com/cloud-search/docs/guides/v1/reference/rest/v1/settings/getCustomer"
   []
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://cloudsearch.googleapis.com/v1/settings/customer",
@@ -184,7 +184,7 @@ optional:
 updateMask <string> Update mask to control which fields get updated. If you specify a field in the update_mask but don't specify its value here, that field will be cleared. If the mask is not present or empty, all fields will be updated. Currently supported field paths: vpc_settings and audit_logging_settings"
   ([CustomerSettings] (settings-updateCustomer CustomerSettings nil))
   ([CustomerSettings optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://cloudsearch.googleapis.com/v1/settings/customer",
@@ -205,7 +205,7 @@ pageSize <integer> The maximum number of items to return.
 debugOptions.enableDebugging <boolean> If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field."
   ([] (settings-searchapplications-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudsearch.googleapis.com/v1/settings/searchapplications",
@@ -226,7 +226,7 @@ optional:
 debugOptions.enableDebugging <boolean> If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field."
   ([name] (settings-searchapplications-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudsearch.googleapis.com/v1/settings/{+name}",
@@ -244,7 +244,7 @@ https://developers.google.com/cloud-search/docs/guides/v1/reference/rest/v1/sett
 SearchApplication:
 SearchApplication"
   [SearchApplication]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudsearch.googleapis.com/v1/settings/searchapplications",
@@ -269,7 +269,7 @@ updateMask <string> Only applies to [`settings.searchapplications.patch`](https:
   ([name SearchApplication]
     (settings-searchapplications-update name SearchApplication nil))
   ([name SearchApplication optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://cloudsearch.googleapis.com/v1/settings/{+name}",
@@ -294,7 +294,7 @@ updateMask <string> Only applies to [`settings.searchapplications.patch`](https:
   ([name SearchApplication]
     (settings-searchapplications-patch name SearchApplication nil))
   ([name SearchApplication optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://cloudsearch.googleapis.com/v1/settings/{+name}",
@@ -316,7 +316,7 @@ optional:
 debugOptions.enableDebugging <boolean> If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field."
   ([name] (settings-searchapplications-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://cloudsearch.googleapis.com/v1/settings/{+name}",
@@ -335,7 +335,7 @@ name <>
 ResetSearchApplicationRequest:
 ResetSearchApplicationRequest"
   [name ResetSearchApplicationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudsearch.googleapis.com/v1/settings/{+name}:reset",
@@ -354,7 +354,7 @@ https://developers.google.com/cloud-search/docs/guides/v1/reference/rest/v1/sett
 DataSource:
 DataSource"
   [DataSource]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudsearch.googleapis.com/v1/settings/datasources",
@@ -376,7 +376,7 @@ optional:
 debugOptions.enableDebugging <boolean> If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field."
   ([name] (settings-datasources-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://cloudsearch.googleapis.com/v1/settings/{+name}",
@@ -397,7 +397,7 @@ optional:
 debugOptions.enableDebugging <boolean> If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field."
   ([name] (settings-datasources-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudsearch.googleapis.com/v1/settings/{+name}",
@@ -416,7 +416,7 @@ name <>
 UpdateDataSourceRequest:
 UpdateDataSourceRequest"
   [name UpdateDataSourceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://cloudsearch.googleapis.com/v1/settings/{+name}",
@@ -441,7 +441,7 @@ debugOptions.enableDebugging <boolean> If you are asked by Google to help with d
 updateMask <string> Only applies to [`settings.datasources.patch`](https://developers.google.com/cloud-search/docs/reference/rest/v1/settings.datasources/patch). Update mask to control which fields to update. Example field paths: `name`, `displayName`. * If `update_mask` is non-empty, then only the fields specified in the `update_mask` are updated. * If you specify a field in the `update_mask`, but don't specify its value in the source, that field is cleared. * If the `update_mask` is not present or empty or has the value `*`, then all fields are updated."
   ([name DataSource] (settings-datasources-patch name DataSource nil))
   ([name DataSource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://cloudsearch.googleapis.com/v1/settings/{+name}",
@@ -462,7 +462,7 @@ pageSize <integer> Maximum number of datasources to fetch in a request. The max 
 debugOptions.enableDebugging <boolean> If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field."
   ([] (settings-datasources-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudsearch.googleapis.com/v1/settings/datasources",
@@ -480,7 +480,7 @@ https://developers.google.com/cloud-search/docs/guides/v1/reference/rest/v1/init
 InitializeCustomerRequest:
 InitializeCustomerRequest"
   [InitializeCustomerRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudsearch.googleapis.com/v1:initializeCustomer",
@@ -500,7 +500,7 @@ name <>
 UpdateSchemaRequest:
 UpdateSchemaRequest"
   [name UpdateSchemaRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://cloudsearch.googleapis.com/v1/indexing/{+name}/schema",
@@ -522,7 +522,7 @@ optional:
 debugOptions.enableDebugging <boolean> If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field."
   ([name] (indexing-datasources-getSchema name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudsearch.googleapis.com/v1/indexing/{+name}/schema",
@@ -543,7 +543,7 @@ optional:
 debugOptions.enableDebugging <boolean> If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field."
   ([name] (indexing-datasources-deleteSchema name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://cloudsearch.googleapis.com/v1/indexing/{+name}/schema",
@@ -567,7 +567,7 @@ pageSize <integer> Maximum number of items to fetch in a request. The max value 
 debugOptions.enableDebugging <boolean> If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field."
   ([name] (indexing-datasources-items-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudsearch.googleapis.com/v1/indexing/{+name}/items",
@@ -585,7 +585,7 @@ name <>
 IndexItemRequest:
 IndexItemRequest"
   [name IndexItemRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudsearch.googleapis.com/v1/indexing/{+name}:index",
@@ -604,7 +604,7 @@ name <>
 DeleteQueueItemsRequest:
 DeleteQueueItemsRequest"
   [name DeleteQueueItemsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudsearch.googleapis.com/v1/indexing/{+name}/items:deleteQueueItems",
@@ -623,7 +623,7 @@ name <>
 UnreserveItemsRequest:
 UnreserveItemsRequest"
   [name UnreserveItemsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudsearch.googleapis.com/v1/indexing/{+name}/items:unreserve",
@@ -647,7 +647,7 @@ mode <string> Required. The RequestMode for this request.
 debugOptions.enableDebugging <boolean> If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field."
   ([name] (indexing-datasources-items-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://cloudsearch.googleapis.com/v1/indexing/{+name}",
@@ -665,7 +665,7 @@ name <>
 StartUploadItemRequest:
 StartUploadItemRequest"
   [name StartUploadItemRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudsearch.googleapis.com/v1/indexing/{+name}:upload",
@@ -684,7 +684,7 @@ name <>
 PushItemRequest:
 PushItemRequest"
   [name PushItemRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudsearch.googleapis.com/v1/indexing/{+name}:push",
@@ -703,7 +703,7 @@ name <>
 PollItemsRequest:
 PollItemsRequest"
   [name PollItemsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudsearch.googleapis.com/v1/indexing/{+name}/items:poll",
@@ -725,7 +725,7 @@ connectorName <string> The name of connector making this call. Format: datasourc
 debugOptions.enableDebugging <boolean> If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field."
   ([name] (indexing-datasources-items-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudsearch.googleapis.com/v1/indexing/{+name}",
@@ -742,7 +742,7 @@ https://developers.google.com/cloud-search/docs/guides/v1/reference/rest/v1/quer
 SuggestRequest:
 SuggestRequest"
   [SuggestRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudsearch.googleapis.com/v1/query/suggest",
@@ -760,7 +760,7 @@ https://developers.google.com/cloud-search/docs/guides/v1/reference/rest/v1/quer
 SearchRequest:
 SearchRequest"
   [SearchRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudsearch.googleapis.com/v1/query/search",
@@ -778,7 +778,7 @@ https://developers.google.com/cloud-search/docs/guides/v1/reference/rest/v1/quer
 RemoveActivityRequest:
 RemoveActivityRequest"
   [RemoveActivityRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudsearch.googleapis.com/v1/query:removeActivity",
@@ -796,7 +796,7 @@ https://developers.google.com/cloud-search/docs/guides/v1/reference/rest/v1/quer
 SearchRequest:
 SearchRequest"
   [SearchRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudsearch.googleapis.com/v1/query:debugSearch",
@@ -818,7 +818,7 @@ requestOptions.timeZone <string> Current user's time zone id, such as \"America/
 requestOptions.searchApplicationId <string> The ID generated when you create a search application using the [admin console](https://support.google.com/a/answer/9043922)."
   ([] (query-sources-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudsearch.googleapis.com/v1/query/sources",
@@ -841,7 +841,7 @@ toDate.month <integer> Month of date. Must be from 1 to 12.
 toDate.day <integer> Day of month. Must be from 1 to 31 and valid for the year and month."
   ([] (stats-getIndex nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudsearch.googleapis.com/v1/stats/index",
@@ -865,7 +865,7 @@ toDate.month <integer> Month of date. Must be from 1 to 12.
 toDate.day <integer> Day of month. Must be from 1 to 31 and valid for the year and month."
   ([] (stats-getQuery nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudsearch.googleapis.com/v1/stats/query",
@@ -889,7 +889,7 @@ toDate.month <integer> Month of date. Must be from 1 to 12.
 toDate.day <integer> Day of month. Must be from 1 to 31 and valid for the year and month."
   ([] (stats-getUser nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudsearch.googleapis.com/v1/stats/user",
@@ -913,7 +913,7 @@ toDate.month <integer> Month of date. Must be from 1 to 12.
 toDate.day <integer> Day of month. Must be from 1 to 31 and valid for the year and month."
   ([] (stats-getSession nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudsearch.googleapis.com/v1/stats/session",
@@ -937,7 +937,7 @@ endDate.month <integer> Month of date. Must be from 1 to 12.
 endDate.day <integer> Day of month. Must be from 1 to 31 and valid for the year and month."
   ([] (stats-getSearchapplication nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudsearch.googleapis.com/v1/stats/searchapplication",
@@ -963,7 +963,7 @@ toDate.month <integer> Month of date. Must be from 1 to 12.
 toDate.day <integer> Day of month. Must be from 1 to 31 and valid for the year and month."
   ([name] (stats-index-datasources-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudsearch.googleapis.com/v1/stats/index/{+name}",
@@ -989,7 +989,7 @@ toDate.month <integer> Month of date. Must be from 1 to 12.
 toDate.day <integer> Day of month. Must be from 1 to 31 and valid for the year and month."
   ([name] (stats-query-searchapplications-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudsearch.googleapis.com/v1/stats/query/{+name}",
@@ -1015,7 +1015,7 @@ toDate.month <integer> Month of date. Must be from 1 to 12.
 toDate.day <integer> Day of month. Must be from 1 to 31 and valid for the year and month."
   ([name] (stats-user-searchapplications-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudsearch.googleapis.com/v1/stats/user/{+name}",
@@ -1041,7 +1041,7 @@ toDate.month <integer> Month of date. Must be from 1 to 12.
 toDate.day <integer> Day of month. Must be from 1 to 31 and valid for the year and month."
   ([name] (stats-session-searchapplications-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudsearch.googleapis.com/v1/stats/session/{+name}",
@@ -1060,7 +1060,7 @@ resourceName <>
 Media:
 Media"
   [resourceName Media]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudsearch.googleapis.com/v1/media/{+resourceName}",

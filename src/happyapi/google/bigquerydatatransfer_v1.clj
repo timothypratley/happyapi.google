@@ -12,7 +12,7 @@ name <>
 EnrollDataSourcesRequest:
 EnrollDataSourcesRequest"
   [name EnrollDataSourcesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigquerydatatransfer.googleapis.com/v1/{+name}:enrollDataSources",
@@ -29,7 +29,7 @@ https://cloud.google.com/bigquery/docs/v1/reference/rest/v1/projects/dataSources
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://bigquerydatatransfer.googleapis.com/v1/{+name}",
@@ -50,7 +50,7 @@ optional:
 pageSize <integer> Page size. The default page size is the maximum value of 1000 results."
   ([parent] (projects-dataSources-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigquerydatatransfer.googleapis.com/v1/{+parent}/dataSources",
@@ -69,7 +69,7 @@ name <>
 CheckValidCredsRequest:
 CheckValidCredsRequest"
   [name CheckValidCredsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigquerydatatransfer.googleapis.com/v1/{+name}:checkValidCreds",
@@ -90,13 +90,13 @@ TransferConfig:
 TransferConfig
 
 optional:
-authorizationCode <string> Optional OAuth2 authorization code to use with this transfer configuration. This is required only if `transferConfig.dataSourceId` is 'youtube_channel' and new credentials are needed, as indicated by `CheckValidCreds`. In order to obtain authorization_code, make a request to the following URL: https://bigquery.cloud.google.com/datatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=authorization_code&client_id=client_id&scope=data_source_scopes * The client_id is the OAuth client_id of the a data source as returned by ListDataSources method. * data_source_scopes are the scopes returned by ListDataSources method. Note that this should not be set when `service_account_name` is used to create the transfer config.
-versionInfo <string> Optional version info. This is required only if `transferConfig.dataSourceId` is not 'youtube_channel' and new credentials are needed, as indicated by `CheckValidCreds`. In order to obtain version info, make a request to the following URL: https://bigquery.cloud.google.com/datatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=version_info&client_id=client_id&scope=data_source_scopes * The client_id is the OAuth client_id of the a data source as returned by ListDataSources method. * data_source_scopes are the scopes returned by ListDataSources method. Note that this should not be set when `service_account_name` is used to create the transfer config.
+authorizationCode <string> Deprecated: Authorization code was required when `transferConfig.dataSourceId` is 'youtube_channel' but it is no longer used in any data sources. Use `version_info` instead. Optional OAuth2 authorization code to use with this transfer configuration. This is required only if `transferConfig.dataSourceId` is 'youtube_channel' and new credentials are needed, as indicated by `CheckValidCreds`. In order to obtain authorization_code, make a request to the following URL: https://bigquery.cloud.google.com/datatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=authorization_code&client_id=client_id&scope=data_source_scopes * The client_id is the OAuth client_id of the data source as returned by ListDataSources method. * data_source_scopes are the scopes returned by ListDataSources method. Note that this should not be set when `service_account_name` is used to create the transfer config.
+versionInfo <string> Optional version info. This parameter replaces `authorization_code` which is no longer used in any data sources. This is required only if `transferConfig.dataSourceId` is 'youtube_channel' *or* new credentials are needed, as indicated by `CheckValidCreds`. In order to obtain version info, make a request to the following URL: https://bigquery.cloud.google.com/datatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=version_info&client_id=client_id&scope=data_source_scopes * The client_id is the OAuth client_id of the data source as returned by ListDataSources method. * data_source_scopes are the scopes returned by ListDataSources method. Note that this should not be set when `service_account_name` is used to create the transfer config.
 serviceAccountName <string> Optional service account email. If this field is set, the transfer config will be created with this service account's credentials. It requires that the requesting user calling this API has permissions to act as this service account. Note that not all data sources support service account credentials when creating a transfer config. For the latest list of data sources, read about [using service accounts](https://cloud.google.com/bigquery-transfer/docs/use-service-accounts)."
   ([parent TransferConfig]
     (projects-transferConfigs-create parent TransferConfig nil))
   ([parent TransferConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://bigquerydatatransfer.googleapis.com/v1/{+parent}/transferConfigs",
@@ -114,14 +114,14 @@ TransferConfig:
 TransferConfig
 
 optional:
-authorizationCode <string> Optional OAuth2 authorization code to use with this transfer configuration. This is required only if `transferConfig.dataSourceId` is 'youtube_channel' and new credentials are needed, as indicated by `CheckValidCreds`. In order to obtain authorization_code, make a request to the following URL: https://bigquery.cloud.google.com/datatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=authorization_code&client_id=client_id&scope=data_source_scopes * The client_id is the OAuth client_id of the a data source as returned by ListDataSources method. * data_source_scopes are the scopes returned by ListDataSources method. Note that this should not be set when `service_account_name` is used to update the transfer config.
+authorizationCode <string> Deprecated: Authorization code was required when `transferConfig.dataSourceId` is 'youtube_channel' but it is no longer used in any data sources. Use `version_info` instead. Optional OAuth2 authorization code to use with this transfer configuration. This is required only if `transferConfig.dataSourceId` is 'youtube_channel' and new credentials are needed, as indicated by `CheckValidCreds`. In order to obtain authorization_code, make a request to the following URL: https://bigquery.cloud.google.com/datatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=authorization_code&client_id=client_id&scope=data_source_scopes * The client_id is the OAuth client_id of the data source as returned by ListDataSources method. * data_source_scopes are the scopes returned by ListDataSources method. Note that this should not be set when `service_account_name` is used to update the transfer config.
 updateMask <string> Required. Required list of fields to be updated in this request.
-versionInfo <string> Optional version info. This is required only if `transferConfig.dataSourceId` is not 'youtube_channel' and new credentials are needed, as indicated by `CheckValidCreds`. In order to obtain version info, make a request to the following URL: https://bigquery.cloud.google.com/datatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=version_info&client_id=client_id&scope=data_source_scopes * The client_id is the OAuth client_id of the a data source as returned by ListDataSources method. * data_source_scopes are the scopes returned by ListDataSources method. Note that this should not be set when `service_account_name` is used to update the transfer config.
+versionInfo <string> Optional version info. This parameter replaces `authorization_code` which is no longer used in any data sources. This is required only if `transferConfig.dataSourceId` is 'youtube_channel' *or* new credentials are needed, as indicated by `CheckValidCreds`. In order to obtain version info, make a request to the following URL: https://bigquery.cloud.google.com/datatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=version_info&client_id=client_id&scope=data_source_scopes * The client_id is the OAuth client_id of the data source as returned by ListDataSources method. * data_source_scopes are the scopes returned by ListDataSources method. Note that this should not be set when `service_account_name` is used to update the transfer config.
 serviceAccountName <string> Optional service account email. If this field is set, the transfer config will be created with this service account's credentials. It requires that the requesting user calling this API has permissions to act as this service account. Note that not all data sources support service account credentials when creating a transfer config. For the latest list of data sources, read about [using service accounts](https://cloud.google.com/bigquery-transfer/docs/use-service-accounts)."
   ([name TransferConfig]
     (projects-transferConfigs-patch name TransferConfig nil))
   ([name TransferConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://bigquerydatatransfer.googleapis.com/v1/{+name}",
@@ -136,7 +136,7 @@ https://cloud.google.com/bigquery/docs/v1/reference/rest/v1/projects/transferCon
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://bigquerydatatransfer.googleapis.com/v1/{+name}",
@@ -152,7 +152,7 @@ https://cloud.google.com/bigquery/docs/v1/reference/rest/v1/projects/transferCon
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://bigquerydatatransfer.googleapis.com/v1/{+name}",
@@ -174,7 +174,7 @@ dataSourceIds <string> When specified, only configurations of requested data sou
 pageSize <integer> Page size. The default page size is the maximum value of 1000 results."
   ([parent] (projects-transferConfigs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigquerydatatransfer.googleapis.com/v1/{+parent}/transferConfigs",
@@ -193,7 +193,7 @@ parent <>
 ScheduleTransferRunsRequest:
 ScheduleTransferRunsRequest"
   [parent ScheduleTransferRunsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigquerydatatransfer.googleapis.com/v1/{+parent}:scheduleRuns",
@@ -212,7 +212,7 @@ parent <>
 StartManualTransferRunsRequest:
 StartManualTransferRunsRequest"
   [parent StartManualTransferRunsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigquerydatatransfer.googleapis.com/v1/{+parent}:startManualRuns",
@@ -229,7 +229,7 @@ https://cloud.google.com/bigquery/docs/v1/reference/rest/v1/projects/transferCon
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://bigquerydatatransfer.googleapis.com/v1/{+name}",
@@ -246,7 +246,7 @@ https://cloud.google.com/bigquery/docs/v1/reference/rest/v1/projects/transferCon
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://bigquerydatatransfer.googleapis.com/v1/{+name}",
@@ -268,7 +268,7 @@ pageSize <integer> Page size. The default page size is the maximum value of 1000
 runAttempt <string> Indicates how run attempts are to be pulled."
   ([parent] (projects-transferConfigs-runs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigquerydatatransfer.googleapis.com/v1/{+parent}/runs",
@@ -291,7 +291,7 @@ messageTypes <string> Message types to return. If not populated - INFO, WARNING 
   ([parent]
     (projects-transferConfigs-runs-transferLogs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigquerydatatransfer.googleapis.com/v1/{+parent}/transferLogs",
@@ -310,7 +310,7 @@ name <>
 EnrollDataSourcesRequest:
 EnrollDataSourcesRequest"
   [name EnrollDataSourcesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigquerydatatransfer.googleapis.com/v1/{+name}:enrollDataSources",
@@ -329,7 +329,7 @@ name <>
 UnenrollDataSourcesRequest:
 UnenrollDataSourcesRequest"
   [name UnenrollDataSourcesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigquerydatatransfer.googleapis.com/v1/{+name}:unenrollDataSources",
@@ -351,7 +351,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigquerydatatransfer.googleapis.com/v1/{+name}/locations",
@@ -368,7 +368,7 @@ https://cloud.google.com/bigquery/docs/v1/reference/rest/v1/projects/locations/g
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://bigquerydatatransfer.googleapis.com/v1/{+name}",
@@ -385,7 +385,7 @@ https://cloud.google.com/bigquery/docs/v1/reference/rest/v1/projects/locations/d
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://bigquerydatatransfer.googleapis.com/v1/{+name}",
@@ -406,7 +406,7 @@ optional:
 pageSize <integer> Page size. The default page size is the maximum value of 1000 results."
   ([parent] (projects-locations-dataSources-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigquerydatatransfer.googleapis.com/v1/{+parent}/dataSources",
@@ -425,7 +425,7 @@ name <>
 CheckValidCredsRequest:
 CheckValidCredsRequest"
   [name CheckValidCredsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigquerydatatransfer.googleapis.com/v1/{+name}:checkValidCreds",
@@ -446,8 +446,8 @@ TransferConfig:
 TransferConfig
 
 optional:
-authorizationCode <string> Optional OAuth2 authorization code to use with this transfer configuration. This is required only if `transferConfig.dataSourceId` is 'youtube_channel' and new credentials are needed, as indicated by `CheckValidCreds`. In order to obtain authorization_code, make a request to the following URL: https://bigquery.cloud.google.com/datatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=authorization_code&client_id=client_id&scope=data_source_scopes * The client_id is the OAuth client_id of the a data source as returned by ListDataSources method. * data_source_scopes are the scopes returned by ListDataSources method. Note that this should not be set when `service_account_name` is used to create the transfer config.
-versionInfo <string> Optional version info. This is required only if `transferConfig.dataSourceId` is not 'youtube_channel' and new credentials are needed, as indicated by `CheckValidCreds`. In order to obtain version info, make a request to the following URL: https://bigquery.cloud.google.com/datatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=version_info&client_id=client_id&scope=data_source_scopes * The client_id is the OAuth client_id of the a data source as returned by ListDataSources method. * data_source_scopes are the scopes returned by ListDataSources method. Note that this should not be set when `service_account_name` is used to create the transfer config.
+authorizationCode <string> Deprecated: Authorization code was required when `transferConfig.dataSourceId` is 'youtube_channel' but it is no longer used in any data sources. Use `version_info` instead. Optional OAuth2 authorization code to use with this transfer configuration. This is required only if `transferConfig.dataSourceId` is 'youtube_channel' and new credentials are needed, as indicated by `CheckValidCreds`. In order to obtain authorization_code, make a request to the following URL: https://bigquery.cloud.google.com/datatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=authorization_code&client_id=client_id&scope=data_source_scopes * The client_id is the OAuth client_id of the data source as returned by ListDataSources method. * data_source_scopes are the scopes returned by ListDataSources method. Note that this should not be set when `service_account_name` is used to create the transfer config.
+versionInfo <string> Optional version info. This parameter replaces `authorization_code` which is no longer used in any data sources. This is required only if `transferConfig.dataSourceId` is 'youtube_channel' *or* new credentials are needed, as indicated by `CheckValidCreds`. In order to obtain version info, make a request to the following URL: https://bigquery.cloud.google.com/datatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=version_info&client_id=client_id&scope=data_source_scopes * The client_id is the OAuth client_id of the data source as returned by ListDataSources method. * data_source_scopes are the scopes returned by ListDataSources method. Note that this should not be set when `service_account_name` is used to create the transfer config.
 serviceAccountName <string> Optional service account email. If this field is set, the transfer config will be created with this service account's credentials. It requires that the requesting user calling this API has permissions to act as this service account. Note that not all data sources support service account credentials when creating a transfer config. For the latest list of data sources, read about [using service accounts](https://cloud.google.com/bigquery-transfer/docs/use-service-accounts)."
   ([parent TransferConfig]
     (projects-locations-transferConfigs-create
@@ -455,7 +455,7 @@ serviceAccountName <string> Optional service account email. If this field is set
       TransferConfig
       nil))
   ([parent TransferConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://bigquerydatatransfer.googleapis.com/v1/{+parent}/transferConfigs",
@@ -473,14 +473,14 @@ TransferConfig:
 TransferConfig
 
 optional:
-authorizationCode <string> Optional OAuth2 authorization code to use with this transfer configuration. This is required only if `transferConfig.dataSourceId` is 'youtube_channel' and new credentials are needed, as indicated by `CheckValidCreds`. In order to obtain authorization_code, make a request to the following URL: https://bigquery.cloud.google.com/datatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=authorization_code&client_id=client_id&scope=data_source_scopes * The client_id is the OAuth client_id of the a data source as returned by ListDataSources method. * data_source_scopes are the scopes returned by ListDataSources method. Note that this should not be set when `service_account_name` is used to update the transfer config.
+authorizationCode <string> Deprecated: Authorization code was required when `transferConfig.dataSourceId` is 'youtube_channel' but it is no longer used in any data sources. Use `version_info` instead. Optional OAuth2 authorization code to use with this transfer configuration. This is required only if `transferConfig.dataSourceId` is 'youtube_channel' and new credentials are needed, as indicated by `CheckValidCreds`. In order to obtain authorization_code, make a request to the following URL: https://bigquery.cloud.google.com/datatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=authorization_code&client_id=client_id&scope=data_source_scopes * The client_id is the OAuth client_id of the data source as returned by ListDataSources method. * data_source_scopes are the scopes returned by ListDataSources method. Note that this should not be set when `service_account_name` is used to update the transfer config.
 updateMask <string> Required. Required list of fields to be updated in this request.
-versionInfo <string> Optional version info. This is required only if `transferConfig.dataSourceId` is not 'youtube_channel' and new credentials are needed, as indicated by `CheckValidCreds`. In order to obtain version info, make a request to the following URL: https://bigquery.cloud.google.com/datatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=version_info&client_id=client_id&scope=data_source_scopes * The client_id is the OAuth client_id of the a data source as returned by ListDataSources method. * data_source_scopes are the scopes returned by ListDataSources method. Note that this should not be set when `service_account_name` is used to update the transfer config.
+versionInfo <string> Optional version info. This parameter replaces `authorization_code` which is no longer used in any data sources. This is required only if `transferConfig.dataSourceId` is 'youtube_channel' *or* new credentials are needed, as indicated by `CheckValidCreds`. In order to obtain version info, make a request to the following URL: https://bigquery.cloud.google.com/datatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=version_info&client_id=client_id&scope=data_source_scopes * The client_id is the OAuth client_id of the data source as returned by ListDataSources method. * data_source_scopes are the scopes returned by ListDataSources method. Note that this should not be set when `service_account_name` is used to update the transfer config.
 serviceAccountName <string> Optional service account email. If this field is set, the transfer config will be created with this service account's credentials. It requires that the requesting user calling this API has permissions to act as this service account. Note that not all data sources support service account credentials when creating a transfer config. For the latest list of data sources, read about [using service accounts](https://cloud.google.com/bigquery-transfer/docs/use-service-accounts)."
   ([name TransferConfig]
     (projects-locations-transferConfigs-patch name TransferConfig nil))
   ([name TransferConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://bigquerydatatransfer.googleapis.com/v1/{+name}",
@@ -495,7 +495,7 @@ https://cloud.google.com/bigquery/docs/v1/reference/rest/v1/projects/locations/t
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://bigquerydatatransfer.googleapis.com/v1/{+name}",
@@ -511,7 +511,7 @@ https://cloud.google.com/bigquery/docs/v1/reference/rest/v1/projects/locations/t
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://bigquerydatatransfer.googleapis.com/v1/{+name}",
@@ -533,7 +533,7 @@ dataSourceIds <string> When specified, only configurations of requested data sou
 pageSize <integer> Page size. The default page size is the maximum value of 1000 results."
   ([parent] (projects-locations-transferConfigs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigquerydatatransfer.googleapis.com/v1/{+parent}/transferConfigs",
@@ -552,7 +552,7 @@ parent <>
 ScheduleTransferRunsRequest:
 ScheduleTransferRunsRequest"
   [parent ScheduleTransferRunsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigquerydatatransfer.googleapis.com/v1/{+parent}:scheduleRuns",
@@ -571,7 +571,7 @@ parent <>
 StartManualTransferRunsRequest:
 StartManualTransferRunsRequest"
   [parent StartManualTransferRunsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigquerydatatransfer.googleapis.com/v1/{+parent}:startManualRuns",
@@ -588,7 +588,7 @@ https://cloud.google.com/bigquery/docs/v1/reference/rest/v1/projects/locations/t
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://bigquerydatatransfer.googleapis.com/v1/{+name}",
@@ -605,7 +605,7 @@ https://cloud.google.com/bigquery/docs/v1/reference/rest/v1/projects/locations/t
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://bigquerydatatransfer.googleapis.com/v1/{+name}",
@@ -627,7 +627,7 @@ pageSize <integer> Page size. The default page size is the maximum value of 1000
 runAttempt <string> Indicates how run attempts are to be pulled."
   ([parent] (projects-locations-transferConfigs-runs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigquerydatatransfer.googleapis.com/v1/{+parent}/runs",
@@ -652,7 +652,7 @@ messageTypes <string> Message types to return. If not populated - INFO, WARNING 
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigquerydatatransfer.googleapis.com/v1/{+parent}/transferLogs",

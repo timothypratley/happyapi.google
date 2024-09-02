@@ -10,7 +10,7 @@ https://cloud.google.com/talent-solution/job-search/docs/v4/reference/rest/v4/pr
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://jobs.googleapis.com/v4/{+name}",
      :uri-template-args {"name" name},
@@ -34,7 +34,7 @@ scope <string> The scope of the completion. The defaults is CompletionScope.PUBL
 type <string> The completion topic. The default is CompletionType.COMBINED."
   ([tenant] (projects-tenants-completeQuery tenant nil))
   ([tenant optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://jobs.googleapis.com/v4/{+tenant}:completeQuery",
@@ -52,7 +52,7 @@ parent <>
 Tenant:
 Tenant"
   [parent Tenant]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://jobs.googleapis.com/v4/{+parent}/tenants",
      :uri-template-args {"parent" parent},
@@ -68,7 +68,7 @@ https://cloud.google.com/talent-solution/job-search/docs/v4/reference/rest/v4/pr
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://jobs.googleapis.com/v4/{+name}",
      :uri-template-args {"name" name},
@@ -89,7 +89,7 @@ optional:
 updateMask <string> Strongly recommended for the best service experience. If update_mask is provided, only the specified fields in tenant are updated. Otherwise all the fields are updated. A field mask to specify the tenant fields to be updated. Only top level fields of Tenant are supported."
   ([name Tenant] (projects-tenants-patch name Tenant nil))
   ([name Tenant optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://jobs.googleapis.com/v4/{+name}",
        :uri-template-args {"name" name},
@@ -105,7 +105,7 @@ https://cloud.google.com/talent-solution/job-search/docs/v4/reference/rest/v4/pr
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://jobs.googleapis.com/v4/{+name}",
      :uri-template-args {"name" name},
@@ -124,7 +124,7 @@ optional:
 pageSize <integer> The maximum number of tenants to be returned, at most 100. Default is 100 if a non-positive number is provided."
   ([parent] (projects-tenants-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://jobs.googleapis.com/v4/{+parent}/tenants",
@@ -142,7 +142,7 @@ parent <>
 Company:
 Company"
   [parent Company]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://jobs.googleapis.com/v4/{+parent}/companies",
@@ -159,7 +159,7 @@ https://cloud.google.com/talent-solution/job-search/docs/v4/reference/rest/v4/pr
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://jobs.googleapis.com/v4/{+name}",
      :uri-template-args {"name" name},
@@ -180,7 +180,7 @@ optional:
 updateMask <string> Strongly recommended for the best service experience. If update_mask is provided, only the specified fields in company are updated. Otherwise all the fields are updated. A field mask to specify the company fields to be updated. Only top level fields of Company are supported."
   ([name Company] (projects-tenants-companies-patch name Company nil))
   ([name Company optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://jobs.googleapis.com/v4/{+name}",
        :uri-template-args {"name" name},
@@ -196,7 +196,7 @@ https://cloud.google.com/talent-solution/job-search/docs/v4/reference/rest/v4/pr
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://jobs.googleapis.com/v4/{+name}",
      :uri-template-args {"name" name},
@@ -216,7 +216,7 @@ pageSize <integer> The maximum number of companies to be returned, at most 100. 
 requireOpenJobs <boolean> Set to true if the companies requested must have open jobs. Defaults to false. If true, at most page_size of companies are fetched, among which only those with open jobs are returned."
   ([parent] (projects-tenants-companies-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://jobs.googleapis.com/v4/{+parent}/companies",
@@ -234,7 +234,7 @@ parent <>
 ClientEvent:
 ClientEvent"
   [parent ClientEvent]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://jobs.googleapis.com/v4/{+parent}/clientEvents",
@@ -253,7 +253,7 @@ parent <>
 BatchCreateJobsRequest:
 BatchCreateJobsRequest"
   [parent BatchCreateJobsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://jobs.googleapis.com/v4/{+parent}/jobs:batchCreate",
@@ -276,7 +276,7 @@ pageSize <integer> The maximum number of jobs to be returned per page of results
 jobView <string> The desired job attributes returned for jobs in the search response. Defaults to JobView.JOB_VIEW_FULL if no value is specified."
   ([parent] (projects-tenants-jobs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://jobs.googleapis.com/v4/{+parent}/jobs",
        :uri-template-args {"parent" parent},
@@ -291,7 +291,7 @@ https://cloud.google.com/talent-solution/job-search/docs/v4/reference/rest/v4/pr
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://jobs.googleapis.com/v4/{+name}",
      :uri-template-args {"name" name},
@@ -308,7 +308,7 @@ parent <>
 BatchUpdateJobsRequest:
 BatchUpdateJobsRequest"
   [parent BatchUpdateJobsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://jobs.googleapis.com/v4/{+parent}/jobs:batchUpdate",
@@ -331,7 +331,7 @@ optional:
 updateMask <string> Strongly recommended for the best service experience. If update_mask is provided, only the specified fields in job are updated. Otherwise all the fields are updated. A field mask to restrict the fields that are updated. Only top level fields of Job are supported."
   ([name Job] (projects-tenants-jobs-patch name Job nil))
   ([name Job optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://jobs.googleapis.com/v4/{+name}",
        :uri-template-args {"name" name},
@@ -349,7 +349,7 @@ parent <>
 SearchJobsRequest:
 SearchJobsRequest"
   [parent SearchJobsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://jobs.googleapis.com/v4/{+parent}/jobs:searchForAlert",
@@ -368,7 +368,7 @@ parent <>
 Job:
 Job"
   [parent Job]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://jobs.googleapis.com/v4/{+parent}/jobs",
      :uri-template-args {"parent" parent},
@@ -386,7 +386,7 @@ parent <>
 SearchJobsRequest:
 SearchJobsRequest"
   [parent SearchJobsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://jobs.googleapis.com/v4/{+parent}/jobs:search",
@@ -403,7 +403,7 @@ https://cloud.google.com/talent-solution/job-search/docs/v4/reference/rest/v4/pr
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://jobs.googleapis.com/v4/{+name}",
      :uri-template-args {"name" name},
@@ -420,7 +420,7 @@ parent <>
 BatchDeleteJobsRequest:
 BatchDeleteJobsRequest"
   [parent BatchDeleteJobsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://jobs.googleapis.com/v4/{+parent}/jobs:batchDelete",

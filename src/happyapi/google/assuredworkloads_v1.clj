@@ -11,13 +11,13 @@ https://cloud.google.com/learnmoreurl/v1/reference/rest/v1/organizations/locatio
 target <> 
 
 optional:
-pageSize <integer> Optional. Page size. If a value is not specified, the default value of 10 is used.
 project <string> The source type is a project. Specify the project's relative resource name, formatted as either a project number or a project ID: \"projects/{PROJECT_NUMBER}\" or \"projects/{PROJECT_ID}\" For example: \"projects/951040570662\" when specifying a project number, or \"projects/my-project-123\" when specifying a project ID.
-assetTypes <string> Optional. List of asset types to be analyzed, including and under the source resource. If empty, all assets are analyzed. The complete list of asset types is available [here](https://cloud.google.com/asset-inventory/docs/supported-asset-types)."
+assetTypes <string> Optional. List of asset types to be analyzed, including and under the source resource. If empty, all assets are analyzed. The complete list of asset types is available [here](https://cloud.google.com/asset-inventory/docs/supported-asset-types).
+pageSize <integer> Optional. Page size. If a value is not specified, the default value of 10 is used."
   ([target]
     (organizations-locations-workloads-analyzeWorkloadMove target nil))
   ([target optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://assuredworkloads.googleapis.com/v1/{+target}:analyzeWorkloadMove",
@@ -36,7 +36,7 @@ filter <string> A custom filter for filtering by properties of a workload. At th
 pageSize <integer> Page size."
   ([parent] (organizations-locations-workloads-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://assuredworkloads.googleapis.com/v1/{+parent}/workloads",
@@ -54,7 +54,7 @@ optional:
 etag <string> Optional. The etag of the workload. If this is provided, it must match the server's etag."
   ([name] (organizations-locations-workloads-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://assuredworkloads.googleapis.com/v1/{+name}",
@@ -70,7 +70,7 @@ name <>
 GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest:
 GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest"
   [name GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://assuredworkloads.googleapis.com/v1/{+name}:restrictAllowedResources",
@@ -96,7 +96,7 @@ updateMask <string> Required. The list of fields to be updated."
       GoogleCloudAssuredworkloadsV1Workload
       nil))
   ([name GoogleCloudAssuredworkloadsV1Workload optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://assuredworkloads.googleapis.com/v1/{+name}",
@@ -111,7 +111,7 @@ https://cloud.google.com/learnmoreurl/v1/reference/rest/v1/organizations/locatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://assuredworkloads.googleapis.com/v1/{+name}:enableResourceMonitoring",
@@ -135,7 +135,7 @@ externalId <string> Optional. A identifier associated with the workload and unde
       GoogleCloudAssuredworkloadsV1Workload
       nil))
   ([parent GoogleCloudAssuredworkloadsV1Workload optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://assuredworkloads.googleapis.com/v1/{+parent}/workloads",
@@ -150,7 +150,7 @@ https://cloud.google.com/learnmoreurl/v1/reference/rest/v1/organizations/locatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://assuredworkloads.googleapis.com/v1/{+name}",
@@ -166,7 +166,7 @@ name <>
 GoogleCloudAssuredworkloadsV1MutatePartnerPermissionsRequest:
 GoogleCloudAssuredworkloadsV1MutatePartnerPermissionsRequest"
   [name GoogleCloudAssuredworkloadsV1MutatePartnerPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://assuredworkloads.googleapis.com/v1/{+name}:mutatePartnerPermissions",
@@ -176,20 +176,6 @@ GoogleCloudAssuredworkloadsV1MutatePartnerPermissionsRequest"
      :body
      GoogleCloudAssuredworkloadsV1MutatePartnerPermissionsRequest}))
 
-(defn organizations-locations-workloads-violations-get
-  "Retrieves Assured Workload Violation based on ID.
-https://cloud.google.com/learnmoreurl/v1/reference/rest/v1/organizations/locations/workloads/violations/get
-
-name <> "
-  [name]
-  (client/api-request
-    {:method :get,
-     :uri-template
-     "https://assuredworkloads.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
-
 (defn organizations-locations-workloads-violations-acknowledge
   "Acknowledges an existing violation. By acknowledging a violation, users acknowledge the existence of a compliance violation in their workload and decide to ignore it due to a valid business justification. Acknowledgement is a permanent operation and it cannot be reverted.
 https://cloud.google.com/learnmoreurl/v1/reference/rest/v1/organizations/locations/workloads/violations/acknowledge
@@ -198,7 +184,7 @@ name <>
 GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest:
 GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest"
   [name GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://assuredworkloads.googleapis.com/v1/{+name}:acknowledge",
@@ -215,19 +201,47 @@ parent <>
 
 optional:
 interval.startTime <string> The start of the time window.
-filter <string> Optional. A custom filter for filtering by the Violations properties.
+pageSize <integer> Optional. Page size.
 interval.endTime <string> The end of the time window.
-pageSize <integer> Optional. Page size."
+filter <string> Optional. A custom filter for filtering by the Violations properties."
   ([parent]
     (organizations-locations-workloads-violations-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://assuredworkloads.googleapis.com/v1/{+parent}/violations",
        :uri-template-args {"parent" parent},
        :query-params (merge {} optional),
        :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+
+(defn organizations-locations-workloads-violations-get
+  "Retrieves Assured Workload Violation based on ID.
+https://cloud.google.com/learnmoreurl/v1/reference/rest/v1/organizations/locations/workloads/violations/get
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :get,
+     :uri-template
+     "https://assuredworkloads.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+
+(defn organizations-locations-operations-get
+  "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
+https://cloud.google.com/learnmoreurl/v1/reference/rest/v1/organizations/locations/operations/get
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :get,
+     :uri-template
+     "https://assuredworkloads.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-locations-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -236,28 +250,14 @@ https://cloud.google.com/learnmoreurl/v1/reference/rest/v1/organizations/locatio
 name <> 
 
 optional:
-pageSize <integer> The standard list page size.
-filter <string> The standard list filter."
+filter <string> The standard list filter.
+pageSize <integer> The standard list page size."
   ([name] (organizations-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://assuredworkloads.googleapis.com/v1/{+name}/operations",
        :uri-template-args {"name" name},
        :query-params (merge {} optional),
        :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
-
-(defn organizations-locations-operations-get
-  "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
-https://cloud.google.com/learnmoreurl/v1/reference/rest/v1/organizations/locations/operations/get
-
-name <> "
-  [name]
-  (client/api-request
-    {:method :get,
-     :uri-template
-     "https://assuredworkloads.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))

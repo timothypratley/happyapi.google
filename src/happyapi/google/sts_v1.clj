@@ -11,7 +11,7 @@ https://cloud.google.com/iam/docs/workload-identity-federation/v1/reference/rest
 GoogleIdentityStsV1ExchangeTokenRequest:
 GoogleIdentityStsV1ExchangeTokenRequest"
   [GoogleIdentityStsV1ExchangeTokenRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://sts.googleapis.com/v1/token",
      :uri-template-args {},

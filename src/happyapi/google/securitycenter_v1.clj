@@ -14,7 +14,7 @@ optional:
 pageSize <integer> The maximum number of results to return in a single response. Default is 10, minimum is 1, maximum is 1000."
   ([parent] (folders-sources-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/sources",
@@ -30,7 +30,7 @@ parent <>
 GroupFindingsRequest:
 GroupFindingsRequest"
   [parent GroupFindingsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+parent}/findings:group",
@@ -54,7 +54,7 @@ fieldMask <string> A field mask to specify the Finding fields to be listed in th
 pageSize <integer> The maximum number of results to return in a single response. Default is 10, minimum is 1, maximum is 1000."
   ([parent] (folders-sources-findings-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/findings",
@@ -70,7 +70,7 @@ name <>
 SetFindingStateRequest:
 SetFindingStateRequest"
   [name SetFindingStateRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+name}:setState",
@@ -87,7 +87,7 @@ name <>
 SetMuteRequest:
 SetMuteRequest"
   [name SetMuteRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+name}:setMute",
@@ -108,7 +108,7 @@ optional:
 updateMask <string> The FieldMask to use when updating the finding resource. This field should not be specified when creating a finding. When updating a finding, an empty mask is treated as updating all mutable fields and replacing source_properties. Individual source_properties can be added/updated by using \"source_properties.\" in the field mask."
   ([name Finding] (folders-sources-findings-patch name Finding nil))
   ([name Finding optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -134,7 +134,7 @@ startTime <string> The time at which the updated SecurityMarks take effect. If n
       SecurityMarks
       nil))
   ([name SecurityMarks optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -159,7 +159,7 @@ updateMask <string> The FieldMask to use when updating the external system resou
       GoogleCloudSecuritycenterV1ExternalSystem
       nil))
   ([name GoogleCloudSecuritycenterV1ExternalSystem optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -184,7 +184,7 @@ muteConfigId <string> Required. Unique identifier provided by the client within 
       GoogleCloudSecuritycenterV1MuteConfig
       nil))
   ([parent GoogleCloudSecuritycenterV1MuteConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/muteConfigs",
@@ -199,7 +199,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -212,7 +212,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -229,7 +229,7 @@ optional:
 pageSize <integer> The maximum number of configs to return. The service may return fewer than this value. If unspecified, at most 10 configs will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (folders-muteConfigs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/muteConfigs",
@@ -253,7 +253,7 @@ updateMask <string> The list of fields to be updated. If empty all mutable field
       GoogleCloudSecuritycenterV1MuteConfig
       nil))
   ([name GoogleCloudSecuritycenterV1MuteConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -275,7 +275,7 @@ configId <string> Required. Unique identifier provided by the client within the 
   ([parent NotificationConfig]
     (folders-notificationConfigs-create parent NotificationConfig nil))
   ([parent NotificationConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/notificationConfigs",
@@ -290,7 +290,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -303,7 +303,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -320,7 +320,7 @@ optional:
 pageSize <integer> The maximum number of results to return in a single response. Default is 10, minimum is 1, maximum is 1000."
   ([parent] (folders-notificationConfigs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/notificationConfigs",
@@ -341,7 +341,7 @@ updateMask <string> The FieldMask to use when updating the notification config. 
   ([name NotificationConfig]
     (folders-notificationConfigs-patch name NotificationConfig nil))
   ([name NotificationConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -358,7 +358,7 @@ parent <>
 BulkMuteFindingsRequest:
 BulkMuteFindingsRequest"
   [parent BulkMuteFindingsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+parent}/findings:bulkMute",
@@ -383,7 +383,7 @@ muteConfigId <string> Required. Unique identifier provided by the client within 
       GoogleCloudSecuritycenterV1MuteConfig
       nil))
   ([parent GoogleCloudSecuritycenterV1MuteConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/muteConfigs",
@@ -398,7 +398,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -411,7 +411,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -428,7 +428,7 @@ optional:
 pageSize <integer> The maximum number of configs to return. The service may return fewer than this value. If unspecified, at most 10 configs will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (folders-locations-muteConfigs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}",
@@ -452,7 +452,7 @@ updateMask <string> The list of fields to be updated. If empty all mutable field
       GoogleCloudSecuritycenterV1MuteConfig
       nil))
   ([name GoogleCloudSecuritycenterV1MuteConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -469,7 +469,7 @@ parent <>
 ValidateEventThreatDetectionCustomModuleRequest:
 ValidateEventThreatDetectionCustomModuleRequest"
   [parent ValidateEventThreatDetectionCustomModuleRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+parent}:validateCustomModule",
@@ -486,7 +486,7 @@ parent <>
 EventThreatDetectionCustomModule:
 EventThreatDetectionCustomModule"
   [parent EventThreatDetectionCustomModule]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
@@ -501,7 +501,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -514,7 +514,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -534,7 +534,7 @@ pageSize <integer> The maximum number of modules to return. The service may retu
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/customModules:listDescendant",
@@ -555,7 +555,7 @@ pageSize <integer> The maximum number of modules to return. The service may retu
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
@@ -579,7 +579,7 @@ updateMask <string> The list of fields to be updated. If empty all mutable field
       EventThreatDetectionCustomModule
       nil))
   ([name EventThreatDetectionCustomModule optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -594,7 +594,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -614,7 +614,7 @@ pageSize <integer> The maximum number of modules to return. The service may retu
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/effectiveCustomModules",
@@ -631,7 +631,7 @@ GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule:
 GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule"
   [parent
    GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
@@ -647,7 +647,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -660,7 +660,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -680,7 +680,7 @@ pageSize <integer> The maximum number of results to return in a single response.
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/customModules:listDescendant",
@@ -701,7 +701,7 @@ pageSize <integer> The maximum number of results to return in a single response.
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
@@ -717,7 +717,7 @@ parent <>
 SimulateSecurityHealthAnalyticsCustomModuleRequest:
 SimulateSecurityHealthAnalyticsCustomModuleRequest"
   [parent SimulateSecurityHealthAnalyticsCustomModuleRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+parent}/customModules:simulate",
@@ -745,7 +745,7 @@ updateMask <string> The list of fields to be updated. The only fields that can b
   ([name
     GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -761,7 +761,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -781,7 +781,7 @@ pageSize <integer> The maximum number of results to return in a single response.
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/effectiveCustomModules",
@@ -795,7 +795,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -818,7 +818,7 @@ bigQueryExportId <string> Required. Unique identifier provided by the client wit
       GoogleCloudSecuritycenterV1BigQueryExport
       nil))
   ([parent GoogleCloudSecuritycenterV1BigQueryExport optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/bigQueryExports",
@@ -833,7 +833,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -856,7 +856,7 @@ updateMask <string> The list of fields to be updated. If empty all mutable field
       GoogleCloudSecuritycenterV1BigQueryExport
       nil))
   ([name GoogleCloudSecuritycenterV1BigQueryExport optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -875,7 +875,7 @@ optional:
 pageSize <integer> The maximum number of configs to return. The service may return fewer than this value. If unspecified, at most 10 configs will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (folders-bigQueryExports-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/bigQueryExports",
@@ -891,7 +891,7 @@ parent <>
 GroupAssetsRequest:
 GroupAssetsRequest"
   [parent GroupAssetsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+parent}/assets:group",
@@ -915,7 +915,7 @@ fieldMask <string> A field mask to specify the ListAssetsResult fields to be lis
 pageSize <integer> The maximum number of results to return in a single response. Default is 10, minimum is 1, maximum is 1000."
   ([parent] (folders-assets-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/assets",
@@ -937,7 +937,7 @@ startTime <string> The time at which the updated SecurityMarks take effect. If n
   ([name SecurityMarks]
     (folders-assets-updateSecurityMarks name SecurityMarks nil))
   ([name SecurityMarks optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -956,7 +956,7 @@ optional:
 pageSize <integer> The maximum number of results to return in a single response. Default is 10, minimum is 1, maximum is 1000."
   ([parent] (projects-sources-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/sources",
@@ -972,7 +972,7 @@ parent <>
 GroupFindingsRequest:
 GroupFindingsRequest"
   [parent GroupFindingsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+parent}/findings:group",
@@ -996,7 +996,7 @@ fieldMask <string> A field mask to specify the Finding fields to be listed in th
 pageSize <integer> The maximum number of results to return in a single response. Default is 10, minimum is 1, maximum is 1000."
   ([parent] (projects-sources-findings-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/findings",
@@ -1012,7 +1012,7 @@ name <>
 SetFindingStateRequest:
 SetFindingStateRequest"
   [name SetFindingStateRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+name}:setState",
@@ -1029,7 +1029,7 @@ name <>
 SetMuteRequest:
 SetMuteRequest"
   [name SetMuteRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+name}:setMute",
@@ -1050,7 +1050,7 @@ optional:
 updateMask <string> The FieldMask to use when updating the finding resource. This field should not be specified when creating a finding. When updating a finding, an empty mask is treated as updating all mutable fields and replacing source_properties. Individual source_properties can be added/updated by using \"source_properties.\" in the field mask."
   ([name Finding] (projects-sources-findings-patch name Finding nil))
   ([name Finding optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -1076,7 +1076,7 @@ startTime <string> The time at which the updated SecurityMarks take effect. If n
       SecurityMarks
       nil))
   ([name SecurityMarks optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -1101,7 +1101,7 @@ updateMask <string> The FieldMask to use when updating the external system resou
       GoogleCloudSecuritycenterV1ExternalSystem
       nil))
   ([name GoogleCloudSecuritycenterV1ExternalSystem optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -1126,7 +1126,7 @@ muteConfigId <string> Required. Unique identifier provided by the client within 
       GoogleCloudSecuritycenterV1MuteConfig
       nil))
   ([parent GoogleCloudSecuritycenterV1MuteConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/muteConfigs",
@@ -1141,7 +1141,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1154,7 +1154,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1171,7 +1171,7 @@ optional:
 pageSize <integer> The maximum number of configs to return. The service may return fewer than this value. If unspecified, at most 10 configs will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (projects-muteConfigs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/muteConfigs",
@@ -1195,7 +1195,7 @@ updateMask <string> The list of fields to be updated. If empty all mutable field
       GoogleCloudSecuritycenterV1MuteConfig
       nil))
   ([name GoogleCloudSecuritycenterV1MuteConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -1220,7 +1220,7 @@ configId <string> Required. Unique identifier provided by the client within the 
       NotificationConfig
       nil))
   ([parent NotificationConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/notificationConfigs",
@@ -1235,7 +1235,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1248,7 +1248,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1265,7 +1265,7 @@ optional:
 pageSize <integer> The maximum number of results to return in a single response. Default is 10, minimum is 1, maximum is 1000."
   ([parent] (projects-notificationConfigs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/notificationConfigs",
@@ -1286,7 +1286,7 @@ updateMask <string> The FieldMask to use when updating the notification config. 
   ([name NotificationConfig]
     (projects-notificationConfigs-patch name NotificationConfig nil))
   ([name NotificationConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -1303,7 +1303,7 @@ parent <>
 BulkMuteFindingsRequest:
 BulkMuteFindingsRequest"
   [parent BulkMuteFindingsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+parent}/findings:bulkMute",
@@ -1328,7 +1328,7 @@ muteConfigId <string> Required. Unique identifier provided by the client within 
       GoogleCloudSecuritycenterV1MuteConfig
       nil))
   ([parent GoogleCloudSecuritycenterV1MuteConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/muteConfigs",
@@ -1343,7 +1343,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1356,7 +1356,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1373,7 +1373,7 @@ optional:
 pageSize <integer> The maximum number of configs to return. The service may return fewer than this value. If unspecified, at most 10 configs will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (projects-locations-muteConfigs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}",
@@ -1397,7 +1397,7 @@ updateMask <string> The list of fields to be updated. If empty all mutable field
       GoogleCloudSecuritycenterV1MuteConfig
       nil))
   ([name GoogleCloudSecuritycenterV1MuteConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -1414,7 +1414,7 @@ parent <>
 ValidateEventThreatDetectionCustomModuleRequest:
 ValidateEventThreatDetectionCustomModuleRequest"
   [parent ValidateEventThreatDetectionCustomModuleRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+parent}:validateCustomModule",
@@ -1431,7 +1431,7 @@ parent <>
 EventThreatDetectionCustomModule:
 EventThreatDetectionCustomModule"
   [parent EventThreatDetectionCustomModule]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
@@ -1446,7 +1446,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1459,7 +1459,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1479,7 +1479,7 @@ pageSize <integer> The maximum number of modules to return. The service may retu
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/customModules:listDescendant",
@@ -1500,7 +1500,7 @@ pageSize <integer> The maximum number of modules to return. The service may retu
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
@@ -1524,7 +1524,7 @@ updateMask <string> The list of fields to be updated. If empty all mutable field
       EventThreatDetectionCustomModule
       nil))
   ([name EventThreatDetectionCustomModule optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -1539,7 +1539,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1559,7 +1559,7 @@ pageSize <integer> The maximum number of modules to return. The service may retu
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/effectiveCustomModules",
@@ -1576,7 +1576,7 @@ GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule:
 GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule"
   [parent
    GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
@@ -1592,7 +1592,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1605,7 +1605,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1625,7 +1625,7 @@ pageSize <integer> The maximum number of results to return in a single response.
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/customModules:listDescendant",
@@ -1646,7 +1646,7 @@ pageSize <integer> The maximum number of results to return in a single response.
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
@@ -1662,7 +1662,7 @@ parent <>
 SimulateSecurityHealthAnalyticsCustomModuleRequest:
 SimulateSecurityHealthAnalyticsCustomModuleRequest"
   [parent SimulateSecurityHealthAnalyticsCustomModuleRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+parent}/customModules:simulate",
@@ -1690,7 +1690,7 @@ updateMask <string> The list of fields to be updated. The only fields that can b
   ([name
     GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -1706,7 +1706,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1726,7 +1726,7 @@ pageSize <integer> The maximum number of results to return in a single response.
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/effectiveCustomModules",
@@ -1740,7 +1740,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1763,7 +1763,7 @@ bigQueryExportId <string> Required. Unique identifier provided by the client wit
       GoogleCloudSecuritycenterV1BigQueryExport
       nil))
   ([parent GoogleCloudSecuritycenterV1BigQueryExport optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/bigQueryExports",
@@ -1778,7 +1778,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1801,7 +1801,7 @@ updateMask <string> The list of fields to be updated. If empty all mutable field
       GoogleCloudSecuritycenterV1BigQueryExport
       nil))
   ([name GoogleCloudSecuritycenterV1BigQueryExport optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -1820,7 +1820,7 @@ optional:
 pageSize <integer> The maximum number of configs to return. The service may return fewer than this value. If unspecified, at most 10 configs will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (projects-bigQueryExports-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/bigQueryExports",
@@ -1836,7 +1836,7 @@ parent <>
 GroupAssetsRequest:
 GroupAssetsRequest"
   [parent GroupAssetsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+parent}/assets:group",
@@ -1860,7 +1860,7 @@ fieldMask <string> A field mask to specify the ListAssetsResult fields to be lis
 pageSize <integer> The maximum number of results to return in a single response. Default is 10, minimum is 1, maximum is 1000."
   ([parent] (projects-assets-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/assets",
@@ -1882,7 +1882,7 @@ startTime <string> The time at which the updated SecurityMarks take effect. If n
   ([name SecurityMarks]
     (projects-assets-updateSecurityMarks name SecurityMarks nil))
   ([name SecurityMarks optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -1897,7 +1897,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1920,7 +1920,7 @@ updateMask <string> The FieldMask to use when updating the settings resource. If
       OrganizationSettings
       nil))
   ([name OrganizationSettings optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -1937,7 +1937,7 @@ parent <>
 Source:
 Source"
   [parent Source]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+parent}/sources",
@@ -1954,7 +1954,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -1969,7 +1969,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1986,7 +1986,7 @@ optional:
 pageSize <integer> The maximum number of results to return in a single response. Default is 10, minimum is 1, maximum is 1000."
   ([parent] (organizations-sources-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/sources",
@@ -2002,7 +2002,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -2019,7 +2019,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -2040,7 +2040,7 @@ optional:
 updateMask <string> The FieldMask to use when updating the source resource. If empty all mutable fields will be updated."
   ([name Source] (organizations-sources-patch name Source nil))
   ([name Source optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -2062,7 +2062,7 @@ findingId <string> Required. Unique identifier provided by the client within the
   ([parent Finding]
     (organizations-sources-findings-create parent Finding nil))
   ([parent Finding optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/findings",
@@ -2079,7 +2079,7 @@ parent <>
 GroupFindingsRequest:
 GroupFindingsRequest"
   [parent GroupFindingsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+parent}/findings:group",
@@ -2103,7 +2103,7 @@ fieldMask <string> A field mask to specify the Finding fields to be listed in th
 pageSize <integer> The maximum number of results to return in a single response. Default is 10, minimum is 1, maximum is 1000."
   ([parent] (organizations-sources-findings-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/findings",
@@ -2119,7 +2119,7 @@ name <>
 SetFindingStateRequest:
 SetFindingStateRequest"
   [name SetFindingStateRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+name}:setState",
@@ -2136,7 +2136,7 @@ name <>
 SetMuteRequest:
 SetMuteRequest"
   [name SetMuteRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+name}:setMute",
@@ -2158,7 +2158,7 @@ updateMask <string> The FieldMask to use when updating the finding resource. Thi
   ([name Finding]
     (organizations-sources-findings-patch name Finding nil))
   ([name Finding optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -2184,7 +2184,7 @@ startTime <string> The time at which the updated SecurityMarks take effect. If n
       SecurityMarks
       nil))
   ([name SecurityMarks optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -2209,7 +2209,7 @@ updateMask <string> The FieldMask to use when updating the external system resou
       GoogleCloudSecuritycenterV1ExternalSystem
       nil))
   ([name GoogleCloudSecuritycenterV1ExternalSystem optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -2226,7 +2226,7 @@ parent <>
 BatchCreateResourceValueConfigsRequest:
 BatchCreateResourceValueConfigsRequest"
   [parent BatchCreateResourceValueConfigsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+parent}/resourceValueConfigs:batchCreate",
@@ -2241,7 +2241,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2254,7 +2254,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2271,7 +2271,7 @@ optional:
 pageSize <integer> The number of results to return. The service may return fewer than this value. If unspecified, at most 10 configs will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (organizations-resourceValueConfigs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/resourceValueConfigs",
@@ -2295,7 +2295,7 @@ updateMask <string> The list of fields to be updated. If empty all mutable field
       GoogleCloudSecuritycenterV1ResourceValueConfig
       nil))
   ([name GoogleCloudSecuritycenterV1ResourceValueConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -2320,7 +2320,7 @@ muteConfigId <string> Required. Unique identifier provided by the client within 
       GoogleCloudSecuritycenterV1MuteConfig
       nil))
   ([parent GoogleCloudSecuritycenterV1MuteConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/muteConfigs",
@@ -2335,7 +2335,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2348,7 +2348,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2365,7 +2365,7 @@ optional:
 pageSize <integer> The maximum number of configs to return. The service may return fewer than this value. If unspecified, at most 10 configs will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (organizations-muteConfigs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/muteConfigs",
@@ -2389,7 +2389,7 @@ updateMask <string> The list of fields to be updated. If empty all mutable field
       GoogleCloudSecuritycenterV1MuteConfig
       nil))
   ([name GoogleCloudSecuritycenterV1MuteConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -2414,7 +2414,7 @@ configId <string> Required. Unique identifier provided by the client within the 
       NotificationConfig
       nil))
   ([parent NotificationConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/notificationConfigs",
@@ -2429,7 +2429,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2442,7 +2442,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2459,7 +2459,7 @@ optional:
 pageSize <integer> The maximum number of results to return in a single response. Default is 10, minimum is 1, maximum is 1000."
   ([parent] (organizations-notificationConfigs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/notificationConfigs",
@@ -2483,7 +2483,7 @@ updateMask <string> The FieldMask to use when updating the notification config. 
       NotificationConfig
       nil))
   ([name NotificationConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -2500,7 +2500,7 @@ parent <>
 BulkMuteFindingsRequest:
 BulkMuteFindingsRequest"
   [parent BulkMuteFindingsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+parent}/findings:bulkMute",
@@ -2525,7 +2525,7 @@ muteConfigId <string> Required. Unique identifier provided by the client within 
       GoogleCloudSecuritycenterV1MuteConfig
       nil))
   ([parent GoogleCloudSecuritycenterV1MuteConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/muteConfigs",
@@ -2540,7 +2540,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2553,7 +2553,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2570,7 +2570,7 @@ optional:
 pageSize <integer> The maximum number of configs to return. The service may return fewer than this value. If unspecified, at most 10 configs will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (organizations-locations-muteConfigs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}",
@@ -2594,7 +2594,7 @@ updateMask <string> The list of fields to be updated. If empty all mutable field
       GoogleCloudSecuritycenterV1MuteConfig
       nil))
   ([name GoogleCloudSecuritycenterV1MuteConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -2609,7 +2609,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2622,7 +2622,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2642,7 +2642,7 @@ orderBy <string> Optional. The fields by which to order the valued resources res
   ([parent]
     (organizations-simulations-valuedResources-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/valuedResources",
@@ -2664,7 +2664,7 @@ pageSize <integer> The maximum number of results to return in a single response.
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/attackPaths",
@@ -2687,7 +2687,7 @@ orderBy <string> Optional. The fields by which to order the valued resources res
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/valuedResources",
@@ -2709,7 +2709,7 @@ pageSize <integer> The maximum number of results to return in a single response.
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/attackPaths",
@@ -2728,7 +2728,7 @@ filter <string> The filter expression that filters the attack path in the respon
 pageSize <integer> The maximum number of results to return in a single response. Default is 10, minimum is 1, maximum is 1000."
   ([parent] (organizations-simulations-attackPaths-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/attackPaths",
@@ -2744,7 +2744,7 @@ parent <>
 ValidateEventThreatDetectionCustomModuleRequest:
 ValidateEventThreatDetectionCustomModuleRequest"
   [parent ValidateEventThreatDetectionCustomModuleRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+parent}:validateCustomModule",
@@ -2761,7 +2761,7 @@ parent <>
 EventThreatDetectionCustomModule:
 EventThreatDetectionCustomModule"
   [parent EventThreatDetectionCustomModule]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
@@ -2776,7 +2776,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2789,7 +2789,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2809,7 +2809,7 @@ pageSize <integer> The maximum number of modules to return. The service may retu
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/customModules:listDescendant",
@@ -2830,7 +2830,7 @@ pageSize <integer> The maximum number of modules to return. The service may retu
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
@@ -2854,7 +2854,7 @@ updateMask <string> The list of fields to be updated. If empty all mutable field
       EventThreatDetectionCustomModule
       nil))
   ([name EventThreatDetectionCustomModule optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -2869,7 +2869,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2889,7 +2889,7 @@ pageSize <integer> The maximum number of modules to return. The service may retu
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/effectiveCustomModules",
@@ -2906,7 +2906,7 @@ GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule:
 GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule"
   [parent
    GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
@@ -2922,7 +2922,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2935,7 +2935,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2955,7 +2955,7 @@ pageSize <integer> The maximum number of results to return in a single response.
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/customModules:listDescendant",
@@ -2976,7 +2976,7 @@ pageSize <integer> The maximum number of results to return in a single response.
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
@@ -2992,7 +2992,7 @@ parent <>
 SimulateSecurityHealthAnalyticsCustomModuleRequest:
 SimulateSecurityHealthAnalyticsCustomModuleRequest"
   [parent SimulateSecurityHealthAnalyticsCustomModuleRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+parent}/customModules:simulate",
@@ -3020,7 +3020,7 @@ updateMask <string> The list of fields to be updated. The only fields that can b
   ([name
     GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -3036,7 +3036,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -3056,7 +3056,7 @@ pageSize <integer> The maximum number of results to return in a single response.
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/effectiveCustomModules",
@@ -3070,7 +3070,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -3093,7 +3093,7 @@ bigQueryExportId <string> Required. Unique identifier provided by the client wit
       GoogleCloudSecuritycenterV1BigQueryExport
       nil))
   ([parent GoogleCloudSecuritycenterV1BigQueryExport optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/bigQueryExports",
@@ -3108,7 +3108,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -3131,7 +3131,7 @@ updateMask <string> The list of fields to be updated. If empty all mutable field
       GoogleCloudSecuritycenterV1BigQueryExport
       nil))
   ([name GoogleCloudSecuritycenterV1BigQueryExport optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -3150,7 +3150,7 @@ optional:
 pageSize <integer> The maximum number of configs to return. The service may return fewer than this value. If unspecified, at most 10 configs will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (organizations-bigQueryExports-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/bigQueryExports",
@@ -3166,7 +3166,7 @@ parent <>
 GroupAssetsRequest:
 GroupAssetsRequest"
   [parent GroupAssetsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+parent}/assets:group",
@@ -3190,7 +3190,7 @@ fieldMask <string> A field mask to specify the ListAssetsResult fields to be lis
 pageSize <integer> The maximum number of results to return in a single response. Default is 10, minimum is 1, maximum is 1000."
   ([parent] (organizations-assets-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+parent}/assets",
@@ -3206,7 +3206,7 @@ parent <>
 RunAssetDiscoveryRequest:
 RunAssetDiscoveryRequest"
   [parent RunAssetDiscoveryRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+parent}/assets:runDiscovery",
@@ -3229,7 +3229,7 @@ startTime <string> The time at which the updated SecurityMarks take effect. If n
   ([name SecurityMarks]
     (organizations-assets-updateSecurityMarks name SecurityMarks nil))
   ([name SecurityMarks optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -3237,6 +3237,26 @@ startTime <string> The time at which the updated SecurityMarks take effect. If n
        :query-params (merge {} optional),
        :scopes ["https://www.googleapis.com/auth/cloud-platform"],
        :body SecurityMarks})))
+
+(defn organizations-valuedResources-list
+  "Lists the valued resources for a set of simulation results and filter.
+https://cloud.google.com/security/products/security-command-center/v1/reference/rest/v1/organizations/valuedResources/list
+
+parent <> 
+
+optional:
+filter <string> The filter expression that filters the valued resources in the response. Supported fields: * `resource_value` supports = * `resource_type` supports =
+pageSize <integer> The maximum number of results to return in a single response. Default is 10, minimum is 1, maximum is 1000.
+orderBy <string> Optional. The fields by which to order the valued resources response. Supported fields: * `exposed_score` * `resource_value` * `resource_type` * `resource` * `display_name` Values should be a comma separated list of fields. For example: `exposed_score,resource_value`. The default sorting order is descending. To specify ascending or descending order for a field, append a ` ASC` or a ` DESC` suffix, respectively; for example: `exposed_score DESC`."
+  ([parent] (organizations-valuedResources-list parent nil))
+  ([parent optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://securitycenter.googleapis.com/v1/{+parent}/valuedResources",
+       :uri-template-args {"parent" parent},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
 
 (defn organizations-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -3249,7 +3269,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (organizations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://securitycenter.googleapis.com/v1/{+name}",
@@ -3263,7 +3283,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -3276,7 +3296,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -3289,7 +3309,7 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://securitycenter.googleapis.com/v1/{+name}:cancel",

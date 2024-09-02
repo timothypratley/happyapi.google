@@ -10,7 +10,7 @@ https://cloud.google.com/integration-connectors/docs/overview/v2/reference/rest/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://connectors.googleapis.com/v2/{+name}:checkStatus",
@@ -24,7 +24,7 @@ https://cloud.google.com/integration-connectors/docs/overview/v2/reference/rest/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://connectors.googleapis.com/v2/{+name}:checkReadiness",
@@ -40,7 +40,7 @@ name <>
 ExchangeAuthCodeRequest:
 ExchangeAuthCodeRequest"
   [name ExchangeAuthCodeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://connectors.googleapis.com/v2/{+name}:exchangeAuthCode",
@@ -57,7 +57,7 @@ name <>
 RefreshAccessTokenRequest:
 RefreshAccessTokenRequest"
   [name RefreshAccessTokenRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://connectors.googleapis.com/v2/{+name}:refreshAccessToken",
@@ -74,7 +74,7 @@ connection <>
 ExecuteSqlQueryRequest:
 ExecuteSqlQueryRequest"
   [connection ExecuteSqlQueryRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://connectors.googleapis.com/v2/{+connection}:executeSqlQuery",
@@ -91,7 +91,7 @@ name <>
 ExecuteActionRequest:
 ExecuteActionRequest"
   [name ExecuteActionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://connectors.googleapis.com/v2/{+name}:execute",
@@ -111,7 +111,7 @@ pageSize <integer> Number of Actions to return. Defaults to 25.
 view <string> Specifies which fields of the Action are returned in the response."
   ([parent] (projects-locations-connections-actions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://connectors.googleapis.com/v2/{+parent}/actions",
@@ -125,7 +125,7 @@ https://cloud.google.com/integration-connectors/docs/overview/v2/reference/rest/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://connectors.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -138,7 +138,7 @@ https://cloud.google.com/integration-connectors/docs/overview/v2/reference/rest/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://connectors.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -157,7 +157,7 @@ view <string> Specifies which fields of the Entity Type are returned in the resp
   ([parent]
     (projects-locations-connections-entityTypes-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://connectors.googleapis.com/v2/{+parent}/entityTypes",
@@ -180,7 +180,7 @@ conditions <string> Conditions to be used when listing entities. From a proto st
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://connectors.googleapis.com/v2/{+parent}/entities",
@@ -194,7 +194,7 @@ https://cloud.google.com/integration-connectors/docs/overview/v2/reference/rest/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://connectors.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -209,7 +209,7 @@ parent <>
 Entity:
 Entity"
   [parent Entity]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://connectors.googleapis.com/v2/{+parent}/entities",
@@ -226,7 +226,7 @@ name <>
 Entity:
 Entity"
   [name Entity]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template "https://connectors.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -250,7 +250,7 @@ conditions <string> Required. Conditions to be used when updating entities. From
       Entity
       nil))
   ([entityType Entity optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://connectors.googleapis.com/v2/{+entityType}/entities:updateEntitiesWithConditions",
@@ -265,7 +265,7 @@ https://cloud.google.com/integration-connectors/docs/overview/v2/reference/rest/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://connectors.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -285,7 +285,7 @@ conditions <string> Required. Conditions to be used when deleting entities. From
       entityType
       nil))
   ([entityType optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://connectors.googleapis.com/v2/{+entityType}/entities:deleteEntitiesWithConditions",

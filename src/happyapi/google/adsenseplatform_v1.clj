@@ -1,4 +1,4 @@
-(ns happyapi.google.adsenseplatform-v1alpha
+(ns happyapi.google.adsenseplatform-v1
   "AdSense Platform API
 
 See: https://developers.google.com/adsense/platforms/"
@@ -6,14 +6,13 @@ See: https://developers.google.com/adsense/platforms/"
 
 (defn platforms-accounts-get
   "Gets information about the selected sub-account.
-https://developers.google.com/adsense/platforms/v1alpha/reference/rest/v1alpha/platforms/accounts/get
+https://developers.google.com/adsense/platforms/v1/reference/rest/v1/platforms/accounts/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
-     :uri-template
-     "https://adsenseplatform.googleapis.com/v1alpha/{+name}",
+     :uri-template "https://adsenseplatform.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
      :query-params {},
      :scopes
@@ -22,7 +21,7 @@ name <> "
 
 (defn platforms-accounts-lookup
   "Looks up information about a sub-account for a specified creation_request_id. If no account exists for the given creation_request_id, returns 404.
-https://developers.google.com/adsense/platforms/v1alpha/reference/rest/v1alpha/platforms/accounts/lookup
+https://developers.google.com/adsense/platforms/v1/reference/rest/v1/platforms/accounts/lookup
 
 parent <> 
 
@@ -30,10 +29,10 @@ optional:
 creationRequestId <string> Optional. The creation_request_id provided when calling createAccount."
   ([parent] (platforms-accounts-lookup parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
-       "https://adsenseplatform.googleapis.com/v1alpha/{+parent}/accounts:lookup",
+       "https://adsenseplatform.googleapis.com/v1/{+parent}/accounts:lookup",
        :uri-template-args {"parent" parent},
        :query-params (merge {} optional),
        :scopes
@@ -42,7 +41,7 @@ creationRequestId <string> Optional. The creation_request_id provided when calli
 
 (defn platforms-accounts-list
   "Lists a partial view of sub-accounts for a specific parent account.
-https://developers.google.com/adsense/platforms/v1alpha/reference/rest/v1alpha/platforms/accounts/list
+https://developers.google.com/adsense/platforms/v1/reference/rest/v1/platforms/accounts/list
 
 parent <> 
 
@@ -50,10 +49,10 @@ optional:
 pageSize <integer> Optional. The maximum number of accounts to include in the response, used for paging. If unspecified, at most 10000 accounts will be returned. The maximum value is 10000; values above 10000 will be coerced to 10000."
   ([parent] (platforms-accounts-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
-       "https://adsenseplatform.googleapis.com/v1alpha/{+parent}/accounts",
+       "https://adsenseplatform.googleapis.com/v1/{+parent}/accounts",
        :uri-template-args {"parent" parent},
        :query-params (merge {} optional),
        :scopes
@@ -62,16 +61,16 @@ pageSize <integer> Optional. The maximum number of accounts to include in the re
 
 (defn platforms-accounts-create
   "Creates a sub-account.
-https://developers.google.com/adsense/platforms/v1alpha/reference/rest/v1alpha/platforms/accounts/create
+https://developers.google.com/adsense/platforms/v1/reference/rest/v1/platforms/accounts/create
 
 parent <> 
 Account:
 Account"
   [parent Account]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
-     "https://adsenseplatform.googleapis.com/v1alpha/{+parent}/accounts",
+     "https://adsenseplatform.googleapis.com/v1/{+parent}/accounts",
      :uri-template-args {"parent" parent},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/adsense"],
@@ -79,16 +78,16 @@ Account"
 
 (defn platforms-accounts-close
   "Closes a sub-account.
-https://developers.google.com/adsense/platforms/v1alpha/reference/rest/v1alpha/platforms/accounts/close
+https://developers.google.com/adsense/platforms/v1/reference/rest/v1/platforms/accounts/close
 
 name <> 
 CloseAccountRequest:
 CloseAccountRequest"
   [name CloseAccountRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
-     "https://adsenseplatform.googleapis.com/v1alpha/{+name}:close",
+     "https://adsenseplatform.googleapis.com/v1/{+name}:close",
      :uri-template-args {"name" name},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/adsense"],
@@ -96,16 +95,16 @@ CloseAccountRequest"
 
 (defn platforms-accounts-events-create
   "Creates an account event.
-https://developers.google.com/adsense/platforms/v1alpha/reference/rest/v1alpha/platforms/accounts/events/create
+https://developers.google.com/adsense/platforms/v1/reference/rest/v1/platforms/accounts/events/create
 
 parent <> 
 Event:
 Event"
   [parent Event]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
-     "https://adsenseplatform.googleapis.com/v1alpha/{+parent}/events",
+     "https://adsenseplatform.googleapis.com/v1/{+parent}/events",
      :uri-template-args {"parent" parent},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/adsense"],
@@ -113,14 +112,13 @@ Event"
 
 (defn platforms-accounts-sites-get
   "Gets a site from a specified sub-account.
-https://developers.google.com/adsense/platforms/v1alpha/reference/rest/v1alpha/platforms/accounts/sites/get
+https://developers.google.com/adsense/platforms/v1/reference/rest/v1/platforms/accounts/sites/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
-     :uri-template
-     "https://adsenseplatform.googleapis.com/v1alpha/{+name}",
+     :uri-template "https://adsenseplatform.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
      :query-params {},
      :scopes
@@ -129,7 +127,7 @@ name <> "
 
 (defn platforms-accounts-sites-list
   "Lists sites for a specific account.
-https://developers.google.com/adsense/platforms/v1alpha/reference/rest/v1alpha/platforms/accounts/sites/list
+https://developers.google.com/adsense/platforms/v1/reference/rest/v1/platforms/accounts/sites/list
 
 parent <> 
 
@@ -137,10 +135,10 @@ optional:
 pageSize <integer> The maximum number of sites to include in the response, used for paging. If unspecified, at most 10000 sites will be returned. The maximum value is 10000; values above 10000 will be coerced to 10000."
   ([parent] (platforms-accounts-sites-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
-       "https://adsenseplatform.googleapis.com/v1alpha/{+parent}/sites",
+       "https://adsenseplatform.googleapis.com/v1/{+parent}/sites",
        :uri-template-args {"parent" parent},
        :query-params (merge {} optional),
        :scopes
@@ -149,16 +147,16 @@ pageSize <integer> The maximum number of sites to include in the response, used 
 
 (defn platforms-accounts-sites-create
   "Creates a site for a specified account.
-https://developers.google.com/adsense/platforms/v1alpha/reference/rest/v1alpha/platforms/accounts/sites/create
+https://developers.google.com/adsense/platforms/v1/reference/rest/v1/platforms/accounts/sites/create
 
 parent <> 
 Site:
 Site"
   [parent Site]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
-     "https://adsenseplatform.googleapis.com/v1alpha/{+parent}/sites",
+     "https://adsenseplatform.googleapis.com/v1/{+parent}/sites",
      :uri-template-args {"parent" parent},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/adsense"],
@@ -166,28 +164,27 @@ Site"
 
 (defn platforms-accounts-sites-requestReview
   "Requests the review of a site. The site should be in REQUIRES_REVIEW or NEEDS_ATTENTION state. Note: Make sure you place an [ad tag](https://developers.google.com/adsense/platforms/direct/ad-tags) on your site before requesting a review.
-https://developers.google.com/adsense/platforms/v1alpha/reference/rest/v1alpha/platforms/accounts/sites/requestReview
+https://developers.google.com/adsense/platforms/v1/reference/rest/v1/platforms/accounts/sites/requestReview
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
-     "https://adsenseplatform.googleapis.com/v1alpha/{+name}:requestReview",
+     "https://adsenseplatform.googleapis.com/v1/{+name}:requestReview",
      :uri-template-args {"name" name},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/adsense"]}))
 
 (defn platforms-accounts-sites-delete
   "Deletes a site from a specified account.
-https://developers.google.com/adsense/platforms/v1alpha/reference/rest/v1alpha/platforms/accounts/sites/delete
+https://developers.google.com/adsense/platforms/v1/reference/rest/v1/platforms/accounts/sites/delete
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
-     :uri-template
-     "https://adsenseplatform.googleapis.com/v1alpha/{+name}",
+     :uri-template "https://adsenseplatform.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/adsense"]}))

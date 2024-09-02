@@ -10,7 +10,7 @@ https://cloud.google.com/billing/docs/apis/v1/reference/rest/v1/billingAccounts/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudbilling.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -30,7 +30,7 @@ filter <string> Options for how to filter the returned billing accounts. This on
 parent <string> Optional. The parent resource to list billing accounts from. Format: - `organizations/{organization_id}`, for example, `organizations/12345678` - `billingAccounts/{billing_account_id}`, for example, `billingAccounts/012345-567890-ABCDEF`"
   ([] (billingAccounts-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudbilling.googleapis.com/v1/billingAccounts",
@@ -54,7 +54,7 @@ updateMask <string> The update mask applied to the resource. Only \"display_name
   ([name BillingAccount]
     (billingAccounts-patch name BillingAccount nil))
   ([name BillingAccount optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://cloudbilling.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -75,7 +75,7 @@ optional:
 parent <string> Optional. The parent to create a billing account from. Format: - `billingAccounts/{billing_account_id}`, for example, `billingAccounts/012345-567890-ABCDEF`"
   ([BillingAccount] (billingAccounts-create BillingAccount nil))
   ([BillingAccount optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://cloudbilling.googleapis.com/v1/billingAccounts",
@@ -96,7 +96,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (billingAccounts-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudbilling.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -115,7 +115,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudbilling.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -134,7 +134,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudbilling.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -154,7 +154,7 @@ name <>
 MoveBillingAccountRequest:
 MoveBillingAccountRequest"
   [name MoveBillingAccountRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudbilling.googleapis.com/v1/{+name}:move",
@@ -176,7 +176,7 @@ pageSize <integer> Requested page size. The maximum page size is 100; this is al
 filter <string> Options for how to filter the returned billing accounts. This only supports filtering for [subaccounts](https://cloud.google.com/billing/docs/concepts) under a single provided parent billing account. (for example, `master_billing_account=billingAccounts/012345-678901-ABCDEF`). Boolean algebra and other fields are not currently supported."
   ([parent] (billingAccounts-subAccounts-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudbilling.googleapis.com/v1/{+parent}/subAccounts",
@@ -195,7 +195,7 @@ parent <>
 BillingAccount:
 BillingAccount"
   [parent BillingAccount]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudbilling.googleapis.com/v1/{+parent}/subAccounts",
@@ -216,7 +216,7 @@ optional:
 pageSize <integer> Requested page size. The maximum page size is 100; this is also the default."
   ([name] (billingAccounts-projects-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudbilling.googleapis.com/v1/{+name}/projects",
@@ -238,7 +238,7 @@ pageSize <integer> Requested page size. The maximum page size is 100; this is al
 filter <string> Options for how to filter the returned billing accounts. This only supports filtering for [subaccounts](https://cloud.google.com/billing/docs/concepts) under a single provided parent billing account. (for example, `master_billing_account=billingAccounts/012345-678901-ABCDEF`). Boolean algebra and other fields are not currently supported."
   ([parent] (organizations-billingAccounts-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudbilling.googleapis.com/v1/{+parent}/billingAccounts",
@@ -257,7 +257,7 @@ parent <>
 BillingAccount:
 BillingAccount"
   [parent BillingAccount]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudbilling.googleapis.com/v1/{+parent}/billingAccounts",
@@ -275,7 +275,7 @@ https://cloud.google.com/billing/docs/apis/v1/reference/rest/v1/organizations/bi
 destinationParent <> 
 name <> "
   [destinationParent name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://cloudbilling.googleapis.com/v1/{+destinationParent}/{+name}:move",
@@ -292,7 +292,7 @@ https://cloud.google.com/billing/docs/apis/v1/reference/rest/v1/projects/getBill
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://cloudbilling.googleapis.com/v1/{+name}/billingInfo",
@@ -311,7 +311,7 @@ name <>
 ProjectBillingInfo:
 ProjectBillingInfo"
   [name ProjectBillingInfo]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://cloudbilling.googleapis.com/v1/{+name}/billingInfo",
@@ -330,7 +330,7 @@ optional:
 pageSize <integer> Requested page size. Defaults to 5000."
   ([] (services-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://cloudbilling.googleapis.com/v1/services",
        :uri-template-args {},
@@ -353,7 +353,7 @@ currencyCode <string> The ISO 4217 currency code for the pricing info in the res
 pageSize <integer> Requested page size. Defaults to 5000."
   ([parent] (services-skus-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudbilling.googleapis.com/v1/{+parent}/skus",

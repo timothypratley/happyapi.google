@@ -12,7 +12,7 @@ name <>
 GoogleCloudMlV1__PredictRequest:
 GoogleCloudMlV1__PredictRequest"
   [name GoogleCloudMlV1__PredictRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://ml.googleapis.com/v1/{+name}:predict",
      :uri-template-args {"name" name},
@@ -28,7 +28,7 @@ name <>
 GoogleCloudMlV1__ExplainRequest:
 GoogleCloudMlV1__ExplainRequest"
   [name GoogleCloudMlV1__ExplainRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://ml.googleapis.com/v1/{+name}:explain",
      :uri-template-args {"name" name},
@@ -42,7 +42,7 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/getConfig
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://ml.googleapis.com/v1/{+name}:getConfig",
      :uri-template-args {"name" name},
@@ -57,7 +57,7 @@ parent <>
 GoogleCloudMlV1__Job:
 GoogleCloudMlV1__Job"
   [parent GoogleCloudMlV1__Job]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://ml.googleapis.com/v1/{+parent}/jobs",
      :uri-template-args {"parent" parent},
@@ -76,7 +76,7 @@ filter <string> Optional. Specifies the subset of jobs to retrieve. You can filt
 pageSize <integer> Optional. The number of jobs to retrieve per \"page\" of results. If there are more remaining results than this number, the response message will contain a valid value in the `next_page_token` field. The default value is 20, and the maximum page size is 100."
   ([parent] (projects-jobs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://ml.googleapis.com/v1/{+parent}/jobs",
        :uri-template-args {"parent" parent},
@@ -91,7 +91,7 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/jobs/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://ml.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -108,7 +108,7 @@ name <>
 GoogleCloudMlV1__CancelJobRequest:
 GoogleCloudMlV1__CancelJobRequest"
   [name GoogleCloudMlV1__CancelJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://ml.googleapis.com/v1/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -129,7 +129,7 @@ updateMask <string> Required. Specifies the path, relative to `Job`, of the fiel
   ([name GoogleCloudMlV1__Job]
     (projects-jobs-patch name GoogleCloudMlV1__Job nil))
   ([name GoogleCloudMlV1__Job optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://ml.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -145,7 +145,7 @@ resource <>
 GoogleIamV1__SetIamPolicyRequest:
 GoogleIamV1__SetIamPolicyRequest"
   [resource GoogleIamV1__SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://ml.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -164,7 +164,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-jobs-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://ml.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -180,7 +180,7 @@ resource <>
 GoogleIamV1__TestIamPermissionsRequest:
 GoogleIamV1__TestIamPermissionsRequest"
   [resource GoogleIamV1__TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://ml.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -195,7 +195,7 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://ml.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -214,7 +214,7 @@ optional:
 pageSize <integer> Optional. The number of locations to retrieve per \"page\" of results. If there are more remaining results than this number, the response message will contain a valid value in the `next_page_token` field. The default value is 20, and the maximum page size is 100."
   ([parent] (projects-locations-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://ml.googleapis.com/v1/{+parent}/locations",
@@ -230,7 +230,7 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/opera
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://ml.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -243,7 +243,7 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/opera
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://ml.googleapis.com/v1/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -266,7 +266,7 @@ studyId <string> Required. The ID to use for the study, which will become the fi
       GoogleCloudMlV1__Study
       nil))
   ([parent GoogleCloudMlV1__Study optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template "https://ml.googleapis.com/v1/{+parent}/studies",
        :uri-template-args {"parent" parent},
@@ -280,7 +280,7 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/studi
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://ml.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -293,7 +293,7 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/studi
 
 parent <> "
   [parent]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://ml.googleapis.com/v1/{+parent}/studies",
      :uri-template-args {"parent" parent},
@@ -306,7 +306,7 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/studi
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://ml.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -321,7 +321,7 @@ name <>
 GoogleCloudMlV1__StopTrialRequest:
 GoogleCloudMlV1__StopTrialRequest"
   [name GoogleCloudMlV1__StopTrialRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://ml.googleapis.com/v1/{+name}:stop",
      :uri-template-args {"name" name},
@@ -337,7 +337,7 @@ name <>
 GoogleCloudMlV1__AddTrialMeasurementRequest:
 GoogleCloudMlV1__AddTrialMeasurementRequest"
   [name GoogleCloudMlV1__AddTrialMeasurementRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://ml.googleapis.com/v1/{+name}:addMeasurement",
@@ -352,7 +352,7 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/studi
 
 parent <> "
   [parent]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://ml.googleapis.com/v1/{+parent}/trials",
      :uri-template-args {"parent" parent},
@@ -365,7 +365,7 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/studi
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://ml.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -380,7 +380,7 @@ name <>
 GoogleCloudMlV1__CheckTrialEarlyStoppingStateRequest:
 GoogleCloudMlV1__CheckTrialEarlyStoppingStateRequest"
   [name GoogleCloudMlV1__CheckTrialEarlyStoppingStateRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://ml.googleapis.com/v1/{+name}:checkEarlyStoppingState",
@@ -397,7 +397,7 @@ name <>
 GoogleCloudMlV1__CompleteTrialRequest:
 GoogleCloudMlV1__CompleteTrialRequest"
   [name GoogleCloudMlV1__CompleteTrialRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://ml.googleapis.com/v1/{+name}:complete",
      :uri-template-args {"name" name},
@@ -413,7 +413,7 @@ parent <>
 GoogleCloudMlV1__ListOptimalTrialsRequest:
 GoogleCloudMlV1__ListOptimalTrialsRequest"
   [parent GoogleCloudMlV1__ListOptimalTrialsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://ml.googleapis.com/v1/{+parent}/trials:listOptimalTrials",
@@ -430,7 +430,7 @@ parent <>
 GoogleCloudMlV1__Trial:
 GoogleCloudMlV1__Trial"
   [parent GoogleCloudMlV1__Trial]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://ml.googleapis.com/v1/{+parent}/trials",
      :uri-template-args {"parent" parent},
@@ -444,7 +444,7 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/studi
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://ml.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -459,7 +459,7 @@ parent <>
 GoogleCloudMlV1__SuggestTrialsRequest:
 GoogleCloudMlV1__SuggestTrialsRequest"
   [parent GoogleCloudMlV1__SuggestTrialsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://ml.googleapis.com/v1/{+parent}/trials:suggest",
@@ -479,7 +479,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://ml.googleapis.com/v1/{+name}/operations",
        :uri-template-args {"name" name},
@@ -492,7 +492,7 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/operations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://ml.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -505,7 +505,7 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/operations/canc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://ml.googleapis.com/v1/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -520,7 +520,7 @@ parent <>
 GoogleCloudMlV1__Model:
 GoogleCloudMlV1__Model"
   [parent GoogleCloudMlV1__Model]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://ml.googleapis.com/v1/{+parent}/models",
      :uri-template-args {"parent" parent},
@@ -539,7 +539,7 @@ filter <string> Optional. Specifies the subset of models to retrieve.
 pageSize <integer> Optional. The number of models to retrieve per \"page\" of results. If there are more remaining results than this number, the response message will contain a valid value in the `next_page_token` field. The default value is 20, and the maximum page size is 100."
   ([parent] (projects-models-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://ml.googleapis.com/v1/{+parent}/models",
        :uri-template-args {"parent" parent},
@@ -554,7 +554,7 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/models/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://ml.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -569,7 +569,7 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/models/delete
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://ml.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -589,7 +589,7 @@ updateMask <string> Required. Specifies the path, relative to `Model`, of the fi
   ([name GoogleCloudMlV1__Model]
     (projects-models-patch name GoogleCloudMlV1__Model nil))
   ([name GoogleCloudMlV1__Model optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://ml.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -605,7 +605,7 @@ resource <>
 GoogleIamV1__SetIamPolicyRequest:
 GoogleIamV1__SetIamPolicyRequest"
   [resource GoogleIamV1__SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://ml.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -624,7 +624,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-models-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://ml.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -640,7 +640,7 @@ resource <>
 GoogleIamV1__TestIamPermissionsRequest:
 GoogleIamV1__TestIamPermissionsRequest"
   [resource GoogleIamV1__TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://ml.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -657,7 +657,7 @@ parent <>
 GoogleCloudMlV1__Version:
 GoogleCloudMlV1__Version"
   [parent GoogleCloudMlV1__Version]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://ml.googleapis.com/v1/{+parent}/versions",
      :uri-template-args {"parent" parent},
@@ -678,7 +678,7 @@ updateMask <string> Required. Specifies the path, relative to `Version`, of the 
   ([name GoogleCloudMlV1__Version]
     (projects-models-versions-patch name GoogleCloudMlV1__Version nil))
   ([name GoogleCloudMlV1__Version optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://ml.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -697,7 +697,7 @@ filter <string> Optional. Specifies the subset of versions to retrieve.
 pageSize <integer> Optional. The number of versions to retrieve per \"page\" of results. If there are more remaining results than this number, the response message will contain a valid value in the `next_page_token` field. The default value is 20, and the maximum page size is 100."
   ([parent] (projects-models-versions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://ml.googleapis.com/v1/{+parent}/versions",
        :uri-template-args {"parent" parent},
@@ -712,7 +712,7 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/models/versions
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://ml.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -725,7 +725,7 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/models/versions
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://ml.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -740,7 +740,7 @@ name <>
 GoogleCloudMlV1__SetDefaultVersionRequest:
 GoogleCloudMlV1__SetDefaultVersionRequest"
   [name GoogleCloudMlV1__SetDefaultVersionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://ml.googleapis.com/v1/{+name}:setDefault",
      :uri-template-args {"name" name},

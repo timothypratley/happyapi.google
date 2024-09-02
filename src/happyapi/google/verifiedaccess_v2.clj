@@ -11,7 +11,7 @@ https://developers.google.com/chrome/verified-access/v2/reference/rest/v2/challe
 Empty:
 Empty"
   [Empty]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://verifiedaccess.googleapis.com/v2/challenge:generate",
@@ -27,7 +27,7 @@ https://developers.google.com/chrome/verified-access/v2/reference/rest/v2/challe
 VerifyChallengeResponseRequest:
 VerifyChallengeResponseRequest"
   [VerifyChallengeResponseRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://verifiedaccess.googleapis.com/v2/challenge:verify",

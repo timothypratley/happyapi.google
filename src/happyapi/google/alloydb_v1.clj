@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://alloydb.googleapis.com/v1/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/alloydb/v1/reference/rest/v1/projects/locations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://alloydb.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -47,7 +47,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://alloydb.googleapis.com/v1/{+name}/operations",
@@ -61,7 +61,7 @@ https://cloud.google.com/alloydb/v1/reference/rest/v1/projects/locations/operati
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://alloydb.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -74,7 +74,7 @@ https://cloud.google.com/alloydb/v1/reference/rest/v1/projects/locations/operati
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://alloydb.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -89,7 +89,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://alloydb.googleapis.com/v1/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -109,7 +109,7 @@ filter <string> Optional. Filtering results
 orderBy <string> Optional. Hint for how to order the results"
   ([parent] (projects-locations-clusters-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://alloydb.googleapis.com/v1/{+parent}/clusters",
@@ -130,7 +130,7 @@ validateOnly <boolean> Optional. If set, performs request validation (e.g. permi
 force <boolean> Optional. Whether to cascade delete child instances for given cluster."
   ([name] (projects-locations-clusters-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://alloydb.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -145,7 +145,7 @@ name <>
 PromoteClusterRequest:
 PromoteClusterRequest"
   [name PromoteClusterRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://alloydb.googleapis.com/v1/{+name}:promote",
      :uri-template-args {"name" name},
@@ -161,7 +161,7 @@ name <>
 SwitchoverClusterRequest:
 SwitchoverClusterRequest"
   [name SwitchoverClusterRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://alloydb.googleapis.com/v1/{+name}:switchover",
@@ -185,7 +185,7 @@ validateOnly <boolean> Optional. If set, performs request validation (e.g. permi
 allowMissing <boolean> Optional. If set to true, update succeeds even if cluster is not found. In that case, a new cluster is created and `update_mask` is ignored."
   ([name Cluster] (projects-locations-clusters-patch name Cluster nil))
   ([name Cluster optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://alloydb.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -208,7 +208,7 @@ validateOnly <boolean> Optional. If set, performs request validation (e.g. permi
   ([parent Cluster]
     (projects-locations-clusters-createsecondary parent Cluster nil))
   ([parent Cluster optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://alloydb.googleapis.com/v1/{+parent}/clusters:createsecondary",
@@ -232,7 +232,7 @@ validateOnly <boolean> Optional. If set, performs request validation (e.g. permi
   ([parent Cluster]
     (projects-locations-clusters-create parent Cluster nil))
   ([parent Cluster optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://alloydb.googleapis.com/v1/{+parent}/clusters",
@@ -249,7 +249,7 @@ parent <>
 RestoreClusterRequest:
 RestoreClusterRequest"
   [parent RestoreClusterRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://alloydb.googleapis.com/v1/{+parent}/clusters:restore",
@@ -268,7 +268,7 @@ optional:
 view <string> Optional. The view of the cluster to return. Returns all default fields if not set."
   ([name] (projects-locations-clusters-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://alloydb.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -287,7 +287,7 @@ filter <string> Optional. Filtering results
 orderBy <string> Optional. Hint for how to order the results"
   ([parent] (projects-locations-clusters-instances-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://alloydb.googleapis.com/v1/{+parent}/instances",
@@ -303,7 +303,7 @@ name <>
 InjectFaultRequest:
 InjectFaultRequest"
   [name InjectFaultRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://alloydb.googleapis.com/v1/{+name}:injectFault",
@@ -320,7 +320,7 @@ name <>
 FailoverInstanceRequest:
 FailoverInstanceRequest"
   [name FailoverInstanceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://alloydb.googleapis.com/v1/{+name}:failover",
@@ -341,7 +341,7 @@ etag <string> Optional. The current etag of the Instance. If an etag is provided
 validateOnly <boolean> Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the delete."
   ([name] (projects-locations-clusters-instances-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://alloydb.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -361,7 +361,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://alloydb.googleapis.com/v1/{+parent}/connectionInfo",
@@ -385,7 +385,7 @@ allowMissing <boolean> Optional. If set to true, update succeeds even if instanc
   ([name Instance]
     (projects-locations-clusters-instances-patch name Instance nil))
   ([name Instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://alloydb.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -401,7 +401,7 @@ name <>
 RestartInstanceRequest:
 RestartInstanceRequest"
   [name RestartInstanceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://alloydb.googleapis.com/v1/{+name}:restart",
      :uri-template-args {"name" name},
@@ -427,7 +427,7 @@ validateOnly <boolean> Optional. If set, performs request validation (e.g. permi
       Instance
       nil))
   ([parent Instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://alloydb.googleapis.com/v1/{+parent}/instances:createsecondary",
@@ -451,7 +451,7 @@ validateOnly <boolean> Optional. If set, performs request validation (e.g. permi
   ([parent Instance]
     (projects-locations-clusters-instances-create parent Instance nil))
   ([parent Instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://alloydb.googleapis.com/v1/{+parent}/instances",
@@ -470,7 +470,7 @@ optional:
 view <string> The view of the instance to return."
   ([name] (projects-locations-clusters-instances-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://alloydb.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -489,7 +489,7 @@ filter <string> Optional. Filtering results
 orderBy <string> Optional. Hint for how to order the results"
   ([parent] (projects-locations-clusters-users-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://alloydb.googleapis.com/v1/{+parent}/users",
@@ -503,7 +503,7 @@ https://cloud.google.com/alloydb/v1/reference/rest/v1/projects/locations/cluster
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://alloydb.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -525,7 +525,7 @@ validateOnly <boolean> Optional. If set, the backend validates the request, but 
   ([parent User]
     (projects-locations-clusters-users-create parent User nil))
   ([parent User optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://alloydb.googleapis.com/v1/{+parent}/users",
@@ -549,7 +549,7 @@ validateOnly <boolean> Optional. If set, the backend validates the request, but 
 allowMissing <boolean> Optional. Allow missing fields in the update mask."
   ([name User] (projects-locations-clusters-users-patch name User nil))
   ([name User optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://alloydb.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -568,7 +568,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
 validateOnly <boolean> Optional. If set, the backend validates the request, but doesn't actually execute it."
   ([name] (projects-locations-clusters-users-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://alloydb.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -587,7 +587,7 @@ filter <string> Filtering results
 orderBy <string> Hint for how to order the results"
   ([parent] (projects-locations-backups-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://alloydb.googleapis.com/v1/{+parent}/backups",
@@ -601,7 +601,7 @@ https://cloud.google.com/alloydb/v1/reference/rest/v1/projects/locations/backups
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://alloydb.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -623,7 +623,7 @@ validateOnly <boolean> Optional. If set, the backend validates the request, but 
   ([parent Backup]
     (projects-locations-backups-create parent Backup nil))
   ([parent Backup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://alloydb.googleapis.com/v1/{+parent}/backups",
@@ -647,7 +647,7 @@ validateOnly <boolean> Optional. If set, the backend validates the request, but 
 allowMissing <boolean> Optional. If set to true, update succeeds even if instance is not found. In that case, a new backup is created and `update_mask` is ignored."
   ([name Backup] (projects-locations-backups-patch name Backup nil))
   ([name Backup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://alloydb.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -667,7 +667,7 @@ validateOnly <boolean> Optional. If set, the backend validates the request, but 
 etag <string> Optional. The current etag of the Backup. If an etag is provided and does not match the current etag of the Backup, deletion will be blocked and an ABORTED error will be returned."
   ([name] (projects-locations-backups-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://alloydb.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -685,7 +685,7 @@ pageSize <integer> Requested page size. Server may return fewer items than reque
   ([parent]
     (projects-locations-supportedDatabaseFlags-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://alloydb.googleapis.com/v1/{+parent}/supportedDatabaseFlags",

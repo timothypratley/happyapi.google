@@ -11,10 +11,11 @@ https://developers.google.com/docs/v1/reference/rest/v1/documents/get
 documentId <> 
 
 optional:
-suggestionsViewMode <string> The suggestions view mode to apply to the document. This allows viewing the document with all suggestions inline, accepted or rejected. If one is not specified, DEFAULT_FOR_CURRENT_ACCESS is used."
+suggestionsViewMode <string> The suggestions view mode to apply to the document. This allows viewing the document with all suggestions inline, accepted or rejected. If one is not specified, DEFAULT_FOR_CURRENT_ACCESS is used.
+includeTabsContent <boolean> Whether to populate the Document.tabs field instead of the text content fields like `body` and `documentStyle` on Document. - When `True`: Document content populates in the Document.tabs field instead of the text content fields in Document. - When `False`: The content of the document's first tab populates the content fields in Document excluding Document.tabs. If a document has only one tab, then that tab is used to populate the document content. Document.tabs will be empty."
   ([documentId] (documents-get documentId nil))
   ([documentId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://docs.googleapis.com/v1/documents/{documentId}",
@@ -34,7 +35,7 @@ https://developers.google.com/docs/v1/reference/rest/v1/documents/create
 Document:
 Document"
   [Document]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://docs.googleapis.com/v1/documents",
      :uri-template-args {},
@@ -53,7 +54,7 @@ documentId <>
 BatchUpdateDocumentRequest:
 BatchUpdateDocumentRequest"
   [documentId BatchUpdateDocumentRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://docs.googleapis.com/v1/documents/{documentId}:batchUpdate",

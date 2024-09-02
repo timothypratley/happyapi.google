@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://metastore.googleapis.com/v1/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/dataproc-metastore/docs/v1/reference/rest/v1/projects/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://metastore.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -47,7 +47,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://metastore.googleapis.com/v1/{+name}/operations",
@@ -61,7 +61,7 @@ https://cloud.google.com/dataproc-metastore/docs/v1/reference/rest/v1/projects/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://metastore.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -74,7 +74,7 @@ https://cloud.google.com/dataproc-metastore/docs/v1/reference/rest/v1/projects/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://metastore.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -89,7 +89,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://metastore.googleapis.com/v1/{+name}:cancel",
@@ -110,7 +110,7 @@ filter <string> Optional. The filter to apply to list results.
 orderBy <string> Optional. Specify the ordering of results as described in Sorting Order (https://cloud.google.com/apis/design/design_patterns#sorting_order). If not specified, the results will be sorted in the default order."
   ([parent] (projects-locations-federations-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://metastore.googleapis.com/v1/{+parent}/federations",
@@ -124,7 +124,7 @@ https://cloud.google.com/dataproc-metastore/docs/v1/reference/rest/v1/projects/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://metastore.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -145,7 +145,7 @@ requestId <string> Optional. A request ID. Specify a unique request ID to allow 
   ([parent Federation]
     (projects-locations-federations-create parent Federation nil))
   ([parent Federation optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://metastore.googleapis.com/v1/{+parent}/federations",
@@ -168,7 +168,7 @@ requestId <string> Optional. A request ID. Specify a unique request ID to allow 
   ([name Federation]
     (projects-locations-federations-patch name Federation nil))
   ([name Federation optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://metastore.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -186,7 +186,7 @@ optional:
 requestId <string> Optional. A request ID. Specify a unique request ID to allow the server to ignore the request if it has completed. The server will ignore subsequent requests that provide a duplicate request ID for at least 60 minutes after the first request.For example, if an initial request times out, followed by another request with the same request ID, the server ignores the second request to prevent the creation of duplicate commitments.The request ID must be a valid UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier#Format) A zero UUID (00000000-0000-0000-0000-000000000000) is not supported."
   ([name] (projects-locations-federations-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://metastore.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -201,7 +201,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://metastore.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -221,7 +221,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-federations-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://metastore.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -237,7 +237,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://metastore.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -254,7 +254,7 @@ service <>
 StartMigrationRequest:
 StartMigrationRequest"
   [service StartMigrationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://metastore.googleapis.com/v1/{+service}:startMigration",
@@ -275,7 +275,7 @@ filter <string> Optional. The filter to apply to list results.
 orderBy <string> Optional. Specify the ordering of results as described in Sorting Order (https://cloud.google.com/apis/design/design_patterns#sorting_order). If not specified, the results will be sorted in the default order."
   ([parent] (projects-locations-services-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://metastore.googleapis.com/v1/{+parent}/services",
@@ -291,7 +291,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://metastore.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -310,7 +310,7 @@ optional:
 requestId <string> Optional. A request ID. Specify a unique request ID to allow the server to ignore the request if it has completed. The server will ignore subsequent requests that provide a duplicate request ID for at least 60 minutes after the first request.For example, if an initial request times out, followed by another request with the same request ID, the server ignores the second request to prevent the creation of duplicate commitments.The request ID must be a valid UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier#Format) A zero UUID (00000000-0000-0000-0000-000000000000) is not supported."
   ([name] (projects-locations-services-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://metastore.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -325,7 +325,7 @@ service <>
 CompleteMigrationRequest:
 CompleteMigrationRequest"
   [service CompleteMigrationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://metastore.googleapis.com/v1/{+service}:completeMigration",
@@ -342,7 +342,7 @@ service <>
 MoveTableToDatabaseRequest:
 MoveTableToDatabaseRequest"
   [service MoveTableToDatabaseRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://metastore.googleapis.com/v1/{+service}:moveTableToDatabase",
@@ -359,7 +359,7 @@ service <>
 QueryMetadataRequest:
 QueryMetadataRequest"
   [service QueryMetadataRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://metastore.googleapis.com/v1/{+service}:queryMetadata",
@@ -376,7 +376,7 @@ service <>
 AlterTablePropertiesRequest:
 AlterTablePropertiesRequest"
   [service AlterTablePropertiesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://metastore.googleapis.com/v1/{+service}:alterTableProperties",
@@ -393,7 +393,7 @@ service <>
 CancelMigrationRequest:
 CancelMigrationRequest"
   [service CancelMigrationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://metastore.googleapis.com/v1/{+service}:cancelMigration",
@@ -410,7 +410,7 @@ service <>
 AlterMetadataResourceLocationRequest:
 AlterMetadataResourceLocationRequest"
   [service AlterMetadataResourceLocationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://metastore.googleapis.com/v1/{+service}:alterLocation",
@@ -432,7 +432,7 @@ updateMask <string> Required. A field mask used to specify the fields to be over
 requestId <string> Optional. A request ID. Specify a unique request ID to allow the server to ignore the request if it has completed. The server will ignore subsequent requests that provide a duplicate request ID for at least 60 minutes after the first request.For example, if an initial request times out, followed by another request with the same request ID, the server ignores the second request to prevent the creation of duplicate commitments.The request ID must be a valid UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier#Format) A zero UUID (00000000-0000-0000-0000-000000000000) is not supported."
   ([name Service] (projects-locations-services-patch name Service nil))
   ([name Service optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://metastore.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -448,7 +448,7 @@ service <>
 ExportMetadataRequest:
 ExportMetadataRequest"
   [service ExportMetadataRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://metastore.googleapis.com/v1/{+service}:exportMetadata",
@@ -467,7 +467,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy.Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected.Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset.The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1.To learn which resources support conditions in their IAM policies, see the IAM documentation (https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-locations-services-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://metastore.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -489,7 +489,7 @@ requestId <string> Optional. A request ID. Specify a unique request ID to allow 
   ([parent Service]
     (projects-locations-services-create parent Service nil))
   ([parent Service optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://metastore.googleapis.com/v1/{+parent}/services",
@@ -506,7 +506,7 @@ service <>
 RestoreServiceRequest:
 RestoreServiceRequest"
   [service RestoreServiceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://metastore.googleapis.com/v1/{+service}:restore",
@@ -521,7 +521,7 @@ https://cloud.google.com/dataproc-metastore/docs/v1/reference/rest/v1/projects/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://metastore.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -536,7 +536,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://metastore.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -558,7 +558,7 @@ orderBy <string> Optional. Specify the ordering of results as described in Sorti
   ([parent]
     (projects-locations-services-metadataImports-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://metastore.googleapis.com/v1/{+parent}/metadataImports",
@@ -572,7 +572,7 @@ https://cloud.google.com/dataproc-metastore/docs/v1/reference/rest/v1/projects/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://metastore.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -596,7 +596,7 @@ requestId <string> Optional. A request ID. Specify a unique request ID to allow 
       MetadataImport
       nil))
   ([parent MetadataImport optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://metastore.googleapis.com/v1/{+parent}/metadataImports",
@@ -622,7 +622,7 @@ requestId <string> Optional. A request ID. Specify a unique request ID to allow 
       MetadataImport
       nil))
   ([name MetadataImport optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://metastore.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -642,7 +642,7 @@ filter <string> Optional. The filter to apply to list results.
 orderBy <string> Optional. Specify the ordering of results as described in Sorting Order (https://cloud.google.com/apis/design/design_patterns#sorting_order). If not specified, the results will be sorted in the default order."
   ([parent] (projects-locations-services-backups-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://metastore.googleapis.com/v1/{+parent}/backups",
@@ -656,7 +656,7 @@ https://cloud.google.com/dataproc-metastore/docs/v1/reference/rest/v1/projects/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://metastore.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -677,7 +677,7 @@ requestId <string> Optional. A request ID. Specify a unique request ID to allow 
   ([parent Backup]
     (projects-locations-services-backups-create parent Backup nil))
   ([parent Backup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://metastore.googleapis.com/v1/{+parent}/backups",
@@ -696,7 +696,7 @@ optional:
 requestId <string> Optional. A request ID. Specify a unique request ID to allow the server to ignore the request if it has completed. The server will ignore subsequent requests that provide a duplicate request ID for at least 60 minutes after the first request.For example, if an initial request times out, followed by another request with the same request ID, the server ignores the second request to prevent the creation of duplicate commitments.The request ID must be a valid UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier#Format) A zero UUID (00000000-0000-0000-0000-000000000000) is not supported."
   ([name] (projects-locations-services-backups-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://metastore.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -711,7 +711,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://metastore.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -731,7 +731,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-services-backups-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://metastore.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -745,7 +745,7 @@ https://cloud.google.com/dataproc-metastore/docs/v1/reference/rest/v1/projects/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://metastore.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -765,7 +765,7 @@ orderBy <string> Optional. Specify the ordering of results as described in Sorti
   ([parent]
     (projects-locations-services-migrationExecutions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://metastore.googleapis.com/v1/{+parent}/migrationExecutions",
@@ -784,7 +784,7 @@ requestId <string> Optional. A request ID. Specify a unique request ID to allow 
   ([name]
     (projects-locations-services-migrationExecutions-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://metastore.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -799,7 +799,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://metastore.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -819,7 +819,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-services-databases-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://metastore.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -835,7 +835,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://metastore.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -857,7 +857,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://metastore.googleapis.com/v1/{+resource}:getIamPolicy",

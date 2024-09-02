@@ -15,7 +15,7 @@ optional:
 deleteContents <boolean> If True, delete all the tables in the dataset. If False and the dataset contains tables, the request will fail. Default is False"
   ([projectId datasetId] (datasets-delete projectId datasetId nil))
   ([projectId datasetId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}",
@@ -37,7 +37,7 @@ optional:
 datasetView <string> Optional. Specifies the view that determines which dataset information is returned. By default, metadata and ACL information are returned."
   ([projectId datasetId] (datasets-get projectId datasetId nil))
   ([projectId datasetId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}",
@@ -57,7 +57,7 @@ projectId <>
 Dataset:
 Dataset"
   [projectId Dataset]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets",
@@ -76,11 +76,11 @@ projectId <>
 
 optional:
 all <boolean> Whether to list all datasets, including hidden ones
-filter <string> An expression for filtering the results of the request by label. The syntax is \\\"labels.<name>[:<value>]\\\". Multiple filters can be ANDed together by connecting with a space. Example: \\\"labels.department:receiving labels.active\\\". See [Filtering datasets using labels](/bigquery/docs/filtering-labels#filtering_datasets_using_labels) for details.
+filter <string> An expression for filtering the results of the request by label. The syntax is `labels.[:]`. Multiple filters can be ANDed together by connecting with a space. Example: `labels.department:receiving labels.active`. See [Filtering datasets using labels](https://cloud.google.com/bigquery/docs/filtering-labels#filtering_datasets_using_labels) for details.
 maxResults <integer> The maximum number of results to return in a single response page. Leverage the page tokens to iterate through the entire collection."
   ([projectId] (datasets-list projectId nil))
   ([projectId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets",
@@ -100,7 +100,7 @@ datasetId <>
 Dataset:
 Dataset"
   [projectId datasetId Dataset]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}",
@@ -120,7 +120,7 @@ datasetId <>
 UndeleteDatasetRequest:
 UndeleteDatasetRequest"
   [projectId datasetId UndeleteDatasetRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}:undelete",
@@ -140,7 +140,7 @@ datasetId <>
 Dataset:
 Dataset"
   [projectId datasetId Dataset]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}",
@@ -159,10 +159,10 @@ projectId <>
 jobId <> 
 
 optional:
-location <string> The geographic location of the job. You must specify the location to run the job for the following scenarios: - If the location to run a job is not in the `us` or the `eu` multi-regional location - If the job's location is in a single region (for example, `us-central1`) For more information, see https://cloud.google.com/bigquery/docs/locations#specifying_your_location."
+location <string> The geographic location of the job. You must specify the location to run the job for the following scenarios: * If the location to run a job is not in the `us` or the `eu` multi-regional location * If the job's location is in a single region (for example, `us-central1`) For more information, see https://cloud.google.com/bigquery/docs/locations#specifying_your_location."
   ([projectId jobId] (jobs-cancel projectId jobId nil))
   ([projectId jobId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/jobs/{+jobId}/cancel",
@@ -183,7 +183,7 @@ optional:
 location <string> The geographic location of the job. Required. See details at: https://cloud.google.com/bigquery/docs/locations#specifying_your_location."
   ([projectId jobId] (jobs-delete projectId jobId nil))
   ([projectId jobId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/jobs/{+jobId}/delete",
@@ -201,10 +201,10 @@ projectId <>
 jobId <> 
 
 optional:
-location <string> The geographic location of the job. You must specify the location to run the job for the following scenarios: - If the location to run a job is not in the `us` or the `eu` multi-regional location - If the job's location is in a single region (for example, `us-central1`) For more information, see https://cloud.google.com/bigquery/docs/locations#specifying_your_location."
+location <string> The geographic location of the job. You must specify the location to run the job for the following scenarios: * If the location to run a job is not in the `us` or the `eu` multi-regional location * If the job's location is in a single region (for example, `us-central1`) For more information, see https://cloud.google.com/bigquery/docs/locations#specifying_your_location."
   ([projectId jobId] (jobs-get projectId jobId nil))
   ([projectId jobId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/jobs/{+jobId}",
@@ -224,13 +224,13 @@ jobId <>
 
 optional:
 formatOptions.useInt64Timestamp <boolean> Optional. Output timestamp as usec int64. Default is false.
-location <string> The geographic location of the job. You must specify the location to run the job for the following scenarios: - If the location to run a job is not in the `us` or the `eu` multi-regional location - If the job's location is in a single region (for example, `us-central1`) For more information, see https://cloud.google.com/bigquery/docs/locations#specifying_your_location.
+location <string> The geographic location of the job. You must specify the location to run the job for the following scenarios: * If the location to run a job is not in the `us` or the `eu` multi-regional location * If the job's location is in a single region (for example, `us-central1`) For more information, see https://cloud.google.com/bigquery/docs/locations#specifying_your_location.
 maxResults <integer> Maximum number of results to read.
 startIndex <string> Zero-based index of the starting row.
 timeoutMs <integer> Optional: Specifies the maximum amount of time, in milliseconds, that the client is willing to wait for the query to complete. By default, this limit is 10 seconds (10,000 milliseconds). If the query is complete, the jobComplete field in the response is true. If the query has not yet completed, jobComplete is false. You can request a longer timeout period in the timeoutMs field. However, the call is not guaranteed to wait for the specified timeout; it typically returns after around 200 seconds (200,000 milliseconds), even if the query is not complete. If jobComplete is false, you can continue to wait for the query to complete by calling the getQueryResults method until the jobComplete field in the getQueryResults response is true."
   ([projectId jobId] (jobs-getQueryResults projectId jobId nil))
   ([projectId jobId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/queries/{+jobId}",
@@ -249,7 +249,7 @@ projectId <>
 Job:
 Job"
   [projectId Job]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/jobs",
@@ -279,7 +279,7 @@ stateFilter <string> Filter for job state
 minCreationTime <string> Min value for job creation time, in milliseconds since the POSIX epoch. If set, only jobs created after or at this timestamp are returned."
   ([projectId] (jobs-list projectId nil))
   ([projectId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/jobs",
@@ -298,7 +298,7 @@ projectId <>
 QueryRequest:
 QueryRequest"
   [projectId QueryRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/queries",
@@ -318,7 +318,7 @@ projectId <>
 datasetId <> 
 modelId <> "
   [projectId datasetId modelId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/models/{+modelId}",
@@ -337,7 +337,7 @@ projectId <>
 datasetId <> 
 modelId <> "
   [projectId datasetId modelId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/models/{+modelId}",
@@ -360,7 +360,7 @@ optional:
 maxResults <integer> The maximum number of results to return in a single response page. Leverage the page tokens to iterate through the entire collection."
   ([projectId datasetId] (models-list projectId datasetId nil))
   ([projectId datasetId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/models",
@@ -382,7 +382,7 @@ modelId <>
 Model:
 Model"
   [projectId datasetId modelId Model]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/models/{+modelId}",
@@ -400,7 +400,7 @@ https://cloud.google.com/bigquery/v2/reference/rest/v2/projects/getServiceAccoun
 
 projectId <> "
   [projectId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/serviceAccount",
@@ -419,7 +419,7 @@ optional:
 maxResults <integer> `maxResults` unset returns all results, up to 50 per page. Additionally, the number of projects in a page may be fewer than `maxResults` because projects are retrieved and then filtered to only projects with the BigQuery API enabled."
   ([] (projects-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigquery.googleapis.com/bigquery/v2/projects",
@@ -438,7 +438,7 @@ projectId <>
 datasetId <> 
 routineId <> "
   [projectId datasetId routineId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/routines/{+routineId}",
@@ -464,7 +464,7 @@ readMask <string> If set, only the Routine fields in the field mask are returned
   ([projectId datasetId routineId]
     (routines-get projectId datasetId routineId nil))
   ([projectId datasetId routineId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/routines/{+routineId}",
@@ -486,7 +486,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigquery.googleapis.com/bigquery/v2/{+resource}:getIamPolicy",
@@ -507,7 +507,7 @@ datasetId <>
 Routine:
 Routine"
   [projectId datasetId Routine]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/routines",
@@ -531,7 +531,7 @@ maxResults <integer> The maximum number of results to return in a single respons
 readMask <string> If set, then only the Routine fields in the field mask, as well as project_id, dataset_id and routine_id, are returned in the response. If unset, then the following Routine fields are returned: etag, project_id, dataset_id, routine_id, routine_type, creation_time, last_modified_time, and language."
   ([projectId datasetId] (routines-list projectId datasetId nil))
   ([projectId datasetId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/routines",
@@ -551,7 +551,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigquery.googleapis.com/bigquery/v2/{+resource}:setIamPolicy",
@@ -572,7 +572,7 @@ routineId <>
 Routine:
 Routine"
   [projectId datasetId routineId Routine]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/routines/{+routineId}",
@@ -594,7 +594,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigquery.googleapis.com/bigquery/v2/{+resource}:getIamPolicy",
@@ -619,7 +619,7 @@ pageSize <integer> The maximum number of results to return in a single response 
   ([projectId datasetId tableId]
     (rowAccessPolicies-list projectId datasetId tableId nil))
   ([projectId datasetId tableId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}/rowAccessPolicies",
@@ -641,7 +641,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigquery.googleapis.com/bigquery/v2/{+resource}:testIamPermissions",
@@ -663,7 +663,7 @@ tableId <>
 TableDataInsertAllRequest:
 TableDataInsertAllRequest"
   [projectId datasetId tableId TableDataInsertAllRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}/insertAll",
@@ -692,7 +692,7 @@ startIndex <string> Start row index of the table."
   ([projectId datasetId tableId]
     (tabledata-list projectId datasetId tableId nil))
   ([projectId datasetId tableId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}/data",
@@ -717,7 +717,7 @@ optional:
 maxResults <integer> The maximum number of results to return in a single response page. Leverage the page tokens to iterate through the entire collection."
   ([projectId datasetId] (tables-list projectId datasetId nil))
   ([projectId datasetId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/tables",
@@ -737,7 +737,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigquery.googleapis.com/bigquery/v2/{+resource}:setIamPolicy",
@@ -756,7 +756,7 @@ projectId <>
 datasetId <> 
 tableId <> "
   [projectId datasetId tableId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}",
@@ -782,7 +782,7 @@ autodetect_schema <boolean> Optional.  When true will autodetect schema, else wi
   ([projectId datasetId tableId Table]
     (tables-update projectId datasetId tableId Table nil))
   ([projectId datasetId tableId Table optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}",
@@ -811,7 +811,7 @@ autodetect_schema <boolean> Optional.  When true will autodetect schema, else wi
   ([projectId datasetId tableId Table]
     (tables-patch projectId datasetId tableId Table nil))
   ([projectId datasetId tableId Table optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}",
@@ -833,7 +833,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigquery.googleapis.com/bigquery/v2/{+resource}:getIamPolicy",
@@ -854,7 +854,7 @@ datasetId <>
 Table:
 Table"
   [projectId datasetId Table]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/tables",
@@ -879,7 +879,7 @@ view <string> Optional. Specifies the view that determines which table informati
   ([projectId datasetId tableId]
     (tables-get projectId datasetId tableId nil))
   ([projectId datasetId tableId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}",
@@ -901,7 +901,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigquery.googleapis.com/bigquery/v2/{+resource}:testIamPermissions",

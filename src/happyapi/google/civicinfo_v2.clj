@@ -16,7 +16,7 @@ returnAllAvailableData <boolean> If set to true, the query will return the succe
 productionDataOnly <boolean> Whether to include data that has not been vetted yet. Should only be made available to internal IPs or trusted partners. This is a non-discoverable parameter in the One Platform API config."
   ([] (elections-voterInfoQuery nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://civicinfo.googleapis.com/civicinfo/v2/voterinfo",
@@ -32,7 +32,7 @@ optional:
 productionDataOnly <boolean> Whether to include data that has not been allowlisted yet"
   ([] (elections-electionQuery nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://civicinfo.googleapis.com/civicinfo/v2/elections",
@@ -52,7 +52,7 @@ roles <string> A list of office roles to filter by. Only offices fulfilling one 
 levels <string> A list of office levels to filter by. Only offices that serve at least one of these levels will be returned. Divisions that don't contain a matching office will not be returned."
   ([ocdId] (representatives-representativeInfoByDivision ocdId nil))
   ([ocdId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://civicinfo.googleapis.com/civicinfo/v2/representatives/{ocdId}",
@@ -71,7 +71,7 @@ levels <string> A list of office levels to filter by. Only offices that serve at
 includeOffices <boolean> Whether to return information about offices and officials. If false, only the top-level district information will be returned."
   ([] (representatives-representativeInfoByAddress nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://civicinfo.googleapis.com/civicinfo/v2/representatives",
@@ -87,7 +87,7 @@ optional:
 query <string> The search query. Queries can cover any parts of a OCD ID or a human readable division name. All words given in the query are treated as required patterns. In addition to that, most query operators of the Apache Lucene library are supported. See http://lucene.apache.org/core/2_9_4/queryparsersyntax.html"
   ([] (divisions-search nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://civicinfo.googleapis.com/civicinfo/v2/divisions",

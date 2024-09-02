@@ -11,7 +11,7 @@ https://developers.google.com/sheets/v4/reference/rest/v4/spreadsheets/create
 Spreadsheet:
 Spreadsheet"
   [Spreadsheet]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://sheets.googleapis.com/v4/spreadsheets",
      :uri-template-args {},
@@ -33,7 +33,7 @@ ranges <string> The ranges to retrieve from the spreadsheet.
 includeGridData <boolean> True if grid data should be returned. This parameter is ignored if a field mask was set in the request."
   ([spreadsheetId] (spreadsheets-get spreadsheetId nil))
   ([spreadsheetId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://sheets.googleapis.com/v4/spreadsheets/{spreadsheetId}",
@@ -54,7 +54,7 @@ spreadsheetId <>
 GetSpreadsheetByDataFilterRequest:
 GetSpreadsheetByDataFilterRequest"
   [spreadsheetId GetSpreadsheetByDataFilterRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sheets.googleapis.com/v4/spreadsheets/{spreadsheetId}:getByDataFilter",
@@ -74,7 +74,7 @@ spreadsheetId <>
 BatchUpdateSpreadsheetRequest:
 BatchUpdateSpreadsheetRequest"
   [spreadsheetId BatchUpdateSpreadsheetRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sheets.googleapis.com/v4/spreadsheets/{spreadsheetId}:batchUpdate",
@@ -94,7 +94,7 @@ spreadsheetId <>
 BatchUpdateValuesRequest:
 BatchUpdateValuesRequest"
   [spreadsheetId BatchUpdateValuesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sheets.googleapis.com/v4/spreadsheets/{spreadsheetId}/values:batchUpdate",
@@ -123,7 +123,7 @@ responseDateTimeRenderOption <string> Determines how dates, times, and durations
   ([spreadsheetId range ValueRange]
     (spreadsheets-values-update spreadsheetId range ValueRange nil))
   ([spreadsheetId range ValueRange optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://sheets.googleapis.com/v4/spreadsheets/{spreadsheetId}/values/{range}",
@@ -144,7 +144,7 @@ spreadsheetId <>
 BatchClearValuesRequest:
 BatchClearValuesRequest"
   [spreadsheetId BatchClearValuesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sheets.googleapis.com/v4/spreadsheets/{spreadsheetId}/values:batchClear",
@@ -164,7 +164,7 @@ spreadsheetId <>
 BatchClearValuesByDataFilterRequest:
 BatchClearValuesByDataFilterRequest"
   [spreadsheetId BatchClearValuesByDataFilterRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sheets.googleapis.com/v4/spreadsheets/{spreadsheetId}/values:batchClearByDataFilter",
@@ -184,7 +184,7 @@ spreadsheetId <>
 BatchGetValuesByDataFilterRequest:
 BatchGetValuesByDataFilterRequest"
   [spreadsheetId BatchGetValuesByDataFilterRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sheets.googleapis.com/v4/spreadsheets/{spreadsheetId}/values:batchGetByDataFilter",
@@ -209,7 +209,7 @@ valueRenderOption <string> How values should be represented in the output. The d
 dateTimeRenderOption <string> How dates, times, and durations should be represented in the output. This is ignored if value_render_option is FORMATTED_VALUE. The default dateTime render option is SERIAL_NUMBER."
   ([spreadsheetId] (spreadsheets-values-batchGet spreadsheetId nil))
   ([spreadsheetId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://sheets.googleapis.com/v4/spreadsheets/{spreadsheetId}/values:batchGet",
@@ -240,7 +240,7 @@ responseDateTimeRenderOption <string> Determines how dates, times, and durations
   ([spreadsheetId range ValueRange]
     (spreadsheets-values-append spreadsheetId range ValueRange nil))
   ([spreadsheetId range ValueRange optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://sheets.googleapis.com/v4/spreadsheets/{spreadsheetId}/values/{range}:append",
@@ -262,7 +262,7 @@ range <>
 ClearValuesRequest:
 ClearValuesRequest"
   [spreadsheetId range ClearValuesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sheets.googleapis.com/v4/spreadsheets/{spreadsheetId}/values/{range}:clear",
@@ -288,7 +288,7 @@ dateTimeRenderOption <string> How dates, times, and durations should be represen
   ([spreadsheetId range]
     (spreadsheets-values-get spreadsheetId range nil))
   ([spreadsheetId range optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://sheets.googleapis.com/v4/spreadsheets/{spreadsheetId}/values/{range}",
@@ -310,7 +310,7 @@ spreadsheetId <>
 BatchUpdateValuesByDataFilterRequest:
 BatchUpdateValuesByDataFilterRequest"
   [spreadsheetId BatchUpdateValuesByDataFilterRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sheets.googleapis.com/v4/spreadsheets/{spreadsheetId}/values:batchUpdateByDataFilter",
@@ -329,7 +329,7 @@ https://developers.google.com/sheets/v4/reference/rest/v4/spreadsheets/developer
 spreadsheetId <> 
 metadataId <> "
   [spreadsheetId metadataId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://sheets.googleapis.com/v4/spreadsheets/{spreadsheetId}/developerMetadata/{metadataId}",
@@ -349,7 +349,7 @@ spreadsheetId <>
 SearchDeveloperMetadataRequest:
 SearchDeveloperMetadataRequest"
   [spreadsheetId SearchDeveloperMetadataRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sheets.googleapis.com/v4/spreadsheets/{spreadsheetId}/developerMetadata:search",
@@ -370,7 +370,7 @@ sheetId <>
 CopySheetToAnotherSpreadsheetRequest:
 CopySheetToAnotherSpreadsheetRequest"
   [spreadsheetId sheetId CopySheetToAnotherSpreadsheetRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sheets.googleapis.com/v4/spreadsheets/{spreadsheetId}/sheets/{sheetId}:copyTo",

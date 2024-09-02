@@ -12,7 +12,7 @@ name <>
 GenerateAccessTokenRequest:
 GenerateAccessTokenRequest"
   [name GenerateAccessTokenRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://iamcredentials.googleapis.com/v1/{+name}:generateAccessToken",
@@ -29,7 +29,7 @@ name <>
 GenerateIdTokenRequest:
 GenerateIdTokenRequest"
   [name GenerateIdTokenRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://iamcredentials.googleapis.com/v1/{+name}:generateIdToken",
@@ -46,7 +46,7 @@ name <>
 SignBlobRequest:
 SignBlobRequest"
   [name SignBlobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://iamcredentials.googleapis.com/v1/{+name}:signBlob",
@@ -63,7 +63,7 @@ name <>
 SignJwtRequest:
 SignJwtRequest"
   [name SignJwtRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://iamcredentials.googleapis.com/v1/{+name}:signJwt",

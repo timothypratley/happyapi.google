@@ -46,7 +46,7 @@ adGroupId <string> Numeric ID of the ad group."
     startDate
     startRow
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://doubleclicksearch.googleapis.com/doubleclicksearch/v2/agency/{agencyId}/advertiser/{advertiserId}/engine/{engineAccountId}/conversion",
@@ -90,7 +90,7 @@ engineAccountId <string> Numeric ID of the engine account."
       startRow
       nil))
   ([customerId endDate rowCount startDate startRow optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://doubleclicksearch.googleapis.com/doubleclicksearch/v2/customer/{customerId}/conversion",
@@ -111,7 +111,7 @@ https://developers.google.com/search-ads/v2/reference/rest/v2/conversion/insert
 ConversionList:
 ConversionList"
   [ConversionList]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://doubleclicksearch.googleapis.com/doubleclicksearch/v2/conversion",
@@ -127,7 +127,7 @@ https://developers.google.com/search-ads/v2/reference/rest/v2/conversion/update
 ConversionList:
 ConversionList"
   [ConversionList]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://doubleclicksearch.googleapis.com/doubleclicksearch/v2/conversion",
@@ -143,7 +143,7 @@ https://developers.google.com/search-ads/v2/reference/rest/v2/conversion/updateA
 UpdateAvailabilityRequest:
 UpdateAvailabilityRequest"
   [UpdateAvailabilityRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://doubleclicksearch.googleapis.com/doubleclicksearch/v2/conversion/updateAvailability",
@@ -159,7 +159,7 @@ https://developers.google.com/search-ads/v2/reference/rest/v2/reports/generate
 ReportRequest:
 ReportRequest"
   [ReportRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://doubleclicksearch.googleapis.com/doubleclicksearch/v2/reports/generate",
@@ -174,7 +174,7 @@ https://developers.google.com/search-ads/v2/reference/rest/v2/reports/get
 
 reportId <> "
   [reportId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://doubleclicksearch.googleapis.com/doubleclicksearch/v2/reports/{reportId}",
@@ -189,7 +189,7 @@ https://developers.google.com/search-ads/v2/reference/rest/v2/reports/getFile
 reportId <> 
 reportFragment <> "
   [reportId reportFragment]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://doubleclicksearch.googleapis.com/doubleclicksearch/v2/reports/{reportId}/files/{reportFragment}",
@@ -205,7 +205,7 @@ https://developers.google.com/search-ads/v2/reference/rest/v2/reports/getIdMappi
 agencyId <> 
 advertiserId <> "
   [agencyId advertiserId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://doubleclicksearch.googleapis.com/doubleclicksearch/v2/agency/{agencyId}/advertiser/{advertiserId}/idmapping",
@@ -221,7 +221,7 @@ https://developers.google.com/search-ads/v2/reference/rest/v2/reports/request
 ReportRequest:
 ReportRequest"
   [ReportRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://doubleclicksearch.googleapis.com/doubleclicksearch/v2/reports",
@@ -237,7 +237,7 @@ https://developers.google.com/search-ads/v2/reference/rest/v2/savedColumns/list
 agencyId <> 
 advertiserId <> "
   [agencyId advertiserId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://doubleclicksearch.googleapis.com/doubleclicksearch/v2/agency/{agencyId}/advertiser/{advertiserId}/savedcolumns",

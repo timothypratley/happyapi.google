@@ -17,7 +17,7 @@ paths <string> Optional. Limits the aspects returned to those associated with th
 entry <string> Required. The resource name of the Entry: projects/{project}/locations/{location}/entryGroups/{entry_group}/entries/{entry}."
   ([name] (projects-locations-lookupEntry name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+name}:lookupEntry",
@@ -38,7 +38,7 @@ orderBy <string> Optional. Specifies the ordering of results.
 scope <string> Optional. The scope under which the search should be operating. It must either be organizations/ or projects/. If it is unspecified, it defaults to the organization where the project provided in name is located."
   ([name] (projects-locations-searchEntries name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+name}:searchEntries",
@@ -57,7 +57,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+name}/locations",
@@ -71,7 +71,7 @@ https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/g
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dataplex.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -86,7 +86,7 @@ resource <>
 GoogleIamV1SetIamPolicyRequest:
 GoogleIamV1SetIamPolicyRequest"
   [resource GoogleIamV1SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataplex.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -108,7 +108,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -124,7 +124,7 @@ resource <>
 GoogleIamV1TestIamPermissionsRequest:
 GoogleIamV1TestIamPermissionsRequest"
   [resource GoogleIamV1TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataplex.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -150,7 +150,7 @@ validateOnly <boolean> Optional. Only validate the request, but do not perform m
       GoogleCloudDataplexV1DataAttributeBinding
       nil))
   ([parent GoogleCloudDataplexV1DataAttributeBinding optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/dataAttributeBindings",
@@ -176,7 +176,7 @@ validateOnly <boolean> Optional. Only validate the request, but do not perform m
       GoogleCloudDataplexV1DataAttributeBinding
       nil))
   ([name GoogleCloudDataplexV1DataAttributeBinding optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dataplex.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -194,7 +194,7 @@ optional:
 etag <string> Required. If the client provided etag value does not match the current etag value, the DeleteDataAttributeBindingRequest method returns an ABORTED error response. Etags must be used when calling the DeleteDataAttributeBinding."
   ([name] (projects-locations-dataAttributeBindings-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://dataplex.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -213,7 +213,7 @@ filter <string> Optional. Filter request. Filter using resource: filter=resource
 orderBy <string> Optional. Order by fields for the result."
   ([parent] (projects-locations-dataAttributeBindings-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/dataAttributeBindings",
@@ -227,7 +227,7 @@ https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/d
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dataplex.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -246,7 +246,7 @@ filter <string> Optional. Filter request.
 orderBy <string> Optional. Order by fields (name or create_time) for the result. If not specified, the ordering is undefined."
   ([parent] (projects-locations-dataScans-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/dataScans",
@@ -262,7 +262,7 @@ resource <>
 GoogleIamV1SetIamPolicyRequest:
 GoogleIamV1SetIamPolicyRequest"
   [resource GoogleIamV1SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataplex.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -277,7 +277,7 @@ https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/d
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://dataplex.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -292,7 +292,7 @@ name <>
 GoogleCloudDataplexV1RunDataScanRequest:
 GoogleCloudDataplexV1RunDataScanRequest"
   [name GoogleCloudDataplexV1RunDataScanRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://dataplex.googleapis.com/v1/{+name}:run",
      :uri-template-args {"name" name},
@@ -308,7 +308,7 @@ name <>
 GoogleCloudDataplexV1GenerateDataQualityRulesRequest:
 GoogleCloudDataplexV1GenerateDataQualityRulesRequest"
   [name GoogleCloudDataplexV1GenerateDataQualityRulesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataplex.googleapis.com/v1/{+name}:generateDataQualityRules",
@@ -334,7 +334,7 @@ validateOnly <boolean> Optional. Only validate the request, but do not perform m
       GoogleCloudDataplexV1DataScan
       nil))
   ([name GoogleCloudDataplexV1DataScan optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dataplex.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -352,7 +352,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy.Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected.Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset.The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1.To learn which resources support conditions in their IAM policies, see the IAM documentation (https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-locations-dataScans-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -377,7 +377,7 @@ validateOnly <boolean> Optional. Only validate the request, but do not perform m
       GoogleCloudDataplexV1DataScan
       nil))
   ([parent GoogleCloudDataplexV1DataScan optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/dataScans",
@@ -396,7 +396,7 @@ optional:
 view <string> Optional. Select the DataScan view to return. Defaults to BASIC."
   ([name] (projects-locations-dataScans-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://dataplex.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -411,7 +411,7 @@ resource <>
 GoogleIamV1TestIamPermissionsRequest:
 GoogleIamV1TestIamPermissionsRequest"
   [resource GoogleIamV1TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataplex.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -430,7 +430,7 @@ optional:
 view <string> Optional. Select the DataScanJob view to return. Defaults to BASIC."
   ([name] (projects-locations-dataScans-jobs-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://dataplex.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -448,7 +448,7 @@ pageSize <integer> Optional. Maximum number of DataScanJobs to return. The servi
 filter <string> Optional. An expression for filtering the results of the ListDataScanJobs request.If unspecified, all datascan jobs will be returned. Multiple filters can be applied (with AND, OR logical operators). Filters are case-sensitive.Allowed fields are: start_time end_timestart_time and end_time expect RFC-3339 formatted strings (e.g. 2018-10-08T18:30:00-07:00).For instance, 'start_time > 2018-10-08T00:00:00.123456789Z AND end_time < 2018-10-09T00:00:00.123456789Z' limits results to DataScanJobs between specified start and end times."
   ([parent] (projects-locations-dataScans-jobs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/jobs",
@@ -464,7 +464,7 @@ name <>
 GoogleCloudDataplexV1GenerateDataQualityRulesRequest:
 GoogleCloudDataplexV1GenerateDataQualityRulesRequest"
   [name GoogleCloudDataplexV1GenerateDataQualityRulesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataplex.googleapis.com/v1/{+name}:generateDataQualityRules",
@@ -481,7 +481,7 @@ resource <>
 GoogleIamV1SetIamPolicyRequest:
 GoogleIamV1SetIamPolicyRequest"
   [resource GoogleIamV1SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataplex.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -501,7 +501,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-dataTaxonomies-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -517,7 +517,7 @@ resource <>
 GoogleIamV1TestIamPermissionsRequest:
 GoogleIamV1TestIamPermissionsRequest"
   [resource GoogleIamV1TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataplex.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -543,7 +543,7 @@ validateOnly <boolean> Optional. Only validate the request, but do not perform m
       GoogleCloudDataplexV1DataTaxonomy
       nil))
   ([parent GoogleCloudDataplexV1DataTaxonomy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/dataTaxonomies",
@@ -569,7 +569,7 @@ validateOnly <boolean> Optional. Only validate the request, but do not perform m
       GoogleCloudDataplexV1DataTaxonomy
       nil))
   ([name GoogleCloudDataplexV1DataTaxonomy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dataplex.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -587,7 +587,7 @@ optional:
 etag <string> Optional. If the client provided etag value does not match the current etag value,the DeleteDataTaxonomy method returns an ABORTED error."
   ([name] (projects-locations-dataTaxonomies-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://dataplex.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -606,7 +606,7 @@ filter <string> Optional. Filter request.
 orderBy <string> Optional. Order by fields for the result."
   ([parent] (projects-locations-dataTaxonomies-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/dataTaxonomies",
@@ -620,7 +620,7 @@ https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/d
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dataplex.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -635,7 +635,7 @@ resource <>
 GoogleIamV1SetIamPolicyRequest:
 GoogleIamV1SetIamPolicyRequest"
   [resource GoogleIamV1SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataplex.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -657,7 +657,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -673,7 +673,7 @@ resource <>
 GoogleIamV1TestIamPermissionsRequest:
 GoogleIamV1TestIamPermissionsRequest"
   [resource GoogleIamV1TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataplex.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -699,7 +699,7 @@ validateOnly <boolean> Optional. Only validate the request, but do not perform m
       GoogleCloudDataplexV1DataAttribute
       nil))
   ([parent GoogleCloudDataplexV1DataAttribute optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/attributes",
@@ -725,7 +725,7 @@ validateOnly <boolean> Optional. Only validate the request, but do not perform m
       GoogleCloudDataplexV1DataAttribute
       nil))
   ([name GoogleCloudDataplexV1DataAttribute optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dataplex.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -744,7 +744,7 @@ etag <string> Optional. If the client provided etag value does not match the cur
   ([name]
     (projects-locations-dataTaxonomies-attributes-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://dataplex.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -764,7 +764,7 @@ orderBy <string> Optional. Order by fields for the result."
   ([parent]
     (projects-locations-dataTaxonomies-attributes-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/attributes",
@@ -778,12 +778,173 @@ https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/d
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dataplex.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+
+(defn projects-locations-glossaries-setIamPolicy
+  "Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors.
+https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/glossaries/setIamPolicy
+
+resource <> 
+GoogleIamV1SetIamPolicyRequest:
+GoogleIamV1SetIamPolicyRequest"
+  [resource GoogleIamV1SetIamPolicyRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://dataplex.googleapis.com/v1/{+resource}:setIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleIamV1SetIamPolicyRequest}))
+
+(defn projects-locations-glossaries-getIamPolicy
+  "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
+https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/glossaries/getIamPolicy
+
+resource <> 
+
+optional:
+options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy.Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected.Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset.The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1.To learn which resources support conditions in their IAM policies, see the IAM documentation (https://cloud.google.com/iam/help/conditions/resource-policies)."
+  ([resource]
+    (projects-locations-glossaries-getIamPolicy resource nil))
+  ([resource optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://dataplex.googleapis.com/v1/{+resource}:getIamPolicy",
+       :uri-template-args {"resource" resource},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+
+(defn projects-locations-glossaries-testIamPermissions
+  "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
+https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/glossaries/testIamPermissions
+
+resource <> 
+GoogleIamV1TestIamPermissionsRequest:
+GoogleIamV1TestIamPermissionsRequest"
+  [resource GoogleIamV1TestIamPermissionsRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://dataplex.googleapis.com/v1/{+resource}:testIamPermissions",
+     :uri-template-args {"resource" resource},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleIamV1TestIamPermissionsRequest}))
+
+(defn projects-locations-glossaries-categories-setIamPolicy
+  "Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors.
+https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/glossaries/categories/setIamPolicy
+
+resource <> 
+GoogleIamV1SetIamPolicyRequest:
+GoogleIamV1SetIamPolicyRequest"
+  [resource GoogleIamV1SetIamPolicyRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://dataplex.googleapis.com/v1/{+resource}:setIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleIamV1SetIamPolicyRequest}))
+
+(defn projects-locations-glossaries-categories-getIamPolicy
+  "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
+https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/glossaries/categories/getIamPolicy
+
+resource <> 
+
+optional:
+options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy.Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected.Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset.The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1.To learn which resources support conditions in their IAM policies, see the IAM documentation (https://cloud.google.com/iam/help/conditions/resource-policies)."
+  ([resource]
+    (projects-locations-glossaries-categories-getIamPolicy
+      resource
+      nil))
+  ([resource optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://dataplex.googleapis.com/v1/{+resource}:getIamPolicy",
+       :uri-template-args {"resource" resource},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+
+(defn projects-locations-glossaries-categories-testIamPermissions
+  "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
+https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/glossaries/categories/testIamPermissions
+
+resource <> 
+GoogleIamV1TestIamPermissionsRequest:
+GoogleIamV1TestIamPermissionsRequest"
+  [resource GoogleIamV1TestIamPermissionsRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://dataplex.googleapis.com/v1/{+resource}:testIamPermissions",
+     :uri-template-args {"resource" resource},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleIamV1TestIamPermissionsRequest}))
+
+(defn projects-locations-glossaries-terms-setIamPolicy
+  "Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors.
+https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/glossaries/terms/setIamPolicy
+
+resource <> 
+GoogleIamV1SetIamPolicyRequest:
+GoogleIamV1SetIamPolicyRequest"
+  [resource GoogleIamV1SetIamPolicyRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://dataplex.googleapis.com/v1/{+resource}:setIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleIamV1SetIamPolicyRequest}))
+
+(defn projects-locations-glossaries-terms-getIamPolicy
+  "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
+https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/glossaries/terms/getIamPolicy
+
+resource <> 
+
+optional:
+options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy.Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected.Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset.The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1.To learn which resources support conditions in their IAM policies, see the IAM documentation (https://cloud.google.com/iam/help/conditions/resource-policies)."
+  ([resource]
+    (projects-locations-glossaries-terms-getIamPolicy resource nil))
+  ([resource optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://dataplex.googleapis.com/v1/{+resource}:getIamPolicy",
+       :uri-template-args {"resource" resource},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+
+(defn projects-locations-glossaries-terms-testIamPermissions
+  "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
+https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/glossaries/terms/testIamPermissions
+
+resource <> 
+GoogleIamV1TestIamPermissionsRequest:
+GoogleIamV1TestIamPermissionsRequest"
+  [resource GoogleIamV1TestIamPermissionsRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://dataplex.googleapis.com/v1/{+resource}:testIamPermissions",
+     :uri-template-args {"resource" resource},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleIamV1TestIamPermissionsRequest}))
 
 (defn projects-locations-aspectTypes-create
   "Creates an AspectType.
@@ -802,7 +963,7 @@ validateOnly <boolean> Optional. The service validates the request without perfo
       GoogleCloudDataplexV1AspectType
       nil))
   ([parent GoogleCloudDataplexV1AspectType optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/aspectTypes",
@@ -828,7 +989,7 @@ validateOnly <boolean> Optional. Only validate the request, but do not perform m
       GoogleCloudDataplexV1AspectType
       nil))
   ([name GoogleCloudDataplexV1AspectType optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dataplex.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -846,7 +1007,7 @@ optional:
 etag <string> Optional. If the client provided etag value does not match the current etag value, the DeleteAspectTypeRequest method returns an ABORTED error response."
   ([name] (projects-locations-aspectTypes-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://dataplex.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -865,7 +1026,7 @@ filter <string> Optional. Filter request. Filters are case-sensitive. The servic
 orderBy <string> Optional. Orders the result by name or create_time fields. If not specified, the ordering is undefined."
   ([parent] (projects-locations-aspectTypes-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/aspectTypes",
@@ -879,7 +1040,7 @@ https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/a
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dataplex.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -894,7 +1055,7 @@ resource <>
 GoogleIamV1SetIamPolicyRequest:
 GoogleIamV1SetIamPolicyRequest"
   [resource GoogleIamV1SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataplex.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -914,7 +1075,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-aspectTypes-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -930,7 +1091,7 @@ resource <>
 GoogleIamV1TestIamPermissionsRequest:
 GoogleIamV1TestIamPermissionsRequest"
   [resource GoogleIamV1TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataplex.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -956,7 +1117,7 @@ validateOnly <boolean> Optional. The service validates the request without perfo
       GoogleCloudDataplexV1EntryType
       nil))
   ([parent GoogleCloudDataplexV1EntryType optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/entryTypes",
@@ -982,7 +1143,7 @@ validateOnly <boolean> Optional. The service validates the request without perfo
       GoogleCloudDataplexV1EntryType
       nil))
   ([name GoogleCloudDataplexV1EntryType optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dataplex.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1000,7 +1161,7 @@ optional:
 etag <string> Optional. If the client provided etag value does not match the current etag value, the DeleteEntryTypeRequest method returns an ABORTED error response."
   ([name] (projects-locations-entryTypes-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://dataplex.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1019,7 +1180,7 @@ filter <string> Optional. Filter request. Filters are case-sensitive. The servic
 orderBy <string> Optional. Orders the result by name or create_time fields. If not specified, the ordering is undefined."
   ([parent] (projects-locations-entryTypes-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/entryTypes",
@@ -1033,7 +1194,7 @@ https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/e
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dataplex.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1048,7 +1209,7 @@ resource <>
 GoogleIamV1SetIamPolicyRequest:
 GoogleIamV1SetIamPolicyRequest"
   [resource GoogleIamV1SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataplex.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -1068,7 +1229,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-entryTypes-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -1084,7 +1245,7 @@ resource <>
 GoogleIamV1TestIamPermissionsRequest:
 GoogleIamV1TestIamPermissionsRequest"
   [resource GoogleIamV1TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataplex.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -1092,6 +1253,80 @@ GoogleIamV1TestIamPermissionsRequest"
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/cloud-platform"],
      :body GoogleIamV1TestIamPermissionsRequest}))
+
+(defn projects-locations-metadataJobs-create
+  "Creates a metadata job. For example, use a metadata job to import Dataplex Catalog entries and aspects from a third-party system into Dataplex.
+https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/metadataJobs/create
+
+parent <> 
+GoogleCloudDataplexV1MetadataJob:
+GoogleCloudDataplexV1MetadataJob
+
+optional:
+metadataJobId <string> Optional. The metadata job ID. If not provided, a unique ID is generated with the prefix metadata-job-."
+  ([parent GoogleCloudDataplexV1MetadataJob]
+    (projects-locations-metadataJobs-create
+      parent
+      GoogleCloudDataplexV1MetadataJob
+      nil))
+  ([parent GoogleCloudDataplexV1MetadataJob optional]
+    (client/*api-request*
+      {:method :post,
+       :uri-template
+       "https://dataplex.googleapis.com/v1/{+parent}/metadataJobs",
+       :uri-template-args {"parent" parent},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+       :body GoogleCloudDataplexV1MetadataJob})))
+
+(defn projects-locations-metadataJobs-get
+  "Gets a metadata job.
+https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/metadataJobs/get
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :get,
+     :uri-template "https://dataplex.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+
+(defn projects-locations-metadataJobs-list
+  "Lists metadata jobs.
+https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/metadataJobs/list
+
+parent <> 
+
+optional:
+pageSize <integer> Optional. The maximum number of metadata jobs to return. The service might return fewer jobs than this value. If unspecified, at most 10 jobs are returned. The maximum value is 1,000.
+filter <string> Optional. Filter request. Filters are case-sensitive. The service supports the following formats: labels.key1 = \"value1\" labels:key1 name = \"value\"You can combine filters with AND, OR, and NOT operators.
+orderBy <string> Optional. The field to sort the results by, either name or create_time. If not specified, the ordering is undefined."
+  ([parent] (projects-locations-metadataJobs-list parent nil))
+  ([parent optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://dataplex.googleapis.com/v1/{+parent}/metadataJobs",
+       :uri-template-args {"parent" parent},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+
+(defn projects-locations-metadataJobs-cancel
+  "Cancels a metadata job.If you cancel a metadata import job that is in progress, the changes in the job might be partially applied. We recommend that you reset the state of the entry groups in your project by running another metadata job that reverts the changes from the canceled job.
+https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/metadataJobs/cancel
+
+name <> 
+GoogleCloudDataplexV1CancelMetadataJobRequest:
+GoogleCloudDataplexV1CancelMetadataJobRequest"
+  [name GoogleCloudDataplexV1CancelMetadataJobRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template "https://dataplex.googleapis.com/v1/{+name}:cancel",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDataplexV1CancelMetadataJobRequest}))
 
 (defn projects-locations-lakes-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors.
@@ -1101,7 +1336,7 @@ resource <>
 GoogleIamV1SetIamPolicyRequest:
 GoogleIamV1SetIamPolicyRequest"
   [resource GoogleIamV1SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataplex.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -1120,7 +1355,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy.Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected.Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset.The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1.To learn which resources support conditions in their IAM policies, see the IAM documentation (https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-locations-lakes-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -1136,7 +1371,7 @@ resource <>
 GoogleIamV1TestIamPermissionsRequest:
 GoogleIamV1TestIamPermissionsRequest"
   [resource GoogleIamV1TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataplex.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -1162,7 +1397,7 @@ validateOnly <boolean> Optional. Only validate the request, but do not perform m
       GoogleCloudDataplexV1Lake
       nil))
   ([parent GoogleCloudDataplexV1Lake optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/lakes",
@@ -1188,7 +1423,7 @@ validateOnly <boolean> Optional. Only validate the request, but do not perform m
       GoogleCloudDataplexV1Lake
       nil))
   ([name GoogleCloudDataplexV1Lake optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dataplex.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1202,7 +1437,7 @@ https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://dataplex.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1221,7 +1456,7 @@ filter <string> Optional. Filter request.
 orderBy <string> Optional. Order by fields for the result."
   ([parent] (projects-locations-lakes-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/lakes",
@@ -1235,7 +1470,7 @@ https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dataplex.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1250,7 +1485,7 @@ resource <>
 GoogleIamV1SetIamPolicyRequest:
 GoogleIamV1SetIamPolicyRequest"
   [resource GoogleIamV1SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataplex.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -1270,7 +1505,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-lakes-zones-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -1286,7 +1521,7 @@ resource <>
 GoogleIamV1TestIamPermissionsRequest:
 GoogleIamV1TestIamPermissionsRequest"
   [resource GoogleIamV1TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataplex.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -1312,7 +1547,7 @@ validateOnly <boolean> Optional. Only validate the request, but do not perform m
       GoogleCloudDataplexV1Zone
       nil))
   ([parent GoogleCloudDataplexV1Zone optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/zones",
@@ -1338,7 +1573,7 @@ validateOnly <boolean> Optional. Only validate the request, but do not perform m
       GoogleCloudDataplexV1Zone
       nil))
   ([name GoogleCloudDataplexV1Zone optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dataplex.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1352,7 +1587,7 @@ https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://dataplex.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1371,7 +1606,7 @@ filter <string> Optional. Filter request.
 orderBy <string> Optional. Order by fields for the result."
   ([parent] (projects-locations-lakes-zones-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/zones",
@@ -1385,7 +1620,7 @@ https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dataplex.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1400,7 +1635,7 @@ resource <>
 GoogleIamV1SetIamPolicyRequest:
 GoogleIamV1SetIamPolicyRequest"
   [resource GoogleIamV1SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataplex.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -1420,7 +1655,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-lakes-zones-assets-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -1436,7 +1671,7 @@ resource <>
 GoogleIamV1TestIamPermissionsRequest:
 GoogleIamV1TestIamPermissionsRequest"
   [resource GoogleIamV1TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataplex.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -1462,7 +1697,7 @@ validateOnly <boolean> Optional. Only validate the request, but do not perform m
       GoogleCloudDataplexV1Asset
       nil))
   ([parent GoogleCloudDataplexV1Asset optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/assets",
@@ -1488,7 +1723,7 @@ validateOnly <boolean> Optional. Only validate the request, but do not perform m
       GoogleCloudDataplexV1Asset
       nil))
   ([name GoogleCloudDataplexV1Asset optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dataplex.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1502,7 +1737,7 @@ https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://dataplex.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1521,7 +1756,7 @@ filter <string> Optional. Filter request.
 orderBy <string> Optional. Order by fields for the result."
   ([parent] (projects-locations-lakes-zones-assets-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/assets",
@@ -1535,7 +1770,7 @@ https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dataplex.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1553,7 +1788,7 @@ pageSize <integer> Optional. Maximum number of actions to return. The service ma
   ([parent]
     (projects-locations-lakes-zones-assets-actions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/actions",
@@ -1577,7 +1812,7 @@ validateOnly <boolean> Optional. Only validate the request, but do not perform m
       GoogleCloudDataplexV1Entity
       nil))
   ([parent GoogleCloudDataplexV1Entity optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/entities",
@@ -1602,7 +1837,7 @@ validateOnly <boolean> Optional. Only validate the request, but do not perform m
       GoogleCloudDataplexV1Entity
       nil))
   ([name GoogleCloudDataplexV1Entity optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template "https://dataplex.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1620,7 +1855,7 @@ optional:
 etag <string> Required. The etag associated with the entity, which can be retrieved with a GetEntity request."
   ([name] (projects-locations-lakes-zones-entities-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://dataplex.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1637,7 +1872,7 @@ optional:
 view <string> Optional. Used to select the subset of entity information to return. Defaults to BASIC."
   ([name] (projects-locations-lakes-zones-entities-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://dataplex.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1656,7 +1891,7 @@ pageSize <integer> Optional. Maximum number of entities to return. The service m
 filter <string> Optional. The following filter parameters can be added to the URL to limit the entities returned by the API: Entity ID: ?filter=\"id=entityID\" Asset ID: ?filter=\"asset=assetID\" Data path ?filter=\"data_path=gs://my-bucket\" Is HIVE compatible: ?filter=\"hive_compatible=true\" Is BigQuery compatible: ?filter=\"bigquery_compatible=true\""
   ([parent] (projects-locations-lakes-zones-entities-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/entities",
@@ -1680,7 +1915,7 @@ validateOnly <boolean> Optional. Only validate the request, but do not perform m
       GoogleCloudDataplexV1Partition
       nil))
   ([parent GoogleCloudDataplexV1Partition optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/partitions",
@@ -1702,7 +1937,7 @@ etag <string> Optional. The etag associated with the partition."
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://dataplex.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1715,7 +1950,7 @@ https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dataplex.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1736,7 +1971,7 @@ filter <string> Optional. Filter the partitions returned to the caller using a k
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/partitions",
@@ -1754,7 +1989,7 @@ optional:
 pageSize <integer> Optional. Maximum number of actions to return. The service may return fewer than this value. If unspecified, at most 10 actions will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (projects-locations-lakes-zones-actions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/actions",
@@ -1774,7 +2009,7 @@ filter <string> Optional. Filter request.
 orderBy <string> Optional. Order by fields for the result."
   ([parent] (projects-locations-lakes-tasks-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/tasks",
@@ -1790,7 +2025,7 @@ resource <>
 GoogleIamV1SetIamPolicyRequest:
 GoogleIamV1SetIamPolicyRequest"
   [resource GoogleIamV1SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataplex.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -1805,7 +2040,7 @@ https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://dataplex.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1820,7 +2055,7 @@ name <>
 GoogleCloudDataplexV1RunTaskRequest:
 GoogleCloudDataplexV1RunTaskRequest"
   [name GoogleCloudDataplexV1RunTaskRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://dataplex.googleapis.com/v1/{+name}:run",
      :uri-template-args {"name" name},
@@ -1845,7 +2080,7 @@ validateOnly <boolean> Optional. Only validate the request, but do not perform m
       GoogleCloudDataplexV1Task
       nil))
   ([name GoogleCloudDataplexV1Task optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dataplex.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1864,7 +2099,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-lakes-tasks-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -1889,7 +2124,7 @@ validateOnly <boolean> Optional. Only validate the request, but do not perform m
       GoogleCloudDataplexV1Task
       nil))
   ([parent GoogleCloudDataplexV1Task optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/tasks",
@@ -1904,7 +2139,7 @@ https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dataplex.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1919,7 +2154,7 @@ resource <>
 GoogleIamV1TestIamPermissionsRequest:
 GoogleIamV1TestIamPermissionsRequest"
   [resource GoogleIamV1TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataplex.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -1938,7 +2173,7 @@ optional:
 pageSize <integer> Optional. Maximum number of jobs to return. The service may return fewer than this value. If unspecified, at most 10 jobs will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (projects-locations-lakes-tasks-jobs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/jobs",
@@ -1952,7 +2187,7 @@ https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dataplex.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1967,7 +2202,7 @@ name <>
 GoogleCloudDataplexV1CancelJobRequest:
 GoogleCloudDataplexV1CancelJobRequest"
   [name GoogleCloudDataplexV1CancelJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://dataplex.googleapis.com/v1/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -1983,7 +2218,7 @@ resource <>
 GoogleIamV1SetIamPolicyRequest:
 GoogleIamV1SetIamPolicyRequest"
   [resource GoogleIamV1SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataplex.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -2003,7 +2238,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-lakes-environments-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -2019,7 +2254,7 @@ resource <>
 GoogleIamV1TestIamPermissionsRequest:
 GoogleIamV1TestIamPermissionsRequest"
   [resource GoogleIamV1TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataplex.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -2045,7 +2280,7 @@ validateOnly <boolean> Optional. Only validate the request, but do not perform m
       GoogleCloudDataplexV1Environment
       nil))
   ([parent GoogleCloudDataplexV1Environment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/environments",
@@ -2071,7 +2306,7 @@ validateOnly <boolean> Optional. Only validate the request, but do not perform m
       GoogleCloudDataplexV1Environment
       nil))
   ([name GoogleCloudDataplexV1Environment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dataplex.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -2085,7 +2320,7 @@ https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://dataplex.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2104,7 +2339,7 @@ filter <string> Optional. Filter request.
 orderBy <string> Optional. Order by fields for the result."
   ([parent] (projects-locations-lakes-environments-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/environments",
@@ -2118,7 +2353,7 @@ https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dataplex.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2137,7 +2372,7 @@ filter <string> Optional. Filter request. The following mode filter is supported
   ([parent]
     (projects-locations-lakes-environments-sessions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/sessions",
@@ -2161,7 +2396,7 @@ validateOnly <boolean> Optional. Only validate the request, but do not perform m
       GoogleCloudDataplexV1Content
       nil))
   ([parent GoogleCloudDataplexV1Content optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/contentitems",
@@ -2187,7 +2422,7 @@ validateOnly <boolean> Optional. Only validate the request, but do not perform m
       GoogleCloudDataplexV1Content
       nil))
   ([name GoogleCloudDataplexV1Content optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dataplex.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -2201,7 +2436,7 @@ https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://dataplex.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2218,7 +2453,7 @@ optional:
 view <string> Optional. Specify content view to make a partial request."
   ([name] (projects-locations-lakes-contentitems-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://dataplex.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -2236,7 +2471,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-lakes-contentitems-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -2252,7 +2487,7 @@ resource <>
 GoogleIamV1SetIamPolicyRequest:
 GoogleIamV1SetIamPolicyRequest"
   [resource GoogleIamV1SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataplex.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -2269,7 +2504,7 @@ resource <>
 GoogleIamV1TestIamPermissionsRequest:
 GoogleIamV1TestIamPermissionsRequest"
   [resource GoogleIamV1TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataplex.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -2289,7 +2524,7 @@ pageSize <integer> Optional. Maximum number of content to return. The service ma
 filter <string> Optional. Filter request. Filters are case-sensitive. The following formats are supported:labels.key1 = \"value1\" labels:key1 type = \"NOTEBOOK\" type = \"SQL_SCRIPT\"These restrictions can be coinjoined with AND, OR and NOT conjunctions."
   ([parent] (projects-locations-lakes-contentitems-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/contentitems",
@@ -2313,7 +2548,7 @@ validateOnly <boolean> Optional. Only validate the request, but do not perform m
       GoogleCloudDataplexV1Content
       nil))
   ([parent GoogleCloudDataplexV1Content optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/content",
@@ -2339,7 +2574,7 @@ validateOnly <boolean> Optional. Only validate the request, but do not perform m
       GoogleCloudDataplexV1Content
       nil))
   ([name GoogleCloudDataplexV1Content optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dataplex.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -2353,7 +2588,7 @@ https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://dataplex.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2370,7 +2605,7 @@ optional:
 view <string> Optional. Specify content view to make a partial request."
   ([name] (projects-locations-lakes-content-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://dataplex.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -2388,7 +2623,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-lakes-content-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -2404,7 +2639,7 @@ resource <>
 GoogleIamV1SetIamPolicyRequest:
 GoogleIamV1SetIamPolicyRequest"
   [resource GoogleIamV1SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataplex.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -2421,7 +2656,7 @@ resource <>
 GoogleIamV1TestIamPermissionsRequest:
 GoogleIamV1TestIamPermissionsRequest"
   [resource GoogleIamV1TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataplex.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -2441,7 +2676,7 @@ pageSize <integer> Optional. Maximum number of content to return. The service ma
 filter <string> Optional. Filter request. Filters are case-sensitive. The following formats are supported:labels.key1 = \"value1\" labels:key1 type = \"NOTEBOOK\" type = \"SQL_SCRIPT\"These restrictions can be coinjoined with AND, OR and NOT conjunctions."
   ([parent] (projects-locations-lakes-content-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/content",
@@ -2459,7 +2694,7 @@ optional:
 pageSize <integer> Optional. Maximum number of actions to return. The service may return fewer than this value. If unspecified, at most 10 actions will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (projects-locations-lakes-actions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/actions",
@@ -2475,7 +2710,7 @@ resource <>
 GoogleIamV1SetIamPolicyRequest:
 GoogleIamV1SetIamPolicyRequest"
   [resource GoogleIamV1SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataplex.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -2495,7 +2730,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-governanceRules-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -2511,7 +2746,60 @@ resource <>
 GoogleIamV1TestIamPermissionsRequest:
 GoogleIamV1TestIamPermissionsRequest"
   [resource GoogleIamV1TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://dataplex.googleapis.com/v1/{+resource}:testIamPermissions",
+     :uri-template-args {"resource" resource},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleIamV1TestIamPermissionsRequest}))
+
+(defn projects-locations-entryLinkTypes-setIamPolicy
+  "Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors.
+https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/entryLinkTypes/setIamPolicy
+
+resource <> 
+GoogleIamV1SetIamPolicyRequest:
+GoogleIamV1SetIamPolicyRequest"
+  [resource GoogleIamV1SetIamPolicyRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://dataplex.googleapis.com/v1/{+resource}:setIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleIamV1SetIamPolicyRequest}))
+
+(defn projects-locations-entryLinkTypes-getIamPolicy
+  "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
+https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/entryLinkTypes/getIamPolicy
+
+resource <> 
+
+optional:
+options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy.Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected.Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset.The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1.To learn which resources support conditions in their IAM policies, see the IAM documentation (https://cloud.google.com/iam/help/conditions/resource-policies)."
+  ([resource]
+    (projects-locations-entryLinkTypes-getIamPolicy resource nil))
+  ([resource optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://dataplex.googleapis.com/v1/{+resource}:getIamPolicy",
+       :uri-template-args {"resource" resource},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+
+(defn projects-locations-entryLinkTypes-testIamPermissions
+  "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
+https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/entryLinkTypes/testIamPermissions
+
+resource <> 
+GoogleIamV1TestIamPermissionsRequest:
+GoogleIamV1TestIamPermissionsRequest"
+  [resource GoogleIamV1TestIamPermissionsRequest]
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataplex.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -2537,7 +2825,7 @@ validateOnly <boolean> Optional. The service validates the request without perfo
       GoogleCloudDataplexV1EntryGroup
       nil))
   ([parent GoogleCloudDataplexV1EntryGroup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/entryGroups",
@@ -2563,7 +2851,7 @@ validateOnly <boolean> Optional. The service validates the request, without perf
       GoogleCloudDataplexV1EntryGroup
       nil))
   ([name GoogleCloudDataplexV1EntryGroup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dataplex.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -2581,7 +2869,7 @@ optional:
 etag <string> Optional. If the client provided etag value does not match the current etag value, the DeleteEntryGroupRequest method returns an ABORTED error response."
   ([name] (projects-locations-entryGroups-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://dataplex.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -2600,7 +2888,7 @@ filter <string> Optional. Filter request.
 orderBy <string> Optional. Order by fields for the result."
   ([parent] (projects-locations-entryGroups-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/entryGroups",
@@ -2614,7 +2902,7 @@ https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/e
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dataplex.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2629,7 +2917,7 @@ resource <>
 GoogleIamV1SetIamPolicyRequest:
 GoogleIamV1SetIamPolicyRequest"
   [resource GoogleIamV1SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataplex.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -2649,7 +2937,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-entryGroups-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -2665,7 +2953,7 @@ resource <>
 GoogleIamV1TestIamPermissionsRequest:
 GoogleIamV1TestIamPermissionsRequest"
   [resource GoogleIamV1TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataplex.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -2690,7 +2978,7 @@ entryId <string> Required. Entry identifier. It has to be unique within an Entry
       GoogleCloudDataplexV1Entry
       nil))
   ([parent GoogleCloudDataplexV1Entry optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/entries",
@@ -2718,7 +3006,7 @@ aspectKeys <string> Optional. The map keys of the Aspects which the service shou
       GoogleCloudDataplexV1Entry
       nil))
   ([name GoogleCloudDataplexV1Entry optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dataplex.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -2732,7 +3020,7 @@ https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/e
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://dataplex.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2750,7 +3038,7 @@ pageSize <integer> Optional. Number of items to return per page. If there are re
 filter <string> Optional. A filter on the entries to return. Filters are case-sensitive. You can filter the request by the following fields: entry_type entry_source.display_nameThe comparison operators are =, !=, <, >, <=, >=. The service compares strings according to lexical order.You can use the logical operators AND, OR, NOT in the filter.You can use Wildcard \"*\", but for entry_type you need to provide the full project id or number.Example filter expressions: \"entry_source.display_name=AnExampleDisplayName\" \"entry_type=projects/example-project/locations/global/entryTypes/example-entry_type\" \"entry_type=projects/example-project/locations/us/entryTypes/a* OR entry_type=projects/another-project/locations/*\" \"NOT entry_source.display_name=AnotherExampleDisplayName\""
   ([parent] (projects-locations-entryGroups-entries-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+parent}/entries",
@@ -2770,7 +3058,7 @@ aspectTypes <string> Optional. Limits the aspects returned to the provided aspec
 paths <string> Optional. Limits the aspects returned to those associated with the provided paths within the Entry. It only works for CUSTOM view."
   ([name] (projects-locations-entryGroups-entries-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://dataplex.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -2788,7 +3076,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataplex.googleapis.com/v1/{+name}/operations",
@@ -2802,7 +3090,7 @@ https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/o
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dataplex.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2815,7 +3103,7 @@ https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/projects/locations/o
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://dataplex.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2830,10 +3118,125 @@ name <>
 GoogleLongrunningCancelOperationRequest:
 GoogleLongrunningCancelOperationRequest"
   [name GoogleLongrunningCancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://dataplex.googleapis.com/v1/{+name}:cancel",
      :uri-template-args {"name" name},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/cloud-platform"],
      :body GoogleLongrunningCancelOperationRequest}))
+
+(defn organizations-locations-operations-listOperations
+  "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns UNIMPLEMENTED.
+https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/organizations/locations/operations/listOperations
+
+name <> 
+
+optional:
+filter <string> The standard list filter.
+pageSize <integer> The standard list page size."
+  ([name] (organizations-locations-operations-listOperations name nil))
+  ([name optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template "https://dataplex.googleapis.com/v1/{+name}",
+       :uri-template-args {"name" name},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+
+(defn organizations-locations-operations-get
+  "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
+https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/organizations/locations/operations/get
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :get,
+     :uri-template "https://dataplex.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+
+(defn organizations-locations-operations-delete
+  "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED.
+https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/organizations/locations/operations/delete
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :delete,
+     :uri-template "https://dataplex.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+
+(defn organizations-locations-operations-cancel
+  "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
+https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/organizations/locations/operations/cancel
+
+name <> 
+GoogleLongrunningCancelOperationRequest:
+GoogleLongrunningCancelOperationRequest"
+  [name GoogleLongrunningCancelOperationRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template "https://dataplex.googleapis.com/v1/{+name}:cancel",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleLongrunningCancelOperationRequest}))
+
+(defn organizations-locations-encryptionConfigs-setIamPolicy
+  "Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors.
+https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/organizations/locations/encryptionConfigs/setIamPolicy
+
+resource <> 
+GoogleIamV1SetIamPolicyRequest:
+GoogleIamV1SetIamPolicyRequest"
+  [resource GoogleIamV1SetIamPolicyRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://dataplex.googleapis.com/v1/{+resource}:setIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleIamV1SetIamPolicyRequest}))
+
+(defn organizations-locations-encryptionConfigs-getIamPolicy
+  "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
+https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/organizations/locations/encryptionConfigs/getIamPolicy
+
+resource <> 
+
+optional:
+options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy.Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected.Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset.The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1.To learn which resources support conditions in their IAM policies, see the IAM documentation (https://cloud.google.com/iam/help/conditions/resource-policies)."
+  ([resource]
+    (organizations-locations-encryptionConfigs-getIamPolicy
+      resource
+      nil))
+  ([resource optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://dataplex.googleapis.com/v1/{+resource}:getIamPolicy",
+       :uri-template-args {"resource" resource},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+
+(defn organizations-locations-encryptionConfigs-testIamPermissions
+  "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
+https://cloud.google.com/dataplex/docs/v1/reference/rest/v1/organizations/locations/encryptionConfigs/testIamPermissions
+
+resource <> 
+GoogleIamV1TestIamPermissionsRequest:
+GoogleIamV1TestIamPermissionsRequest"
+  [resource GoogleIamV1TestIamPermissionsRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://dataplex.googleapis.com/v1/{+resource}:testIamPermissions",
+     :uri-template-args {"resource" resource},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleIamV1TestIamPermissionsRequest}))

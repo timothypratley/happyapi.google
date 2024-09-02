@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkebackup.googleapis.com/v1/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/v1/referen
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -47,7 +47,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkebackup.googleapis.com/v1/{+name}/operations",
@@ -61,7 +61,7 @@ https://cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/v1/referen
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -74,7 +74,7 @@ https://cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/v1/referen
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -89,7 +89,7 @@ name <>
 GoogleLongrunningCancelOperationRequest:
 GoogleLongrunningCancelOperationRequest"
   [name GoogleLongrunningCancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gkebackup.googleapis.com/v1/{+name}:cancel",
@@ -111,7 +111,7 @@ backupPlanId <string> Required. The client-provided short name for the BackupPla
   ([parent BackupPlan]
     (projects-locations-backupPlans-create parent BackupPlan nil))
   ([parent BackupPlan optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://gkebackup.googleapis.com/v1/{+parent}/backupPlans",
@@ -132,7 +132,7 @@ filter <string> Optional. Field match expression used to filter the results.
 orderBy <string> Optional. Field by which to sort the results."
   ([parent] (projects-locations-backupPlans-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkebackup.googleapis.com/v1/{+parent}/backupPlans",
@@ -146,7 +146,7 @@ https://cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/v1/referen
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -166,7 +166,7 @@ updateMask <string> Optional. This is used to specify the fields to be overwritt
   ([name BackupPlan]
     (projects-locations-backupPlans-patch name BackupPlan nil))
   ([name BackupPlan optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -184,7 +184,7 @@ optional:
 etag <string> Optional. If provided, this value must match the current value of the target BackupPlan's etag field or the request is rejected."
   ([name] (projects-locations-backupPlans-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -199,7 +199,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gkebackup.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -219,7 +219,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-backupPlans-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkebackup.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -235,7 +235,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gkebackup.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -256,7 +256,7 @@ filter <string> Optional. Field match expression used to filter the results.
 orderBy <string> Optional. Field by which to sort the results."
   ([parent] (projects-locations-backupPlans-backups-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkebackup.googleapis.com/v1/{+parent}/backups",
@@ -272,7 +272,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gkebackup.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -292,7 +292,7 @@ etag <string> Optional. If provided, this value must match the current value of 
 force <boolean> Optional. If set to true, any VolumeBackups below this Backup will also be deleted. Otherwise, the request will only succeed if the Backup has no VolumeBackups."
   ([name] (projects-locations-backupPlans-backups-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -312,7 +312,7 @@ updateMask <string> Optional. This is used to specify the fields to be overwritt
   ([name Backup]
     (projects-locations-backupPlans-backups-patch name Backup nil))
   ([name Backup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -331,7 +331,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-backupPlans-backups-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkebackup.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -345,7 +345,7 @@ https://cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/v1/referen
 
 backup <> "
   [backup]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://gkebackup.googleapis.com/v1/{+backup}:getBackupIndexDownloadUrl",
@@ -366,7 +366,7 @@ backupId <string> Optional. The client-provided short name for the Backup resour
   ([parent Backup]
     (projects-locations-backupPlans-backups-create parent Backup nil))
   ([parent Backup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://gkebackup.googleapis.com/v1/{+parent}/backups",
@@ -381,7 +381,7 @@ https://cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/v1/referen
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -396,7 +396,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gkebackup.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -420,7 +420,7 @@ orderBy <string> Optional. Field by which to sort the results."
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkebackup.googleapis.com/v1/{+parent}/volumeBackups",
@@ -434,7 +434,7 @@ https://cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/v1/referen
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -449,7 +449,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gkebackup.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -471,7 +471,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkebackup.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -487,7 +487,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gkebackup.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -509,7 +509,7 @@ restorePlanId <string> Required. The client-provided short name for the RestoreP
   ([parent RestorePlan]
     (projects-locations-restorePlans-create parent RestorePlan nil))
   ([parent RestorePlan optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://gkebackup.googleapis.com/v1/{+parent}/restorePlans",
@@ -530,7 +530,7 @@ filter <string> Optional. Field match expression used to filter the results.
 orderBy <string> Optional. Field by which to sort the results."
   ([parent] (projects-locations-restorePlans-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkebackup.googleapis.com/v1/{+parent}/restorePlans",
@@ -544,7 +544,7 @@ https://cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/v1/referen
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -564,7 +564,7 @@ updateMask <string> Optional. This is used to specify the fields to be overwritt
   ([name RestorePlan]
     (projects-locations-restorePlans-patch name RestorePlan nil))
   ([name RestorePlan optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -583,7 +583,7 @@ etag <string> Optional. If provided, this value must match the current value of 
 force <boolean> Optional. If set to true, any Restores below this RestorePlan will also be deleted. Otherwise, the request will only succeed if the RestorePlan has no Restores."
   ([name] (projects-locations-restorePlans-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -598,7 +598,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gkebackup.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -618,7 +618,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-restorePlans-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkebackup.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -634,7 +634,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gkebackup.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -659,7 +659,7 @@ restoreId <string> Required. The client-provided short name for the Restore reso
       Restore
       nil))
   ([parent Restore optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://gkebackup.googleapis.com/v1/{+parent}/restores",
@@ -680,7 +680,7 @@ filter <string> Optional. Field match expression used to filter the results.
 orderBy <string> Optional. Field by which to sort the results."
   ([parent] (projects-locations-restorePlans-restores-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkebackup.googleapis.com/v1/{+parent}/restores",
@@ -694,7 +694,7 @@ https://cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/v1/referen
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -714,7 +714,7 @@ updateMask <string> Optional. This is used to specify the fields to be overwritt
   ([name Restore]
     (projects-locations-restorePlans-restores-patch name Restore nil))
   ([name Restore optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -733,7 +733,7 @@ etag <string> Optional. If provided, this value must match the current value of 
 force <boolean> Optional. If set to true, any VolumeRestores below this restore will also be deleted. Otherwise, the request will only succeed if the restore has no VolumeRestores."
   ([name] (projects-locations-restorePlans-restores-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -748,7 +748,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gkebackup.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -770,7 +770,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkebackup.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -786,7 +786,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gkebackup.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -810,7 +810,7 @@ orderBy <string> Optional. Field by which to sort the results."
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkebackup.googleapis.com/v1/{+parent}/volumeRestores",
@@ -824,7 +824,7 @@ https://cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/v1/referen
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -839,7 +839,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gkebackup.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -861,7 +861,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkebackup.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -877,7 +877,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gkebackup.googleapis.com/v1/{+resource}:testIamPermissions",

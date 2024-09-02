@@ -14,7 +14,7 @@ pageSize <integer> Optional. How many action types to include per page. Default 
 filter <string> Optional. A filter constraining the place action types to return metadata for. The response includes entries that match the filter. We support only the following filters: 1. location=XYZ where XYZ is a string indicating the resource name of a location, in the format `locations/{location_id}`. 2. region_code=XYZ where XYZ is a Unicode CLDR region code to find available action types. If no filter is provided, all place action types are returned."
   ([] (placeActionTypeMetadata-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://mybusinessplaceactions.googleapis.com/v1/placeActionTypeMetadata",
@@ -33,7 +33,7 @@ filter <string> Optional. A filter constraining the place action links to return
 pageSize <integer> Optional. How many place action links to return per page. Default of 10. The minimum is 1."
   ([parent] (locations-placeActionLinks-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://mybusinessplaceactions.googleapis.com/v1/{+parent}/placeActionLinks",
@@ -47,7 +47,7 @@ https://developers.google.com/my-business/v1/reference/rest/v1/locations/placeAc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://mybusinessplaceactions.googleapis.com/v1/{+name}",
@@ -63,7 +63,7 @@ parent <>
 PlaceActionLink:
 PlaceActionLink"
   [parent PlaceActionLink]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://mybusinessplaceactions.googleapis.com/v1/{+parent}/placeActionLinks",
@@ -85,7 +85,7 @@ updateMask <string> Required. The specific fields to update. The only editable f
   ([name PlaceActionLink]
     (locations-placeActionLinks-patch name PlaceActionLink nil))
   ([name PlaceActionLink optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://mybusinessplaceactions.googleapis.com/v1/{+name}",
@@ -100,7 +100,7 @@ https://developers.google.com/my-business/v1/reference/rest/v1/locations/placeAc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://mybusinessplaceactions.googleapis.com/v1/{+name}",

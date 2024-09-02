@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudtasks.googleapis.com/v2/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/tasks/v2/reference/rest/v2/projects/locations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudtasks.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -49,7 +49,7 @@ updateMask <string> List of fields to be updated in this request."
   ([name CmekConfig]
     (projects-locations-updateCmekConfig name CmekConfig nil))
   ([name CmekConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://cloudtasks.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -63,7 +63,7 @@ https://cloud.google.com/tasks/v2/reference/rest/v2/projects/locations/getCmekCo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudtasks.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -81,7 +81,7 @@ filter <string> `filter` can be used to specify a subset of queues. Any Queue fi
 pageSize <integer> Requested page size. The maximum page size is 9800. If unspecified, the page size will be the maximum. Fewer queues than requested might be returned, even if more queues exist; use the next_page_token in the response to determine if more queues exist."
   ([parent] (projects-locations-queues-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudtasks.googleapis.com/v2/{+parent}/queues",
@@ -97,7 +97,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudtasks.googleapis.com/v2/{+resource}:setIamPolicy",
@@ -112,7 +112,7 @@ https://cloud.google.com/tasks/v2/reference/rest/v2/projects/locations/queues/de
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://cloudtasks.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -127,7 +127,7 @@ name <>
 PurgeQueueRequest:
 PurgeQueueRequest"
   [name PurgeQueueRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudtasks.googleapis.com/v2/{+name}:purge",
@@ -144,7 +144,7 @@ name <>
 PauseQueueRequest:
 PauseQueueRequest"
   [name PauseQueueRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudtasks.googleapis.com/v2/{+name}:pause",
@@ -165,7 +165,7 @@ optional:
 updateMask <string> A mask used to specify which fields of the queue are being updated. If empty, then all fields will be updated."
   ([name Queue] (projects-locations-queues-patch name Queue nil))
   ([name Queue optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://cloudtasks.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -181,7 +181,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudtasks.googleapis.com/v2/{+resource}:getIamPolicy",
@@ -198,7 +198,7 @@ parent <>
 Queue:
 Queue"
   [parent Queue]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudtasks.googleapis.com/v2/{+parent}/queues",
@@ -213,7 +213,7 @@ https://cloud.google.com/tasks/v2/reference/rest/v2/projects/locations/queues/ge
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudtasks.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -228,7 +228,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudtasks.googleapis.com/v2/{+resource}:testIamPermissions",
@@ -245,7 +245,7 @@ name <>
 ResumeQueueRequest:
 ResumeQueueRequest"
   [name ResumeQueueRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudtasks.googleapis.com/v2/{+name}:resume",
@@ -265,7 +265,7 @@ responseView <string> The response_view specifies which subset of the Task will 
 pageSize <integer> Maximum page size. Fewer tasks than requested might be returned, even if more tasks exist; use next_page_token in the response to determine if more tasks exist. The maximum page size is 1000. If unspecified, the page size will be the maximum."
   ([parent] (projects-locations-queues-tasks-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudtasks.googleapis.com/v2/{+parent}/tasks",
@@ -283,7 +283,7 @@ optional:
 responseView <string> The response_view specifies which subset of the Task will be returned. By default response_view is BASIC; not all information is retrieved by default because some data, such as payloads, might be desirable to return only when needed because of its large size or because of the sensitivity of data that it contains. Authorization for FULL requires `cloudtasks.tasks.fullView` [Google IAM](https://cloud.google.com/iam/) permission on the Task resource."
   ([name] (projects-locations-queues-tasks-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://cloudtasks.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -298,7 +298,7 @@ parent <>
 CreateTaskRequest:
 CreateTaskRequest"
   [parent CreateTaskRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudtasks.googleapis.com/v2/{+parent}/tasks",
@@ -313,7 +313,7 @@ https://cloud.google.com/tasks/v2/reference/rest/v2/projects/locations/queues/ta
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://cloudtasks.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -328,7 +328,7 @@ name <>
 RunTaskRequest:
 RunTaskRequest"
   [name RunTaskRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://cloudtasks.googleapis.com/v2/{+name}:run",
      :uri-template-args {"name" name},
@@ -345,7 +345,7 @@ taskId <>
 BufferTaskRequest:
 BufferTaskRequest"
   [queue taskId BufferTaskRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudtasks.googleapis.com/v2/{+queue}/tasks/{taskId}:buffer",

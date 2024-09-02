@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://developerconnect.googleapis.com/v1/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/developer-connect/docs/overview/v1/reference/rest/v1/pr
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://developerconnect.googleapis.com/v1/{+name}",
@@ -48,7 +48,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://developerconnect.googleapis.com/v1/{+name}/operations",
@@ -62,7 +62,7 @@ https://cloud.google.com/developer-connect/docs/overview/v1/reference/rest/v1/pr
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://developerconnect.googleapis.com/v1/{+name}",
@@ -76,7 +76,7 @@ https://cloud.google.com/developer-connect/docs/overview/v1/reference/rest/v1/pr
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://developerconnect.googleapis.com/v1/{+name}",
@@ -92,7 +92,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://developerconnect.googleapis.com/v1/{+name}:cancel",
@@ -113,7 +113,7 @@ filter <string> Optional. Filtering results
 orderBy <string> Optional. Hint for how to order the results"
   ([parent] (projects-locations-connections-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://developerconnect.googleapis.com/v1/{+parent}/connections",
@@ -127,7 +127,7 @@ https://cloud.google.com/developer-connect/docs/overview/v1/reference/rest/v1/pr
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://developerconnect.googleapis.com/v1/{+name}",
@@ -150,7 +150,7 @@ validateOnly <boolean> Optional. If set, validate the request, but do not actual
   ([parent Connection]
     (projects-locations-connections-create parent Connection nil))
   ([parent Connection optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://developerconnect.googleapis.com/v1/{+parent}/connections",
@@ -175,7 +175,7 @@ validateOnly <boolean> Optional. If set, validate the request, but do not actual
   ([name Connection]
     (projects-locations-connections-patch name Connection nil))
   ([name Connection optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://developerconnect.googleapis.com/v1/{+name}",
@@ -196,7 +196,7 @@ validateOnly <boolean> Optional. If set, validate the request, but do not actual
 etag <string> Optional. The current etag of the Connection. If an etag is provided and does not match the current etag of the Connection, deletion will be blocked and an ABORTED error will be returned."
   ([name] (projects-locations-connections-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://developerconnect.googleapis.com/v1/{+name}",
@@ -217,7 +217,7 @@ pageSize <integer> Optional. Number of results to return in the list. Defaults t
       connection
       nil))
   ([connection optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://developerconnect.googleapis.com/v1/{+connection}:fetchLinkableGitRepositories",
@@ -231,7 +231,7 @@ https://cloud.google.com/developer-connect/docs/overview/v1/reference/rest/v1/pr
 
 connection <> "
   [connection]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://developerconnect.googleapis.com/v1/{+connection}:fetchGitHubInstallations",
@@ -257,7 +257,7 @@ validateOnly <boolean> Optional. If set, validate the request, but do not actual
       GitRepositoryLink
       nil))
   ([parent GitRepositoryLink optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://developerconnect.googleapis.com/v1/{+parent}/gitRepositoryLinks",
@@ -281,7 +281,7 @@ etag <string> Optional. This checksum is computed by the server based on the val
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://developerconnect.googleapis.com/v1/{+name}",
@@ -304,7 +304,7 @@ orderBy <string> Optional. Hint for how to order the results"
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://developerconnect.googleapis.com/v1/{+parent}/gitRepositoryLinks",
@@ -318,7 +318,7 @@ https://cloud.google.com/developer-connect/docs/overview/v1/reference/rest/v1/pr
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://developerconnect.googleapis.com/v1/{+name}",
@@ -334,7 +334,7 @@ gitRepositoryLink <>
 FetchReadWriteTokenRequest:
 FetchReadWriteTokenRequest"
   [gitRepositoryLink FetchReadWriteTokenRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://developerconnect.googleapis.com/v1/{+gitRepositoryLink}:fetchReadWriteToken",
@@ -351,7 +351,7 @@ gitRepositoryLink <>
 FetchReadTokenRequest:
 FetchReadTokenRequest"
   [gitRepositoryLink FetchReadTokenRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://developerconnect.googleapis.com/v1/{+gitRepositoryLink}:fetchReadToken",
@@ -374,7 +374,7 @@ pageSize <integer> Optional. Number of results to return in the list. Default to
       gitRepositoryLink
       nil))
   ([gitRepositoryLink optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://developerconnect.googleapis.com/v1/{+gitRepositoryLink}:fetchGitRefs",

@@ -15,7 +15,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://vision.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -30,7 +30,7 @@ https://cloud.google.com/vision/v1/reference/rest/v1/operations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vision.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -45,7 +45,7 @@ https://cloud.google.com/vision/v1/reference/rest/v1/operations/delete
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://vision.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -62,7 +62,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://vision.googleapis.com/v1/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -78,7 +78,7 @@ https://cloud.google.com/vision/v1/reference/rest/v1/projects/operations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vision.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -93,7 +93,7 @@ https://cloud.google.com/vision/v1/reference/rest/v1/projects/locations/operatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vision.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -115,7 +115,7 @@ productSetId <string> A user-supplied resource id for this ProductSet. If set, t
   ([parent ProductSet]
     (projects-locations-productSets-create parent ProductSet nil))
   ([parent ProductSet optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://vision.googleapis.com/v1/{+parent}/productSets",
@@ -136,7 +136,7 @@ optional:
 pageSize <integer> The maximum number of items to return. Default 10, maximum 100."
   ([parent] (projects-locations-productSets-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vision.googleapis.com/v1/{+parent}/productSets",
@@ -152,7 +152,7 @@ https://cloud.google.com/vision/v1/reference/rest/v1/projects/locations/productS
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vision.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -174,7 +174,7 @@ updateMask <string> The FieldMask that specifies which fields to update. If upda
   ([name ProductSet]
     (projects-locations-productSets-patch name ProductSet nil))
   ([name ProductSet optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://vision.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -190,7 +190,7 @@ https://cloud.google.com/vision/v1/reference/rest/v1/projects/locations/productS
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://vision.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -207,7 +207,7 @@ name <>
 AddProductToProductSetRequest:
 AddProductToProductSetRequest"
   [name AddProductToProductSetRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vision.googleapis.com/v1/{+name}:addProduct",
@@ -226,7 +226,7 @@ name <>
 RemoveProductFromProductSetRequest:
 RemoveProductFromProductSetRequest"
   [name RemoveProductFromProductSetRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vision.googleapis.com/v1/{+name}:removeProduct",
@@ -245,7 +245,7 @@ parent <>
 ImportProductSetsRequest:
 ImportProductSetsRequest"
   [parent ImportProductSetsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vision.googleapis.com/v1/{+parent}/productSets:import",
@@ -266,7 +266,7 @@ optional:
 pageSize <integer> The maximum number of items to return. Default 10, maximum 100."
   ([name] (projects-locations-productSets-products-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vision.googleapis.com/v1/{+name}/products",
@@ -289,7 +289,7 @@ productId <string> A user-supplied resource id for this Product. If set, the ser
   ([parent Product]
     (projects-locations-products-create parent Product nil))
   ([parent Product optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://vision.googleapis.com/v1/{+parent}/products",
@@ -310,7 +310,7 @@ optional:
 pageSize <integer> The maximum number of items to return. Default 10, maximum 100."
   ([parent] (projects-locations-products-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vision.googleapis.com/v1/{+parent}/products",
@@ -326,7 +326,7 @@ https://cloud.google.com/vision/v1/reference/rest/v1/projects/locations/products
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vision.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -347,7 +347,7 @@ optional:
 updateMask <string> The FieldMask that specifies which fields to update. If update_mask isn't specified, all mutable fields are to be updated. Valid mask paths include `product_labels`, `display_name`, and `description`."
   ([name Product] (projects-locations-products-patch name Product nil))
   ([name Product optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://vision.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -363,7 +363,7 @@ https://cloud.google.com/vision/v1/reference/rest/v1/projects/locations/products
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://vision.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -380,7 +380,7 @@ parent <>
 PurgeProductsRequest:
 PurgeProductsRequest"
   [parent PurgeProductsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vision.googleapis.com/v1/{+parent}/products:purge",
@@ -407,7 +407,7 @@ referenceImageId <string> A user-supplied resource id for the ReferenceImage to 
       ReferenceImage
       nil))
   ([parent ReferenceImage optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://vision.googleapis.com/v1/{+parent}/referenceImages",
@@ -424,7 +424,7 @@ https://cloud.google.com/vision/v1/reference/rest/v1/projects/locations/products
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://vision.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -444,7 +444,7 @@ pageSize <integer> The maximum number of items to return. Default 10, maximum 10
   ([parent]
     (projects-locations-products-referenceImages-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vision.googleapis.com/v1/{+parent}/referenceImages",
@@ -460,7 +460,7 @@ https://cloud.google.com/vision/v1/reference/rest/v1/projects/locations/products
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vision.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -477,7 +477,7 @@ parent <>
 BatchAnnotateImagesRequest:
 BatchAnnotateImagesRequest"
   [parent BatchAnnotateImagesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vision.googleapis.com/v1/{+parent}/images:annotate",
@@ -496,7 +496,7 @@ parent <>
 AsyncBatchAnnotateImagesRequest:
 AsyncBatchAnnotateImagesRequest"
   [parent AsyncBatchAnnotateImagesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vision.googleapis.com/v1/{+parent}/images:asyncBatchAnnotate",
@@ -515,7 +515,7 @@ parent <>
 BatchAnnotateFilesRequest:
 BatchAnnotateFilesRequest"
   [parent BatchAnnotateFilesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vision.googleapis.com/v1/{+parent}/files:annotate",
@@ -534,7 +534,7 @@ parent <>
 AsyncBatchAnnotateFilesRequest:
 AsyncBatchAnnotateFilesRequest"
   [parent AsyncBatchAnnotateFilesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vision.googleapis.com/v1/{+parent}/files:asyncBatchAnnotate",
@@ -553,7 +553,7 @@ parent <>
 BatchAnnotateImagesRequest:
 BatchAnnotateImagesRequest"
   [parent BatchAnnotateImagesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vision.googleapis.com/v1/{+parent}/images:annotate",
@@ -572,7 +572,7 @@ parent <>
 AsyncBatchAnnotateImagesRequest:
 AsyncBatchAnnotateImagesRequest"
   [parent AsyncBatchAnnotateImagesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vision.googleapis.com/v1/{+parent}/images:asyncBatchAnnotate",
@@ -591,7 +591,7 @@ parent <>
 BatchAnnotateFilesRequest:
 BatchAnnotateFilesRequest"
   [parent BatchAnnotateFilesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vision.googleapis.com/v1/{+parent}/files:annotate",
@@ -610,7 +610,7 @@ parent <>
 AsyncBatchAnnotateFilesRequest:
 AsyncBatchAnnotateFilesRequest"
   [parent AsyncBatchAnnotateFilesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vision.googleapis.com/v1/{+parent}/files:asyncBatchAnnotate",
@@ -627,7 +627,7 @@ https://cloud.google.com/vision/v1/reference/rest/v1/locations/operations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vision.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -643,7 +643,7 @@ https://cloud.google.com/vision/v1/reference/rest/v1/images/annotate
 BatchAnnotateImagesRequest:
 BatchAnnotateImagesRequest"
   [BatchAnnotateImagesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://vision.googleapis.com/v1/images:annotate",
      :uri-template-args {},
@@ -660,7 +660,7 @@ https://cloud.google.com/vision/v1/reference/rest/v1/images/asyncBatchAnnotate
 AsyncBatchAnnotateImagesRequest:
 AsyncBatchAnnotateImagesRequest"
   [AsyncBatchAnnotateImagesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vision.googleapis.com/v1/images:asyncBatchAnnotate",
@@ -678,7 +678,7 @@ https://cloud.google.com/vision/v1/reference/rest/v1/files/annotate
 BatchAnnotateFilesRequest:
 BatchAnnotateFilesRequest"
   [BatchAnnotateFilesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://vision.googleapis.com/v1/files:annotate",
      :uri-template-args {},
@@ -695,7 +695,7 @@ https://cloud.google.com/vision/v1/reference/rest/v1/files/asyncBatchAnnotate
 AsyncBatchAnnotateFilesRequest:
 AsyncBatchAnnotateFilesRequest"
   [AsyncBatchAnnotateFilesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vision.googleapis.com/v1/files:asyncBatchAnnotate",

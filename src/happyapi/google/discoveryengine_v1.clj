@@ -12,7 +12,7 @@ name <>
 GoogleCloudDiscoveryengineV1ProvisionProjectRequest:
 GoogleCloudDiscoveryengineV1ProvisionProjectRequest"
   [name GoogleCloudDiscoveryengineV1ProvisionProjectRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+name}:provision",
@@ -32,7 +32,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+name}/operations",
@@ -46,7 +46,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -61,7 +61,7 @@ name <>
 GoogleLongrunningCancelOperationRequest:
 GoogleLongrunningCancelOperationRequest"
   [name GoogleLongrunningCancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+name}:cancel",
@@ -84,7 +84,7 @@ pageSize <integer> The standard list page size."
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+name}/operations",
@@ -98,7 +98,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -116,7 +116,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-collections-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+name}/operations",
@@ -130,7 +130,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -153,7 +153,7 @@ includeTailSuggestions <boolean> Indicates if tail suggestions should be returne
       dataStore
       nil))
   ([dataStore optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+dataStore}:completeQuery",
@@ -171,14 +171,15 @@ GoogleCloudDiscoveryengineV1DataStore
 
 optional:
 dataStoreId <string> Required. The ID to use for the DataStore, which will become the final component of the DataStore's resource name. This field must conform to [RFC-1034](https://tools.ietf.org/html/rfc1034) standard with a length limit of 63 characters. Otherwise, an INVALID_ARGUMENT error is returned.
-createAdvancedSiteSearch <boolean> A boolean flag indicating whether user want to directly create an advanced data store for site search. If the data store is not configured as site search (GENERIC vertical and PUBLIC_WEBSITE content_config), this flag will be ignored."
+createAdvancedSiteSearch <boolean> A boolean flag indicating whether user want to directly create an advanced data store for site search. If the data store is not configured as site search (GENERIC vertical and PUBLIC_WEBSITE content_config), this flag will be ignored.
+skipDefaultSchemaCreation <boolean> A boolean flag indicating whether to skip the default schema creation for the data store. Only enable this flag if you are certain that the default schema is incompatible with your use case. If set to true, you must manually create a schema for the data store before any documents can be ingested. This flag cannot be specified if `data_store.starting_schema` is specified."
   ([parent GoogleCloudDiscoveryengineV1DataStore]
     (projects-locations-collections-dataStores-create
       parent
       GoogleCloudDiscoveryengineV1DataStore
       nil))
   ([parent GoogleCloudDiscoveryengineV1DataStore optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/dataStores",
@@ -193,7 +194,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -212,7 +213,7 @@ filter <string> Filter by solution type . For example: `filter = 'solution_type:
   ([parent]
     (projects-locations-collections-dataStores-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/dataStores",
@@ -226,7 +227,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -249,7 +250,7 @@ updateMask <string> Indicates which fields in the provided DataStore to update. 
       GoogleCloudDiscoveryengineV1DataStore
       nil))
   ([name GoogleCloudDiscoveryengineV1DataStore optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+name}",
@@ -258,18 +259,57 @@ updateMask <string> Indicates which fields in the provided DataStore to update. 
        :scopes ["https://www.googleapis.com/auth/cloud-platform"],
        :body GoogleCloudDiscoveryengineV1DataStore})))
 
+(defn projects-locations-collections-dataStores-trainCustomModel
+  "Trains a custom model.
+https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projects/locations/collections/dataStores/trainCustomModel
+
+dataStore <> 
+GoogleCloudDiscoveryengineV1TrainCustomModelRequest:
+GoogleCloudDiscoveryengineV1TrainCustomModelRequest"
+  [dataStore GoogleCloudDiscoveryengineV1TrainCustomModelRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+dataStore}:trainCustomModel",
+     :uri-template-args {"dataStore" dataStore},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDiscoveryengineV1TrainCustomModelRequest}))
+
 (defn projects-locations-collections-dataStores-getSiteSearchEngine
   "Gets the SiteSearchEngine.
 https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projects/locations/collections/dataStores/getSiteSearchEngine
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+
+(defn projects-locations-collections-dataStores-branches-batchGetDocumentsMetadata
+  "Gets index freshness metadata for Documents. Supported for website search only.
+https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projects/locations/collections/dataStores/branches/batchGetDocumentsMetadata
+
+parent <> 
+
+optional:
+matcher.urisMatcher.uris <string> The exact URIs to match by.
+matcher.fhirMatcher.fhirResources <string> Required. The FHIR resources to match by. Format: projects/{project}/locations/{location}/datasets/{dataset}/fhirStores/{fhir_store}/fhir/{resource_type}/{fhir_resource_id}"
+  ([parent]
+    (projects-locations-collections-dataStores-branches-batchGetDocumentsMetadata
+      parent
+      nil))
+  ([parent optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://discoveryengine.googleapis.com/v1/{+parent}/batchGetDocumentsMetadata",
+       :uri-template-args {"parent" parent},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
 
 (defn projects-locations-collections-dataStores-branches-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -285,7 +325,7 @@ pageSize <integer> The standard list page size."
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+name}/operations",
@@ -299,7 +339,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -314,7 +354,7 @@ name <>
 GoogleLongrunningCancelOperationRequest:
 GoogleLongrunningCancelOperationRequest"
   [name GoogleLongrunningCancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+name}:cancel",
@@ -329,7 +369,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -349,7 +389,7 @@ pageSize <integer> Maximum number of Documents to return. If unspecified, defaul
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/documents",
@@ -373,7 +413,7 @@ documentId <string> Required. The ID to use for the Document, which becomes the 
       GoogleCloudDiscoveryengineV1Document
       nil))
   ([parent GoogleCloudDiscoveryengineV1Document optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/documents",
@@ -399,7 +439,7 @@ updateMask <string> Indicates which fields in the provided imported 'document' t
       GoogleCloudDiscoveryengineV1Document
       nil))
   ([name GoogleCloudDiscoveryengineV1Document optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+name}",
@@ -414,7 +454,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -429,7 +469,7 @@ parent <>
 GoogleCloudDiscoveryengineV1ImportDocumentsRequest:
 GoogleCloudDiscoveryengineV1ImportDocumentsRequest"
   [parent GoogleCloudDiscoveryengineV1ImportDocumentsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+parent}/documents:import",
@@ -446,7 +486,7 @@ parent <>
 GoogleCloudDiscoveryengineV1PurgeDocumentsRequest:
 GoogleCloudDiscoveryengineV1PurgeDocumentsRequest"
   [parent GoogleCloudDiscoveryengineV1PurgeDocumentsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+parent}/documents:purge",
@@ -464,7 +504,7 @@ GoogleCloudDiscoveryengineV1ImportCompletionSuggestionsRequest:
 GoogleCloudDiscoveryengineV1ImportCompletionSuggestionsRequest"
   [parent
    GoogleCloudDiscoveryengineV1ImportCompletionSuggestionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+parent}/completionSuggestions:import",
@@ -483,7 +523,7 @@ GoogleCloudDiscoveryengineV1PurgeCompletionSuggestionsRequest:
 GoogleCloudDiscoveryengineV1PurgeCompletionSuggestionsRequest"
   [parent
    GoogleCloudDiscoveryengineV1PurgeCompletionSuggestionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+parent}/completionSuggestions:purge",
@@ -499,7 +539,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -519,7 +559,7 @@ pageSize <integer> The maximum number of Schemas to return. The service may retu
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/schemas",
@@ -543,7 +583,7 @@ schemaId <string> Required. The ID to use for the Schema, which becomes the fina
       GoogleCloudDiscoveryengineV1Schema
       nil))
   ([parent GoogleCloudDiscoveryengineV1Schema optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/schemas",
@@ -568,7 +608,7 @@ allowMissing <boolean> If set to true, and the Schema is not found, a new Schema
       GoogleCloudDiscoveryengineV1Schema
       nil))
   ([name GoogleCloudDiscoveryengineV1Schema optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+name}",
@@ -583,7 +623,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -604,7 +644,7 @@ pageSize <integer> The standard list page size."
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+name}/operations",
@@ -618,7 +658,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -634,7 +674,7 @@ GoogleCloudDiscoveryengineV1EnableAdvancedSiteSearchRequest:
 GoogleCloudDiscoveryengineV1EnableAdvancedSiteSearchRequest"
   [siteSearchEngine
    GoogleCloudDiscoveryengineV1EnableAdvancedSiteSearchRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+siteSearchEngine}:enableAdvancedSiteSearch",
@@ -653,7 +693,7 @@ GoogleCloudDiscoveryengineV1DisableAdvancedSiteSearchRequest:
 GoogleCloudDiscoveryengineV1DisableAdvancedSiteSearchRequest"
   [siteSearchEngine
    GoogleCloudDiscoveryengineV1DisableAdvancedSiteSearchRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+siteSearchEngine}:disableAdvancedSiteSearch",
@@ -671,7 +711,7 @@ siteSearchEngine <>
 GoogleCloudDiscoveryengineV1RecrawlUrisRequest:
 GoogleCloudDiscoveryengineV1RecrawlUrisRequest"
   [siteSearchEngine GoogleCloudDiscoveryengineV1RecrawlUrisRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+siteSearchEngine}:recrawlUris",
@@ -688,7 +728,7 @@ parent <>
 GoogleCloudDiscoveryengineV1BatchVerifyTargetSitesRequest:
 GoogleCloudDiscoveryengineV1BatchVerifyTargetSitesRequest"
   [parent GoogleCloudDiscoveryengineV1BatchVerifyTargetSitesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+parent}:batchVerifyTargetSites",
@@ -710,7 +750,7 @@ pageSize <integer> Requested page size. Server may return fewer items than reque
       siteSearchEngine
       nil))
   ([siteSearchEngine optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+siteSearchEngine}:fetchDomainVerificationStatus",
@@ -732,7 +772,7 @@ pageSize <integer> The standard list page size."
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+name}/operations",
@@ -746,7 +786,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -761,7 +801,7 @@ parent <>
 GoogleCloudDiscoveryengineV1TargetSite:
 GoogleCloudDiscoveryengineV1TargetSite"
   [parent GoogleCloudDiscoveryengineV1TargetSite]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+parent}/targetSites",
@@ -778,7 +818,7 @@ parent <>
 GoogleCloudDiscoveryengineV1BatchCreateTargetSitesRequest:
 GoogleCloudDiscoveryengineV1BatchCreateTargetSitesRequest"
   [parent GoogleCloudDiscoveryengineV1BatchCreateTargetSitesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+parent}/targetSites:batchCreate",
@@ -793,7 +833,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -808,7 +848,7 @@ name <>
 GoogleCloudDiscoveryengineV1TargetSite:
 GoogleCloudDiscoveryengineV1TargetSite"
   [name GoogleCloudDiscoveryengineV1TargetSite]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -822,7 +862,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -842,7 +882,7 @@ pageSize <integer> Requested page size. Server may return fewer items than reque
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/targetSites",
@@ -864,7 +904,7 @@ pageSize <integer> The standard list page size."
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+name}/operations",
@@ -878,7 +918,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -893,7 +933,7 @@ parent <>
 GoogleCloudDiscoveryengineV1Session:
 GoogleCloudDiscoveryengineV1Session"
   [parent GoogleCloudDiscoveryengineV1Session]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+parent}/sessions",
@@ -908,7 +948,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -931,7 +971,7 @@ updateMask <string> Indicates which fields in the provided Session to update. Th
       GoogleCloudDiscoveryengineV1Session
       nil))
   ([name GoogleCloudDiscoveryengineV1Session optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+name}",
@@ -946,7 +986,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -968,7 +1008,7 @@ orderBy <string> A comma-separated list of fields to order by, sorted in ascendi
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/sessions",
@@ -982,7 +1022,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -997,7 +1037,7 @@ servingConfig <>
 GoogleCloudDiscoveryengineV1SearchRequest:
 GoogleCloudDiscoveryengineV1SearchRequest"
   [servingConfig GoogleCloudDiscoveryengineV1SearchRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+servingConfig}:search",
@@ -1014,7 +1054,7 @@ servingConfig <>
 GoogleCloudDiscoveryengineV1AnswerQueryRequest:
 GoogleCloudDiscoveryengineV1AnswerQueryRequest"
   [servingConfig GoogleCloudDiscoveryengineV1AnswerQueryRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+servingConfig}:answer",
@@ -1031,7 +1071,7 @@ servingConfig <>
 GoogleCloudDiscoveryengineV1RecommendRequest:
 GoogleCloudDiscoveryengineV1RecommendRequest"
   [servingConfig GoogleCloudDiscoveryengineV1RecommendRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+servingConfig}:recommend",
@@ -1049,7 +1089,7 @@ GoogleCloudDiscoveryengineV1ImportSuggestionDenyListEntriesRequest:
 GoogleCloudDiscoveryengineV1ImportSuggestionDenyListEntriesRequest"
   [parent
    GoogleCloudDiscoveryengineV1ImportSuggestionDenyListEntriesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+parent}/suggestionDenyListEntries:import",
@@ -1068,7 +1108,7 @@ GoogleCloudDiscoveryengineV1PurgeSuggestionDenyListEntriesRequest:
 GoogleCloudDiscoveryengineV1PurgeSuggestionDenyListEntriesRequest"
   [parent
    GoogleCloudDiscoveryengineV1PurgeSuggestionDenyListEntriesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+parent}/suggestionDenyListEntries:purge",
@@ -1077,6 +1117,20 @@ GoogleCloudDiscoveryengineV1PurgeSuggestionDenyListEntriesRequest"
      :scopes ["https://www.googleapis.com/auth/cloud-platform"],
      :body
      GoogleCloudDiscoveryengineV1PurgeSuggestionDenyListEntriesRequest}))
+
+(defn projects-locations-collections-dataStores-customModels-list
+  "Gets a list of all the custom models.
+https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projects/locations/collections/dataStores/customModels/list
+
+dataStore <> "
+  [dataStore]
+  (client/*api-request*
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+dataStore}/customModels",
+     :uri-template-args {"dataStore" dataStore},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-collections-dataStores-userEvents-write
   "Writes a single user event.
@@ -1094,7 +1148,7 @@ writeAsync <boolean> If set to true, the user event is written asynchronously af
       GoogleCloudDiscoveryengineV1UserEvent
       nil))
   ([parent GoogleCloudDiscoveryengineV1UserEvent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/userEvents:write",
@@ -1118,13 +1172,30 @@ ets <string> The event timestamp in milliseconds. This prevents browser caching 
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/userEvents:collect",
        :uri-template-args {"parent" parent},
        :query-params (merge {} optional),
        :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+
+(defn projects-locations-collections-dataStores-userEvents-purge
+  "Deletes permanently all user events specified by the filter provided. Depending on the number of events specified by the filter, this operation could take hours or days to complete. To test a filter, use the list command first.
+https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projects/locations/collections/dataStores/userEvents/purge
+
+parent <> 
+GoogleCloudDiscoveryengineV1PurgeUserEventsRequest:
+GoogleCloudDiscoveryengineV1PurgeUserEventsRequest"
+  [parent GoogleCloudDiscoveryengineV1PurgeUserEventsRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/userEvents:purge",
+     :uri-template-args {"parent" parent},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDiscoveryengineV1PurgeUserEventsRequest}))
 
 (defn projects-locations-collections-dataStores-userEvents-import
   "Bulk import of user events. Request processing might be synchronous. Events that already exist are skipped. Use this method for backfilling historical user events. Operation.response is of type ImportResponse. Note that it is possible for a subset of the items to be successfully inserted. Operation.metadata is of type ImportMetadata.
@@ -1134,7 +1205,7 @@ parent <>
 GoogleCloudDiscoveryengineV1ImportUserEventsRequest:
 GoogleCloudDiscoveryengineV1ImportUserEventsRequest"
   [parent GoogleCloudDiscoveryengineV1ImportUserEventsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+parent}/userEvents:import",
@@ -1159,7 +1230,7 @@ controlId <string> Required. The ID to use for the Control, which will become th
       GoogleCloudDiscoveryengineV1Control
       nil))
   ([parent GoogleCloudDiscoveryengineV1Control optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/controls",
@@ -1174,7 +1245,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1197,7 +1268,7 @@ updateMask <string> Optional. Indicates which fields in the provided Control to 
       GoogleCloudDiscoveryengineV1Control
       nil))
   ([name GoogleCloudDiscoveryengineV1Control optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+name}",
@@ -1212,7 +1283,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1233,7 +1304,7 @@ filter <string> Optional. A filter to apply on the list results. Supported featu
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/controls",
@@ -1249,7 +1320,7 @@ name <>
 GoogleCloudDiscoveryengineV1ConverseConversationRequest:
 GoogleCloudDiscoveryengineV1ConverseConversationRequest"
   [name GoogleCloudDiscoveryengineV1ConverseConversationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+name}:converse",
@@ -1266,7 +1337,7 @@ parent <>
 GoogleCloudDiscoveryengineV1Conversation:
 GoogleCloudDiscoveryengineV1Conversation"
   [parent GoogleCloudDiscoveryengineV1Conversation]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+parent}/conversations",
@@ -1281,7 +1352,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1304,7 +1375,7 @@ updateMask <string> Indicates which fields in the provided Conversation to updat
       GoogleCloudDiscoveryengineV1Conversation
       nil))
   ([name GoogleCloudDiscoveryengineV1Conversation optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+name}",
@@ -1319,7 +1390,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1341,7 +1412,7 @@ orderBy <string> A comma-separated list of fields to order by, sorted in ascendi
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/conversations",
@@ -1363,7 +1434,7 @@ pageSize <integer> The standard list page size."
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+name}/operations",
@@ -1377,7 +1448,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1398,7 +1469,7 @@ pageSize <integer> The standard list page size."
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+name}/operations",
@@ -1412,7 +1483,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1435,7 +1506,7 @@ engineId <string> Required. The ID to use for the Engine, which will become the 
       GoogleCloudDiscoveryengineV1Engine
       nil))
   ([parent GoogleCloudDiscoveryengineV1Engine optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/engines",
@@ -1450,7 +1521,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1473,7 +1544,7 @@ updateMask <string> Indicates which fields in the provided Engine to update. If 
       GoogleCloudDiscoveryengineV1Engine
       nil))
   ([name GoogleCloudDiscoveryengineV1Engine optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+name}",
@@ -1488,7 +1559,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1506,7 +1577,7 @@ pageSize <integer> Optional. Not supported.
 filter <string> Optional. Filter by solution type. For example: solution_type=SOLUTION_TYPE_SEARCH"
   ([parent] (projects-locations-collections-engines-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/engines",
@@ -1526,7 +1597,7 @@ pageSize <integer> The standard list page size."
   ([name]
     (projects-locations-collections-engines-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+name}/operations",
@@ -1540,7 +1611,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1563,7 +1634,7 @@ controlId <string> Required. The ID to use for the Control, which will become th
       GoogleCloudDiscoveryengineV1Control
       nil))
   ([parent GoogleCloudDiscoveryengineV1Control optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/controls",
@@ -1578,7 +1649,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1601,7 +1672,7 @@ updateMask <string> Optional. Indicates which fields in the provided Control to 
       GoogleCloudDiscoveryengineV1Control
       nil))
   ([name GoogleCloudDiscoveryengineV1Control optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+name}",
@@ -1616,7 +1687,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1635,7 +1706,7 @@ filter <string> Optional. A filter to apply on the list results. Supported featu
   ([parent]
     (projects-locations-collections-engines-controls-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/controls",
@@ -1651,7 +1722,7 @@ servingConfig <>
 GoogleCloudDiscoveryengineV1SearchRequest:
 GoogleCloudDiscoveryengineV1SearchRequest"
   [servingConfig GoogleCloudDiscoveryengineV1SearchRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+servingConfig}:search",
@@ -1668,7 +1739,7 @@ servingConfig <>
 GoogleCloudDiscoveryengineV1AnswerQueryRequest:
 GoogleCloudDiscoveryengineV1AnswerQueryRequest"
   [servingConfig GoogleCloudDiscoveryengineV1AnswerQueryRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+servingConfig}:answer",
@@ -1685,7 +1756,7 @@ servingConfig <>
 GoogleCloudDiscoveryengineV1RecommendRequest:
 GoogleCloudDiscoveryengineV1RecommendRequest"
   [servingConfig GoogleCloudDiscoveryengineV1RecommendRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+servingConfig}:recommend",
@@ -1702,7 +1773,7 @@ name <>
 GoogleCloudDiscoveryengineV1ConverseConversationRequest:
 GoogleCloudDiscoveryengineV1ConverseConversationRequest"
   [name GoogleCloudDiscoveryengineV1ConverseConversationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+name}:converse",
@@ -1719,7 +1790,7 @@ parent <>
 GoogleCloudDiscoveryengineV1Conversation:
 GoogleCloudDiscoveryengineV1Conversation"
   [parent GoogleCloudDiscoveryengineV1Conversation]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+parent}/conversations",
@@ -1734,7 +1805,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1757,7 +1828,7 @@ updateMask <string> Indicates which fields in the provided Conversation to updat
       GoogleCloudDiscoveryengineV1Conversation
       nil))
   ([name GoogleCloudDiscoveryengineV1Conversation optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+name}",
@@ -1772,7 +1843,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1794,7 +1865,7 @@ orderBy <string> A comma-separated list of fields to order by, sorted in ascendi
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/conversations",
@@ -1810,7 +1881,7 @@ parent <>
 GoogleCloudDiscoveryengineV1Session:
 GoogleCloudDiscoveryengineV1Session"
   [parent GoogleCloudDiscoveryengineV1Session]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+parent}/sessions",
@@ -1825,7 +1896,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1848,7 +1919,7 @@ updateMask <string> Indicates which fields in the provided Session to update. Th
       GoogleCloudDiscoveryengineV1Session
       nil))
   ([name GoogleCloudDiscoveryengineV1Session optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+name}",
@@ -1863,7 +1934,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1883,7 +1954,7 @@ orderBy <string> A comma-separated list of fields to order by, sorted in ascendi
   ([parent]
     (projects-locations-collections-engines-sessions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/sessions",
@@ -1897,7 +1968,42 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
+    {:method :get,
+     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+
+(defn projects-locations-identity_mapping_stores-operations-list
+  "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
+https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projects/locations/identity_mapping_stores/operations/list
+
+name <> 
+
+optional:
+filter <string> The standard list filter.
+pageSize <integer> The standard list page size."
+  ([name]
+    (projects-locations-identity_mapping_stores-operations-list
+      name
+      nil))
+  ([name optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://discoveryengine.googleapis.com/v1/{+name}/operations",
+       :uri-template-args {"name" name},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+
+(defn projects-locations-identity_mapping_stores-operations-get
+  "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
+https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projects/locations/identity_mapping_stores/operations/get
+
+name <> "
+  [name]
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1915,7 +2021,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+name}/operations",
@@ -1929,7 +2035,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1950,7 +2056,7 @@ includeTailSuggestions <boolean> Indicates if tail suggestions should be returne
   ([dataStore]
     (projects-locations-dataStores-completeQuery dataStore nil))
   ([dataStore optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+dataStore}:completeQuery",
@@ -1968,14 +2074,15 @@ GoogleCloudDiscoveryengineV1DataStore
 
 optional:
 dataStoreId <string> Required. The ID to use for the DataStore, which will become the final component of the DataStore's resource name. This field must conform to [RFC-1034](https://tools.ietf.org/html/rfc1034) standard with a length limit of 63 characters. Otherwise, an INVALID_ARGUMENT error is returned.
-createAdvancedSiteSearch <boolean> A boolean flag indicating whether user want to directly create an advanced data store for site search. If the data store is not configured as site search (GENERIC vertical and PUBLIC_WEBSITE content_config), this flag will be ignored."
+createAdvancedSiteSearch <boolean> A boolean flag indicating whether user want to directly create an advanced data store for site search. If the data store is not configured as site search (GENERIC vertical and PUBLIC_WEBSITE content_config), this flag will be ignored.
+skipDefaultSchemaCreation <boolean> A boolean flag indicating whether to skip the default schema creation for the data store. Only enable this flag if you are certain that the default schema is incompatible with your use case. If set to true, you must manually create a schema for the data store before any documents can be ingested. This flag cannot be specified if `data_store.starting_schema` is specified."
   ([parent GoogleCloudDiscoveryengineV1DataStore]
     (projects-locations-dataStores-create
       parent
       GoogleCloudDiscoveryengineV1DataStore
       nil))
   ([parent GoogleCloudDiscoveryengineV1DataStore optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/dataStores",
@@ -1990,7 +2097,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2008,7 +2115,7 @@ pageSize <integer> Maximum number of DataStores to return. If unspecified, defau
 filter <string> Filter by solution type . For example: `filter = 'solution_type:SOLUTION_TYPE_SEARCH'`"
   ([parent] (projects-locations-dataStores-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/dataStores",
@@ -2022,7 +2129,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2045,7 +2152,7 @@ updateMask <string> Indicates which fields in the provided DataStore to update. 
       GoogleCloudDiscoveryengineV1DataStore
       nil))
   ([name GoogleCloudDiscoveryengineV1DataStore optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+name}",
@@ -2060,12 +2167,34 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+
+(defn projects-locations-dataStores-branches-batchGetDocumentsMetadata
+  "Gets index freshness metadata for Documents. Supported for website search only.
+https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projects/locations/dataStores/branches/batchGetDocumentsMetadata
+
+parent <> 
+
+optional:
+matcher.urisMatcher.uris <string> The exact URIs to match by.
+matcher.fhirMatcher.fhirResources <string> Required. The FHIR resources to match by. Format: projects/{project}/locations/{location}/datasets/{dataset}/fhirStores/{fhir_store}/fhir/{resource_type}/{fhir_resource_id}"
+  ([parent]
+    (projects-locations-dataStores-branches-batchGetDocumentsMetadata
+      parent
+      nil))
+  ([parent optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://discoveryengine.googleapis.com/v1/{+parent}/batchGetDocumentsMetadata",
+       :uri-template-args {"parent" parent},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
 
 (defn projects-locations-dataStores-branches-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -2079,7 +2208,7 @@ pageSize <integer> The standard list page size."
   ([name]
     (projects-locations-dataStores-branches-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+name}/operations",
@@ -2093,7 +2222,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2108,7 +2237,7 @@ name <>
 GoogleLongrunningCancelOperationRequest:
 GoogleLongrunningCancelOperationRequest"
   [name GoogleLongrunningCancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+name}:cancel",
@@ -2123,7 +2252,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2141,7 +2270,7 @@ pageSize <integer> Maximum number of Documents to return. If unspecified, defaul
   ([parent]
     (projects-locations-dataStores-branches-documents-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/documents",
@@ -2165,7 +2294,7 @@ documentId <string> Required. The ID to use for the Document, which becomes the 
       GoogleCloudDiscoveryengineV1Document
       nil))
   ([parent GoogleCloudDiscoveryengineV1Document optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/documents",
@@ -2191,7 +2320,7 @@ updateMask <string> Indicates which fields in the provided imported 'document' t
       GoogleCloudDiscoveryengineV1Document
       nil))
   ([name GoogleCloudDiscoveryengineV1Document optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+name}",
@@ -2206,7 +2335,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2221,7 +2350,7 @@ parent <>
 GoogleCloudDiscoveryengineV1ImportDocumentsRequest:
 GoogleCloudDiscoveryengineV1ImportDocumentsRequest"
   [parent GoogleCloudDiscoveryengineV1ImportDocumentsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+parent}/documents:import",
@@ -2238,7 +2367,7 @@ parent <>
 GoogleCloudDiscoveryengineV1PurgeDocumentsRequest:
 GoogleCloudDiscoveryengineV1PurgeDocumentsRequest"
   [parent GoogleCloudDiscoveryengineV1PurgeDocumentsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+parent}/documents:purge",
@@ -2256,7 +2385,7 @@ GoogleCloudDiscoveryengineV1ImportCompletionSuggestionsRequest:
 GoogleCloudDiscoveryengineV1ImportCompletionSuggestionsRequest"
   [parent
    GoogleCloudDiscoveryengineV1ImportCompletionSuggestionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+parent}/completionSuggestions:import",
@@ -2275,7 +2404,7 @@ GoogleCloudDiscoveryengineV1PurgeCompletionSuggestionsRequest:
 GoogleCloudDiscoveryengineV1PurgeCompletionSuggestionsRequest"
   [parent
    GoogleCloudDiscoveryengineV1PurgeCompletionSuggestionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+parent}/completionSuggestions:purge",
@@ -2291,7 +2420,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2308,7 +2437,7 @@ optional:
 pageSize <integer> The maximum number of Schemas to return. The service may return fewer than this value. If unspecified, at most 100 Schemas are returned. The maximum value is 1000; values above 1000 are set to 1000."
   ([parent] (projects-locations-dataStores-schemas-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/schemas",
@@ -2332,7 +2461,7 @@ schemaId <string> Required. The ID to use for the Schema, which becomes the fina
       GoogleCloudDiscoveryengineV1Schema
       nil))
   ([parent GoogleCloudDiscoveryengineV1Schema optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/schemas",
@@ -2357,7 +2486,7 @@ allowMissing <boolean> If set to true, and the Schema is not found, a new Schema
       GoogleCloudDiscoveryengineV1Schema
       nil))
   ([name GoogleCloudDiscoveryengineV1Schema optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+name}",
@@ -2372,7 +2501,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2388,7 +2517,7 @@ GoogleCloudDiscoveryengineV1EnableAdvancedSiteSearchRequest:
 GoogleCloudDiscoveryengineV1EnableAdvancedSiteSearchRequest"
   [siteSearchEngine
    GoogleCloudDiscoveryengineV1EnableAdvancedSiteSearchRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+siteSearchEngine}:enableAdvancedSiteSearch",
@@ -2407,7 +2536,7 @@ GoogleCloudDiscoveryengineV1DisableAdvancedSiteSearchRequest:
 GoogleCloudDiscoveryengineV1DisableAdvancedSiteSearchRequest"
   [siteSearchEngine
    GoogleCloudDiscoveryengineV1DisableAdvancedSiteSearchRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+siteSearchEngine}:disableAdvancedSiteSearch",
@@ -2425,7 +2554,7 @@ siteSearchEngine <>
 GoogleCloudDiscoveryengineV1RecrawlUrisRequest:
 GoogleCloudDiscoveryengineV1RecrawlUrisRequest"
   [siteSearchEngine GoogleCloudDiscoveryengineV1RecrawlUrisRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+siteSearchEngine}:recrawlUris",
@@ -2442,7 +2571,7 @@ parent <>
 GoogleCloudDiscoveryengineV1TargetSite:
 GoogleCloudDiscoveryengineV1TargetSite"
   [parent GoogleCloudDiscoveryengineV1TargetSite]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+parent}/targetSites",
@@ -2459,7 +2588,7 @@ parent <>
 GoogleCloudDiscoveryengineV1BatchCreateTargetSitesRequest:
 GoogleCloudDiscoveryengineV1BatchCreateTargetSitesRequest"
   [parent GoogleCloudDiscoveryengineV1BatchCreateTargetSitesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+parent}/targetSites:batchCreate",
@@ -2474,7 +2603,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2489,7 +2618,7 @@ name <>
 GoogleCloudDiscoveryengineV1TargetSite:
 GoogleCloudDiscoveryengineV1TargetSite"
   [name GoogleCloudDiscoveryengineV1TargetSite]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2503,7 +2632,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2523,7 +2652,7 @@ pageSize <integer> Requested page size. Server may return fewer items than reque
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/targetSites",
@@ -2539,7 +2668,7 @@ parent <>
 GoogleCloudDiscoveryengineV1Session:
 GoogleCloudDiscoveryengineV1Session"
   [parent GoogleCloudDiscoveryengineV1Session]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+parent}/sessions",
@@ -2554,7 +2683,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2577,7 +2706,7 @@ updateMask <string> Indicates which fields in the provided Session to update. Th
       GoogleCloudDiscoveryengineV1Session
       nil))
   ([name GoogleCloudDiscoveryengineV1Session optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+name}",
@@ -2592,7 +2721,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2611,7 +2740,7 @@ filter <string> A filter to apply on the list results. The supported features ar
 orderBy <string> A comma-separated list of fields to order by, sorted in ascending order. Use \"desc\" after a field name for descending. Supported fields: * `update_time` * `create_time` * `session_name` Example: \"update_time desc\" \"create_time\""
   ([parent] (projects-locations-dataStores-sessions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/sessions",
@@ -2625,7 +2754,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2640,7 +2769,7 @@ servingConfig <>
 GoogleCloudDiscoveryengineV1SearchRequest:
 GoogleCloudDiscoveryengineV1SearchRequest"
   [servingConfig GoogleCloudDiscoveryengineV1SearchRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+servingConfig}:search",
@@ -2657,7 +2786,7 @@ servingConfig <>
 GoogleCloudDiscoveryengineV1AnswerQueryRequest:
 GoogleCloudDiscoveryengineV1AnswerQueryRequest"
   [servingConfig GoogleCloudDiscoveryengineV1AnswerQueryRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+servingConfig}:answer",
@@ -2674,7 +2803,7 @@ servingConfig <>
 GoogleCloudDiscoveryengineV1RecommendRequest:
 GoogleCloudDiscoveryengineV1RecommendRequest"
   [servingConfig GoogleCloudDiscoveryengineV1RecommendRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+servingConfig}:recommend",
@@ -2692,7 +2821,7 @@ GoogleCloudDiscoveryengineV1ImportSuggestionDenyListEntriesRequest:
 GoogleCloudDiscoveryengineV1ImportSuggestionDenyListEntriesRequest"
   [parent
    GoogleCloudDiscoveryengineV1ImportSuggestionDenyListEntriesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+parent}/suggestionDenyListEntries:import",
@@ -2711,7 +2840,7 @@ GoogleCloudDiscoveryengineV1PurgeSuggestionDenyListEntriesRequest:
 GoogleCloudDiscoveryengineV1PurgeSuggestionDenyListEntriesRequest"
   [parent
    GoogleCloudDiscoveryengineV1PurgeSuggestionDenyListEntriesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+parent}/suggestionDenyListEntries:purge",
@@ -2737,7 +2866,7 @@ writeAsync <boolean> If set to true, the user event is written asynchronously af
       GoogleCloudDiscoveryengineV1UserEvent
       nil))
   ([parent GoogleCloudDiscoveryengineV1UserEvent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/userEvents:write",
@@ -2759,13 +2888,30 @@ ets <string> The event timestamp in milliseconds. This prevents browser caching 
   ([parent]
     (projects-locations-dataStores-userEvents-collect parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/userEvents:collect",
        :uri-template-args {"parent" parent},
        :query-params (merge {} optional),
        :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+
+(defn projects-locations-dataStores-userEvents-purge
+  "Deletes permanently all user events specified by the filter provided. Depending on the number of events specified by the filter, this operation could take hours or days to complete. To test a filter, use the list command first.
+https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projects/locations/dataStores/userEvents/purge
+
+parent <> 
+GoogleCloudDiscoveryengineV1PurgeUserEventsRequest:
+GoogleCloudDiscoveryengineV1PurgeUserEventsRequest"
+  [parent GoogleCloudDiscoveryengineV1PurgeUserEventsRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/userEvents:purge",
+     :uri-template-args {"parent" parent},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDiscoveryengineV1PurgeUserEventsRequest}))
 
 (defn projects-locations-dataStores-userEvents-import
   "Bulk import of user events. Request processing might be synchronous. Events that already exist are skipped. Use this method for backfilling historical user events. Operation.response is of type ImportResponse. Note that it is possible for a subset of the items to be successfully inserted. Operation.metadata is of type ImportMetadata.
@@ -2775,7 +2921,7 @@ parent <>
 GoogleCloudDiscoveryengineV1ImportUserEventsRequest:
 GoogleCloudDiscoveryengineV1ImportUserEventsRequest"
   [parent GoogleCloudDiscoveryengineV1ImportUserEventsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+parent}/userEvents:import",
@@ -2800,7 +2946,7 @@ controlId <string> Required. The ID to use for the Control, which will become th
       GoogleCloudDiscoveryengineV1Control
       nil))
   ([parent GoogleCloudDiscoveryengineV1Control optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/controls",
@@ -2815,7 +2961,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2838,7 +2984,7 @@ updateMask <string> Optional. Indicates which fields in the provided Control to 
       GoogleCloudDiscoveryengineV1Control
       nil))
   ([name GoogleCloudDiscoveryengineV1Control optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+name}",
@@ -2853,7 +2999,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2871,7 +3017,7 @@ pageSize <integer> Optional. Maximum number of results to return. If unspecified
 filter <string> Optional. A filter to apply on the list results. Supported features: * List all the products under the parent branch if filter is unset. Currently this field is unsupported."
   ([parent] (projects-locations-dataStores-controls-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/controls",
@@ -2887,7 +3033,7 @@ name <>
 GoogleCloudDiscoveryengineV1ConverseConversationRequest:
 GoogleCloudDiscoveryengineV1ConverseConversationRequest"
   [name GoogleCloudDiscoveryengineV1ConverseConversationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+name}:converse",
@@ -2904,7 +3050,7 @@ parent <>
 GoogleCloudDiscoveryengineV1Conversation:
 GoogleCloudDiscoveryengineV1Conversation"
   [parent GoogleCloudDiscoveryengineV1Conversation]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+parent}/conversations",
@@ -2919,7 +3065,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2942,7 +3088,7 @@ updateMask <string> Indicates which fields in the provided Conversation to updat
       GoogleCloudDiscoveryengineV1Conversation
       nil))
   ([name GoogleCloudDiscoveryengineV1Conversation optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+name}",
@@ -2957,7 +3103,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2977,7 +3123,7 @@ orderBy <string> A comma-separated list of fields to order by, sorted in ascendi
   ([parent]
     (projects-locations-dataStores-conversations-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/conversations",
@@ -2997,7 +3143,7 @@ pageSize <integer> The standard list page size."
   ([name]
     (projects-locations-dataStores-models-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+name}/operations",
@@ -3011,7 +3157,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -3029,7 +3175,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-dataStores-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+name}/operations",
@@ -3043,7 +3189,7 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -3058,7 +3204,7 @@ groundingConfig <>
 GoogleCloudDiscoveryengineV1CheckGroundingRequest:
 GoogleCloudDiscoveryengineV1CheckGroundingRequest"
   [groundingConfig GoogleCloudDiscoveryengineV1CheckGroundingRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+groundingConfig}:check",
@@ -3075,7 +3221,7 @@ rankingConfig <>
 GoogleCloudDiscoveryengineV1RankRequest:
 GoogleCloudDiscoveryengineV1RankRequest"
   [rankingConfig GoogleCloudDiscoveryengineV1RankRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://discoveryengine.googleapis.com/v1/{+rankingConfig}:rank",
@@ -3100,7 +3246,7 @@ writeAsync <boolean> If set to true, the user event is written asynchronously af
       GoogleCloudDiscoveryengineV1UserEvent
       nil))
   ([parent GoogleCloudDiscoveryengineV1UserEvent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/userEvents:write",
@@ -3121,7 +3267,7 @@ uri <string> The URL including cgi-parameters but excluding the hash fragment wi
 ets <string> The event timestamp in milliseconds. This prevents browser caching of otherwise identical get requests. The name is abbreviated to reduce the payload bytes."
   ([parent] (projects-locations-userEvents-collect parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://discoveryengine.googleapis.com/v1/{+parent}/userEvents:collect",

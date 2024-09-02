@@ -10,7 +10,7 @@ https://cloud.google.com/eventarc/docs/v1/reference/rest/v1/projects/locations/g
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://eventarc.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -33,7 +33,7 @@ updateMask <string> The fields to be updated; only fields explicitly provided ar
       GoogleChannelConfig
       nil))
   ([name GoogleChannelConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://eventarc.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -52,7 +52,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://eventarc.googleapis.com/v1/{+name}/locations",
@@ -66,7 +66,7 @@ https://cloud.google.com/eventarc/docs/v1/reference/rest/v1/projects/locations/g
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://eventarc.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -84,7 +84,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://eventarc.googleapis.com/v1/{+name}/operations",
@@ -98,7 +98,7 @@ https://cloud.google.com/eventarc/docs/v1/reference/rest/v1/projects/locations/o
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://eventarc.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -111,7 +111,7 @@ https://cloud.google.com/eventarc/docs/v1/reference/rest/v1/projects/locations/o
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://eventarc.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -126,7 +126,7 @@ name <>
 GoogleLongrunningCancelOperationRequest:
 GoogleLongrunningCancelOperationRequest"
   [name GoogleLongrunningCancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://eventarc.googleapis.com/v1/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -140,7 +140,7 @@ https://cloud.google.com/eventarc/docs/v1/reference/rest/v1/projects/locations/t
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://eventarc.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -159,7 +159,7 @@ orderBy <string> The sorting order of the resources returned. Value should be a 
 filter <string> Filter field. Used to filter the Triggers to be listed. Possible filters are described in https://google.aip.dev/160. For example, using \"?filter=destination:gke\" would list only Triggers with a gke destination."
   ([parent] (projects-locations-triggers-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://eventarc.googleapis.com/v1/{+parent}/triggers",
@@ -181,7 +181,7 @@ validateOnly <boolean> Optional. If set, validate the request and preview the re
   ([parent Trigger]
     (projects-locations-triggers-create parent Trigger nil))
   ([parent Trigger optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://eventarc.googleapis.com/v1/{+parent}/triggers",
@@ -204,7 +204,7 @@ allowMissing <boolean> If set to true, and the trigger is not found, a new trigg
 validateOnly <boolean> Optional. If set, validate the request and preview the review, but do not post it."
   ([name Trigger] (projects-locations-triggers-patch name Trigger nil))
   ([name Trigger optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://eventarc.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -224,7 +224,7 @@ allowMissing <boolean> If set to true, and the trigger is not found, the request
 validateOnly <boolean> Optional. If set, validate the request and preview the review, but do not post it."
   ([name] (projects-locations-triggers-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://eventarc.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -239,7 +239,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://eventarc.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -258,7 +258,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-locations-triggers-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://eventarc.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -274,7 +274,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://eventarc.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -289,7 +289,7 @@ https://cloud.google.com/eventarc/docs/v1/reference/rest/v1/projects/locations/c
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://eventarc.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -307,7 +307,7 @@ pageSize <integer> The maximum number of channels to return on each page. Note: 
 orderBy <string> The sorting order of the resources returned. Value should be a comma-separated list of fields. The default sorting order is ascending. To specify descending order for a field, append a `desc` suffix; for example: `name desc, channel_id`."
   ([parent] (projects-locations-channels-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://eventarc.googleapis.com/v1/{+parent}/channels",
@@ -329,7 +329,7 @@ validateOnly <boolean> Optional. If set, validate the request and preview the re
   ([parent Channel]
     (projects-locations-channels-create parent Channel nil))
   ([parent Channel optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://eventarc.googleapis.com/v1/{+parent}/channels",
@@ -351,7 +351,7 @@ updateMask <string> The fields to be updated; only fields explicitly provided ar
 validateOnly <boolean> Optional. If set, validate the request and preview the review, but do not post it."
   ([name Channel] (projects-locations-channels-patch name Channel nil))
   ([name Channel optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://eventarc.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -369,7 +369,7 @@ optional:
 validateOnly <boolean> Optional. If set, validate the request and preview the review, but do not post it."
   ([name] (projects-locations-channels-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://eventarc.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -384,7 +384,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://eventarc.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -403,7 +403,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-locations-channels-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://eventarc.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -419,7 +419,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://eventarc.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -434,7 +434,7 @@ https://cloud.google.com/eventarc/docs/v1/reference/rest/v1/projects/locations/p
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://eventarc.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -453,7 +453,7 @@ orderBy <string> The sorting order of the resources returned. Value should be a 
 filter <string> The filter field that the list request will filter on."
   ([parent] (projects-locations-providers-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://eventarc.googleapis.com/v1/{+parent}/providers",
@@ -467,7 +467,7 @@ https://cloud.google.com/eventarc/docs/v1/reference/rest/v1/projects/locations/c
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://eventarc.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -484,7 +484,7 @@ optional:
 pageSize <integer> The maximum number of channel connections to return on each page. Note: The service may send fewer responses."
   ([parent] (projects-locations-channelConnections-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://eventarc.googleapis.com/v1/{+parent}/channelConnections",
@@ -508,7 +508,7 @@ channelConnectionId <string> Required. The user-provided ID to be assigned to th
       ChannelConnection
       nil))
   ([parent ChannelConnection optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://eventarc.googleapis.com/v1/{+parent}/channelConnections",
@@ -523,7 +523,7 @@ https://cloud.google.com/eventarc/docs/v1/reference/rest/v1/projects/locations/c
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://eventarc.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -538,7 +538,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://eventarc.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -558,7 +558,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-channelConnections-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://eventarc.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -574,7 +574,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://eventarc.googleapis.com/v1/{+resource}:testIamPermissions",

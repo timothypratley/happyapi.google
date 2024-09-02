@@ -10,7 +10,7 @@ https://cloud.google.com/compute/docs/osconfig/rest/v1/reference/rest/v1/project
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://osconfig.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -33,7 +33,7 @@ updateMask <string> Optional. Field mask that controls which fields of the Proje
       ProjectFeatureSettings
       nil))
   ([name ProjectFeatureSettings optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://osconfig.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -58,7 +58,7 @@ requestId <string> Optional. A unique identifier for this request. Restricted to
       OSPolicyAssignment
       nil))
   ([parent OSPolicyAssignment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://osconfig.googleapis.com/v1/{+parent}/osPolicyAssignments",
@@ -85,7 +85,7 @@ requestId <string> Optional. A unique identifier for this request. Restricted to
       OSPolicyAssignment
       nil))
   ([name OSPolicyAssignment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://osconfig.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -99,7 +99,7 @@ https://cloud.google.com/compute/docs/osconfig/rest/v1/reference/rest/v1/project
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://osconfig.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -116,7 +116,7 @@ optional:
 pageSize <integer> The maximum number of assignments to return."
   ([parent] (projects-locations-osPolicyAssignments-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://osconfig.googleapis.com/v1/{+parent}/osPolicyAssignments",
@@ -135,7 +135,7 @@ pageSize <integer> The maximum number of revisions to return."
   ([name]
     (projects-locations-osPolicyAssignments-listRevisions name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://osconfig.googleapis.com/v1/{+name}:listRevisions",
@@ -153,7 +153,7 @@ optional:
 requestId <string> Optional. A unique identifier for this request. Restricted to 36 ASCII characters. A random UUID is recommended. This request is only idempotent if a `request_id` is provided."
   ([name] (projects-locations-osPolicyAssignments-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://osconfig.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -166,7 +166,7 @@ https://cloud.google.com/compute/docs/osconfig/rest/v1/reference/rest/v1/project
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://osconfig.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -181,7 +181,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://osconfig.googleapis.com/v1/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -195,7 +195,7 @@ https://cloud.google.com/compute/docs/osconfig/rest/v1/reference/rest/v1/project
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://osconfig.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -216,7 +216,7 @@ filter <string> If provided, this field specifies the criteria that must be met 
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://osconfig.googleapis.com/v1/{+parent}/reports",
@@ -234,7 +234,7 @@ optional:
 view <string> Inventory view indicating what information should be included in the inventory resource. If unspecified, the default view is BASIC."
   ([name] (projects-locations-instances-inventories-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://osconfig.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -253,7 +253,7 @@ pageSize <integer> The maximum number of results to return.
 filter <string> If provided, this field specifies the criteria that must be met by a `Inventory` API resource to be included in the response."
   ([parent] (projects-locations-instances-inventories-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://osconfig.googleapis.com/v1/{+parent}/inventories",
@@ -267,7 +267,7 @@ https://cloud.google.com/compute/docs/osconfig/rest/v1/reference/rest/v1/project
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://osconfig.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -288,7 +288,7 @@ filter <string> This field supports filtering by the severity level for the vuln
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://osconfig.googleapis.com/v1/{+parent}/vulnerabilityReports",
@@ -304,7 +304,7 @@ parent <>
 ExecutePatchJobRequest:
 ExecutePatchJobRequest"
   [parent ExecutePatchJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://osconfig.googleapis.com/v1/{+parent}/patchJobs:execute",
@@ -319,7 +319,7 @@ https://cloud.google.com/compute/docs/osconfig/rest/v1/reference/rest/v1/project
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://osconfig.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -334,7 +334,7 @@ name <>
 CancelPatchJobRequest:
 CancelPatchJobRequest"
   [name CancelPatchJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://osconfig.googleapis.com/v1/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -353,7 +353,7 @@ pageSize <integer> The maximum number of instance status to return.
 filter <string> If provided, this field specifies the criteria that must be met by patch jobs to be included in the response. Currently, filtering is only available on the patch_deployment field."
   ([parent] (projects-patchJobs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://osconfig.googleapis.com/v1/{+parent}/patchJobs",
@@ -372,7 +372,7 @@ pageSize <integer> The maximum number of instance details records to return. Def
 filter <string> A filter expression that filters results listed in the response. This field supports filtering results by instance zone, name, state, or `failure_reason`."
   ([parent] (projects-patchJobs-instanceDetails-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://osconfig.googleapis.com/v1/{+parent}/instanceDetails",
@@ -393,7 +393,7 @@ patchDeploymentId <string> Required. A name for the patch deployment in the proj
   ([parent PatchDeployment]
     (projects-patchDeployments-create parent PatchDeployment nil))
   ([parent PatchDeployment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://osconfig.googleapis.com/v1/{+parent}/patchDeployments",
@@ -408,7 +408,7 @@ https://cloud.google.com/compute/docs/osconfig/rest/v1/reference/rest/v1/project
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://osconfig.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -425,7 +425,7 @@ optional:
 pageSize <integer> Optional. The maximum number of patch deployments to return. Default is 100."
   ([parent] (projects-patchDeployments-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://osconfig.googleapis.com/v1/{+parent}/patchDeployments",
@@ -439,7 +439,7 @@ https://cloud.google.com/compute/docs/osconfig/rest/v1/reference/rest/v1/project
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://osconfig.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -459,7 +459,7 @@ updateMask <string> Optional. Field mask that controls which fields of the patch
   ([name PatchDeployment]
     (projects-patchDeployments-patch name PatchDeployment nil))
   ([name PatchDeployment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://osconfig.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -475,7 +475,7 @@ name <>
 PausePatchDeploymentRequest:
 PausePatchDeploymentRequest"
   [name PausePatchDeploymentRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://osconfig.googleapis.com/v1/{+name}:pause",
      :uri-template-args {"name" name},
@@ -491,7 +491,7 @@ name <>
 ResumePatchDeploymentRequest:
 ResumePatchDeploymentRequest"
   [name ResumePatchDeploymentRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://osconfig.googleapis.com/v1/{+name}:resume",
      :uri-template-args {"name" name},

@@ -12,7 +12,7 @@ name <>
 RenameDataPolicyRequest:
 RenameDataPolicyRequest"
   [name RenameDataPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigquerydatapolicy.googleapis.com/v1/{+name}:rename",
@@ -34,7 +34,7 @@ pageSize <integer> The maximum number of data policies to return. Must be a valu
 filter <string> Filters the data policies by policy tags that they are associated with. Currently filter only supports \"policy_tag\" based filtering and OR based predicates. Sample filter can be \"policy_tag: projects/1/locations/us/taxonomies/2/policyTags/3\". You may also use wildcard such as \"policy_tag: projects/1/locations/us/taxonomies/2*\". Please note that OR predicates cannot be used with wildcard filters."
   ([parent] (projects-locations-dataPolicies-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigquerydatapolicy.googleapis.com/v1/{+parent}/dataPolicies",
@@ -52,7 +52,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigquerydatapolicy.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -67,17 +67,21 @@ SetIamPolicyRequest"
   "Deletes the data policy specified by its resource name.
 https://cloud.google.com/bigquery/docs/column-data-masking/v1/reference/rest/v1/projects/locations/dataPolicies/delete
 
-name <> "
-  [name]
-  (client/api-request
-    {:method :delete,
-     :uri-template
-     "https://bigquerydatapolicy.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"]}))
+name <> 
+
+optional:
+force <boolean> Optional. If true, the data policy will be deleted even when it is referenced by one or more table columns."
+  ([name] (projects-locations-dataPolicies-delete name nil))
+  ([name optional]
+    (client/*api-request*
+      {:method :delete,
+       :uri-template
+       "https://bigquerydatapolicy.googleapis.com/v1/{+name}",
+       :uri-template-args {"name" name},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/bigquery"
+        "https://www.googleapis.com/auth/cloud-platform"]})))
 
 (defn projects-locations-dataPolicies-patch
   "Updates the metadata for an existing data policy. The target data policy can be specified by the resource name.
@@ -88,11 +92,12 @@ DataPolicy:
 DataPolicy
 
 optional:
-updateMask <string> The update mask applies to the resource. For the `FieldMask` definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask If not set, defaults to all of the fields that are allowed to update. Updates to the `name` and `dataPolicyId` fields are not allowed."
+updateMask <string> The update mask applies to the resource. For the `FieldMask` definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask If not set, defaults to all of the fields that are allowed to update. Updates to the `name` and `dataPolicyId` fields are not allowed.
+allowMissing <boolean> Optional. If set to true, and the data policy is not found, a new data policy will be created. In this situation, update_mask is ignored."
   ([name DataPolicy]
     (projects-locations-dataPolicies-patch name DataPolicy nil))
   ([name DataPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://bigquerydatapolicy.googleapis.com/v1/{+name}",
@@ -111,7 +116,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigquerydatapolicy.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -130,7 +135,7 @@ parent <>
 DataPolicy:
 DataPolicy"
   [parent DataPolicy]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigquerydatapolicy.googleapis.com/v1/{+parent}/dataPolicies",
@@ -147,7 +152,7 @@ https://cloud.google.com/bigquery/docs/column-data-masking/v1/reference/rest/v1/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://bigquerydatapolicy.googleapis.com/v1/{+name}",
@@ -165,7 +170,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigquerydatapolicy.googleapis.com/v1/{+resource}:testIamPermissions",

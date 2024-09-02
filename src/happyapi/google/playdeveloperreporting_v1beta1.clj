@@ -4,123 +4,6 @@
 See: https://developers.google.com/play/developer/reporting"
   (:require [happyapi.providers.google :as client]))
 
-(defn apps-search
-  "Searches for Apps accessible by the user.
-https://developers.google.com/play/developer/reporting/v1beta1/reference/rest/v1beta1/apps/search
-
-optional:
-pageSize <integer> The maximum number of apps to return. The service may return fewer than this value. If unspecified, at most 50 apps will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
-  ([] (apps-search nil))
-  ([optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://playdeveloperreporting.googleapis.com/v1beta1/apps:search",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/playdeveloperreporting"]})))
-
-(defn apps-fetchReleaseFilterOptions
-  "Describes filtering options for releases.
-https://developers.google.com/play/developer/reporting/v1beta1/reference/rest/v1beta1/apps/fetchReleaseFilterOptions
-
-name <> "
-  [name]
-  (client/api-request
-    {:method :get,
-     :uri-template
-     "https://playdeveloperreporting.googleapis.com/v1beta1/{+name}:fetchReleaseFilterOptions",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/playdeveloperreporting"]}))
-
-(defn vitals-excessivewakeuprate-query
-  "Queries the metrics in the metric set.
-https://developers.google.com/play/developer/reporting/v1beta1/reference/rest/v1beta1/vitals/excessivewakeuprate/query
-
-name <> 
-GooglePlayDeveloperReportingV1beta1QueryExcessiveWakeupRateMetricSetRequest:
-GooglePlayDeveloperReportingV1beta1QueryExcessiveWakeupRateMetricSetRequest"
-  [name
-   GooglePlayDeveloperReportingV1beta1QueryExcessiveWakeupRateMetricSetRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://playdeveloperreporting.googleapis.com/v1beta1/{+name}:query",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/playdeveloperreporting"],
-     :body
-     GooglePlayDeveloperReportingV1beta1QueryExcessiveWakeupRateMetricSetRequest}))
-
-(defn vitals-excessivewakeuprate-get
-  "Describes the properties of the metric set.
-https://developers.google.com/play/developer/reporting/v1beta1/reference/rest/v1beta1/vitals/excessivewakeuprate/get
-
-name <> "
-  [name]
-  (client/api-request
-    {:method :get,
-     :uri-template
-     "https://playdeveloperreporting.googleapis.com/v1beta1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/playdeveloperreporting"]}))
-
-(defn vitals-anrrate-query
-  "Queries the metrics in the metric set.
-https://developers.google.com/play/developer/reporting/v1beta1/reference/rest/v1beta1/vitals/anrrate/query
-
-name <> 
-GooglePlayDeveloperReportingV1beta1QueryAnrRateMetricSetRequest:
-GooglePlayDeveloperReportingV1beta1QueryAnrRateMetricSetRequest"
-  [name
-   GooglePlayDeveloperReportingV1beta1QueryAnrRateMetricSetRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://playdeveloperreporting.googleapis.com/v1beta1/{+name}:query",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/playdeveloperreporting"],
-     :body
-     GooglePlayDeveloperReportingV1beta1QueryAnrRateMetricSetRequest}))
-
-(defn vitals-anrrate-get
-  "Describes the properties of the metric set.
-https://developers.google.com/play/developer/reporting/v1beta1/reference/rest/v1beta1/vitals/anrrate/get
-
-name <> "
-  [name]
-  (client/api-request
-    {:method :get,
-     :uri-template
-     "https://playdeveloperreporting.googleapis.com/v1beta1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/playdeveloperreporting"]}))
-
-(defn vitals-stuckbackgroundwakelockrate-get
-  "Describes the properties of the metric set.
-https://developers.google.com/play/developer/reporting/v1beta1/reference/rest/v1beta1/vitals/stuckbackgroundwakelockrate/get
-
-name <> "
-  [name]
-  (client/api-request
-    {:method :get,
-     :uri-template
-     "https://playdeveloperreporting.googleapis.com/v1beta1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/playdeveloperreporting"]}))
-
 (defn vitals-stuckbackgroundwakelockrate-query
   "Queries the metrics in the metric set.
 https://developers.google.com/play/developer/reporting/v1beta1/reference/rest/v1beta1/vitals/stuckbackgroundwakelockrate/query
@@ -130,7 +13,7 @@ GooglePlayDeveloperReportingV1beta1QueryStuckBackgroundWakelockRateMetricSetRequ
 GooglePlayDeveloperReportingV1beta1QueryStuckBackgroundWakelockRateMetricSetRequest"
   [name
    GooglePlayDeveloperReportingV1beta1QueryStuckBackgroundWakelockRateMetricSetRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://playdeveloperreporting.googleapis.com/v1beta1/{+name}:query",
@@ -141,13 +24,13 @@ GooglePlayDeveloperReportingV1beta1QueryStuckBackgroundWakelockRateMetricSetRequ
      :body
      GooglePlayDeveloperReportingV1beta1QueryStuckBackgroundWakelockRateMetricSetRequest}))
 
-(defn vitals-crashrate-get
+(defn vitals-stuckbackgroundwakelockrate-get
   "Describes the properties of the metric set.
-https://developers.google.com/play/developer/reporting/v1beta1/reference/rest/v1beta1/vitals/crashrate/get
+https://developers.google.com/play/developer/reporting/v1beta1/reference/rest/v1beta1/vitals/stuckbackgroundwakelockrate/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://playdeveloperreporting.googleapis.com/v1beta1/{+name}",
@@ -156,33 +39,13 @@ name <> "
      :scopes
      ["https://www.googleapis.com/auth/playdeveloperreporting"]}))
 
-(defn vitals-crashrate-query
-  "Queries the metrics in the metric set.
-https://developers.google.com/play/developer/reporting/v1beta1/reference/rest/v1beta1/vitals/crashrate/query
-
-name <> 
-GooglePlayDeveloperReportingV1beta1QueryCrashRateMetricSetRequest:
-GooglePlayDeveloperReportingV1beta1QueryCrashRateMetricSetRequest"
-  [name
-   GooglePlayDeveloperReportingV1beta1QueryCrashRateMetricSetRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://playdeveloperreporting.googleapis.com/v1beta1/{+name}:query",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/playdeveloperreporting"],
-     :body
-     GooglePlayDeveloperReportingV1beta1QueryCrashRateMetricSetRequest}))
-
 (defn vitals-slowrenderingrate-get
   "Describes the properties of the metric set.
 https://developers.google.com/play/developer/reporting/v1beta1/reference/rest/v1beta1/vitals/slowrenderingrate/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://playdeveloperreporting.googleapis.com/v1beta1/{+name}",
@@ -200,7 +63,7 @@ GooglePlayDeveloperReportingV1beta1QuerySlowRenderingRateMetricSetRequest:
 GooglePlayDeveloperReportingV1beta1QuerySlowRenderingRateMetricSetRequest"
   [name
    GooglePlayDeveloperReportingV1beta1QuerySlowRenderingRateMetricSetRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://playdeveloperreporting.googleapis.com/v1beta1/{+name}:query",
@@ -211,13 +74,13 @@ GooglePlayDeveloperReportingV1beta1QuerySlowRenderingRateMetricSetRequest"
      :body
      GooglePlayDeveloperReportingV1beta1QuerySlowRenderingRateMetricSetRequest}))
 
-(defn vitals-slowstartrate-get
+(defn vitals-crashrate-get
   "Describes the properties of the metric set.
-https://developers.google.com/play/developer/reporting/v1beta1/reference/rest/v1beta1/vitals/slowstartrate/get
+https://developers.google.com/play/developer/reporting/v1beta1/reference/rest/v1beta1/vitals/crashrate/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://playdeveloperreporting.googleapis.com/v1beta1/{+name}",
@@ -226,16 +89,16 @@ name <> "
      :scopes
      ["https://www.googleapis.com/auth/playdeveloperreporting"]}))
 
-(defn vitals-slowstartrate-query
+(defn vitals-crashrate-query
   "Queries the metrics in the metric set.
-https://developers.google.com/play/developer/reporting/v1beta1/reference/rest/v1beta1/vitals/slowstartrate/query
+https://developers.google.com/play/developer/reporting/v1beta1/reference/rest/v1beta1/vitals/crashrate/query
 
 name <> 
-GooglePlayDeveloperReportingV1beta1QuerySlowStartRateMetricSetRequest:
-GooglePlayDeveloperReportingV1beta1QuerySlowStartRateMetricSetRequest"
+GooglePlayDeveloperReportingV1beta1QueryCrashRateMetricSetRequest:
+GooglePlayDeveloperReportingV1beta1QueryCrashRateMetricSetRequest"
   [name
-   GooglePlayDeveloperReportingV1beta1QuerySlowStartRateMetricSetRequest]
-  (client/api-request
+   GooglePlayDeveloperReportingV1beta1QueryCrashRateMetricSetRequest]
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://playdeveloperreporting.googleapis.com/v1beta1/{+name}:query",
@@ -244,42 +107,7 @@ GooglePlayDeveloperReportingV1beta1QuerySlowStartRateMetricSetRequest"
      :scopes
      ["https://www.googleapis.com/auth/playdeveloperreporting"],
      :body
-     GooglePlayDeveloperReportingV1beta1QuerySlowStartRateMetricSetRequest}))
-
-(defn vitals-errors-counts-get
-  "Describes the properties of the metrics set.
-https://developers.google.com/play/developer/reporting/v1beta1/reference/rest/v1beta1/vitals/errors/counts/get
-
-name <> "
-  [name]
-  (client/api-request
-    {:method :get,
-     :uri-template
-     "https://playdeveloperreporting.googleapis.com/v1beta1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/playdeveloperreporting"]}))
-
-(defn vitals-errors-counts-query
-  "Queries the metrics in the metrics set.
-https://developers.google.com/play/developer/reporting/v1beta1/reference/rest/v1beta1/vitals/errors/counts/query
-
-name <> 
-GooglePlayDeveloperReportingV1beta1QueryErrorCountMetricSetRequest:
-GooglePlayDeveloperReportingV1beta1QueryErrorCountMetricSetRequest"
-  [name
-   GooglePlayDeveloperReportingV1beta1QueryErrorCountMetricSetRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://playdeveloperreporting.googleapis.com/v1beta1/{+name}:query",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/playdeveloperreporting"],
-     :body
-     GooglePlayDeveloperReportingV1beta1QueryErrorCountMetricSetRequest}))
+     GooglePlayDeveloperReportingV1beta1QueryCrashRateMetricSetRequest}))
 
 (defn vitals-errors-reports-search
   "Searches all error reports received for an app.
@@ -312,7 +140,7 @@ interval.endTime.day <integer> Optional. Day of month. Must be from 1 to 31 and 
 interval.startTime.minutes <integer> Optional. Minutes of hour of day. Must be from 0 to 59, defaults to 0."
   ([parent] (vitals-errors-reports-search parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://playdeveloperreporting.googleapis.com/v1beta1/{+parent}/errorReports:search",
@@ -320,6 +148,41 @@ interval.startTime.minutes <integer> Optional. Minutes of hour of day. Must be f
        :query-params (merge {} optional),
        :scopes
        ["https://www.googleapis.com/auth/playdeveloperreporting"]})))
+
+(defn vitals-errors-counts-query
+  "Queries the metrics in the metrics set.
+https://developers.google.com/play/developer/reporting/v1beta1/reference/rest/v1beta1/vitals/errors/counts/query
+
+name <> 
+GooglePlayDeveloperReportingV1beta1QueryErrorCountMetricSetRequest:
+GooglePlayDeveloperReportingV1beta1QueryErrorCountMetricSetRequest"
+  [name
+   GooglePlayDeveloperReportingV1beta1QueryErrorCountMetricSetRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://playdeveloperreporting.googleapis.com/v1beta1/{+name}:query",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes
+     ["https://www.googleapis.com/auth/playdeveloperreporting"],
+     :body
+     GooglePlayDeveloperReportingV1beta1QueryErrorCountMetricSetRequest}))
+
+(defn vitals-errors-counts-get
+  "Describes the properties of the metrics set.
+https://developers.google.com/play/developer/reporting/v1beta1/reference/rest/v1beta1/vitals/errors/counts/get
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :get,
+     :uri-template
+     "https://playdeveloperreporting.googleapis.com/v1beta1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes
+     ["https://www.googleapis.com/auth/playdeveloperreporting"]}))
 
 (defn vitals-errors-issues-search
   "Searches all error issues in which reports have been grouped.
@@ -354,7 +217,7 @@ interval.endTime.day <integer> Optional. Day of month. Must be from 1 to 31 and 
 interval.startTime.minutes <integer> Optional. Minutes of hour of day. Must be from 0 to 59, defaults to 0."
   ([parent] (vitals-errors-issues-search parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://playdeveloperreporting.googleapis.com/v1beta1/{+parent}/errorIssues:search",
@@ -362,6 +225,143 @@ interval.startTime.minutes <integer> Optional. Minutes of hour of day. Must be f
        :query-params (merge {} optional),
        :scopes
        ["https://www.googleapis.com/auth/playdeveloperreporting"]})))
+
+(defn vitals-slowstartrate-get
+  "Describes the properties of the metric set.
+https://developers.google.com/play/developer/reporting/v1beta1/reference/rest/v1beta1/vitals/slowstartrate/get
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :get,
+     :uri-template
+     "https://playdeveloperreporting.googleapis.com/v1beta1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes
+     ["https://www.googleapis.com/auth/playdeveloperreporting"]}))
+
+(defn vitals-slowstartrate-query
+  "Queries the metrics in the metric set.
+https://developers.google.com/play/developer/reporting/v1beta1/reference/rest/v1beta1/vitals/slowstartrate/query
+
+name <> 
+GooglePlayDeveloperReportingV1beta1QuerySlowStartRateMetricSetRequest:
+GooglePlayDeveloperReportingV1beta1QuerySlowStartRateMetricSetRequest"
+  [name
+   GooglePlayDeveloperReportingV1beta1QuerySlowStartRateMetricSetRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://playdeveloperreporting.googleapis.com/v1beta1/{+name}:query",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes
+     ["https://www.googleapis.com/auth/playdeveloperreporting"],
+     :body
+     GooglePlayDeveloperReportingV1beta1QuerySlowStartRateMetricSetRequest}))
+
+(defn vitals-anrrate-query
+  "Queries the metrics in the metric set.
+https://developers.google.com/play/developer/reporting/v1beta1/reference/rest/v1beta1/vitals/anrrate/query
+
+name <> 
+GooglePlayDeveloperReportingV1beta1QueryAnrRateMetricSetRequest:
+GooglePlayDeveloperReportingV1beta1QueryAnrRateMetricSetRequest"
+  [name
+   GooglePlayDeveloperReportingV1beta1QueryAnrRateMetricSetRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://playdeveloperreporting.googleapis.com/v1beta1/{+name}:query",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes
+     ["https://www.googleapis.com/auth/playdeveloperreporting"],
+     :body
+     GooglePlayDeveloperReportingV1beta1QueryAnrRateMetricSetRequest}))
+
+(defn vitals-anrrate-get
+  "Describes the properties of the metric set.
+https://developers.google.com/play/developer/reporting/v1beta1/reference/rest/v1beta1/vitals/anrrate/get
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :get,
+     :uri-template
+     "https://playdeveloperreporting.googleapis.com/v1beta1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes
+     ["https://www.googleapis.com/auth/playdeveloperreporting"]}))
+
+(defn vitals-excessivewakeuprate-get
+  "Describes the properties of the metric set.
+https://developers.google.com/play/developer/reporting/v1beta1/reference/rest/v1beta1/vitals/excessivewakeuprate/get
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :get,
+     :uri-template
+     "https://playdeveloperreporting.googleapis.com/v1beta1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes
+     ["https://www.googleapis.com/auth/playdeveloperreporting"]}))
+
+(defn vitals-excessivewakeuprate-query
+  "Queries the metrics in the metric set.
+https://developers.google.com/play/developer/reporting/v1beta1/reference/rest/v1beta1/vitals/excessivewakeuprate/query
+
+name <> 
+GooglePlayDeveloperReportingV1beta1QueryExcessiveWakeupRateMetricSetRequest:
+GooglePlayDeveloperReportingV1beta1QueryExcessiveWakeupRateMetricSetRequest"
+  [name
+   GooglePlayDeveloperReportingV1beta1QueryExcessiveWakeupRateMetricSetRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://playdeveloperreporting.googleapis.com/v1beta1/{+name}:query",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes
+     ["https://www.googleapis.com/auth/playdeveloperreporting"],
+     :body
+     GooglePlayDeveloperReportingV1beta1QueryExcessiveWakeupRateMetricSetRequest}))
+
+(defn apps-search
+  "Searches for Apps accessible by the user.
+https://developers.google.com/play/developer/reporting/v1beta1/reference/rest/v1beta1/apps/search
+
+optional:
+pageSize <integer> The maximum number of apps to return. The service may return fewer than this value. If unspecified, at most 50 apps will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
+  ([] (apps-search nil))
+  ([optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://playdeveloperreporting.googleapis.com/v1beta1/apps:search",
+       :uri-template-args {},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/playdeveloperreporting"]})))
+
+(defn apps-fetchReleaseFilterOptions
+  "Describes filtering options for releases.
+https://developers.google.com/play/developer/reporting/v1beta1/reference/rest/v1beta1/apps/fetchReleaseFilterOptions
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :get,
+     :uri-template
+     "https://playdeveloperreporting.googleapis.com/v1beta1/{+name}:fetchReleaseFilterOptions",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes
+     ["https://www.googleapis.com/auth/playdeveloperreporting"]}))
 
 (defn anomalies-list
   "Lists anomalies in any of the datasets.
@@ -374,7 +374,7 @@ pageSize <integer> Maximum size of the returned data. If unspecified, at most 10
 filter <string> Filtering criteria for anomalies. For basic filter guidance, please check: https://google.aip.dev/160. **Supported functions:** * `activeBetween(startTime, endTime)`: If specified, only list anomalies that were active in between `startTime` (inclusive) and `endTime` (exclusive). Both parameters are expected to conform to an RFC-3339 formatted string (e.g. `2012-04-21T11:30:00-04:00`). UTC offsets are supported. Both `startTime` and `endTime` accept the special value `UNBOUNDED`, to signify intervals with no lower or upper bound, respectively. Examples: * `activeBetween(\"2021-04-21T11:30:00Z\", \"2021-07-21T00:00:00Z\")` * `activeBetween(UNBOUNDED, \"2021-11-21T00:00:00-04:00\")` * `activeBetween(\"2021-07-21T00:00:00-04:00\", UNBOUNDED)`"
   ([parent] (anomalies-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://playdeveloperreporting.googleapis.com/v1beta1/{+parent}/anomalies",

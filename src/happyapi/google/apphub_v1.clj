@@ -10,7 +10,7 @@ https://cloud.google.com/app-hub/docs/v1/reference/rest/v1/projects/locations/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://apphub.googleapis.com/v1/{+name}:lookupServiceProjectAttachment",
@@ -26,7 +26,7 @@ name <>
 DetachServiceProjectAttachmentRequest:
 DetachServiceProjectAttachmentRequest"
   [name DetachServiceProjectAttachmentRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apphub.googleapis.com/v1/{+name}:detachServiceProjectAttachment",
@@ -46,7 +46,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apphub.googleapis.com/v1/{+name}/locations",
@@ -60,7 +60,7 @@ https://cloud.google.com/app-hub/docs/v1/reference/rest/v1/projects/locations/ge
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://apphub.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -78,7 +78,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apphub.googleapis.com/v1/{+name}/operations",
@@ -92,7 +92,7 @@ https://cloud.google.com/app-hub/docs/v1/reference/rest/v1/projects/locations/op
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://apphub.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -105,7 +105,7 @@ https://cloud.google.com/app-hub/docs/v1/reference/rest/v1/projects/locations/op
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://apphub.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -120,7 +120,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://apphub.googleapis.com/v1/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -141,7 +141,7 @@ orderBy <string> Optional. Hint for how to order the results."
   ([parent]
     (projects-locations-serviceProjectAttachments-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apphub.googleapis.com/v1/{+parent}/serviceProjectAttachments",
@@ -166,7 +166,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
       ServiceProjectAttachment
       nil))
   ([parent ServiceProjectAttachment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://apphub.googleapis.com/v1/{+parent}/serviceProjectAttachments",
@@ -181,7 +181,7 @@ https://cloud.google.com/app-hub/docs/v1/reference/rest/v1/projects/locations/se
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://apphub.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -199,7 +199,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
   ([name]
     (projects-locations-serviceProjectAttachments-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://apphub.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -218,7 +218,7 @@ filter <string> Optional. Filtering results.
 orderBy <string> Optional. Hint for how to order the results."
   ([parent] (projects-locations-discoveredServices-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apphub.googleapis.com/v1/{+parent}/discoveredServices",
@@ -232,7 +232,7 @@ https://cloud.google.com/app-hub/docs/v1/reference/rest/v1/projects/locations/di
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://apphub.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -249,7 +249,7 @@ optional:
 uri <string> Required. Resource URI to find DiscoveredService for. Accepts both project number and project ID and does translation when needed."
   ([parent] (projects-locations-discoveredServices-lookup parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apphub.googleapis.com/v1/{+parent}/discoveredServices:lookup",
@@ -269,7 +269,7 @@ filter <string> Optional. Filtering results.
 orderBy <string> Optional. Hint for how to order the results."
   ([parent] (projects-locations-discoveredWorkloads-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apphub.googleapis.com/v1/{+parent}/discoveredWorkloads",
@@ -283,7 +283,7 @@ https://cloud.google.com/app-hub/docs/v1/reference/rest/v1/projects/locations/di
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://apphub.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -300,7 +300,7 @@ optional:
 uri <string> Required. Resource URI to find Discovered Workload for. Accepts both project number and project ID and does translation when needed."
   ([parent] (projects-locations-discoveredWorkloads-lookup parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apphub.googleapis.com/v1/{+parent}/discoveredWorkloads:lookup",
@@ -320,7 +320,7 @@ filter <string> Optional. Filtering results.
 orderBy <string> Optional. Hint for how to order the results."
   ([parent] (projects-locations-applications-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apphub.googleapis.com/v1/{+parent}/applications",
@@ -342,7 +342,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
   ([parent Application]
     (projects-locations-applications-create parent Application nil))
   ([parent Application optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://apphub.googleapis.com/v1/{+parent}/applications",
@@ -357,7 +357,7 @@ https://cloud.google.com/app-hub/docs/v1/reference/rest/v1/projects/locations/ap
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://apphub.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -378,7 +378,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
   ([name Application]
     (projects-locations-applications-patch name Application nil))
   ([name Application optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://apphub.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -396,7 +396,7 @@ optional:
 requestId <string> Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-applications-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://apphub.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -411,7 +411,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apphub.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -431,7 +431,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-applications-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apphub.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -447,7 +447,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apphub.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -468,7 +468,7 @@ filter <string> Optional. Filtering results
 orderBy <string> Optional. Hint for how to order the results"
   ([parent] (projects-locations-applications-services-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apphub.googleapis.com/v1/{+parent}/services",
@@ -493,7 +493,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
       Service
       nil))
   ([parent Service optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://apphub.googleapis.com/v1/{+parent}/services",
@@ -508,7 +508,7 @@ https://cloud.google.com/app-hub/docs/v1/reference/rest/v1/projects/locations/ap
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://apphub.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -529,7 +529,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
   ([name Service]
     (projects-locations-applications-services-patch name Service nil))
   ([name Service optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://apphub.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -547,7 +547,7 @@ optional:
 requestId <string> Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-applications-services-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://apphub.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -567,7 +567,7 @@ orderBy <string> Optional. Hint for how to order the results."
   ([parent]
     (projects-locations-applications-workloads-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apphub.googleapis.com/v1/{+parent}/workloads",
@@ -592,7 +592,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
       Workload
       nil))
   ([parent Workload optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://apphub.googleapis.com/v1/{+parent}/workloads",
@@ -607,7 +607,7 @@ https://cloud.google.com/app-hub/docs/v1/reference/rest/v1/projects/locations/ap
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://apphub.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -631,7 +631,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
       Workload
       nil))
   ([name Workload optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://apphub.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -649,7 +649,7 @@ optional:
 requestId <string> Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-applications-workloads-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://apphub.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},

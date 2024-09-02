@@ -10,7 +10,7 @@ https://cloud.google.com/bigtable/v2/reference/rest/v2/operations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://bigtableadmin.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -35,7 +35,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (operations-projects-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigtableadmin.googleapis.com/v2/{+name}/operations",
@@ -57,7 +57,7 @@ https://cloud.google.com/bigtable/v2/reference/rest/v2/projects/instances/list
 parent <> "
   ([parent] (projects-instances-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigtableadmin.googleapis.com/v2/{+parent}/instances",
@@ -80,7 +80,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigtableadmin.googleapis.com/v2/{+resource}:setIamPolicy",
@@ -101,7 +101,7 @@ https://cloud.google.com/bigtable/v2/reference/rest/v2/projects/instances/delete
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://bigtableadmin.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -122,7 +122,7 @@ name <>
 Instance:
 Instance"
   [name Instance]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template "https://bigtableadmin.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -149,7 +149,7 @@ updateMask <string> Required. The subset of Instance fields which should be repl
   ([name Instance]
     (projects-instances-partialUpdateInstance name Instance nil))
   ([name Instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://bigtableadmin.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -171,7 +171,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigtableadmin.googleapis.com/v2/{+resource}:getIamPolicy",
@@ -194,7 +194,7 @@ parent <>
 CreateInstanceRequest:
 CreateInstanceRequest"
   [parent CreateInstanceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigtableadmin.googleapis.com/v2/{+parent}/instances",
@@ -215,7 +215,7 @@ https://cloud.google.com/bigtable/v2/reference/rest/v2/projects/instances/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://bigtableadmin.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -237,7 +237,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigtableadmin.googleapis.com/v2/{+resource}:testIamPermissions",
@@ -265,7 +265,7 @@ clusterId <string> Required. The ID to be used when referring to the new cluster
   ([parent Cluster]
     (projects-instances-clusters-create parent Cluster nil))
   ([parent Cluster optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://bigtableadmin.googleapis.com/v2/{+parent}/clusters",
@@ -286,7 +286,7 @@ https://cloud.google.com/bigtable/v2/reference/rest/v2/projects/instances/cluste
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://bigtableadmin.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -307,7 +307,7 @@ https://cloud.google.com/bigtable/v2/reference/rest/v2/projects/instances/cluste
 parent <> "
   ([parent] (projects-instances-clusters-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigtableadmin.googleapis.com/v2/{+parent}/clusters",
@@ -330,7 +330,7 @@ name <>
 Cluster:
 Cluster"
   [name Cluster]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template "https://bigtableadmin.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -360,7 +360,7 @@ updateMask <string> Required. The subset of Cluster fields which should be repla
       Cluster
       nil))
   ([name Cluster optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://bigtableadmin.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -380,7 +380,7 @@ https://cloud.google.com/bigtable/v2/reference/rest/v2/projects/instances/cluste
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://bigtableadmin.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -405,7 +405,7 @@ endTime <string> The end time to list hot tablets.
 pageSize <integer> Maximum number of results per page. A page_size that is empty or zero lets the server choose the number of items to return. A page_size which is strictly positive will return at most that many items. A negative page_size will cause an error. Following the first request, subsequent paginated calls do not need a page_size field. If a page_size is set in subsequent calls, it must match the page_size given in the first request."
   ([parent] (projects-instances-clusters-hotTablets-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigtableadmin.googleapis.com/v2/{+parent}/hotTablets",
@@ -431,7 +431,7 @@ orderBy <string> An expression for specifying the sort order of the results of t
 pageSize <integer> Number of backups to be returned in the response. If 0 or less, defaults to the server's maximum allowed page size."
   ([parent] (projects-instances-clusters-backups-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigtableadmin.googleapis.com/v2/{+parent}/backups",
@@ -452,7 +452,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigtableadmin.googleapis.com/v2/{+resource}:setIamPolicy",
@@ -474,7 +474,7 @@ parent <>
 CopyBackupRequest:
 CopyBackupRequest"
   [parent CopyBackupRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigtableadmin.googleapis.com/v2/{+parent}/backups:copy",
@@ -494,7 +494,7 @@ https://cloud.google.com/bigtable/v2/reference/rest/v2/projects/instances/cluste
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://bigtableadmin.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -519,7 +519,7 @@ updateMask <string> Required. A mask specifying which fields (e.g. `expire_time`
   ([name Backup]
     (projects-instances-clusters-backups-patch name Backup nil))
   ([name Backup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://bigtableadmin.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -540,7 +540,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigtableadmin.googleapis.com/v2/{+resource}:getIamPolicy",
@@ -567,7 +567,7 @@ backupId <string> Required. The id of the backup to be created. The `backup_id` 
   ([parent Backup]
     (projects-instances-clusters-backups-create parent Backup nil))
   ([parent Backup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://bigtableadmin.googleapis.com/v2/{+parent}/backups",
@@ -587,7 +587,7 @@ https://cloud.google.com/bigtable/v2/reference/rest/v2/projects/instances/cluste
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://bigtableadmin.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -607,7 +607,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigtableadmin.googleapis.com/v2/{+resource}:testIamPermissions",
@@ -635,7 +635,7 @@ ignoreWarnings <boolean> If true, ignore safety checks when creating the app pro
   ([parent AppProfile]
     (projects-instances-appProfiles-create parent AppProfile nil))
   ([parent AppProfile optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://bigtableadmin.googleapis.com/v2/{+parent}/appProfiles",
@@ -656,7 +656,7 @@ https://cloud.google.com/bigtable/v2/reference/rest/v2/projects/instances/appPro
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://bigtableadmin.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -680,7 +680,7 @@ optional:
 pageSize <integer> Maximum number of results per page. A page_size of zero lets the server choose the number of items to return. A page_size which is strictly positive will return at most that many items. A negative page_size will cause an error. Following the first request, subsequent paginated calls are not required to pass a page_size. If a page_size is set in subsequent calls, it must match the page_size given in the first request."
   ([parent] (projects-instances-appProfiles-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigtableadmin.googleapis.com/v2/{+parent}/appProfiles",
@@ -708,7 +708,7 @@ ignoreWarnings <boolean> If true, ignore safety checks when updating the app pro
   ([name AppProfile]
     (projects-instances-appProfiles-patch name AppProfile nil))
   ([name AppProfile optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://bigtableadmin.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -732,7 +732,7 @@ optional:
 ignoreWarnings <boolean> Required. If true, ignore safety checks when deleting the app profile."
   ([name] (projects-instances-appProfiles-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://bigtableadmin.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -756,7 +756,7 @@ view <string> The view to be applied to the returned tables' fields. Only NAME_O
 pageSize <integer> Maximum number of results per page. A page_size of zero lets the server choose the number of items to return. A page_size which is strictly positive will return at most that many items. A negative page_size will cause an error. Following the first request, subsequent paginated calls are not required to pass a page_size. If a page_size is set in subsequent calls, it must match the page_size given in the first request."
   ([parent] (projects-instances-tables-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigtableadmin.googleapis.com/v2/{+parent}/tables",
@@ -778,7 +778,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigtableadmin.googleapis.com/v2/{+resource}:setIamPolicy",
@@ -800,7 +800,7 @@ name <>
 GenerateConsistencyTokenRequest:
 GenerateConsistencyTokenRequest"
   [name GenerateConsistencyTokenRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigtableadmin.googleapis.com/v2/{+name}:generateConsistencyToken",
@@ -822,7 +822,7 @@ name <>
 ModifyColumnFamiliesRequest:
 ModifyColumnFamiliesRequest"
   [name ModifyColumnFamiliesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigtableadmin.googleapis.com/v2/{+name}:modifyColumnFamilies",
@@ -842,7 +842,7 @@ https://cloud.google.com/bigtable/v2/reference/rest/v2/projects/instances/tables
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://bigtableadmin.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -862,7 +862,7 @@ name <>
 UndeleteTableRequest:
 UndeleteTableRequest"
   [name UndeleteTableRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigtableadmin.googleapis.com/v2/{+name}:undelete",
@@ -888,7 +888,7 @@ optional:
 updateMask <string> Required. The list of fields to update. A mask specifying which fields (e.g. `change_stream_config`) in the `table` field should be updated. This mask is relative to the `table` field, not to the request message. The wildcard (*) path is currently not supported. Currently UpdateTable is only supported for the following fields: * `change_stream_config` * `change_stream_config.retention_period` * `deletion_protection` If `column_families` is set in `update_mask`, it will return an UNIMPLEMENTED error."
   ([name Table] (projects-instances-tables-patch name Table nil))
   ([name Table optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://bigtableadmin.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -909,7 +909,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigtableadmin.googleapis.com/v2/{+resource}:getIamPolicy",
@@ -931,7 +931,7 @@ name <>
 DropRowRangeRequest:
 DropRowRangeRequest"
   [name DropRowRangeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigtableadmin.googleapis.com/v2/{+name}:dropRowRange",
@@ -953,7 +953,7 @@ parent <>
 CreateTableRequest:
 CreateTableRequest"
   [parent CreateTableRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigtableadmin.googleapis.com/v2/{+parent}/tables",
@@ -975,7 +975,7 @@ name <>
 CheckConsistencyRequest:
 CheckConsistencyRequest"
   [name CheckConsistencyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigtableadmin.googleapis.com/v2/{+name}:checkConsistency",
@@ -997,7 +997,7 @@ parent <>
 RestoreTableRequest:
 RestoreTableRequest"
   [parent RestoreTableRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigtableadmin.googleapis.com/v2/{+parent}/tables:restore",
@@ -1021,7 +1021,7 @@ optional:
 view <string> The view to be applied to the returned table's fields. Defaults to `SCHEMA_VIEW` if unspecified."
   ([name] (projects-instances-tables-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://bigtableadmin.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -1042,7 +1042,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigtableadmin.googleapis.com/v2/{+resource}:testIamPermissions",
@@ -1072,7 +1072,7 @@ authorizedViewId <string> Required. The id of the AuthorizedView to create. This
       AuthorizedView
       nil))
   ([parent AuthorizedView optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://bigtableadmin.googleapis.com/v2/{+parent}/authorizedViews",
@@ -1098,7 +1098,7 @@ view <string> Optional. The resource_view to be applied to the returned Authoriz
   ([parent]
     (projects-instances-tables-authorizedViews-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigtableadmin.googleapis.com/v2/{+parent}/authorizedViews",
@@ -1121,7 +1121,7 @@ optional:
 view <string> Optional. The resource_view to be applied to the returned AuthorizedView's fields. Default to BASIC."
   ([name] (projects-instances-tables-authorizedViews-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://bigtableadmin.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -1150,7 +1150,7 @@ ignoreWarnings <boolean> Optional. If true, ignore the safety checks when updati
       AuthorizedView
       nil))
   ([name AuthorizedView optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://bigtableadmin.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -1173,7 +1173,7 @@ optional:
 etag <string> Optional. The current etag of the AuthorizedView. If an etag is provided and does not match the current etag of the AuthorizedView, deletion will be blocked and an ABORTED error will be returned."
   ([name] (projects-instances-tables-authorizedViews-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://bigtableadmin.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -1193,7 +1193,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigtableadmin.googleapis.com/v2/{+resource}:getIamPolicy",
@@ -1215,7 +1215,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigtableadmin.googleapis.com/v2/{+resource}:setIamPolicy",
@@ -1237,7 +1237,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigtableadmin.googleapis.com/v2/{+resource}:testIamPermissions",
@@ -1262,7 +1262,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigtableadmin.googleapis.com/v2/{+name}/locations",

@@ -15,7 +15,7 @@ family <string> Filters by Webfont.family, using literal match. If not set, retu
 subset <string> Filters by Webfont.subset, if subset is found in Webfont.subsets. If not set, returns all families."
   ([] (webfonts-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://webfonts.googleapis.com/v1/webfonts",
        :uri-template-args {},

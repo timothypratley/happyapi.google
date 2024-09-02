@@ -12,7 +12,7 @@ workflow <>
 TriggerPubsubExecutionRequest:
 TriggerPubsubExecutionRequest"
   [workflow TriggerPubsubExecutionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://workflowexecutions.googleapis.com/v1/{+workflow}:triggerPubsubExecution",
@@ -34,7 +34,7 @@ filter <string> Optional. Filters applied to the `[Executions.ListExecutions]` r
 orderBy <string> Optional. Comma-separated list of fields that specify the ordering applied to the `[Executions.ListExecutions]` results. By default the ordering is based on descending `createTime`. The following fields are supported for ordering: `executionId`, `state`, `createTime`, `startTime`, `endTime`, `duration`, and `workflowRevisionId`. For details, see AIP-132."
   ([parent] (projects-locations-workflows-executions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://workflowexecutions.googleapis.com/v1/{+parent}/executions",
@@ -50,7 +50,7 @@ parent <>
 Execution:
 Execution"
   [parent Execution]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://workflowexecutions.googleapis.com/v1/{+parent}/executions",
@@ -69,7 +69,7 @@ optional:
 view <string> Optional. A view defining which fields should be filled in the returned execution. The API will default to the FULL view."
   ([name] (projects-locations-workflows-executions-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://workflowexecutions.googleapis.com/v1/{+name}",
@@ -85,7 +85,7 @@ name <>
 CancelExecutionRequest:
 CancelExecutionRequest"
   [name CancelExecutionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://workflowexecutions.googleapis.com/v1/{+name}:cancel",
@@ -100,13 +100,30 @@ https://cloud.google.com/workflows/v1/reference/rest/v1/projects/locations/workf
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://workflowexecutions.googleapis.com/v1/{+name}:exportData",
      :uri-template-args {"name" name},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+
+(defn projects-locations-workflows-executions-deleteExecutionHistory
+  "Deletes all step entries for an execution.
+https://cloud.google.com/workflows/v1/reference/rest/v1/projects/locations/workflows/executions/deleteExecutionHistory
+
+name <> 
+DeleteExecutionHistoryRequest:
+DeleteExecutionHistoryRequest"
+  [name DeleteExecutionHistoryRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://workflowexecutions.googleapis.com/v1/{+name}:deleteExecutionHistory",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body DeleteExecutionHistoryRequest}))
 
 (defn projects-locations-workflows-executions-callbacks-list
   "Returns a list of active callbacks that belong to the execution with the given name. The returned callbacks are ordered by callback ID.
@@ -121,7 +138,7 @@ pageSize <integer> Maximum number of callbacks to return per call. The default v
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://workflowexecutions.googleapis.com/v1/{+parent}/callbacks",
@@ -138,14 +155,15 @@ parent <>
 optional:
 pageSize <integer> Optional. Number of step entries to return per call. The default max is 1000.
 skip <integer> Optional. The number of step entries to skip. It can be used with or without a pageToken. If used with a pageToken, then it indicates the number of step entries to skip starting from the requested page.
-filter <string> Optional. Filters applied to the `[StepEntries.ListStepEntries]` results. The following fields are supported for filtering: `entryId`, `createTime`, `updateTime`, `routine`, `step`, `stepType`, `state`. For details, see AIP-160. For example, if you are using the Google APIs Explorer: `state=\"SUCCEEDED\"` or `createTime>\"2023-08-01\" AND state=\"FAILED\"`
-orderBy <string> Optional. Comma-separated list of fields that specify the ordering applied to the `[StepEntries.ListStepEntries]` results. By default the ordering is based on ascending `entryId`. The following fields are supported for ordering: `entryId`, `createTime`, `updateTime`, `routine`, `step`, `stepType`, `state`. For details, see AIP-132."
+filter <string> Optional. Filters applied to the `[StepEntries.ListStepEntries]` results. The following fields are supported for filtering: `entryId`, `createTime`, `updateTime`, `routine`, `step`, `stepType`, `parent`, `state`. For details, see AIP-160. For example, if you are using the Google APIs Explorer: `state=\"SUCCEEDED\"` or `createTime>\"2023-08-01\" AND state=\"FAILED\"`
+orderBy <string> Optional. Comma-separated list of fields that specify the ordering applied to the `[StepEntries.ListStepEntries]` results. By default the ordering is based on ascending `entryId`. The following fields are supported for ordering: `entryId`, `createTime`, `updateTime`, `routine`, `step`, `stepType`, `state`. For details, see AIP-132.
+view <string> Deprecated field."
   ([parent]
     (projects-locations-workflows-executions-stepEntries-list
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://workflowexecutions.googleapis.com/v1/{+parent}/stepEntries",
@@ -157,12 +175,17 @@ orderBy <string> Optional. Comma-separated list of fields that specify the order
   "Gets a step entry.
 https://cloud.google.com/workflows/v1/reference/rest/v1/projects/locations/workflows/executions/stepEntries/get
 
-name <> "
-  [name]
-  (client/api-request
-    {:method :get,
-     :uri-template
-     "https://workflowexecutions.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+name <> 
+
+optional:
+view <string> Deprecated field."
+  ([name]
+    (projects-locations-workflows-executions-stepEntries-get name nil))
+  ([name optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://workflowexecutions.googleapis.com/v1/{+name}",
+       :uri-template-args {"name" name},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))

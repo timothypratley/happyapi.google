@@ -10,7 +10,7 @@ https://cloud.google.com/run/v2/reference/rest/v2/projects/locations/exportProje
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://run.googleapis.com/v2/{+name}:exportProjectMetadata",
@@ -24,7 +24,7 @@ https://cloud.google.com/run/v2/reference/rest/v2/projects/locations/exportMetad
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://run.googleapis.com/v2/{+name}:exportMetadata",
@@ -38,7 +38,7 @@ https://cloud.google.com/run/v2/reference/rest/v2/projects/locations/exportImage
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://run.googleapis.com/v2/{+name}:exportImageMetadata",
@@ -54,7 +54,7 @@ name <>
 GoogleCloudRunV2ExportImageRequest:
 GoogleCloudRunV2ExportImageRequest"
   [name GoogleCloudRunV2ExportImageRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://run.googleapis.com/v2/{+name}:exportImage",
      :uri-template-args {"name" name},
@@ -73,7 +73,7 @@ filter <string> Optional. A filter for matching the completed or in-progress ope
 pageSize <integer> The maximum number of records that should be returned. Requested page size cannot exceed 100. If not set or set to less than or equal to 0, the default page size is 100. ."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://run.googleapis.com/v2/{+name}/operations",
@@ -87,7 +87,7 @@ https://cloud.google.com/run/v2/reference/rest/v2/projects/locations/operations/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://run.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -100,7 +100,7 @@ https://cloud.google.com/run/v2/reference/rest/v2/projects/locations/operations/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://run.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -115,13 +115,30 @@ name <>
 GoogleLongrunningWaitOperationRequest:
 GoogleLongrunningWaitOperationRequest"
   [name GoogleLongrunningWaitOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://run.googleapis.com/v2/{+name}:wait",
      :uri-template-args {"name" name},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/cloud-platform"],
      :body GoogleLongrunningWaitOperationRequest}))
+
+(defn projects-locations-builds-submit
+  "Submits a build in a given project.
+https://cloud.google.com/run/v2/reference/rest/v2/projects/locations/builds/submit
+
+parent <> 
+GoogleCloudRunV2SubmitBuildRequest:
+GoogleCloudRunV2SubmitBuildRequest"
+  [parent GoogleCloudRunV2SubmitBuildRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://run.googleapis.com/v2/{+parent}/builds:submit",
+     :uri-template-args {"parent" parent},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudRunV2SubmitBuildRequest}))
 
 (defn projects-locations-jobs-list
   "Lists Jobs. Results are sorted by creation time, descending.
@@ -134,7 +151,7 @@ pageSize <integer> Maximum number of Jobs to return in this call.
 showDeleted <boolean> If true, returns deleted (but unexpired) resources along with active ones."
   ([parent] (projects-locations-jobs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://run.googleapis.com/v2/{+parent}/jobs",
        :uri-template-args {"parent" parent},
@@ -149,7 +166,7 @@ resource <>
 GoogleIamV1SetIamPolicyRequest:
 GoogleIamV1SetIamPolicyRequest"
   [resource GoogleIamV1SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://run.googleapis.com/v2/{+resource}:setIamPolicy",
@@ -169,7 +186,7 @@ validateOnly <boolean> Indicates that the request should be validated without ac
 etag <string> A system-generated fingerprint for this version of the resource. May be used to detect modification conflict during updates."
   ([name] (projects-locations-jobs-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://run.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -184,7 +201,7 @@ name <>
 GoogleCloudRunV2RunJobRequest:
 GoogleCloudRunV2RunJobRequest"
   [name GoogleCloudRunV2RunJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://run.googleapis.com/v2/{+name}:run",
      :uri-template-args {"name" name},
@@ -206,7 +223,7 @@ allowMissing <boolean> Optional. If set to true, and if the Job does not exist, 
   ([name GoogleCloudRunV2Job]
     (projects-locations-jobs-patch name GoogleCloudRunV2Job nil))
   ([name GoogleCloudRunV2Job optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://run.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -224,7 +241,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-locations-jobs-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://run.googleapis.com/v2/{+resource}:getIamPolicy",
@@ -246,7 +263,7 @@ validateOnly <boolean> Indicates that the request should be validated and defaul
   ([parent GoogleCloudRunV2Job]
     (projects-locations-jobs-create parent GoogleCloudRunV2Job nil))
   ([parent GoogleCloudRunV2Job optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template "https://run.googleapis.com/v2/{+parent}/jobs",
        :uri-template-args {"parent" parent},
@@ -260,7 +277,7 @@ https://cloud.google.com/run/v2/reference/rest/v2/projects/locations/jobs/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://run.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -275,7 +292,7 @@ resource <>
 GoogleIamV1TestIamPermissionsRequest:
 GoogleIamV1TestIamPermissionsRequest"
   [resource GoogleIamV1TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://run.googleapis.com/v2/{+resource}:testIamPermissions",
@@ -291,7 +308,7 @@ https://cloud.google.com/run/v2/reference/rest/v2/projects/locations/jobs/execut
 name <> 
 operationId <> "
   [name operationId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://run.googleapis.com/v2/{+name}/{+operationId}:exportStatus",
@@ -305,7 +322,7 @@ https://cloud.google.com/run/v2/reference/rest/v2/projects/locations/jobs/execut
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://run.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -323,7 +340,7 @@ pageSize <integer> Maximum number of Executions to return in this call.
 showDeleted <boolean> If true, returns deleted (but unexpired) resources along with active ones."
   ([parent] (projects-locations-jobs-executions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://run.googleapis.com/v2/{+parent}/executions",
@@ -342,7 +359,7 @@ validateOnly <boolean> Indicates that the request should be validated without ac
 etag <string> A system-generated fingerprint for this version of the resource. This may be used to detect modification conflict during updates."
   ([name] (projects-locations-jobs-executions-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://run.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -357,7 +374,7 @@ name <>
 GoogleCloudRunV2CancelExecutionRequest:
 GoogleCloudRunV2CancelExecutionRequest"
   [name GoogleCloudRunV2CancelExecutionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://run.googleapis.com/v2/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -371,7 +388,7 @@ https://cloud.google.com/run/v2/reference/rest/v2/projects/locations/jobs/execut
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://run.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -389,7 +406,7 @@ pageSize <integer> Maximum number of Tasks to return in this call.
 showDeleted <boolean> If true, returns deleted (but unexpired) resources along with active ones."
   ([parent] (projects-locations-jobs-executions-tasks-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://run.googleapis.com/v2/{+parent}/tasks",
        :uri-template-args {"parent" parent},
@@ -413,7 +430,7 @@ validateOnly <boolean> Indicates that the request should be validated and defaul
       GoogleCloudRunV2Service
       nil))
   ([parent GoogleCloudRunV2Service optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://run.googleapis.com/v2/{+parent}/services",
@@ -428,7 +445,7 @@ https://cloud.google.com/run/v2/reference/rest/v2/projects/locations/services/ge
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://run.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -446,7 +463,7 @@ pageSize <integer> Maximum number of Services to return in this call.
 showDeleted <boolean> If true, returns deleted (but unexpired) resources along with active ones."
   ([parent] (projects-locations-services-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://run.googleapis.com/v2/{+parent}/services",
@@ -472,7 +489,7 @@ allowMissing <boolean> Optional. If set to true, and if the Service does not exi
       GoogleCloudRunV2Service
       nil))
   ([name GoogleCloudRunV2Service optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://run.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -491,7 +508,7 @@ validateOnly <boolean> Indicates that the request should be validated without ac
 etag <string> A system-generated fingerprint for this version of the resource. May be used to detect modification conflict during updates."
   ([name] (projects-locations-services-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://run.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -508,7 +525,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-locations-services-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://run.googleapis.com/v2/{+resource}:getIamPolicy",
@@ -524,7 +541,7 @@ resource <>
 GoogleIamV1SetIamPolicyRequest:
 GoogleIamV1SetIamPolicyRequest"
   [resource GoogleIamV1SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://run.googleapis.com/v2/{+resource}:setIamPolicy",
@@ -541,7 +558,7 @@ resource <>
 GoogleIamV1TestIamPermissionsRequest:
 GoogleIamV1TestIamPermissionsRequest"
   [resource GoogleIamV1TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://run.googleapis.com/v2/{+resource}:testIamPermissions",
@@ -557,7 +574,7 @@ https://cloud.google.com/run/v2/reference/rest/v2/projects/locations/services/re
 name <> 
 operationId <> "
   [name operationId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://run.googleapis.com/v2/{+name}/{+operationId}:exportStatus",
@@ -571,7 +588,7 @@ https://cloud.google.com/run/v2/reference/rest/v2/projects/locations/services/re
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://run.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -589,7 +606,7 @@ pageSize <integer> Maximum number of revisions to return in this call.
 showDeleted <boolean> If true, returns deleted (but unexpired) resources along with active ones."
   ([parent] (projects-locations-services-revisions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://run.googleapis.com/v2/{+parent}/revisions",
@@ -608,7 +625,7 @@ validateOnly <boolean> Indicates that the request should be validated without ac
 etag <string> A system-generated fingerprint for this version of the resource. This may be used to detect modification conflict during updates."
   ([name] (projects-locations-services-revisions-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://run.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},

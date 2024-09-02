@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://healthcare.googleapis.com/v1/{+name}/locations",
@@ -31,7 +31,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://healthcare.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -48,7 +48,7 @@ sourceDataset <>
 DeidentifyDatasetRequest:
 DeidentifyDatasetRequest"
   [sourceDataset DeidentifyDatasetRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+sourceDataset}:deidentify",
@@ -69,7 +69,7 @@ optional:
 pageSize <integer> The maximum number of items to return. If not specified, 100 is used. May not be larger than 1000."
   ([parent] (projects-locations-datasets-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://healthcare.googleapis.com/v1/{+parent}/datasets",
@@ -87,7 +87,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -104,7 +104,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://healthcare.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -125,7 +125,7 @@ optional:
 updateMask <string> Required. The update mask applies to the resource. For the `FieldMask` definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask"
   ([name Dataset] (projects-locations-datasets-patch name Dataset nil))
   ([name Dataset optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://healthcare.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -145,7 +145,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-locations-datasets-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://healthcare.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -168,7 +168,7 @@ datasetId <string> Required. The ID of the dataset that is being created. The st
   ([parent Dataset]
     (projects-locations-datasets-create parent Dataset nil))
   ([parent Dataset optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://healthcare.googleapis.com/v1/{+parent}/datasets",
@@ -185,7 +185,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://healthcare.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -202,7 +202,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -225,7 +225,7 @@ filter <string> Optional. Restricts the stores returned to those matching a filt
   ([parent]
     (projects-locations-datasets-consentStores-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://healthcare.googleapis.com/v1/{+parent}/consentStores",
@@ -243,7 +243,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -260,7 +260,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://healthcare.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -285,7 +285,7 @@ updateMask <string> Required. The update mask that applies to the resource. For 
       ConsentStore
       nil))
   ([name ConsentStore optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://healthcare.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -303,7 +303,7 @@ consentStore <>
 EvaluateUserConsentsRequest:
 EvaluateUserConsentsRequest"
   [consentStore EvaluateUserConsentsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+consentStore}:evaluateUserConsents",
@@ -327,7 +327,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://healthcare.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -353,7 +353,7 @@ consentStoreId <string> Required. The ID of the consent store to create. The str
       ConsentStore
       nil))
   ([parent ConsentStore optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://healthcare.googleapis.com/v1/{+parent}/consentStores",
@@ -372,7 +372,7 @@ consentStore <>
 CheckDataAccessRequest:
 CheckDataAccessRequest"
   [consentStore CheckDataAccessRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+consentStore}:checkDataAccess",
@@ -391,7 +391,7 @@ consentStore <>
 QueryAccessibleDataRequest:
 QueryAccessibleDataRequest"
   [consentStore QueryAccessibleDataRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+consentStore}:queryAccessibleData",
@@ -408,7 +408,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://healthcare.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -425,7 +425,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -452,7 +452,7 @@ attributeDefinitionId <string> Required. The ID of the Attribute definition to c
       AttributeDefinition
       nil))
   ([parent AttributeDefinition optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://healthcare.googleapis.com/v1/{+parent}/attributeDefinitions",
@@ -469,7 +469,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://healthcare.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -484,7 +484,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://healthcare.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -509,7 +509,7 @@ updateMask <string> Required. The update mask that applies to the resource. For 
       AttributeDefinition
       nil))
   ([name AttributeDefinition optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://healthcare.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -533,7 +533,7 @@ filter <string> Optional. Restricts the attributes returned to those matching a 
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://healthcare.googleapis.com/v1/{+parent}/attributeDefinitions",
@@ -551,7 +551,7 @@ parent <>
 ConsentArtifact:
 ConsentArtifact"
   [parent ConsentArtifact]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+parent}/consentArtifacts",
@@ -568,7 +568,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://healthcare.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -583,7 +583,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://healthcare.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -606,7 +606,7 @@ filter <string> Optional. Restricts the artifacts returned to those matching a f
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://healthcare.googleapis.com/v1/{+parent}/consentArtifacts",
@@ -630,7 +630,7 @@ filter <string> Optional. Restricts the Consents returned to those matching a fi
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://healthcare.googleapis.com/v1/{+parent}/consents",
@@ -646,7 +646,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://healthcare.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -663,7 +663,7 @@ name <>
 ActivateConsentRequest:
 ActivateConsentRequest"
   [name ActivateConsentRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+name}:activate",
@@ -690,7 +690,7 @@ updateMask <string> Required. The update mask to apply to the resource. For the 
       Consent
       nil))
   ([name Consent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://healthcare.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -714,7 +714,7 @@ filter <string> Optional. Restricts the revisions returned to those matching a f
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://healthcare.googleapis.com/v1/{+name}:listRevisions",
@@ -732,7 +732,7 @@ parent <>
 Consent:
 Consent"
   [parent Consent]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+parent}/consents",
@@ -751,7 +751,7 @@ name <>
 RejectConsentRequest:
 RejectConsentRequest"
   [name RejectConsentRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+name}:reject",
@@ -768,7 +768,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://healthcare.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -785,7 +785,7 @@ name <>
 RevokeConsentRequest:
 RevokeConsentRequest"
   [name RevokeConsentRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+name}:revoke",
@@ -802,7 +802,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+name}:deleteRevision",
@@ -820,7 +820,7 @@ parent <>
 UserDataMapping:
 UserDataMapping"
   [parent UserDataMapping]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+parent}/userDataMappings",
@@ -837,7 +837,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://healthcare.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -852,7 +852,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://healthcare.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -877,7 +877,7 @@ updateMask <string> Required. The update mask that applies to the resource. For 
       UserDataMapping
       nil))
   ([name UserDataMapping optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://healthcare.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -901,7 +901,7 @@ filter <string> Optional. Restricts the User data mappings returned to those mat
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://healthcare.googleapis.com/v1/{+parent}/userDataMappings",
@@ -919,7 +919,7 @@ name <>
 ArchiveUserDataMappingRequest:
 ArchiveUserDataMappingRequest"
   [name ArchiveUserDataMappingRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+name}:archive",
@@ -938,7 +938,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -962,7 +962,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://healthcare.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -980,7 +980,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -999,7 +999,7 @@ sourceStore <>
 DeidentifyDicomStoreRequest:
 DeidentifyDicomStoreRequest"
   [sourceStore DeidentifyDicomStoreRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+sourceStore}:deidentify",
@@ -1021,7 +1021,7 @@ pageSize <integer> Limit on the number of DICOM stores to return in a single res
 filter <string> Restricts stores returned to those matching a filter. The following syntax is available: * A string field value can be written as text inside quotation marks, for example `\"query text\"`. The only valid relational operation for text fields is equality (`=`), where text is searched within the field, rather than having the field be equal to the text. For example, `\"Comment = great\"` returns messages with `great` in the comment field. * A number field value can be written as an integer, a decimal, or an exponential. The valid relational operators for number fields are the equality operator (`=`), along with the less than/greater than operators (`<`, `<=`, `>`, `>=`). Note that there is no inequality (`!=`) operator. You can prepend the `NOT` operator to an expression to negate it. * A date field value must be written in `yyyy-mm-dd` form. Fields with date and time use the RFC3339 time format. Leading zeros are required for one-digit months and days. The valid relational operators for date fields are the equality operator (`=`) , along with the less than/greater than operators (`<`, `<=`, `>`, `>=`). Note that there is no inequality (`!=`) operator. You can prepend the `NOT` operator to an expression to negate it. * Multiple field query expressions can be combined in one query by adding `AND` or `OR` operators between the expressions. If a boolean operator appears within a quoted string, it is not treated as special, it's just another part of the character string to be matched. You can prepend the `NOT` operator to an expression to negate it. Only filtering on labels is supported. For example, `labels.key=value`."
   ([parent] (projects-locations-datasets-dicomStores-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://healthcare.googleapis.com/v1/{+parent}/dicomStores",
@@ -1039,7 +1039,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -1059,7 +1059,7 @@ dicomWebPath <>
 HttpBody:
 HttpBody"
   [parent dicomWebPath HttpBody]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+parent}/dicomWeb/{+dicomWebPath}",
@@ -1077,7 +1077,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 parent <> 
 dicomWebPath <> "
   [parent dicomWebPath]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+parent}/dicomWeb/{+dicomWebPath}",
@@ -1094,7 +1094,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 parent <> 
 dicomWebPath <> "
   [parent dicomWebPath]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+parent}/dicomWeb/{+dicomWebPath}",
@@ -1110,7 +1110,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://healthcare.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1127,7 +1127,7 @@ name <>
 ExportDicomDataRequest:
 ExportDicomDataRequest"
   [name ExportDicomDataRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+name}:export",
@@ -1145,7 +1145,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 parent <> 
 dicomWebPath <> "
   [parent dicomWebPath]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+parent}/dicomWeb/{+dicomWebPath}",
@@ -1163,7 +1163,7 @@ name <>
 ImportDicomDataRequest:
 ImportDicomDataRequest"
   [name ImportDicomDataRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+name}:import",
@@ -1190,7 +1190,7 @@ updateMask <string> Required. The update mask applies to the resource. For the `
       DicomStore
       nil))
   ([name DicomStore optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://healthcare.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1213,7 +1213,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://healthcare.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -1239,7 +1239,7 @@ dicomStoreId <string> Required. The ID of the DICOM store that is being created.
       DicomStore
       nil))
   ([parent DicomStore optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://healthcare.googleapis.com/v1/{+parent}/dicomStores",
@@ -1250,13 +1250,32 @@ dicomStoreId <string> Required. The ID of the DICOM store that is being created.
         "https://www.googleapis.com/auth/cloud-platform"],
        :body DicomStore})))
 
+(defn projects-locations-datasets-dicomStores-setBlobStorageSettings
+  "SetBlobStorageSettings sets the blob storage settings of the specified resources.
+https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/datasets/dicomStores/setBlobStorageSettings
+
+resource <> 
+SetBlobStorageSettingsRequest:
+SetBlobStorageSettingsRequest"
+  [resource SetBlobStorageSettingsRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://healthcare.googleapis.com/v1/{+resource}:setBlobStorageSettings",
+     :uri-template-args {"resource" resource},
+     :query-params {},
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-healthcare"
+      "https://www.googleapis.com/auth/cloud-platform"],
+     :body SetBlobStorageSettingsRequest}))
+
 (defn projects-locations-datasets-dicomStores-getDICOMStoreMetrics
   "Gets metrics associated with the DICOM store.
 https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/datasets/dicomStores/getDICOMStoreMetrics
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+name}:getDICOMStoreMetrics",
@@ -1272,7 +1291,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://healthcare.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1289,7 +1308,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -1300,6 +1319,73 @@ TestIamPermissionsRequest"
       "https://www.googleapis.com/auth/cloud-platform"],
      :body TestIamPermissionsRequest}))
 
+(defn projects-locations-datasets-dicomStores-dicomWeb-studies-setBlobStorageSettings
+  "SetBlobStorageSettings sets the blob storage settings of the specified resources.
+https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/datasets/dicomStores/dicomWeb/studies/setBlobStorageSettings
+
+resource <> 
+SetBlobStorageSettingsRequest:
+SetBlobStorageSettingsRequest"
+  [resource SetBlobStorageSettingsRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://healthcare.googleapis.com/v1/{+resource}:setBlobStorageSettings",
+     :uri-template-args {"resource" resource},
+     :query-params {},
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-healthcare"
+      "https://www.googleapis.com/auth/cloud-platform"],
+     :body SetBlobStorageSettingsRequest}))
+
+(defn projects-locations-datasets-dicomStores-dicomWeb-studies-getStudyMetrics
+  "GetStudyMetrics returns metrics for a study.
+https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/datasets/dicomStores/dicomWeb/studies/getStudyMetrics
+
+study <> "
+  [study]
+  (client/*api-request*
+    {:method :get,
+     :uri-template
+     "https://healthcare.googleapis.com/v1/{+study}:getStudyMetrics",
+     :uri-template-args {"study" study},
+     :query-params {},
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-healthcare"
+      "https://www.googleapis.com/auth/cloud-platform"]}))
+
+(defn projects-locations-datasets-dicomStores-dicomWeb-studies-series-getSeriesMetrics
+  "GetSeriesMetrics returns metrics for a series.
+https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/datasets/dicomStores/dicomWeb/studies/series/getSeriesMetrics
+
+series <> "
+  [series]
+  (client/*api-request*
+    {:method :get,
+     :uri-template
+     "https://healthcare.googleapis.com/v1/{+series}:getSeriesMetrics",
+     :uri-template-args {"series" series},
+     :query-params {},
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-healthcare"
+      "https://www.googleapis.com/auth/cloud-platform"]}))
+
+(defn projects-locations-datasets-dicomStores-dicomWeb-studies-series-instances-getStorageInfo
+  "GetStorageInfo returns the storage info of the specified resource.
+https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/datasets/dicomStores/dicomWeb/studies/series/instances/getStorageInfo
+
+resource <> "
+  [resource]
+  (client/*api-request*
+    {:method :get,
+     :uri-template
+     "https://healthcare.googleapis.com/v1/{+resource}:getStorageInfo",
+     :uri-template-args {"resource" resource},
+     :query-params {},
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-healthcare"
+      "https://www.googleapis.com/auth/cloud-platform"]}))
+
 (defn projects-locations-datasets-dicomStores-studies-retrieveStudy
   "RetrieveStudy returns all instances within the given study. See [RetrieveTransaction] (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4). For details on the implementation of RetrieveStudy, see [DICOM study/series/instances](https://cloud.google.com/healthcare/docs/dicom#dicom_studyseriesinstances) in the Cloud Healthcare API conformance statement. For samples that show how to call RetrieveStudy, see [Retrieve DICOM data](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-dicom).
 https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/datasets/dicomStores/studies/retrieveStudy
@@ -1307,7 +1393,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 parent <> 
 dicomWebPath <> "
   [parent dicomWebPath]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+parent}/dicomWeb/{+dicomWebPath}",
@@ -1324,7 +1410,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 parent <> 
 dicomWebPath <> "
   [parent dicomWebPath]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+parent}/dicomWeb/{+dicomWebPath}",
@@ -1341,7 +1427,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 parent <> 
 dicomWebPath <> "
   [parent dicomWebPath]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+parent}/dicomWeb/{+dicomWebPath}",
@@ -1358,7 +1444,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 parent <> 
 dicomWebPath <> "
   [parent dicomWebPath]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+parent}/dicomWeb/{+dicomWebPath}",
@@ -1375,7 +1461,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 parent <> 
 dicomWebPath <> "
   [parent dicomWebPath]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+parent}/dicomWeb/{+dicomWebPath}",
@@ -1394,7 +1480,7 @@ dicomWebPath <>
 HttpBody:
 HttpBody"
   [parent dicomWebPath HttpBody]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+parent}/dicomWeb/{+dicomWebPath}",
@@ -1412,7 +1498,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 parent <> 
 dicomWebPath <> "
   [parent dicomWebPath]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+parent}/dicomWeb/{+dicomWebPath}",
@@ -1429,7 +1515,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 parent <> 
 dicomWebPath <> "
   [parent dicomWebPath]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+parent}/dicomWeb/{+dicomWebPath}",
@@ -1446,7 +1532,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 parent <> 
 dicomWebPath <> "
   [parent dicomWebPath]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+parent}/dicomWeb/{+dicomWebPath}",
@@ -1463,7 +1549,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 parent <> 
 dicomWebPath <> "
   [parent dicomWebPath]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+parent}/dicomWeb/{+dicomWebPath}",
@@ -1480,7 +1566,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 parent <> 
 dicomWebPath <> "
   [parent dicomWebPath]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+parent}/dicomWeb/{+dicomWebPath}",
@@ -1497,7 +1583,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 parent <> 
 dicomWebPath <> "
   [parent dicomWebPath]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+parent}/dicomWeb/{+dicomWebPath}",
@@ -1514,7 +1600,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 parent <> 
 dicomWebPath <> "
   [parent dicomWebPath]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+parent}/dicomWeb/{+dicomWebPath}",
@@ -1531,7 +1617,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 parent <> 
 dicomWebPath <> "
   [parent dicomWebPath]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+parent}/dicomWeb/{+dicomWebPath}",
@@ -1548,7 +1634,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 parent <> 
 dicomWebPath <> "
   [parent dicomWebPath]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+parent}/dicomWeb/{+dicomWebPath}",
@@ -1565,43 +1651,11 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 parent <> 
 dicomWebPath <> "
   [parent dicomWebPath]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+parent}/dicomWeb/{+dicomWebPath}",
      :uri-template-args {"parent" parent, "dicomWebPath" dicomWebPath},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-healthcare"
-      "https://www.googleapis.com/auth/cloud-platform"]}))
-
-(defn projects-locations-datasets-dicomStores-dicomWeb-studies-getStudyMetrics
-  "GetStudyMetrics returns metrics for a study.
-https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/datasets/dicomStores/dicomWeb/studies/getStudyMetrics
-
-study <> "
-  [study]
-  (client/api-request
-    {:method :get,
-     :uri-template
-     "https://healthcare.googleapis.com/v1/{+study}:getStudyMetrics",
-     :uri-template-args {"study" study},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-healthcare"
-      "https://www.googleapis.com/auth/cloud-platform"]}))
-
-(defn projects-locations-datasets-dicomStores-dicomWeb-studies-series-getSeriesMetrics
-  "GetSeriesMetrics returns metrics for a series.
-https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/datasets/dicomStores/dicomWeb/studies/series/getSeriesMetrics
-
-series <> "
-  [series]
-  (client/api-request
-    {:method :get,
-     :uri-template
-     "https://healthcare.googleapis.com/v1/{+series}:getSeriesMetrics",
-     :uri-template-args {"series" series},
      :query-params {},
      :scopes
      ["https://www.googleapis.com/auth/cloud-healthcare"
@@ -1618,7 +1672,7 @@ pageSize <integer> Limit on the number of HL7v2 stores to return in a single res
 filter <string> Restricts stores returned to those matching a filter. The following syntax is available: * A string field value can be written as text inside quotation marks, for example `\"query text\"`. The only valid relational operation for text fields is equality (`=`), where text is searched within the field, rather than having the field be equal to the text. For example, `\"Comment = great\"` returns messages with `great` in the comment field. * A number field value can be written as an integer, a decimal, or an exponential. The valid relational operators for number fields are the equality operator (`=`), along with the less than/greater than operators (`<`, `<=`, `>`, `>=`). Note that there is no inequality (`!=`) operator. You can prepend the `NOT` operator to an expression to negate it. * A date field value must be written in `yyyy-mm-dd` form. Fields with date and time use the RFC3339 time format. Leading zeros are required for one-digit months and days. The valid relational operators for date fields are the equality operator (`=`) , along with the less than/greater than operators (`<`, `<=`, `>`, `>=`). Note that there is no inequality (`!=`) operator. You can prepend the `NOT` operator to an expression to negate it. * Multiple field query expressions can be combined in one query by adding `AND` or `OR` operators between the expressions. If a boolean operator appears within a quoted string, it is not treated as special, it's just another part of the character string to be matched. You can prepend the `NOT` operator to an expression to negate it. Only filtering on labels is supported. For example, `labels.key=value`."
   ([parent] (projects-locations-datasets-hl7V2Stores-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://healthcare.googleapis.com/v1/{+parent}/hl7V2Stores",
@@ -1636,7 +1690,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -1653,7 +1707,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://healthcare.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1670,7 +1724,7 @@ name <>
 ExportMessagesRequest:
 ExportMessagesRequest"
   [name ExportMessagesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+name}:export",
@@ -1689,7 +1743,7 @@ name <>
 ImportMessagesRequest:
 ImportMessagesRequest"
   [name ImportMessagesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+name}:import",
@@ -1716,7 +1770,7 @@ updateMask <string> Required. The update mask applies to the resource. For the `
       Hl7V2Store
       nil))
   ([name Hl7V2Store optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://healthcare.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1739,7 +1793,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://healthcare.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -1765,7 +1819,7 @@ hl7V2StoreId <string> Required. The ID of the HL7v2 store that is being created.
       Hl7V2Store
       nil))
   ([parent Hl7V2Store optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://healthcare.googleapis.com/v1/{+parent}/hl7V2Stores",
@@ -1776,13 +1830,32 @@ hl7V2StoreId <string> Required. The ID of the HL7v2 store that is being created.
         "https://www.googleapis.com/auth/cloud-platform"],
        :body Hl7V2Store})))
 
+(defn projects-locations-datasets-hl7V2Stores-rollback
+  "Rolls back messages from the HL7v2 store to the specified time. This method returns an Operation that can be used to track the status of the rollback by calling GetOperation. Immediate fatal errors appear in the error field, errors are also logged to Cloud Logging (see [Viewing error logs in Cloud Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)). Otherwise, when the operation finishes, a detailed response of type RollbackHl7V2MessagesResponse is returned in the response field. The metadata field type for this operation is OperationMetadata.
+https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/datasets/hl7V2Stores/rollback
+
+name <> 
+RollbackHl7V2MessagesRequest:
+RollbackHl7V2MessagesRequest"
+  [name RollbackHl7V2MessagesRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://healthcare.googleapis.com/v1/{+name}:rollback",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-healthcare"
+      "https://www.googleapis.com/auth/cloud-platform"],
+     :body RollbackHl7V2MessagesRequest}))
+
 (defn projects-locations-datasets-hl7V2Stores-get
   "Gets the specified HL7v2 store.
 https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/datasets/hl7V2Stores/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://healthcare.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1799,7 +1872,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -1816,7 +1889,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+name}:getHL7v2StoreMetrics",
@@ -1834,7 +1907,7 @@ parent <>
 IngestMessageRequest:
 IngestMessageRequest"
   [parent IngestMessageRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+parent}/messages:ingest",
@@ -1853,7 +1926,7 @@ parent <>
 CreateMessageRequest:
 CreateMessageRequest"
   [parent CreateMessageRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+parent}/messages",
@@ -1875,7 +1948,7 @@ view <string> Specifies which parts of the Message resource to return in the res
   ([name]
     (projects-locations-datasets-hl7V2Stores-messages-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://healthcare.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1890,7 +1963,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://healthcare.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1913,7 +1986,7 @@ view <string> Specifies the parts of the Message to return in the response. When
   ([parent]
     (projects-locations-datasets-hl7V2Stores-messages-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://healthcare.googleapis.com/v1/{+parent}/messages",
@@ -1939,7 +2012,7 @@ updateMask <string> Required. The update mask applies to the resource. For the `
       Message
       nil))
   ([name Message optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://healthcare.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1957,7 +2030,7 @@ sourceStore <>
 DeidentifyFhirStoreRequest:
 DeidentifyFhirStoreRequest"
   [sourceStore DeidentifyFhirStoreRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+sourceStore}:deidentify",
@@ -1979,7 +2052,7 @@ pageSize <integer> Limit on the number of FHIR stores to return in a single resp
 filter <string> Restricts stores returned to those matching a filter. The following syntax is available: * A string field value can be written as text inside quotation marks, for example `\"query text\"`. The only valid relational operation for text fields is equality (`=`), where text is searched within the field, rather than having the field be equal to the text. For example, `\"Comment = great\"` returns messages with `great` in the comment field. * A number field value can be written as an integer, a decimal, or an exponential. The valid relational operators for number fields are the equality operator (`=`), along with the less than/greater than operators (`<`, `<=`, `>`, `>=`). Note that there is no inequality (`!=`) operator. You can prepend the `NOT` operator to an expression to negate it. * A date field value must be written in `yyyy-mm-dd` form. Fields with date and time use the RFC3339 time format. Leading zeros are required for one-digit months and days. The valid relational operators for date fields are the equality operator (`=`) , along with the less than/greater than operators (`<`, `<=`, `>`, `>=`). Note that there is no inequality (`!=`) operator. You can prepend the `NOT` operator to an expression to negate it. * Multiple field query expressions can be combined in one query by adding `AND` or `OR` operators between the expressions. If a boolean operator appears within a quoted string, it is not treated as special, it's just another part of the character string to be matched. You can prepend the `NOT` operator to an expression to negate it. Only filtering on labels is supported, for example `labels.key=value`."
   ([parent] (projects-locations-datasets-fhirStores-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://healthcare.googleapis.com/v1/{+parent}/fhirStores",
@@ -1997,7 +2070,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -2014,7 +2087,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://healthcare.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2031,7 +2104,7 @@ name <>
 ExportResourcesRequest:
 ExportResourcesRequest"
   [name ExportResourcesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+name}:export",
@@ -2050,7 +2123,7 @@ name <>
 ImportResourcesRequest:
 ImportResourcesRequest"
   [name ImportResourcesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+name}:import",
@@ -2074,7 +2147,7 @@ updateMask <string> Required. The update mask applies to the resource. For the `
   ([name FhirStore]
     (projects-locations-datasets-fhirStores-patch name FhirStore nil))
   ([name FhirStore optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://healthcare.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -2095,7 +2168,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-datasets-fhirStores-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://healthcare.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -2121,7 +2194,7 @@ fhirStoreId <string> Required. The ID of the FHIR store that is being created. T
       FhirStore
       nil))
   ([parent FhirStore optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://healthcare.googleapis.com/v1/{+parent}/fhirStores",
@@ -2140,7 +2213,7 @@ name <>
 RollbackFhirResourcesRequest:
 RollbackFhirResourcesRequest"
   [name RollbackFhirResourcesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+name}:rollback",
@@ -2157,7 +2230,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://healthcare.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2172,7 +2245,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+name}:getFHIRStoreMetrics",
@@ -2190,7 +2263,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -2207,7 +2280,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+name}/fhir/metadata",
@@ -2223,7 +2296,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://healthcare.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2238,7 +2311,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://healthcare.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2255,7 +2328,7 @@ parent <>
 HttpBody:
 HttpBody"
   [parent HttpBody]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+parent}/fhir",
@@ -2275,7 +2348,7 @@ resourceType <>
 SearchResourcesRequest:
 SearchResourcesRequest"
   [parent resourceType SearchResourcesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+parent}/fhir/{resourceType}/_search",
@@ -2292,7 +2365,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://healthcare.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2309,7 +2382,7 @@ name <>
 HttpBody:
 HttpBody"
   [name HttpBody]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template "https://healthcare.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2337,7 +2410,7 @@ profile <string> Required. The canonical URL of a profile that this resource sho
       HttpBody
       nil))
   ([parent type HttpBody optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://healthcare.googleapis.com/v1/{+parent}/fhir/{+type}/$validate",
@@ -2356,7 +2429,7 @@ name <>
 HttpBody:
 HttpBody"
   [name HttpBody]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template "https://healthcare.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2384,7 +2457,7 @@ _type <string> Optional. String of comma-delimited FHIR resource types. If provi
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://healthcare.googleapis.com/v1/{+name}/$everything",
@@ -2400,7 +2473,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+name}/$purge",
@@ -2424,7 +2497,7 @@ _page_token <string> Used to retrieve the first, previous, next, or last page of
   ([name]
     (projects-locations-datasets-fhirStores-fhir-history name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://healthcare.googleapis.com/v1/{+name}/_history",
@@ -2443,7 +2516,7 @@ type <>
 HttpBody:
 HttpBody"
   [parent type HttpBody]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+parent}/fhir/{+type}",
@@ -2463,7 +2536,7 @@ type <>
 HttpBody:
 HttpBody"
   [parent type HttpBody]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+parent}/fhir/{+type}",
@@ -2481,7 +2554,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 parent <> 
 type <> "
   [parent type]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+parent}/fhir/{+type}",
@@ -2500,7 +2573,7 @@ type <>
 HttpBody:
 HttpBody"
   [parent type HttpBody]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+parent}/fhir/{+type}",
@@ -2519,7 +2592,7 @@ parent <>
 SearchResourcesRequest:
 SearchResourcesRequest"
   [parent SearchResourcesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+parent}/fhir/_search",
@@ -2541,7 +2614,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-datasets-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://healthcare.googleapis.com/v1/{+name}/operations",
@@ -2557,7 +2630,7 @@ https://cloud.google.com/healthcare/v1/reference/rest/v1/projects/locations/data
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://healthcare.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -2574,7 +2647,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+name}:cancel",
@@ -2593,7 +2666,7 @@ nlpService <>
 AnalyzeEntitiesRequest:
 AnalyzeEntitiesRequest"
   [nlpService AnalyzeEntitiesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://healthcare.googleapis.com/v1/{+nlpService}:analyzeEntities",

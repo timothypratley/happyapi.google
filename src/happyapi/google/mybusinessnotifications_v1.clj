@@ -10,7 +10,7 @@ https://developers.google.com/my-business/v1/reference/rest/v1/accounts/getNotif
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://mybusinessnotifications.googleapis.com/v1/{+name}",
@@ -31,7 +31,7 @@ updateMask <string> Required. The specific fields that should be updated. The on
   ([name NotificationSetting]
     (accounts-updateNotificationSetting name NotificationSetting nil))
   ([name NotificationSetting optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://mybusinessnotifications.googleapis.com/v1/{+name}",

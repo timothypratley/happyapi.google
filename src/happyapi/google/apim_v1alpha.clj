@@ -4,6 +4,24 @@ Enables users to discover shadow APIs in existing Google Cloud infrastructure.
 See: https://cloud.google.com/apigee/"
   (:require [happyapi.providers.google :as client]))
 
+(defn projects-locations-listApiObservationTags
+  "ListApiObservationTags lists all extant tags on any observation in the given project.
+https://cloud.google.com/apigee/v1alpha/reference/rest/v1alpha/projects/locations/listApiObservationTags
+
+parent <> 
+
+optional:
+pageSize <integer> Optional. The maximum number of tags to return. The service may return fewer than this value. If unspecified, at most 10 tags will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
+  ([parent] (projects-locations-listApiObservationTags parent nil))
+  ([parent optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://apim.googleapis.com/v1alpha/{+parent}:listApiObservationTags",
+       :uri-template-args {"parent" parent},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+
 (defn projects-locations-list
   "Lists information about the supported locations for this service.
 https://cloud.google.com/apigee/v1alpha/reference/rest/v1alpha/projects/locations/list
@@ -15,7 +33,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apim.googleapis.com/v1alpha/{+name}/locations",
@@ -29,7 +47,7 @@ https://cloud.google.com/apigee/v1alpha/reference/rest/v1alpha/projects/location
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://apim.googleapis.com/v1alpha/{+name}",
      :uri-template-args {"name" name},
@@ -47,7 +65,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apim.googleapis.com/v1alpha/{+name}/operations",
@@ -61,7 +79,7 @@ https://cloud.google.com/apigee/v1alpha/reference/rest/v1alpha/projects/location
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://apim.googleapis.com/v1alpha/{+name}",
      :uri-template-args {"name" name},
@@ -74,7 +92,7 @@ https://cloud.google.com/apigee/v1alpha/reference/rest/v1alpha/projects/location
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://apim.googleapis.com/v1alpha/{+name}",
      :uri-template-args {"name" name},
@@ -89,7 +107,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apim.googleapis.com/v1alpha/{+name}:cancel",
@@ -115,7 +133,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
       ObservationSource
       nil))
   ([parent ObservationSource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://apim.googleapis.com/v1alpha/{+parent}/observationSources",
@@ -130,7 +148,7 @@ https://cloud.google.com/apigee/v1alpha/reference/rest/v1alpha/projects/location
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://apim.googleapis.com/v1alpha/{+name}",
      :uri-template-args {"name" name},
@@ -138,7 +156,7 @@ name <> "
      :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-observationSources-list
-  "ListObservationSources gets all ObservationSources for a given project and location
+  "ListObservationSources gets all ObservationSources for a given project and location.
 https://cloud.google.com/apigee/v1alpha/reference/rest/v1alpha/projects/locations/observationSources/list
 
 parent <> 
@@ -147,7 +165,7 @@ optional:
 pageSize <integer> Optional. The maximum number of ObservationSources to return. The service may return fewer than this value. If unspecified, at most 10 ObservationSources will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (projects-locations-observationSources-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apim.googleapis.com/v1alpha/{+parent}/observationSources",
@@ -161,7 +179,7 @@ https://cloud.google.com/apigee/v1alpha/reference/rest/v1alpha/projects/location
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://apim.googleapis.com/v1alpha/{+name}",
      :uri-template-args {"name" name},
@@ -185,7 +203,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
       ObservationJob
       nil))
   ([parent ObservationJob optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://apim.googleapis.com/v1alpha/{+parent}/observationJobs",
@@ -200,7 +218,7 @@ https://cloud.google.com/apigee/v1alpha/reference/rest/v1alpha/projects/location
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://apim.googleapis.com/v1alpha/{+name}",
      :uri-template-args {"name" name},
@@ -208,7 +226,7 @@ name <> "
      :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-observationJobs-list
-  "ListObservationJobs gets all ObservationJobs for a given project and location
+  "ListObservationJobs gets all ObservationJobs for a given project and location.
 https://cloud.google.com/apigee/v1alpha/reference/rest/v1alpha/projects/locations/observationJobs/list
 
 parent <> 
@@ -217,7 +235,7 @@ optional:
 pageSize <integer> Optional. The maximum number of ObservationJobs to return. The service may return fewer than this value. If unspecified, at most 10 ObservationJobs will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (projects-locations-observationJobs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apim.googleapis.com/v1alpha/{+parent}/observationJobs",
@@ -231,7 +249,7 @@ https://cloud.google.com/apigee/v1alpha/reference/rest/v1alpha/projects/location
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://apim.googleapis.com/v1alpha/{+name}",
      :uri-template-args {"name" name},
@@ -246,7 +264,7 @@ name <>
 EnableObservationJobRequest:
 EnableObservationJobRequest"
   [name EnableObservationJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apim.googleapis.com/v1alpha/{+name}:enable",
@@ -263,7 +281,7 @@ name <>
 DisableObservationJobRequest:
 DisableObservationJobRequest"
   [name DisableObservationJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apim.googleapis.com/v1alpha/{+name}:disable",
@@ -278,7 +296,7 @@ https://cloud.google.com/apigee/v1alpha/reference/rest/v1alpha/projects/location
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://apim.googleapis.com/v1alpha/{+name}",
      :uri-template-args {"name" name},
@@ -286,7 +304,7 @@ name <> "
      :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-observationJobs-apiObservations-list
-  "ListApiObservations gets all ApiObservations for a given project and location and ObservationJob
+  "ListApiObservations gets all ApiObservations for a given project and location and ObservationJob.
 https://cloud.google.com/apigee/v1alpha/reference/rest/v1alpha/projects/locations/observationJobs/apiObservations/list
 
 parent <> 
@@ -298,7 +316,7 @@ pageSize <integer> Optional. The maximum number of ApiObservations to return. Th
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apim.googleapis.com/v1alpha/{+parent}/apiObservations",
@@ -306,13 +324,30 @@ pageSize <integer> Optional. The maximum number of ApiObservations to return. Th
        :query-params (merge {} optional),
        :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
 
+(defn projects-locations-observationJobs-apiObservations-batchEditTags
+  "BatchEditTagsApiObservations adds or removes Tags for ApiObservations.
+https://cloud.google.com/apigee/v1alpha/reference/rest/v1alpha/projects/locations/observationJobs/apiObservations/batchEditTags
+
+parent <> 
+BatchEditTagsApiObservationsRequest:
+BatchEditTagsApiObservationsRequest"
+  [parent BatchEditTagsApiObservationsRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://apim.googleapis.com/v1alpha/{+parent}/apiObservations:batchEditTags",
+     :uri-template-args {"parent" parent},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body BatchEditTagsApiObservationsRequest}))
+
 (defn projects-locations-observationJobs-apiObservations-apiOperations-get
   "GetApiOperation retrieves a single ApiOperation by name.
 https://cloud.google.com/apigee/v1alpha/reference/rest/v1alpha/projects/locations/observationJobs/apiObservations/apiOperations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://apim.googleapis.com/v1alpha/{+name}",
      :uri-template-args {"name" name},
@@ -320,7 +355,7 @@ name <> "
      :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-observationJobs-apiObservations-apiOperations-list
-  "ListApiOperations gets all ApiOperations for a given project and location and ObservationJob and ApiObservation
+  "ListApiOperations gets all ApiOperations for a given project and location and ObservationJob and ApiObservation.
 https://cloud.google.com/apigee/v1alpha/reference/rest/v1alpha/projects/locations/observationJobs/apiObservations/apiOperations/list
 
 parent <> 
@@ -332,7 +367,7 @@ pageSize <integer> Optional. The maximum number of ApiOperations to return. The 
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apim.googleapis.com/v1alpha/{+parent}/apiOperations",

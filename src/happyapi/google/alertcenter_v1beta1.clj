@@ -15,7 +15,7 @@ filter <string> Optional. A query string for filtering alert results. For more d
 orderBy <string> Optional. The sort order of the list results. If not specified results may be returned in arbitrary order. You can sort the results in descending order based on the creation timestamp using `order_by=\"create_time desc\"`. Currently, supported sorting are `create_time asc`, `create_time desc`, `update_time desc`"
   ([] (alerts-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://alertcenter.googleapis.com/v1beta1/alerts",
@@ -33,7 +33,7 @@ optional:
 customerId <string> Optional. The unique identifier of the Google Workspace account of the customer the alert is associated with. The `customer_id` must have the initial \"C\" stripped (for example, `046psxkn`). Inferred from the caller identity if not provided. [Find your customer ID](https://support.google.com/cloudidentity/answer/10070793)."
   ([alertId] (alerts-get alertId nil))
   ([alertId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://alertcenter.googleapis.com/v1beta1/alerts/{alertId}",
@@ -51,7 +51,7 @@ optional:
 customerId <string> Optional. The unique identifier of the Google Workspace account of the customer the alert is associated with. The `customer_id` must have the initial \"C\" stripped (for example, `046psxkn`). Inferred from the caller identity if not provided. [Find your customer ID](https://support.google.com/cloudidentity/answer/10070793)."
   ([alertId] (alerts-delete alertId nil))
   ([alertId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://alertcenter.googleapis.com/v1beta1/alerts/{alertId}",
@@ -67,7 +67,7 @@ alertId <>
 UndeleteAlertRequest:
 UndeleteAlertRequest"
   [alertId UndeleteAlertRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://alertcenter.googleapis.com/v1beta1/alerts/{alertId}:undelete",
@@ -86,7 +86,7 @@ optional:
 customerId <string> Optional. The unique identifier of the Google Workspace account of the customer the alert metadata is associated with. The `customer_id` must have the initial \"C\" stripped (for example, `046psxkn`). Inferred from the caller identity if not provided. [Find your customer ID](https://support.google.com/cloudidentity/answer/10070793)."
   ([alertId] (alerts-getMetadata alertId nil))
   ([alertId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://alertcenter.googleapis.com/v1beta1/alerts/{alertId}/metadata",
@@ -101,7 +101,7 @@ https://developers.google.com/admin-sdk/alertcenter/guides/v1beta1/reference/res
 BatchDeleteAlertsRequest:
 BatchDeleteAlertsRequest"
   [BatchDeleteAlertsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://alertcenter.googleapis.com/v1beta1/alerts:batchDelete",
@@ -117,7 +117,7 @@ https://developers.google.com/admin-sdk/alertcenter/guides/v1beta1/reference/res
 BatchUndeleteAlertsRequest:
 BatchUndeleteAlertsRequest"
   [BatchUndeleteAlertsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://alertcenter.googleapis.com/v1beta1/alerts:batchUndelete",
@@ -139,7 +139,7 @@ customerId <string> Optional. The unique identifier of the Google Workspace acco
   ([alertId AlertFeedback]
     (alerts-feedback-create alertId AlertFeedback nil))
   ([alertId AlertFeedback optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://alertcenter.googleapis.com/v1beta1/alerts/{alertId}/feedback",
@@ -159,7 +159,7 @@ customerId <string> Optional. The unique identifier of the Google Workspace acco
 filter <string> Optional. A query string for filtering alert feedback results. For more details, see [Query filters](https://developers.google.com/admin-sdk/alertcenter/guides/query-filters) and [Supported query filter fields](https://developers.google.com/admin-sdk/alertcenter/reference/filter-fields#alerts.feedback.list)."
   ([alertId] (alerts-feedback-list alertId nil))
   ([alertId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://alertcenter.googleapis.com/v1beta1/alerts/{alertId}/feedback",
@@ -175,7 +175,7 @@ optional:
 customerId <string> Optional. The unique identifier of the Google Workspace account of the customer the alert settings are associated with. The `customer_id` must/ have the initial \"C\" stripped (for example, `046psxkn`). Inferred from the caller identity if not provided. [Find your customer ID](https://support.google.com/cloudidentity/answer/10070793)."
   ([] (getSettings nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://alertcenter.googleapis.com/v1beta1/settings",
@@ -194,7 +194,7 @@ optional:
 customerId <string> Optional. The unique identifier of the Google Workspace account of the customer the alert settings are associated with. The `customer_id` must have the initial \"C\" stripped (for example, `046psxkn`). Inferred from the caller identity if not provided. [Find your customer ID](https://support.google.com/cloudidentity/answer/10070793)."
   ([Settings] (updateSettings Settings nil))
   ([Settings optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://alertcenter.googleapis.com/v1beta1/settings",

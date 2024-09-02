@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://tpu.googleapis.com/v2/{+name}/locations",
        :uri-template-args {"name" name},
@@ -28,7 +28,7 @@ https://cloud.google.com/tpu/v2/reference/rest/v2/projects/locations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://tpu.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -43,7 +43,7 @@ parent <>
 GenerateServiceIdentityRequest:
 GenerateServiceIdentityRequest"
   [parent GenerateServiceIdentityRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://tpu.googleapis.com/v2/{+parent}:generateServiceIdentity",
@@ -63,7 +63,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://tpu.googleapis.com/v2/{+name}/operations",
@@ -77,7 +77,7 @@ https://cloud.google.com/tpu/v2/reference/rest/v2/projects/locations/operations/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://tpu.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -90,7 +90,7 @@ https://cloud.google.com/tpu/v2/reference/rest/v2/projects/locations/operations/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://tpu.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -103,7 +103,7 @@ https://cloud.google.com/tpu/v2/reference/rest/v2/projects/locations/operations/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://tpu.googleapis.com/v2/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -120,7 +120,7 @@ optional:
 pageSize <integer> The maximum number of items to return."
   ([parent] (projects-locations-nodes-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://tpu.googleapis.com/v2/{+parent}/nodes",
        :uri-template-args {"parent" parent},
@@ -133,7 +133,7 @@ https://cloud.google.com/tpu/v2/reference/rest/v2/projects/locations/nodes/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://tpu.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -152,7 +152,7 @@ optional:
 nodeId <string> The unqualified resource name."
   ([parent Node] (projects-locations-nodes-create parent Node nil))
   ([parent Node optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template "https://tpu.googleapis.com/v2/{+parent}/nodes",
        :uri-template-args {"parent" parent},
@@ -166,7 +166,7 @@ https://cloud.google.com/tpu/v2/reference/rest/v2/projects/locations/nodes/delet
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://tpu.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -181,7 +181,7 @@ name <>
 StopNodeRequest:
 StopNodeRequest"
   [name StopNodeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://tpu.googleapis.com/v2/{+name}:stop",
      :uri-template-args {"name" name},
@@ -197,7 +197,7 @@ name <>
 StartNodeRequest:
 StartNodeRequest"
   [name StartNodeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://tpu.googleapis.com/v2/{+name}:start",
      :uri-template-args {"name" name},
@@ -217,7 +217,7 @@ optional:
 updateMask <string> Required. Mask of fields from Node to update. Supported fields: [description, tags, labels, metadata, network_config.enable_external_ips]."
   ([name Node] (projects-locations-nodes-patch name Node nil))
   ([name Node optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://tpu.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -233,7 +233,7 @@ name <>
 GetGuestAttributesRequest:
 GetGuestAttributesRequest"
   [name GetGuestAttributesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://tpu.googleapis.com/v2/{+name}:getGuestAttributes",
@@ -252,7 +252,7 @@ optional:
 pageSize <integer> Optional. The maximum number of items to return."
   ([parent] (projects-locations-queuedResources-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://tpu.googleapis.com/v2/{+parent}/queuedResources",
@@ -266,7 +266,7 @@ https://cloud.google.com/tpu/v2/reference/rest/v2/projects/locations/queuedResou
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://tpu.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -290,7 +290,7 @@ requestId <string> Optional. Idempotent request UUID."
       QueuedResource
       nil))
   ([parent QueuedResource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://tpu.googleapis.com/v2/{+parent}/queuedResources",
@@ -310,7 +310,7 @@ requestId <string> Optional. Idempotent request UUID.
 force <boolean> Optional. If set to true, all running nodes belonging to this queued resource will be deleted first and then the queued resource will be deleted. Otherwise (i.e. force=false), the queued resource will only be deleted if its nodes have already been deleted or the queued resource is in the ACCEPTED, FAILED, or SUSPENDED state."
   ([name] (projects-locations-queuedResources-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://tpu.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -325,7 +325,7 @@ name <>
 ResetQueuedResourceRequest:
 ResetQueuedResourceRequest"
   [name ResetQueuedResourceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://tpu.googleapis.com/v2/{+name}:reset",
      :uri-template-args {"name" name},
@@ -345,7 +345,7 @@ filter <string> List filter.
 orderBy <string> Sort results."
   ([parent] (projects-locations-acceleratorTypes-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://tpu.googleapis.com/v2/{+parent}/acceleratorTypes",
@@ -359,7 +359,7 @@ https://cloud.google.com/tpu/v2/reference/rest/v2/projects/locations/accelerator
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://tpu.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -378,7 +378,7 @@ filter <string> List filter.
 orderBy <string> Sort results."
   ([parent] (projects-locations-runtimeVersions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://tpu.googleapis.com/v2/{+parent}/runtimeVersions",
@@ -392,7 +392,7 @@ https://cloud.google.com/tpu/v2/reference/rest/v2/projects/locations/runtimeVers
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://tpu.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},

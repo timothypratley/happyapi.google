@@ -17,7 +17,7 @@ catalogId <string> Required. The ID to use for the catalog, which will become th
   ([parent Catalog]
     (projects-locations-catalogs-create parent Catalog nil))
   ([parent Catalog optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://biglake.googleapis.com/v1/{+parent}/catalogs",
@@ -34,7 +34,7 @@ https://cloud.google.com/bigquery/v1/reference/rest/v1/projects/locations/catalo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://biglake.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -49,7 +49,7 @@ https://cloud.google.com/bigquery/v1/reference/rest/v1/projects/locations/catalo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://biglake.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -68,7 +68,7 @@ optional:
 pageSize <integer> The maximum number of catalogs to return. The service may return fewer than this value. If unspecified, at most 50 catalogs will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (projects-locations-catalogs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://biglake.googleapis.com/v1/{+parent}/catalogs",
@@ -91,7 +91,7 @@ databaseId <string> Required. The ID to use for the database, which will become 
   ([parent Database]
     (projects-locations-catalogs-databases-create parent Database nil))
   ([parent Database optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://biglake.googleapis.com/v1/{+parent}/databases",
@@ -108,7 +108,7 @@ https://cloud.google.com/bigquery/v1/reference/rest/v1/projects/locations/catalo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://biglake.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -130,7 +130,7 @@ updateMask <string> The list of fields to update. For the `FieldMask` definition
   ([name Database]
     (projects-locations-catalogs-databases-patch name Database nil))
   ([name Database optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://biglake.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -146,7 +146,7 @@ https://cloud.google.com/bigquery/v1/reference/rest/v1/projects/locations/catalo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://biglake.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -165,7 +165,7 @@ optional:
 pageSize <integer> The maximum number of databases to return. The service may return fewer than this value. If unspecified, at most 50 databases will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (projects-locations-catalogs-databases-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://biglake.googleapis.com/v1/{+parent}/databases",
@@ -191,7 +191,7 @@ tableId <string> Required. The ID to use for the table, which will become the fi
       Table
       nil))
   ([parent Table optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://biglake.googleapis.com/v1/{+parent}/tables",
@@ -208,7 +208,7 @@ https://cloud.google.com/bigquery/v1/reference/rest/v1/projects/locations/catalo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://biglake.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -233,7 +233,7 @@ updateMask <string> The list of fields to update. For the `FieldMask` definition
       Table
       nil))
   ([name Table optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://biglake.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -251,7 +251,7 @@ name <>
 RenameTableRequest:
 RenameTableRequest"
   [name RenameTableRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://biglake.googleapis.com/v1/{+name}:rename",
      :uri-template-args {"name" name},
@@ -267,7 +267,7 @@ https://cloud.google.com/bigquery/v1/reference/rest/v1/projects/locations/catalo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://biglake.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -288,7 +288,7 @@ view <string> The view for the returned tables."
   ([parent]
     (projects-locations-catalogs-databases-tables-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://biglake.googleapis.com/v1/{+parent}/tables",

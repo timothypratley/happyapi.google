@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://redis.googleapis.com/v1/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/memorystore/docs/redis/v1/reference/rest/v1/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://redis.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -47,7 +47,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://redis.googleapis.com/v1/{+name}/operations",
@@ -61,7 +61,7 @@ https://cloud.google.com/memorystore/docs/redis/v1/reference/rest/v1/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://redis.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -74,7 +74,7 @@ https://cloud.google.com/memorystore/docs/redis/v1/reference/rest/v1/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://redis.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -87,7 +87,7 @@ https://cloud.google.com/memorystore/docs/redis/v1/reference/rest/v1/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://redis.googleapis.com/v1/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -104,7 +104,7 @@ optional:
 pageSize <integer> The maximum number of items to return. If not specified, a default value of 1000 will be used by the service. Regardless of the page_size value, the response may include a partial list and a caller should only rely on response's `next_page_token` to determine if there are more clusters left to be queried."
   ([parent] (projects-locations-clusters-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://redis.googleapis.com/v1/{+parent}/clusters",
@@ -118,7 +118,7 @@ https://cloud.google.com/memorystore/docs/redis/v1/reference/rest/v1/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://redis.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -138,7 +138,7 @@ updateMask <string> Required. Mask of fields to update. At least one path must b
 requestId <string> Idempotent request UUID."
   ([name Cluster] (projects-locations-clusters-patch name Cluster nil))
   ([name Cluster optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://redis.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -156,7 +156,7 @@ optional:
 requestId <string> Idempotent request UUID."
   ([name] (projects-locations-clusters-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://redis.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -177,7 +177,7 @@ requestId <string> Idempotent request UUID."
   ([parent Cluster]
     (projects-locations-clusters-create parent Cluster nil))
   ([parent Cluster optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://redis.googleapis.com/v1/{+parent}/clusters",
@@ -192,12 +192,29 @@ https://cloud.google.com/memorystore/docs/redis/v1/reference/rest/v1/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://redis.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+
+(defn projects-locations-clusters-rescheduleClusterMaintenance
+  "Reschedules upcoming maintenance event.
+https://cloud.google.com/memorystore/docs/redis/v1/reference/rest/v1/projects/locations/clusters/rescheduleClusterMaintenance
+
+name <> 
+RescheduleClusterMaintenanceRequest:
+RescheduleClusterMaintenanceRequest"
+  [name RescheduleClusterMaintenanceRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://redis.googleapis.com/v1/{+name}:rescheduleClusterMaintenance",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body RescheduleClusterMaintenanceRequest}))
 
 (defn projects-locations-instances-rescheduleMaintenance
   "Reschedule maintenance for a given instance in a given project and location.
@@ -207,7 +224,7 @@ name <>
 RescheduleMaintenanceRequest:
 RescheduleMaintenanceRequest"
   [name RescheduleMaintenanceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://redis.googleapis.com/v1/{+name}:rescheduleMaintenance",
@@ -226,7 +243,7 @@ optional:
 pageSize <integer> The maximum number of items to return. If not specified, a default value of 1000 will be used by the service. Regardless of the page_size value, the response may include a partial list and a caller should only rely on response's `next_page_token` to determine if there are more instances left to be queried."
   ([parent] (projects-locations-instances-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://redis.googleapis.com/v1/{+parent}/instances",
@@ -242,7 +259,7 @@ name <>
 FailoverInstanceRequest:
 FailoverInstanceRequest"
   [name FailoverInstanceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://redis.googleapis.com/v1/{+name}:failover",
      :uri-template-args {"name" name},
@@ -256,7 +273,7 @@ https://cloud.google.com/memorystore/docs/redis/v1/reference/rest/v1/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://redis.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -271,7 +288,7 @@ name <>
 UpgradeInstanceRequest:
 UpgradeInstanceRequest"
   [name UpgradeInstanceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://redis.googleapis.com/v1/{+name}:upgrade",
      :uri-template-args {"name" name},
@@ -287,7 +304,7 @@ name <>
 ExportInstanceRequest:
 ExportInstanceRequest"
   [name ExportInstanceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://redis.googleapis.com/v1/{+name}:export",
      :uri-template-args {"name" name},
@@ -301,7 +318,7 @@ https://cloud.google.com/memorystore/docs/redis/v1/reference/rest/v1/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://redis.googleapis.com/v1/{+name}/authString",
@@ -317,7 +334,7 @@ name <>
 ImportInstanceRequest:
 ImportInstanceRequest"
   [name ImportInstanceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://redis.googleapis.com/v1/{+name}:import",
      :uri-template-args {"name" name},
@@ -338,7 +355,7 @@ updateMask <string> Required. Mask of fields to update. At least one path must b
   ([name Instance]
     (projects-locations-instances-patch name Instance nil))
   ([name Instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://redis.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -359,7 +376,7 @@ instanceId <string> Required. The logical name of the Redis instance in the cust
   ([parent Instance]
     (projects-locations-instances-create parent Instance nil))
   ([parent Instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://redis.googleapis.com/v1/{+parent}/instances",
@@ -374,7 +391,7 @@ https://cloud.google.com/memorystore/docs/redis/v1/reference/rest/v1/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://redis.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},

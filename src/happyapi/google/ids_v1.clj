@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://ids.googleapis.com/v1/{+name}/locations",
        :uri-template-args {"name" name},
@@ -28,7 +28,7 @@ https://cloud.google.com/v1/reference/rest/v1/projects/locations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://ids.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -46,7 +46,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://ids.googleapis.com/v1/{+name}/operations",
@@ -60,7 +60,7 @@ https://cloud.google.com/v1/reference/rest/v1/projects/locations/operations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://ids.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -73,7 +73,7 @@ https://cloud.google.com/v1/reference/rest/v1/projects/locations/operations/dele
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://ids.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -88,7 +88,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://ids.googleapis.com/v1/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -108,7 +108,7 @@ filter <string> Optional. The filter expression, following the syntax outlined i
 orderBy <string> Optional. One or more fields to compare and use to sort the output. See https://google.aip.dev/132#ordering."
   ([parent] (projects-locations-endpoints-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://ids.googleapis.com/v1/{+parent}/endpoints",
@@ -122,7 +122,7 @@ https://cloud.google.com/v1/reference/rest/v1/projects/locations/endpoints/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://ids.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -143,7 +143,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([parent Endpoint]
     (projects-locations-endpoints-create parent Endpoint nil))
   ([parent Endpoint optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://ids.googleapis.com/v1/{+parent}/endpoints",
@@ -166,7 +166,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([name Endpoint]
     (projects-locations-endpoints-patch name Endpoint nil))
   ([name Endpoint optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://ids.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -184,7 +184,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-endpoints-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://ids.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -199,7 +199,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://ids.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -218,7 +218,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-locations-endpoints-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://ids.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -234,7 +234,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://ids.googleapis.com/v1/{+resource}:testIamPermissions",

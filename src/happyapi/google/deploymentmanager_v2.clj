@@ -13,7 +13,7 @@ deployment <>
 DeploymentsStopRequest:
 DeploymentsStopRequest"
   [project deployment DeploymentsStopRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{deployment}/stop",
@@ -36,7 +36,7 @@ filter <string> A filter expression that filters resources listed in the respons
 orderBy <string> Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name. You can also sort results in descending order based on the creation timestamp using `orderBy=\"creationTimestamp desc\"`. This sorts results based on the `creationTimestamp` field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation is returned first. Currently, only sorting by `name` or `creationTimestamp desc` is supported."
   ([project] (deployments-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments",
@@ -57,7 +57,7 @@ resource <>
 GlobalSetPolicyRequest:
 GlobalSetPolicyRequest"
   [project resource GlobalSetPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{resource}/setIamPolicy",
@@ -79,7 +79,7 @@ optional:
 deletePolicy <string> Sets the policy to use for deleting resources."
   ([project deployment] (deployments-delete project deployment nil))
   ([project deployment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{deployment}",
@@ -105,7 +105,7 @@ preview <boolean> If set to true, updates the deployment and creates and updates
   ([project deployment Deployment]
     (deployments-update project deployment Deployment nil))
   ([project deployment Deployment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{deployment}",
@@ -125,7 +125,7 @@ deployment <>
 DeploymentsCancelPreviewRequest:
 DeploymentsCancelPreviewRequest"
   [project deployment DeploymentsCancelPreviewRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{deployment}/cancelPreview",
@@ -152,7 +152,7 @@ preview <boolean> If set to true, updates the deployment and creates and updates
   ([project deployment Deployment]
     (deployments-patch project deployment Deployment nil))
   ([project deployment Deployment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{deployment}",
@@ -174,7 +174,7 @@ optional:
 optionsRequestedPolicyVersion <integer> Requested IAM Policy version."
   ([project resource] (deployments-getIamPolicy project resource nil))
   ([project resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{resource}/getIamPolicy",
@@ -197,7 +197,7 @@ preview <boolean> If set to true, creates a deployment and creates \"shell\" res
 createPolicy <string> Sets the policy to use for creating new resources."
   ([project Deployment] (deployments-insert project Deployment nil))
   ([project Deployment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments",
@@ -215,7 +215,7 @@ https://cloud.google.com/deployment-manager/docs/v2/reference/rest/v2/deployment
 project <> 
 deployment <> "
   [project deployment]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{deployment}",
@@ -236,7 +236,7 @@ resource <>
 TestPermissionsRequest:
 TestPermissionsRequest"
   [project resource TestPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{resource}/testIamPermissions",
@@ -255,7 +255,7 @@ project <>
 deployment <> 
 manifest <> "
   [project deployment manifest]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{deployment}/manifests/{manifest}",
@@ -281,7 +281,7 @@ filter <string> A filter expression that filters resources listed in the respons
 orderBy <string> Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name. You can also sort results in descending order based on the creation timestamp using `orderBy=\"creationTimestamp desc\"`. This sorts results based on the `creationTimestamp` field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation is returned first. Currently, only sorting by `name` or `creationTimestamp desc` is supported."
   ([project deployment] (manifests-list project deployment nil))
   ([project deployment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{deployment}/manifests",
@@ -300,7 +300,7 @@ https://cloud.google.com/deployment-manager/docs/v2/reference/rest/v2/operations
 project <> 
 operation <> "
   [project operation]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/operations/{operation}",
@@ -324,7 +324,7 @@ filter <string> A filter expression that filters resources listed in the respons
 orderBy <string> Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name. You can also sort results in descending order based on the creation timestamp using `orderBy=\"creationTimestamp desc\"`. This sorts results based on the `creationTimestamp` field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation is returned first. Currently, only sorting by `name` or `creationTimestamp desc` is supported."
   ([project] (operations-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/operations",
@@ -344,7 +344,7 @@ project <>
 deployment <> 
 resource <> "
   [project deployment resource]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{deployment}/resources/{resource}",
@@ -370,7 +370,7 @@ filter <string> A filter expression that filters resources listed in the respons
 orderBy <string> Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name. You can also sort results in descending order based on the creation timestamp using `orderBy=\"creationTimestamp desc\"`. This sorts results based on the `creationTimestamp` field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation is returned first. Currently, only sorting by `name` or `creationTimestamp desc` is supported."
   ([project deployment] (resources-list project deployment nil))
   ([project deployment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{deployment}/resources",
@@ -394,7 +394,7 @@ filter <string> A filter expression that filters resources listed in the respons
 orderBy <string> Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name. You can also sort results in descending order based on the creation timestamp using `orderBy=\"creationTimestamp desc\"`. This sorts results based on the `creationTimestamp` field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation is returned first. Currently, only sorting by `name` or `creationTimestamp desc` is supported."
   ([project] (types-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/types",

@@ -16,7 +16,7 @@ customer <string> Optional. [Resource name](https://cloud.google.com/apis/design
   ([GoogleAppsCloudidentityDevicesV1Device]
     (devices-create GoogleAppsCloudidentityDevicesV1Device nil))
   ([GoogleAppsCloudidentityDevicesV1Device optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template "https://cloudidentity.googleapis.com/v1/devices",
        :uri-template-args {},
@@ -35,7 +35,7 @@ optional:
 customer <string> Optional. [Resource name](https://cloud.google.com/apis/design/resource_names) of the Customer in the format: `customers/{customer}`, where customer is the customer to whom the device belongs. If you're using this API for your own organization, use `customers/my_customer`. If you're using this API to manage another organization, use `customers/{customer}`, where customer is the customer to whom the device belongs."
   ([name] (devices-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://cloudidentity.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -56,7 +56,7 @@ orderBy <string> Optional. Order specification for devices in the response. Only
 view <string> Optional. The view to use for the List request."
   ([] (devices-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://cloudidentity.googleapis.com/v1/devices",
        :uri-template-args {},
@@ -75,7 +75,7 @@ optional:
 customer <string> Optional. [Resource name](https://cloud.google.com/apis/design/resource_names) of the customer. If you're using this API for your own organization, use `customers/my_customer` If you're using this API to manage another organization, use `customers/{customer}`, where customer is the customer to whom the device belongs."
   ([name] (devices-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://cloudidentity.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -91,7 +91,7 @@ name <>
 GoogleAppsCloudidentityDevicesV1WipeDeviceRequest:
 GoogleAppsCloudidentityDevicesV1WipeDeviceRequest"
   [name GoogleAppsCloudidentityDevicesV1WipeDeviceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudidentity.googleapis.com/v1/{+name}:wipe",
@@ -109,7 +109,7 @@ name <>
 GoogleAppsCloudidentityDevicesV1CancelWipeDeviceRequest:
 GoogleAppsCloudidentityDevicesV1CancelWipeDeviceRequest"
   [name GoogleAppsCloudidentityDevicesV1CancelWipeDeviceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudidentity.googleapis.com/v1/{+name}:cancelWipe",
@@ -129,7 +129,7 @@ optional:
 customer <string> Optional. [Resource name](https://cloud.google.com/apis/design/resource_names) of the customer. If you're using this API for your own organization, use `customers/my_customer` If you're using this API to manage another organization, use `customers/{customer}`, where customer is the customer to whom the device belongs."
   ([name] (devices-deviceUsers-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://cloudidentity.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -151,7 +151,7 @@ pageSize <integer> Optional. The maximum number of DeviceUsers to return. If uns
 orderBy <string> Optional. Order specification for devices in the response."
   ([parent] (devices-deviceUsers-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudidentity.googleapis.com/v1/{+parent}/deviceUsers",
@@ -171,7 +171,7 @@ optional:
 customer <string> Optional. [Resource name](https://cloud.google.com/apis/design/resource_names) of the customer. If you're using this API for your own organization, use `customers/my_customer` If you're using this API to manage another organization, use `customers/{customer}`, where customer is the customer to whom the device belongs."
   ([name] (devices-deviceUsers-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://cloudidentity.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -192,7 +192,7 @@ rawResourceId <string> Raw Resource Id used by Google Endpoint Verification. If 
 userId <string> The user whose DeviceUser's resource name will be fetched. Must be set to 'me' to fetch the DeviceUser's resource name for the calling user."
   ([parent] (devices-deviceUsers-lookup parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudidentity.googleapis.com/v1/{+parent}:lookup",
@@ -209,7 +209,7 @@ name <>
 GoogleAppsCloudidentityDevicesV1ApproveDeviceUserRequest:
 GoogleAppsCloudidentityDevicesV1ApproveDeviceUserRequest"
   [name GoogleAppsCloudidentityDevicesV1ApproveDeviceUserRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudidentity.googleapis.com/v1/{+name}:approve",
@@ -227,7 +227,7 @@ name <>
 GoogleAppsCloudidentityDevicesV1BlockDeviceUserRequest:
 GoogleAppsCloudidentityDevicesV1BlockDeviceUserRequest"
   [name GoogleAppsCloudidentityDevicesV1BlockDeviceUserRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudidentity.googleapis.com/v1/{+name}:block",
@@ -245,7 +245,7 @@ name <>
 GoogleAppsCloudidentityDevicesV1WipeDeviceUserRequest:
 GoogleAppsCloudidentityDevicesV1WipeDeviceUserRequest"
   [name GoogleAppsCloudidentityDevicesV1WipeDeviceUserRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudidentity.googleapis.com/v1/{+name}:wipe",
@@ -263,7 +263,7 @@ name <>
 GoogleAppsCloudidentityDevicesV1CancelWipeDeviceUserRequest:
 GoogleAppsCloudidentityDevicesV1CancelWipeDeviceUserRequest"
   [name GoogleAppsCloudidentityDevicesV1CancelWipeDeviceUserRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudidentity.googleapis.com/v1/{+name}:cancelWipe",
@@ -284,7 +284,7 @@ optional:
 customer <string> Optional. [Resource name](https://cloud.google.com/apis/design/resource_names) of the customer. If you're using this API for your own organization, use `customers/my_customer` If you're using this API to manage another organization, use `customers/{customer}`, where customer is the customer to whom the device belongs."
   ([name] (devices-deviceUsers-clientStates-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://cloudidentity.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -305,7 +305,7 @@ filter <string> Optional. Additional restrictions when fetching list of client s
 orderBy <string> Optional. Order specification for client states in the response."
   ([parent] (devices-deviceUsers-clientStates-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudidentity.googleapis.com/v1/{+parent}/clientStates",
@@ -332,7 +332,7 @@ updateMask <string> Optional. Comma-separated list of fully qualified names of f
       GoogleAppsCloudidentityDevicesV1ClientState
       nil))
   ([name GoogleAppsCloudidentityDevicesV1ClientState optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://cloudidentity.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -351,7 +351,7 @@ view <string> The level of detail to be returned. If unspecified, defaults to `V
 pageSize <integer> The maximum number of results to return. Note that the number of results returned may be less than this value even if there are more available results. To fetch all results, clients must continue calling this method repeatedly until the response no longer contains a `next_page_token`. If unspecified, defaults to 200 for `View.BASIC` and to 50 for `View.FULL`. Must not be greater than 1000 for `View.BASIC` or 500 for `View.FULL`."
   ([] (groups-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://cloudidentity.googleapis.com/v1/groups",
        :uri-template-args {},
@@ -367,7 +367,7 @@ https://cloud.google.com/identity/v1/reference/rest/v1/groups/delete
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://cloudidentity.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -389,7 +389,7 @@ updateMask <string> Required. The fully-qualified names of fields to update. May
   ([name SecuritySettings]
     (groups-updateSecuritySettings name SecuritySettings nil))
   ([name SecuritySettings optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://cloudidentity.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -409,7 +409,7 @@ optional:
 readMask <string> Field-level read mask of which fields to return. \"*\" returns all fields. If not specified, all fields will be returned. May only contain the following field: `member_restriction`."
   ([name] (groups-getSecuritySettings name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://cloudidentity.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -428,7 +428,7 @@ groupKey.id <string> The ID of the entity. For Google-managed entities, the `id`
 groupKey.namespace <string> The namespace in which the entity exists. If not specified, the `EntityKey` represents a Google-managed entity such as a Google user or a Google Group. If specified, the `EntityKey` represents an external-identity-mapped group. The namespace must correspond to an identity source created in Admin Console and must be in the form of `identitysources/{identity_source}`."
   ([] (groups-lookup nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudidentity.googleapis.com/v1/groups:lookup",
@@ -451,7 +451,7 @@ optional:
 updateMask <string> Required. The names of fields to update. May only contain the following field names: `display_name`, `description`, `labels`."
   ([name Group] (groups-patch name Group nil))
   ([name Group optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://cloudidentity.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -472,7 +472,7 @@ optional:
 initialGroupConfig <string> Optional. The initial configuration option for the `Group`."
   ([Group] (groups-create Group nil))
   ([Group optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template "https://cloudidentity.googleapis.com/v1/groups",
        :uri-template-args {},
@@ -492,7 +492,7 @@ view <string> The level of detail to be returned. If unspecified, defaults to `V
 pageSize <integer> The maximum number of results to return. Note that the number of results returned may be less than this value even if there are more available results. To fetch all results, clients must continue calling this method repeatedly until the response no longer contains a `next_page_token`. If unspecified, defaults to 200 for `GroupView.BASIC` and 50 for `GroupView.FULL`. Must not be greater than 1000 for `GroupView.BASIC` or 500 for `GroupView.FULL`."
   ([] (groups-search nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudidentity.googleapis.com/v1/groups:search",
@@ -509,7 +509,7 @@ https://cloud.google.com/identity/v1/reference/rest/v1/groups/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudidentity.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -530,7 +530,7 @@ view <string> The level of detail to be returned. If unspecified, defaults to `V
 pageSize <integer> The maximum number of results to return. Note that the number of results returned may be less than this value even if there are more available results. To fetch all results, clients must continue calling this method repeatedly until the response no longer contains a `next_page_token`. If unspecified, defaults to 200 for `GroupView.BASIC` and to 50 for `GroupView.FULL`. Must not be greater than 1000 for `GroupView.BASIC` or 500 for `GroupView.FULL`."
   ([parent] (groups-memberships-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudidentity.googleapis.com/v1/{+parent}/memberships",
@@ -551,7 +551,7 @@ optional:
 query <string> Required. A CEL expression that MUST include member specification. This is a `required` field. Certain groups are uniquely identified by both a 'member_key_id' and a 'member_key_namespace', which requires an additional query input: 'member_key_namespace'. Example query: `member_key_id == 'member_key_id_value'`"
   ([parent] (groups-memberships-checkTransitiveMembership parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudidentity.googleapis.com/v1/{+parent}/memberships:checkTransitiveMembership",
@@ -568,7 +568,7 @@ https://cloud.google.com/identity/v1/reference/rest/v1/groups/memberships/delete
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://cloudidentity.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -588,7 +588,7 @@ pageSize <integer> The default page size is 200 (max 1000)."
   ([parent]
     (groups-memberships-searchTransitiveMemberships parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudidentity.googleapis.com/v1/{+parent}/memberships:searchTransitiveMemberships",
@@ -610,7 +610,7 @@ memberKey.id <string> The ID of the entity. For Google-managed entities, the `id
 memberKey.namespace <string> The namespace in which the entity exists. If not specified, the `EntityKey` represents a Google-managed entity such as a Google user or a Google Group. If specified, the `EntityKey` represents an external-identity-mapped group. The namespace must correspond to an identity source created in Admin Console and must be in the form of `identitysources/{identity_source}`."
   ([parent] (groups-memberships-lookup parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudidentity.googleapis.com/v1/{+parent}/memberships:lookup",
@@ -629,7 +629,7 @@ name <>
 ModifyMembershipRolesRequest:
 ModifyMembershipRolesRequest"
   [name ModifyMembershipRolesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudidentity.googleapis.com/v1/{+name}:modifyMembershipRoles",
@@ -650,7 +650,7 @@ optional:
 query <string> Required. A CEL expression that MUST include member specification AND label(s). Certain groups are uniquely identified by both a 'member_key_id' and a 'member_key_namespace', which requires an additional query input: 'member_key_namespace'. Example query: `member_key_id == 'member_key_id_value' && in labels`"
   ([parent] (groups-memberships-getMembershipGraph parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudidentity.googleapis.com/v1/{+parent}/memberships:getMembershipGraph",
@@ -672,7 +672,7 @@ query <string> Required. A CEL expression that MUST include member specification
 pageSize <integer> The default page size is 200 (max 1000)."
   ([parent] (groups-memberships-searchTransitiveGroups parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudidentity.googleapis.com/v1/{+parent}/memberships:searchTransitiveGroups",
@@ -695,7 +695,7 @@ pageSize <integer> The default page size is 200 (max 1000).
 orderBy <string> The ordering of membership relation for the display name or email in the response. The syntax for this field can be found at https://cloud.google.com/apis/design/design_patterns#sorting_order. Example: Sort by the ascending display name: order_by=\"group_name\" or order_by=\"group_name asc\". Sort by the descending display name: order_by=\"group_name desc\". Sort by the ascending group key: order_by=\"group_key\" or order_by=\"group_key asc\". Sort by the descending group key: order_by=\"group_key desc\"."
   ([parent] (groups-memberships-searchDirectGroups parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudidentity.googleapis.com/v1/{+parent}/memberships:searchDirectGroups",
@@ -714,7 +714,7 @@ parent <>
 Membership:
 Membership"
   [parent Membership]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudidentity.googleapis.com/v1/{+parent}/memberships",
@@ -731,7 +731,7 @@ https://cloud.google.com/identity/v1/reference/rest/v1/groups/memberships/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudidentity.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -748,7 +748,7 @@ https://cloud.google.com/identity/v1/reference/rest/v1/inboundSamlSsoProfiles/cr
 InboundSamlSsoProfile:
 InboundSamlSsoProfile"
   [InboundSamlSsoProfile]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudidentity.googleapis.com/v1/inboundSamlSsoProfiles",
@@ -770,7 +770,7 @@ updateMask <string> Required. The list of fields to be updated."
   ([name InboundSamlSsoProfile]
     (inboundSamlSsoProfiles-patch name InboundSamlSsoProfile nil))
   ([name InboundSamlSsoProfile optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://cloudidentity.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -784,7 +784,7 @@ https://cloud.google.com/identity/v1/reference/rest/v1/inboundSamlSsoProfiles/de
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://cloudidentity.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -797,7 +797,7 @@ https://cloud.google.com/identity/v1/reference/rest/v1/inboundSamlSsoProfiles/ge
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudidentity.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -813,7 +813,7 @@ filter <string> A [Common Expression Language](https://github.com/google/cel-spe
 pageSize <integer> The maximum number of InboundSamlSsoProfiles to return. The service may return fewer than this value. If omitted (or defaulted to zero) the server will use a sensible default. This default may change over time. The maximum allowed value is 100. Requests with page_size greater than that will be silently interpreted as having this maximum value."
   ([] (inboundSamlSsoProfiles-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudidentity.googleapis.com/v1/inboundSamlSsoProfiles",
@@ -827,7 +827,7 @@ https://cloud.google.com/identity/v1/reference/rest/v1/inboundSamlSsoProfiles/id
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://cloudidentity.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -840,7 +840,7 @@ https://cloud.google.com/identity/v1/reference/rest/v1/inboundSamlSsoProfiles/id
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudidentity.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -857,7 +857,7 @@ optional:
 pageSize <integer> The maximum number of `IdpCredential`s to return. The service may return fewer than this value."
   ([parent] (inboundSamlSsoProfiles-idpCredentials-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudidentity.googleapis.com/v1/{+parent}/idpCredentials",
@@ -873,7 +873,7 @@ parent <>
 AddIdpCredentialRequest:
 AddIdpCredentialRequest"
   [parent AddIdpCredentialRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudidentity.googleapis.com/v1/{+parent}/idpCredentials:add",
@@ -888,7 +888,7 @@ https://cloud.google.com/identity/v1/reference/rest/v1/inboundSsoAssignments/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudidentity.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -902,7 +902,7 @@ https://cloud.google.com/identity/v1/reference/rest/v1/inboundSsoAssignments/cre
 InboundSsoAssignment:
 InboundSsoAssignment"
   [InboundSsoAssignment]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudidentity.googleapis.com/v1/inboundSsoAssignments",
@@ -924,7 +924,7 @@ updateMask <string> Required. The list of fields to be updated."
   ([name InboundSsoAssignment]
     (inboundSsoAssignments-patch name InboundSsoAssignment nil))
   ([name InboundSsoAssignment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://cloudidentity.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -938,7 +938,7 @@ https://cloud.google.com/identity/v1/reference/rest/v1/inboundSsoAssignments/del
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://cloudidentity.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -954,7 +954,7 @@ filter <string> A CEL expression to filter the results. The only supported filte
 pageSize <integer> The maximum number of assignments to return. The service may return fewer than this value. If omitted (or defaulted to zero) the server will use a sensible default. This default may change over time. The maximum allowed value is 100, though requests with page_size greater than that will be silently interpreted as having this maximum value. This may increase in the futue."
   ([] (inboundSsoAssignments-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudidentity.googleapis.com/v1/inboundSsoAssignments",
@@ -968,7 +968,7 @@ https://cloud.google.com/identity/v1/reference/rest/v1/customers/userinvitations
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudidentity.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -987,7 +987,7 @@ filter <string> Optional. A query string for filtering `UserInvitation` results 
 orderBy <string> Optional. The sort order of the list results. You can sort the results in descending order based on either email or last update timestamp but not both, using `order_by=\"email desc\"`. Currently, sorting is supported for `update_time asc`, `update_time desc`, `email asc`, and `email desc`. If not specified, results will be returned based on `email asc` order."
   ([parent] (customers-userinvitations-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudidentity.googleapis.com/v1/{+parent}/userinvitations",
@@ -1003,7 +1003,7 @@ name <>
 SendUserInvitationRequest:
 SendUserInvitationRequest"
   [name SendUserInvitationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudidentity.googleapis.com/v1/{+name}:send",
@@ -1020,7 +1020,7 @@ name <>
 CancelUserInvitationRequest:
 CancelUserInvitationRequest"
   [name CancelUserInvitationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudidentity.googleapis.com/v1/{+name}:cancel",
@@ -1035,7 +1035,7 @@ https://cloud.google.com/identity/v1/reference/rest/v1/customers/userinvitations
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://cloudidentity.googleapis.com/v1/{+name}:isInvitableUser",

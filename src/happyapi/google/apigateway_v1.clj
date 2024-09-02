@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apigateway.googleapis.com/v1/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/api-gateway/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://apigateway.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -47,7 +47,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apigateway.googleapis.com/v1/{+name}/operations",
@@ -61,7 +61,7 @@ https://cloud.google.com/api-gateway/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://apigateway.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -74,7 +74,7 @@ https://cloud.google.com/api-gateway/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://apigateway.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -89,7 +89,7 @@ name <>
 ApigatewayCancelOperationRequest:
 ApigatewayCancelOperationRequest"
   [name ApigatewayCancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigateway.googleapis.com/v1/{+name}:cancel",
@@ -110,7 +110,7 @@ filter <string> Filter.
 orderBy <string> Order by parameters."
   ([parent] (projects-locations-gateways-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apigateway.googleapis.com/v1/{+parent}/gateways",
@@ -124,7 +124,7 @@ https://cloud.google.com/api-gateway/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://apigateway.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -144,7 +144,7 @@ gatewayId <string> Required. Identifier to assign to the Gateway. Must be unique
   ([parent ApigatewayGateway]
     (projects-locations-gateways-create parent ApigatewayGateway nil))
   ([parent ApigatewayGateway optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://apigateway.googleapis.com/v1/{+parent}/gateways",
@@ -166,7 +166,7 @@ updateMask <string> Field mask is used to specify the fields to be overwritten i
   ([name ApigatewayGateway]
     (projects-locations-gateways-patch name ApigatewayGateway nil))
   ([name ApigatewayGateway optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://apigateway.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -180,7 +180,7 @@ https://cloud.google.com/api-gateway/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://apigateway.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -195,7 +195,7 @@ resource <>
 ApigatewaySetIamPolicyRequest:
 ApigatewaySetIamPolicyRequest"
   [resource ApigatewaySetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigateway.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -214,7 +214,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-locations-gateways-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apigateway.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -230,7 +230,7 @@ resource <>
 ApigatewayTestIamPermissionsRequest:
 ApigatewayTestIamPermissionsRequest"
   [resource ApigatewayTestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigateway.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -251,7 +251,7 @@ filter <string> Filter.
 orderBy <string> Order by parameters."
   ([parent] (projects-locations-apis-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apigateway.googleapis.com/v1/{+parent}/apis",
@@ -265,7 +265,7 @@ https://cloud.google.com/api-gateway/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://apigateway.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -285,7 +285,7 @@ apiId <string> Required. Identifier to assign to the API. Must be unique within 
   ([parent ApigatewayApi]
     (projects-locations-apis-create parent ApigatewayApi nil))
   ([parent ApigatewayApi optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://apigateway.googleapis.com/v1/{+parent}/apis",
@@ -307,7 +307,7 @@ updateMask <string> Field mask is used to specify the fields to be overwritten i
   ([name ApigatewayApi]
     (projects-locations-apis-patch name ApigatewayApi nil))
   ([name ApigatewayApi optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://apigateway.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -321,7 +321,7 @@ https://cloud.google.com/api-gateway/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://apigateway.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -336,7 +336,7 @@ resource <>
 ApigatewaySetIamPolicyRequest:
 ApigatewaySetIamPolicyRequest"
   [resource ApigatewaySetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigateway.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -355,7 +355,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-locations-apis-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apigateway.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -371,7 +371,7 @@ resource <>
 ApigatewayTestIamPermissionsRequest:
 ApigatewayTestIamPermissionsRequest"
   [resource ApigatewayTestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigateway.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -392,7 +392,7 @@ filter <string> Filter.
 orderBy <string> Order by parameters."
   ([parent] (projects-locations-apis-configs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apigateway.googleapis.com/v1/{+parent}/configs",
@@ -410,7 +410,7 @@ optional:
 view <string> Specifies which fields of the API Config are returned in the response. Defaults to `BASIC` view."
   ([name] (projects-locations-apis-configs-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://apigateway.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -433,7 +433,7 @@ apiConfigId <string> Required. Identifier to assign to the API Config. Must be u
       ApigatewayApiConfig
       nil))
   ([parent ApigatewayApiConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://apigateway.googleapis.com/v1/{+parent}/configs",
@@ -458,7 +458,7 @@ updateMask <string> Field mask is used to specify the fields to be overwritten i
       ApigatewayApiConfig
       nil))
   ([name ApigatewayApiConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://apigateway.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -472,7 +472,7 @@ https://cloud.google.com/api-gateway/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://apigateway.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -487,7 +487,7 @@ resource <>
 ApigatewaySetIamPolicyRequest:
 ApigatewaySetIamPolicyRequest"
   [resource ApigatewaySetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigateway.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -507,7 +507,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-apis-configs-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apigateway.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -523,7 +523,7 @@ resource <>
 ApigatewayTestIamPermissionsRequest:
 ApigatewayTestIamPermissionsRequest"
   [resource ApigatewayTestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigateway.googleapis.com/v1/{+resource}:testIamPermissions",

@@ -4,269 +4,6 @@ The Chrome Management API is a suite of services that allows Chrome administrato
 See: https://developers.google.com/chrome/management/"
   (:require [happyapi.providers.google :as client]))
 
-(defn customers-telemetry-notificationConfigs-delete
-  "Delete a telemetry notification config.
-https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/telemetry/notificationConfigs/delete
-
-name <> "
-  [name]
-  (client/api-request
-    {:method :delete,
-     :uri-template
-     "https://chromemanagement.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/chrome.management.telemetry.readonly"]}))
-
-(defn customers-telemetry-notificationConfigs-list
-  "List all telemetry notification configs.
-https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/telemetry/notificationConfigs/list
-
-parent <> 
-
-optional:
-pageSize <integer> The maximum number of notification configs to return. The service may return fewer than this value. If unspecified, at most 100 notification configs will be returned. The maximum value is 100; values above 100 will be coerced to 100."
-  ([parent] (customers-telemetry-notificationConfigs-list parent nil))
-  ([parent optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://chromemanagement.googleapis.com/v1/{+parent}/telemetry/notificationConfigs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/chrome.management.telemetry.readonly"]})))
-
-(defn customers-telemetry-notificationConfigs-create
-  "Create a telemetry notification config.
-https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/telemetry/notificationConfigs/create
-
-parent <> 
-GoogleChromeManagementV1TelemetryNotificationConfig:
-GoogleChromeManagementV1TelemetryNotificationConfig"
-  [parent GoogleChromeManagementV1TelemetryNotificationConfig]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://chromemanagement.googleapis.com/v1/{+parent}/telemetry/notificationConfigs",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/chrome.management.telemetry.readonly"],
-     :body GoogleChromeManagementV1TelemetryNotificationConfig}))
-
-(defn customers-telemetry-events-list
-  "List telemetry events.
-https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/telemetry/events/list
-
-parent <> 
-
-optional:
-filter <string> Optional. Only include resources that match the filter. Although this parameter is currently optional, this parameter will be required- please specify at least 1 event type. Supported filter fields: - device_id - user_id - device_org_unit_id - user_org_unit_id - timestamp - event_type The \"timestamp\" filter accepts either the Unix Epoch milliseconds format or the RFC3339 UTC \"Zulu\" format with nanosecond resolution and up to nine fractional digits. Both formats should be surrounded by simple double quotes. Examples: \"2014-10-02T15:01:23Z\", \"2014-10-02T15:01:23.045123456Z\", \"1679283943823\".
-readMask <string> Required. Read mask to specify which fields to return. Although currently required, this field will become optional, while the filter parameter with an event type will be come required. Supported read_mask paths are: - device - user - audio_severe_underrun_event - usb_peripherals_event - https_latency_change_event - network_state_change_event - wifi_signal_strength_event - vpn_connection_state_change_event - app_install_event - app_uninstall_event - app_launch_event - os_crash_event 
-pageSize <integer> Optional. Maximum number of results to return. Default value is 100. Maximum value is 1000."
-  ([parent] (customers-telemetry-events-list parent nil))
-  ([parent optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://chromemanagement.googleapis.com/v1/{+parent}/telemetry/events",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/chrome.management.telemetry.readonly"]})))
-
-(defn customers-telemetry-users-list
-  "List all telemetry users.
-https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/telemetry/users/list
-
-parent <> 
-
-optional:
-filter <string> Only include resources that match the filter. Supported filter fields: - user_id - user_org_unit_id 
-readMask <string> Read mask to specify which fields to return. Supported read_mask paths are: - name - org_unit_id - user_id - user_email - user_device.device_id - user_device.audio_status_report - user_device.device_activity_report - user_device.network_bandwidth_report - user_device.peripherals_report 
-pageSize <integer> Maximum number of results to return. Default value is 100. Maximum value is 1000."
-  ([parent] (customers-telemetry-users-list parent nil))
-  ([parent optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://chromemanagement.googleapis.com/v1/{+parent}/telemetry/users",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/chrome.management.telemetry.readonly"]})))
-
-(defn customers-telemetry-users-get
-  "Get telemetry user.
-https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/telemetry/users/get
-
-name <> 
-
-optional:
-readMask <string> Read mask to specify which fields to return. Supported read_mask paths are: - name - org_unit_id - user_id - user_email - user_device.device_id - user_device.audio_status_report - user_device.device_activity_report - user_device.network_bandwidth_report - user_device.peripherals_report "
-  ([name] (customers-telemetry-users-get name nil))
-  ([name optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://chromemanagement.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/chrome.management.telemetry.readonly"]})))
-
-(defn customers-telemetry-devices-list
-  "List all telemetry devices.
-https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/telemetry/devices/list
-
-parent <> 
-
-optional:
-filter <string> Optional. Only include resources that match the filter. Requests that don't specify a \"reports_timestamp\" value will default to returning only recent reports. Specify \"reports_timestamp>=0\" to get all report data. Supported filter fields: - org_unit_id - serial_number - device_id - reports_timestamp The \"reports_timestamp\" filter accepts either the Unix Epoch milliseconds format or the RFC3339 UTC \"Zulu\" format with nanosecond resolution and up to nine fractional digits. Both formats should be surrounded by simple double quotes. Examples: \"2014-10-02T15:01:23Z\", \"2014-10-02T15:01:23.045123456Z\", \"1679283943823\".
-readMask <string> Required. Read mask to specify which fields to return. Supported read_mask paths are: - name - org_unit_id - device_id - serial_number - cpu_info - cpu_status_report - memory_info - memory_status_report - network_info - network_diagnostics_report - network_status_report - os_update_status - graphics_info - graphics_status_report - battery_info - battery_status_report - storage_info - storage_status_report - thunderbolt_info - audio_status_report - boot_performance_report - heartbeat_status_report - network_bandwidth_report - peripherals_report - kiosk_app_status_report - app_report - runtime_counters_report 
-pageSize <integer> Maximum number of results to return. Default value is 100. Maximum value is 1000."
-  ([parent] (customers-telemetry-devices-list parent nil))
-  ([parent optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://chromemanagement.googleapis.com/v1/{+parent}/telemetry/devices",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/chrome.management.telemetry.readonly"]})))
-
-(defn customers-telemetry-devices-get
-  "Get telemetry device.
-https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/telemetry/devices/get
-
-name <> 
-
-optional:
-readMask <string> Required. Read mask to specify which fields to return. Supported read_mask paths are: - name - org_unit_id - device_id - serial_number - cpu_info - cpu_status_report - memory_info - memory_status_report - network_info - network_diagnostics_report - network_status_report - os_update_status - graphics_info - graphics_status_report - battery_info - battery_status_report - storage_info - storage_status_report - thunderbolt_info - audio_status_report - boot_performance_report - heartbeat_status_report - network_bandwidth_report - peripherals_report - kiosk_app_status_report - app_report - runtime_counters_report "
-  ([name] (customers-telemetry-devices-get name nil))
-  ([name optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://chromemanagement.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/chrome.management.telemetry.readonly"]})))
-
-(defn customers-apps-countChromeAppRequests
-  "Generate summary of app installation requests.
-https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/apps/countChromeAppRequests
-
-customer <> 
-
-optional:
-pageSize <integer> Maximum number of results to return. Maximum and default are 50, anything above will be coerced to 50.
-orderBy <string> Field used to order results. Supported fields: * request_count * latest_request_time
-orgUnitId <string> The ID of the organizational unit."
-  ([customer] (customers-apps-countChromeAppRequests customer nil))
-  ([customer optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://chromemanagement.googleapis.com/v1/{+customer}/apps:countChromeAppRequests",
-       :uri-template-args {"customer" customer},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/chrome.management.appdetails.readonly"]})))
-
-(defn customers-apps-fetchUsersRequestingExtension
-  "Get a list of users that have requested to install an extension.
-https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/apps/fetchUsersRequestingExtension
-
-customer <> 
-
-optional:
-pageSize <integer> Optional. Maximum number of results to return. Maximum and default are 50. Any page size larger than 50 will be coerced to 50.
-orgUnitId <string> The ID of the organizational unit. Only consider devices that directly belong to this org unit, i.e. sub-orgunits are not counted. If omitted, all data will be returned.
-extensionId <string> Required. The extension for which we want to find the requesting users."
-  ([customer]
-    (customers-apps-fetchUsersRequestingExtension customer nil))
-  ([customer optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://chromemanagement.googleapis.com/v1/{+customer}/apps:fetchUsersRequestingExtension",
-       :uri-template-args {"customer" customer},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/chrome.management.appdetails.readonly"]})))
-
-(defn customers-apps-fetchDevicesRequestingExtension
-  "Get a list of devices that have requested to install an extension.
-https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/apps/fetchDevicesRequestingExtension
-
-customer <> 
-
-optional:
-orgUnitId <string> The ID of the organizational unit. Only consider devices that directly belong to this org unit, i.e. sub-orgunits are not counted. If omitted, all data will be returned.
-pageSize <integer> Optional. Maximum number of results to return. Maximum and default are 50. Any page size larger than 50 will be coerced to 50.
-extensionId <string> Required. The extension for which we want to find requesting devices."
-  ([customer]
-    (customers-apps-fetchDevicesRequestingExtension customer nil))
-  ([customer optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://chromemanagement.googleapis.com/v1/{+customer}/apps:fetchDevicesRequestingExtension",
-       :uri-template-args {"customer" customer},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/chrome.management.appdetails.readonly"]})))
-
-(defn customers-apps-chrome-get
-  "Get a specific app for a customer by its resource name.
-https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/apps/chrome/get
-
-name <> "
-  [name]
-  (client/api-request
-    {:method :get,
-     :uri-template
-     "https://chromemanagement.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/chrome.management.appdetails.readonly"]}))
-
-(defn customers-apps-android-get
-  "Get a specific app for a customer by its resource name.
-https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/apps/android/get
-
-name <> "
-  [name]
-  (client/api-request
-    {:method :get,
-     :uri-template
-     "https://chromemanagement.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/chrome.management.appdetails.readonly"]}))
-
-(defn customers-apps-web-get
-  "Get a specific app for a customer by its resource name.
-https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/apps/web/get
-
-name <> "
-  [name]
-  (client/api-request
-    {:method :get,
-     :uri-template
-     "https://chromemanagement.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/chrome.management.appdetails.readonly"]}))
-
 (defn customers-reports-countInstalledApps
   "Generate report of app installations.
 https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/reports/countInstalledApps
@@ -274,13 +11,13 @@ https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/r
 customer <> 
 
 optional:
-filter <string> Query string to filter results, AND-separated fields in EBNF syntax. Note: OR operations are not supported in this filter. Supported filter fields: * app_name * app_type * install_type * number_of_permissions * total_install_count * latest_profile_active_date * permission_name * app_id * manifest_versions
 orderBy <string> Field used to order results. Supported order by fields: * app_name * app_type * install_type * number_of_permissions * total_install_count * app_id * manifest_versions
+orgUnitId <string> The ID of the organizational unit.
 pageSize <integer> Maximum number of results to return. Maximum and default are 100.
-orgUnitId <string> The ID of the organizational unit."
+filter <string> Query string to filter results, AND-separated fields in EBNF syntax. Note: OR operations are not supported in this filter. Supported filter fields: * app_name * app_type * install_type * number_of_permissions * total_install_count * latest_profile_active_date * permission_name * app_id * manifest_versions"
   ([customer] (customers-reports-countInstalledApps customer nil))
   ([customer optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://chromemanagement.googleapis.com/v1/{+customer}/reports:countInstalledApps",
@@ -296,13 +33,13 @@ https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/r
 customer <> 
 
 optional:
+filter <string> Query string to filter results, AND-separated fields in EBNF syntax. Note: OR operations are not supported in this filter. Note: Only >= and <= comparators are supported in this filter. Supported filter fields: * complete_time
 orderBy <string> Field used to order results. If omitted, results will be ordered in ascending order of the 'user_email' field. Supported order_by fields: * user_email * job_count * printer_count * device_count
 printerOrgUnitId <string> The ID of the organizational unit for printers. If specified, only print jobs initiated with printers from the specified organizational unit will be counted. If omitted, all print jobs will be counted.
-filter <string> Query string to filter results, AND-separated fields in EBNF syntax. Note: OR operations are not supported in this filter. Note: Only >= and <= comparators are supported in this filter. Supported filter fields: * complete_time
 pageSize <integer> Maximum number of results to return. Maximum and default are 100."
   ([customer] (customers-reports-countPrintJobsByUser customer nil))
   ([customer optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://chromemanagement.googleapis.com/v1/{+customer}/reports:countPrintJobsByUser",
@@ -325,7 +62,7 @@ readMask <string> Required. Mask of the fields that should be populated in the r
       customer
       nil))
   ([customer optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://chromemanagement.googleapis.com/v1/{+customer}/reports:countChromeDevicesThatNeedAttention",
@@ -341,15 +78,15 @@ https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/r
 customer <> 
 
 optional:
-appId <string> Unique identifier of the app. For Chrome apps and extensions, the 32-character id (e.g. ehoadneljpdggcbbknedodolkkjodefl). For Android apps, the package name (e.g. com.evernote).
-orderBy <string> Field used to order results. Supported order by fields: * machine * device_id
-appType <string> Type of the app.
-filter <string> Query string to filter results, AND-separated fields in EBNF syntax. Note: OR operations are not supported in this filter. Supported filter fields: * last_active_date
+orgUnitId <string> The ID of the organizational unit.
 pageSize <integer> Maximum number of results to return. Maximum and default are 100.
-orgUnitId <string> The ID of the organizational unit."
+appId <string> Unique identifier of the app. For Chrome apps and extensions, the 32-character id (e.g. ehoadneljpdggcbbknedodolkkjodefl). For Android apps, the package name (e.g. com.evernote).
+filter <string> Query string to filter results, AND-separated fields in EBNF syntax. Note: OR operations are not supported in this filter. Supported filter fields: * last_active_date
+orderBy <string> Field used to order results. Supported order by fields: * machine * device_id
+appType <string> Type of the app."
   ([customer] (customers-reports-findInstalledAppDevices customer nil))
   ([customer optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://chromemanagement.googleapis.com/v1/{+customer}/reports:findInstalledAppDevices",
@@ -370,7 +107,7 @@ orgUnitId <string> Optional. The ID of the organizational unit. If omitted, all 
   ([customer]
     (customers-reports-countChromeHardwareFleetDevices customer nil))
   ([customer optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://chromemanagement.googleapis.com/v1/{+customer}/reports:countChromeHardwareFleetDevices",
@@ -386,13 +123,13 @@ https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/r
 customer <> 
 
 optional:
-pageSize <integer> Maximum number of results to return. Maximum and default are 100.
-filter <string> Query string to filter results, AND-separated fields in EBNF syntax. Note: OR operations are not supported in this filter. Note: Only >= and <= comparators are supported in this filter. Supported filter fields: * complete_time
+orderBy <string> Field used to order results. If omitted, results will be ordered in ascending order of the 'printer' field. Supported order_by fields: * printer * job_count * device_count * user_count
 printerOrgUnitId <string> The ID of the organizational unit for printers. If specified, only data for printers from the specified organizational unit will be returned. If omitted, data for printers from all organizational units will be returned.
-orderBy <string> Field used to order results. If omitted, results will be ordered in ascending order of the 'printer' field. Supported order_by fields: * printer * job_count * device_count * user_count"
+pageSize <integer> Maximum number of results to return. Maximum and default are 100.
+filter <string> Query string to filter results, AND-separated fields in EBNF syntax. Note: OR operations are not supported in this filter. Note: Only >= and <= comparators are supported in this filter. Supported filter fields: * complete_time"
   ([customer] (customers-reports-countPrintJobsByPrinter customer nil))
   ([customer optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://chromemanagement.googleapis.com/v1/{+customer}/reports:countPrintJobsByPrinter",
@@ -414,7 +151,7 @@ orgUnitId <string> Optional. The ID of the organizational unit. If omitted, all 
       customer
       nil))
   ([customer optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://chromemanagement.googleapis.com/v1/{+customer}/reports:countChromeBrowsersNeedingAttention",
@@ -430,15 +167,15 @@ https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/r
 customer <> 
 
 optional:
-maxAueDate <string> Optional. Maximum expiration date in format yyyy-mm-dd in UTC timezone. If included returns all devices that have already expired and devices with auto expiration date equal to or earlier than the maximum date.
+orgUnitId <string> Optional. The organizational unit ID, if omitted, will return data for all organizational units.
 minAueDate <string> Optional. Maximum expiration date in format yyyy-mm-dd in UTC timezone. If included returns all devices that have already expired and devices with auto expiration date equal to or later than the minimum date.
-orgUnitId <string> Optional. The organizational unit ID, if omitted, will return data for all organizational units."
+maxAueDate <string> Optional. Maximum expiration date in format yyyy-mm-dd in UTC timezone. If included returns all devices that have already expired and devices with auto expiration date equal to or earlier than the maximum date."
   ([customer]
     (customers-reports-countChromeDevicesReachingAutoExpirationDate
       customer
       nil))
   ([customer optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://chromemanagement.googleapis.com/v1/{+customer}/reports:countChromeDevicesReachingAutoExpirationDate",
@@ -454,13 +191,13 @@ https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/r
 customer <> 
 
 optional:
-filter <string> Query string to filter results, AND-separated fields in EBNF syntax. Note: OR operations are not supported in this filter. Note: Only >= and <= comparators are supported for `complete_time`. Note: Only = comparator supported for `user_id` and `printer_id`. Supported filter fields: * complete_time * printer_id * user_id
 pageSize <integer> The number of print jobs in the page from 0 to 100 inclusive, if page_size is not specified or zero, the size will be 50.
-printerOrgUnitId <string> The ID of the organizational unit for printers. If specified, only print jobs submitted to printers from the specified organizational unit will be returned.
-orderBy <string> Field used to order results. If not specified, results will be ordered in descending order of the `complete_time` field. Supported order by fields: * title * state * create_time * complete_time * document_page_count * color_mode * duplex_mode * printer * user_email"
+orderBy <string> Field used to order results. If not specified, results will be ordered in descending order of the `complete_time` field. Supported order by fields: * title * state * create_time * complete_time * document_page_count * color_mode * duplex_mode * printer * user_email
+filter <string> Query string to filter results, AND-separated fields in EBNF syntax. Note: OR operations are not supported in this filter. Note: Only >= and <= comparators are supported for `complete_time`. Note: Only = comparator supported for `user_id` and `printer_id`. Supported filter fields: * complete_time * printer_id * user_id
+printerOrgUnitId <string> The ID of the organizational unit for printers. If specified, only print jobs submitted to printers from the specified organizational unit will be returned."
   ([customer] (customers-reports-enumeratePrintJobs customer nil))
   ([customer optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://chromemanagement.googleapis.com/v1/{+customer}/reports:enumeratePrintJobs",
@@ -476,12 +213,12 @@ https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/r
 customer <> 
 
 optional:
-pageSize <integer> Maximum number of results to return. Maximum and default are 100.
 filter <string> Query string to filter results, AND-separated fields in EBNF syntax. Note: OR operations are not supported in this filter. Supported filter fields: * last_active_date
-orgUnitId <string> The ID of the organizational unit."
+orgUnitId <string> The ID of the organizational unit.
+pageSize <integer> Maximum number of results to return. Maximum and default are 100."
   ([customer] (customers-reports-countChromeVersions customer nil))
   ([customer optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://chromemanagement.googleapis.com/v1/{+customer}/reports:countChromeVersions",
@@ -502,7 +239,7 @@ filter <string> Query string to filter results, AND-separated fields in EBNF syn
 orgUnitId <string> If specified, only count the number of crash events of the devices in this organizational unit."
   ([customer] (customers-reports-countChromeCrashEvents customer nil))
   ([customer optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://chromemanagement.googleapis.com/v1/{+customer}/reports:countChromeCrashEvents",
@@ -510,3 +247,266 @@ orgUnitId <string> If specified, only count the number of crash events of the de
        :query-params (merge {} optional),
        :scopes
        ["https://www.googleapis.com/auth/chrome.management.reports.readonly"]})))
+
+(defn customers-telemetry-users-list
+  "List all telemetry users.
+https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/telemetry/users/list
+
+parent <> 
+
+optional:
+readMask <string> Read mask to specify which fields to return. Supported read_mask paths are: - name - org_unit_id - user_id - user_email - user_device.device_id - user_device.audio_status_report - user_device.device_activity_report - user_device.network_bandwidth_report - user_device.peripherals_report - user_device.app_report 
+filter <string> Only include resources that match the filter. Supported filter fields: - user_id - user_org_unit_id 
+pageSize <integer> Maximum number of results to return. Default value is 100. Maximum value is 1000."
+  ([parent] (customers-telemetry-users-list parent nil))
+  ([parent optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://chromemanagement.googleapis.com/v1/{+parent}/telemetry/users",
+       :uri-template-args {"parent" parent},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/chrome.management.telemetry.readonly"]})))
+
+(defn customers-telemetry-users-get
+  "Get telemetry user.
+https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/telemetry/users/get
+
+name <> 
+
+optional:
+readMask <string> Read mask to specify which fields to return. Supported read_mask paths are: - name - org_unit_id - user_id - user_email - user_device.device_id - user_device.audio_status_report - user_device.device_activity_report - user_device.network_bandwidth_report - user_device.peripherals_report - user_device.app_report "
+  ([name] (customers-telemetry-users-get name nil))
+  ([name optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://chromemanagement.googleapis.com/v1/{+name}",
+       :uri-template-args {"name" name},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/chrome.management.telemetry.readonly"]})))
+
+(defn customers-telemetry-events-list
+  "List telemetry events.
+https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/telemetry/events/list
+
+parent <> 
+
+optional:
+readMask <string> Required. Read mask to specify which fields to return. Although currently required, this field will become optional, while the filter parameter with an event type will be come required. Supported read_mask paths are: - device - user - audio_severe_underrun_event - usb_peripherals_event - https_latency_change_event - network_state_change_event - wifi_signal_strength_event - vpn_connection_state_change_event - app_install_event - app_uninstall_event - app_launch_event - os_crash_event 
+pageSize <integer> Optional. Maximum number of results to return. Default value is 100. Maximum value is 1000.
+filter <string> Optional. Only include resources that match the filter. Although this parameter is currently optional, this parameter will be required- please specify at least 1 event type. Supported filter fields: - device_id - user_id - device_org_unit_id - user_org_unit_id - timestamp - event_type The \"timestamp\" filter accepts either the Unix Epoch milliseconds format or the RFC3339 UTC \"Zulu\" format with nanosecond resolution and up to nine fractional digits. Both formats should be surrounded by simple double quotes. Examples: \"2014-10-02T15:01:23Z\", \"2014-10-02T15:01:23.045123456Z\", \"1679283943823\"."
+  ([parent] (customers-telemetry-events-list parent nil))
+  ([parent optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://chromemanagement.googleapis.com/v1/{+parent}/telemetry/events",
+       :uri-template-args {"parent" parent},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/chrome.management.telemetry.readonly"]})))
+
+(defn customers-telemetry-notificationConfigs-create
+  "Create a telemetry notification config.
+https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/telemetry/notificationConfigs/create
+
+parent <> 
+GoogleChromeManagementV1TelemetryNotificationConfig:
+GoogleChromeManagementV1TelemetryNotificationConfig"
+  [parent GoogleChromeManagementV1TelemetryNotificationConfig]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://chromemanagement.googleapis.com/v1/{+parent}/telemetry/notificationConfigs",
+     :uri-template-args {"parent" parent},
+     :query-params {},
+     :scopes
+     ["https://www.googleapis.com/auth/chrome.management.telemetry.readonly"],
+     :body GoogleChromeManagementV1TelemetryNotificationConfig}))
+
+(defn customers-telemetry-notificationConfigs-list
+  "List all telemetry notification configs.
+https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/telemetry/notificationConfigs/list
+
+parent <> 
+
+optional:
+pageSize <integer> The maximum number of notification configs to return. The service may return fewer than this value. If unspecified, at most 100 notification configs will be returned. The maximum value is 100; values above 100 will be coerced to 100."
+  ([parent] (customers-telemetry-notificationConfigs-list parent nil))
+  ([parent optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://chromemanagement.googleapis.com/v1/{+parent}/telemetry/notificationConfigs",
+       :uri-template-args {"parent" parent},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/chrome.management.telemetry.readonly"]})))
+
+(defn customers-telemetry-notificationConfigs-delete
+  "Delete a telemetry notification config.
+https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/telemetry/notificationConfigs/delete
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :delete,
+     :uri-template
+     "https://chromemanagement.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes
+     ["https://www.googleapis.com/auth/chrome.management.telemetry.readonly"]}))
+
+(defn customers-telemetry-devices-get
+  "Get telemetry device.
+https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/telemetry/devices/get
+
+name <> 
+
+optional:
+readMask <string> Required. Read mask to specify which fields to return. Supported read_mask paths are: - name - org_unit_id - device_id - serial_number - cpu_info - cpu_status_report - memory_info - memory_status_report - network_info - network_diagnostics_report - network_status_report - os_update_status - graphics_info - graphics_status_report - battery_info - battery_status_report - storage_info - storage_status_report - thunderbolt_info - audio_status_report - boot_performance_report - heartbeat_status_report - network_bandwidth_report - peripherals_report - kiosk_app_status_report - app_report - runtime_counters_report "
+  ([name] (customers-telemetry-devices-get name nil))
+  ([name optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://chromemanagement.googleapis.com/v1/{+name}",
+       :uri-template-args {"name" name},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/chrome.management.telemetry.readonly"]})))
+
+(defn customers-telemetry-devices-list
+  "List all telemetry devices.
+https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/telemetry/devices/list
+
+parent <> 
+
+optional:
+readMask <string> Required. Read mask to specify which fields to return. Supported read_mask paths are: - name - org_unit_id - device_id - serial_number - cpu_info - cpu_status_report - memory_info - memory_status_report - network_info - network_diagnostics_report - network_status_report - os_update_status - graphics_info - graphics_status_report - battery_info - battery_status_report - storage_info - storage_status_report - thunderbolt_info - audio_status_report - boot_performance_report - heartbeat_status_report - network_bandwidth_report - peripherals_report - kiosk_app_status_report - app_report - runtime_counters_report 
+filter <string> Optional. Only include resources that match the filter. Requests that don't specify a \"reports_timestamp\" value will default to returning only recent reports. Specify \"reports_timestamp>=0\" to get all report data. Supported filter fields: - org_unit_id - serial_number - device_id - reports_timestamp The \"reports_timestamp\" filter accepts either the Unix Epoch milliseconds format or the RFC3339 UTC \"Zulu\" format with nanosecond resolution and up to nine fractional digits. Both formats should be surrounded by simple double quotes. Examples: \"2014-10-02T15:01:23Z\", \"2014-10-02T15:01:23.045123456Z\", \"1679283943823\".
+pageSize <integer> Maximum number of results to return. Default value is 100. Maximum value is 1000."
+  ([parent] (customers-telemetry-devices-list parent nil))
+  ([parent optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://chromemanagement.googleapis.com/v1/{+parent}/telemetry/devices",
+       :uri-template-args {"parent" parent},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/chrome.management.telemetry.readonly"]})))
+
+(defn customers-apps-fetchDevicesRequestingExtension
+  "Get a list of devices that have requested to install an extension.
+https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/apps/fetchDevicesRequestingExtension
+
+customer <> 
+
+optional:
+pageSize <integer> Optional. Maximum number of results to return. Maximum and default are 50. Any page size larger than 50 will be coerced to 50.
+orgUnitId <string> The ID of the organizational unit. Only consider devices that directly belong to this org unit, i.e. sub-orgunits are not counted. If omitted, all data will be returned.
+extensionId <string> Required. The extension for which we want to find requesting devices."
+  ([customer]
+    (customers-apps-fetchDevicesRequestingExtension customer nil))
+  ([customer optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://chromemanagement.googleapis.com/v1/{+customer}/apps:fetchDevicesRequestingExtension",
+       :uri-template-args {"customer" customer},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/chrome.management.appdetails.readonly"]})))
+
+(defn customers-apps-countChromeAppRequests
+  "Generate summary of app installation requests.
+https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/apps/countChromeAppRequests
+
+customer <> 
+
+optional:
+orderBy <string> Field used to order results. Supported fields: * request_count * latest_request_time
+orgUnitId <string> The ID of the organizational unit.
+pageSize <integer> Maximum number of results to return. Maximum and default are 50, anything above will be coerced to 50."
+  ([customer] (customers-apps-countChromeAppRequests customer nil))
+  ([customer optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://chromemanagement.googleapis.com/v1/{+customer}/apps:countChromeAppRequests",
+       :uri-template-args {"customer" customer},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/chrome.management.appdetails.readonly"]})))
+
+(defn customers-apps-fetchUsersRequestingExtension
+  "Get a list of users that have requested to install an extension.
+https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/apps/fetchUsersRequestingExtension
+
+customer <> 
+
+optional:
+orgUnitId <string> The ID of the organizational unit. Only consider devices that directly belong to this org unit, i.e. sub-orgunits are not counted. If omitted, all data will be returned.
+extensionId <string> Required. The extension for which we want to find the requesting users.
+pageSize <integer> Optional. Maximum number of results to return. Maximum and default are 50. Any page size larger than 50 will be coerced to 50."
+  ([customer]
+    (customers-apps-fetchUsersRequestingExtension customer nil))
+  ([customer optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://chromemanagement.googleapis.com/v1/{+customer}/apps:fetchUsersRequestingExtension",
+       :uri-template-args {"customer" customer},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/chrome.management.appdetails.readonly"]})))
+
+(defn customers-apps-chrome-get
+  "Get a specific app for a customer by its resource name.
+https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/apps/chrome/get
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :get,
+     :uri-template
+     "https://chromemanagement.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes
+     ["https://www.googleapis.com/auth/chrome.management.appdetails.readonly"]}))
+
+(defn customers-apps-android-get
+  "Get a specific app for a customer by its resource name.
+https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/apps/android/get
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :get,
+     :uri-template
+     "https://chromemanagement.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes
+     ["https://www.googleapis.com/auth/chrome.management.appdetails.readonly"]}))
+
+(defn customers-apps-web-get
+  "Get a specific app for a customer by its resource name.
+https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/apps/web/get
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :get,
+     :uri-template
+     "https://chromemanagement.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes
+     ["https://www.googleapis.com/auth/chrome.management.appdetails.readonly"]}))

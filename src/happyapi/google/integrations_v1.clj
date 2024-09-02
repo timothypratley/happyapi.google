@@ -9,14 +9,14 @@ See: https://cloud.google.com/application-integration"
 https://cloud.google.com/application-integration/v1/reference/rest/v1/callback/generateToken
 
 optional:
-code <string> The auth code for the given request
 redirectUri <string> Redirect uri of the auth code request
 product <string> Which product sends the request
-state <string> The auth config id for the given request
-gcpProjectId <string> The gcp project id of the request"
+gcpProjectId <string> The gcp project id of the request
+code <string> The auth code for the given request
+state <string> The auth config id for the given request"
   ([] (callback-generateToken nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://integrations.googleapis.com/v1/callback:generateToken",
@@ -24,13 +24,25 @@ gcpProjectId <string> The gcp project id of the request"
        :query-params (merge {} optional),
        :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
 
+(defn connectorPlatformRegions-enumerate
+  "Enumerates the regions for which Connector Platform is provisioned.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/connectorPlatformRegions/enumerate"
+  []
+  (client/*api-request*
+    {:method :get,
+     :uri-template
+     "https://integrations.googleapis.com/v1/connectorPlatformRegions:enumerate",
+     :uri-template-args {},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+
 (defn projects-getClientmetadata
   "Gets the metadata info for the requested client
 https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/getClientmetadata
 
 parent <> "
   [parent]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://integrations.googleapis.com/v1/{+parent}/clientmetadata",
@@ -44,412 +56,13 @@ https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/l
 
 parent <> "
   [parent]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://integrations.googleapis.com/v1/{+parent}/clients",
      :uri-template-args {"parent" parent},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
-
-(defn projects-locations-products-cloudFunctions-create
-  "Creates a cloud function project.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/cloudFunctions/create
-
-parent <> 
-GoogleCloudIntegrationsV1alphaCreateCloudFunctionRequest:
-GoogleCloudIntegrationsV1alphaCreateCloudFunctionRequest"
-  [parent GoogleCloudIntegrationsV1alphaCreateCloudFunctionRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://integrations.googleapis.com/v1/{+parent}/cloudFunctions",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudIntegrationsV1alphaCreateCloudFunctionRequest}))
-
-(defn projects-locations-products-sfdcInstances-patch
-  "Updates an sfdc instance. Updates the sfdc instance in spanner. Returns the sfdc instance.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/sfdcInstances/patch
-
-name <> 
-GoogleCloudIntegrationsV1alphaSfdcInstance:
-GoogleCloudIntegrationsV1alphaSfdcInstance
-
-optional:
-updateMask <string> Field mask specifying the fields in the above SfdcInstance that have been modified and need to be updated."
-  ([name GoogleCloudIntegrationsV1alphaSfdcInstance]
-    (projects-locations-products-sfdcInstances-patch
-      name
-      GoogleCloudIntegrationsV1alphaSfdcInstance
-      nil))
-  ([name GoogleCloudIntegrationsV1alphaSfdcInstance optional]
-    (client/api-request
-      {:method :patch,
-       :uri-template "https://integrations.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudIntegrationsV1alphaSfdcInstance})))
-
-(defn projects-locations-products-sfdcInstances-list
-  "Lists all sfdc instances that match the filter. Restrict to sfdc instances belonging to the current client only.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/sfdcInstances/list
-
-parent <> 
-
-optional:
-readMask <string> The mask which specifies fields that need to be returned in the SfdcInstance's response.
-pageSize <integer> The size of entries in the response. If unspecified, defaults to 100.
-filter <string> Filtering as supported in https://developers.google.com/authorized-buyers/apis/guides/list-filters."
-  ([parent]
-    (projects-locations-products-sfdcInstances-list parent nil))
-  ([parent optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://integrations.googleapis.com/v1/{+parent}/sfdcInstances",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
-
-(defn projects-locations-products-sfdcInstances-create
-  "Creates an sfdc instance record. Store the sfdc instance in Spanner. Returns the sfdc instance.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/sfdcInstances/create
-
-parent <> 
-GoogleCloudIntegrationsV1alphaSfdcInstance:
-GoogleCloudIntegrationsV1alphaSfdcInstance"
-  [parent GoogleCloudIntegrationsV1alphaSfdcInstance]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://integrations.googleapis.com/v1/{+parent}/sfdcInstances",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudIntegrationsV1alphaSfdcInstance}))
-
-(defn projects-locations-products-sfdcInstances-get
-  "Gets an sfdc instance. If the instance doesn't exist, Code.NOT_FOUND exception will be thrown.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/sfdcInstances/get
-
-name <> "
-  [name]
-  (client/api-request
-    {:method :get,
-     :uri-template "https://integrations.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
-
-(defn projects-locations-products-sfdcInstances-delete
-  "Deletes an sfdc instance.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/sfdcInstances/delete
-
-name <> "
-  [name]
-  (client/api-request
-    {:method :delete,
-     :uri-template "https://integrations.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
-
-(defn projects-locations-products-sfdcInstances-sfdcChannels-patch
-  "Updates an sfdc channel. Updates the sfdc channel in spanner. Returns the sfdc channel.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/sfdcInstances/sfdcChannels/patch
-
-name <> 
-GoogleCloudIntegrationsV1alphaSfdcChannel:
-GoogleCloudIntegrationsV1alphaSfdcChannel
-
-optional:
-updateMask <string> Field mask specifying the fields in the above SfdcChannel that have been modified and need to be updated."
-  ([name GoogleCloudIntegrationsV1alphaSfdcChannel]
-    (projects-locations-products-sfdcInstances-sfdcChannels-patch
-      name
-      GoogleCloudIntegrationsV1alphaSfdcChannel
-      nil))
-  ([name GoogleCloudIntegrationsV1alphaSfdcChannel optional]
-    (client/api-request
-      {:method :patch,
-       :uri-template "https://integrations.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudIntegrationsV1alphaSfdcChannel})))
-
-(defn projects-locations-products-sfdcInstances-sfdcChannels-get
-  "Gets an sfdc channel. If the channel doesn't exist, Code.NOT_FOUND exception will be thrown.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/sfdcInstances/sfdcChannels/get
-
-name <> "
-  [name]
-  (client/api-request
-    {:method :get,
-     :uri-template "https://integrations.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
-
-(defn projects-locations-products-sfdcInstances-sfdcChannels-list
-  "Lists all sfdc channels that match the filter. Restrict to sfdc channels belonging to the current client only.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/sfdcInstances/sfdcChannels/list
-
-parent <> 
-
-optional:
-readMask <string> The mask which specifies fields that need to be returned in the SfdcChannel's response.
-filter <string> Filtering as supported in https://developers.google.com/authorized-buyers/apis/guides/list-filters.
-pageSize <integer> The size of entries in the response. If unspecified, defaults to 100."
-  ([parent]
-    (projects-locations-products-sfdcInstances-sfdcChannels-list
-      parent
-      nil))
-  ([parent optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://integrations.googleapis.com/v1/{+parent}/sfdcChannels",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
-
-(defn projects-locations-products-sfdcInstances-sfdcChannels-delete
-  "Deletes an sfdc channel.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/sfdcInstances/sfdcChannels/delete
-
-name <> "
-  [name]
-  (client/api-request
-    {:method :delete,
-     :uri-template "https://integrations.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
-
-(defn projects-locations-products-sfdcInstances-sfdcChannels-create
-  "Creates an sfdc channel record. Store the sfdc channel in Spanner. Returns the sfdc channel.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/sfdcInstances/sfdcChannels/create
-
-parent <> 
-GoogleCloudIntegrationsV1alphaSfdcChannel:
-GoogleCloudIntegrationsV1alphaSfdcChannel"
-  [parent GoogleCloudIntegrationsV1alphaSfdcChannel]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://integrations.googleapis.com/v1/{+parent}/sfdcChannels",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudIntegrationsV1alphaSfdcChannel}))
-
-(defn projects-locations-products-authConfigs-patch
-  "Updates an auth config. If credential is updated, fetch the encrypted auth config from Spanner, decrypt with Cloud KMS key, update the credential fields, re-encrypt with Cloud KMS key and update the Spanner record. For other fields, directly update the Spanner record. Returns the encrypted auth config.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/authConfigs/patch
-
-name <> 
-GoogleCloudIntegrationsV1alphaAuthConfig:
-GoogleCloudIntegrationsV1alphaAuthConfig
-
-optional:
-clientCertificate.encryptedPrivateKey <string> The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines. For example, -----BEGIN CERTIFICATE----- MIICTTCCAbagAwIBAgIJAPT0tSKNxan/MA0GCSqGSIb3DQEBCwUAMCoxFzAVBgNV BAoTDkdvb2dsZSBURVNUSU5HMQ8wDQYDVQQDEwZ0ZXN0Q0EwHhcNMTUwMTAxMDAw MDAwWhcNMjUwMTAxMDAwMDAwWjAuMRcwFQYDVQQKEw5Hb29nbGUgVEVTVElORzET MBEGA1UEAwwKam9lQGJhbmFuYTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA vDYFgMgxi5W488d9J7UpCInl0NXmZQpJDEHE4hvkaRlH7pnC71H0DLt0/3zATRP1 JzY2+eqBmbGl4/sgZKYv8UrLnNyQNUTsNx1iZAfPUflf5FwgVsai8BM0pUciq1NB xD429VFcrGZNucvFLh72RuRFIKH8WUpiK/iZNFkWhZ0CAwEAAaN3MHUwDgYDVR0P AQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAMBgNVHRMB Af8EAjAAMBkGA1UdDgQSBBCVgnFBCWgL/iwCqnGrhTPQMBsGA1UdIwQUMBKAEKey Um2o4k2WiEVA0ldQvNYwDQYJKoZIhvcNAQELBQADgYEAYK986R4E3L1v+Q6esBtW JrUwA9UmJRSQr0N5w3o9XzarU37/bkjOP0Fw0k/A6Vv1n3vlciYfBFaBIam1qRHr 5dMsYf4CZS6w50r7hyzqyrwDoyNxkLnd2PdcHT/sym1QmflsjEs7pejtnohO6N2H wQW6M0H7Zt8claGRla4fKkg= -----END CERTIFICATE-----
-updateMask <string> Field mask specifying the fields in the above AuthConfig that have been modified and need to be updated.
-clientCertificate.sslCertificate <string> The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines. For example, -----BEGIN CERTIFICATE----- MIICTTCCAbagAwIBAgIJAPT0tSKNxan/MA0GCSqGSIb3DQEBCwUAMCoxFzAVBgNV BAoTDkdvb2dsZSBURVNUSU5HMQ8wDQYDVQQDEwZ0ZXN0Q0EwHhcNMTUwMTAxMDAw MDAwWhcNMjUwMTAxMDAwMDAwWjAuMRcwFQYDVQQKEw5Hb29nbGUgVEVTVElORzET MBEGA1UEAwwKam9lQGJhbmFuYTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA vDYFgMgxi5W488d9J7UpCInl0NXmZQpJDEHE4hvkaRlH7pnC71H0DLt0/3zATRP1 JzY2+eqBmbGl4/sgZKYv8UrLnNyQNUTsNx1iZAfPUflf5FwgVsai8BM0pUciq1NB xD429VFcrGZNucvFLh72RuRFIKH8WUpiK/iZNFkWhZ0CAwEAAaN3MHUwDgYDVR0P AQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAMBgNVHRMB Af8EAjAAMBkGA1UdDgQSBBCVgnFBCWgL/iwCqnGrhTPQMBsGA1UdIwQUMBKAEKey Um2o4k2WiEVA0ldQvNYwDQYJKoZIhvcNAQELBQADgYEAYK986R4E3L1v+Q6esBtW JrUwA9UmJRSQr0N5w3o9XzarU37/bkjOP0Fw0k/A6Vv1n3vlciYfBFaBIam1qRHr 5dMsYf4CZS6w50r7hyzqyrwDoyNxkLnd2PdcHT/sym1QmflsjEs7pejtnohO6N2H wQW6M0H7Zt8claGRla4fKkg= -----END CERTIFICATE-----
-clientCertificate.passphrase <string> 'passphrase' should be left unset if private key is not encrypted. Note that 'passphrase' is not the password for web server, but an extra layer of security to protected private key."
-  ([name GoogleCloudIntegrationsV1alphaAuthConfig]
-    (projects-locations-products-authConfigs-patch
-      name
-      GoogleCloudIntegrationsV1alphaAuthConfig
-      nil))
-  ([name GoogleCloudIntegrationsV1alphaAuthConfig optional]
-    (client/api-request
-      {:method :patch,
-       :uri-template "https://integrations.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudIntegrationsV1alphaAuthConfig})))
-
-(defn projects-locations-products-authConfigs-get
-  "Gets a complete auth config. If the auth config doesn't exist, Code.NOT_FOUND exception will be thrown. Returns the decrypted auth config.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/authConfigs/get
-
-name <> "
-  [name]
-  (client/api-request
-    {:method :get,
-     :uri-template "https://integrations.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
-
-(defn projects-locations-products-authConfigs-list
-  "Lists all auth configs that match the filter. Restrict to auth configs belong to the current client only.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/authConfigs/list
-
-parent <> 
-
-optional:
-readMask <string> The mask which specifies fields that need to be returned in the AuthConfig's response.
-filter <string> Filtering as supported in https://developers.google.com/authorized-buyers/apis/guides/list-filters.
-pageSize <integer> The size of entries in the response. If unspecified, defaults to 100."
-  ([parent] (projects-locations-products-authConfigs-list parent nil))
-  ([parent optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://integrations.googleapis.com/v1/{+parent}/authConfigs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
-
-(defn projects-locations-products-authConfigs-delete
-  "Deletes an auth config.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/authConfigs/delete
-
-name <> "
-  [name]
-  (client/api-request
-    {:method :delete,
-     :uri-template "https://integrations.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
-
-(defn projects-locations-products-authConfigs-create
-  "Creates an auth config record. Fetch corresponding credentials for specific auth types, e.g. access token for OAuth 2.0, JWT token for JWT. Encrypt the auth config with Cloud KMS and store the encrypted credentials in Spanner. Returns the encrypted auth config.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/authConfigs/create
-
-parent <> 
-GoogleCloudIntegrationsV1alphaAuthConfig:
-GoogleCloudIntegrationsV1alphaAuthConfig
-
-optional:
-clientCertificate.passphrase <string> 'passphrase' should be left unset if private key is not encrypted. Note that 'passphrase' is not the password for web server, but an extra layer of security to protected private key.
-clientCertificate.sslCertificate <string> The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines. For example, -----BEGIN CERTIFICATE----- MIICTTCCAbagAwIBAgIJAPT0tSKNxan/MA0GCSqGSIb3DQEBCwUAMCoxFzAVBgNV BAoTDkdvb2dsZSBURVNUSU5HMQ8wDQYDVQQDEwZ0ZXN0Q0EwHhcNMTUwMTAxMDAw MDAwWhcNMjUwMTAxMDAwMDAwWjAuMRcwFQYDVQQKEw5Hb29nbGUgVEVTVElORzET MBEGA1UEAwwKam9lQGJhbmFuYTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA vDYFgMgxi5W488d9J7UpCInl0NXmZQpJDEHE4hvkaRlH7pnC71H0DLt0/3zATRP1 JzY2+eqBmbGl4/sgZKYv8UrLnNyQNUTsNx1iZAfPUflf5FwgVsai8BM0pUciq1NB xD429VFcrGZNucvFLh72RuRFIKH8WUpiK/iZNFkWhZ0CAwEAAaN3MHUwDgYDVR0P AQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAMBgNVHRMB Af8EAjAAMBkGA1UdDgQSBBCVgnFBCWgL/iwCqnGrhTPQMBsGA1UdIwQUMBKAEKey Um2o4k2WiEVA0ldQvNYwDQYJKoZIhvcNAQELBQADgYEAYK986R4E3L1v+Q6esBtW JrUwA9UmJRSQr0N5w3o9XzarU37/bkjOP0Fw0k/A6Vv1n3vlciYfBFaBIam1qRHr 5dMsYf4CZS6w50r7hyzqyrwDoyNxkLnd2PdcHT/sym1QmflsjEs7pejtnohO6N2H wQW6M0H7Zt8claGRla4fKkg= -----END CERTIFICATE-----
-clientCertificate.encryptedPrivateKey <string> The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines. For example, -----BEGIN CERTIFICATE----- MIICTTCCAbagAwIBAgIJAPT0tSKNxan/MA0GCSqGSIb3DQEBCwUAMCoxFzAVBgNV BAoTDkdvb2dsZSBURVNUSU5HMQ8wDQYDVQQDEwZ0ZXN0Q0EwHhcNMTUwMTAxMDAw MDAwWhcNMjUwMTAxMDAwMDAwWjAuMRcwFQYDVQQKEw5Hb29nbGUgVEVTVElORzET MBEGA1UEAwwKam9lQGJhbmFuYTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA vDYFgMgxi5W488d9J7UpCInl0NXmZQpJDEHE4hvkaRlH7pnC71H0DLt0/3zATRP1 JzY2+eqBmbGl4/sgZKYv8UrLnNyQNUTsNx1iZAfPUflf5FwgVsai8BM0pUciq1NB xD429VFcrGZNucvFLh72RuRFIKH8WUpiK/iZNFkWhZ0CAwEAAaN3MHUwDgYDVR0P AQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAMBgNVHRMB Af8EAjAAMBkGA1UdDgQSBBCVgnFBCWgL/iwCqnGrhTPQMBsGA1UdIwQUMBKAEKey Um2o4k2WiEVA0ldQvNYwDQYJKoZIhvcNAQELBQADgYEAYK986R4E3L1v+Q6esBtW JrUwA9UmJRSQr0N5w3o9XzarU37/bkjOP0Fw0k/A6Vv1n3vlciYfBFaBIam1qRHr 5dMsYf4CZS6w50r7hyzqyrwDoyNxkLnd2PdcHT/sym1QmflsjEs7pejtnohO6N2H wQW6M0H7Zt8claGRla4fKkg= -----END CERTIFICATE-----"
-  ([parent GoogleCloudIntegrationsV1alphaAuthConfig]
-    (projects-locations-products-authConfigs-create
-      parent
-      GoogleCloudIntegrationsV1alphaAuthConfig
-      nil))
-  ([parent GoogleCloudIntegrationsV1alphaAuthConfig optional]
-    (client/api-request
-      {:method :post,
-       :uri-template
-       "https://integrations.googleapis.com/v1/{+parent}/authConfigs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudIntegrationsV1alphaAuthConfig})))
-
-(defn projects-locations-products-certificates-get
-  "Get a certificates in the specified project.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/certificates/get
-
-name <> "
-  [name]
-  (client/api-request
-    {:method :get,
-     :uri-template "https://integrations.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
-
-(defn projects-locations-products-certificates-create
-  "Creates a new certificate. The certificate will be registered to the trawler service and will be encrypted using cloud KMS and stored in Spanner Returns the certificate.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/certificates/create
-
-parent <> 
-GoogleCloudIntegrationsV1alphaCertificate:
-GoogleCloudIntegrationsV1alphaCertificate"
-  [parent GoogleCloudIntegrationsV1alphaCertificate]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://integrations.googleapis.com/v1/{+parent}/certificates",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudIntegrationsV1alphaCertificate}))
-
-(defn projects-locations-products-certificates-list
-  "List all the certificates that match the filter. Restrict to certificate of current client only.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/certificates/list
-
-parent <> 
-
-optional:
-pageSize <integer> The size of entries in the response. If unspecified, defaults to 100.
-readMask <string> The mask which specifies fields that need to be returned in the Certificate's response.
-filter <string> Filtering as supported in https://developers.google.com/authorized-buyers/apis/guides/list-filters."
-  ([parent] (projects-locations-products-certificates-list parent nil))
-  ([parent optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://integrations.googleapis.com/v1/{+parent}/certificates",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
-
-(defn projects-locations-products-certificates-delete
-  "Delete a certificate
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/certificates/delete
-
-name <> "
-  [name]
-  (client/api-request
-    {:method :delete,
-     :uri-template "https://integrations.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
-
-(defn projects-locations-products-certificates-patch
-  "Updates the certificate by id. If new certificate file is updated, it will register with the trawler service, re-encrypt with cloud KMS and update the Spanner record. Other fields will directly update the Spanner record. Returns the Certificate.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/certificates/patch
-
-name <> 
-GoogleCloudIntegrationsV1alphaCertificate:
-GoogleCloudIntegrationsV1alphaCertificate
-
-optional:
-updateMask <string> Field mask specifying the fields in the above Certificate that have been modified and need to be updated."
-  ([name GoogleCloudIntegrationsV1alphaCertificate]
-    (projects-locations-products-certificates-patch
-      name
-      GoogleCloudIntegrationsV1alphaCertificate
-      nil))
-  ([name GoogleCloudIntegrationsV1alphaCertificate optional]
-    (client/api-request
-      {:method :patch,
-       :uri-template "https://integrations.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudIntegrationsV1alphaCertificate})))
-
-(defn projects-locations-products-integrations-schedule
-  "Schedules an integration for execution by passing the trigger id and the scheduled time in the request body.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/integrations/schedule
-
-name <> 
-GoogleCloudIntegrationsV1alphaScheduleIntegrationsRequest:
-GoogleCloudIntegrationsV1alphaScheduleIntegrationsRequest"
-  [name GoogleCloudIntegrationsV1alphaScheduleIntegrationsRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://integrations.googleapis.com/v1/{+name}:schedule",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudIntegrationsV1alphaScheduleIntegrationsRequest}))
 
 (defn projects-locations-products-integrations-test
   "Execute the integration in draft state
@@ -459,7 +72,7 @@ name <>
 GoogleCloudIntegrationsV1alphaTestIntegrationsRequest:
 GoogleCloudIntegrationsV1alphaTestIntegrationsRequest"
   [name GoogleCloudIntegrationsV1alphaTestIntegrationsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://integrations.googleapis.com/v1/{+name}:test",
@@ -476,7 +89,7 @@ name <>
 GoogleCloudIntegrationsV1alphaExecuteIntegrationsRequest:
 GoogleCloudIntegrationsV1alphaExecuteIntegrationsRequest"
   [name GoogleCloudIntegrationsV1alphaExecuteIntegrationsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://integrations.googleapis.com/v1/{+name}:execute",
@@ -485,6 +98,23 @@ GoogleCloudIntegrationsV1alphaExecuteIntegrationsRequest"
      :scopes ["https://www.googleapis.com/auth/cloud-platform"],
      :body GoogleCloudIntegrationsV1alphaExecuteIntegrationsRequest}))
 
+(defn projects-locations-products-integrations-schedule
+  "Schedules an integration for execution by passing the trigger id and the scheduled time in the request body.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/integrations/schedule
+
+name <> 
+GoogleCloudIntegrationsV1alphaScheduleIntegrationsRequest:
+GoogleCloudIntegrationsV1alphaScheduleIntegrationsRequest"
+  [name GoogleCloudIntegrationsV1alphaScheduleIntegrationsRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://integrations.googleapis.com/v1/{+name}:schedule",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudIntegrationsV1alphaScheduleIntegrationsRequest}))
+
 (defn projects-locations-products-integrations-list
   "Returns the list of all integrations in the specified project.
 https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/integrations/list
@@ -492,12 +122,12 @@ https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/l
 parent <> 
 
 optional:
-pageSize <integer> The page size for the resquest.
 filter <string> Filter on fields of IntegrationVersion. Fields can be compared with literal values by use of \":\" (containment), \"=\" (equality), \">\" (greater), \"<\" (less than), >=\" (greater than or equal to), \"<=\" (less than or equal to), and \"!=\" (inequality) operators. Negation, conjunction, and disjunction are written using NOT, AND, and OR keywords. For example, organization_id=\\\"1\\\" AND state=ACTIVE AND description:\"test\". Filtering cannot be performed on repeated fields like `task_config`.
+pageSize <integer> The page size for the resquest.
 orderBy <string> The results would be returned in order you specified here. Supported sort keys are: Descending sort order by \"last_modified_time\", \"created_time\", \"snapshot_number\". Ascending sort order by the integration name."
   ([parent] (projects-locations-products-integrations-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://integrations.googleapis.com/v1/{+parent}/integrations",
@@ -505,32 +135,16 @@ orderBy <string> The results would be returned in order you specified here. Supp
        :query-params (merge {} optional),
        :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
 
-(defn projects-locations-products-integrations-executions-cancel
-  "Cancellation of an execution
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/integrations/executions/cancel
-
-name <> 
-GoogleCloudIntegrationsV1alphaCancelExecutionRequest:
-GoogleCloudIntegrationsV1alphaCancelExecutionRequest"
-  [name GoogleCloudIntegrationsV1alphaCancelExecutionRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://integrations.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudIntegrationsV1alphaCancelExecutionRequest}))
-
-(defn projects-locations-products-integrations-executions-get
-  "Get an execution in the specified project.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/integrations/executions/get
+(defn projects-locations-products-integrations-executions-download
+  "Download the execution.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/integrations/executions/download
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
-     :uri-template "https://integrations.googleapis.com/v1/{+name}",
+     :uri-template
+     "https://integrations.googleapis.com/v1/{+name}:download",
      :uri-template-args {"name" name},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
@@ -545,7 +159,7 @@ optional:
 filterParams.endTime <string> End timestamp.
 filterParams.parameterPairKey <string> Param key in the key value pair filter.
 filterParams.parameterValue <string> Param value. DEPRECATED. User parameter_pair_value instead.
-readMask <string> Optional. View mask for the response data. If set, only the field specified will be returned as part of the result. If not set, all fields in event execution info will be filled and returned.
+readMask <string> Optional. View mask for the response data. If set, only the field specified will be returned as part of the result. If not set, all fields in Execution will be filled and returned. Supported fields: trigger_id execution_method create_time update_time execution_details execution_details.state execution_details.execution_snapshots execution_details.attempt_stats execution_details.event_execution_snapshots_size request_parameters cloud_logging_details snapshot_number replay_info
 filterParams.workflowName <string> Workflow name.
 filterParams.eventStatuses <string> List of possible event statuses.
 filterParams.customFilter <string> Optional user-provided custom filter.
@@ -566,7 +180,7 @@ snapshotMetadataWithoutParams <boolean> Optional. If true, the service will prov
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://integrations.googleapis.com/v1/{+parent}/executions",
@@ -574,19 +188,35 @@ snapshotMetadataWithoutParams <boolean> Optional. If true, the service will prov
        :query-params (merge {} optional),
        :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
 
-(defn projects-locations-products-integrations-executions-download
-  "Download the execution.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/integrations/executions/download
+(defn projects-locations-products-integrations-executions-get
+  "Get an execution in the specified project.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/integrations/executions/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
-     :uri-template
-     "https://integrations.googleapis.com/v1/{+name}:download",
+     :uri-template "https://integrations.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+
+(defn projects-locations-products-integrations-executions-suspensions-lift
+  "* Lifts suspension for the Suspension task. Fetch corresponding suspension with provided suspension Id, resolve suspension, and set up suspension result for the Suspension Task.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/integrations/executions/suspensions/lift
+
+name <> 
+GoogleCloudIntegrationsV1alphaLiftSuspensionRequest:
+GoogleCloudIntegrationsV1alphaLiftSuspensionRequest"
+  [name GoogleCloudIntegrationsV1alphaLiftSuspensionRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://integrations.googleapis.com/v1/{+name}:lift",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudIntegrationsV1alphaLiftSuspensionRequest}))
 
 (defn projects-locations-products-integrations-executions-suspensions-list
   "* Lists suspensions associated with a specific execution. Only those with permissions to resolve the relevant suspensions will be able to view them.
@@ -603,30 +233,13 @@ pageSize <integer> Maximum number of entries in the response."
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://integrations.googleapis.com/v1/{+parent}/suspensions",
        :uri-template-args {"parent" parent},
        :query-params (merge {} optional),
        :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
-
-(defn projects-locations-products-integrations-executions-suspensions-lift
-  "* Lifts suspension for the Suspension task. Fetch corresponding suspension with provided suspension Id, resolve suspension, and set up suspension result for the Suspension Task.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/integrations/executions/suspensions/lift
-
-name <> 
-GoogleCloudIntegrationsV1alphaLiftSuspensionRequest:
-GoogleCloudIntegrationsV1alphaLiftSuspensionRequest"
-  [name GoogleCloudIntegrationsV1alphaLiftSuspensionRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://integrations.googleapis.com/v1/{+name}:lift",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudIntegrationsV1alphaLiftSuspensionRequest}))
 
 (defn projects-locations-products-integrations-executions-suspensions-resolve
   "* Resolves (lifts/rejects) any number of suspensions. If the integration is already running, only the status of the suspension is updated. Otherwise, the suspended integration will begin execution again.
@@ -636,7 +249,7 @@ name <>
 GoogleCloudIntegrationsV1alphaResolveSuspensionRequest:
 GoogleCloudIntegrationsV1alphaResolveSuspensionRequest"
   [name GoogleCloudIntegrationsV1alphaResolveSuspensionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://integrations.googleapis.com/v1/{+name}:resolve",
@@ -654,7 +267,7 @@ GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest:
 GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest"
   [name
    GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://integrations.googleapis.com/v1/{+name}:unpublish",
@@ -671,16 +284,16 @@ https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/l
 parent <> 
 
 optional:
-pageSize <integer> The maximum number of versions to return. The service may return fewer than this value. If unspecified, at most 50 versions will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000.
 fieldMask <string> The field mask which specifies the particular data to be returned.
-filter <string> Filter on fields of IntegrationVersion. Fields can be compared with literal values by use of \":\" (containment), \"=\" (equality), \">\" (greater), \"<\" (less than), >=\" (greater than or equal to), \"<=\" (less than or equal to), and \"!=\" (inequality) operators. Negation, conjunction, and disjunction are written using NOT, AND, and OR keywords. For example, organization_id=\\\"1\\\" AND state=ACTIVE AND description:\"test\". Filtering cannot be performed on repeated fields like `task_config`.
-orderBy <string> The results would be returned in order you specified here. Currently supported sort keys are: Descending sort order for \"last_modified_time\", \"created_time\", \"snapshot_number\" Ascending sort order for \"name\"."
+orderBy <string> The results would be returned in order you specified here. Currently supported sort keys are: Descending sort order for \"last_modified_time\", \"created_time\", \"snapshot_number\" Ascending sort order for \"name\".
+pageSize <integer> The maximum number of versions to return. The service may return fewer than this value. If unspecified, at most 50 versions will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000.
+filter <string> Filter on fields of IntegrationVersion. Fields can be compared with literal values by use of \":\" (containment), \"=\" (equality), \">\" (greater), \"<\" (less than), >=\" (greater than or equal to), \"<=\" (less than or equal to), and \"!=\" (inequality) operators. Negation, conjunction, and disjunction are written using NOT, AND, and OR keywords. For example, organization_id=\\\"1\\\" AND state=ACTIVE AND description:\"test\". Filtering cannot be performed on repeated fields like `task_config`."
   ([parent]
     (projects-locations-products-integrations-versions-list
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://integrations.googleapis.com/v1/{+parent}/versions",
@@ -694,7 +307,7 @@ https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://integrations.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -715,7 +328,7 @@ fileFormat <string> File format for download request."
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://integrations.googleapis.com/v1/{+name}:download",
@@ -732,7 +345,7 @@ GoogleCloudIntegrationsV1alphaUploadIntegrationVersionRequest:
 GoogleCloudIntegrationsV1alphaUploadIntegrationVersionRequest"
   [parent
    GoogleCloudIntegrationsV1alphaUploadIntegrationVersionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://integrations.googleapis.com/v1/{+parent}/versions:upload",
@@ -758,7 +371,7 @@ updateMask <string> Field mask specifying the fields in the above integration th
       GoogleCloudIntegrationsV1alphaIntegrationVersion
       nil))
   ([name GoogleCloudIntegrationsV1alphaIntegrationVersion optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://integrations.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -775,7 +388,7 @@ GoogleCloudIntegrationsV1alphaTakeoverEditLockRequest:
 GoogleCloudIntegrationsV1alphaTakeoverEditLockRequest"
   [integrationVersion
    GoogleCloudIntegrationsV1alphaTakeoverEditLockRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://integrations.googleapis.com/v1/{+integrationVersion}:takeoverEditLock",
@@ -792,7 +405,7 @@ name <>
 GoogleCloudIntegrationsV1alphaPublishIntegrationVersionRequest:
 GoogleCloudIntegrationsV1alphaPublishIntegrationVersionRequest"
   [name GoogleCloudIntegrationsV1alphaPublishIntegrationVersionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://integrations.googleapis.com/v1/{+name}:publish",
@@ -819,7 +432,7 @@ newIntegration <boolean> Set this flag to true, if draft version is to be create
       GoogleCloudIntegrationsV1alphaIntegrationVersion
       nil))
   ([parent GoogleCloudIntegrationsV1alphaIntegrationVersion optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://integrations.googleapis.com/v1/{+parent}/versions",
@@ -834,16 +447,254 @@ https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://integrations.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
-(defn projects-locations-sfdcInstances-patch
+(defn projects-locations-products-certificates-list
+  "List all the certificates that match the filter. Restrict to certificate of current client only.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/certificates/list
+
+parent <> 
+
+optional:
+pageSize <integer> The size of entries in the response. If unspecified, defaults to 100.
+readMask <string> The mask which specifies fields that need to be returned in the Certificate's response.
+filter <string> Filtering as supported in https://developers.google.com/authorized-buyers/apis/guides/list-filters."
+  ([parent] (projects-locations-products-certificates-list parent nil))
+  ([parent optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://integrations.googleapis.com/v1/{+parent}/certificates",
+       :uri-template-args {"parent" parent},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+
+(defn projects-locations-products-certificates-patch
+  "Updates the certificate by id. If new certificate file is updated, it will register with the trawler service, re-encrypt with cloud KMS and update the Spanner record. Other fields will directly update the Spanner record. Returns the Certificate.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/certificates/patch
+
+name <> 
+GoogleCloudIntegrationsV1alphaCertificate:
+GoogleCloudIntegrationsV1alphaCertificate
+
+optional:
+updateMask <string> Field mask specifying the fields in the above Certificate that have been modified and need to be updated."
+  ([name GoogleCloudIntegrationsV1alphaCertificate]
+    (projects-locations-products-certificates-patch
+      name
+      GoogleCloudIntegrationsV1alphaCertificate
+      nil))
+  ([name GoogleCloudIntegrationsV1alphaCertificate optional]
+    (client/*api-request*
+      {:method :patch,
+       :uri-template "https://integrations.googleapis.com/v1/{+name}",
+       :uri-template-args {"name" name},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+       :body GoogleCloudIntegrationsV1alphaCertificate})))
+
+(defn projects-locations-products-certificates-create
+  "Creates a new certificate. The certificate will be registered to the trawler service and will be encrypted using cloud KMS and stored in Spanner Returns the certificate.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/certificates/create
+
+parent <> 
+GoogleCloudIntegrationsV1alphaCertificate:
+GoogleCloudIntegrationsV1alphaCertificate"
+  [parent GoogleCloudIntegrationsV1alphaCertificate]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://integrations.googleapis.com/v1/{+parent}/certificates",
+     :uri-template-args {"parent" parent},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudIntegrationsV1alphaCertificate}))
+
+(defn projects-locations-products-certificates-get
+  "Get a certificates in the specified project.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/certificates/get
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :get,
+     :uri-template "https://integrations.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+
+(defn projects-locations-products-certificates-delete
+  "Delete a certificate
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/certificates/delete
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :delete,
+     :uri-template "https://integrations.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+
+(defn projects-locations-products-cloudFunctions-create
+  "Creates a cloud function project.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/cloudFunctions/create
+
+parent <> 
+GoogleCloudIntegrationsV1alphaCreateCloudFunctionRequest:
+GoogleCloudIntegrationsV1alphaCreateCloudFunctionRequest"
+  [parent GoogleCloudIntegrationsV1alphaCreateCloudFunctionRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://integrations.googleapis.com/v1/{+parent}/cloudFunctions",
+     :uri-template-args {"parent" parent},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudIntegrationsV1alphaCreateCloudFunctionRequest}))
+
+(defn projects-locations-products-authConfigs-list
+  "Lists all auth configs that match the filter. Restrict to auth configs belong to the current client only.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/authConfigs/list
+
+parent <> 
+
+optional:
+filter <string> Filtering as supported in https://developers.google.com/authorized-buyers/apis/guides/list-filters.
+pageSize <integer> The size of entries in the response. If unspecified, defaults to 100.
+readMask <string> The mask which specifies fields that need to be returned in the AuthConfig's response."
+  ([parent] (projects-locations-products-authConfigs-list parent nil))
+  ([parent optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://integrations.googleapis.com/v1/{+parent}/authConfigs",
+       :uri-template-args {"parent" parent},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+
+(defn projects-locations-products-authConfigs-patch
+  "Updates an auth config. If credential is updated, fetch the encrypted auth config from Spanner, decrypt with Cloud KMS key, update the credential fields, re-encrypt with Cloud KMS key and update the Spanner record. For other fields, directly update the Spanner record. Returns the encrypted auth config.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/authConfigs/patch
+
+name <> 
+GoogleCloudIntegrationsV1alphaAuthConfig:
+GoogleCloudIntegrationsV1alphaAuthConfig
+
+optional:
+clientCertificate.sslCertificate <string> The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines. For example, -----BEGIN CERTIFICATE----- MIICTTCCAbagAwIBAgIJAPT0tSKNxan/MA0GCSqGSIb3DQEBCwUAMCoxFzAVBgNV BAoTDkdvb2dsZSBURVNUSU5HMQ8wDQYDVQQDEwZ0ZXN0Q0EwHhcNMTUwMTAxMDAw MDAwWhcNMjUwMTAxMDAwMDAwWjAuMRcwFQYDVQQKEw5Hb29nbGUgVEVTVElORzET MBEGA1UEAwwKam9lQGJhbmFuYTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA vDYFgMgxi5W488d9J7UpCInl0NXmZQpJDEHE4hvkaRlH7pnC71H0DLt0/3zATRP1 JzY2+eqBmbGl4/sgZKYv8UrLnNyQNUTsNx1iZAfPUflf5FwgVsai8BM0pUciq1NB xD429VFcrGZNucvFLh72RuRFIKH8WUpiK/iZNFkWhZ0CAwEAAaN3MHUwDgYDVR0P AQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAMBgNVHRMB Af8EAjAAMBkGA1UdDgQSBBCVgnFBCWgL/iwCqnGrhTPQMBsGA1UdIwQUMBKAEKey Um2o4k2WiEVA0ldQvNYwDQYJKoZIhvcNAQELBQADgYEAYK986R4E3L1v+Q6esBtW JrUwA9UmJRSQr0N5w3o9XzarU37/bkjOP0Fw0k/A6Vv1n3vlciYfBFaBIam1qRHr 5dMsYf4CZS6w50r7hyzqyrwDoyNxkLnd2PdcHT/sym1QmflsjEs7pejtnohO6N2H wQW6M0H7Zt8claGRla4fKkg= -----END CERTIFICATE-----
+clientCertificate.passphrase <string> 'passphrase' should be left unset if private key is not encrypted. Note that 'passphrase' is not the password for web server, but an extra layer of security to protected private key.
+updateMask <string> Field mask specifying the fields in the above AuthConfig that have been modified and need to be updated.
+clientCertificate.encryptedPrivateKey <string> The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines. For example, -----BEGIN CERTIFICATE----- MIICTTCCAbagAwIBAgIJAPT0tSKNxan/MA0GCSqGSIb3DQEBCwUAMCoxFzAVBgNV BAoTDkdvb2dsZSBURVNUSU5HMQ8wDQYDVQQDEwZ0ZXN0Q0EwHhcNMTUwMTAxMDAw MDAwWhcNMjUwMTAxMDAwMDAwWjAuMRcwFQYDVQQKEw5Hb29nbGUgVEVTVElORzET MBEGA1UEAwwKam9lQGJhbmFuYTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA vDYFgMgxi5W488d9J7UpCInl0NXmZQpJDEHE4hvkaRlH7pnC71H0DLt0/3zATRP1 JzY2+eqBmbGl4/sgZKYv8UrLnNyQNUTsNx1iZAfPUflf5FwgVsai8BM0pUciq1NB xD429VFcrGZNucvFLh72RuRFIKH8WUpiK/iZNFkWhZ0CAwEAAaN3MHUwDgYDVR0P AQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAMBgNVHRMB Af8EAjAAMBkGA1UdDgQSBBCVgnFBCWgL/iwCqnGrhTPQMBsGA1UdIwQUMBKAEKey Um2o4k2WiEVA0ldQvNYwDQYJKoZIhvcNAQELBQADgYEAYK986R4E3L1v+Q6esBtW JrUwA9UmJRSQr0N5w3o9XzarU37/bkjOP0Fw0k/A6Vv1n3vlciYfBFaBIam1qRHr 5dMsYf4CZS6w50r7hyzqyrwDoyNxkLnd2PdcHT/sym1QmflsjEs7pejtnohO6N2H wQW6M0H7Zt8claGRla4fKkg= -----END CERTIFICATE-----"
+  ([name GoogleCloudIntegrationsV1alphaAuthConfig]
+    (projects-locations-products-authConfigs-patch
+      name
+      GoogleCloudIntegrationsV1alphaAuthConfig
+      nil))
+  ([name GoogleCloudIntegrationsV1alphaAuthConfig optional]
+    (client/*api-request*
+      {:method :patch,
+       :uri-template "https://integrations.googleapis.com/v1/{+name}",
+       :uri-template-args {"name" name},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+       :body GoogleCloudIntegrationsV1alphaAuthConfig})))
+
+(defn projects-locations-products-authConfigs-delete
+  "Deletes an auth config.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/authConfigs/delete
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :delete,
+     :uri-template "https://integrations.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+
+(defn projects-locations-products-authConfigs-create
+  "Creates an auth config record. Fetch corresponding credentials for specific auth types, e.g. access token for OAuth 2.0, JWT token for JWT. Encrypt the auth config with Cloud KMS and store the encrypted credentials in Spanner. Returns the encrypted auth config.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/authConfigs/create
+
+parent <> 
+GoogleCloudIntegrationsV1alphaAuthConfig:
+GoogleCloudIntegrationsV1alphaAuthConfig
+
+optional:
+clientCertificate.passphrase <string> 'passphrase' should be left unset if private key is not encrypted. Note that 'passphrase' is not the password for web server, but an extra layer of security to protected private key.
+clientCertificate.sslCertificate <string> The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines. For example, -----BEGIN CERTIFICATE----- MIICTTCCAbagAwIBAgIJAPT0tSKNxan/MA0GCSqGSIb3DQEBCwUAMCoxFzAVBgNV BAoTDkdvb2dsZSBURVNUSU5HMQ8wDQYDVQQDEwZ0ZXN0Q0EwHhcNMTUwMTAxMDAw MDAwWhcNMjUwMTAxMDAwMDAwWjAuMRcwFQYDVQQKEw5Hb29nbGUgVEVTVElORzET MBEGA1UEAwwKam9lQGJhbmFuYTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA vDYFgMgxi5W488d9J7UpCInl0NXmZQpJDEHE4hvkaRlH7pnC71H0DLt0/3zATRP1 JzY2+eqBmbGl4/sgZKYv8UrLnNyQNUTsNx1iZAfPUflf5FwgVsai8BM0pUciq1NB xD429VFcrGZNucvFLh72RuRFIKH8WUpiK/iZNFkWhZ0CAwEAAaN3MHUwDgYDVR0P AQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAMBgNVHRMB Af8EAjAAMBkGA1UdDgQSBBCVgnFBCWgL/iwCqnGrhTPQMBsGA1UdIwQUMBKAEKey Um2o4k2WiEVA0ldQvNYwDQYJKoZIhvcNAQELBQADgYEAYK986R4E3L1v+Q6esBtW JrUwA9UmJRSQr0N5w3o9XzarU37/bkjOP0Fw0k/A6Vv1n3vlciYfBFaBIam1qRHr 5dMsYf4CZS6w50r7hyzqyrwDoyNxkLnd2PdcHT/sym1QmflsjEs7pejtnohO6N2H wQW6M0H7Zt8claGRla4fKkg= -----END CERTIFICATE-----
+clientCertificate.encryptedPrivateKey <string> The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines. For example, -----BEGIN CERTIFICATE----- MIICTTCCAbagAwIBAgIJAPT0tSKNxan/MA0GCSqGSIb3DQEBCwUAMCoxFzAVBgNV BAoTDkdvb2dsZSBURVNUSU5HMQ8wDQYDVQQDEwZ0ZXN0Q0EwHhcNMTUwMTAxMDAw MDAwWhcNMjUwMTAxMDAwMDAwWjAuMRcwFQYDVQQKEw5Hb29nbGUgVEVTVElORzET MBEGA1UEAwwKam9lQGJhbmFuYTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA vDYFgMgxi5W488d9J7UpCInl0NXmZQpJDEHE4hvkaRlH7pnC71H0DLt0/3zATRP1 JzY2+eqBmbGl4/sgZKYv8UrLnNyQNUTsNx1iZAfPUflf5FwgVsai8BM0pUciq1NB xD429VFcrGZNucvFLh72RuRFIKH8WUpiK/iZNFkWhZ0CAwEAAaN3MHUwDgYDVR0P AQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAMBgNVHRMB Af8EAjAAMBkGA1UdDgQSBBCVgnFBCWgL/iwCqnGrhTPQMBsGA1UdIwQUMBKAEKey Um2o4k2WiEVA0ldQvNYwDQYJKoZIhvcNAQELBQADgYEAYK986R4E3L1v+Q6esBtW JrUwA9UmJRSQr0N5w3o9XzarU37/bkjOP0Fw0k/A6Vv1n3vlciYfBFaBIam1qRHr 5dMsYf4CZS6w50r7hyzqyrwDoyNxkLnd2PdcHT/sym1QmflsjEs7pejtnohO6N2H wQW6M0H7Zt8claGRla4fKkg= -----END CERTIFICATE-----"
+  ([parent GoogleCloudIntegrationsV1alphaAuthConfig]
+    (projects-locations-products-authConfigs-create
+      parent
+      GoogleCloudIntegrationsV1alphaAuthConfig
+      nil))
+  ([parent GoogleCloudIntegrationsV1alphaAuthConfig optional]
+    (client/*api-request*
+      {:method :post,
+       :uri-template
+       "https://integrations.googleapis.com/v1/{+parent}/authConfigs",
+       :uri-template-args {"parent" parent},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+       :body GoogleCloudIntegrationsV1alphaAuthConfig})))
+
+(defn projects-locations-products-authConfigs-get
+  "Gets a complete auth config. If the auth config doesn't exist, Code.NOT_FOUND exception will be thrown. Returns the decrypted auth config.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/authConfigs/get
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :get,
+     :uri-template "https://integrations.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+
+(defn projects-locations-products-sfdcInstances-delete
+  "Deletes an sfdc instance.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/sfdcInstances/delete
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :delete,
+     :uri-template "https://integrations.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+
+(defn projects-locations-products-sfdcInstances-list
+  "Lists all sfdc instances that match the filter. Restrict to sfdc instances belonging to the current client only.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/sfdcInstances/list
+
+parent <> 
+
+optional:
+pageSize <integer> The size of entries in the response. If unspecified, defaults to 100.
+readMask <string> The mask which specifies fields that need to be returned in the SfdcInstance's response.
+filter <string> Filtering as supported in https://developers.google.com/authorized-buyers/apis/guides/list-filters."
+  ([parent]
+    (projects-locations-products-sfdcInstances-list parent nil))
+  ([parent optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://integrations.googleapis.com/v1/{+parent}/sfdcInstances",
+       :uri-template-args {"parent" parent},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+
+(defn projects-locations-products-sfdcInstances-patch
   "Updates an sfdc instance. Updates the sfdc instance in spanner. Returns the sfdc instance.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/sfdcInstances/patch
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/sfdcInstances/patch
 
 name <> 
 GoogleCloudIntegrationsV1alphaSfdcInstance:
@@ -852,12 +703,12 @@ GoogleCloudIntegrationsV1alphaSfdcInstance
 optional:
 updateMask <string> Field mask specifying the fields in the above SfdcInstance that have been modified and need to be updated."
   ([name GoogleCloudIntegrationsV1alphaSfdcInstance]
-    (projects-locations-sfdcInstances-patch
+    (projects-locations-products-sfdcInstances-patch
       name
       GoogleCloudIntegrationsV1alphaSfdcInstance
       nil))
   ([name GoogleCloudIntegrationsV1alphaSfdcInstance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://integrations.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -865,13 +716,133 @@ updateMask <string> Field mask specifying the fields in the above SfdcInstance t
        :scopes ["https://www.googleapis.com/auth/cloud-platform"],
        :body GoogleCloudIntegrationsV1alphaSfdcInstance})))
 
+(defn projects-locations-products-sfdcInstances-get
+  "Gets an sfdc instance. If the instance doesn't exist, Code.NOT_FOUND exception will be thrown.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/sfdcInstances/get
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :get,
+     :uri-template "https://integrations.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+
+(defn projects-locations-products-sfdcInstances-create
+  "Creates an sfdc instance record. Store the sfdc instance in Spanner. Returns the sfdc instance.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/sfdcInstances/create
+
+parent <> 
+GoogleCloudIntegrationsV1alphaSfdcInstance:
+GoogleCloudIntegrationsV1alphaSfdcInstance"
+  [parent GoogleCloudIntegrationsV1alphaSfdcInstance]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://integrations.googleapis.com/v1/{+parent}/sfdcInstances",
+     :uri-template-args {"parent" parent},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudIntegrationsV1alphaSfdcInstance}))
+
+(defn projects-locations-products-sfdcInstances-sfdcChannels-list
+  "Lists all sfdc channels that match the filter. Restrict to sfdc channels belonging to the current client only.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/sfdcInstances/sfdcChannels/list
+
+parent <> 
+
+optional:
+readMask <string> The mask which specifies fields that need to be returned in the SfdcChannel's response.
+pageSize <integer> The size of entries in the response. If unspecified, defaults to 100.
+filter <string> Filtering as supported in https://developers.google.com/authorized-buyers/apis/guides/list-filters."
+  ([parent]
+    (projects-locations-products-sfdcInstances-sfdcChannels-list
+      parent
+      nil))
+  ([parent optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://integrations.googleapis.com/v1/{+parent}/sfdcChannels",
+       :uri-template-args {"parent" parent},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+
+(defn projects-locations-products-sfdcInstances-sfdcChannels-delete
+  "Deletes an sfdc channel.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/sfdcInstances/sfdcChannels/delete
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :delete,
+     :uri-template "https://integrations.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+
+(defn projects-locations-products-sfdcInstances-sfdcChannels-get
+  "Gets an sfdc channel. If the channel doesn't exist, Code.NOT_FOUND exception will be thrown.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/sfdcInstances/sfdcChannels/get
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :get,
+     :uri-template "https://integrations.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+
+(defn projects-locations-products-sfdcInstances-sfdcChannels-patch
+  "Updates an sfdc channel. Updates the sfdc channel in spanner. Returns the sfdc channel.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/sfdcInstances/sfdcChannels/patch
+
+name <> 
+GoogleCloudIntegrationsV1alphaSfdcChannel:
+GoogleCloudIntegrationsV1alphaSfdcChannel
+
+optional:
+updateMask <string> Field mask specifying the fields in the above SfdcChannel that have been modified and need to be updated."
+  ([name GoogleCloudIntegrationsV1alphaSfdcChannel]
+    (projects-locations-products-sfdcInstances-sfdcChannels-patch
+      name
+      GoogleCloudIntegrationsV1alphaSfdcChannel
+      nil))
+  ([name GoogleCloudIntegrationsV1alphaSfdcChannel optional]
+    (client/*api-request*
+      {:method :patch,
+       :uri-template "https://integrations.googleapis.com/v1/{+name}",
+       :uri-template-args {"name" name},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+       :body GoogleCloudIntegrationsV1alphaSfdcChannel})))
+
+(defn projects-locations-products-sfdcInstances-sfdcChannels-create
+  "Creates an sfdc channel record. Store the sfdc channel in Spanner. Returns the sfdc channel.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/products/sfdcInstances/sfdcChannels/create
+
+parent <> 
+GoogleCloudIntegrationsV1alphaSfdcChannel:
+GoogleCloudIntegrationsV1alphaSfdcChannel"
+  [parent GoogleCloudIntegrationsV1alphaSfdcChannel]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://integrations.googleapis.com/v1/{+parent}/sfdcChannels",
+     :uri-template-args {"parent" parent},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudIntegrationsV1alphaSfdcChannel}))
+
 (defn projects-locations-sfdcInstances-get
   "Gets an sfdc instance. If the instance doesn't exist, Code.NOT_FOUND exception will be thrown.
 https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/sfdcInstances/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://integrations.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -890,7 +861,7 @@ pageSize <integer> The size of entries in the response. If unspecified, defaults
 filter <string> Filtering as supported in https://developers.google.com/authorized-buyers/apis/guides/list-filters."
   ([parent] (projects-locations-sfdcInstances-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://integrations.googleapis.com/v1/{+parent}/sfdcInstances",
@@ -898,18 +869,29 @@ filter <string> Filtering as supported in https://developers.google.com/authoriz
        :query-params (merge {} optional),
        :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
 
-(defn projects-locations-sfdcInstances-delete
-  "Deletes an sfdc instance.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/sfdcInstances/delete
+(defn projects-locations-sfdcInstances-patch
+  "Updates an sfdc instance. Updates the sfdc instance in spanner. Returns the sfdc instance.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/sfdcInstances/patch
 
-name <> "
-  [name]
-  (client/api-request
-    {:method :delete,
-     :uri-template "https://integrations.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+name <> 
+GoogleCloudIntegrationsV1alphaSfdcInstance:
+GoogleCloudIntegrationsV1alphaSfdcInstance
+
+optional:
+updateMask <string> Field mask specifying the fields in the above SfdcInstance that have been modified and need to be updated."
+  ([name GoogleCloudIntegrationsV1alphaSfdcInstance]
+    (projects-locations-sfdcInstances-patch
+      name
+      GoogleCloudIntegrationsV1alphaSfdcInstance
+      nil))
+  ([name GoogleCloudIntegrationsV1alphaSfdcInstance optional]
+    (client/*api-request*
+      {:method :patch,
+       :uri-template "https://integrations.googleapis.com/v1/{+name}",
+       :uri-template-args {"name" name},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+       :body GoogleCloudIntegrationsV1alphaSfdcInstance})))
 
 (defn projects-locations-sfdcInstances-create
   "Creates an sfdc instance record. Store the sfdc instance in Spanner. Returns the sfdc instance.
@@ -919,7 +901,7 @@ parent <>
 GoogleCloudIntegrationsV1alphaSfdcInstance:
 GoogleCloudIntegrationsV1alphaSfdcInstance"
   [parent GoogleCloudIntegrationsV1alphaSfdcInstance]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://integrations.googleapis.com/v1/{+parent}/sfdcInstances",
@@ -928,14 +910,14 @@ GoogleCloudIntegrationsV1alphaSfdcInstance"
      :scopes ["https://www.googleapis.com/auth/cloud-platform"],
      :body GoogleCloudIntegrationsV1alphaSfdcInstance}))
 
-(defn projects-locations-sfdcInstances-sfdcChannels-get
-  "Gets an sfdc channel. If the channel doesn't exist, Code.NOT_FOUND exception will be thrown.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/sfdcInstances/sfdcChannels/get
+(defn projects-locations-sfdcInstances-delete
+  "Deletes an sfdc instance.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/sfdcInstances/delete
 
 name <> "
   [name]
-  (client/api-request
-    {:method :get,
+  (client/*api-request*
+    {:method :delete,
      :uri-template "https://integrations.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
      :query-params {},
@@ -949,7 +931,7 @@ parent <>
 GoogleCloudIntegrationsV1alphaSfdcChannel:
 GoogleCloudIntegrationsV1alphaSfdcChannel"
   [parent GoogleCloudIntegrationsV1alphaSfdcChannel]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://integrations.googleapis.com/v1/{+parent}/sfdcChannels",
@@ -957,19 +939,6 @@ GoogleCloudIntegrationsV1alphaSfdcChannel"
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/cloud-platform"],
      :body GoogleCloudIntegrationsV1alphaSfdcChannel}))
-
-(defn projects-locations-sfdcInstances-sfdcChannels-delete
-  "Deletes an sfdc channel.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/sfdcInstances/sfdcChannels/delete
-
-name <> "
-  [name]
-  (client/api-request
-    {:method :delete,
-     :uri-template "https://integrations.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-sfdcInstances-sfdcChannels-patch
   "Updates an sfdc channel. Updates the sfdc channel in spanner. Returns the sfdc channel.
@@ -987,13 +956,39 @@ updateMask <string> Field mask specifying the fields in the above SfdcChannel th
       GoogleCloudIntegrationsV1alphaSfdcChannel
       nil))
   ([name GoogleCloudIntegrationsV1alphaSfdcChannel optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://integrations.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
        :query-params (merge {} optional),
        :scopes ["https://www.googleapis.com/auth/cloud-platform"],
        :body GoogleCloudIntegrationsV1alphaSfdcChannel})))
+
+(defn projects-locations-sfdcInstances-sfdcChannels-get
+  "Gets an sfdc channel. If the channel doesn't exist, Code.NOT_FOUND exception will be thrown.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/sfdcInstances/sfdcChannels/get
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :get,
+     :uri-template "https://integrations.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+
+(defn projects-locations-sfdcInstances-sfdcChannels-delete
+  "Deletes an sfdc channel.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/sfdcInstances/sfdcChannels/delete
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :delete,
+     :uri-template "https://integrations.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-sfdcInstances-sfdcChannels-list
   "Lists all sfdc channels that match the filter. Restrict to sfdc channels belonging to the current client only.
@@ -1008,7 +1003,7 @@ pageSize <integer> The size of entries in the response. If unspecified, defaults
   ([parent]
     (projects-locations-sfdcInstances-sfdcChannels-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://integrations.googleapis.com/v1/{+parent}/sfdcChannels",
@@ -1024,7 +1019,7 @@ parent <>
 GoogleCloudIntegrationsV1alphaCreateAppsScriptProjectRequest:
 GoogleCloudIntegrationsV1alphaCreateAppsScriptProjectRequest"
   [parent GoogleCloudIntegrationsV1alphaCreateAppsScriptProjectRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://integrations.googleapis.com/v1/{+parent}/appsScriptProjects",
@@ -1042,7 +1037,7 @@ parent <>
 GoogleCloudIntegrationsV1alphaLinkAppsScriptProjectRequest:
 GoogleCloudIntegrationsV1alphaLinkAppsScriptProjectRequest"
   [parent GoogleCloudIntegrationsV1alphaLinkAppsScriptProjectRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://integrations.googleapis.com/v1/{+parent}/appsScriptProjects:link",
@@ -1051,38 +1046,22 @@ GoogleCloudIntegrationsV1alphaLinkAppsScriptProjectRequest"
      :scopes ["https://www.googleapis.com/auth/cloud-platform"],
      :body GoogleCloudIntegrationsV1alphaLinkAppsScriptProjectRequest}))
 
-(defn projects-locations-certificates-list
-  "List all the certificates that match the filter. Restrict to certificate of current client only.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/certificates/list
+(defn projects-locations-certificates-create
+  "Creates a new certificate. The certificate will be registered to the trawler service and will be encrypted using cloud KMS and stored in Spanner Returns the certificate.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/certificates/create
 
 parent <> 
-
-optional:
-filter <string> Filtering as supported in https://developers.google.com/authorized-buyers/apis/guides/list-filters.
-readMask <string> The mask which specifies fields that need to be returned in the Certificate's response.
-pageSize <integer> The size of entries in the response. If unspecified, defaults to 100."
-  ([parent] (projects-locations-certificates-list parent nil))
-  ([parent optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://integrations.googleapis.com/v1/{+parent}/certificates",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
-
-(defn projects-locations-certificates-delete
-  "Delete a certificate
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/certificates/delete
-
-name <> "
-  [name]
-  (client/api-request
-    {:method :delete,
-     :uri-template "https://integrations.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
+GoogleCloudIntegrationsV1alphaCertificate:
+GoogleCloudIntegrationsV1alphaCertificate"
+  [parent GoogleCloudIntegrationsV1alphaCertificate]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://integrations.googleapis.com/v1/{+parent}/certificates",
+     :uri-template-args {"parent" parent},
      :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudIntegrationsV1alphaCertificate}))
 
 (defn projects-locations-certificates-patch
   "Updates the certificate by id. If new certificate file is updated, it will register with the trawler service, re-encrypt with cloud KMS and update the Spanner record. Other fields will directly update the Spanner record. Returns the Certificate.
@@ -1100,7 +1079,7 @@ updateMask <string> Field mask specifying the fields in the above Certificate th
       GoogleCloudIntegrationsV1alphaCertificate
       nil))
   ([name GoogleCloudIntegrationsV1alphaCertificate optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://integrations.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1108,22 +1087,38 @@ updateMask <string> Field mask specifying the fields in the above Certificate th
        :scopes ["https://www.googleapis.com/auth/cloud-platform"],
        :body GoogleCloudIntegrationsV1alphaCertificate})))
 
-(defn projects-locations-certificates-create
-  "Creates a new certificate. The certificate will be registered to the trawler service and will be encrypted using cloud KMS and stored in Spanner Returns the certificate.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/certificates/create
+(defn projects-locations-certificates-list
+  "List all the certificates that match the filter. Restrict to certificate of current client only.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/certificates/list
 
 parent <> 
-GoogleCloudIntegrationsV1alphaCertificate:
-GoogleCloudIntegrationsV1alphaCertificate"
-  [parent GoogleCloudIntegrationsV1alphaCertificate]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://integrations.googleapis.com/v1/{+parent}/certificates",
-     :uri-template-args {"parent" parent},
+
+optional:
+filter <string> Filtering as supported in https://developers.google.com/authorized-buyers/apis/guides/list-filters.
+readMask <string> The mask which specifies fields that need to be returned in the Certificate's response.
+pageSize <integer> The size of entries in the response. If unspecified, defaults to 100."
+  ([parent] (projects-locations-certificates-list parent nil))
+  ([parent optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://integrations.googleapis.com/v1/{+parent}/certificates",
+       :uri-template-args {"parent" parent},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+
+(defn projects-locations-certificates-delete
+  "Delete a certificate
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/certificates/delete
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :delete,
+     :uri-template "https://integrations.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
      :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudIntegrationsV1alphaCertificate}))
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-certificates-get
   "Get a certificates in the specified project.
@@ -1131,39 +1126,12 @@ https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://integrations.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
-
-(defn projects-locations-authConfigs-patch
-  "Updates an auth config. If credential is updated, fetch the encrypted auth config from Spanner, decrypt with Cloud KMS key, update the credential fields, re-encrypt with Cloud KMS key and update the Spanner record. For other fields, directly update the Spanner record. Returns the encrypted auth config.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/authConfigs/patch
-
-name <> 
-GoogleCloudIntegrationsV1alphaAuthConfig:
-GoogleCloudIntegrationsV1alphaAuthConfig
-
-optional:
-clientCertificate.passphrase <string> 'passphrase' should be left unset if private key is not encrypted. Note that 'passphrase' is not the password for web server, but an extra layer of security to protected private key.
-clientCertificate.encryptedPrivateKey <string> The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines. For example, -----BEGIN CERTIFICATE----- MIICTTCCAbagAwIBAgIJAPT0tSKNxan/MA0GCSqGSIb3DQEBCwUAMCoxFzAVBgNV BAoTDkdvb2dsZSBURVNUSU5HMQ8wDQYDVQQDEwZ0ZXN0Q0EwHhcNMTUwMTAxMDAw MDAwWhcNMjUwMTAxMDAwMDAwWjAuMRcwFQYDVQQKEw5Hb29nbGUgVEVTVElORzET MBEGA1UEAwwKam9lQGJhbmFuYTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA vDYFgMgxi5W488d9J7UpCInl0NXmZQpJDEHE4hvkaRlH7pnC71H0DLt0/3zATRP1 JzY2+eqBmbGl4/sgZKYv8UrLnNyQNUTsNx1iZAfPUflf5FwgVsai8BM0pUciq1NB xD429VFcrGZNucvFLh72RuRFIKH8WUpiK/iZNFkWhZ0CAwEAAaN3MHUwDgYDVR0P AQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAMBgNVHRMB Af8EAjAAMBkGA1UdDgQSBBCVgnFBCWgL/iwCqnGrhTPQMBsGA1UdIwQUMBKAEKey Um2o4k2WiEVA0ldQvNYwDQYJKoZIhvcNAQELBQADgYEAYK986R4E3L1v+Q6esBtW JrUwA9UmJRSQr0N5w3o9XzarU37/bkjOP0Fw0k/A6Vv1n3vlciYfBFaBIam1qRHr 5dMsYf4CZS6w50r7hyzqyrwDoyNxkLnd2PdcHT/sym1QmflsjEs7pejtnohO6N2H wQW6M0H7Zt8claGRla4fKkg= -----END CERTIFICATE-----
-clientCertificate.sslCertificate <string> The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines. For example, -----BEGIN CERTIFICATE----- MIICTTCCAbagAwIBAgIJAPT0tSKNxan/MA0GCSqGSIb3DQEBCwUAMCoxFzAVBgNV BAoTDkdvb2dsZSBURVNUSU5HMQ8wDQYDVQQDEwZ0ZXN0Q0EwHhcNMTUwMTAxMDAw MDAwWhcNMjUwMTAxMDAwMDAwWjAuMRcwFQYDVQQKEw5Hb29nbGUgVEVTVElORzET MBEGA1UEAwwKam9lQGJhbmFuYTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA vDYFgMgxi5W488d9J7UpCInl0NXmZQpJDEHE4hvkaRlH7pnC71H0DLt0/3zATRP1 JzY2+eqBmbGl4/sgZKYv8UrLnNyQNUTsNx1iZAfPUflf5FwgVsai8BM0pUciq1NB xD429VFcrGZNucvFLh72RuRFIKH8WUpiK/iZNFkWhZ0CAwEAAaN3MHUwDgYDVR0P AQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAMBgNVHRMB Af8EAjAAMBkGA1UdDgQSBBCVgnFBCWgL/iwCqnGrhTPQMBsGA1UdIwQUMBKAEKey Um2o4k2WiEVA0ldQvNYwDQYJKoZIhvcNAQELBQADgYEAYK986R4E3L1v+Q6esBtW JrUwA9UmJRSQr0N5w3o9XzarU37/bkjOP0Fw0k/A6Vv1n3vlciYfBFaBIam1qRHr 5dMsYf4CZS6w50r7hyzqyrwDoyNxkLnd2PdcHT/sym1QmflsjEs7pejtnohO6N2H wQW6M0H7Zt8claGRla4fKkg= -----END CERTIFICATE-----
-updateMask <string> Field mask specifying the fields in the above AuthConfig that have been modified and need to be updated."
-  ([name GoogleCloudIntegrationsV1alphaAuthConfig]
-    (projects-locations-authConfigs-patch
-      name
-      GoogleCloudIntegrationsV1alphaAuthConfig
-      nil))
-  ([name GoogleCloudIntegrationsV1alphaAuthConfig optional]
-    (client/api-request
-      {:method :patch,
-       :uri-template "https://integrations.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudIntegrationsV1alphaAuthConfig})))
 
 (defn projects-locations-authConfigs-get
   "Gets a complete auth config. If the auth config doesn't exist, Code.NOT_FOUND exception will be thrown. Returns the decrypted auth config.
@@ -1171,45 +1139,12 @@ https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://integrations.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
-
-(defn projects-locations-authConfigs-delete
-  "Deletes an auth config.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/authConfigs/delete
-
-name <> "
-  [name]
-  (client/api-request
-    {:method :delete,
-     :uri-template "https://integrations.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
-
-(defn projects-locations-authConfigs-list
-  "Lists all auth configs that match the filter. Restrict to auth configs belong to the current client only.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/authConfigs/list
-
-parent <> 
-
-optional:
-filter <string> Filtering as supported in https://developers.google.com/authorized-buyers/apis/guides/list-filters.
-pageSize <integer> The size of entries in the response. If unspecified, defaults to 100.
-readMask <string> The mask which specifies fields that need to be returned in the AuthConfig's response."
-  ([parent] (projects-locations-authConfigs-list parent nil))
-  ([parent optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://integrations.googleapis.com/v1/{+parent}/authConfigs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
 
 (defn projects-locations-authConfigs-create
   "Creates an auth config record. Fetch corresponding credentials for specific auth types, e.g. access token for OAuth 2.0, JWT token for JWT. Encrypt the auth config with Cloud KMS and store the encrypted credentials in Spanner. Returns the encrypted auth config.
@@ -1229,7 +1164,7 @@ clientCertificate.sslCertificate <string> The ssl certificate encoded in PEM for
       GoogleCloudIntegrationsV1alphaAuthConfig
       nil))
   ([parent GoogleCloudIntegrationsV1alphaAuthConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://integrations.googleapis.com/v1/{+parent}/authConfigs",
@@ -1238,73 +1173,65 @@ clientCertificate.sslCertificate <string> The ssl certificate encoded in PEM for
        :scopes ["https://www.googleapis.com/auth/cloud-platform"],
        :body GoogleCloudIntegrationsV1alphaAuthConfig})))
 
-(defn projects-locations-clients-provision
-  "Perform the provisioning steps to enable a user GCP project to use IP. If GCP project already registered on IP end via Apigee Integration, provisioning will fail.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/clients/provision
+(defn projects-locations-authConfigs-patch
+  "Updates an auth config. If credential is updated, fetch the encrypted auth config from Spanner, decrypt with Cloud KMS key, update the credential fields, re-encrypt with Cloud KMS key and update the Spanner record. For other fields, directly update the Spanner record. Returns the encrypted auth config.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/authConfigs/patch
+
+name <> 
+GoogleCloudIntegrationsV1alphaAuthConfig:
+GoogleCloudIntegrationsV1alphaAuthConfig
+
+optional:
+clientCertificate.encryptedPrivateKey <string> The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines. For example, -----BEGIN CERTIFICATE----- MIICTTCCAbagAwIBAgIJAPT0tSKNxan/MA0GCSqGSIb3DQEBCwUAMCoxFzAVBgNV BAoTDkdvb2dsZSBURVNUSU5HMQ8wDQYDVQQDEwZ0ZXN0Q0EwHhcNMTUwMTAxMDAw MDAwWhcNMjUwMTAxMDAwMDAwWjAuMRcwFQYDVQQKEw5Hb29nbGUgVEVTVElORzET MBEGA1UEAwwKam9lQGJhbmFuYTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA vDYFgMgxi5W488d9J7UpCInl0NXmZQpJDEHE4hvkaRlH7pnC71H0DLt0/3zATRP1 JzY2+eqBmbGl4/sgZKYv8UrLnNyQNUTsNx1iZAfPUflf5FwgVsai8BM0pUciq1NB xD429VFcrGZNucvFLh72RuRFIKH8WUpiK/iZNFkWhZ0CAwEAAaN3MHUwDgYDVR0P AQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAMBgNVHRMB Af8EAjAAMBkGA1UdDgQSBBCVgnFBCWgL/iwCqnGrhTPQMBsGA1UdIwQUMBKAEKey Um2o4k2WiEVA0ldQvNYwDQYJKoZIhvcNAQELBQADgYEAYK986R4E3L1v+Q6esBtW JrUwA9UmJRSQr0N5w3o9XzarU37/bkjOP0Fw0k/A6Vv1n3vlciYfBFaBIam1qRHr 5dMsYf4CZS6w50r7hyzqyrwDoyNxkLnd2PdcHT/sym1QmflsjEs7pejtnohO6N2H wQW6M0H7Zt8claGRla4fKkg= -----END CERTIFICATE-----
+clientCertificate.passphrase <string> 'passphrase' should be left unset if private key is not encrypted. Note that 'passphrase' is not the password for web server, but an extra layer of security to protected private key.
+clientCertificate.sslCertificate <string> The ssl certificate encoded in PEM format. This string must include the begin header and end footer lines. For example, -----BEGIN CERTIFICATE----- MIICTTCCAbagAwIBAgIJAPT0tSKNxan/MA0GCSqGSIb3DQEBCwUAMCoxFzAVBgNV BAoTDkdvb2dsZSBURVNUSU5HMQ8wDQYDVQQDEwZ0ZXN0Q0EwHhcNMTUwMTAxMDAw MDAwWhcNMjUwMTAxMDAwMDAwWjAuMRcwFQYDVQQKEw5Hb29nbGUgVEVTVElORzET MBEGA1UEAwwKam9lQGJhbmFuYTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA vDYFgMgxi5W488d9J7UpCInl0NXmZQpJDEHE4hvkaRlH7pnC71H0DLt0/3zATRP1 JzY2+eqBmbGl4/sgZKYv8UrLnNyQNUTsNx1iZAfPUflf5FwgVsai8BM0pUciq1NB xD429VFcrGZNucvFLh72RuRFIKH8WUpiK/iZNFkWhZ0CAwEAAaN3MHUwDgYDVR0P AQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAMBgNVHRMB Af8EAjAAMBkGA1UdDgQSBBCVgnFBCWgL/iwCqnGrhTPQMBsGA1UdIwQUMBKAEKey Um2o4k2WiEVA0ldQvNYwDQYJKoZIhvcNAQELBQADgYEAYK986R4E3L1v+Q6esBtW JrUwA9UmJRSQr0N5w3o9XzarU37/bkjOP0Fw0k/A6Vv1n3vlciYfBFaBIam1qRHr 5dMsYf4CZS6w50r7hyzqyrwDoyNxkLnd2PdcHT/sym1QmflsjEs7pejtnohO6N2H wQW6M0H7Zt8claGRla4fKkg= -----END CERTIFICATE-----
+updateMask <string> Field mask specifying the fields in the above AuthConfig that have been modified and need to be updated."
+  ([name GoogleCloudIntegrationsV1alphaAuthConfig]
+    (projects-locations-authConfigs-patch
+      name
+      GoogleCloudIntegrationsV1alphaAuthConfig
+      nil))
+  ([name GoogleCloudIntegrationsV1alphaAuthConfig optional]
+    (client/*api-request*
+      {:method :patch,
+       :uri-template "https://integrations.googleapis.com/v1/{+name}",
+       :uri-template-args {"name" name},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+       :body GoogleCloudIntegrationsV1alphaAuthConfig})))
+
+(defn projects-locations-authConfigs-delete
+  "Deletes an auth config.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/authConfigs/delete
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :delete,
+     :uri-template "https://integrations.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+
+(defn projects-locations-authConfigs-list
+  "Lists all auth configs that match the filter. Restrict to auth configs belong to the current client only.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/authConfigs/list
 
 parent <> 
-GoogleCloudIntegrationsV1alphaProvisionClientRequest:
-GoogleCloudIntegrationsV1alphaProvisionClientRequest"
-  [parent GoogleCloudIntegrationsV1alphaProvisionClientRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://integrations.googleapis.com/v1/{+parent}/clients:provision",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudIntegrationsV1alphaProvisionClientRequest}))
 
-(defn projects-locations-clients-replace
-  "Update run-as service account for provisioned client
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/clients/replace
-
-parent <> 
-GoogleCloudIntegrationsV1alphaReplaceServiceAccountRequest:
-GoogleCloudIntegrationsV1alphaReplaceServiceAccountRequest"
-  [parent GoogleCloudIntegrationsV1alphaReplaceServiceAccountRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://integrations.googleapis.com/v1/{+parent}/clients:replace",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudIntegrationsV1alphaReplaceServiceAccountRequest}))
-
-(defn projects-locations-clients-deprovision
-  "Perform the deprovisioning steps to disable a user GCP project to use IP and purge all related data in a wipeout-compliant way.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/clients/deprovision
-
-parent <> 
-GoogleCloudIntegrationsV1alphaDeprovisionClientRequest:
-GoogleCloudIntegrationsV1alphaDeprovisionClientRequest"
-  [parent GoogleCloudIntegrationsV1alphaDeprovisionClientRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://integrations.googleapis.com/v1/{+parent}/clients:deprovision",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudIntegrationsV1alphaDeprovisionClientRequest}))
-
-(defn projects-locations-clients-switchVariableMasking
-  "Update variable masking for provisioned client
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/clients/switchVariableMasking
-
-parent <> 
-GoogleCloudIntegrationsV1alphaSwitchVariableMaskingRequest:
-GoogleCloudIntegrationsV1alphaSwitchVariableMaskingRequest"
-  [parent GoogleCloudIntegrationsV1alphaSwitchVariableMaskingRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://integrations.googleapis.com/v1/{+parent}/clients:switchVariableMasking",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudIntegrationsV1alphaSwitchVariableMaskingRequest}))
+optional:
+readMask <string> The mask which specifies fields that need to be returned in the AuthConfig's response.
+pageSize <integer> The size of entries in the response. If unspecified, defaults to 100.
+filter <string> Filtering as supported in https://developers.google.com/authorized-buyers/apis/guides/list-filters."
+  ([parent] (projects-locations-authConfigs-list parent nil))
+  ([parent optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://integrations.googleapis.com/v1/{+parent}/authConfigs",
+       :uri-template-args {"parent" parent},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
 
 (defn projects-locations-clients-switch
   "Update client from GMEK to CMEK
@@ -1314,7 +1241,7 @@ parent <>
 GoogleCloudIntegrationsV1alphaSwitchEncryptionRequest:
 GoogleCloudIntegrationsV1alphaSwitchEncryptionRequest"
   [parent GoogleCloudIntegrationsV1alphaSwitchEncryptionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://integrations.googleapis.com/v1/{+parent}/clients:switch",
@@ -1323,6 +1250,74 @@ GoogleCloudIntegrationsV1alphaSwitchEncryptionRequest"
      :scopes ["https://www.googleapis.com/auth/cloud-platform"],
      :body GoogleCloudIntegrationsV1alphaSwitchEncryptionRequest}))
 
+(defn projects-locations-clients-deprovision
+  "Perform the deprovisioning steps to disable a user GCP project to use IP and purge all related data in a wipeout-compliant way.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/clients/deprovision
+
+parent <> 
+GoogleCloudIntegrationsV1alphaDeprovisionClientRequest:
+GoogleCloudIntegrationsV1alphaDeprovisionClientRequest"
+  [parent GoogleCloudIntegrationsV1alphaDeprovisionClientRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://integrations.googleapis.com/v1/{+parent}/clients:deprovision",
+     :uri-template-args {"parent" parent},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudIntegrationsV1alphaDeprovisionClientRequest}))
+
+(defn projects-locations-clients-replace
+  "Update run-as service account for provisioned client
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/clients/replace
+
+parent <> 
+GoogleCloudIntegrationsV1alphaReplaceServiceAccountRequest:
+GoogleCloudIntegrationsV1alphaReplaceServiceAccountRequest"
+  [parent GoogleCloudIntegrationsV1alphaReplaceServiceAccountRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://integrations.googleapis.com/v1/{+parent}/clients:replace",
+     :uri-template-args {"parent" parent},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudIntegrationsV1alphaReplaceServiceAccountRequest}))
+
+(defn projects-locations-clients-provision
+  "Perform the provisioning steps to enable a user GCP project to use IP. If GCP project already registered on IP end via Apigee Integration, provisioning will fail.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/clients/provision
+
+parent <> 
+GoogleCloudIntegrationsV1alphaProvisionClientRequest:
+GoogleCloudIntegrationsV1alphaProvisionClientRequest"
+  [parent GoogleCloudIntegrationsV1alphaProvisionClientRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://integrations.googleapis.com/v1/{+parent}/clients:provision",
+     :uri-template-args {"parent" parent},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudIntegrationsV1alphaProvisionClientRequest}))
+
+(defn projects-locations-clients-switchVariableMasking
+  "Update variable masking for provisioned client
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/clients/switchVariableMasking
+
+parent <> 
+GoogleCloudIntegrationsV1alphaSwitchVariableMaskingRequest:
+GoogleCloudIntegrationsV1alphaSwitchVariableMaskingRequest"
+  [parent GoogleCloudIntegrationsV1alphaSwitchVariableMaskingRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://integrations.googleapis.com/v1/{+parent}/clients:switchVariableMasking",
+     :uri-template-args {"parent" parent},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudIntegrationsV1alphaSwitchVariableMaskingRequest}))
+
 (defn projects-locations-templates-list
   "Lists all templates matching the filter.
 https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/templates/list
@@ -1330,13 +1325,13 @@ https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/l
 parent <> 
 
 optional:
-pageSize <integer> Optional. The size of the response entries. If unspecified, defaults to 100. The maximum value is 1000; values above 1000 will be coerced to 1000.
-readMask <string> Optional. The mask which specifies fields that need to be returned in the template's response.
 orderBy <string> Optional. The results would be returned in the order you specified here.
+readMask <string> Optional. The mask which specifies fields that need to be returned in the template's response.
+pageSize <integer> Optional. The size of the response entries. If unspecified, defaults to 100. The maximum value is 1000; values above 1000 will be coerced to 1000.
 filter <string> Optional. Standard filter field to filter templates. client_id filter won't be supported and will restrict to templates belonging to the current client only. Return all templates of the current client if the filter is empty. Also supports operators like AND, OR, NOT For example, \"status=\\\"ACTIVE\\\""
   ([parent] (projects-locations-templates-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://integrations.googleapis.com/v1/{+parent}/templates",
@@ -1350,7 +1345,7 @@ https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://integrations.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1367,7 +1362,7 @@ optional:
 fileFormat <string> Required. File format for download request."
   ([name] (projects-locations-templates-download name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://integrations.googleapis.com/v1/{+name}:download",
@@ -1383,7 +1378,7 @@ parent <>
 GoogleCloudIntegrationsV1alphaUploadTemplateRequest:
 GoogleCloudIntegrationsV1alphaUploadTemplateRequest"
   [parent GoogleCloudIntegrationsV1alphaUploadTemplateRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://integrations.googleapis.com/v1/{+parent}/templates:upload",
@@ -1400,7 +1395,7 @@ name <>
 GoogleCloudIntegrationsV1alphaUnshareTemplateRequest:
 GoogleCloudIntegrationsV1alphaUnshareTemplateRequest"
   [name GoogleCloudIntegrationsV1alphaUnshareTemplateRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://integrations.googleapis.com/v1/{+name}:unshare",
@@ -1417,7 +1412,7 @@ name <>
 GoogleCloudIntegrationsV1alphaImportTemplateRequest:
 GoogleCloudIntegrationsV1alphaImportTemplateRequest"
   [name GoogleCloudIntegrationsV1alphaImportTemplateRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://integrations.googleapis.com/v1/{+name}:import",
@@ -1442,7 +1437,7 @@ updateMask <string> Required. Field mask specifying the fields in the above temp
       GoogleCloudIntegrationsV1alphaTemplate
       nil))
   ([name GoogleCloudIntegrationsV1alphaTemplate optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://integrations.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1458,7 +1453,7 @@ parent <>
 GoogleCloudIntegrationsV1alphaTemplate:
 GoogleCloudIntegrationsV1alphaTemplate"
   [parent GoogleCloudIntegrationsV1alphaTemplate]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://integrations.googleapis.com/v1/{+parent}/templates",
@@ -1475,7 +1470,7 @@ name <>
 GoogleCloudIntegrationsV1alphaUseTemplateRequest:
 GoogleCloudIntegrationsV1alphaUseTemplateRequest"
   [name GoogleCloudIntegrationsV1alphaUseTemplateRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://integrations.googleapis.com/v1/{+name}:use",
@@ -1491,13 +1486,13 @@ https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/l
 parent <> 
 
 optional:
-filter <string> Optional. Standard filter field to filter templates. client_id filter won't be supported and will restrict to templates belonging to the current client only. Return all templates of the current client if the filter is empty. Also supports operators like AND, OR, NOT For example, \"status=\\\"ACTIVE\\\"
-pageSize <integer> Optional. The size of the response entries. If unspecified, defaults to 100. The maximum value is 1000; values above 1000 will be coerced to 1000.
 readMask <string> Optional. The mask which specifies fields that need to be returned in the template's response.
-orderBy <string> Optional. The results would be returned in the order you specified here."
+pageSize <integer> Optional. The size of the response entries. If unspecified, defaults to 100. The maximum value is 1000; values above 1000 will be coerced to 1000.
+orderBy <string> Optional. The results would be returned in the order you specified here.
+filter <string> Optional. Standard filter field to filter templates. client_id filter won't be supported and will restrict to templates belonging to the current client only. Return all templates of the current client if the filter is empty. Also supports operators like AND, OR, NOT For example, \"status=\\\"ACTIVE\\\""
   ([parent] (projects-locations-templates-search parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://integrations.googleapis.com/v1/{+parent}/templates:search",
@@ -1511,7 +1506,7 @@ https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://integrations.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1526,7 +1521,7 @@ name <>
 GoogleCloudIntegrationsV1alphaShareTemplateRequest:
 GoogleCloudIntegrationsV1alphaShareTemplateRequest"
   [name GoogleCloudIntegrationsV1alphaShareTemplateRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://integrations.googleapis.com/v1/{+name}:share",
@@ -1543,7 +1538,7 @@ parent <>
 GoogleCloudIntegrationsV1alphaCreateCloudFunctionRequest:
 GoogleCloudIntegrationsV1alphaCreateCloudFunctionRequest"
   [parent GoogleCloudIntegrationsV1alphaCreateCloudFunctionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://integrations.googleapis.com/v1/{+parent}/cloudFunctions",
@@ -1551,6 +1546,23 @@ GoogleCloudIntegrationsV1alphaCreateCloudFunctionRequest"
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/cloud-platform"],
      :body GoogleCloudIntegrationsV1alphaCreateCloudFunctionRequest}))
+
+(defn projects-locations-integrations-execute
+  "Executes integrations synchronously by passing the trigger id in the request body. The request is not returned until the requested executions are either fulfilled or experienced an error. If the integration name is not specified (passing `-`), all of the associated integration under the given trigger_id will be executed. Otherwise only the specified integration for the given `trigger_id` is executed. This is helpful for execution the integration from UI.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/integrations/execute
+
+name <> 
+GoogleCloudIntegrationsV1alphaExecuteIntegrationsRequest:
+GoogleCloudIntegrationsV1alphaExecuteIntegrationsRequest"
+  [name GoogleCloudIntegrationsV1alphaExecuteIntegrationsRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://integrations.googleapis.com/v1/{+name}:execute",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudIntegrationsV1alphaExecuteIntegrationsRequest}))
 
 (defn projects-locations-integrations-schedule
   "Schedules an integration for execution by passing the trigger id and the scheduled time in the request body.
@@ -1560,7 +1572,7 @@ name <>
 GoogleCloudIntegrationsV1alphaScheduleIntegrationsRequest:
 GoogleCloudIntegrationsV1alphaScheduleIntegrationsRequest"
   [name GoogleCloudIntegrationsV1alphaScheduleIntegrationsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://integrations.googleapis.com/v1/{+name}:schedule",
@@ -1577,7 +1589,7 @@ name <>
 GoogleCloudIntegrationsV1alphaTestIntegrationsRequest:
 GoogleCloudIntegrationsV1alphaTestIntegrationsRequest"
   [name GoogleCloudIntegrationsV1alphaTestIntegrationsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://integrations.googleapis.com/v1/{+name}:test",
@@ -1586,19 +1598,6 @@ GoogleCloudIntegrationsV1alphaTestIntegrationsRequest"
      :scopes ["https://www.googleapis.com/auth/cloud-platform"],
      :body GoogleCloudIntegrationsV1alphaTestIntegrationsRequest}))
 
-(defn projects-locations-integrations-delete
-  "Delete the selected integration and all versions inside
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/integrations/delete
-
-name <> "
-  [name]
-  (client/api-request
-    {:method :delete,
-     :uri-template "https://integrations.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
-
 (defn projects-locations-integrations-list
   "Returns the list of all integrations in the specified project.
 https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/integrations/list
@@ -1606,12 +1605,12 @@ https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/l
 parent <> 
 
 optional:
-filter <string> Filter on fields of IntegrationVersion. Fields can be compared with literal values by use of \":\" (containment), \"=\" (equality), \">\" (greater), \"<\" (less than), >=\" (greater than or equal to), \"<=\" (less than or equal to), and \"!=\" (inequality) operators. Negation, conjunction, and disjunction are written using NOT, AND, and OR keywords. For example, organization_id=\\\"1\\\" AND state=ACTIVE AND description:\"test\". Filtering cannot be performed on repeated fields like `task_config`.
 pageSize <integer> The page size for the resquest.
+filter <string> Filter on fields of IntegrationVersion. Fields can be compared with literal values by use of \":\" (containment), \"=\" (equality), \">\" (greater), \"<\" (less than), >=\" (greater than or equal to), \"<=\" (less than or equal to), and \"!=\" (inequality) operators. Negation, conjunction, and disjunction are written using NOT, AND, and OR keywords. For example, organization_id=\\\"1\\\" AND state=ACTIVE AND description:\"test\". Filtering cannot be performed on repeated fields like `task_config`.
 orderBy <string> The results would be returned in order you specified here. Supported sort keys are: Descending sort order by \"last_modified_time\", \"created_time\", \"snapshot_number\". Ascending sort order by the integration name."
   ([parent] (projects-locations-integrations-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://integrations.googleapis.com/v1/{+parent}/integrations",
@@ -1632,7 +1631,7 @@ triggerId <string> Required. Id of the integration trigger config. The trigger_i
   ([name object]
     (projects-locations-integrations-executeEvent name object nil))
   ([name object optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://integrations.googleapis.com/v1/{+name}:executeEvent",
@@ -1641,22 +1640,18 @@ triggerId <string> Required. Id of the integration trigger config. The trigger_i
        :scopes ["https://www.googleapis.com/auth/cloud-platform"],
        :body object})))
 
-(defn projects-locations-integrations-execute
-  "Executes integrations synchronously by passing the trigger id in the request body. The request is not returned until the requested executions are either fulfilled or experienced an error. If the integration name is not specified (passing `-`), all of the associated integration under the given trigger_id will be executed. Otherwise only the specified integration for the given `trigger_id` is executed. This is helpful for execution the integration from UI.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/integrations/execute
+(defn projects-locations-integrations-delete
+  "Delete the selected integration and all versions inside
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/integrations/delete
 
-name <> 
-GoogleCloudIntegrationsV1alphaExecuteIntegrationsRequest:
-GoogleCloudIntegrationsV1alphaExecuteIntegrationsRequest"
-  [name GoogleCloudIntegrationsV1alphaExecuteIntegrationsRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://integrations.googleapis.com/v1/{+name}:execute",
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :delete,
+     :uri-template "https://integrations.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
      :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudIntegrationsV1alphaExecuteIntegrationsRequest}))
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-integrations-versions-unpublish
   "Sets the status of the ACTIVE integration to SNAPSHOT with a new tag \"PREVIOUSLY_PUBLISHED\" after validating it. The \"HEAD\" and \"PUBLISH_REQUESTED\" tags do not change. This RPC throws an exception if the version being snapshot is not ACTIVE. Audit fields added include action, action_by, action_timestamp.
@@ -1667,7 +1662,7 @@ GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest:
 GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest"
   [name
    GoogleCloudIntegrationsV1alphaUnpublishIntegrationVersionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://integrations.googleapis.com/v1/{+name}:unpublish",
@@ -1684,13 +1679,13 @@ https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/l
 parent <> 
 
 optional:
-pageSize <integer> The maximum number of versions to return. The service may return fewer than this value. If unspecified, at most 50 versions will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000.
 filter <string> Filter on fields of IntegrationVersion. Fields can be compared with literal values by use of \":\" (containment), \"=\" (equality), \">\" (greater), \"<\" (less than), >=\" (greater than or equal to), \"<=\" (less than or equal to), and \"!=\" (inequality) operators. Negation, conjunction, and disjunction are written using NOT, AND, and OR keywords. For example, organization_id=\\\"1\\\" AND state=ACTIVE AND description:\"test\". Filtering cannot be performed on repeated fields like `task_config`.
+fieldMask <string> The field mask which specifies the particular data to be returned.
 orderBy <string> The results would be returned in order you specified here. Currently supported sort keys are: Descending sort order for \"last_modified_time\", \"created_time\", \"snapshot_number\" Ascending sort order for \"name\".
-fieldMask <string> The field mask which specifies the particular data to be returned."
+pageSize <integer> The maximum number of versions to return. The service may return fewer than this value. If unspecified, at most 50 versions will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (projects-locations-integrations-versions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://integrations.googleapis.com/v1/{+parent}/versions",
@@ -1704,7 +1699,7 @@ https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://integrations.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1722,7 +1717,7 @@ files <string> Optional. Integration related file to download like Integration J
 fileFormat <string> File format for download request."
   ([name] (projects-locations-integrations-versions-download name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://integrations.googleapis.com/v1/{+name}:download",
@@ -1739,7 +1734,7 @@ GoogleCloudIntegrationsV1alphaUploadIntegrationVersionRequest:
 GoogleCloudIntegrationsV1alphaUploadIntegrationVersionRequest"
   [parent
    GoogleCloudIntegrationsV1alphaUploadIntegrationVersionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://integrations.googleapis.com/v1/{+parent}/versions:upload",
@@ -1765,7 +1760,7 @@ updateMask <string> Field mask specifying the fields in the above integration th
       GoogleCloudIntegrationsV1alphaIntegrationVersion
       nil))
   ([name GoogleCloudIntegrationsV1alphaIntegrationVersion optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://integrations.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1781,7 +1776,7 @@ name <>
 GoogleCloudIntegrationsV1alphaPublishIntegrationVersionRequest:
 GoogleCloudIntegrationsV1alphaPublishIntegrationVersionRequest"
   [name GoogleCloudIntegrationsV1alphaPublishIntegrationVersionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://integrations.googleapis.com/v1/{+name}:publish",
@@ -1800,15 +1795,15 @@ GoogleCloudIntegrationsV1alphaIntegrationVersion:
 GoogleCloudIntegrationsV1alphaIntegrationVersion
 
 optional:
-createSampleIntegrations <boolean> Optional. Optional. Indicates if sample workflow should be created.
-newIntegration <boolean> Set this flag to true, if draft version is to be created for a brand new integration. False, if the request is for an existing integration. For backward compatibility reasons, even if this flag is set to `false` and no existing integration is found, a new draft integration will still be created."
+newIntegration <boolean> Set this flag to true, if draft version is to be created for a brand new integration. False, if the request is for an existing integration. For backward compatibility reasons, even if this flag is set to `false` and no existing integration is found, a new draft integration will still be created.
+createSampleIntegrations <boolean> Optional. Optional. Indicates if sample workflow should be created."
   ([parent GoogleCloudIntegrationsV1alphaIntegrationVersion]
     (projects-locations-integrations-versions-create
       parent
       GoogleCloudIntegrationsV1alphaIntegrationVersion
       nil))
   ([parent GoogleCloudIntegrationsV1alphaIntegrationVersion optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://integrations.googleapis.com/v1/{+parent}/versions",
@@ -1823,7 +1818,7 @@ https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://integrations.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1843,26 +1838,13 @@ files <string> Optional. Integration related file to download like Integration V
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://integrations.googleapis.com/v1/{+name}:downloadJsonPackage",
        :uri-template-args {"name" name},
        :query-params (merge {} optional),
        :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
-
-(defn projects-locations-integrations-executions-get
-  "Get an execution in the specified project.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/integrations/executions/get
-
-name <> "
-  [name]
-  (client/api-request
-    {:method :get,
-     :uri-template "https://integrations.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-integrations-executions-list
   "Lists the results of all the integration executions. The response includes the same information as the [execution log](https://cloud.google.com/application-integration/docs/viewing-logs) in the Integration UI.
@@ -1874,7 +1856,7 @@ optional:
 filterParams.endTime <string> End timestamp.
 filterParams.parameterPairKey <string> Param key in the key value pair filter.
 filterParams.parameterValue <string> Param value. DEPRECATED. User parameter_pair_value instead.
-readMask <string> Optional. View mask for the response data. If set, only the field specified will be returned as part of the result. If not set, all fields in event execution info will be filled and returned.
+readMask <string> Optional. View mask for the response data. If set, only the field specified will be returned as part of the result. If not set, all fields in Execution will be filled and returned. Supported fields: trigger_id execution_method create_time update_time execution_details execution_details.state execution_details.execution_snapshots execution_details.attempt_stats execution_details.event_execution_snapshots_size request_parameters cloud_logging_details snapshot_number replay_info
 filterParams.workflowName <string> Workflow name.
 filterParams.eventStatuses <string> List of possible event statuses.
 filterParams.customFilter <string> Optional user-provided custom filter.
@@ -1893,7 +1875,7 @@ snapshotMetadataWithoutParams <boolean> Optional. If true, the service will prov
   ([parent]
     (projects-locations-integrations-executions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://integrations.googleapis.com/v1/{+parent}/executions",
@@ -1901,53 +1883,32 @@ snapshotMetadataWithoutParams <boolean> Optional. If true, the service will prov
        :query-params (merge {} optional),
        :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
 
+(defn projects-locations-integrations-executions-get
+  "Get an execution in the specified project.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/integrations/executions/get
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :get,
+     :uri-template "https://integrations.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+
 (defn projects-locations-integrations-executions-download
   "Download the execution.
 https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/integrations/executions/download
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://integrations.googleapis.com/v1/{+name}:download",
      :uri-template-args {"name" name},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
-
-(defn projects-locations-integrations-executions-replay
-  "Re-execute an existing execution, with same request parameters and execution strategy
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/integrations/executions/replay
-
-name <> 
-GoogleCloudIntegrationsV1alphaReplayExecutionRequest:
-GoogleCloudIntegrationsV1alphaReplayExecutionRequest"
-  [name GoogleCloudIntegrationsV1alphaReplayExecutionRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://integrations.googleapis.com/v1/{+name}:replay",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudIntegrationsV1alphaReplayExecutionRequest}))
-
-(defn projects-locations-integrations-executions-suspensions-resolve
-  "* Resolves (lifts/rejects) any number of suspensions. If the integration is already running, only the status of the suspension is updated. Otherwise, the suspended integration will begin execution again.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/integrations/executions/suspensions/resolve
-
-name <> 
-GoogleCloudIntegrationsV1alphaResolveSuspensionRequest:
-GoogleCloudIntegrationsV1alphaResolveSuspensionRequest"
-  [name GoogleCloudIntegrationsV1alphaResolveSuspensionRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://integrations.googleapis.com/v1/{+name}:resolve",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudIntegrationsV1alphaResolveSuspensionRequest}))
 
 (defn projects-locations-integrations-executions-suspensions-list
   "* Lists suspensions associated with a specific execution. Only those with permissions to resolve the relevant suspensions will be able to view them.
@@ -1957,14 +1918,14 @@ parent <>
 
 optional:
 pageSize <integer> Maximum number of entries in the response.
-orderBy <string> Field name to order by.
-filter <string> Standard filter field."
+filter <string> Standard filter field.
+orderBy <string> Field name to order by."
   ([parent]
     (projects-locations-integrations-executions-suspensions-list
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://integrations.googleapis.com/v1/{+parent}/suspensions",
@@ -1980,7 +1941,7 @@ name <>
 GoogleCloudIntegrationsV1alphaLiftSuspensionRequest:
 GoogleCloudIntegrationsV1alphaLiftSuspensionRequest"
   [name GoogleCloudIntegrationsV1alphaLiftSuspensionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://integrations.googleapis.com/v1/{+name}:lift",
@@ -1988,6 +1949,36 @@ GoogleCloudIntegrationsV1alphaLiftSuspensionRequest"
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/cloud-platform"],
      :body GoogleCloudIntegrationsV1alphaLiftSuspensionRequest}))
+
+(defn projects-locations-integrations-executions-suspensions-resolve
+  "* Resolves (lifts/rejects) any number of suspensions. If the integration is already running, only the status of the suspension is updated. Otherwise, the suspended integration will begin execution again.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/integrations/executions/suspensions/resolve
+
+name <> 
+GoogleCloudIntegrationsV1alphaResolveSuspensionRequest:
+GoogleCloudIntegrationsV1alphaResolveSuspensionRequest"
+  [name GoogleCloudIntegrationsV1alphaResolveSuspensionRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://integrations.googleapis.com/v1/{+name}:resolve",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudIntegrationsV1alphaResolveSuspensionRequest}))
+
+(defn projects-locations-connections-getConnectionSchemaMetadata
+  "Lists the available entities and actions associated with a Connection.
+https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/connections/getConnectionSchemaMetadata
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :get,
+     :uri-template "https://integrations.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-connections-list
   "Lists Connections in a given project and location.
@@ -2001,26 +1992,13 @@ filter <string> Filter.
 orderBy <string> Order by parameters."
   ([parent] (projects-locations-connections-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://integrations.googleapis.com/v1/{+parent}/connections",
        :uri-template-args {"parent" parent},
        :query-params (merge {} optional),
        :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
-
-(defn projects-locations-connections-getConnectionSchemaMetadata
-  "Lists the available entities and actions associated with a Connection.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/locations/connections/getConnectionSchemaMetadata
-
-name <> "
-  [name]
-  (client/api-request
-    {:method :get,
-     :uri-template "https://integrations.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-connections-runtimeEntitySchemas-list
   "Lists the JSON schemas for the properties of runtime entities, filtered by entity name.
@@ -2029,14 +2007,14 @@ https://cloud.google.com/application-integration/v1/reference/rest/v1/projects/l
 parent <> 
 
 optional:
-filter <string> Filter. Only the entity field with literal equality operator is supported.
-pageSize <integer> Page size."
+pageSize <integer> Page size.
+filter <string> Filter. Only the entity field with literal equality operator is supported."
   ([parent]
     (projects-locations-connections-runtimeEntitySchemas-list
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://integrations.googleapis.com/v1/{+parent}/runtimeEntitySchemas",
@@ -2058,22 +2036,10 @@ filter <string> Filter. Only the action field with literal equality operator is 
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://integrations.googleapis.com/v1/{+parent}/runtimeActionSchemas",
        :uri-template-args {"parent" parent},
        :query-params (merge {} optional),
        :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
-
-(defn connectorPlatformRegions-enumerate
-  "Enumerates the regions for which Connector Platform is provisioned.
-https://cloud.google.com/application-integration/v1/reference/rest/v1/connectorPlatformRegions/enumerate"
-  []
-  (client/api-request
-    {:method :get,
-     :uri-template
-     "https://integrations.googleapis.com/v1/connectorPlatformRegions:enumerate",
-     :uri-template-args {},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))

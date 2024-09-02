@@ -14,7 +14,7 @@ optional:
 pageSize <integer> The maximum number of entries to return. The service may return fewer than this value. If unspecified, at most 1,000 entries will be returned. The maximum value is 10,000; values above 10,000 will be capped to 10,000. This default may change over time."
   ([parent] (projects-androidApps-deliveryData-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://fcmdata.googleapis.com/v1beta1/{+parent}/deliveryData",

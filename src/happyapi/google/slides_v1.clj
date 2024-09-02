@@ -10,7 +10,7 @@ https://developers.google.com/slides/v1/reference/rest/v1/presentations/get
 
 presentationId <> "
   [presentationId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://slides.googleapis.com/v1/presentations/{+presentationId}",
@@ -30,7 +30,7 @@ https://developers.google.com/slides/v1/reference/rest/v1/presentations/create
 Presentation:
 Presentation"
   [Presentation]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://slides.googleapis.com/v1/presentations",
      :uri-template-args {},
@@ -49,7 +49,7 @@ presentationId <>
 BatchUpdatePresentationRequest:
 BatchUpdatePresentationRequest"
   [presentationId BatchUpdatePresentationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://slides.googleapis.com/v1/presentations/{presentationId}:batchUpdate",
@@ -71,7 +71,7 @@ https://developers.google.com/slides/v1/reference/rest/v1/presentations/pages/ge
 presentationId <> 
 pageObjectId <> "
   [presentationId pageObjectId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://slides.googleapis.com/v1/presentations/{presentationId}/pages/{pageObjectId}",
@@ -98,7 +98,7 @@ thumbnailProperties.thumbnailSize <string> The optional thumbnail image size. If
   ([presentationId pageObjectId]
     (presentations-pages-getThumbnail presentationId pageObjectId nil))
   ([presentationId pageObjectId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://slides.googleapis.com/v1/presentations/{presentationId}/pages/{pageObjectId}/thumbnail",

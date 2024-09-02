@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/network-connectivity/docs/reference/networkconnectivity
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://networkconnectivity.googleapis.com/v1/{+name}",
@@ -49,7 +49,7 @@ filter <string> An expression that filters the list of results.
 orderBy <string> Sort the results by a certain order."
   ([parent] (projects-locations-spokes-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+parent}/spokes",
@@ -63,7 +63,7 @@ https://cloud.google.com/network-connectivity/docs/reference/networkconnectivity
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://networkconnectivity.googleapis.com/v1/{+name}",
@@ -84,7 +84,7 @@ spokeId <string> Required. Unique id for the spoke to create.
 requestId <string> Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server knows to ignore the request if it has already been completed. The server guarantees that a request doesn't result in creation of duplicate commitments for at least 60 minutes. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check to see whether the original operation was received. If it was, the server ignores the second request. This behavior prevents clients from mistakenly creating duplicate commitments. The request ID must be a valid UUID, with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([parent Spoke] (projects-locations-spokes-create parent Spoke nil))
   ([parent Spoke optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+parent}/spokes",
@@ -106,7 +106,7 @@ updateMask <string> Optional. In the case of an update to an existing spoke, fie
 requestId <string> Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server knows to ignore the request if it has already been completed. The server guarantees that a request doesn't result in creation of duplicate commitments for at least 60 minutes. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check to see whether the original operation was received. If it was, the server ignores the second request. This behavior prevents clients from mistakenly creating duplicate commitments. The request ID must be a valid UUID, with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name Spoke] (projects-locations-spokes-patch name Spoke nil))
   ([name Spoke optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+name}",
@@ -125,7 +125,7 @@ optional:
 requestId <string> Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server knows to ignore the request if it has already been completed. The server guarantees that a request doesn't result in creation of duplicate commitments for at least 60 minutes. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check to see whether the original operation was received. If it was, the server ignores the second request. This behavior prevents clients from mistakenly creating duplicate commitments. The request ID must be a valid UUID, with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-spokes-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+name}",
@@ -141,7 +141,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://networkconnectivity.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -160,7 +160,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-locations-spokes-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -176,7 +176,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://networkconnectivity.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -197,7 +197,7 @@ filter <string> A filter expression that filters the results listed in the respo
 orderBy <string> Sort the results by a certain order."
   ([parent] (projects-locations-serviceConnectionMaps-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+parent}/serviceConnectionMaps",
@@ -211,7 +211,7 @@ https://cloud.google.com/network-connectivity/docs/reference/networkconnectivity
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://networkconnectivity.googleapis.com/v1/{+name}",
@@ -236,7 +236,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
       ServiceConnectionMap
       nil))
   ([parent ServiceConnectionMap optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+parent}/serviceConnectionMaps",
@@ -262,7 +262,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
       ServiceConnectionMap
       nil))
   ([name ServiceConnectionMap optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+name}",
@@ -282,7 +282,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
 etag <string> Optional. The etag is computed by the server, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding."
   ([name] (projects-locations-serviceConnectionMaps-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+name}",
@@ -298,7 +298,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://networkconnectivity.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -320,7 +320,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -336,7 +336,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://networkconnectivity.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -351,7 +351,7 @@ https://cloud.google.com/network-connectivity/docs/reference/networkconnectivity
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://networkconnectivity.googleapis.com/v1/{+name}",
@@ -372,7 +372,7 @@ orderBy <string> Sort the results by a certain order."
   ([parent]
     (projects-locations-serviceConnectionTokens-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+parent}/serviceConnectionTokens",
@@ -397,7 +397,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
       ServiceConnectionToken
       nil))
   ([parent ServiceConnectionToken optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+parent}/serviceConnectionTokens",
@@ -417,7 +417,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
 etag <string> Optional. The etag is computed by the server, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding."
   ([name] (projects-locations-serviceConnectionTokens-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+name}",
@@ -437,7 +437,7 @@ filter <string> A filter expression that filters the results listed in the respo
 orderBy <string> Sort the results by a certain order."
   ([parent] (projects-locations-serviceClasses-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+parent}/serviceClasses",
@@ -451,7 +451,7 @@ https://cloud.google.com/network-connectivity/docs/reference/networkconnectivity
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://networkconnectivity.googleapis.com/v1/{+name}",
@@ -473,7 +473,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
   ([name ServiceClass]
     (projects-locations-serviceClasses-patch name ServiceClass nil))
   ([name ServiceClass optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+name}",
@@ -493,7 +493,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
 etag <string> Optional. The etag is computed by the server, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding."
   ([name] (projects-locations-serviceClasses-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+name}",
@@ -509,7 +509,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://networkconnectivity.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -529,7 +529,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-serviceClasses-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -545,7 +545,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://networkconnectivity.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -566,7 +566,7 @@ filter <string> A filter expression that filters the results listed in the respo
 orderBy <string> Sort the results by a certain order."
   ([parent] (projects-locations-regionalEndpoints-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+parent}/regionalEndpoints",
@@ -580,7 +580,7 @@ https://cloud.google.com/network-connectivity/docs/reference/networkconnectivity
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://networkconnectivity.googleapis.com/v1/{+name}",
@@ -605,7 +605,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
       RegionalEndpoint
       nil))
   ([parent RegionalEndpoint optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+parent}/regionalEndpoints",
@@ -624,7 +624,7 @@ optional:
 requestId <string> Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server knows to ignore the request if it has already been completed. The server guarantees that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if the original operation with the same request ID was received, and if so, ignores the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-regionalEndpoints-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+name}",
@@ -644,7 +644,7 @@ filter <string> A filter expression that filters the results listed in the respo
 orderBy <string> Sort the results by a certain order."
   ([parent] (projects-locations-internalRanges-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+parent}/internalRanges",
@@ -658,7 +658,7 @@ https://cloud.google.com/network-connectivity/docs/reference/networkconnectivity
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://networkconnectivity.googleapis.com/v1/{+name}",
@@ -683,7 +683,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
       InternalRange
       nil))
   ([parent InternalRange optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+parent}/internalRanges",
@@ -706,7 +706,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
   ([name InternalRange]
     (projects-locations-internalRanges-patch name InternalRange nil))
   ([name InternalRange optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+name}",
@@ -725,7 +725,7 @@ optional:
 requestId <string> Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-internalRanges-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+name}",
@@ -747,7 +747,7 @@ orderBy <string> Sort the results by name or create_time.
 view <string> The view of the spoke to return. The view that you use determines which spoke fields are included in the response."
   ([name] (projects-locations-global-hubs-listSpokes name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+name}:listSpokes",
@@ -767,7 +767,7 @@ filter <string> An expression that filters the list of results.
 orderBy <string> Sort the results by a certain order."
   ([parent] (projects-locations-global-hubs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+parent}/hubs",
@@ -783,7 +783,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://networkconnectivity.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -802,7 +802,7 @@ optional:
 requestId <string> Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server knows to ignore the request if it has already been completed. The server guarantees that a request doesn't result in creation of duplicate commitments for at least 60 minutes. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check to see whether the original operation was received. If it was, the server ignores the second request. This behavior prevents clients from mistakenly creating duplicate commitments. The request ID must be a valid UUID, with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-global-hubs-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+name}",
@@ -818,7 +818,7 @@ name <>
 AcceptHubSpokeRequest:
 AcceptHubSpokeRequest"
   [name AcceptHubSpokeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://networkconnectivity.googleapis.com/v1/{+name}:acceptSpoke",
@@ -835,7 +835,7 @@ name <>
 RejectHubSpokeRequest:
 RejectHubSpokeRequest"
   [name RejectHubSpokeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://networkconnectivity.googleapis.com/v1/{+name}:rejectSpoke",
@@ -857,7 +857,7 @@ updateMask <string> Optional. In the case of an update to an existing hub, field
 requestId <string> Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server knows to ignore the request if it has already been completed. The server guarantees that a request doesn't result in creation of duplicate commitments for at least 60 minutes. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check to see whether the original operation was received. If it was, the server ignores the second request. This behavior prevents clients from mistakenly creating duplicate commitments. The request ID must be a valid UUID, with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name Hub] (projects-locations-global-hubs-patch name Hub nil))
   ([name Hub optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+name}",
@@ -877,7 +877,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-global-hubs-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -898,7 +898,7 @@ hubId <string> Required. A unique identifier for the hub.
 requestId <string> Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server knows to ignore the request if it has already been completed. The server guarantees that a request doesn't result in creation of duplicate commitments for at least 60 minutes. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check to see whether the original operation was received. If it was, the server ignores the second request. This behavior prevents clients from mistakenly creating duplicate commitments. The request ID must be a valid UUID, with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([parent Hub] (projects-locations-global-hubs-create parent Hub nil))
   ([parent Hub optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+parent}/hubs",
@@ -913,7 +913,7 @@ https://cloud.google.com/network-connectivity/docs/reference/networkconnectivity
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://networkconnectivity.googleapis.com/v1/{+name}",
@@ -929,7 +929,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://networkconnectivity.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -944,7 +944,7 @@ https://cloud.google.com/network-connectivity/docs/reference/networkconnectivity
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://networkconnectivity.googleapis.com/v1/{+name}",
@@ -965,7 +965,7 @@ orderBy <string> Sort the results by a certain order."
   ([parent]
     (projects-locations-global-hubs-routeTables-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+parent}/routeTables",
@@ -979,7 +979,7 @@ https://cloud.google.com/network-connectivity/docs/reference/networkconnectivity
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://networkconnectivity.googleapis.com/v1/{+name}",
@@ -1002,7 +1002,7 @@ orderBy <string> Sort the results by a certain order."
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+parent}/routes",
@@ -1016,7 +1016,7 @@ https://cloud.google.com/network-connectivity/docs/reference/networkconnectivity
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://networkconnectivity.googleapis.com/v1/{+name}",
@@ -1036,7 +1036,7 @@ filter <string> An expression that filters the list of results.
 orderBy <string> Sort the results by a certain order."
   ([parent] (projects-locations-global-hubs-groups-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+parent}/groups",
@@ -1058,7 +1058,7 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
   ([name Group]
     (projects-locations-global-hubs-groups-patch name Group nil))
   ([name Group optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+name}",
@@ -1075,7 +1075,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://networkconnectivity.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -1095,7 +1095,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-global-hubs-groups-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -1111,7 +1111,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://networkconnectivity.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -1133,7 +1133,7 @@ orderBy <string> Sort the results by a certain order."
   ([parent]
     (projects-locations-global-policyBasedRoutes-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+parent}/policyBasedRoutes",
@@ -1147,7 +1147,7 @@ https://cloud.google.com/network-connectivity/docs/reference/networkconnectivity
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://networkconnectivity.googleapis.com/v1/{+name}",
@@ -1172,7 +1172,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
       PolicyBasedRoute
       nil))
   ([parent PolicyBasedRoute optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+parent}/policyBasedRoutes",
@@ -1192,7 +1192,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
   ([name]
     (projects-locations-global-policyBasedRoutes-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+name}",
@@ -1208,7 +1208,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://networkconnectivity.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -1230,7 +1230,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -1246,7 +1246,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://networkconnectivity.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -1268,7 +1268,7 @@ orderBy <string> Sort the results by a certain order."
   ([parent]
     (projects-locations-serviceConnectionPolicies-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+parent}/serviceConnectionPolicies",
@@ -1282,7 +1282,7 @@ https://cloud.google.com/network-connectivity/docs/reference/networkconnectivity
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://networkconnectivity.googleapis.com/v1/{+name}",
@@ -1307,7 +1307,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
       ServiceConnectionPolicy
       nil))
   ([parent ServiceConnectionPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+parent}/serviceConnectionPolicies",
@@ -1333,7 +1333,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
       ServiceConnectionPolicy
       nil))
   ([name ServiceConnectionPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+name}",
@@ -1354,7 +1354,7 @@ etag <string> Optional. The etag is computed by the server, and may be sent on u
   ([name]
     (projects-locations-serviceConnectionPolicies-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+name}",
@@ -1370,7 +1370,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://networkconnectivity.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -1392,7 +1392,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -1408,7 +1408,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://networkconnectivity.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -1428,7 +1428,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkconnectivity.googleapis.com/v1/{+name}/operations",
@@ -1442,7 +1442,7 @@ https://cloud.google.com/network-connectivity/docs/reference/networkconnectivity
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://networkconnectivity.googleapis.com/v1/{+name}",
@@ -1456,7 +1456,7 @@ https://cloud.google.com/network-connectivity/docs/reference/networkconnectivity
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://networkconnectivity.googleapis.com/v1/{+name}",
@@ -1472,7 +1472,7 @@ name <>
 GoogleLongrunningCancelOperationRequest:
 GoogleLongrunningCancelOperationRequest"
   [name GoogleLongrunningCancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://networkconnectivity.googleapis.com/v1/{+name}:cancel",

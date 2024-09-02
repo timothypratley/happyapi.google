@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://managedidentities.googleapis.com/v1/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/security/products/managed-microsoft-ad/docs/overview/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://managedidentities.googleapis.com/v1/{+name}",
@@ -48,7 +48,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-global-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://managedidentities.googleapis.com/v1/{+name}",
@@ -62,7 +62,7 @@ https://cloud.google.com/security/products/managed-microsoft-ad/docs/overview/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://managedidentities.googleapis.com/v1/{+name}",
@@ -76,7 +76,7 @@ https://cloud.google.com/security/products/managed-microsoft-ad/docs/overview/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://managedidentities.googleapis.com/v1/{+name}",
@@ -92,7 +92,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://managedidentities.googleapis.com/v1/{+name}:cancel",
@@ -113,7 +113,7 @@ filter <string> Optional. A filter specifying constraints of a list operation. F
 orderBy <string> Optional. Specifies the ordering of results. See [Sorting order](https://cloud.google.com/apis/design/design_patterns#sorting_order) for more information."
   ([parent] (projects-locations-global-domains-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://managedidentities.googleapis.com/v1/{+parent}/domains",
@@ -129,7 +129,7 @@ name <>
 AttachTrustRequest:
 AttachTrustRequest"
   [name AttachTrustRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://managedidentities.googleapis.com/v1/{+name}:attachTrust",
@@ -146,7 +146,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://managedidentities.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -163,7 +163,7 @@ name <>
 ResetAdminPasswordRequest:
 ResetAdminPasswordRequest"
   [name ResetAdminPasswordRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://managedidentities.googleapis.com/v1/{+name}:resetAdminPassword",
@@ -180,7 +180,7 @@ domain <>
 CheckMigrationPermissionRequest:
 CheckMigrationPermissionRequest"
   [domain CheckMigrationPermissionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://managedidentities.googleapis.com/v1/{+domain}:checkMigrationPermission",
@@ -195,7 +195,7 @@ https://cloud.google.com/security/products/managed-microsoft-ad/docs/overview/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://managedidentities.googleapis.com/v1/{+name}",
@@ -211,7 +211,7 @@ name <>
 ValidateTrustRequest:
 ValidateTrustRequest"
   [name ValidateTrustRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://managedidentities.googleapis.com/v1/{+name}:validateTrust",
@@ -228,7 +228,7 @@ name <>
 ReconfigureTrustRequest:
 ReconfigureTrustRequest"
   [name ReconfigureTrustRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://managedidentities.googleapis.com/v1/{+name}:reconfigureTrust",
@@ -245,7 +245,7 @@ domain <>
 EnableMigrationRequest:
 EnableMigrationRequest"
   [domain EnableMigrationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://managedidentities.googleapis.com/v1/{+domain}:enableMigration",
@@ -262,7 +262,7 @@ domain <>
 DomainJoinMachineRequest:
 DomainJoinMachineRequest"
   [domain DomainJoinMachineRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://managedidentities.googleapis.com/v1/{+domain}:domainJoinMachine",
@@ -287,7 +287,7 @@ updateMask <string> Required. Mask of fields to update. At least one path must b
       LDAPSSettings
       nil))
   ([name LDAPSSettings optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://managedidentities.googleapis.com/v1/{+name}/ldapssettings",
@@ -304,7 +304,7 @@ domain <>
 DisableMigrationRequest:
 DisableMigrationRequest"
   [domain DisableMigrationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://managedidentities.googleapis.com/v1/{+domain}:disableMigration",
@@ -319,7 +319,7 @@ https://cloud.google.com/security/products/managed-microsoft-ad/docs/overview/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://managedidentities.googleapis.com/v1/{+name}/ldapssettings",
@@ -340,7 +340,7 @@ updateMask <string> Required. Mask of fields to update. At least one path must b
   ([name Domain]
     (projects-locations-global-domains-patch name Domain nil))
   ([name Domain optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://managedidentities.googleapis.com/v1/{+name}",
@@ -357,7 +357,7 @@ domain <>
 ExtendSchemaRequest:
 ExtendSchemaRequest"
   [domain ExtendSchemaRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://managedidentities.googleapis.com/v1/{+domain}:extendSchema",
@@ -377,7 +377,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-global-domains-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://managedidentities.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -398,7 +398,7 @@ domainName <string> Required. The fully qualified domain name. e.g. mydomain.myo
   ([parent Domain]
     (projects-locations-global-domains-create parent Domain nil))
   ([parent Domain optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://managedidentities.googleapis.com/v1/{+parent}/domains",
@@ -415,7 +415,7 @@ name <>
 RestoreDomainRequest:
 RestoreDomainRequest"
   [name RestoreDomainRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://managedidentities.googleapis.com/v1/{+name}:restore",
@@ -430,7 +430,7 @@ https://cloud.google.com/security/products/managed-microsoft-ad/docs/overview/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://managedidentities.googleapis.com/v1/{+name}",
@@ -446,7 +446,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://managedidentities.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -463,7 +463,7 @@ name <>
 DetachTrustRequest:
 DetachTrustRequest"
   [name DetachTrustRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://managedidentities.googleapis.com/v1/{+name}:detachTrust",
@@ -488,7 +488,7 @@ backupId <string> Required. Backup Id, unique name to identify the backups with 
       Backup
       nil))
   ([parent Backup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://managedidentities.googleapis.com/v1/{+parent}/backups",
@@ -510,7 +510,7 @@ orderBy <string> Optional. Specifies the ordering of results following syntax at
   ([parent]
     (projects-locations-global-domains-backups-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://managedidentities.googleapis.com/v1/{+parent}/backups",
@@ -524,7 +524,7 @@ https://cloud.google.com/security/products/managed-microsoft-ad/docs/overview/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://managedidentities.googleapis.com/v1/{+name}",
@@ -545,7 +545,7 @@ updateMask <string> Required. Mask of fields to update. At least one path must b
   ([name Backup]
     (projects-locations-global-domains-backups-patch name Backup nil))
   ([name Backup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://managedidentities.googleapis.com/v1/{+name}",
@@ -560,7 +560,7 @@ https://cloud.google.com/security/products/managed-microsoft-ad/docs/overview/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://managedidentities.googleapis.com/v1/{+name}",
@@ -576,7 +576,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://managedidentities.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -598,7 +598,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://managedidentities.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -614,7 +614,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://managedidentities.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -638,7 +638,7 @@ orderBy <string> Optional. Specifies the ordering of results following syntax at
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://managedidentities.googleapis.com/v1/{+parent}/sqlIntegrations",
@@ -652,7 +652,7 @@ https://cloud.google.com/security/products/managed-microsoft-ad/docs/overview/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://managedidentities.googleapis.com/v1/{+name}",
@@ -673,7 +673,7 @@ peeringId <string> Required. Peering Id, unique name to identify peering. It sho
   ([parent Peering]
     (projects-locations-global-peerings-create parent Peering nil))
   ([parent Peering optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://managedidentities.googleapis.com/v1/{+parent}/peerings",
@@ -694,7 +694,7 @@ filter <string> Optional. Filter specifying constraints of a list operation. For
 orderBy <string> Optional. Specifies the ordering of results following syntax at https://cloud.google.com/apis/design/design_patterns#sorting_order."
   ([parent] (projects-locations-global-peerings-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://managedidentities.googleapis.com/v1/{+parent}/peerings",
@@ -708,7 +708,7 @@ https://cloud.google.com/security/products/managed-microsoft-ad/docs/overview/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://managedidentities.googleapis.com/v1/{+name}",
@@ -729,7 +729,7 @@ updateMask <string> Required. Mask of fields to update. At least one path must b
   ([name Peering]
     (projects-locations-global-peerings-patch name Peering nil))
   ([name Peering optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://managedidentities.googleapis.com/v1/{+name}",
@@ -744,7 +744,7 @@ https://cloud.google.com/security/products/managed-microsoft-ad/docs/overview/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://managedidentities.googleapis.com/v1/{+name}",
@@ -760,7 +760,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://managedidentities.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -780,7 +780,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-global-peerings-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://managedidentities.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -796,7 +796,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://managedidentities.googleapis.com/v1/{+resource}:testIamPermissions",

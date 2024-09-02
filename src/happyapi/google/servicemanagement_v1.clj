@@ -14,7 +14,7 @@ filter <string> A string for filtering Operations. The following filter fields a
 pageSize <integer> The maximum number of operations to return. If unspecified, defaults to 50. The maximum value is 100."
   ([] (operations-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://servicemanagement.googleapis.com/v1/operations",
@@ -30,7 +30,7 @@ https://cloud.google.com/service-infrastructure/docs/v1/reference/rest/v1/operat
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://servicemanagement.googleapis.com/v1/{+name}",
@@ -50,7 +50,7 @@ pageSize <integer> The max number of items to include in the response list. Page
 consumerId <string> Include services consumed by the specified consumer. The Google Service Management implementation accepts the following forms: - project:"
   ([] (services-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://servicemanagement.googleapis.com/v1/services",
@@ -70,7 +70,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://servicemanagement.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -87,7 +87,7 @@ https://cloud.google.com/service-infrastructure/docs/v1/reference/rest/v1/servic
 
 serviceName <> "
   [serviceName]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://servicemanagement.googleapis.com/v1/services/{serviceName}",
@@ -103,7 +103,7 @@ https://cloud.google.com/service-infrastructure/docs/v1/reference/rest/v1/servic
 
 serviceName <> "
   [serviceName]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://servicemanagement.googleapis.com/v1/services/{serviceName}:undelete",
@@ -121,7 +121,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://servicemanagement.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -141,7 +141,7 @@ https://cloud.google.com/service-infrastructure/docs/v1/reference/rest/v1/servic
 ManagedService:
 ManagedService"
   [ManagedService]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://servicemanagement.googleapis.com/v1/services",
@@ -163,7 +163,7 @@ configId <string> Required. The id of the service configuration resource. This f
 view <string> Specifies which parts of the Service Config should be returned in the response."
   ([serviceName] (services-getConfig serviceName nil))
   ([serviceName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://servicemanagement.googleapis.com/v1/services/{serviceName}/config",
@@ -181,7 +181,7 @@ https://cloud.google.com/service-infrastructure/docs/v1/reference/rest/v1/servic
 
 serviceName <> "
   [serviceName]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://servicemanagement.googleapis.com/v1/services/{serviceName}",
@@ -200,7 +200,7 @@ https://cloud.google.com/service-infrastructure/docs/v1/reference/rest/v1/servic
 GenerateConfigReportRequest:
 GenerateConfigReportRequest"
   [GenerateConfigReportRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://servicemanagement.googleapis.com/v1/services:generateConfigReport",
@@ -219,7 +219,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://servicemanagement.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -242,7 +242,7 @@ optional:
 pageSize <integer> The max number of items to include in the response list. Page size is 50 if not specified. Maximum value is 100."
   ([serviceName] (services-configs-list serviceName nil))
   ([serviceName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://servicemanagement.googleapis.com/v1/services/{serviceName}/configs",
@@ -266,7 +266,7 @@ view <string> Specifies which parts of the Service Config should be returned in 
   ([serviceName configId]
     (services-configs-get serviceName configId nil))
   ([serviceName configId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://servicemanagement.googleapis.com/v1/services/{serviceName}/configs/{configId}",
@@ -287,7 +287,7 @@ serviceName <>
 Service:
 Service"
   [serviceName Service]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://servicemanagement.googleapis.com/v1/services/{serviceName}/configs",
@@ -306,7 +306,7 @@ serviceName <>
 SubmitConfigSourceRequest:
 SubmitConfigSourceRequest"
   [serviceName SubmitConfigSourceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://servicemanagement.googleapis.com/v1/services/{serviceName}/configs:submit",
@@ -328,7 +328,7 @@ pageSize <integer> The max number of items to include in the response list. Page
 filter <string> Required. Use `filter` to return subset of rollouts. The following filters are supported: -- By status. For example, `filter='status=SUCCESS'` -- By strategy. For example, `filter='strategy=TrafficPercentStrategy'`"
   ([serviceName] (services-rollouts-list serviceName nil))
   ([serviceName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://servicemanagement.googleapis.com/v1/services/{serviceName}/rollouts",
@@ -347,7 +347,7 @@ https://cloud.google.com/service-infrastructure/docs/v1/reference/rest/v1/servic
 serviceName <> 
 rolloutId <> "
   [serviceName rolloutId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://servicemanagement.googleapis.com/v1/services/{serviceName}/rollouts/{rolloutId}",
@@ -368,7 +368,7 @@ serviceName <>
 Rollout:
 Rollout"
   [serviceName Rollout]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://servicemanagement.googleapis.com/v1/services/{serviceName}/rollouts",
@@ -387,7 +387,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://servicemanagement.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -406,7 +406,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://servicemanagement.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -427,7 +427,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://servicemanagement.googleapis.com/v1/{+resource}:testIamPermissions",

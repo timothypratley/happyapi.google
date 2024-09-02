@@ -12,7 +12,7 @@ parent <>
 CreatePhraseSetRequest:
 CreatePhraseSetRequest"
   [parent CreatePhraseSetRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://speech.googleapis.com/v1/{+parent}/phraseSets",
@@ -27,7 +27,7 @@ https://cloud.google.com/speech-to-text/docs/transcribe-api/v1/reference/rest/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://speech.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -44,7 +44,7 @@ optional:
 pageSize <integer> The maximum number of phrase sets to return. The service may return fewer than this value. If unspecified, at most 50 phrase sets will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (projects-locations-phraseSets-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://speech.googleapis.com/v1/{+parent}/phraseSets",
@@ -65,7 +65,7 @@ updateMask <string> The list of fields to be updated."
   ([name PhraseSet]
     (projects-locations-phraseSets-patch name PhraseSet nil))
   ([name PhraseSet optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://speech.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -79,7 +79,7 @@ https://cloud.google.com/speech-to-text/docs/transcribe-api/v1/reference/rest/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://speech.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -94,7 +94,7 @@ parent <>
 CreateCustomClassRequest:
 CreateCustomClassRequest"
   [parent CreateCustomClassRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://speech.googleapis.com/v1/{+parent}/customClasses",
@@ -109,7 +109,7 @@ https://cloud.google.com/speech-to-text/docs/transcribe-api/v1/reference/rest/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://speech.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -126,7 +126,7 @@ optional:
 pageSize <integer> The maximum number of custom classes to return. The service may return fewer than this value. If unspecified, at most 50 custom classes will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (projects-locations-customClasses-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://speech.googleapis.com/v1/{+parent}/customClasses",
@@ -147,7 +147,7 @@ updateMask <string> The list of fields to be updated."
   ([name CustomClass]
     (projects-locations-customClasses-patch name CustomClass nil))
   ([name CustomClass optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://speech.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -161,7 +161,7 @@ https://cloud.google.com/speech-to-text/docs/transcribe-api/v1/reference/rest/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://speech.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -178,7 +178,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([] (operations-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://speech.googleapis.com/v1/operations",
        :uri-template-args {},
@@ -191,7 +191,7 @@ https://cloud.google.com/speech-to-text/docs/transcribe-api/v1/reference/rest/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://speech.googleapis.com/v1/operations/{+name}",
@@ -206,7 +206,7 @@ https://cloud.google.com/speech-to-text/docs/transcribe-api/v1/reference/rest/v1
 RecognizeRequest:
 RecognizeRequest"
   [RecognizeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://speech.googleapis.com/v1/speech:recognize",
      :uri-template-args {},
@@ -221,7 +221,7 @@ https://cloud.google.com/speech-to-text/docs/transcribe-api/v1/reference/rest/v1
 LongRunningRecognizeRequest:
 LongRunningRecognizeRequest"
   [LongRunningRecognizeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://speech.googleapis.com/v1/speech:longrunningrecognize",

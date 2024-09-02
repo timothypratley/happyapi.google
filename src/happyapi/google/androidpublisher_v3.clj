@@ -13,7 +13,7 @@ versionCode <>
 Variant:
 Variant"
   [packageName versionCode Variant]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/systemApks/{versionCode}/variants",
@@ -30,7 +30,7 @@ https://developers.google.com/android-publisher/v3/reference/rest/v3/systemapks/
 packageName <> 
 versionCode <> "
   [packageName versionCode]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/systemApks/{versionCode}/variants",
@@ -47,7 +47,7 @@ packageName <>
 versionCode <> 
 variantId <> "
   [packageName versionCode variantId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/systemApks/{versionCode}/variants/{variantId}",
@@ -66,7 +66,7 @@ packageName <>
 versionCode <> 
 variantId <> "
   [packageName versionCode variantId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/systemApks/{versionCode}/variants/{variantId}:download",
@@ -85,7 +85,7 @@ packageName <>
 CreateDraftAppRecoveryRequest:
 CreateDraftAppRecoveryRequest"
   [packageName CreateDraftAppRecoveryRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/appRecoveries",
@@ -103,7 +103,7 @@ appRecoveryId <>
 DeployAppRecoveryRequest:
 DeployAppRecoveryRequest"
   [packageName appRecoveryId DeployAppRecoveryRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/appRecoveries/{appRecoveryId}:deploy",
@@ -123,7 +123,7 @@ optional:
 versionCode <string> Required. Version code targeted by the list of recovery actions."
   ([packageName] (apprecovery-list packageName nil))
   ([packageName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/appRecoveries",
@@ -140,7 +140,7 @@ appRecoveryId <>
 AddTargetingRequest:
 AddTargetingRequest"
   [packageName appRecoveryId AddTargetingRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/appRecoveries/{appRecoveryId}:addTargeting",
@@ -159,7 +159,7 @@ appRecoveryId <>
 CancelAppRecoveryRequest:
 CancelAppRecoveryRequest"
   [packageName appRecoveryId CancelAppRecoveryRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/appRecoveries/{appRecoveryId}:cancel",
@@ -177,7 +177,7 @@ packageName <>
 SafetyLabelsUpdateRequest:
 SafetyLabelsUpdateRequest"
   [packageName SafetyLabelsUpdateRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/dataSafety",
@@ -202,7 +202,7 @@ allowUnknownDevices <boolean> Whether the service should accept device IDs that 
       DeviceTierConfig
       nil))
   ([packageName DeviceTierConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/deviceTierConfigs",
@@ -218,7 +218,7 @@ https://developers.google.com/android-publisher/v3/reference/rest/v3/application
 packageName <> 
 deviceTierConfigId <> "
   [packageName deviceTierConfigId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/deviceTierConfigs/{deviceTierConfigId}",
@@ -238,7 +238,7 @@ optional:
 pageSize <integer> The maximum number of device tier configs to return. The service may return fewer than this value. If unspecified, at most 10 device tier configs will be returned. The maximum value for this field is 100; values above 100 will be coerced to 100. Device tier configs will be ordered by descending creation time."
   ([packageName] (applications-deviceTierConfigs-list packageName nil))
   ([packageName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/deviceTierConfigs",
@@ -254,7 +254,7 @@ packageName <>
 ConvertRegionPricesRequest:
 ConvertRegionPricesRequest"
   [packageName ConvertRegionPricesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/pricing:convertRegionPrices",
@@ -270,7 +270,7 @@ https://developers.google.com/android-publisher/v3/reference/rest/v3/monetizatio
 packageName <> 
 productId <> "
   [packageName productId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/subscriptions/{productId}",
@@ -289,7 +289,7 @@ optional:
 productIds <string> Required. A list of up to 100 subscription product IDs to retrieve. All the IDs must be different."
   ([packageName] (monetization-subscriptions-batchGet packageName nil))
   ([packageName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/subscriptions:batchGet",
@@ -308,7 +308,7 @@ pageSize <integer> The maximum number of subscriptions to return. The service ma
 showArchived <boolean> Deprecated: subscription archiving is not supported."
   ([packageName] (monetization-subscriptions-list packageName nil))
   ([packageName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/subscriptions",
@@ -330,7 +330,7 @@ regionsVersion.version <string> Required. A string representing the version of a
   ([packageName Subscription]
     (monetization-subscriptions-create packageName Subscription nil))
   ([packageName Subscription optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/subscriptions",
@@ -360,7 +360,7 @@ latencyTolerance <string> Optional. The latency tolerance for the propagation of
       Subscription
       nil))
   ([packageName productId Subscription optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/subscriptions/{productId}",
@@ -378,7 +378,7 @@ packageName <>
 BatchUpdateSubscriptionsRequest:
 BatchUpdateSubscriptionsRequest"
   [packageName BatchUpdateSubscriptionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/subscriptions:batchUpdate",
@@ -394,7 +394,7 @@ https://developers.google.com/android-publisher/v3/reference/rest/v3/monetizatio
 packageName <> 
 productId <> "
   [packageName productId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/subscriptions/{productId}",
@@ -412,7 +412,7 @@ productId <>
 ArchiveSubscriptionRequest:
 ArchiveSubscriptionRequest"
   [packageName productId ArchiveSubscriptionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/subscriptions/{productId}:archive",
@@ -430,7 +430,7 @@ packageName <>
 productId <> 
 basePlanId <> "
   [packageName productId basePlanId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/subscriptions/{productId}/basePlans/{basePlanId}",
@@ -451,7 +451,7 @@ basePlanId <>
 ActivateBasePlanRequest:
 ActivateBasePlanRequest"
   [packageName productId basePlanId ActivateBasePlanRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/subscriptions/{productId}/basePlans/{basePlanId}:activate",
@@ -473,7 +473,7 @@ basePlanId <>
 DeactivateBasePlanRequest:
 DeactivateBasePlanRequest"
   [packageName productId basePlanId DeactivateBasePlanRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/subscriptions/{productId}/basePlans/{basePlanId}:deactivate",
@@ -494,7 +494,7 @@ productId <>
 BatchUpdateBasePlanStatesRequest:
 BatchUpdateBasePlanStatesRequest"
   [packageName productId BatchUpdateBasePlanStatesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/subscriptions/{productId}/basePlans:batchUpdateStates",
@@ -505,7 +505,7 @@ BatchUpdateBasePlanStatesRequest"
      :body BatchUpdateBasePlanStatesRequest}))
 
 (defn monetization-subscriptions-basePlans-migratePrices
-  "Migrates subscribers who are receiving an historical subscription price to the currently-offered price for the specified region. Requests will cause price change notifications to be sent to users who are currently receiving an historical price older than the supplied timestamp. Subscribers who do not agree to the new price will have their subscription ended at the next renewal.
+  "Migrates subscribers from one or more legacy price cohorts to the current price. Requests result in Google Play notifying affected subscribers. Only up to 250 simultaneous legacy price cohorts are supported.
 https://developers.google.com/android-publisher/v3/reference/rest/v3/monetization/subscriptions/basePlans/migratePrices
 
 packageName <> 
@@ -514,7 +514,7 @@ basePlanId <>
 MigrateBasePlanPricesRequest:
 MigrateBasePlanPricesRequest"
   [packageName productId basePlanId MigrateBasePlanPricesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/subscriptions/{productId}/basePlans/{basePlanId}:migratePrices",
@@ -535,7 +535,7 @@ productId <>
 BatchMigrateBasePlanPricesRequest:
 BatchMigrateBasePlanPricesRequest"
   [packageName productId BatchMigrateBasePlanPricesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/subscriptions/{productId}/basePlans:batchMigratePrices",
@@ -562,7 +562,7 @@ pageSize <integer> The maximum number of subscriptions to return. The service ma
       basePlanId
       nil))
   ([packageName productId basePlanId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/subscriptions/{productId}/basePlans/{basePlanId}/offers",
@@ -586,7 +586,7 @@ BatchUpdateSubscriptionOfferStatesRequest"
    productId
    basePlanId
    BatchUpdateSubscriptionOfferStatesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/subscriptions/{productId}/basePlans/{basePlanId}/offers:batchUpdateStates",
@@ -607,7 +607,7 @@ productId <>
 basePlanId <> 
 offerId <> "
   [packageName productId basePlanId offerId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/subscriptions/{productId}/basePlans/{basePlanId}/offers/{offerId}",
@@ -634,7 +634,7 @@ ActivateSubscriptionOfferRequest"
    basePlanId
    offerId
    ActivateSubscriptionOfferRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/subscriptions/{productId}/basePlans/{basePlanId}/offers/{offerId}:activate",
@@ -660,7 +660,7 @@ BatchUpdateSubscriptionOffersRequest"
    productId
    basePlanId
    BatchUpdateSubscriptionOffersRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/subscriptions/{productId}/basePlans/{basePlanId}/offers:batchUpdate",
@@ -687,7 +687,7 @@ DeactivateSubscriptionOfferRequest"
    basePlanId
    offerId
    DeactivateSubscriptionOfferRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/subscriptions/{productId}/basePlans/{basePlanId}/offers/{offerId}:deactivate",
@@ -730,7 +730,7 @@ latencyTolerance <string> Optional. The latency tolerance for the propagation of
     offerId
     SubscriptionOffer
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/subscriptions/{productId}/basePlans/{basePlanId}/offers/{offerId}",
@@ -753,7 +753,7 @@ basePlanId <>
 BatchGetSubscriptionOffersRequest:
 BatchGetSubscriptionOffersRequest"
   [packageName productId basePlanId BatchGetSubscriptionOffersRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/subscriptions/{productId}/basePlans/{basePlanId}/offers:batchGet",
@@ -786,7 +786,7 @@ regionsVersion.version <string> Required. A string representing the version of a
       SubscriptionOffer
       nil))
   ([packageName productId basePlanId SubscriptionOffer optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/subscriptions/{productId}/basePlans/{basePlanId}/offers",
@@ -807,7 +807,7 @@ productId <>
 basePlanId <> 
 offerId <> "
   [packageName productId basePlanId offerId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/subscriptions/{productId}/basePlans/{basePlanId}/offers/{offerId}",
@@ -827,7 +827,7 @@ packageName <>
 productId <> 
 token <> "
   [packageName productId token]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/purchases/products/{productId}/tokens/{token}",
@@ -846,7 +846,7 @@ token <>
 ProductPurchasesAcknowledgeRequest:
 ProductPurchasesAcknowledgeRequest"
   [packageName productId token ProductPurchasesAcknowledgeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/purchases/products/{productId}/tokens/{token}:acknowledge",
@@ -864,7 +864,7 @@ packageName <>
 productId <> 
 token <> "
   [packageName productId token]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/purchases/products/{productId}/tokens/{token}:consume",
@@ -881,7 +881,7 @@ packageName <>
 subscriptionId <> 
 token <> "
   [packageName subscriptionId token]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/purchases/subscriptions/{subscriptionId}/tokens/{token}",
@@ -900,7 +900,7 @@ packageName <>
 subscriptionId <> 
 token <> "
   [packageName subscriptionId token]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/purchases/subscriptions/{subscriptionId}/tokens/{token}:cancel",
@@ -921,7 +921,7 @@ token <>
 SubscriptionPurchasesDeferRequest:
 SubscriptionPurchasesDeferRequest"
   [packageName subscriptionId token SubscriptionPurchasesDeferRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/purchases/subscriptions/{subscriptionId}/tokens/{token}:defer",
@@ -941,7 +941,7 @@ packageName <>
 subscriptionId <> 
 token <> "
   [packageName subscriptionId token]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/purchases/subscriptions/{subscriptionId}/tokens/{token}:refund",
@@ -960,7 +960,7 @@ packageName <>
 subscriptionId <> 
 token <> "
   [packageName subscriptionId token]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/purchases/subscriptions/{subscriptionId}/tokens/{token}:revoke",
@@ -984,7 +984,7 @@ SubscriptionPurchasesAcknowledgeRequest"
    subscriptionId
    token
    SubscriptionPurchasesAcknowledgeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/purchases/subscriptions/{subscriptionId}/tokens/{token}:acknowledge",
@@ -1003,7 +1003,7 @@ https://developers.google.com/android-publisher/v3/reference/rest/v3/purchases/s
 packageName <> 
 token <> "
   [packageName token]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/purchases/subscriptionsv2/tokens/{token}",
@@ -1020,7 +1020,7 @@ token <>
 RevokeSubscriptionPurchaseRequest:
 RevokeSubscriptionPurchaseRequest"
   [packageName token RevokeSubscriptionPurchaseRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/purchases/subscriptionsv2/tokens/{token}:revoke",
@@ -1045,7 +1045,7 @@ type <integer> The type of voided purchases that you want to see in the response
 includeQuantityBasedPartialRefund <boolean> Optional. Whether to include voided purchases of quantity-based partial refunds, which are applicable only to multi-quantity purchases. If true, additional voided purchases may be returned with voidedQuantity that indicates the refund quantity of a quantity-based partial refund. The default value is false."
   ([packageName] (purchases-voidedpurchases-list packageName nil))
   ([packageName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/purchases/voidedpurchases",
@@ -1059,7 +1059,7 @@ https://developers.google.com/android-publisher/v3/reference/rest/v3/internalapp
 
 packageName <> "
   [packageName]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/internalappsharing/{packageName}/artifacts/apk",
@@ -1073,7 +1073,7 @@ https://developers.google.com/android-publisher/v3/reference/rest/v3/internalapp
 
 packageName <> "
   [packageName]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/internalappsharing/{packageName}/artifacts/bundle",
@@ -1092,7 +1092,7 @@ optional:
 translationLanguage <string> Language localization code."
   ([packageName reviewId] (reviews-get packageName reviewId nil))
   ([packageName reviewId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/reviews/{reviewId}",
@@ -1114,7 +1114,7 @@ maxResults <integer> How many results the list operation should return.
 translationLanguage <string> Language localization code."
   ([packageName] (reviews-list packageName nil))
   ([packageName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/reviews",
@@ -1131,7 +1131,7 @@ reviewId <>
 ReviewsReplyRequest:
 ReviewsReplyRequest"
   [packageName reviewId ReviewsReplyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/reviews/{reviewId}:reply",
@@ -1149,7 +1149,7 @@ parent <>
 User:
 User"
   [parent User]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/{+parent}/users",
@@ -1168,7 +1168,7 @@ optional:
 pageSize <integer> The maximum number of results to return. This must be set to -1 to disable pagination."
   ([parent] (users-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://androidpublisher.googleapis.com/androidpublisher/v3/{+parent}/users",
@@ -1188,7 +1188,7 @@ optional:
 updateMask <string> Optional. The list of fields to be updated."
   ([name User] (users-patch name User nil))
   ([name User optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://androidpublisher.googleapis.com/androidpublisher/v3/{+name}",
@@ -1203,7 +1203,7 @@ https://developers.google.com/android-publisher/v3/reference/rest/v3/users/delet
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/{+name}",
@@ -1219,7 +1219,7 @@ parent <>
 Grant:
 Grant"
   [parent Grant]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/{+parent}/grants",
@@ -1240,7 +1240,7 @@ optional:
 updateMask <string> Optional. The list of fields to be updated."
   ([name Grant] (grants-patch name Grant nil))
   ([name Grant optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://androidpublisher.googleapis.com/androidpublisher/v3/{+name}",
@@ -1255,7 +1255,7 @@ https://developers.google.com/android-publisher/v3/reference/rest/v3/grants/dele
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/{+name}",
@@ -1271,7 +1271,7 @@ packageName <>
 AppEdit:
 AppEdit"
   [packageName AppEdit]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits",
@@ -1287,7 +1287,7 @@ https://developers.google.com/android-publisher/v3/reference/rest/v3/edits/get
 packageName <> 
 editId <> "
   [packageName editId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}",
@@ -1302,7 +1302,7 @@ https://developers.google.com/android-publisher/v3/reference/rest/v3/edits/delet
 packageName <> 
 editId <> "
   [packageName editId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}",
@@ -1321,7 +1321,7 @@ optional:
 changesNotSentForReview <boolean> Indicates that the changes in this edit will not be reviewed until they are explicitly sent for review from the Google Play Console UI. These changes will be added to any other changes that are not yet sent for review."
   ([packageName editId] (edits-commit packageName editId nil))
   ([packageName editId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}:commit",
@@ -1336,7 +1336,7 @@ https://developers.google.com/android-publisher/v3/reference/rest/v3/edits/valid
 packageName <> 
 editId <> "
   [packageName editId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}:validate",
@@ -1353,7 +1353,7 @@ editId <>
 apkVersionCode <> 
 expansionFileType <> "
   [packageName editId apkVersionCode expansionFileType]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}/apks/{apkVersionCode}/expansionFiles/{expansionFileType}",
@@ -1376,7 +1376,7 @@ expansionFileType <>
 ExpansionFile:
 ExpansionFile"
   [packageName editId apkVersionCode expansionFileType ExpansionFile]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}/apks/{apkVersionCode}/expansionFiles/{expansionFileType}",
@@ -1400,7 +1400,7 @@ expansionFileType <>
 ExpansionFile:
 ExpansionFile"
   [packageName editId apkVersionCode expansionFileType ExpansionFile]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}/apks/{apkVersionCode}/expansionFiles/{expansionFileType}",
@@ -1422,7 +1422,7 @@ editId <>
 apkVersionCode <> 
 expansionFileType <> "
   [packageName editId apkVersionCode expansionFileType]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}/apks/{apkVersionCode}/expansionFiles/{expansionFileType}",
@@ -1442,7 +1442,7 @@ packageName <>
 editId <> 
 track <> "
   [packageName editId track]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}/testers/{track}",
@@ -1461,7 +1461,7 @@ track <>
 Testers:
 Testers"
   [packageName editId track Testers]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}/testers/{track}",
@@ -1481,7 +1481,7 @@ track <>
 Testers:
 Testers"
   [packageName editId track Testers]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}/testers/{track}",
@@ -1499,7 +1499,7 @@ packageName <>
 editId <> 
 track <> "
   [packageName editId track]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}/tracks/{track}",
@@ -1515,7 +1515,7 @@ https://developers.google.com/android-publisher/v3/reference/rest/v3/edits/track
 packageName <> 
 editId <> "
   [packageName editId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}/tracks",
@@ -1533,7 +1533,7 @@ track <>
 Track:
 Track"
   [packageName editId track Track]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}/tracks/{track}",
@@ -1553,7 +1553,7 @@ track <>
 Track:
 Track"
   [packageName editId track Track]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}/tracks/{track}",
@@ -1572,7 +1572,7 @@ editId <>
 TrackConfig:
 TrackConfig"
   [packageName editId TrackConfig]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}/tracks",
@@ -1591,7 +1591,7 @@ language <>
 Listing:
 Listing"
   [packageName editId language Listing]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}/listings/{language}",
@@ -1611,7 +1611,7 @@ language <>
 Listing:
 Listing"
   [packageName editId language Listing]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}/listings/{language}",
@@ -1629,7 +1629,7 @@ packageName <>
 editId <> 
 language <> "
   [packageName editId language]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}/listings/{language}",
@@ -1645,7 +1645,7 @@ https://developers.google.com/android-publisher/v3/reference/rest/v3/edits/listi
 packageName <> 
 editId <> "
   [packageName editId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}/listings",
@@ -1661,7 +1661,7 @@ packageName <>
 editId <> 
 language <> "
   [packageName editId language]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}/listings/{language}",
@@ -1677,7 +1677,7 @@ https://developers.google.com/android-publisher/v3/reference/rest/v3/edits/listi
 packageName <> 
 editId <> "
   [packageName editId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}/listings",
@@ -1694,7 +1694,7 @@ editId <>
 language <> 
 imageType <> "
   [packageName editId language imageType]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}/listings/{language}/{imageType}",
@@ -1716,7 +1716,7 @@ language <>
 imageType <> 
 imageId <> "
   [packageName editId language imageType imageId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}/listings/{language}/{imageType}/{imageId}",
@@ -1738,7 +1738,7 @@ editId <>
 language <> 
 imageType <> "
   [packageName editId language imageType]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}/listings/{language}/{imageType}",
@@ -1759,7 +1759,7 @@ editId <>
 language <> 
 imageType <> "
   [packageName editId language imageType]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}/listings/{language}/{imageType}",
@@ -1778,7 +1778,7 @@ https://developers.google.com/android-publisher/v3/reference/rest/v3/edits/apks/
 packageName <> 
 editId <> "
   [packageName editId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}/apks",
@@ -1793,7 +1793,7 @@ https://developers.google.com/android-publisher/v3/reference/rest/v3/edits/apks/
 packageName <> 
 editId <> "
   [packageName editId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}/apks",
@@ -1810,7 +1810,7 @@ editId <>
 ApksAddExternallyHostedRequest:
 ApksAddExternallyHostedRequest"
   [packageName editId ApksAddExternallyHostedRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}/apks/externallyHosted",
@@ -1826,7 +1826,7 @@ https://developers.google.com/android-publisher/v3/reference/rest/v3/edits/detai
 packageName <> 
 editId <> "
   [packageName editId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}/details",
@@ -1843,7 +1843,7 @@ editId <>
 AppDetails:
 AppDetails"
   [packageName editId AppDetails]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}/details",
@@ -1861,7 +1861,7 @@ editId <>
 AppDetails:
 AppDetails"
   [packageName editId AppDetails]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}/details",
@@ -1879,7 +1879,7 @@ editId <>
 apkVersionCode <> 
 deobfuscationFileType <> "
   [packageName editId apkVersionCode deobfuscationFileType]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}/apks/{apkVersionCode}/deobfuscationFiles/{deobfuscationFileType}",
@@ -1898,7 +1898,7 @@ https://developers.google.com/android-publisher/v3/reference/rest/v3/edits/bundl
 packageName <> 
 editId <> "
   [packageName editId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}/bundles",
@@ -1914,11 +1914,11 @@ packageName <>
 editId <> 
 
 optional:
-ackBundleInstallationWarning <boolean> Must be set to true if the app bundle installation may trigger a warning on user devices (for example, if installation size may be over a threshold, typically 100 MB).
+ackBundleInstallationWarning <boolean> Deprecated. The installation warning has been removed, it's not necessary to set this field anymore.
 deviceTierConfigId <string> Device tier config (DTC) to be used for generating deliverables (APKs). Contains id of the DTC or \"LATEST\" for last uploaded DTC."
   ([packageName editId] (edits-bundles-upload packageName editId nil))
   ([packageName editId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}/bundles",
@@ -1934,7 +1934,7 @@ packageName <>
 editId <> 
 track <> "
   [packageName editId track]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/edits/{editId}/countryAvailability/{track}",
@@ -1950,7 +1950,7 @@ https://developers.google.com/android-publisher/v3/reference/rest/v3/generatedap
 packageName <> 
 versionCode <> "
   [packageName versionCode]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/generatedApks/{versionCode}",
@@ -1967,7 +1967,7 @@ packageName <>
 versionCode <> 
 downloadId <> "
   [packageName versionCode downloadId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/generatedApks/{versionCode}/downloads/{downloadId}:download",
@@ -1994,7 +1994,7 @@ externalTransactionId <string> Required. The id to use for the external transact
       ExternalTransaction
       nil))
   ([parent ExternalTransaction optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://androidpublisher.googleapis.com/androidpublisher/v3/{+parent}/externalTransactions",
@@ -2011,7 +2011,7 @@ name <>
 RefundExternalTransactionRequest:
 RefundExternalTransactionRequest"
   [name RefundExternalTransactionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/{+name}:refund",
@@ -2026,7 +2026,7 @@ https://developers.google.com/android-publisher/v3/reference/rest/v3/externaltra
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/{+name}",
@@ -2046,7 +2046,7 @@ startIndex <integer> Deprecated and ignored. Set the `token` parameter to retrie
 maxResults <integer> Deprecated and ignored. The page size is determined by the server."
   ([packageName] (inappproducts-list packageName nil))
   ([packageName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/inappproducts",
@@ -2065,7 +2065,7 @@ optional:
 latencyTolerance <string> Optional. The latency tolerance for the propagation of this product update. Defaults to latency-sensitive."
   ([packageName sku] (inappproducts-delete packageName sku nil))
   ([packageName sku optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/inappproducts/{sku}",
@@ -2081,7 +2081,7 @@ packageName <>
 InappproductsBatchUpdateRequest:
 InappproductsBatchUpdateRequest"
   [packageName InappproductsBatchUpdateRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/inappproducts:batchUpdate",
@@ -2106,7 +2106,7 @@ latencyTolerance <string> Optional. The latency tolerance for the propagation of
   ([packageName sku InAppProduct]
     (inappproducts-update packageName sku InAppProduct nil))
   ([packageName sku InAppProduct optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/inappproducts/{sku}",
@@ -2130,7 +2130,7 @@ latencyTolerance <string> Optional. The latency tolerance for the propagation of
   ([packageName sku InAppProduct]
     (inappproducts-patch packageName sku InAppProduct nil))
   ([packageName sku InAppProduct optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/inappproducts/{sku}",
@@ -2149,7 +2149,7 @@ optional:
 sku <string> Unique identifier for the in-app products."
   ([packageName] (inappproducts-batchGet packageName nil))
   ([packageName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/inappproducts:batchGet",
@@ -2170,7 +2170,7 @@ autoConvertMissingPrices <boolean> If true the prices for all regions targeted b
   ([packageName InAppProduct]
     (inappproducts-insert packageName InAppProduct nil))
   ([packageName InAppProduct optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/inappproducts",
@@ -2186,7 +2186,7 @@ https://developers.google.com/android-publisher/v3/reference/rest/v3/inappproduc
 packageName <> 
 sku <> "
   [packageName sku]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/inappproducts/{sku}",
@@ -2202,7 +2202,7 @@ packageName <>
 InappproductsBatchDeleteRequest:
 InappproductsBatchDeleteRequest"
   [packageName InappproductsBatchDeleteRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/inappproducts:batchDelete",
@@ -2222,7 +2222,7 @@ optional:
 revoke <boolean> Whether to revoke the purchased item. If set to true, access to the subscription or in-app item will be terminated immediately. If the item is a recurring subscription, all future payments will also be terminated. Consumed in-app items need to be handled by developer's app. (optional)."
   ([packageName orderId] (orders-refund packageName orderId nil))
   ([packageName orderId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://androidpublisher.googleapis.com/androidpublisher/v3/applications/{packageName}/orders/{orderId}:refund",

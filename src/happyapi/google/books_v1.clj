@@ -12,7 +12,7 @@ optional:
 locale <string> ISO-639-1 language and ISO-3166-1 country code. Default is en-US if unset."
   ([] (onboarding-listCategories nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://books.googleapis.com/books/v1/onboarding/listCategories",
@@ -31,7 +31,7 @@ maxAllowedMaturityRating <string> The maximum allowed maturity rating of returne
 pageSize <integer> Number of maximum results per page to be included in the response."
   ([] (onboarding-listCategoryVolumes nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://books.googleapis.com/books/v1/onboarding/listCategoryVolumes",
@@ -54,7 +54,7 @@ serial <string> device serial
 volumeId <string> Volume id to exercise the offer"
   ([] (promooffer-accept nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://books.googleapis.com/books/v1/promooffer/accept",
@@ -76,7 +76,7 @@ product <string> device product
 serial <string> device serial"
   ([] (promooffer-dismiss nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://books.googleapis.com/books/v1/promooffer/dismiss",
@@ -97,7 +97,7 @@ product <string> device product
 serial <string> device serial"
   ([] (promooffer-get nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://books.googleapis.com/books/v1/promooffer/get",
@@ -113,7 +113,7 @@ optional:
 country <string> Unused. Added only to workaround TEX mandatory request template requirement"
   ([] (myconfig-getUserSettings nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://books.googleapis.com/books/v1/myconfig/getUserSettings",
@@ -134,7 +134,7 @@ source <string> String to identify the originator of this request."
   ([cpksver volumeIds]
     (myconfig-releaseDownloadAccess cpksver volumeIds nil))
   ([cpksver volumeIds optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://books.googleapis.com/books/v1/myconfig/releaseDownloadAccess",
@@ -158,7 +158,7 @@ locale <string> ISO-639-1, ISO-3166-1 codes for message localization, i.e. en_US
   ([cpksver nonce source volumeId]
     (myconfig-requestAccess cpksver nonce source volumeId nil))
   ([cpksver nonce source volumeId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://books.googleapis.com/books/v1/myconfig/requestAccess",
@@ -189,7 +189,7 @@ volumeIds <string> The volume(s) to request download restrictions for."
   ([cpksver nonce source]
     (myconfig-syncVolumeLicenses cpksver nonce source nil))
   ([cpksver nonce source optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://books.googleapis.com/books/v1/myconfig/syncVolumeLicenses",
@@ -207,7 +207,7 @@ https://developers.google.com/books/docs/v1/getting_started?csw=1/v1/reference/r
 Usersettings:
 Usersettings"
   [Usersettings]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://books.googleapis.com/books/v1/myconfig/updateUserSettings",
@@ -227,7 +227,7 @@ name <string> The document name. It can be set only if the drive_document_id is 
 upload_client_token <string> Scotty upload token."
   ([] (cloudloading-addBook nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://books.googleapis.com/books/v1/cloudloading/addBook",
@@ -241,7 +241,7 @@ https://developers.google.com/books/docs/v1/getting_started?csw=1/v1/reference/r
 
 volumeId <> "
   [volumeId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://books.googleapis.com/books/v1/cloudloading/deleteBook",
@@ -256,7 +256,7 @@ https://developers.google.com/books/docs/v1/getting_started?csw=1/v1/reference/r
 BooksCloudloadingResource:
 BooksCloudloadingResource"
   [BooksCloudloadingResource]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://books.googleapis.com/books/v1/cloudloading/updateBook",
@@ -276,7 +276,7 @@ optional:
 source <string> String to identify the originator of this request."
   ([userId shelf] (bookshelves-get userId shelf nil))
   ([userId shelf optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://books.googleapis.com/books/v1/users/{userId}/bookshelves/{shelf}",
@@ -294,7 +294,7 @@ optional:
 source <string> String to identify the originator of this request."
   ([userId] (bookshelves-list userId nil))
   ([userId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://books.googleapis.com/books/v1/users/{userId}/bookshelves",
@@ -316,7 +316,7 @@ source <string> String to identify the originator of this request.
 startIndex <integer> Index of the first element to return (starts at 0)"
   ([userId shelf] (bookshelves-volumes-list userId shelf nil))
   ([userId shelf optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://books.googleapis.com/books/v1/users/{userId}/bookshelves/{shelf}/volumes",
@@ -339,7 +339,7 @@ source <string> string to identify the originator of this request.
 user_library_consistent_read <boolean> "
   ([volumeId] (volumes-get volumeId nil))
   ([volumeId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://books.googleapis.com/books/v1/volumes/{volumeId}",
@@ -369,7 +369,7 @@ partner <string> Restrict and brand results for partner ID.
 showPreorders <boolean> Set to true to show books available for preorder. Defaults to false."
   ([q] (volumes-list q nil))
   ([q optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://books.googleapis.com/books/v1/volumes",
        :uri-template-args {},
@@ -389,7 +389,7 @@ maxAllowedMaturityRating <string> The maximum allowed maturity rating of returne
 source <string> String to identify the originator of this request."
   ([volumeId] (volumes-associated-list volumeId nil))
   ([volumeId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://books.googleapis.com/books/v1/volumes/{volumeId}/associated",
@@ -411,7 +411,7 @@ source <string> String to identify the originator of this request.
 startIndex <integer> Index of the first result to return (starts at 0)"
   ([] (volumes-mybooks-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://books.googleapis.com/books/v1/volumes/mybooks",
@@ -429,7 +429,7 @@ maxAllowedMaturityRating <string> The maximum allowed maturity rating of returne
 source <string> String to identify the originator of this request."
   ([] (volumes-recommended-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://books.googleapis.com/books/v1/volumes/recommended",
@@ -449,7 +449,7 @@ locale <string> ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Use
 source <string> String to identify the originator of this request."
   ([rating volumeId] (volumes-recommended-rate rating volumeId nil))
   ([rating volumeId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://books.googleapis.com/books/v1/volumes/recommended/rate",
@@ -471,7 +471,7 @@ startIndex <integer> Index of the first result to return (starts at 0)
 volumeId <string> The ids of the volumes to be returned. If not specified all that match the processingState are returned."
   ([] (volumes-useruploaded-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://books.googleapis.com/books/v1/volumes/useruploaded",
@@ -489,7 +489,7 @@ maxAllowedMaturityRating <string> The maximum allowed maturity rating of returne
 source <string> String to identify the originator of this request."
   ([] (personalizedstream-get nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://books.googleapis.com/books/v1/personalizedstream/get",
@@ -507,7 +507,7 @@ optional:
 source <string> String to identify the originator of this request."
   ([annotationId] (mylibrary-annotations-delete annotationId nil))
   ([annotationId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://books.googleapis.com/books/v1/mylibrary/annotations/{annotationId}",
@@ -529,7 +529,7 @@ showOnlySummaryInResponse <boolean> Requests that only the summary of the specif
 source <string> String to identify the originator of this request."
   ([Annotation] (mylibrary-annotations-insert Annotation nil))
   ([Annotation optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://books.googleapis.com/books/v1/mylibrary/annotations",
@@ -554,7 +554,7 @@ source <string> String to identify the originator of this request.
 layerIds <string> The layer ID(s) to limit annotation by."
   ([] (mylibrary-annotations-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://books.googleapis.com/books/v1/mylibrary/annotations",
@@ -574,7 +574,7 @@ source <string> Optional. String to identify the originator of this request."
   ([layerIds volumeId]
     (mylibrary-annotations-summary layerIds volumeId nil))
   ([layerIds volumeId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://books.googleapis.com/books/v1/mylibrary/annotations/summary",
@@ -596,7 +596,7 @@ source <string> String to identify the originator of this request."
   ([annotationId Annotation]
     (mylibrary-annotations-update annotationId Annotation nil))
   ([annotationId Annotation optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://books.googleapis.com/books/v1/mylibrary/annotations/{annotationId}",
@@ -618,7 +618,7 @@ source <string> String to identify the originator of this request."
   ([shelf volumeId]
     (mylibrary-bookshelves-addVolume shelf volumeId nil))
   ([shelf volumeId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://books.googleapis.com/books/v1/mylibrary/bookshelves/{shelf}/addVolume",
@@ -636,7 +636,7 @@ optional:
 source <string> String to identify the originator of this request."
   ([shelf] (mylibrary-bookshelves-clearVolumes shelf nil))
   ([shelf optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://books.googleapis.com/books/v1/mylibrary/bookshelves/{shelf}/clearVolumes",
@@ -654,7 +654,7 @@ optional:
 source <string> String to identify the originator of this request."
   ([shelf] (mylibrary-bookshelves-get shelf nil))
   ([shelf optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://books.googleapis.com/books/v1/mylibrary/bookshelves/{shelf}",
@@ -670,7 +670,7 @@ optional:
 source <string> String to identify the originator of this request."
   ([] (mylibrary-bookshelves-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://books.googleapis.com/books/v1/mylibrary/bookshelves",
@@ -695,7 +695,7 @@ source <string> String to identify the originator of this request."
       volumePosition
       nil))
   ([shelf volumeId volumePosition optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://books.googleapis.com/books/v1/mylibrary/bookshelves/{shelf}/moveVolume",
@@ -719,7 +719,7 @@ source <string> String to identify the originator of this request."
   ([shelf volumeId]
     (mylibrary-bookshelves-removeVolume shelf volumeId nil))
   ([shelf volumeId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://books.googleapis.com/books/v1/mylibrary/bookshelves/{shelf}/removeVolume",
@@ -743,7 +743,7 @@ source <string> String to identify the originator of this request.
 startIndex <integer> Index of the first element to return (starts at 0)"
   ([shelf] (mylibrary-bookshelves-volumes-list shelf nil))
   ([shelf optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://books.googleapis.com/books/v1/mylibrary/bookshelves/{shelf}/volumes",
@@ -762,7 +762,7 @@ contentVersion <string> Volume content version for which this reading position i
 source <string> String to identify the originator of this request."
   ([volumeId] (mylibrary-readingpositions-get volumeId nil))
   ([volumeId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://books.googleapis.com/books/v1/mylibrary/readingpositions/{volumeId}",
@@ -790,7 +790,7 @@ source <string> String to identify the originator of this request."
       timestamp
       nil))
   ([volumeId position timestamp optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://books.googleapis.com/books/v1/mylibrary/readingpositions/{volumeId}/setPosition",
@@ -811,7 +811,7 @@ contentVersion <string> The content version for the requested volume.
 source <string> String to identify the originator of this request."
   ([volumeId summaryId] (layers-get volumeId summaryId nil))
   ([volumeId summaryId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://books.googleapis.com/books/v1/volumes/{volumeId}/layersummary/{summaryId}",
@@ -831,7 +831,7 @@ maxResults <integer> Maximum number of results to return
 source <string> String to identify the originator of this request."
   ([volumeId] (layers-list volumeId nil))
   ([volumeId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://books.googleapis.com/books/v1/volumes/{volumeId}/layersummary",
@@ -863,7 +863,7 @@ h <integer> The requested pixel height for any images. If height is provided wid
       contentVersion
       nil))
   ([volumeId layerId annotationDataId contentVersion optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://books.googleapis.com/books/v1/volumes/{volumeId}/layers/{layerId}/data/{annotationDataId}",
@@ -896,7 +896,7 @@ annotationDataId <string> The list of Annotation Data Ids to retrieve. Paginatio
   ([volumeId layerId contentVersion]
     (layers-annotationData-list volumeId layerId contentVersion nil))
   ([volumeId layerId contentVersion optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://books.googleapis.com/books/v1/volumes/{volumeId}/layers/{layerId}/data",
@@ -919,7 +919,7 @@ source <string> String to identify the originator of this request."
   ([volumeId layerId annotationId]
     (layers-volumeAnnotations-get volumeId layerId annotationId nil))
   ([volumeId layerId annotationId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://books.googleapis.com/books/v1/volumes/{volumeId}/layers/{layerId}/annotations/{annotationId}",
@@ -957,7 +957,7 @@ source <string> String to identify the originator of this request."
       contentVersion
       nil))
   ([volumeId layerId contentVersion optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://books.googleapis.com/books/v1/volumes/{volumeId}/layers/{layerId}",
@@ -972,7 +972,7 @@ https://developers.google.com/books/docs/v1/getting_started?csw=1/v1/reference/r
 
 series_id <> "
   [series_id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://books.googleapis.com/books/v1/series/get",
      :uri-template-args {},
@@ -990,7 +990,7 @@ page_size <integer> Number of maximum results per page to be included in the res
 page_token <string> The value of the nextToken from the previous page."
   ([series_id] (series-membership-get series_id nil))
   ([series_id optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://books.googleapis.com/books/v1/series/membership/get",
@@ -1009,7 +1009,7 @@ locale <string> ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Use
 source <string> String to identify the originator of this request."
   ([notification_id] (notification-get notification_id nil))
   ([notification_id optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://books.googleapis.com/books/v1/notification/get",
@@ -1026,7 +1026,7 @@ optional:
 source <string> String to identify the originator of this request."
   ([] (familysharing-getFamilyInfo nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://books.googleapis.com/books/v1/familysharing/getFamilyInfo",
@@ -1044,7 +1044,7 @@ source <string> String to identify the originator of this request.
 volumeId <string> The volume to share."
   ([] (familysharing-share nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://books.googleapis.com/books/v1/familysharing/share",
@@ -1062,7 +1062,7 @@ source <string> String to identify the originator of this request.
 volumeId <string> The volume to unshare."
   ([] (familysharing-unshare nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://books.googleapis.com/books/v1/familysharing/unshare",
@@ -1076,7 +1076,7 @@ https://developers.google.com/books/docs/v1/getting_started?csw=1/v1/reference/r
 
 cpksver <> "
   [cpksver]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://books.googleapis.com/books/v1/dictionary/listOfflineMetadata",

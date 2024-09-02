@@ -11,7 +11,7 @@ https://developers.google.com/keep/v1/reference/rest/v1/notes/create
 Note:
 Note"
   [Note]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://keep.googleapis.com/v1/notes",
      :uri-template-args {},
@@ -25,7 +25,7 @@ https://developers.google.com/keep/v1/reference/rest/v1/notes/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://keep.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -43,7 +43,7 @@ pageSize <integer> The maximum number of results to return.
 filter <string> Filter for list results. If no filter is supplied, the `trashed` filter is applied by default. Valid fields to filter by are: `create_time`, `update_time`, `trash_time`, and `trashed`. Filter syntax follows the [Google AIP filtering spec](https://aip.dev/160)."
   ([] (notes-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://keep.googleapis.com/v1/notes",
        :uri-template-args {},
@@ -58,7 +58,7 @@ https://developers.google.com/keep/v1/reference/rest/v1/notes/delete
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://keep.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -73,7 +73,7 @@ parent <>
 BatchCreatePermissionsRequest:
 BatchCreatePermissionsRequest"
   [parent BatchCreatePermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://keep.googleapis.com/v1/{+parent}/permissions:batchCreate",
@@ -90,7 +90,7 @@ parent <>
 BatchDeletePermissionsRequest:
 BatchDeletePermissionsRequest"
   [parent BatchDeletePermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://keep.googleapis.com/v1/{+parent}/permissions:batchDelete",
@@ -109,7 +109,7 @@ optional:
 mimeType <string> The IANA MIME type format requested. The requested MIME type must be one specified in the attachment.mime_type. Required when downloading attachment media and ignored otherwise."
   ([name] (media-download name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://keep.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},

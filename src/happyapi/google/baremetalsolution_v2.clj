@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://baremetalsolution.googleapis.com/v2/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/bare-metal/v2/reference/rest/v2/projects/locations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+name}",
@@ -47,7 +47,7 @@ optional:
 pageSize <integer> The maximum number of items to return."
   ([parent] (projects-locations-sshKeys-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://baremetalsolution.googleapis.com/v2/{+parent}/sshKeys",
@@ -68,7 +68,7 @@ sshKeyId <string> Required. The ID to use for the key, which will become the fin
   ([parent SSHKey]
     (projects-locations-sshKeys-create parent SSHKey nil))
   ([parent SSHKey optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://baremetalsolution.googleapis.com/v2/{+parent}/sshKeys",
@@ -83,7 +83,7 @@ https://cloud.google.com/bare-metal/v2/reference/rest/v2/projects/locations/sshK
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+name}",
@@ -102,7 +102,7 @@ pageSize <integer> Requested page size. The server might return fewer items than
 filter <string> List filter."
   ([parent] (projects-locations-volumes-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://baremetalsolution.googleapis.com/v2/{+parent}/volumes",
@@ -116,7 +116,7 @@ https://cloud.google.com/bare-metal/v2/reference/rest/v2/projects/locations/volu
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+name}",
@@ -136,7 +136,7 @@ optional:
 updateMask <string> The list of fields to update. The only currently supported fields are: 'labels'"
   ([name Volume] (projects-locations-volumes-patch name Volume nil))
   ([name Volume optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://baremetalsolution.googleapis.com/v2/{+name}",
@@ -153,7 +153,7 @@ name <>
 RenameVolumeRequest:
 RenameVolumeRequest"
   [name RenameVolumeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+name}:rename",
@@ -170,7 +170,7 @@ name <>
 EvictVolumeRequest:
 EvictVolumeRequest"
   [name EvictVolumeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+name}:evict",
@@ -187,7 +187,7 @@ volume <>
 ResizeVolumeRequest:
 ResizeVolumeRequest"
   [volume ResizeVolumeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+volume}:resize",
@@ -204,7 +204,7 @@ parent <>
 VolumeSnapshot:
 VolumeSnapshot"
   [parent VolumeSnapshot]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+parent}/snapshots",
@@ -221,7 +221,7 @@ volumeSnapshot <>
 RestoreVolumeSnapshotRequest:
 RestoreVolumeSnapshotRequest"
   [volumeSnapshot RestoreVolumeSnapshotRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+volumeSnapshot}:restoreVolumeSnapshot",
@@ -236,7 +236,7 @@ https://cloud.google.com/bare-metal/v2/reference/rest/v2/projects/locations/volu
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+name}",
@@ -250,7 +250,7 @@ https://cloud.google.com/bare-metal/v2/reference/rest/v2/projects/locations/volu
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+name}",
@@ -268,7 +268,7 @@ optional:
 pageSize <integer> Requested page size. The server might return fewer items than requested. If unspecified, server will pick an appropriate default."
   ([parent] (projects-locations-volumes-snapshots-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://baremetalsolution.googleapis.com/v2/{+parent}/snapshots",
@@ -282,7 +282,7 @@ https://cloud.google.com/bare-metal/v2/reference/rest/v2/projects/locations/volu
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+name}",
@@ -300,7 +300,7 @@ optional:
 pageSize <integer> Requested page size. The server might return fewer items than requested. If unspecified, server will pick an appropriate default."
   ([parent] (projects-locations-volumes-luns-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://baremetalsolution.googleapis.com/v2/{+parent}/luns",
@@ -316,7 +316,7 @@ name <>
 EvictLunRequest:
 EvictLunRequest"
   [name EvictLunRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+name}:evict",
@@ -336,7 +336,7 @@ pageSize <integer> Requested page size. The server might return fewer items than
 filter <string> List filter."
   ([parent] (projects-locations-networks-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://baremetalsolution.googleapis.com/v2/{+parent}/networks",
@@ -350,7 +350,7 @@ https://cloud.google.com/bare-metal/v2/reference/rest/v2/projects/locations/netw
 
 location <> "
   [location]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+location}/networks:listNetworkUsage",
@@ -364,7 +364,7 @@ https://cloud.google.com/bare-metal/v2/reference/rest/v2/projects/locations/netw
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+name}",
@@ -384,7 +384,7 @@ optional:
 updateMask <string> The list of fields to update. The only currently supported fields are: `labels`, `reservations`, `vrf.vlan_attachments`"
   ([name Network] (projects-locations-networks-patch name Network nil))
   ([name Network optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://baremetalsolution.googleapis.com/v2/{+name}",
@@ -401,7 +401,7 @@ name <>
 RenameNetworkRequest:
 RenameNetworkRequest"
   [name RenameNetworkRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+name}:rename",
@@ -420,7 +420,7 @@ optional:
 pageSize <integer> Requested page size. The server might return fewer items than requested. If unspecified, server will pick an appropriate default. Notice that page_size field is not supported and won't be respected in the API request for now, will be updated when pagination is supported."
   ([parent] (projects-locations-osImages-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://baremetalsolution.googleapis.com/v2/{+parent}/osImages",
@@ -434,7 +434,7 @@ https://cloud.google.com/bare-metal/v2/reference/rest/v2/projects/locations/osIm
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+name}",
@@ -448,7 +448,7 @@ https://cloud.google.com/bare-metal/v2/reference/rest/v2/projects/locations/nfsS
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+name}",
@@ -467,7 +467,7 @@ pageSize <integer> Requested page size. The server might return fewer items than
 filter <string> List filter."
   ([parent] (projects-locations-nfsShares-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://baremetalsolution.googleapis.com/v2/{+parent}/nfsShares",
@@ -488,7 +488,7 @@ updateMask <string> The list of fields to update. The only currently supported f
   ([name NfsShare]
     (projects-locations-nfsShares-patch name NfsShare nil))
   ([name NfsShare optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://baremetalsolution.googleapis.com/v2/{+name}",
@@ -505,7 +505,7 @@ parent <>
 NfsShare:
 NfsShare"
   [parent NfsShare]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+parent}/nfsShares",
@@ -522,7 +522,7 @@ name <>
 RenameNfsShareRequest:
 RenameNfsShareRequest"
   [name RenameNfsShareRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+name}:rename",
@@ -537,7 +537,7 @@ https://cloud.google.com/bare-metal/v2/reference/rest/v2/projects/locations/nfsS
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+name}",
@@ -555,7 +555,7 @@ optional:
 pageSize <integer> Requested page size. The server might return fewer items than requested. If unspecified, server will pick an appropriate default. Notice that page_size field is not supported and won't be respected in the API request for now, will be updated when pagination is supported."
   ([parent] (projects-locations-provisioningQuotas-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://baremetalsolution.googleapis.com/v2/{+parent}/provisioningQuotas",
@@ -571,7 +571,7 @@ name <>
 StopInstanceRequest:
 StopInstanceRequest"
   [name StopInstanceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+name}:stop",
@@ -588,7 +588,7 @@ name <>
 RenameInstanceRequest:
 RenameInstanceRequest"
   [name RenameInstanceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+name}:rename",
@@ -603,7 +603,7 @@ https://cloud.google.com/bare-metal/v2/reference/rest/v2/projects/locations/inst
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+name}:loadAuthInfo",
@@ -622,7 +622,7 @@ pageSize <integer> Requested page size. Server may return fewer items than reque
 filter <string> List filter."
   ([parent] (projects-locations-instances-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://baremetalsolution.googleapis.com/v2/{+parent}/instances",
@@ -638,7 +638,7 @@ name <>
 DisableHyperthreadingRequest:
 DisableHyperthreadingRequest"
   [name DisableHyperthreadingRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+name}:disableHyperthreading",
@@ -655,7 +655,7 @@ name <>
 EnableHyperthreadingRequest:
 EnableHyperthreadingRequest"
   [name EnableHyperthreadingRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+name}:enableHyperthreading",
@@ -672,7 +672,7 @@ name <>
 ResetInstanceRequest:
 ResetInstanceRequest"
   [name ResetInstanceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+name}:reset",
@@ -689,7 +689,7 @@ name <>
 EnableInteractiveSerialConsoleRequest:
 EnableInteractiveSerialConsoleRequest"
   [name EnableInteractiveSerialConsoleRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+name}:enableInteractiveSerialConsole",
@@ -706,7 +706,7 @@ name <>
 StartInstanceRequest:
 StartInstanceRequest"
   [name StartInstanceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+name}:start",
@@ -723,7 +723,7 @@ name <>
 DisableInteractiveSerialConsoleRequest:
 DisableInteractiveSerialConsoleRequest"
   [name DisableInteractiveSerialConsoleRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+name}:disableInteractiveSerialConsole",
@@ -745,7 +745,7 @@ updateMask <string> The list of fields to update. The currently supported fields
   ([name Instance]
     (projects-locations-instances-patch name Instance nil))
   ([name Instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://baremetalsolution.googleapis.com/v2/{+name}",
@@ -762,7 +762,7 @@ instance <>
 DetachLunRequest:
 DetachLunRequest"
   [instance DetachLunRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+instance}:detachLun",
@@ -777,7 +777,7 @@ https://cloud.google.com/bare-metal/v2/reference/rest/v2/projects/locations/inst
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+name}",
@@ -793,7 +793,7 @@ name <>
 ReimageInstanceRequest:
 ReimageInstanceRequest"
   [name ReimageInstanceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+name}:reimage",
@@ -810,7 +810,7 @@ parent <>
 SubmitProvisioningConfigRequest:
 SubmitProvisioningConfigRequest"
   [parent SubmitProvisioningConfigRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+parent}/provisioningConfigs:submit",
@@ -825,7 +825,7 @@ https://cloud.google.com/bare-metal/v2/reference/rest/v2/projects/locations/prov
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+name}",
@@ -849,7 +849,7 @@ email <string> Optional. Email provided to send a confirmation with provisioning
       ProvisioningConfig
       nil))
   ([parent ProvisioningConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://baremetalsolution.googleapis.com/v2/{+parent}/provisioningConfigs",
@@ -875,7 +875,7 @@ email <string> Optional. Email provided to send a confirmation with provisioning
       ProvisioningConfig
       nil))
   ([name ProvisioningConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://baremetalsolution.googleapis.com/v2/{+name}",
@@ -890,7 +890,7 @@ https://cloud.google.com/bare-metal/v2/reference/rest/v2/projects/locations/oper
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://baremetalsolution.googleapis.com/v2/{+name}",

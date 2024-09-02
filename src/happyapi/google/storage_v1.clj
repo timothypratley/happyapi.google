@@ -16,7 +16,7 @@ userProject <string> The project to be billed for this request. Required for Req
   ([bucket entity]
     (defaultObjectAccessControls-delete bucket entity nil))
   ([bucket entity optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/defaultObjectAcl/{entity}",
@@ -37,7 +37,7 @@ optional:
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket entity] (defaultObjectAccessControls-get bucket entity nil))
   ([bucket entity optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/defaultObjectAcl/{entity}",
@@ -63,7 +63,7 @@ userProject <string> The project to be billed for this request. Required for Req
       ObjectAccessControl
       nil))
   ([bucket ObjectAccessControl optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/defaultObjectAcl",
@@ -86,7 +86,7 @@ ifMetagenerationNotMatch <string> If present, only return default ACL listing if
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket] (defaultObjectAccessControls-list bucket nil))
   ([bucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/defaultObjectAcl",
@@ -114,7 +114,7 @@ userProject <string> The project to be billed for this request. Required for Req
       ObjectAccessControl
       nil))
   ([bucket entity ObjectAccessControl optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/defaultObjectAcl/{entity}",
@@ -143,7 +143,7 @@ userProject <string> The project to be billed for this request. Required for Req
       ObjectAccessControl
       nil))
   ([bucket entity ObjectAccessControl optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/defaultObjectAcl/{entity}",
@@ -166,7 +166,7 @@ userProject <string> The project to be billed for this request. Required for Req
   ([bucket notification]
     (notifications-delete bucket notification nil))
   ([bucket notification optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/notificationConfigs/{notification}",
@@ -189,7 +189,7 @@ optional:
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket notification] (notifications-get bucket notification nil))
   ([bucket notification optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/notificationConfigs/{notification}",
@@ -216,7 +216,7 @@ userProject <string> The project to be billed for this request. Required for Req
   ([bucket Notification]
     (notifications-insert bucket Notification nil))
   ([bucket Notification optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/notificationConfigs",
@@ -238,7 +238,7 @@ optional:
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket] (notifications-list bucket nil))
   ([bucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/notificationConfigs",
@@ -260,11 +260,12 @@ project <>
 optional:
 maxResults <integer> Maximum number of buckets to return in a single response. The service will use this parameter or 1,000 items, whichever is smaller.
 prefix <string> Filter results to buckets whose names begin with this prefix.
+softDeleted <boolean> If true, only soft-deleted bucket versions will be returned. The default is false. For more information, see [Soft Delete](https://cloud.google.com/storage/docs/soft-delete).
 projection <string> Set of properties to return. Defaults to noAcl.
 userProject <string> The project to be billed for this request."
   ([project] (buckets-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://storage.googleapis.com/storage/v1/b",
        :uri-template-args {},
@@ -288,7 +289,7 @@ optional:
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket Policy] (buckets-setIamPolicy bucket Policy nil))
   ([bucket Policy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/iam",
@@ -300,7 +301,7 @@ userProject <string> The project to be billed for this request. Required for Req
        :body Policy})))
 
 (defn buckets-delete
-  "Permanently deletes an empty bucket.
+  "Deletes an empty bucket. Deletions are permanent unless soft delete is enabled on the bucket.
 https://cloud.google.com/storage/docs/json_api/v1/reference/rest/v1/buckets/delete
 
 bucket <> 
@@ -311,7 +312,7 @@ ifMetagenerationNotMatch <string> If set, only deletes the bucket if its metagen
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket] (buckets-delete bucket nil))
   ([bucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}",
@@ -334,7 +335,7 @@ userProject <string> The project to be billed for this request. Required for Req
   ([bucket ifMetagenerationMatch]
     (buckets-lockRetentionPolicy bucket ifMetagenerationMatch nil))
   ([bucket ifMetagenerationMatch optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/lockRetentionPolicy",
@@ -365,7 +366,7 @@ projection <string> Set of properties to return. Defaults to full.
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket Bucket] (buckets-update bucket Bucket nil))
   ([bucket Bucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}",
@@ -393,7 +394,7 @@ projection <string> Set of properties to return. Defaults to full.
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket Bucket] (buckets-patch bucket Bucket nil))
   ([bucket Bucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}",
@@ -415,7 +416,7 @@ optionsRequestedPolicyVersion <integer> The IAM policy format version to be retu
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket] (buckets-getIamPolicy bucket nil))
   ([bucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/iam",
@@ -435,7 +436,7 @@ optional:
 prefix <string> An optional prefix used for permission check. It is useful when the caller only has storage.objects.list permission under a specific prefix."
   ([bucket] (buckets-getStorageLayout bucket nil))
   ([bucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/storageLayout",
@@ -464,7 +465,7 @@ userProject <string> The project to be billed for this request.
 enableObjectRetention <boolean> When set to true, object retention is enabled for this bucket."
   ([project Bucket] (buckets-insert project Bucket nil))
   ([project Bucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template "https://storage.googleapis.com/storage/v1/b",
        :uri-template-args {},
@@ -475,6 +476,28 @@ enableObjectRetention <boolean> When set to true, object retention is enabled fo
         "https://www.googleapis.com/auth/devstorage.read_write"],
        :body Bucket})))
 
+(defn buckets-restore
+  "Restores a soft-deleted bucket.
+https://cloud.google.com/storage/docs/json_api/v1/reference/rest/v1/buckets/restore
+
+bucket <> 
+generation <> 
+
+optional:
+userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
+  ([bucket generation] (buckets-restore bucket generation nil))
+  ([bucket generation optional]
+    (client/*api-request*
+      {:method :post,
+       :uri-template
+       "https://storage.googleapis.com/storage/v1/b/{bucket}/restore",
+       :uri-template-args {"bucket" bucket},
+       :query-params (merge {"generation" generation} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/cloud-platform"
+        "https://www.googleapis.com/auth/devstorage.full_control"
+        "https://www.googleapis.com/auth/devstorage.read_write"]})))
+
 (defn buckets-get
   "Returns metadata for the specified bucket.
 https://cloud.google.com/storage/docs/json_api/v1/reference/rest/v1/buckets/get
@@ -482,13 +505,15 @@ https://cloud.google.com/storage/docs/json_api/v1/reference/rest/v1/buckets/get
 bucket <> 
 
 optional:
+generation <string> If present, specifies the generation of the bucket. This is required if softDeleted is true.
+softDeleted <boolean> If true, return the soft-deleted version of this bucket. The default is false. For more information, see [Soft Delete](https://cloud.google.com/storage/docs/soft-delete).
 ifMetagenerationMatch <string> Makes the return of the bucket metadata conditional on whether the bucket's current metageneration matches the given value.
 ifMetagenerationNotMatch <string> Makes the return of the bucket metadata conditional on whether the bucket's current metageneration does not match the given value.
 projection <string> Set of properties to return. Defaults to noAcl.
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket] (buckets-get bucket nil))
   ([bucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}",
@@ -513,7 +538,7 @@ userProject <string> The project to be billed for this request. Required for Req
   ([bucket permissions]
     (buckets-testIamPermissions bucket permissions nil))
   ([bucket permissions optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/iam/testPermissions",
@@ -540,7 +565,7 @@ allowNonEmpty <boolean> Allows the deletion of a managed folder even if it is no
   ([bucket managedFolder]
     (managedFolders-delete bucket managedFolder nil))
   ([bucket managedFolder optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/managedFolders/{managedFolder}",
@@ -565,7 +590,7 @@ ifMetagenerationNotMatch <string> Makes the return of the managed folder metadat
   ([bucket managedFolder]
     (managedFolders-get bucket managedFolder nil))
   ([bucket managedFolder optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/managedFolders/{managedFolder}",
@@ -592,7 +617,7 @@ userProject <string> The project to be billed for this request. Required for Req
   ([bucket managedFolder]
     (managedFolders-getIamPolicy bucket managedFolder nil))
   ([bucket managedFolder optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/managedFolders/{managedFolder}/iam",
@@ -614,7 +639,7 @@ bucket <>
 ManagedFolder:
 ManagedFolder"
   [bucket ManagedFolder]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://storage.googleapis.com/storage/v1/b/{bucket}/managedFolders",
@@ -637,7 +662,7 @@ pageSize <integer> Maximum number of items to return in a single page of respons
 prefix <string> The managed folder name/path prefix to filter the output list of results."
   ([bucket] (managedFolders-list bucket nil))
   ([bucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/managedFolders",
@@ -664,7 +689,7 @@ userProject <string> The project to be billed for this request. Required for Req
   ([bucket managedFolder Policy]
     (managedFolders-setIamPolicy bucket managedFolder Policy nil))
   ([bucket managedFolder Policy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/managedFolders/{managedFolder}/iam",
@@ -693,7 +718,7 @@ userProject <string> The project to be billed for this request. Required for Req
       permissions
       nil))
   ([bucket managedFolder permissions optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/managedFolders/{managedFolder}/iam/testPermissions",
@@ -715,7 +740,7 @@ bucket <>
 AnywhereCache:
 AnywhereCache"
   [bucket AnywhereCache]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://storage.googleapis.com/storage/v1/b/{bucket}/anywhereCaches",
@@ -736,7 +761,7 @@ anywhereCacheId <>
 AnywhereCache:
 AnywhereCache"
   [bucket anywhereCacheId AnywhereCache]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://storage.googleapis.com/storage/v1/b/{bucket}/anywhereCaches/{anywhereCacheId}",
@@ -756,7 +781,7 @@ https://cloud.google.com/storage/docs/json_api/v1/reference/rest/v1/anywhereCach
 bucket <> 
 anywhereCacheId <> "
   [bucket anywhereCacheId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://storage.googleapis.com/storage/v1/b/{bucket}/anywhereCaches/{anywhereCacheId}",
@@ -780,7 +805,7 @@ optional:
 pageSize <integer> Maximum number of items to return in a single page of responses. Maximum 1000."
   ([bucket] (anywhereCaches-list bucket nil))
   ([bucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/anywhereCaches",
@@ -800,7 +825,7 @@ https://cloud.google.com/storage/docs/json_api/v1/reference/rest/v1/anywhereCach
 bucket <> 
 anywhereCacheId <> "
   [bucket anywhereCacheId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://storage.googleapis.com/storage/v1/b/{bucket}/anywhereCaches/{anywhereCacheId}/pause",
@@ -819,7 +844,7 @@ https://cloud.google.com/storage/docs/json_api/v1/reference/rest/v1/anywhereCach
 bucket <> 
 anywhereCacheId <> "
   [bucket anywhereCacheId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://storage.googleapis.com/storage/v1/b/{bucket}/anywhereCaches/{anywhereCacheId}/resume",
@@ -838,7 +863,7 @@ https://cloud.google.com/storage/docs/json_api/v1/reference/rest/v1/anywhereCach
 bucket <> 
 anywhereCacheId <> "
   [bucket anywhereCacheId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://storage.googleapis.com/storage/v1/b/{bucket}/anywhereCaches/{anywhereCacheId}/disable",
@@ -858,7 +883,7 @@ bucket <>
 
 optional:
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets.
-versions <boolean> If true, lists all versions of an object as distinct results. The default is false. For more information, see Object Versioning.
+versions <boolean> If true, lists all versions of an object as distinct results. The default is false. For more information, see [Object Versioning](https://cloud.google.com/storage/docs/object-versioning).
 includeTrailingDelimiter <boolean> If true, objects that end in exactly one instance of delimiter will have their metadata included in items in addition to prefixes.
 prefix <string> Filter results to objects whose names begin with this prefix.
 endOffset <string> Filter results to objects whose names are lexicographically before endOffset. If startOffset is also set, the objects listed will have names between startOffset (inclusive) and endOffset (exclusive).
@@ -868,10 +893,10 @@ startOffset <string> Filter results to objects whose names are lexicographically
 delimiter <string> Returns results in a directory-like mode. items will contain only objects whose names, aside from the prefix, do not contain delimiter. Objects whose names, aside from the prefix, contain delimiter will have their name, truncated after the delimiter, returned in prefixes. Duplicate prefixes are omitted.
 projection <string> Set of properties to return. Defaults to noAcl.
 includeFoldersAsPrefixes <boolean> Only applicable if delimiter is set to '/'. If true, will also include folders and managed folders (besides objects) in the returned prefixes.
-softDeleted <boolean> If true, only soft-deleted object versions will be listed. The default is false. For more information, see Soft Delete."
+softDeleted <boolean> If true, only soft-deleted object versions will be listed. The default is false. For more information, see [Soft Delete](https://cloud.google.com/storage/docs/soft-delete)."
   ([bucket] (objects-list bucket nil))
   ([bucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/o",
@@ -899,7 +924,7 @@ userProject <string> The project to be billed for this request. Required for Req
   ([bucket object Policy]
     (objects-setIamPolicy bucket object Policy nil))
   ([bucket object Policy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}/iam",
@@ -956,7 +981,7 @@ ifSourceMetagenerationNotMatch <string> Makes the operation conditional on wheth
     destinationObject
     Object
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{sourceBucket}/o/{sourceObject}/rewriteTo/b/{destinationBucket}/o/{destinationObject}",
@@ -982,7 +1007,7 @@ Channel
 
 optional:
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets.
-versions <boolean> If true, lists all versions of an object as distinct results. The default is false. For more information, see Object Versioning.
+versions <boolean> If true, lists all versions of an object as distinct results. The default is false. For more information, see [Object Versioning](https://cloud.google.com/storage/docs/object-versioning).
 includeTrailingDelimiter <boolean> If true, objects that end in exactly one instance of delimiter will have their metadata included in items in addition to prefixes.
 prefix <string> Filter results to objects whose names begin with this prefix.
 endOffset <string> Filter results to objects whose names are lexicographically before endOffset. If startOffset is also set, the objects listed will have names between startOffset (inclusive) and endOffset (exclusive).
@@ -992,7 +1017,7 @@ delimiter <string> Returns results in a directory-like mode. items will contain 
 projection <string> Set of properties to return. Defaults to noAcl."
   ([bucket Channel] (objects-watchAll bucket Channel nil))
   ([bucket Channel optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/o/watch",
@@ -1049,7 +1074,7 @@ ifSourceMetagenerationNotMatch <string> Makes the operation conditional on wheth
     destinationObject
     Object
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{sourceBucket}/o/{sourceObject}/copyTo/b/{destinationBucket}/o/{destinationObject}",
@@ -1081,7 +1106,7 @@ ifMetagenerationNotMatch <string> Makes the operation conditional on whether the
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket object] (objects-delete bucket object nil))
   ([bucket object optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}",
@@ -1113,7 +1138,7 @@ projection <string> Set of properties to return. Defaults to full.
 ifMetagenerationMatch <string> Makes the operation conditional on whether the object's current metageneration matches the given value."
   ([bucket object Object] (objects-update bucket object Object nil))
   ([bucket object Object optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}",
@@ -1145,7 +1170,7 @@ projection <string> Set of properties to return. Defaults to full.
 ifMetagenerationMatch <string> Makes the operation conditional on whether the object's current metageneration matches the given value."
   ([bucket object Object] (objects-patch bucket object Object nil))
   ([bucket object Object optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}",
@@ -1164,7 +1189,7 @@ bucket <>
 BulkRestoreObjectsRequest:
 BulkRestoreObjectsRequest"
   [bucket BulkRestoreObjectsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://storage.googleapis.com/storage/v1/b/{bucket}/o/bulkRestore",
@@ -1198,7 +1223,7 @@ userProject <string> The project to be billed for this request. Required for Req
       ComposeRequest
       nil))
   ([destinationBucket destinationObject ComposeRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{destinationBucket}/o/{destinationObject}/compose",
@@ -1224,7 +1249,7 @@ generation <string> If present, selects a specific revision of this object (as o
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket object] (objects-getIamPolicy bucket object nil))
   ([bucket object optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}/iam",
@@ -1258,7 +1283,7 @@ kmsKeyName <string> Resource name of the Cloud KMS key, of the form projects/my-
 ifMetagenerationMatch <string> Makes the operation conditional on whether the object's current metageneration matches the given value."
   ([bucket Object] (objects-insert bucket Object nil))
   ([bucket Object optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/o",
@@ -1289,7 +1314,7 @@ ifMetagenerationMatch <string> Makes the operation conditional on whether the ob
   ([bucket object generation]
     (objects-restore bucket object generation nil))
   ([bucket object generation optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}/restore",
@@ -1313,11 +1338,11 @@ ifGenerationMatch <string> Makes the operation conditional on whether the object
 generation <string> If present, selects a specific revision of this object (as opposed to the latest version, the default).
 ifGenerationNotMatch <string> Makes the operation conditional on whether the object's current generation does not match the given value. If no live object exists, the precondition fails. Setting to 0 makes the operation succeed only if there is a live version of the object.
 projection <string> Set of properties to return. Defaults to noAcl.
-softDeleted <boolean> If true, only soft-deleted object versions will be listed. The default is false. For more information, see Soft Delete.
+softDeleted <boolean> If true, only soft-deleted object versions will be listed. The default is false. For more information, see [Soft Delete](https://cloud.google.com/storage/docs/soft-delete).
 ifMetagenerationMatch <string> Makes the operation conditional on whether the object's current metageneration matches the given value."
   ([bucket object] (objects-get bucket object nil))
   ([bucket object optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}",
@@ -1344,7 +1369,7 @@ userProject <string> The project to be billed for this request. Required for Req
   ([bucket object permissions]
     (objects-testIamPermissions bucket object permissions nil))
   ([bucket object permissions optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}/iam/testPermissions",
@@ -1369,7 +1394,7 @@ ifMetagenerationMatch <string> If set, only deletes the folder if its metagenera
 ifMetagenerationNotMatch <string> If set, only deletes the folder if its metageneration does not match this value."
   ([bucket folder] (folders-delete bucket folder nil))
   ([bucket folder optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/folders/{folder}",
@@ -1392,7 +1417,7 @@ ifMetagenerationMatch <string> Makes the return of the folder metadata condition
 ifMetagenerationNotMatch <string> Makes the return of the folder metadata conditional on whether the folder's current metageneration does not match the given value."
   ([bucket folder] (folders-get bucket folder nil))
   ([bucket folder optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/folders/{folder}",
@@ -1417,7 +1442,7 @@ optional:
 recursive <boolean> If true, any parent folder which doesn’t exist will be created automatically."
   ([bucket Folder] (folders-insert bucket Folder nil))
   ([bucket Folder optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/folders",
@@ -1443,7 +1468,7 @@ prefix <string> Filter results to folders whose paths begin with this prefix. If
 startOffset <string> Filter results to folders whose names are lexicographically equal to or after startOffset. If endOffset is also set, the folders listed will have names between startOffset (inclusive) and endOffset (exclusive)."
   ([bucket] (folders-list bucket nil))
   ([bucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/folders",
@@ -1470,7 +1495,7 @@ ifSourceMetagenerationNotMatch <string> Makes the operation conditional on wheth
   ([bucket sourceFolder destinationFolder]
     (folders-rename bucket sourceFolder destinationFolder nil))
   ([bucket sourceFolder destinationFolder optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/folders/{sourceFolder}/renameTo/folders/{destinationFolder}",
@@ -1495,7 +1520,7 @@ optional:
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket entity] (bucketAccessControls-delete bucket entity nil))
   ([bucket entity optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/acl/{entity}",
@@ -1516,7 +1541,7 @@ optional:
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket entity] (bucketAccessControls-get bucket entity nil))
   ([bucket entity optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/acl/{entity}",
@@ -1539,7 +1564,7 @@ userProject <string> The project to be billed for this request. Required for Req
   ([bucket BucketAccessControl]
     (bucketAccessControls-insert bucket BucketAccessControl nil))
   ([bucket BucketAccessControl optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/acl",
@@ -1560,7 +1585,7 @@ optional:
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket] (bucketAccessControls-list bucket nil))
   ([bucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/acl",
@@ -1584,7 +1609,7 @@ userProject <string> The project to be billed for this request. Required for Req
   ([bucket entity BucketAccessControl]
     (bucketAccessControls-patch bucket entity BucketAccessControl nil))
   ([bucket entity BucketAccessControl optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/acl/{entity}",
@@ -1613,7 +1638,7 @@ userProject <string> The project to be billed for this request. Required for Req
       BucketAccessControl
       nil))
   ([bucket entity BucketAccessControl optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/acl/{entity}",
@@ -1636,7 +1661,7 @@ userProject <string> The project to be billed for this request."
   ([projectId serviceAccountEmail]
     (projects-hmacKeys-create projectId serviceAccountEmail nil))
   ([projectId serviceAccountEmail optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://storage.googleapis.com/storage/v1/projects/{projectId}/hmacKeys",
@@ -1659,7 +1684,7 @@ userProject <string> The project to be billed for this request."
   ([projectId accessId]
     (projects-hmacKeys-delete projectId accessId nil))
   ([projectId accessId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://storage.googleapis.com/storage/v1/projects/{projectId}/hmacKeys/{accessId}",
@@ -1681,7 +1706,7 @@ optional:
 userProject <string> The project to be billed for this request."
   ([projectId accessId] (projects-hmacKeys-get projectId accessId nil))
   ([projectId accessId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://storage.googleapis.com/storage/v1/projects/{projectId}/hmacKeys/{accessId}",
@@ -1706,7 +1731,7 @@ showDeletedKeys <boolean> Whether or not to show keys in the DELETED state.
 userProject <string> The project to be billed for this request."
   ([projectId] (projects-hmacKeys-list projectId nil))
   ([projectId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://storage.googleapis.com/storage/v1/projects/{projectId}/hmacKeys",
@@ -1719,7 +1744,7 @@ userProject <string> The project to be billed for this request."
         "https://www.googleapis.com/auth/devstorage.read_only"]})))
 
 (defn projects-hmacKeys-update
-  "Updates the state of an HMAC key. See the HMAC Key resource descriptor for valid states.
+  "Updates the state of an HMAC key. See the [HMAC Key resource descriptor](https://cloud.google.com/storage/docs/json_api/v1/projects/hmacKeys/update#request-body) for valid states.
 https://cloud.google.com/storage/docs/json_api/v1/reference/rest/v1/projects/hmacKeys/update
 
 projectId <> 
@@ -1732,7 +1757,7 @@ userProject <string> The project to be billed for this request."
   ([projectId accessId HmacKeyMetadata]
     (projects-hmacKeys-update projectId accessId HmacKeyMetadata nil))
   ([projectId accessId HmacKeyMetadata optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://storage.googleapis.com/storage/v1/projects/{projectId}/hmacKeys/{accessId}",
@@ -1753,7 +1778,7 @@ optional:
 userProject <string> The project to be billed for this request."
   ([projectId] (projects-serviceAccount-get projectId nil))
   ([projectId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://storage.googleapis.com/storage/v1/projects/{projectId}/serviceAccount",
@@ -1780,7 +1805,7 @@ userProject <string> The project to be billed for this request. Required for Req
   ([bucket object entity]
     (objectAccessControls-delete bucket object entity nil))
   ([bucket object entity optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}/acl/{entity}",
@@ -1805,7 +1830,7 @@ userProject <string> The project to be billed for this request. Required for Req
   ([bucket object entity]
     (objectAccessControls-get bucket object entity nil))
   ([bucket object entity optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}/acl/{entity}",
@@ -1835,7 +1860,7 @@ userProject <string> The project to be billed for this request. Required for Req
       ObjectAccessControl
       nil))
   ([bucket object ObjectAccessControl optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}/acl",
@@ -1858,7 +1883,7 @@ generation <string> If present, selects a specific revision of this object (as o
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket object] (objectAccessControls-list bucket object nil))
   ([bucket object optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}/acl",
@@ -1889,7 +1914,7 @@ userProject <string> The project to be billed for this request. Required for Req
       ObjectAccessControl
       nil))
   ([bucket object entity ObjectAccessControl optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}/acl/{entity}",
@@ -1922,7 +1947,7 @@ userProject <string> The project to be billed for this request. Required for Req
       ObjectAccessControl
       nil))
   ([bucket object entity ObjectAccessControl optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}/acl/{entity}",
@@ -1941,7 +1966,7 @@ https://cloud.google.com/storage/docs/json_api/v1/reference/rest/v1/channels/sto
 Channel:
 Channel"
   [Channel]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://storage.googleapis.com/storage/v1/channels/stop",
@@ -1962,7 +1987,7 @@ https://cloud.google.com/storage/docs/json_api/v1/reference/rest/v1/buckets/oper
 bucket <> 
 operationId <> "
   [bucket operationId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://storage.googleapis.com/storage/v1/b/{bucket}/operations/{operationId}/cancel",
@@ -1980,7 +2005,7 @@ https://cloud.google.com/storage/docs/json_api/v1/reference/rest/v1/buckets/oper
 bucket <> 
 operationId <> "
   [bucket operationId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://storage.googleapis.com/storage/v1/b/{bucket}/operations/{operationId}",
@@ -2004,7 +2029,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> Maximum number of items to return in a single page of responses. Fewer total results may be returned than requested. The service uses this parameter or 100 items, whichever is smaller."
   ([bucket] (buckets-operations-list bucket nil))
   ([bucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://storage.googleapis.com/storage/v1/b/{bucket}/operations",

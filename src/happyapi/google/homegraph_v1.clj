@@ -14,29 +14,13 @@ optional:
 requestId <string> Request ID used for debugging."
   ([agentUserId] (agentUsers-delete agentUserId nil))
   ([agentUserId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://homegraph.googleapis.com/v1/{+agentUserId}",
        :uri-template-args {"agentUserId" agentUserId},
        :query-params (merge {} optional),
        :scopes ["https://www.googleapis.com/auth/homegraph"]})))
-
-(defn devices-requestSync
-  "Requests Google to send an `action.devices.SYNC` [intent](https://developers.home.google.com/cloud-to-cloud/intents/sync) to your smart home Action to update device metadata for the given user. The third-party user's identity is passed via the `agent_user_id` (see RequestSyncDevicesRequest). This request must be authorized using service account credentials from your Actions console project.
-https://developers.home.google.com/cloud-to-cloud/get-started/v1/reference/rest/v1/devices/requestSync
-
-RequestSyncDevicesRequest:
-RequestSyncDevicesRequest"
-  [RequestSyncDevicesRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://homegraph.googleapis.com/v1/devices:requestSync",
-     :uri-template-args {},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/homegraph"],
-     :body RequestSyncDevicesRequest}))
 
 (defn devices-sync
   "Gets all the devices associated with the given third-party user. The third-party user's identity is passed in via the `agent_user_id` (see SyncRequest). This request must be authorized using service account credentials from your Actions console project.
@@ -45,7 +29,7 @@ https://developers.home.google.com/cloud-to-cloud/get-started/v1/reference/rest/
 SyncRequest:
 SyncRequest"
   [SyncRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://homegraph.googleapis.com/v1/devices:sync",
      :uri-template-args {},
@@ -60,7 +44,7 @@ https://developers.home.google.com/cloud-to-cloud/get-started/v1/reference/rest/
 ReportStateAndNotificationRequest:
 ReportStateAndNotificationRequest"
   [ReportStateAndNotificationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://homegraph.googleapis.com/v1/devices:reportStateAndNotification",
@@ -76,10 +60,26 @@ https://developers.home.google.com/cloud-to-cloud/get-started/v1/reference/rest/
 QueryRequest:
 QueryRequest"
   [QueryRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://homegraph.googleapis.com/v1/devices:query",
      :uri-template-args {},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/homegraph"],
      :body QueryRequest}))
+
+(defn devices-requestSync
+  "Requests Google to send an `action.devices.SYNC` [intent](https://developers.home.google.com/cloud-to-cloud/intents/sync) to your smart home Action to update device metadata for the given user. The third-party user's identity is passed via the `agent_user_id` (see RequestSyncDevicesRequest). This request must be authorized using service account credentials from your Actions console project.
+https://developers.home.google.com/cloud-to-cloud/get-started/v1/reference/rest/v1/devices/requestSync
+
+RequestSyncDevicesRequest:
+RequestSyncDevicesRequest"
+  [RequestSyncDevicesRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://homegraph.googleapis.com/v1/devices:requestSync",
+     :uri-template-args {},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/homegraph"],
+     :body RequestSyncDevicesRequest}))

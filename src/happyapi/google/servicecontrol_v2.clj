@@ -12,7 +12,7 @@ serviceName <>
 CheckRequest:
 CheckRequest"
   [serviceName CheckRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://servicecontrol.googleapis.com/v2/services/{serviceName}:check",
@@ -31,7 +31,7 @@ serviceName <>
 ReportRequest:
 ReportRequest"
   [serviceName ReportRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://servicecontrol.googleapis.com/v2/services/{serviceName}:report",

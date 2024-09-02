@@ -15,7 +15,7 @@ pageSize <integer> Maximum number of product statuses to return in the response,
 include <string> The information to be included in the response. Only sections listed here will be returned."
   ([parent] (accounts-products-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://manufacturers.googleapis.com/v1/{+parent}/products",
@@ -35,7 +35,7 @@ optional:
 include <string> The information to be included in the response. Only sections listed here will be returned."
   ([parent name] (accounts-products-get parent name nil))
   ([parent name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://manufacturers.googleapis.com/v1/{+parent}/products/{+name}",
@@ -53,7 +53,7 @@ name <>
 Attributes:
 Attributes"
   [parent name Attributes]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://manufacturers.googleapis.com/v1/{+parent}/products/{+name}",
@@ -69,7 +69,7 @@ https://developers.google.com/manufacturers/quickstart/v1/reference/rest/v1/acco
 parent <> 
 name <> "
   [parent name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://manufacturers.googleapis.com/v1/{+parent}/products/{+name}",
@@ -93,7 +93,7 @@ updateMask <string> Optional. The list of fields to update according to aip.dev/
       ProductCertification
       nil))
   ([name ProductCertification optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://manufacturers.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -111,7 +111,7 @@ optional:
 pageSize <integer> Optional. The maximum number of product certifications to return. The service may return fewer than this value. If unspecified, at most 50 product certifications will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (accounts-languages-productCertifications-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://manufacturers.googleapis.com/v1/{+parent}/productCertifications",
@@ -126,7 +126,7 @@ https://developers.google.com/manufacturers/quickstart/v1/reference/rest/v1/acco
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://manufacturers.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -139,7 +139,7 @@ https://developers.google.com/manufacturers/quickstart/v1/reference/rest/v1/acco
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://manufacturers.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},

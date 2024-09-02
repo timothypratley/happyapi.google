@@ -15,7 +15,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datacatalog.googleapis.com/v1/{+name}/operations",
@@ -29,7 +29,7 @@ https://cloud.google.com/data-catalog/docs/v1/reference/rest/v1/projects/locatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://datacatalog.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -42,7 +42,7 @@ https://cloud.google.com/data-catalog/docs/v1/reference/rest/v1/projects/locatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://datacatalog.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -55,7 +55,7 @@ https://cloud.google.com/data-catalog/docs/v1/reference/rest/v1/projects/locatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datacatalog.googleapis.com/v1/{+name}:cancel",
@@ -79,7 +79,7 @@ entryGroupId <string> Required. The ID of the entry group to create. The ID must
       GoogleCloudDatacatalogV1EntryGroup
       nil))
   ([parent GoogleCloudDatacatalogV1EntryGroup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://datacatalog.googleapis.com/v1/{+parent}/entryGroups",
@@ -98,7 +98,7 @@ optional:
 readMask <string> The fields to return. If empty or omitted, all fields are returned."
   ([name] (projects-locations-entryGroups-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://datacatalog.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -121,7 +121,7 @@ updateMask <string> Names of fields whose values to overwrite on an entry group.
       GoogleCloudDatacatalogV1EntryGroup
       nil))
   ([name GoogleCloudDatacatalogV1EntryGroup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://datacatalog.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -139,7 +139,7 @@ optional:
 force <boolean> Optional. If true, deletes all entries in the entry group."
   ([name] (projects-locations-entryGroups-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://datacatalog.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -156,7 +156,7 @@ optional:
 pageSize <integer> Optional. The maximum number of items to return. Default is 10. Maximum limit is 1000. Throws an invalid argument if `page_size` is greater than 1000."
   ([parent] (projects-locations-entryGroups-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datacatalog.googleapis.com/v1/{+parent}/entryGroups",
@@ -172,7 +172,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datacatalog.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -189,7 +189,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datacatalog.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -206,7 +206,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datacatalog.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -226,7 +226,7 @@ pageSize <integer> The maximum number of items to return. Default is 10. Maximum
 readMask <string> The fields to return for each entry. If empty or omitted, all fields are returned. For example, to return a list of entries with only the `name` field, set `read_mask` to only one path with the `name` value."
   ([parent] (projects-locations-entryGroups-entries-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datacatalog.googleapis.com/v1/{+parent}/entries",
@@ -242,7 +242,7 @@ name <>
 GoogleCloudDatacatalogV1StarEntryRequest:
 GoogleCloudDatacatalogV1StarEntryRequest"
   [name GoogleCloudDatacatalogV1StarEntryRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datacatalog.googleapis.com/v1/{+name}:star",
@@ -257,7 +257,7 @@ https://cloud.google.com/data-catalog/docs/v1/reference/rest/v1/projects/locatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://datacatalog.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -272,7 +272,7 @@ parent <>
 GoogleCloudDatacatalogV1ImportEntriesRequest:
 GoogleCloudDatacatalogV1ImportEntriesRequest"
   [parent GoogleCloudDatacatalogV1ImportEntriesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datacatalog.googleapis.com/v1/{+parent}/entries:import",
@@ -297,7 +297,7 @@ updateMask <string> Names of fields whose values to overwrite on an entry. If th
       GoogleCloudDatacatalogV1Entry
       nil))
   ([name GoogleCloudDatacatalogV1Entry optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://datacatalog.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -313,7 +313,7 @@ name <>
 GoogleCloudDatacatalogV1UnstarEntryRequest:
 GoogleCloudDatacatalogV1UnstarEntryRequest"
   [name GoogleCloudDatacatalogV1UnstarEntryRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datacatalog.googleapis.com/v1/{+name}:unstar",
@@ -330,7 +330,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datacatalog.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -355,7 +355,7 @@ entryId <string> Required. The ID of the entry to create. The ID must contain on
       GoogleCloudDatacatalogV1Entry
       nil))
   ([parent GoogleCloudDatacatalogV1Entry optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://datacatalog.googleapis.com/v1/{+parent}/entries",
@@ -372,7 +372,7 @@ name <>
 GoogleCloudDatacatalogV1ModifyEntryOverviewRequest:
 GoogleCloudDatacatalogV1ModifyEntryOverviewRequest"
   [name GoogleCloudDatacatalogV1ModifyEntryOverviewRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datacatalog.googleapis.com/v1/{+name}:modifyEntryOverview",
@@ -389,7 +389,7 @@ name <>
 GoogleCloudDatacatalogV1ModifyEntryContactsRequest:
 GoogleCloudDatacatalogV1ModifyEntryContactsRequest"
   [name GoogleCloudDatacatalogV1ModifyEntryContactsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datacatalog.googleapis.com/v1/{+name}:modifyEntryContacts",
@@ -404,7 +404,7 @@ https://cloud.google.com/data-catalog/docs/v1/reference/rest/v1/projects/locatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://datacatalog.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -419,7 +419,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datacatalog.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -436,7 +436,7 @@ parent <>
 GoogleCloudDatacatalogV1Tag:
 GoogleCloudDatacatalogV1Tag"
   [parent GoogleCloudDatacatalogV1Tag]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datacatalog.googleapis.com/v1/{+parent}/tags",
@@ -461,7 +461,7 @@ updateMask <string> Names of fields whose values to overwrite on a tag. Currentl
       GoogleCloudDatacatalogV1Tag
       nil))
   ([name GoogleCloudDatacatalogV1Tag optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://datacatalog.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -475,7 +475,7 @@ https://cloud.google.com/data-catalog/docs/v1/reference/rest/v1/projects/locatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://datacatalog.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -493,7 +493,7 @@ pageSize <integer> The maximum number of tags to return. Default is 10. Maximum 
   ([parent]
     (projects-locations-entryGroups-entries-tags-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datacatalog.googleapis.com/v1/{+parent}/tags",
@@ -509,7 +509,7 @@ parent <>
 GoogleCloudDatacatalogV1ReconcileTagsRequest:
 GoogleCloudDatacatalogV1ReconcileTagsRequest"
   [parent GoogleCloudDatacatalogV1ReconcileTagsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datacatalog.googleapis.com/v1/{+parent}/tags:reconcile",
@@ -526,7 +526,7 @@ parent <>
 GoogleCloudDatacatalogV1Tag:
 GoogleCloudDatacatalogV1Tag"
   [parent GoogleCloudDatacatalogV1Tag]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datacatalog.googleapis.com/v1/{+parent}/tags",
@@ -551,7 +551,7 @@ updateMask <string> Names of fields whose values to overwrite on a tag. Currentl
       GoogleCloudDatacatalogV1Tag
       nil))
   ([name GoogleCloudDatacatalogV1Tag optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://datacatalog.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -565,7 +565,7 @@ https://cloud.google.com/data-catalog/docs/v1/reference/rest/v1/projects/locatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://datacatalog.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -582,7 +582,7 @@ optional:
 pageSize <integer> The maximum number of tags to return. Default is 10. Maximum limit is 1000."
   ([parent] (projects-locations-entryGroups-tags-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datacatalog.googleapis.com/v1/{+parent}/tags",
@@ -606,7 +606,7 @@ tagTemplateId <string> Required. The ID of the tag template to create. The ID mu
       GoogleCloudDatacatalogV1TagTemplate
       nil))
   ([parent GoogleCloudDatacatalogV1TagTemplate optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://datacatalog.googleapis.com/v1/{+parent}/tagTemplates",
@@ -621,7 +621,7 @@ https://cloud.google.com/data-catalog/docs/v1/reference/rest/v1/projects/locatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://datacatalog.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -644,7 +644,7 @@ updateMask <string> Names of fields whose values to overwrite on a tag template.
       GoogleCloudDatacatalogV1TagTemplate
       nil))
   ([name GoogleCloudDatacatalogV1TagTemplate optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://datacatalog.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -662,7 +662,7 @@ optional:
 force <boolean> Required. If true, deletes all tags that use this template. Currently, `true` is the only supported value."
   ([name] (projects-locations-tagTemplates-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://datacatalog.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -677,7 +677,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datacatalog.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -694,7 +694,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datacatalog.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -711,7 +711,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datacatalog.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -736,7 +736,7 @@ tagTemplateFieldId <string> Required. The ID of the tag template field to create
       GoogleCloudDatacatalogV1TagTemplateField
       nil))
   ([parent GoogleCloudDatacatalogV1TagTemplateField optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://datacatalog.googleapis.com/v1/{+parent}/fields",
@@ -761,7 +761,7 @@ updateMask <string> Optional. Names of fields whose values to overwrite on an in
       GoogleCloudDatacatalogV1TagTemplateField
       nil))
   ([name GoogleCloudDatacatalogV1TagTemplateField optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://datacatalog.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -777,7 +777,7 @@ name <>
 GoogleCloudDatacatalogV1RenameTagTemplateFieldRequest:
 GoogleCloudDatacatalogV1RenameTagTemplateFieldRequest"
   [name GoogleCloudDatacatalogV1RenameTagTemplateFieldRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datacatalog.googleapis.com/v1/{+name}:rename",
@@ -796,7 +796,7 @@ optional:
 force <boolean> Required. If true, deletes this field from any tags that use it. Currently, `true` is the only supported value."
   ([name] (projects-locations-tagTemplates-fields-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://datacatalog.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -811,7 +811,7 @@ name <>
 GoogleCloudDatacatalogV1RenameTagTemplateFieldEnumValueRequest:
 GoogleCloudDatacatalogV1RenameTagTemplateFieldEnumValueRequest"
   [name GoogleCloudDatacatalogV1RenameTagTemplateFieldEnumValueRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datacatalog.googleapis.com/v1/{+name}:rename",
@@ -832,7 +832,7 @@ pageSize <integer> The maximum number of items to return. Must be a value betwee
 filter <string> Supported field for filter is 'service' and value is 'dataplex'. Eg: service=dataplex."
   ([parent] (projects-locations-taxonomies-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datacatalog.googleapis.com/v1/{+parent}/taxonomies",
@@ -848,7 +848,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datacatalog.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -863,7 +863,7 @@ https://cloud.google.com/data-catalog/docs/v1/reference/rest/v1/projects/locatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://datacatalog.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -881,7 +881,7 @@ taxonomies <string> Required. Resource names of the taxonomies to export.
 serializedTaxonomies <boolean> Serialized export taxonomies that contain all the policy tags as nested protocol buffers."
   ([parent] (projects-locations-taxonomies-export parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datacatalog.googleapis.com/v1/{+parent}/taxonomies:export",
@@ -897,7 +897,7 @@ name <>
 GoogleCloudDatacatalogV1ReplaceTaxonomyRequest:
 GoogleCloudDatacatalogV1ReplaceTaxonomyRequest"
   [name GoogleCloudDatacatalogV1ReplaceTaxonomyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datacatalog.googleapis.com/v1/{+name}:replace",
@@ -914,7 +914,7 @@ parent <>
 GoogleCloudDatacatalogV1ImportTaxonomiesRequest:
 GoogleCloudDatacatalogV1ImportTaxonomiesRequest"
   [parent GoogleCloudDatacatalogV1ImportTaxonomiesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datacatalog.googleapis.com/v1/{+parent}/taxonomies:import",
@@ -939,7 +939,7 @@ updateMask <string> Specifies fields to update. If not set, defaults to all fiel
       GoogleCloudDatacatalogV1Taxonomy
       nil))
   ([name GoogleCloudDatacatalogV1Taxonomy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://datacatalog.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -955,7 +955,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datacatalog.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -972,7 +972,7 @@ parent <>
 GoogleCloudDatacatalogV1Taxonomy:
 GoogleCloudDatacatalogV1Taxonomy"
   [parent GoogleCloudDatacatalogV1Taxonomy]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datacatalog.googleapis.com/v1/{+parent}/taxonomies",
@@ -987,7 +987,7 @@ https://cloud.google.com/data-catalog/docs/v1/reference/rest/v1/projects/locatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://datacatalog.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1002,7 +1002,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datacatalog.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -1019,7 +1019,7 @@ parent <>
 GoogleCloudDatacatalogV1PolicyTag:
 GoogleCloudDatacatalogV1PolicyTag"
   [parent GoogleCloudDatacatalogV1PolicyTag]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datacatalog.googleapis.com/v1/{+parent}/policyTags",
@@ -1034,7 +1034,7 @@ https://cloud.google.com/data-catalog/docs/v1/reference/rest/v1/projects/locatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://datacatalog.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1057,7 +1057,7 @@ updateMask <string> Specifies the fields to update. You can update only display 
       GoogleCloudDatacatalogV1PolicyTag
       nil))
   ([name GoogleCloudDatacatalogV1PolicyTag optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://datacatalog.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1075,7 +1075,7 @@ optional:
 pageSize <integer> The maximum number of items to return. Must be a value between 1 and 1000 inclusively. If not set, defaults to 50."
   ([parent] (projects-locations-taxonomies-policyTags-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datacatalog.googleapis.com/v1/{+parent}/policyTags",
@@ -1089,7 +1089,7 @@ https://cloud.google.com/data-catalog/docs/v1/reference/rest/v1/projects/locatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://datacatalog.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1104,7 +1104,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datacatalog.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -1121,7 +1121,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datacatalog.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -1138,7 +1138,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datacatalog.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -1154,7 +1154,7 @@ https://cloud.google.com/data-catalog/docs/v1/reference/rest/v1/catalog/search
 GoogleCloudDatacatalogV1SearchCatalogRequest:
 GoogleCloudDatacatalogV1SearchCatalogRequest"
   [GoogleCloudDatacatalogV1SearchCatalogRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datacatalog.googleapis.com/v1/catalog:search",
@@ -1175,7 +1175,7 @@ project <string> Project where the lookup should be performed. Required to looku
 location <string> Location where the lookup should be performed. Required to lookup entry that is not a part of `DPMS` or `DATAPLEX` `integrated_system` using its `fully_qualified_name`. Ignored in other cases."
   ([] (entries-lookup nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datacatalog.googleapis.com/v1/entries:lookup",

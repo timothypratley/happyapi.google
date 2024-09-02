@@ -10,12 +10,42 @@ https://cloud.google.com/asset-inventory/docs/export-asset-metadata/v1/reference
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudasset.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+
+(defn operations-delete
+  "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
+https://cloud.google.com/asset-inventory/docs/export-asset-metadata/v1/reference/rest/v1/operations/delete
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :delete,
+     :uri-template "https://cloudasset.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+
+(defn operations-cancel
+  "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+https://cloud.google.com/asset-inventory/docs/export-asset-metadata/v1/reference/rest/v1/operations/cancel
+
+name <> 
+CancelOperationRequest:
+CancelOperationRequest"
+  [name CancelOperationRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://cloudasset.googleapis.com/v1/{+name}:cancel",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body CancelOperationRequest}))
 
 (defn searchAllIamPolicies
   "Searches all IAM policies within the specified scope, such as a project, folder, or organization. The caller must be granted the `cloudasset.assets.searchAllIamPolicies` permission on the desired scope, otherwise the request will be rejected.
@@ -30,7 +60,7 @@ assetTypes <string> Optional. A list of asset types that the IAM policies are at
 orderBy <string> Optional. A comma-separated list of fields specifying the sorting order of the results. The default order is ascending. Add \" DESC\" after the field name to indicate descending order. Redundant space characters are ignored. Example: \"assetType DESC, resource\". Only singular primitive fields in the response are sortable: * resource * assetType * project All the other fields such as repeated fields (e.g., `folders`) and non-primitive fields (e.g., `policy`) are not supported."
   ([scope] (searchAllIamPolicies scope nil))
   ([scope optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudasset.googleapis.com/v1/{+scope}:searchAllIamPolicies",
@@ -46,7 +76,7 @@ parent <>
 ExportAssetsRequest:
 ExportAssetsRequest"
   [parent ExportAssetsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudasset.googleapis.com/v1/{+parent}:exportAssets",
@@ -77,7 +107,7 @@ analysisQuery.options.expandResources <boolean> Optional. If true and IamPolicyA
 analysisQuery.accessSelector.permissions <string> Optional. The permissions to appear in result."
   ([scope] (analyzeIamPolicy scope nil))
   ([scope optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudasset.googleapis.com/v1/{+scope}:analyzeIamPolicy",
@@ -99,7 +129,7 @@ readTimeWindow.endTime <string> End time of the time window (inclusive). If not 
 relationshipTypes <string> Optional. A list of relationship types to output, for example: `INSTANCE_TO_INSTANCEGROUP`. This field should only be specified if content_type=RELATIONSHIP. * If specified: it outputs specified relationships' history on the [asset_names]. It returns an error if any of the [relationship_types] doesn't belong to the supported relationship types of the [asset_names] or if any of the [asset_names]'s types doesn't belong to the source types of the [relationship_types]. * Otherwise: it outputs the supported relationships' history on the [asset_names] or returns an error if any of the [asset_names]'s types has no relationship support. See [Introduction to Cloud Asset Inventory](https://cloud.google.com/asset-inventory/docs/overview) for all supported asset types and relationship types."
   ([parent] (batchGetAssetsHistory parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudasset.googleapis.com/v1/{+parent}:batchGetAssetsHistory",
@@ -119,7 +149,7 @@ filter <string> The expression to filter AnalyzeOrgPoliciesResponse.org_policy_r
 pageSize <integer> The maximum number of items to return per page. If unspecified, AnalyzeOrgPoliciesResponse.org_policy_results will contain 20 items with a maximum of 200."
   ([scope] (analyzeOrgPolicies scope nil))
   ([scope optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudasset.googleapis.com/v1/{+scope}:analyzeOrgPolicies",
@@ -135,7 +165,7 @@ parent <>
 QueryAssetsRequest:
 QueryAssetsRequest"
   [parent QueryAssetsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudasset.googleapis.com/v1/{+parent}:queryAssets",
@@ -155,7 +185,7 @@ destinationParent <string> Required. Name of the Google Cloud folder or organiza
 view <string> Analysis view indicating what information should be included in the analysis response. If unspecified, the default view is FULL."
   ([resource] (analyzeMove resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudasset.googleapis.com/v1/{+resource}:analyzeMove",
@@ -175,7 +205,7 @@ filter <string> The expression to filter AnalyzeOrgPolicyGovernedAssetsResponse.
 pageSize <integer> The maximum number of items to return per page. If unspecified, AnalyzeOrgPolicyGovernedAssetsResponse.governed_assets will contain 100 items with a maximum of 200."
   ([scope] (analyzeOrgPolicyGovernedAssets scope nil))
   ([scope optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudasset.googleapis.com/v1/{+scope}:analyzeOrgPolicyGovernedAssets",
@@ -195,7 +225,7 @@ filter <string> The expression to filter AnalyzeOrgPolicyGovernedContainersRespo
 pageSize <integer> The maximum number of items to return per page. If unspecified, AnalyzeOrgPolicyGovernedContainersResponse.governed_containers will contain 100 items with a maximum of 200."
   ([scope] (analyzeOrgPolicyGovernedContainers scope nil))
   ([scope optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudasset.googleapis.com/v1/{+scope}:analyzeOrgPolicyGovernedContainers",
@@ -217,7 +247,7 @@ orderBy <string> Optional. A comma-separated list of fields specifying the sorti
 readMask <string> Optional. A comma-separated list of fields that you want returned in the results. The following fields are returned by default if not specified: * `name` * `assetType` * `project` * `folders` * `organization` * `displayName` * `description` * `location` * `labels` * `tags` * `effectiveTags` * `networkTags` * `kmsKeys` * `createTime` * `updateTime` * `state` * `additionalAttributes` * `parentFullResourceName` * `parentAssetType` Some fields of large size, such as `versionedResources`, `attachedResources`, `effectiveTags` etc., are not returned by default, but you can specify them in the `read_mask` parameter if you want to include them. If `\"*\"` is specified, all [available fields](https://cloud.google.com/asset-inventory/docs/reference/rest/v1/TopLevel/searchAllResources#resourcesearchresult) are returned. Examples: `\"name,location\"`, `\"name,versionedResources\"`, `\"*\"`. Any invalid field path will trigger INVALID_ARGUMENT error."
   ([scope] (searchAllResources scope nil))
   ([scope optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudasset.googleapis.com/v1/{+scope}:searchAllResources",
@@ -233,7 +263,7 @@ scope <>
 AnalyzeIamPolicyLongrunningRequest:
 AnalyzeIamPolicyLongrunningRequest"
   [scope AnalyzeIamPolicyLongrunningRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudasset.googleapis.com/v1/{+scope}:analyzeIamPolicyLongrunning",
@@ -256,7 +286,7 @@ pageSize <integer> The maximum number of assets to be returned in a single respo
 relationshipTypes <string> A list of relationship types to output, for example: `INSTANCE_TO_INSTANCEGROUP`. This field should only be specified if content_type=RELATIONSHIP. * If specified: it snapshots specified relationships. It returns an error if any of the [relationship_types] doesn't belong to the supported relationship types of the [asset_types] or if any of the [asset_types] doesn't belong to the source types of the [relationship_types]. * Otherwise: it snapshots the supported relationships for all [asset_types] or returns an error if any of the [asset_types] has no relationship support. An unspecified asset types field means all supported asset_types. See [Introduction to Cloud Asset Inventory](https://cloud.google.com/asset-inventory/docs/overview) for all supported asset types and relationship types."
   ([parent] (assets-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudasset.googleapis.com/v1/{+parent}/assets",
@@ -272,7 +302,7 @@ parent <>
 CreateFeedRequest:
 CreateFeedRequest"
   [parent CreateFeedRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudasset.googleapis.com/v1/{+parent}/feeds",
@@ -287,7 +317,7 @@ https://cloud.google.com/asset-inventory/docs/export-asset-metadata/v1/reference
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudasset.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -300,7 +330,7 @@ https://cloud.google.com/asset-inventory/docs/export-asset-metadata/v1/reference
 
 parent <> "
   [parent]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://cloudasset.googleapis.com/v1/{+parent}/feeds",
@@ -316,7 +346,7 @@ name <>
 UpdateFeedRequest:
 UpdateFeedRequest"
   [name UpdateFeedRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template "https://cloudasset.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -330,7 +360,7 @@ https://cloud.google.com/asset-inventory/docs/export-asset-metadata/v1/reference
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://cloudasset.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -349,7 +379,7 @@ optional:
 savedQueryId <string> Required. The ID to use for the saved query, which must be unique in the specified parent. It will become the final component of the saved query's resource name. This value should be 4-63 characters, and valid characters are `a-z-`. Notice that this field is required in the saved query creation, and the `name` field of the `saved_query` will be ignored."
   ([parent SavedQuery] (savedQueries-create parent SavedQuery nil))
   ([parent SavedQuery optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://cloudasset.googleapis.com/v1/{+parent}/savedQueries",
@@ -364,7 +394,7 @@ https://cloud.google.com/asset-inventory/docs/export-asset-metadata/v1/reference
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudasset.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -382,7 +412,7 @@ filter <string> Optional. The expression to filter resources. The expression is 
 pageSize <integer> Optional. The maximum number of saved queries to return per page. The service may return fewer than this value. If unspecified, at most 50 will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (savedQueries-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudasset.googleapis.com/v1/{+parent}/savedQueries",
@@ -402,7 +432,7 @@ optional:
 updateMask <string> Required. The list of fields to update."
   ([name SavedQuery] (savedQueries-patch name SavedQuery nil))
   ([name SavedQuery optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://cloudasset.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -416,7 +446,7 @@ https://cloud.google.com/asset-inventory/docs/export-asset-metadata/v1/reference
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://cloudasset.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -433,7 +463,7 @@ optional:
 names <string> Required. The names refer to the [full_resource_names] (https://cloud.google.com/asset-inventory/docs/resource-name-format) of the asset types [supported by search APIs](https://cloud.google.com/asset-inventory/docs/supported-asset-types). A maximum of 20 resources' effective policies can be retrieved in a batch."
   ([scope] (effectiveIamPolicies-batchGet scope nil))
   ([scope optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudasset.googleapis.com/v1/{+scope}/effectiveIamPolicies:batchGet",

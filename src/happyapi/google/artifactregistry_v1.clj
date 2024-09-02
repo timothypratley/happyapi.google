@@ -10,7 +10,7 @@ https://cloud.google.com/artifact-registry/docs/v1/reference/rest/v1/projects/ge
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://artifactregistry.googleapis.com/v1/{+name}",
@@ -33,7 +33,7 @@ updateMask <string> Field mask to support partial updates."
   ([name ProjectSettings]
     (projects-updateProjectSettings name ProjectSettings nil))
   ([name ProjectSettings optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://artifactregistry.googleapis.com/v1/{+name}",
@@ -48,7 +48,7 @@ https://cloud.google.com/artifact-registry/docs/v1/reference/rest/v1/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://artifactregistry.googleapis.com/v1/{+name}",
@@ -71,7 +71,7 @@ updateMask <string> Field mask to support partial updates."
   ([name VPCSCConfig]
     (projects-locations-updateVpcscConfig name VPCSCConfig nil))
   ([name VPCSCConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://artifactregistry.googleapis.com/v1/{+name}",
@@ -91,7 +91,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://artifactregistry.googleapis.com/v1/{+name}/locations",
@@ -107,7 +107,7 @@ https://cloud.google.com/artifact-registry/docs/v1/reference/rest/v1/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://artifactregistry.googleapis.com/v1/{+name}",
@@ -123,7 +123,7 @@ https://cloud.google.com/artifact-registry/docs/v1/reference/rest/v1/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://artifactregistry.googleapis.com/v1/{+name}",
@@ -140,10 +140,12 @@ https://cloud.google.com/artifact-registry/docs/v1/reference/rest/v1/projects/lo
 parent <> 
 
 optional:
-pageSize <integer> The maximum number of repositories to return. Maximum page size is 1,000."
+pageSize <integer> The maximum number of repositories to return. Maximum page size is 1,000.
+filter <string> Optional. An expression for filtering the results of the request. Filter rules are case insensitive. The fields eligible for filtering are: * `name` Examples of using a filter: To filter the results of your request to repositories with the name \"my-repo\" in project my-project in the us-central region, append the following filter expression to your request: * `name=\"projects/my-project/locations/us-central1/repositories/my-repo` You can also use wildcards to match any number of characters before or after the value: * `name=\"projects/my-project/locations/us-central1/repositories/my-*\"` * `name=\"projects/my-project/locations/us-central1/repositories/*repo\"` * `name=\"projects/my-project/locations/us-central1/repositories/*repo*\"`
+orderBy <string> Optional. The field to order the results by."
   ([parent] (projects-locations-repositories-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://artifactregistry.googleapis.com/v1/{+parent}/repositories",
@@ -159,7 +161,7 @@ https://cloud.google.com/artifact-registry/docs/v1/reference/rest/v1/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://artifactregistry.googleapis.com/v1/{+name}",
@@ -182,7 +184,7 @@ repositoryId <string> Required. The repository id to use for this repository."
   ([parent Repository]
     (projects-locations-repositories-create parent Repository nil))
   ([parent Repository optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://artifactregistry.googleapis.com/v1/{+parent}/repositories",
@@ -204,7 +206,7 @@ updateMask <string> The update mask applies to the resource. For the `FieldMask`
   ([name Repository]
     (projects-locations-repositories-patch name Repository nil))
   ([name Repository optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://artifactregistry.googleapis.com/v1/{+name}",
@@ -219,7 +221,7 @@ https://cloud.google.com/artifact-registry/docs/v1/reference/rest/v1/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://artifactregistry.googleapis.com/v1/{+name}",
@@ -235,7 +237,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://artifactregistry.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -255,7 +257,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-repositories-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://artifactregistry.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -273,7 +275,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://artifactregistry.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -292,7 +294,7 @@ parent <>
 ImportYumArtifactsRequest:
 ImportYumArtifactsRequest"
   [parent ImportYumArtifactsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://artifactregistry.googleapis.com/v1/{+parent}/yumArtifacts:import",
@@ -309,7 +311,7 @@ parent <>
 UploadYumArtifactRequest:
 UploadYumArtifactRequest"
   [parent UploadYumArtifactRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://artifactregistry.googleapis.com/v1/{+parent}/yumArtifacts:create",
@@ -329,7 +331,7 @@ pageSize <integer> The maximum number of artifacts to return. Maximum page size 
   ([parent]
     (projects-locations-repositories-mavenArtifacts-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://artifactregistry.googleapis.com/v1/{+parent}/mavenArtifacts",
@@ -345,7 +347,7 @@ https://cloud.google.com/artifact-registry/docs/v1/reference/rest/v1/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://artifactregistry.googleapis.com/v1/{+name}",
@@ -363,7 +365,7 @@ parent <>
 ImportAptArtifactsRequest:
 ImportAptArtifactsRequest"
   [parent ImportAptArtifactsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://artifactregistry.googleapis.com/v1/{+parent}/aptArtifacts:import",
@@ -380,7 +382,7 @@ parent <>
 UploadAptArtifactRequest:
 UploadAptArtifactRequest"
   [parent UploadAptArtifactRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://artifactregistry.googleapis.com/v1/{+parent}/aptArtifacts:create",
@@ -396,12 +398,12 @@ https://cloud.google.com/artifact-registry/docs/v1/reference/rest/v1/projects/lo
 parent <> 
 
 optional:
-filter <string> An expression for filtering the results of the request. Filter rules are case insensitive. The fields eligible for filtering are: * `name` * `owner` An example of using a filter: * `name=\"projects/p1/locations/us-central1/repositories/repo1/files/a/b/*\"` --> Files with an ID starting with \"a/b/\". * `owner=\"projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/versions/1.0\"` --> Files owned by the version `1.0` in package `pkg1`.
+filter <string> An expression for filtering the results of the request. Filter rules are case insensitive. The fields eligible for filtering are: * `name` * `owner` * `annotations` Examples of using a filter: To filter the results of your request to files with the name \"my_file.txt\" in project my-project in the us-central region, in repository my-repo, append the following filter expression to your request: * `name=\"projects/my-project/locations/us-central1/repositories/my-repo/files/my-file.txt\"` You can also use wildcards to match any number of characters before or after the value: * `name=\"projects/my-project/locations/us-central1/repositories/my-repo/files/my-*\"` * `name=\"projects/my-project/locations/us-central1/repositories/my-repo/files/*file.txt\"` * `name=\"projects/my-project/locations/us-central1/repositories/my-repo/files/*file*\"` To filter the results of your request to files owned by the version `1.0` in package `pkg1`, append the following filter expression to your request: * `owner=\"projects/my-project/locations/us-central1/repositories/my-repo/packages/my-package/versions/1.0\"` To filter the results of your request to files with the annotation key-value pair [`external_link`:`external_link_value`], append the following filter expression to your request: * \"annotations.external_link:external_link_value\" To filter just for a specific annotation key `external_link`, append the following filter expression to your request: * \"annotations.external_link\" If the annotation key or value contains special characters, you can escape them by surrounding the value with backticks. For example, to filter the results of your request to files with the annotation key-value pair [`external.link`:`https://example.com/my-file`], append the following filter expression to your request: * \"annotations.`external.link`:`https://example.com/my-file`\" You can also filter with annotations with a wildcard to match any number of characters before or after the value: * \"annotations.*_link:`*example.com*`\"
 pageSize <integer> The maximum number of files to return. Maximum page size is 1,000.
 orderBy <string> The field to order the results by."
   ([parent] (projects-locations-repositories-files-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://artifactregistry.googleapis.com/v1/{+parent}/files",
@@ -417,7 +419,7 @@ https://cloud.google.com/artifact-registry/docs/v1/reference/rest/v1/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://artifactregistry.googleapis.com/v1/{+name}",
@@ -433,7 +435,7 @@ https://cloud.google.com/artifact-registry/docs/v1/reference/rest/v1/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://artifactregistry.googleapis.com/v1/{+name}:download",
@@ -449,7 +451,7 @@ https://cloud.google.com/artifact-registry/docs/v1/reference/rest/v1/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://artifactregistry.googleapis.com/v1/{+name}",
@@ -465,7 +467,7 @@ parent <>
 UploadKfpArtifactRequest:
 UploadKfpArtifactRequest"
   [parent UploadKfpArtifactRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://artifactregistry.googleapis.com/v1/{+parent}/kfpArtifacts:create",
@@ -485,7 +487,7 @@ pageSize <integer> The maximum number of artifacts to return. Maximum page size 
   ([parent]
     (projects-locations-repositories-npmPackages-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://artifactregistry.googleapis.com/v1/{+parent}/npmPackages",
@@ -501,7 +503,7 @@ https://cloud.google.com/artifact-registry/docs/v1/reference/rest/v1/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://artifactregistry.googleapis.com/v1/{+name}",
@@ -519,7 +521,7 @@ parent <>
 UploadGenericArtifactRequest:
 UploadGenericArtifactRequest"
   [parent UploadGenericArtifactRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://artifactregistry.googleapis.com/v1/{+parent}/genericArtifacts:create",
@@ -540,7 +542,7 @@ orderBy <string> The field to order the results by."
   ([parent]
     (projects-locations-repositories-dockerImages-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://artifactregistry.googleapis.com/v1/{+parent}/dockerImages",
@@ -556,7 +558,7 @@ https://cloud.google.com/artifact-registry/docs/v1/reference/rest/v1/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://artifactregistry.googleapis.com/v1/{+name}",
@@ -574,7 +576,7 @@ parent <>
 ImportGoogetArtifactsRequest:
 ImportGoogetArtifactsRequest"
   [parent ImportGoogetArtifactsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://artifactregistry.googleapis.com/v1/{+parent}/googetArtifacts:import",
@@ -591,7 +593,7 @@ parent <>
 UploadGoogetArtifactRequest:
 UploadGoogetArtifactRequest"
   [parent UploadGoogetArtifactRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://artifactregistry.googleapis.com/v1/{+parent}/googetArtifacts:create",
@@ -608,7 +610,7 @@ parent <>
 UploadGoModuleRequest:
 UploadGoModuleRequest"
   [parent UploadGoModuleRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://artifactregistry.googleapis.com/v1/{+parent}/goModules:create",
@@ -628,7 +630,7 @@ pageSize <integer> The maximum number of artifacts to return. Maximum page size 
   ([parent]
     (projects-locations-repositories-pythonPackages-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://artifactregistry.googleapis.com/v1/{+parent}/pythonPackages",
@@ -644,7 +646,7 @@ https://cloud.google.com/artifact-registry/docs/v1/reference/rest/v1/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://artifactregistry.googleapis.com/v1/{+name}",
@@ -661,10 +663,12 @@ https://cloud.google.com/artifact-registry/docs/v1/reference/rest/v1/projects/lo
 parent <> 
 
 optional:
-pageSize <integer> The maximum number of packages to return. Maximum page size is 1,000."
+pageSize <integer> The maximum number of packages to return. Maximum page size is 1,000.
+filter <string> Optional. An expression for filtering the results of the request. Filter rules are case insensitive. The fields eligible for filtering are: * `name` * `annotations` Examples of using a filter: To filter the results of your request to packages with the name \"my-package\" in project my-project in the us-central region, in repository my-repo, append the following filter expression to your request: * `name=\"projects/my-project/locations/us-central1/repositories/my-repo/packages/my-package\"` You can also use wildcards to match any number of characters before or after the value: * `name=\"projects/my-project/locations/us-central1/repositories/my-repo/packages/my-*\"` * `name=\"projects/my-project/locations/us-central1/repositories/my-repo/packages/*package\"` * `name=\"projects/my-project/locations/us-central1/repositories/my-repo/packages/*pack*\"` To filter the results of your request to packages with the annotation key-value pair [`external_link`:`external_link_value`], append the following filter expression to your request\": * \"annotations.external_link:external_link_value\" To filter the results just for a specific annotation key `external_link`, append the following filter expression to your request: * \"annotations.external_link\" If the annotation key or value contains special characters, you can escape them by surrounding the value with backticks. For example, to filter the results of your request to packages with the annotation key-value pair [`external.link`:`https://example.com/my-package`], append the following filter expression to your request: * \"annotations.`external.link`:`https://example.com/my-package`\" You can also filter with annotations with a wildcard to match any number of characters before or after the value: * \"annotations.*_link:`*example.com*`\"
+orderBy <string> Optional. The field to order the results by."
   ([parent] (projects-locations-repositories-packages-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://artifactregistry.googleapis.com/v1/{+parent}/packages",
@@ -680,7 +684,7 @@ https://cloud.google.com/artifact-registry/docs/v1/reference/rest/v1/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://artifactregistry.googleapis.com/v1/{+name}",
@@ -696,7 +700,7 @@ https://cloud.google.com/artifact-registry/docs/v1/reference/rest/v1/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://artifactregistry.googleapis.com/v1/{+name}",
@@ -717,7 +721,7 @@ updateMask <string> The update mask applies to the resource. For the `FieldMask`
   ([name Package]
     (projects-locations-repositories-packages-patch name Package nil))
   ([name Package optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://artifactregistry.googleapis.com/v1/{+name}",
@@ -735,13 +739,14 @@ parent <>
 optional:
 pageSize <integer> The maximum number of versions to return. Maximum page size is 1,000.
 view <string> The view that should be returned in the response.
-orderBy <string> Optional. The field to order the results by."
+orderBy <string> Optional. The field to order the results by.
+filter <string> Optional. An expression for filtering the results of the request. Filter rules are case insensitive. The fields eligible for filtering are: * `name` * `annotations` Examples of using a filter: To filter the results of your request to versions with the name \"my-version\" in project my-project in the us-central region, in repository my-repo, append the following filter expression to your request: * `name=\"projects/my-project/locations/us-central1/repositories/my-repo/packages/my-package/versions/my-version\"` You can also use wildcards to match any number of characters before or after the value: * `name=\"projects/my-project/locations/us-central1/repositories/my-repo/packages/my-package/versions/*version\"` * `name=\"projects/my-project/locations/us-central1/repositories/my-repo/packages/my-package/versions/my*\"` * `name=\"projects/my-project/locations/us-central1/repositories/my-repo/packages/my-package/versions/*version*\"` To filter the results of your request to versions with the annotation key-value pair [`external_link`:`external_link_value`], append the following filter expression to your request: * \"annotations.external_link:external_link_value\" To filter just for a specific annotation key `external_link`, append the following filter expression to your request: * \"annotations.external_link\" If the annotation key or value contains special characters, you can escape them by surrounding the value with backticks. For example, to filter the results of your request to versions with the annotation key-value pair [`external.link`:`https://example.com/my-version`], append the following filter expression to your request: * \"annotations.`external.link`:`https://example.com/my-version`\" You can also filter with annotations with a wildcard to match any number of characters before or after the value: * \"annotations.*_link:`*example.com*`\""
   ([parent]
     (projects-locations-repositories-packages-versions-list
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://artifactregistry.googleapis.com/v1/{+parent}/versions",
@@ -762,7 +767,7 @@ view <string> The view that should be returned in the response."
   ([name]
     (projects-locations-repositories-packages-versions-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://artifactregistry.googleapis.com/v1/{+name}",
@@ -785,7 +790,7 @@ force <boolean> By default, a version that is tagged may not be deleted. If forc
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://artifactregistry.googleapis.com/v1/{+name}",
@@ -801,7 +806,7 @@ parent <>
 BatchDeleteVersionsRequest:
 BatchDeleteVersionsRequest"
   [parent BatchDeleteVersionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://artifactregistry.googleapis.com/v1/{+parent}/versions:batchDelete",
@@ -817,12 +822,12 @@ https://cloud.google.com/artifact-registry/docs/v1/reference/rest/v1/projects/lo
 parent <> 
 
 optional:
-filter <string> An expression for filtering the results of the request. Filter rules are case insensitive. The fields eligible for filtering are: * `version` An example of using a filter: * `version=\"projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/versions/1.0\"` --> Tags that are applied to the version `1.0` in package `pkg1`. * `name=\"projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/tags/a%2Fb%2F*\"` --> tags with an ID starting with \"a/b/\". * `name=\"projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/tags/*%2Fb%2Fc\"` --> tags with an ID ending with \"/b/c\". * `name=\"projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/tags/*%2Fb%2F*\"` --> tags with an ID containing \"/b/\".
+filter <string> An expression for filtering the results of the request. Filter rules are case insensitive. The fields eligible for filtering are: * `name` * `version` Examples of using a filter: To filter the results of your request to tags with the name \"my-tag\" in package \"my-package\" in repository \"my-repo\" in project \"my-project\" in the us-central region, append the following filter expression to your request: * `name=\"projects/my-project/locations/us-central1/repositories/my-repo/packages/my-package/tags/my-tag\"` You can also use wildcards to match any number of characters before or after the value: * `name=\"projects/my-project/locations/us-central1/repositories/my-repo/packages/my-package/tags/my*\"` * `name=\"projects/my-project/locations/us-central1/repositories/my-repo/packages/my-package/tags/*tag\"` * `name=\"projects/my-project/locations/us-central1/repositories/my-repo/packages/my-package/tags/*tag*\"` To filter the results of your request to tags applied to the version `1.0` in package `my-package`, append the following filter expression to your request: * `version=\"projects/my-project/locations/us-central1/repositories/my-repo/packages/my-package/versions/1.0\"`
 pageSize <integer> The maximum number of tags to return. Maximum page size is 1,000."
   ([parent]
     (projects-locations-repositories-packages-tags-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://artifactregistry.googleapis.com/v1/{+parent}/tags",
@@ -838,7 +843,7 @@ https://cloud.google.com/artifact-registry/docs/v1/reference/rest/v1/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://artifactregistry.googleapis.com/v1/{+name}",
@@ -864,7 +869,7 @@ tagId <string> The tag id to use for this repository."
       Tag
       nil))
   ([parent Tag optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://artifactregistry.googleapis.com/v1/{+parent}/tags",
@@ -886,7 +891,7 @@ updateMask <string> The update mask applies to the resource. For the `FieldMask`
   ([name Tag]
     (projects-locations-repositories-packages-tags-patch name Tag nil))
   ([name Tag optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://artifactregistry.googleapis.com/v1/{+name}",
@@ -901,7 +906,7 @@ https://cloud.google.com/artifact-registry/docs/v1/reference/rest/v1/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://artifactregistry.googleapis.com/v1/{+name}",

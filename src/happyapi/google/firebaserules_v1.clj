@@ -12,7 +12,7 @@ name <>
 TestRulesetRequest:
 TestRulesetRequest"
   [name TestRulesetRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firebaserules.googleapis.com/v1/{+name}:test",
@@ -32,7 +32,7 @@ name <>
 Ruleset:
 Ruleset"
   [name Ruleset]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firebaserules.googleapis.com/v1/{+name}/rulesets",
@@ -49,7 +49,7 @@ https://firebase.google.com/docs/storage/security/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://firebaserules.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -70,7 +70,7 @@ filter <string> `Ruleset` filter. The list method supports filters with restrict
 pageSize <integer> Page size to load. Maximum of 100. Defaults to 10. Note: `page_size` is just a hint and the service may choose to load less than `page_size` due to the size of the output. To traverse all of the releases, caller should iterate until the `page_token` is empty."
   ([name] (projects-rulesets-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://firebaserules.googleapis.com/v1/{+name}/rulesets",
@@ -87,7 +87,7 @@ https://firebase.google.com/docs/storage/security/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://firebaserules.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -104,7 +104,7 @@ name <>
 Release:
 Release"
   [name Release]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firebaserules.googleapis.com/v1/{+name}/releases",
@@ -123,7 +123,7 @@ name <>
 UpdateReleaseRequest:
 UpdateReleaseRequest"
   [name UpdateReleaseRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template "https://firebaserules.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -139,7 +139,7 @@ https://firebase.google.com/docs/storage/security/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://firebaserules.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -160,7 +160,7 @@ filter <string> `Release` filter. The list method supports filters with restrict
 pageSize <integer> Page size to load. Maximum of 100. Defaults to 10. Note: `page_size` is just a hint and the service may choose to load fewer than `page_size` results due to the size of the output. To traverse all of the releases, the caller should iterate until the `page_token` on the response is empty."
   ([name] (projects-releases-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://firebaserules.googleapis.com/v1/{+name}/releases",
@@ -177,7 +177,7 @@ https://firebase.google.com/docs/storage/security/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://firebaserules.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -196,7 +196,7 @@ optional:
 executableVersion <string> The requested runtime executable version. Defaults to FIREBASE_RULES_EXECUTABLE_V1."
   ([name] (projects-releases-getExecutable name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://firebaserules.googleapis.com/v1/{+name}:getExecutable",

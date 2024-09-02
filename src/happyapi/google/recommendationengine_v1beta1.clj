@@ -14,7 +14,7 @@ optional:
 pageSize <integer> Optional. Maximum number of results to return. If unspecified, defaults to 50. Max allowed value is 1000."
   ([parent] (projects-locations-catalogs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://recommendationengine.googleapis.com/v1beta1/{+parent}/catalogs",
@@ -38,7 +38,7 @@ updateMask <string> Optional. Indicates which fields in the provided 'catalog' t
       GoogleCloudRecommendationengineV1beta1Catalog
       nil))
   ([name GoogleCloudRecommendationengineV1beta1Catalog optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://recommendationengine.googleapis.com/v1beta1/{+name}",
@@ -58,7 +58,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-catalogs-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://recommendationengine.googleapis.com/v1beta1/{+name}/operations",
@@ -72,7 +72,7 @@ https://cloud.google.com/retail/docs/v1beta1/reference/rest/v1beta1/projects/loc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://recommendationengine.googleapis.com/v1beta1/{+name}",
@@ -92,7 +92,7 @@ pageSize <integer> The standard list page size."
   ([name]
     (projects-locations-catalogs-eventStores-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://recommendationengine.googleapis.com/v1beta1/{+name}/operations",
@@ -106,7 +106,7 @@ https://cloud.google.com/retail/docs/v1beta1/reference/rest/v1beta1/projects/loc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://recommendationengine.googleapis.com/v1beta1/{+name}",
@@ -123,7 +123,7 @@ GoogleCloudRecommendationengineV1beta1CreatePredictionApiKeyRegistrationRequest:
 GoogleCloudRecommendationengineV1beta1CreatePredictionApiKeyRegistrationRequest"
   [parent
    GoogleCloudRecommendationengineV1beta1CreatePredictionApiKeyRegistrationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://recommendationengine.googleapis.com/v1beta1/{+parent}/predictionApiKeyRegistrations",
@@ -146,7 +146,7 @@ pageSize <integer> Optional. Maximum number of results to return per page. If un
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://recommendationengine.googleapis.com/v1beta1/{+parent}/predictionApiKeyRegistrations",
@@ -160,7 +160,7 @@ https://cloud.google.com/retail/docs/v1beta1/reference/rest/v1beta1/projects/loc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://recommendationengine.googleapis.com/v1beta1/{+name}",
@@ -176,7 +176,7 @@ name <>
 GoogleCloudRecommendationengineV1beta1PredictRequest:
 GoogleCloudRecommendationengineV1beta1PredictRequest"
   [name GoogleCloudRecommendationengineV1beta1PredictRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://recommendationengine.googleapis.com/v1beta1/{+name}:predict",
@@ -193,7 +193,7 @@ parent <>
 GoogleCloudRecommendationengineV1beta1UserEvent:
 GoogleCloudRecommendationengineV1beta1UserEvent"
   [parent GoogleCloudRecommendationengineV1beta1UserEvent]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://recommendationengine.googleapis.com/v1beta1/{+parent}/userEvents:write",
@@ -217,7 +217,7 @@ ets <string> Optional. The event timestamp in milliseconds. This prevents browse
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://recommendationengine.googleapis.com/v1beta1/{+parent}/userEvents:collect",
@@ -239,7 +239,7 @@ filter <string> Optional. Filtering expression to specify restrictions over retu
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://recommendationengine.googleapis.com/v1beta1/{+parent}/userEvents",
@@ -255,7 +255,7 @@ parent <>
 GoogleCloudRecommendationengineV1beta1PurgeUserEventsRequest:
 GoogleCloudRecommendationengineV1beta1PurgeUserEventsRequest"
   [parent GoogleCloudRecommendationengineV1beta1PurgeUserEventsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://recommendationengine.googleapis.com/v1beta1/{+parent}/userEvents:purge",
@@ -274,7 +274,7 @@ GoogleCloudRecommendationengineV1beta1ImportUserEventsRequest:
 GoogleCloudRecommendationengineV1beta1ImportUserEventsRequest"
   [parent
    GoogleCloudRecommendationengineV1beta1ImportUserEventsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://recommendationengine.googleapis.com/v1beta1/{+parent}/userEvents:import",
@@ -293,7 +293,7 @@ GoogleCloudRecommendationengineV1beta1RejoinUserEventsRequest:
 GoogleCloudRecommendationengineV1beta1RejoinUserEventsRequest"
   [parent
    GoogleCloudRecommendationengineV1beta1RejoinUserEventsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://recommendationengine.googleapis.com/v1beta1/{+parent}/userEvents:rejoin",
@@ -311,7 +311,7 @@ parent <>
 GoogleCloudRecommendationengineV1beta1CatalogItem:
 GoogleCloudRecommendationengineV1beta1CatalogItem"
   [parent GoogleCloudRecommendationengineV1beta1CatalogItem]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://recommendationengine.googleapis.com/v1beta1/{+parent}/catalogItems",
@@ -326,7 +326,7 @@ https://cloud.google.com/retail/docs/v1beta1/reference/rest/v1beta1/projects/loc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://recommendationengine.googleapis.com/v1beta1/{+name}",
@@ -345,7 +345,7 @@ pageSize <integer> Optional. Maximum number of results to return per page. If ze
 filter <string> Optional. Use of this field is not supported by version v1beta1."
   ([parent] (projects-locations-catalogs-catalogItems-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://recommendationengine.googleapis.com/v1beta1/{+parent}/catalogItems",
@@ -369,7 +369,7 @@ updateMask <string> Optional. Indicates which fields in the provided 'item' to u
       GoogleCloudRecommendationengineV1beta1CatalogItem
       nil))
   ([name GoogleCloudRecommendationengineV1beta1CatalogItem optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://recommendationengine.googleapis.com/v1beta1/{+name}",
@@ -384,7 +384,7 @@ https://cloud.google.com/retail/docs/v1beta1/reference/rest/v1beta1/projects/loc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://recommendationengine.googleapis.com/v1beta1/{+name}",
@@ -401,7 +401,7 @@ GoogleCloudRecommendationengineV1beta1ImportCatalogItemsRequest:
 GoogleCloudRecommendationengineV1beta1ImportCatalogItemsRequest"
   [parent
    GoogleCloudRecommendationengineV1beta1ImportCatalogItemsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://recommendationengine.googleapis.com/v1beta1/{+parent}/catalogItems:import",

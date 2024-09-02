@@ -14,7 +14,7 @@ optional:
 pageSize <integer> The maximum number of results to return in a single response page. Leverage the page tokens to iterate through the entire collection."
   ([parent] (projects-locations-dataExchanges-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://analyticshub.googleapis.com/v1/{+parent}/dataExchanges",
@@ -32,7 +32,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://analyticshub.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -49,7 +49,7 @@ https://cloud.google.com/bigquery/docs/analytics-hub-introduction/v1/reference/r
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://analyticshub.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -71,7 +71,7 @@ updateMask <string> Required. Field mask specifies the fields to update in the d
   ([name DataExchange]
     (projects-locations-dataExchanges-patch name DataExchange nil))
   ([name DataExchange optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://analyticshub.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -89,7 +89,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://analyticshub.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -113,7 +113,7 @@ dataExchangeId <string> Required. The ID of the data exchange. Must contain only
   ([parent DataExchange]
     (projects-locations-dataExchanges-create parent DataExchange nil))
   ([parent DataExchange optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://analyticshub.googleapis.com/v1/{+parent}/dataExchanges",
@@ -125,14 +125,14 @@ dataExchangeId <string> Required. The ID of the data exchange. Must contain only
        :body DataExchange})))
 
 (defn projects-locations-dataExchanges-subscribe
-  "Creates a Subscription to a Data Exchange. This is a long-running operation as it will create one or more linked datasets.
+  "Creates a Subscription to a Data Clean Room. This is a long-running operation as it will create one or more linked datasets.
 https://cloud.google.com/bigquery/docs/analytics-hub-introduction/v1/reference/rest/v1/projects/locations/dataExchanges/subscribe
 
 name <> 
 SubscribeDataExchangeRequest:
 SubscribeDataExchangeRequest"
   [name SubscribeDataExchangeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://analyticshub.googleapis.com/v1/{+name}:subscribe",
@@ -149,7 +149,7 @@ https://cloud.google.com/bigquery/docs/analytics-hub-introduction/v1/reference/r
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://analyticshub.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -166,7 +166,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://analyticshub.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -189,7 +189,7 @@ pageSize <integer> The maximum number of results to return in a single response 
   ([resource]
     (projects-locations-dataExchanges-listSubscriptions resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://analyticshub.googleapis.com/v1/{+resource}:listSubscriptions",
@@ -210,7 +210,7 @@ pageSize <integer> The maximum number of results to return in a single response 
   ([parent]
     (projects-locations-dataExchanges-listings-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://analyticshub.googleapis.com/v1/{+parent}/listings",
@@ -228,7 +228,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://analyticshub.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -245,7 +245,7 @@ https://cloud.google.com/bigquery/docs/analytics-hub-introduction/v1/reference/r
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://analyticshub.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -267,7 +267,7 @@ updateMask <string> Required. Field mask specifies the fields to update in the l
   ([name Listing]
     (projects-locations-dataExchanges-listings-patch name Listing nil))
   ([name Listing optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://analyticshub.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -285,7 +285,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://analyticshub.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -312,7 +312,7 @@ listingId <string> Required. The ID of the listing to create. Must contain only 
       Listing
       nil))
   ([parent Listing optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://analyticshub.googleapis.com/v1/{+parent}/listings",
@@ -331,7 +331,7 @@ name <>
 SubscribeListingRequest:
 SubscribeListingRequest"
   [name SubscribeListingRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://analyticshub.googleapis.com/v1/{+name}:subscribe",
@@ -348,7 +348,7 @@ https://cloud.google.com/bigquery/docs/analytics-hub-introduction/v1/reference/r
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://analyticshub.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -365,7 +365,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://analyticshub.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -390,7 +390,7 @@ pageSize <integer> The maximum number of results to return in a single response 
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://analyticshub.googleapis.com/v1/{+resource}:listSubscriptions",
@@ -408,7 +408,7 @@ name <>
 RefreshSubscriptionRequest:
 RefreshSubscriptionRequest"
   [name RefreshSubscriptionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://analyticshub.googleapis.com/v1/{+name}:refresh",
@@ -425,7 +425,7 @@ https://cloud.google.com/bigquery/docs/analytics-hub-introduction/v1/reference/r
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://analyticshub.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -445,7 +445,7 @@ filter <string> An expression for filtering the results of the request. Eligible
 pageSize <integer> The maximum number of results to return in a single response page."
   ([parent] (projects-locations-subscriptions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://analyticshub.googleapis.com/v1/{+parent}/subscriptions",
@@ -463,7 +463,7 @@ name <>
 RevokeSubscriptionRequest:
 RevokeSubscriptionRequest"
   [name RevokeSubscriptionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://analyticshub.googleapis.com/v1/{+name}:revoke",
@@ -480,7 +480,7 @@ https://cloud.google.com/bigquery/docs/analytics-hub-introduction/v1/reference/r
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://analyticshub.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -497,7 +497,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://analyticshub.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -516,7 +516,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://analyticshub.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -538,7 +538,7 @@ pageSize <integer> The maximum number of results to return in a single response 
   ([organization]
     (organizations-locations-dataExchanges-list organization nil))
   ([organization optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://analyticshub.googleapis.com/v1/{+organization}/dataExchanges",

@@ -12,7 +12,7 @@ productId <>
 skuId <> 
 userId <> "
   [productId skuId userId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://licensing.googleapis.com/apps/licensing/v1/product/{productId}/sku/{skuId}/user/{userId}",
@@ -29,7 +29,7 @@ productId <>
 skuId <> 
 userId <> "
   [productId skuId userId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://licensing.googleapis.com/apps/licensing/v1/product/{productId}/sku/{skuId}/user/{userId}",
@@ -47,7 +47,7 @@ skuId <>
 LicenseAssignmentInsert:
 LicenseAssignmentInsert"
   [productId skuId LicenseAssignmentInsert]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://licensing.googleapis.com/apps/licensing/v1/product/{productId}/sku/{skuId}/user",
@@ -68,7 +68,7 @@ maxResults <integer> The `maxResults` query string determines how many entries a
   ([productId customerId]
     (licenseAssignments-listForProduct productId customerId nil))
   ([productId customerId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://licensing.googleapis.com/apps/licensing/v1/product/{productId}/users",
@@ -93,7 +93,7 @@ maxResults <integer> The `maxResults` query string determines how many entries a
       customerId
       nil))
   ([productId skuId customerId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://licensing.googleapis.com/apps/licensing/v1/product/{productId}/sku/{skuId}/users",
@@ -111,7 +111,7 @@ userId <>
 LicenseAssignment:
 LicenseAssignment"
   [productId skuId userId LicenseAssignment]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://licensing.googleapis.com/apps/licensing/v1/product/{productId}/sku/{skuId}/user/{userId}",
@@ -131,7 +131,7 @@ userId <>
 LicenseAssignment:
 LicenseAssignment"
   [productId skuId userId LicenseAssignment]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://licensing.googleapis.com/apps/licensing/v1/product/{productId}/sku/{skuId}/user/{userId}",

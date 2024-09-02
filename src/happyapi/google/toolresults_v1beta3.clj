@@ -10,7 +10,7 @@ https://firebase.google.com/docs/test-lab/v1beta3/reference/rest/v1beta3/project
 
 projectId <> "
   [projectId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://toolresults.googleapis.com/toolresults/v1beta3/projects/{projectId}/settings",
@@ -24,7 +24,7 @@ https://firebase.google.com/docs/test-lab/v1beta3/reference/rest/v1beta3/project
 
 projectId <> "
   [projectId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://toolresults.googleapis.com/toolresults/v1beta3/projects/{projectId}:initializeSettings",
@@ -45,7 +45,7 @@ requestId <string> A unique request ID for server to detect duplicated requests.
   ([projectId History]
     (projects-histories-create projectId History nil))
   ([projectId History optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://toolresults.googleapis.com/toolresults/v1beta3/projects/{projectId}/histories",
@@ -61,7 +61,7 @@ https://firebase.google.com/docs/test-lab/v1beta3/reference/rest/v1beta3/project
 projectId <> 
 historyId <> "
   [projectId historyId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://toolresults.googleapis.com/toolresults/v1beta3/projects/{projectId}/histories/{historyId}",
@@ -80,7 +80,7 @@ pageSize <integer> The maximum number of Histories to fetch. Default value: 20. 
 filterByName <string> If set, only return histories with the given name. Optional."
   ([projectId] (projects-histories-list projectId nil))
   ([projectId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://toolresults.googleapis.com/toolresults/v1beta3/projects/{projectId}/histories",
@@ -106,7 +106,7 @@ requestId <string> A unique request ID for server to detect duplicated requests.
       Execution
       nil))
   ([projectId historyId Execution optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://toolresults.googleapis.com/toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions",
@@ -128,7 +128,7 @@ pageSize <integer> The maximum number of Executions to fetch. Default value: 25.
   ([projectId historyId]
     (projects-histories-executions-list projectId historyId nil))
   ([projectId historyId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://toolresults.googleapis.com/toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions",
@@ -145,7 +145,7 @@ projectId <>
 historyId <> 
 executionId <> "
   [projectId historyId executionId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://toolresults.googleapis.com/toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}",
@@ -176,7 +176,7 @@ requestId <string> A unique request ID for server to detect duplicated requests.
       Execution
       nil))
   ([projectId historyId executionId Execution optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://toolresults.googleapis.com/toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}",
@@ -201,7 +201,7 @@ locale <string> The accepted format is the canonical Unicode format with hyphen 
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://toolresults.googleapis.com/toolresults/v1beta3/{+name}:accessibilityClusters",
@@ -229,7 +229,7 @@ requestId <string> A unique request ID for server to detect duplicated requests.
       Step
       nil))
   ([projectId historyId executionId Step optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://toolresults.googleapis.com/toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/steps",
@@ -250,7 +250,7 @@ historyId <>
 executionId <> 
 stepId <> "
   [projectId historyId executionId stepId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://toolresults.googleapis.com/toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}",
@@ -279,7 +279,7 @@ pageSize <integer> The maximum number of Steps to fetch. Default value: 25. The 
       executionId
       nil))
   ([projectId historyId executionId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://toolresults.googleapis.com/toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/steps",
@@ -312,7 +312,7 @@ requestId <string> A unique request ID for server to detect duplicated requests.
       Step
       nil))
   ([projectId historyId executionId stepId Step optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://toolresults.googleapis.com/toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}",
@@ -336,7 +336,7 @@ stepId <>
 PublishXunitXmlFilesRequest:
 PublishXunitXmlFilesRequest"
   [projectId historyId executionId stepId PublishXunitXmlFilesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://toolresults.googleapis.com/toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}:publishXunitXmlFiles",
@@ -358,7 +358,7 @@ historyId <>
 executionId <> 
 stepId <> "
   [projectId historyId executionId stepId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://toolresults.googleapis.com/toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/perfMetricsSummary",
@@ -380,7 +380,7 @@ executionId <>
 stepId <> 
 testCaseId <> "
   [projectId historyId executionId stepId testCaseId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://toolresults.googleapis.com/toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/testCases/{testCaseId}",
@@ -412,7 +412,7 @@ pageSize <integer> The maximum number of TestCases to fetch. Default value: 100.
       stepId
       nil))
   ([projectId historyId executionId stepId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://toolresults.googleapis.com/toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/testCases",
@@ -443,7 +443,7 @@ pageSize <integer> The maximum number of thumbnails to fetch. Default value: 50.
       stepId
       nil))
   ([projectId historyId executionId stepId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://toolresults.googleapis.com/toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/thumbnails",
@@ -466,7 +466,7 @@ stepId <>
 PerfMetricsSummary:
 PerfMetricsSummary"
   [projectId historyId executionId stepId PerfMetricsSummary]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://toolresults.googleapis.com/toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/perfMetricsSummary",
@@ -490,7 +490,7 @@ stepId <>
 PerfSampleSeries:
 PerfSampleSeries"
   [projectId historyId executionId stepId PerfSampleSeries]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://toolresults.googleapis.com/toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/perfSampleSeries",
@@ -513,7 +513,7 @@ executionId <>
 stepId <> 
 sampleSeriesId <> "
   [projectId historyId executionId stepId sampleSeriesId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://toolresults.googleapis.com/toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/perfSampleSeries/{sampleSeriesId}",
@@ -545,7 +545,7 @@ filter <string> Specify one or more PerfMetricType values such as CPU to filter 
       stepId
       nil))
   ([projectId historyId executionId stepId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://toolresults.googleapis.com/toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/perfSampleSeries",
@@ -574,7 +574,7 @@ BatchCreatePerfSamplesRequest"
    stepId
    sampleSeriesId
    BatchCreatePerfSamplesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://toolresults.googleapis.com/toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/perfSampleSeries/{sampleSeriesId}/samples:batchCreate",
@@ -609,7 +609,7 @@ pageSize <integer> The default page size is 500 samples, and the maximum size is
       sampleSeriesId
       nil))
   ([projectId historyId executionId stepId sampleSeriesId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://toolresults.googleapis.com/toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/perfSampleSeries/{sampleSeriesId}/samples",
@@ -631,7 +631,7 @@ historyId <>
 executionId <> 
 clusterId <> "
   [projectId historyId executionId clusterId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://toolresults.googleapis.com/toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/clusters/{clusterId}",
@@ -651,7 +651,7 @@ projectId <>
 historyId <> 
 executionId <> "
   [projectId historyId executionId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://toolresults.googleapis.com/toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/clusters",
@@ -671,7 +671,7 @@ historyId <>
 executionId <> 
 environmentId <> "
   [projectId historyId executionId environmentId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://toolresults.googleapis.com/toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/environments/{environmentId}",
@@ -700,7 +700,7 @@ pageSize <integer> The maximum number of Environments to fetch. Default value: 2
       executionId
       nil))
   ([projectId historyId executionId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://toolresults.googleapis.com/toolresults/v1beta3/projects/{projectId}/histories/{historyId}/executions/{executionId}/environments",

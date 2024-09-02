@@ -14,7 +14,7 @@ optional:
 pageSize <integer> Maximum number of Ips to return, will likely not be specified."
   ([name] (projects-locations-fetchStaticIps name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datastream.googleapis.com/v1/{+name}:fetchStaticIps",
@@ -33,7 +33,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datastream.googleapis.com/v1/{+name}/locations",
@@ -47,7 +47,7 @@ https://cloud.google.com/datastream/v1/reference/rest/v1/projects/locations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://datastream.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -65,7 +65,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datastream.googleapis.com/v1/{+name}/operations",
@@ -79,7 +79,7 @@ https://cloud.google.com/datastream/v1/reference/rest/v1/projects/locations/oper
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://datastream.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -92,7 +92,7 @@ https://cloud.google.com/datastream/v1/reference/rest/v1/projects/locations/oper
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://datastream.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -107,7 +107,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datastream.googleapis.com/v1/{+name}:cancel",
@@ -128,7 +128,7 @@ filter <string> Filter request.
 orderBy <string> Order by fields for the result."
   ([parent] (projects-locations-connectionProfiles-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datastream.googleapis.com/v1/{+parent}/connectionProfiles",
@@ -142,7 +142,7 @@ https://cloud.google.com/datastream/v1/reference/rest/v1/projects/locations/conn
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://datastream.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -168,7 +168,7 @@ force <boolean> Optional. Create the connection profile without validating it."
       ConnectionProfile
       nil))
   ([parent ConnectionProfile optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://datastream.googleapis.com/v1/{+parent}/connectionProfiles",
@@ -196,7 +196,7 @@ force <boolean> Optional. Update the connection profile without validating it."
       ConnectionProfile
       nil))
   ([name ConnectionProfile optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://datastream.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -214,7 +214,7 @@ optional:
 requestId <string> Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-connectionProfiles-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://datastream.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -229,7 +229,7 @@ parent <>
 DiscoverConnectionProfileRequest:
 DiscoverConnectionProfileRequest"
   [parent DiscoverConnectionProfileRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datastream.googleapis.com/v1/{+parent}/connectionProfiles:discover",
@@ -250,7 +250,7 @@ filter <string> Filter request.
 orderBy <string> Order by fields for the result."
   ([parent] (projects-locations-streams-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datastream.googleapis.com/v1/{+parent}/streams",
@@ -264,7 +264,7 @@ https://cloud.google.com/datastream/v1/reference/rest/v1/projects/locations/stre
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://datastream.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -287,7 +287,7 @@ force <boolean> Optional. Create the stream without validating it."
   ([parent Stream]
     (projects-locations-streams-create parent Stream nil))
   ([parent Stream optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://datastream.googleapis.com/v1/{+parent}/streams",
@@ -311,7 +311,7 @@ validateOnly <boolean> Optional. Only validate the stream with the changes, with
 force <boolean> Optional. Update the stream without validating it."
   ([name Stream] (projects-locations-streams-patch name Stream nil))
   ([name Stream optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://datastream.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -329,7 +329,7 @@ optional:
 requestId <string> Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-streams-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://datastream.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -337,14 +337,14 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
        :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
 
 (defn projects-locations-streams-run
-  "Use this method to start, resume or recover a stream with a non default CDC strategy. NOTE: This feature is currently experimental.
+  "Use this method to start, resume or recover a stream with a non default CDC strategy.
 https://cloud.google.com/datastream/v1/reference/rest/v1/projects/locations/streams/run
 
 name <> 
 RunStreamRequest:
 RunStreamRequest"
   [name RunStreamRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://datastream.googleapis.com/v1/{+name}:run",
      :uri-template-args {"name" name},
@@ -358,7 +358,7 @@ https://cloud.google.com/datastream/v1/reference/rest/v1/projects/locations/stre
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://datastream.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -373,7 +373,7 @@ parent <>
 LookupStreamObjectRequest:
 LookupStreamObjectRequest"
   [parent LookupStreamObjectRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datastream.googleapis.com/v1/{+parent}/objects:lookup",
@@ -392,7 +392,7 @@ optional:
 pageSize <integer> Maximum number of objects to return. Default is 50. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (projects-locations-streams-objects-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datastream.googleapis.com/v1/{+parent}/objects",
@@ -408,7 +408,7 @@ object <>
 StartBackfillJobRequest:
 StartBackfillJobRequest"
   [object StartBackfillJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datastream.googleapis.com/v1/{+object}:startBackfillJob",
@@ -425,7 +425,7 @@ object <>
 StopBackfillJobRequest:
 StopBackfillJobRequest"
   [object StopBackfillJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datastream.googleapis.com/v1/{+object}:stopBackfillJob",
@@ -452,7 +452,7 @@ force <boolean> Optional. If set to true, will skip validations."
       PrivateConnection
       nil))
   ([parent PrivateConnection optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://datastream.googleapis.com/v1/{+parent}/privateConnections",
@@ -467,7 +467,7 @@ https://cloud.google.com/datastream/v1/reference/rest/v1/projects/locations/priv
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://datastream.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -486,7 +486,7 @@ filter <string> Filter request.
 orderBy <string> Order by fields for the result."
   ([parent] (projects-locations-privateConnections-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datastream.googleapis.com/v1/{+parent}/privateConnections",
@@ -505,7 +505,7 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
 force <boolean> Optional. If set to true, any child routes that belong to this PrivateConnection will also be deleted."
   ([name] (projects-locations-privateConnections-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://datastream.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -529,7 +529,7 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       Route
       nil))
   ([parent Route optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://datastream.googleapis.com/v1/{+parent}/routes",
@@ -544,7 +544,7 @@ https://cloud.google.com/datastream/v1/reference/rest/v1/projects/locations/priv
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://datastream.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -564,7 +564,7 @@ orderBy <string> Order by fields for the result."
   ([parent]
     (projects-locations-privateConnections-routes-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datastream.googleapis.com/v1/{+parent}/routes",
@@ -583,7 +583,7 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
   ([name]
     (projects-locations-privateConnections-routes-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://datastream.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},

@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://domains.googleapis.com/v1/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/domains/docs/v1/reference/rest/v1/projects/locations/ge
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://domains.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -47,7 +47,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://domains.googleapis.com/v1/{+name}/operations",
@@ -61,7 +61,7 @@ https://cloud.google.com/domains/docs/v1/reference/rest/v1/projects/locations/op
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://domains.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -76,7 +76,7 @@ registration <>
 ResetAuthorizationCodeRequest:
 ResetAuthorizationCodeRequest"
   [registration ResetAuthorizationCodeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://domains.googleapis.com/v1/{+registration}:resetAuthorizationCode",
@@ -93,7 +93,7 @@ registration <>
 InitiatePushTransferRequest:
 InitiatePushTransferRequest"
   [registration InitiatePushTransferRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://domains.googleapis.com/v1/{+registration}:initiatePushTransfer",
@@ -113,7 +113,7 @@ pageSize <integer> Maximum number of results to return.
 filter <string> Filter expression to restrict the `Registration`s returned. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, a boolean, or an enum value. The comparison operator should be one of =, !=, >, <, >=, <=, or : for prefix or wildcard matches. For example, to filter to a specific domain name, use an expression like `domainName=\"example.com\"`. You can also check for the existence of a field; for example, to find domains using custom DNS settings, use an expression like `dnsSettings.customDns:*`. You can also create compound filters by combining expressions with the `AND` and `OR` operators. For example, to find domains that are suspended or have specific issues flagged, use an expression like `(state=SUSPENDED) OR (issue:*)`."
   ([parent] (projects-locations-registrations-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://domains.googleapis.com/v1/{+parent}/registrations",
@@ -129,7 +129,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://domains.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -149,7 +149,7 @@ query <string> Required. String used to search for available domain names."
   ([location]
     (projects-locations-registrations-searchDomains location nil))
   ([location optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://domains.googleapis.com/v1/{+location}/registrations:searchDomains",
@@ -163,7 +163,7 @@ https://cloud.google.com/domains/docs/v1/reference/rest/v1/projects/locations/re
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://domains.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -178,7 +178,7 @@ registration <>
 ConfigureContactSettingsRequest:
 ConfigureContactSettingsRequest"
   [registration ConfigureContactSettingsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://domains.googleapis.com/v1/{+registration}:configureContactSettings",
@@ -195,7 +195,7 @@ name <>
 ExportRegistrationRequest:
 ExportRegistrationRequest"
   [name ExportRegistrationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://domains.googleapis.com/v1/{+name}:export",
      :uri-template-args {"name" name},
@@ -216,7 +216,7 @@ pageSize <integer> Maximum number of results to return."
       location
       nil))
   ([location optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://domains.googleapis.com/v1/{+location}/registrations:retrieveImportableDomains",
@@ -232,7 +232,7 @@ registration <>
 RenewDomainRequest:
 RenewDomainRequest"
   [registration RenewDomainRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://domains.googleapis.com/v1/{+registration}:renewDomain",
@@ -249,7 +249,7 @@ parent <>
 ImportDomainRequest:
 ImportDomainRequest"
   [parent ImportDomainRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://domains.googleapis.com/v1/{+parent}/registrations:import",
@@ -266,7 +266,7 @@ registration <>
 ConfigureManagementSettingsRequest:
 ConfigureManagementSettingsRequest"
   [registration ConfigureManagementSettingsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://domains.googleapis.com/v1/{+registration}:configureManagementSettings",
@@ -288,7 +288,7 @@ pageSize <integer> Optional. Maximum number of results to return."
       registration
       nil))
   ([registration optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://domains.googleapis.com/v1/{+registration}:retrieveGoogleDomainsDnsRecords",
@@ -309,7 +309,7 @@ updateMask <string> Required. The field mask describing which fields to update a
   ([name Registration]
     (projects-locations-registrations-patch name Registration nil))
   ([name Registration optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://domains.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -325,7 +325,7 @@ parent <>
 RegisterDomainRequest:
 RegisterDomainRequest"
   [parent RegisterDomainRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://domains.googleapis.com/v1/{+parent}/registrations:register",
@@ -342,7 +342,7 @@ parent <>
 TransferDomainRequest:
 TransferDomainRequest"
   [parent TransferDomainRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://domains.googleapis.com/v1/{+parent}/registrations:transfer",
@@ -357,7 +357,7 @@ https://cloud.google.com/domains/docs/v1/reference/rest/v1/projects/locations/re
 
 registration <> "
   [registration]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://domains.googleapis.com/v1/{+registration}:retrieveGoogleDomainsForwardingConfig",
@@ -376,7 +376,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-registrations-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://domains.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -397,7 +397,7 @@ domainName <string> Required. The domain name. Unicode domain names must be expr
       location
       nil))
   ([location optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://domains.googleapis.com/v1/{+location}/registrations:retrieveTransferParameters",
@@ -411,7 +411,7 @@ https://cloud.google.com/domains/docs/v1/reference/rest/v1/projects/locations/re
 
 registration <> "
   [registration]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://domains.googleapis.com/v1/{+registration}:retrieveAuthorizationCode",
@@ -427,7 +427,7 @@ registration <>
 ConfigureDnsSettingsRequest:
 ConfigureDnsSettingsRequest"
   [registration ConfigureDnsSettingsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://domains.googleapis.com/v1/{+registration}:configureDnsSettings",
@@ -449,7 +449,7 @@ domainName <string> Required. The domain name. Unicode domain names must be expr
       location
       nil))
   ([location optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://domains.googleapis.com/v1/{+location}/registrations:retrieveRegisterParameters",
@@ -463,7 +463,7 @@ https://cloud.google.com/domains/docs/v1/reference/rest/v1/projects/locations/re
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://domains.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -478,7 +478,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://domains.googleapis.com/v1/{+resource}:testIamPermissions",

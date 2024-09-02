@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vpcaccess.googleapis.com/v1/{+name}/locations",
@@ -34,7 +34,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vpcaccess.googleapis.com/v1/{+name}/operations",
@@ -48,7 +48,7 @@ https://cloud.google.com/vpc/docs/configure-serverless-vpc-access/v1/reference/r
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vpcaccess.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -68,7 +68,7 @@ connectorId <string> Required. The ID to use for this connector."
   ([parent Connector]
     (projects-locations-connectors-create parent Connector nil))
   ([parent Connector optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://vpcaccess.googleapis.com/v1/{+parent}/connectors",
@@ -90,7 +90,7 @@ updateMask <string> The fields to update on the entry group. If absent or empty,
   ([name Connector]
     (projects-locations-connectors-patch name Connector nil))
   ([name Connector optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://vpcaccess.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -104,7 +104,7 @@ https://cloud.google.com/vpc/docs/configure-serverless-vpc-access/v1/reference/r
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vpcaccess.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -121,7 +121,7 @@ optional:
 pageSize <integer> Maximum number of functions to return per call."
   ([parent] (projects-locations-connectors-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vpcaccess.googleapis.com/v1/{+parent}/connectors",
@@ -135,7 +135,7 @@ https://cloud.google.com/vpc/docs/configure-serverless-vpc-access/v1/reference/r
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://vpcaccess.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},

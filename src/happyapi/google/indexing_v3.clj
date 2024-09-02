@@ -11,7 +11,7 @@ https://developers.google.com/search/apis/indexing-api/v3/quickstart/v3/referenc
 UrlNotification:
 UrlNotification"
   [UrlNotification]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://indexing.googleapis.com/v3/urlNotifications:publish",
@@ -28,7 +28,7 @@ optional:
 url <string> URL that is being queried."
   ([] (urlNotifications-getMetadata nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://indexing.googleapis.com/v3/urlNotifications/metadata",

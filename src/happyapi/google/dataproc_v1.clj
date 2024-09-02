@@ -15,7 +15,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-regions-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://dataproc.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -28,7 +28,7 @@ https://cloud.google.com/dataproc/v1/reference/rest/v1/projects/regions/operatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dataproc.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -41,7 +41,7 @@ https://cloud.google.com/dataproc/v1/reference/rest/v1/projects/regions/operatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://dataproc.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -54,7 +54,7 @@ https://cloud.google.com/dataproc/v1/reference/rest/v1/projects/regions/operatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://dataproc.googleapis.com/v1/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -69,7 +69,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -86,7 +86,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -103,7 +103,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -120,7 +120,7 @@ parent <>
 AutoscalingPolicy:
 AutoscalingPolicy"
   [parent AutoscalingPolicy]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/{+parent}/autoscalingPolicies",
@@ -137,7 +137,7 @@ name <>
 AutoscalingPolicy:
 AutoscalingPolicy"
   [name AutoscalingPolicy]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template "https://dataproc.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -151,7 +151,7 @@ https://cloud.google.com/dataproc/v1/reference/rest/v1/projects/regions/autoscal
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dataproc.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -168,7 +168,7 @@ optional:
 pageSize <integer> Optional. The maximum number of results to return in each response. Must be less than or equal to 1000. Defaults to 100."
   ([parent] (projects-regions-autoscalingPolicies-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataproc.googleapis.com/v1/{+parent}/autoscalingPolicies",
@@ -182,7 +182,7 @@ https://cloud.google.com/dataproc/v1/reference/rest/v1/projects/regions/autoscal
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://dataproc.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -197,7 +197,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -214,7 +214,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -231,7 +231,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -250,7 +250,7 @@ clusterName <>
 StopClusterRequest:
 StopClusterRequest"
   [projectId region clusterName StopClusterRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/clusters/{clusterName}:stop",
@@ -275,7 +275,7 @@ pageSize <integer> Optional. The standard List page size."
   ([projectId region]
     (projects-regions-clusters-list projectId region nil))
   ([projectId region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/clusters",
@@ -291,7 +291,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -319,7 +319,7 @@ gracefulTerminationTimeout <string> Optional. The graceful termination timeout f
       clusterName
       nil))
   ([projectId region clusterName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/clusters/{clusterName}",
@@ -340,7 +340,7 @@ cluster <>
 InjectCredentialsRequest:
 InjectCredentialsRequest"
   [project region cluster InjectCredentialsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/{+project}/{+region}/{+cluster}:injectCredentials",
@@ -360,7 +360,7 @@ clusterName <>
 StartClusterRequest:
 StartClusterRequest"
   [projectId region clusterName StartClusterRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/clusters/{clusterName}:start",
@@ -394,7 +394,7 @@ requestId <string> Optional. A unique ID used to identify the request. If the se
       Cluster
       nil))
   ([projectId region clusterName Cluster optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/clusters/{clusterName}",
@@ -414,7 +414,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -433,7 +433,7 @@ clusterName <>
 DiagnoseClusterRequest:
 DiagnoseClusterRequest"
   [projectId region clusterName DiagnoseClusterRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/clusters/{clusterName}:diagnose",
@@ -460,7 +460,7 @@ actionOnFailedPrimaryWorkers <string> Optional. Failure action when primary work
   ([projectId region Cluster]
     (projects-regions-clusters-create projectId region Cluster nil))
   ([projectId region Cluster optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/clusters",
@@ -479,7 +479,7 @@ clusterName <>
 RepairClusterRequest:
 RepairClusterRequest"
   [projectId region clusterName RepairClusterRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/clusters/{clusterName}:repair",
@@ -499,7 +499,7 @@ projectId <>
 region <> 
 clusterName <> "
   [projectId region clusterName]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/clusters/{clusterName}",
@@ -518,7 +518,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -542,7 +542,7 @@ parentOperationId <string> Optional. operation id of the parent operation sendin
   ([parent NodeGroup]
     (projects-regions-clusters-nodeGroups-create parent NodeGroup nil))
   ([parent NodeGroup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dataproc.googleapis.com/v1/{+parent}/nodeGroups",
@@ -559,7 +559,7 @@ name <>
 ResizeNodeGroupRequest:
 ResizeNodeGroupRequest"
   [name ResizeNodeGroupRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://dataproc.googleapis.com/v1/{+name}:resize",
      :uri-template-args {"name" name},
@@ -575,7 +575,7 @@ name <>
 RepairNodeGroupRequest:
 RepairNodeGroupRequest"
   [name RepairNodeGroupRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://dataproc.googleapis.com/v1/{+name}:repair",
      :uri-template-args {"name" name},
@@ -589,7 +589,7 @@ https://cloud.google.com/dataproc/v1/reference/rest/v1/projects/regions/clusters
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dataproc.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -611,7 +611,7 @@ filter <string> Optional. A filter constraining the jobs to list. Filters are ca
   ([projectId region]
     (projects-regions-jobs-list projectId region nil))
   ([projectId region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/jobs",
@@ -627,7 +627,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -646,7 +646,7 @@ jobId <>
 CancelJobRequest:
 CancelJobRequest"
   [projectId region jobId CancelJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/jobs/{jobId}:cancel",
@@ -664,7 +664,7 @@ projectId <>
 region <> 
 jobId <> "
   [projectId region jobId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/jobs/{jobId}",
@@ -688,7 +688,7 @@ updateMask <string> Required. Specifies the path, relative to Job, of the field 
   ([projectId region jobId Job]
     (projects-regions-jobs-patch projectId region jobId Job nil))
   ([projectId region jobId Job optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/jobs/{jobId}",
@@ -707,7 +707,7 @@ region <>
 SubmitJobRequest:
 SubmitJobRequest"
   [projectId region SubmitJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/jobs:submit",
@@ -724,7 +724,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -742,7 +742,7 @@ region <>
 SubmitJobRequest:
 SubmitJobRequest"
   [projectId region SubmitJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/jobs:submitAsOperation",
@@ -759,7 +759,7 @@ projectId <>
 region <> 
 jobId <> "
   [projectId region jobId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/jobs/{jobId}",
@@ -776,7 +776,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -795,7 +795,7 @@ optional:
 pageSize <integer> Optional. The maximum number of results to return in each response."
   ([parent] (projects-regions-workflowTemplates-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataproc.googleapis.com/v1/{+parent}/workflowTemplates",
@@ -811,7 +811,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -830,7 +830,7 @@ optional:
 version <integer> Optional. The version of workflow template to delete. If specified, will only delete the template if the current server version matches specified version."
   ([name] (projects-regions-workflowTemplates-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://dataproc.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -853,7 +853,7 @@ requestId <string> Optional. A tag that prevents multiple concurrent workflow in
       WorkflowTemplate
       nil))
   ([parent WorkflowTemplate optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dataproc.googleapis.com/v1/{+parent}/workflowTemplates:instantiateInline",
@@ -870,7 +870,7 @@ name <>
 WorkflowTemplate:
 WorkflowTemplate"
   [name WorkflowTemplate]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template "https://dataproc.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -886,7 +886,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -903,7 +903,7 @@ name <>
 InstantiateWorkflowTemplateRequest:
 InstantiateWorkflowTemplateRequest"
   [name InstantiateWorkflowTemplateRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/{+name}:instantiate",
@@ -920,7 +920,7 @@ parent <>
 WorkflowTemplate:
 WorkflowTemplate"
   [parent WorkflowTemplate]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/{+parent}/workflowTemplates",
@@ -939,7 +939,7 @@ optional:
 version <integer> Optional. The version of workflow template to retrieve. Only previously instantiated versions can be retrieved.If unspecified, retrieves the current version."
   ([name] (projects-regions-workflowTemplates-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://dataproc.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -954,7 +954,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -974,7 +974,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://dataproc.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -987,7 +987,7 @@ https://cloud.google.com/dataproc/v1/reference/rest/v1/projects/locations/operat
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dataproc.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1000,7 +1000,7 @@ https://cloud.google.com/dataproc/v1/reference/rest/v1/projects/locations/operat
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://dataproc.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1013,7 +1013,7 @@ https://cloud.google.com/dataproc/v1/reference/rest/v1/projects/locations/operat
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://dataproc.googleapis.com/v1/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -1028,7 +1028,7 @@ name <>
 AnalyzeBatchRequest:
 AnalyzeBatchRequest"
   [name AnalyzeBatchRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/{+name}:analyze",
@@ -1050,7 +1050,7 @@ batchId <string> Optional. The ID to use for the batch, which will become the fi
 requestId <string> Optional. A unique ID used to identify the request. If the service receives two CreateBatchRequest (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.CreateBatchRequest)s with the same request_id, the second request is ignored and the Operation that corresponds to the first Batch created and stored in the backend is returned.Recommendation: Set this value to a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The value must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters."
   ([parent Batch] (projects-locations-batches-create parent Batch nil))
   ([parent Batch optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dataproc.googleapis.com/v1/{+parent}/batches",
@@ -1065,7 +1065,7 @@ https://cloud.google.com/dataproc/v1/reference/rest/v1/projects/locations/batche
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dataproc.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1084,7 +1084,7 @@ filter <string> Optional. A filter for the batches to return in the response.A f
 orderBy <string> Optional. Field(s) on which to sort the list of batches.Currently the only supported sort orders are unspecified (empty) and create_time desc to sort by most recently created batches first.See https://google.aip.dev/132#ordering for more details."
   ([parent] (projects-locations-batches-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataproc.googleapis.com/v1/{+parent}/batches",
@@ -1098,7 +1098,7 @@ https://cloud.google.com/dataproc/v1/reference/rest/v1/projects/locations/batche
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://dataproc.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1113,7 +1113,7 @@ parent <>
 AutoscalingPolicy:
 AutoscalingPolicy"
   [parent AutoscalingPolicy]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/{+parent}/autoscalingPolicies",
@@ -1130,7 +1130,7 @@ name <>
 AutoscalingPolicy:
 AutoscalingPolicy"
   [name AutoscalingPolicy]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template "https://dataproc.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1144,7 +1144,7 @@ https://cloud.google.com/dataproc/v1/reference/rest/v1/projects/locations/autosc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dataproc.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1161,7 +1161,7 @@ optional:
 pageSize <integer> Optional. The maximum number of results to return in each response. Must be less than or equal to 1000. Defaults to 100."
   ([parent] (projects-locations-autoscalingPolicies-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataproc.googleapis.com/v1/{+parent}/autoscalingPolicies",
@@ -1175,7 +1175,7 @@ https://cloud.google.com/dataproc/v1/reference/rest/v1/projects/locations/autosc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://dataproc.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1190,7 +1190,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -1207,7 +1207,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -1224,7 +1224,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -1247,7 +1247,7 @@ requestId <string> Optional. A unique ID used to identify the request. If the se
   ([parent Session]
     (projects-locations-sessions-create parent Session nil))
   ([parent Session optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dataproc.googleapis.com/v1/{+parent}/sessions",
@@ -1262,7 +1262,7 @@ https://cloud.google.com/dataproc/v1/reference/rest/v1/projects/locations/sessio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dataproc.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1280,7 +1280,7 @@ pageSize <integer> Optional. The maximum number of sessions to return in each re
 filter <string> Optional. A filter for the sessions to return in the response.A filter is a logical expression constraining the values of various fields in each session resource. Filters are case sensitive, and may contain multiple clauses combined with logical operators (AND, OR). Supported fields are session_id, session_uuid, state, create_time, and labels.Example: state = ACTIVE and create_time < \"2023-01-01T00:00:00Z\" is a filter for sessions in an ACTIVE state that were created before 2023-01-01. state = ACTIVE and labels.environment=production is a filter for sessions in an ACTIVE state that have a production environment label.See https://google.aip.dev/assets/misc/ebnf-filtering.txt for a detailed description of the filter syntax and a list of supported comparators."
   ([parent] (projects-locations-sessions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataproc.googleapis.com/v1/{+parent}/sessions",
@@ -1296,7 +1296,7 @@ name <>
 TerminateSessionRequest:
 TerminateSessionRequest"
   [name TerminateSessionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/{+name}:terminate",
@@ -1315,7 +1315,7 @@ optional:
 requestId <string> Optional. A unique ID used to identify the request. If the service receives two DeleteSessionRequest (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.DeleteSessionRequest)s with the same ID, the second request is ignored.Recommendation: Set this value to a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The value must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters."
   ([name] (projects-locations-sessions-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://dataproc.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1330,7 +1330,7 @@ parent <>
 SessionTemplate:
 SessionTemplate"
   [parent SessionTemplate]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/{+parent}/sessionTemplates",
@@ -1347,7 +1347,7 @@ name <>
 SessionTemplate:
 SessionTemplate"
   [name SessionTemplate]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template "https://dataproc.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1361,7 +1361,7 @@ https://cloud.google.com/dataproc/v1/reference/rest/v1/projects/locations/sessio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dataproc.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1379,7 +1379,7 @@ pageSize <integer> Optional. The maximum number of sessions to return in each re
 filter <string> Optional. A filter for the session templates to return in the response. Filters are case sensitive and have the following syntax:field = value AND field = value ..."
   ([parent] (projects-locations-sessionTemplates-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataproc.googleapis.com/v1/{+parent}/sessionTemplates",
@@ -1393,7 +1393,7 @@ https://cloud.google.com/dataproc/v1/reference/rest/v1/projects/locations/sessio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://dataproc.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1410,7 +1410,7 @@ optional:
 pageSize <integer> Optional. The maximum number of results to return in each response."
   ([parent] (projects-locations-workflowTemplates-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataproc.googleapis.com/v1/{+parent}/workflowTemplates",
@@ -1426,7 +1426,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -1445,7 +1445,7 @@ optional:
 version <integer> Optional. The version of workflow template to delete. If specified, will only delete the template if the current server version matches specified version."
   ([name] (projects-locations-workflowTemplates-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://dataproc.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1468,7 +1468,7 @@ requestId <string> Optional. A tag that prevents multiple concurrent workflow in
       WorkflowTemplate
       nil))
   ([parent WorkflowTemplate optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dataproc.googleapis.com/v1/{+parent}/workflowTemplates:instantiateInline",
@@ -1485,7 +1485,7 @@ name <>
 WorkflowTemplate:
 WorkflowTemplate"
   [name WorkflowTemplate]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template "https://dataproc.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1501,7 +1501,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -1518,7 +1518,7 @@ name <>
 InstantiateWorkflowTemplateRequest:
 InstantiateWorkflowTemplateRequest"
   [name InstantiateWorkflowTemplateRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/{+name}:instantiate",
@@ -1535,7 +1535,7 @@ parent <>
 WorkflowTemplate:
 WorkflowTemplate"
   [parent WorkflowTemplate]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/{+parent}/workflowTemplates",
@@ -1554,7 +1554,7 @@ optional:
 version <integer> Optional. The version of workflow template to retrieve. Only previously instantiated versions can be retrieved.If unspecified, retrieves the current version."
   ([name] (projects-locations-workflowTemplates-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://dataproc.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1569,7 +1569,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataproc.googleapis.com/v1/{+resource}:testIamPermissions",

@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmmigration.googleapis.com/v1/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/products/cloud-migration/virtual-machines/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vmmigration.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -47,7 +47,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmmigration.googleapis.com/v1/{+name}/operations",
@@ -61,7 +61,7 @@ https://cloud.google.com/products/cloud-migration/virtual-machines/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vmmigration.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -74,7 +74,7 @@ https://cloud.google.com/products/cloud-migration/virtual-machines/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://vmmigration.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -89,7 +89,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vmmigration.googleapis.com/v1/{+name}:cancel",
@@ -110,7 +110,7 @@ filter <string> Optional. The filter request.
 orderBy <string> Optional. the order by fields for the result."
   ([parent] (projects-locations-sources-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmmigration.googleapis.com/v1/{+parent}/sources",
@@ -124,7 +124,7 @@ https://cloud.google.com/products/cloud-migration/virtual-machines/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vmmigration.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -145,7 +145,7 @@ requestId <string> A request ID to identify requests. Specify a unique request I
   ([parent Source]
     (projects-locations-sources-create parent Source nil))
   ([parent Source optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://vmmigration.googleapis.com/v1/{+parent}/sources",
@@ -167,7 +167,7 @@ updateMask <string> Field mask is used to specify the fields to be overwritten i
 requestId <string> A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name Source] (projects-locations-sources-patch name Source nil))
   ([name Source optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://vmmigration.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -185,7 +185,7 @@ optional:
 requestId <string> Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-sources-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://vmmigration.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -203,7 +203,7 @@ forceRefresh <boolean> If this flag is set to true, the source will be queried i
 pageSize <integer> The maximum number of VMs to return. The service may return fewer than this value. For AWS source: If unspecified, at most 500 VMs will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000. For VMWare source: If unspecified, all VMs will be returned. There is no limit for maximum value."
   ([source] (projects-locations-sources-fetchInventory source nil))
   ([source optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmmigration.googleapis.com/v1/{+source}:fetchInventory",
@@ -225,7 +225,7 @@ orderBy <string> Optional. the order by fields for the result."
   ([parent]
     (projects-locations-sources-utilizationReports-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmmigration.googleapis.com/v1/{+parent}/utilizationReports",
@@ -243,7 +243,7 @@ optional:
 view <string> Optional. The level of details of the report. Defaults to FULL"
   ([name] (projects-locations-sources-utilizationReports-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://vmmigration.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -267,7 +267,7 @@ requestId <string> A request ID to identify requests. Specify a unique request I
       UtilizationReport
       nil))
   ([parent UtilizationReport optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://vmmigration.googleapis.com/v1/{+parent}/utilizationReports",
@@ -287,7 +287,7 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
   ([name]
     (projects-locations-sources-utilizationReports-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://vmmigration.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -307,7 +307,7 @@ orderBy <string> Optional. the order by fields for the result."
   ([parent]
     (projects-locations-sources-datacenterConnectors-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmmigration.googleapis.com/v1/{+parent}/datacenterConnectors",
@@ -321,7 +321,7 @@ https://cloud.google.com/products/cloud-migration/virtual-machines/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vmmigration.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -345,7 +345,7 @@ requestId <string> A request ID to identify requests. Specify a unique request I
       DatacenterConnector
       nil))
   ([parent DatacenterConnector optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://vmmigration.googleapis.com/v1/{+parent}/datacenterConnectors",
@@ -365,7 +365,7 @@ requestId <string> A request ID to identify requests. Specify a unique request I
   ([name]
     (projects-locations-sources-datacenterConnectors-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://vmmigration.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -380,7 +380,7 @@ datacenterConnector <>
 UpgradeApplianceRequest:
 UpgradeApplianceRequest"
   [datacenterConnector UpgradeApplianceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vmmigration.googleapis.com/v1/{+datacenterConnector}:upgradeAppliance",
@@ -397,7 +397,7 @@ migratingVm <>
 StartMigrationRequest:
 StartMigrationRequest"
   [migratingVm StartMigrationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vmmigration.googleapis.com/v1/{+migratingVm}:startMigration",
@@ -419,7 +419,7 @@ orderBy <string> Optional. the order by fields for the result.
 view <string> Optional. The level of details of each migrating VM."
   ([parent] (projects-locations-sources-migratingVms-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmmigration.googleapis.com/v1/{+parent}/migratingVms",
@@ -435,7 +435,7 @@ migratingVm <>
 FinalizeMigrationRequest:
 FinalizeMigrationRequest"
   [migratingVm FinalizeMigrationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vmmigration.googleapis.com/v1/{+migratingVm}:finalizeMigration",
@@ -450,7 +450,7 @@ https://cloud.google.com/products/cloud-migration/virtual-machines/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://vmmigration.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -465,7 +465,7 @@ migratingVm <>
 ResumeMigrationRequest:
 ResumeMigrationRequest"
   [migratingVm ResumeMigrationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vmmigration.googleapis.com/v1/{+migratingVm}:resumeMigration",
@@ -491,7 +491,7 @@ requestId <string> A request ID to identify requests. Specify a unique request I
       MigratingVm
       nil))
   ([name MigratingVm optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://vmmigration.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -507,7 +507,7 @@ migratingVm <>
 PauseMigrationRequest:
 PauseMigrationRequest"
   [migratingVm PauseMigrationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vmmigration.googleapis.com/v1/{+migratingVm}:pauseMigration",
@@ -533,7 +533,7 @@ requestId <string> A request ID to identify requests. Specify a unique request I
       MigratingVm
       nil))
   ([parent MigratingVm optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://vmmigration.googleapis.com/v1/{+parent}/migratingVms",
@@ -552,7 +552,7 @@ optional:
 view <string> Optional. The level of details of the migrating VM."
   ([name] (projects-locations-sources-migratingVms-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://vmmigration.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -576,7 +576,7 @@ requestId <string> A request ID to identify requests. Specify a unique request I
       CloneJob
       nil))
   ([parent CloneJob optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://vmmigration.googleapis.com/v1/{+parent}/cloneJobs",
@@ -593,7 +593,7 @@ name <>
 CancelCloneJobRequest:
 CancelCloneJobRequest"
   [name CancelCloneJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vmmigration.googleapis.com/v1/{+name}:cancel",
@@ -617,7 +617,7 @@ orderBy <string> Optional. the order by fields for the result."
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmmigration.googleapis.com/v1/{+parent}/cloneJobs",
@@ -631,7 +631,7 @@ https://cloud.google.com/products/cloud-migration/virtual-machines/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vmmigration.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -655,7 +655,7 @@ requestId <string> A request ID to identify requests. Specify a unique request I
       CutoverJob
       nil))
   ([parent CutoverJob optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://vmmigration.googleapis.com/v1/{+parent}/cutoverJobs",
@@ -672,7 +672,7 @@ name <>
 CancelCutoverJobRequest:
 CancelCutoverJobRequest"
   [name CancelCutoverJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vmmigration.googleapis.com/v1/{+name}:cancel",
@@ -696,7 +696,7 @@ orderBy <string> Optional. the order by fields for the result."
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmmigration.googleapis.com/v1/{+parent}/cutoverJobs",
@@ -710,7 +710,7 @@ https://cloud.google.com/products/cloud-migration/virtual-machines/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vmmigration.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -732,7 +732,7 @@ orderBy <string> Optional. the order by fields for the result."
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmmigration.googleapis.com/v1/{+parent}/replicationCycles",
@@ -746,45 +746,12 @@ https://cloud.google.com/products/cloud-migration/virtual-machines/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vmmigration.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
-
-(defn projects-locations-sources-diskMigrationJobs-run
-  "Runs the disk migration job.
-https://cloud.google.com/products/cloud-migration/virtual-machines/v1/reference/rest/v1/projects/locations/sources/diskMigrationJobs/run
-
-name <> 
-RunDiskMigrationJobRequest:
-RunDiskMigrationJobRequest"
-  [name RunDiskMigrationJobRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template "https://vmmigration.googleapis.com/v1/{+name}:run",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body RunDiskMigrationJobRequest}))
-
-(defn projects-locations-sources-diskMigrationJobs-cancel
-  "Cancels the disk migration job.
-https://cloud.google.com/products/cloud-migration/virtual-machines/v1/reference/rest/v1/projects/locations/sources/diskMigrationJobs/cancel
-
-name <> 
-CancelDiskMigrationJobRequest:
-CancelDiskMigrationJobRequest"
-  [name CancelDiskMigrationJobRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://vmmigration.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body CancelDiskMigrationJobRequest}))
 
 (defn projects-locations-groups-list
   "Lists Groups in a given project and location.
@@ -798,7 +765,7 @@ filter <string> Optional. The filter request.
 orderBy <string> Optional. the order by fields for the result."
   ([parent] (projects-locations-groups-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmmigration.googleapis.com/v1/{+parent}/groups",
@@ -812,7 +779,7 @@ https://cloud.google.com/products/cloud-migration/virtual-machines/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vmmigration.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -832,7 +799,7 @@ groupId <string> Required. The group identifier.
 requestId <string> A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([parent Group] (projects-locations-groups-create parent Group nil))
   ([parent Group optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://vmmigration.googleapis.com/v1/{+parent}/groups",
@@ -854,7 +821,7 @@ updateMask <string> Field mask is used to specify the fields to be overwritten i
 requestId <string> A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name Group] (projects-locations-groups-patch name Group nil))
   ([name Group optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://vmmigration.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -872,7 +839,7 @@ optional:
 requestId <string> Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-groups-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://vmmigration.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -887,7 +854,7 @@ group <>
 AddGroupMigrationRequest:
 AddGroupMigrationRequest"
   [group AddGroupMigrationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vmmigration.googleapis.com/v1/{+group}:addGroupMigration",
@@ -904,7 +871,7 @@ group <>
 RemoveGroupMigrationRequest:
 RemoveGroupMigrationRequest"
   [group RemoveGroupMigrationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vmmigration.googleapis.com/v1/{+group}:removeGroupMigration",
@@ -925,7 +892,7 @@ filter <string> Optional. The filter request.
 orderBy <string> Optional. the order by fields for the result."
   ([parent] (projects-locations-targetProjects-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmmigration.googleapis.com/v1/{+parent}/targetProjects",
@@ -939,7 +906,7 @@ https://cloud.google.com/products/cloud-migration/virtual-machines/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vmmigration.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -963,7 +930,7 @@ requestId <string> A request ID to identify requests. Specify a unique request I
       TargetProject
       nil))
   ([parent TargetProject optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://vmmigration.googleapis.com/v1/{+parent}/targetProjects",
@@ -986,7 +953,7 @@ requestId <string> A request ID to identify requests. Specify a unique request I
   ([name TargetProject]
     (projects-locations-targetProjects-patch name TargetProject nil))
   ([name TargetProject optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://vmmigration.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1004,7 +971,7 @@ optional:
 requestId <string> Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-targetProjects-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://vmmigration.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1023,7 +990,7 @@ filter <string> Optional. The filter request (according to https://google.aip.de
 orderBy <string> Optional. The order by fields for the result (according to https://google.aip.dev/132#ordering). Currently ordering is only possible by \"name\" field."
   ([parent] (projects-locations-imageImports-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmmigration.googleapis.com/v1/{+parent}/imageImports",
@@ -1037,7 +1004,7 @@ https://cloud.google.com/products/cloud-migration/virtual-machines/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vmmigration.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1058,7 +1025,7 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
   ([parent ImageImport]
     (projects-locations-imageImports-create parent ImageImport nil))
   ([parent ImageImport optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://vmmigration.googleapis.com/v1/{+parent}/imageImports",
@@ -1077,7 +1044,7 @@ optional:
 requestId <string> Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and t he request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-imageImports-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://vmmigration.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1097,7 +1064,7 @@ orderBy <string> Optional. The order by fields for the result (according to http
   ([parent]
     (projects-locations-imageImports-imageImportJobs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmmigration.googleapis.com/v1/{+parent}/imageImportJobs",
@@ -1111,7 +1078,7 @@ https://cloud.google.com/products/cloud-migration/virtual-machines/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vmmigration.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1126,7 +1093,7 @@ name <>
 CancelImageImportJobRequest:
 CancelImageImportJobRequest"
   [name CancelImageImportJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vmmigration.googleapis.com/v1/{+name}:cancel",

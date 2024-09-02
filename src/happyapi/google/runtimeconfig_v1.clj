@@ -15,7 +15,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://runtimeconfig.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -30,7 +30,7 @@ https://cloud.google.com/deployment-manager/runtime-configurator/v1/reference/re
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://runtimeconfig.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -47,7 +47,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://runtimeconfig.googleapis.com/v1/{+name}:cancel",

@@ -12,7 +12,7 @@ property <>
 RunReportRequest:
 RunReportRequest"
   [property RunReportRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://analyticsdata.googleapis.com/v1beta/{+property}:runReport",
@@ -31,7 +31,7 @@ property <>
 RunPivotReportRequest:
 RunPivotReportRequest"
   [property RunPivotReportRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://analyticsdata.googleapis.com/v1beta/{+property}:runPivotReport",
@@ -43,14 +43,14 @@ RunPivotReportRequest"
      :body RunPivotReportRequest}))
 
 (defn properties-batchRunReports
-  "Returns multiple reports in a batch. All reports must be for the same GA4 Property.
+  "Returns multiple reports in a batch. All reports must be for the same Google Analytics property.
 https://developers.google.com/analytics/devguides/reporting/data/v1/v1beta/reference/rest/v1beta/properties/batchRunReports
 
 property <> 
 BatchRunReportsRequest:
 BatchRunReportsRequest"
   [property BatchRunReportsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://analyticsdata.googleapis.com/v1beta/{+property}:batchRunReports",
@@ -62,14 +62,14 @@ BatchRunReportsRequest"
      :body BatchRunReportsRequest}))
 
 (defn properties-batchRunPivotReports
-  "Returns multiple pivot reports in a batch. All reports must be for the same GA4 Property.
+  "Returns multiple pivot reports in a batch. All reports must be for the same Google Analytics property.
 https://developers.google.com/analytics/devguides/reporting/data/v1/v1beta/reference/rest/v1beta/properties/batchRunPivotReports
 
 property <> 
 BatchRunPivotReportsRequest:
 BatchRunPivotReportsRequest"
   [property BatchRunPivotReportsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://analyticsdata.googleapis.com/v1beta/{+property}:batchRunPivotReports",
@@ -81,12 +81,12 @@ BatchRunPivotReportsRequest"
      :body BatchRunPivotReportsRequest}))
 
 (defn properties-getMetadata
-  "Returns metadata for dimensions and metrics available in reporting methods. Used to explore the dimensions and metrics. In this method, a Google Analytics GA4 Property Identifier is specified in the request, and the metadata response includes Custom dimensions and metrics as well as Universal metadata. For example if a custom metric with parameter name `levels_unlocked` is registered to a property, the Metadata response will contain `customEvent:levels_unlocked`. Universal metadata are dimensions and metrics applicable to any property such as `country` and `totalUsers`.
+  "Returns metadata for dimensions and metrics available in reporting methods. Used to explore the dimensions and metrics. In this method, a Google Analytics property identifier is specified in the request, and the metadata response includes Custom dimensions and metrics as well as Universal metadata. For example if a custom metric with parameter name `levels_unlocked` is registered to a property, the Metadata response will contain `customEvent:levels_unlocked`. Universal metadata are dimensions and metrics applicable to any property such as `country` and `totalUsers`.
 https://developers.google.com/analytics/devguides/reporting/data/v1/v1beta/reference/rest/v1beta/properties/getMetadata
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://analyticsdata.googleapis.com/v1beta/{+name}",
@@ -104,7 +104,7 @@ property <>
 RunRealtimeReportRequest:
 RunRealtimeReportRequest"
   [property RunRealtimeReportRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://analyticsdata.googleapis.com/v1beta/{+property}:runRealtimeReport",
@@ -123,7 +123,7 @@ property <>
 CheckCompatibilityRequest:
 CheckCompatibilityRequest"
   [property CheckCompatibilityRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://analyticsdata.googleapis.com/v1beta/{+property}:checkCompatibility",
@@ -142,7 +142,7 @@ parent <>
 AudienceExport:
 AudienceExport"
   [parent AudienceExport]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://analyticsdata.googleapis.com/v1beta/{+parent}/audienceExports",
@@ -161,7 +161,7 @@ name <>
 QueryAudienceExportRequest:
 QueryAudienceExportRequest"
   [name QueryAudienceExportRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://analyticsdata.googleapis.com/v1beta/{+name}:query",
@@ -178,7 +178,7 @@ https://developers.google.com/analytics/devguides/reporting/data/v1/v1beta/refer
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://analyticsdata.googleapis.com/v1beta/{+name}",
@@ -198,7 +198,7 @@ optional:
 pageSize <integer> Optional. The maximum number of audience exports to return. The service may return fewer than this value. If unspecified, at most 200 audience exports will be returned. The maximum value is 1000 (higher values will be coerced to the maximum)."
   ([parent] (properties-audienceExports-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://analyticsdata.googleapis.com/v1beta/{+parent}/audienceExports",

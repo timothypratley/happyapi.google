@@ -10,7 +10,7 @@ https://developers.google.com/site-verification/v1/reference/rest/v1/webResource
 
 id <> "
   [id]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://www.googleapis.com/siteVerification/v1/webResource/{id}",
@@ -24,7 +24,7 @@ https://developers.google.com/site-verification/v1/reference/rest/v1/webResource
 
 id <> "
   [id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://www.googleapis.com/siteVerification/v1/webResource/{id}",
@@ -39,7 +39,7 @@ https://developers.google.com/site-verification/v1/reference/rest/v1/webResource
 SiteVerificationWebResourceGettokenRequest:
 SiteVerificationWebResourceGettokenRequest"
   [SiteVerificationWebResourceGettokenRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/siteVerification/v1/token",
@@ -58,7 +58,7 @@ verificationMethod <>
 SiteVerificationWebResourceResource:
 SiteVerificationWebResourceResource"
   [verificationMethod SiteVerificationWebResourceResource]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/siteVerification/v1/webResource",
@@ -73,7 +73,7 @@ SiteVerificationWebResourceResource"
   "Get the list of your verified websites and domains.
 https://developers.google.com/site-verification/v1/reference/rest/v1/webResource/list"
   []
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://www.googleapis.com/siteVerification/v1/webResource",
@@ -89,7 +89,7 @@ id <>
 SiteVerificationWebResourceResource:
 SiteVerificationWebResourceResource"
   [id SiteVerificationWebResourceResource]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://www.googleapis.com/siteVerification/v1/webResource/{id}",
@@ -106,7 +106,7 @@ id <>
 SiteVerificationWebResourceResource:
 SiteVerificationWebResourceResource"
   [id SiteVerificationWebResourceResource]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://www.googleapis.com/siteVerification/v1/webResource/{id}",

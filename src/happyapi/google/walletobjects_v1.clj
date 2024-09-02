@@ -4,6 +4,20 @@ API for issuers to save and manage Google Wallet Objects.
 See: https://developers.google.com/wallet"
   (:require [happyapi.providers.google :as client]))
 
+(defn permissions-get
+  "Returns the permissions for the given issuer id.
+https://developers.google.com/wallet/v1/reference/rest/v1/permissions/get
+
+resourceId <> "
+  [resourceId]
+  (client/*api-request*
+    {:method :get,
+     :uri-template
+     "https://walletobjects.googleapis.com/walletobjects/v1/permissions/{resourceId}",
+     :uri-template-args {"resourceId" resourceId},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"]}))
+
 (defn permissions-update
   "Updates the permissions for the given issuer.
 https://developers.google.com/wallet/v1/reference/rest/v1/permissions/update
@@ -12,7 +26,7 @@ resourceId <>
 Permissions:
 Permissions"
   [resourceId Permissions]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/permissions/{resourceId}",
@@ -21,16 +35,16 @@ Permissions"
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
      :body Permissions}))
 
-(defn permissions-get
-  "Returns the permissions for the given issuer id.
-https://developers.google.com/wallet/v1/reference/rest/v1/permissions/get
+(defn eventticketobject-get
+  "Returns the event ticket object with the given object ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/eventticketobject/get
 
 resourceId <> "
   [resourceId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/permissions/{resourceId}",
+     "https://walletobjects.googleapis.com/walletobjects/v1/eventTicketObject/{resourceId}",
      :uri-template-args {"resourceId" resourceId},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"]}))
@@ -40,12 +54,12 @@ resourceId <> "
 https://developers.google.com/wallet/v1/reference/rest/v1/eventticketobject/list
 
 optional:
-maxResults <integer> Identifies the max number of results returned by a list. All results are returned if `maxResults` isn't defined.
 token <string> Used to get the next set of results if `maxResults` is specified, but more than `maxResults` objects are available in a list. For example, if you have a list of 200 objects and you call list with `maxResults` set to 20, list will return the first 20 objects and a token. Call list again with `maxResults` set to 20 and the token to get the next 20 objects.
+maxResults <integer> Identifies the max number of results returned by a list. All results are returned if `maxResults` isn't defined.
 classId <string> The ID of the class whose objects will be listed."
   ([] (eventticketobject-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://walletobjects.googleapis.com/walletobjects/v1/eventTicketObject",
@@ -61,28 +75,11 @@ https://developers.google.com/wallet/v1/reference/rest/v1/eventticketobject/inse
 EventTicketObject:
 EventTicketObject"
   [EventTicketObject]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/eventTicketObject",
      :uri-template-args {},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
-     :body EventTicketObject}))
-
-(defn eventticketobject-update
-  "Updates the event ticket object referenced by the given object ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/eventticketobject/update
-
-resourceId <> 
-EventTicketObject:
-EventTicketObject"
-  [resourceId EventTicketObject]
-  (client/api-request
-    {:method :put,
-     :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/eventTicketObject/{resourceId}",
-     :uri-template-args {"resourceId" resourceId},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
      :body EventTicketObject}))
@@ -95,7 +92,7 @@ resourceId <>
 AddMessageRequest:
 AddMessageRequest"
   [resourceId AddMessageRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/eventTicketObject/{resourceId}/addMessage",
@@ -112,7 +109,7 @@ resourceId <>
 ModifyLinkedOfferObjectsRequest:
 ModifyLinkedOfferObjectsRequest"
   [resourceId ModifyLinkedOfferObjectsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/eventTicketObject/{resourceId}/modifyLinkedOfferObjects",
@@ -121,19 +118,22 @@ ModifyLinkedOfferObjectsRequest"
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
      :body ModifyLinkedOfferObjectsRequest}))
 
-(defn eventticketobject-get
-  "Returns the event ticket object with the given object ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/eventticketobject/get
+(defn eventticketobject-update
+  "Updates the event ticket object referenced by the given object ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/eventticketobject/update
 
-resourceId <> "
-  [resourceId]
-  (client/api-request
-    {:method :get,
+resourceId <> 
+EventTicketObject:
+EventTicketObject"
+  [resourceId EventTicketObject]
+  (client/*api-request*
+    {:method :put,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/eventTicketObject/{resourceId}",
      :uri-template-args {"resourceId" resourceId},
      :query-params {},
-     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"]}))
+     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
+     :body EventTicketObject}))
 
 (defn eventticketobject-patch
   "Updates the event ticket object referenced by the given object ID. This method supports patch semantics.
@@ -143,7 +143,7 @@ resourceId <>
 EventTicketObject:
 EventTicketObject"
   [resourceId EventTicketObject]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/eventTicketObject/{resourceId}",
@@ -158,7 +158,7 @@ https://developers.google.com/wallet/v1/reference/rest/v1/media/download
 
 resourceId <> "
   [resourceId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/transitObject/{resourceId}/downloadRotatingBarcodeValues",
@@ -174,7 +174,7 @@ resourceId <>
 TransitObjectUploadRotatingBarcodeValuesRequest:
 TransitObjectUploadRotatingBarcodeValuesRequest"
   [resourceId TransitObjectUploadRotatingBarcodeValuesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/transitObject/{resourceId}/uploadRotatingBarcodeValues",
@@ -182,89 +182,6 @@ TransitObjectUploadRotatingBarcodeValuesRequest"
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
      :body TransitObjectUploadRotatingBarcodeValuesRequest}))
-
-(defn eventticketclass-addmessage
-  "Adds a message to the event ticket class referenced by the given class ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/eventticketclass/addmessage
-
-resourceId <> 
-AddMessageRequest:
-AddMessageRequest"
-  [resourceId AddMessageRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/eventTicketClass/{resourceId}/addMessage",
-     :uri-template-args {"resourceId" resourceId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
-     :body AddMessageRequest}))
-
-(defn eventticketclass-list
-  "Returns a list of all event ticket classes for a given issuer ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/eventticketclass/list
-
-optional:
-token <string> Used to get the next set of results if `maxResults` is specified, but more than `maxResults` classes are available in a list. For example, if you have a list of 200 classes and you call list with `maxResults` set to 20, list will return the first 20 classes and a token. Call list again with `maxResults` set to 20 and the token to get the next 20 classes.
-issuerId <string> The ID of the issuer authorized to list classes.
-maxResults <integer> Identifies the max number of results returned by a list. All results are returned if `maxResults` isn't defined."
-  ([] (eventticketclass-list nil))
-  ([optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://walletobjects.googleapis.com/walletobjects/v1/eventTicketClass",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/wallet_object.issuer"]})))
-
-(defn eventticketclass-insert
-  "Inserts an event ticket class with the given ID and properties.
-https://developers.google.com/wallet/v1/reference/rest/v1/eventticketclass/insert
-
-EventTicketClass:
-EventTicketClass"
-  [EventTicketClass]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/eventTicketClass",
-     :uri-template-args {},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
-     :body EventTicketClass}))
-
-(defn eventticketclass-patch
-  "Updates the event ticket class referenced by the given class ID. This method supports patch semantics.
-https://developers.google.com/wallet/v1/reference/rest/v1/eventticketclass/patch
-
-resourceId <> 
-EventTicketClass:
-EventTicketClass"
-  [resourceId EventTicketClass]
-  (client/api-request
-    {:method :patch,
-     :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/eventTicketClass/{resourceId}",
-     :uri-template-args {"resourceId" resourceId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
-     :body EventTicketClass}))
-
-(defn eventticketclass-get
-  "Returns the event ticket class with the given class ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/eventticketclass/get
-
-resourceId <> "
-  [resourceId]
-  (client/api-request
-    {:method :get,
-     :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/eventTicketClass/{resourceId}",
-     :uri-template-args {"resourceId" resourceId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"]}))
 
 (defn eventticketclass-update
   "Updates the event ticket class referenced by the given class ID.
@@ -274,8 +191,91 @@ resourceId <>
 EventTicketClass:
 EventTicketClass"
   [resourceId EventTicketClass]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
+     :uri-template
+     "https://walletobjects.googleapis.com/walletobjects/v1/eventTicketClass/{resourceId}",
+     :uri-template-args {"resourceId" resourceId},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
+     :body EventTicketClass}))
+
+(defn eventticketclass-addmessage
+  "Adds a message to the event ticket class referenced by the given class ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/eventticketclass/addmessage
+
+resourceId <> 
+AddMessageRequest:
+AddMessageRequest"
+  [resourceId AddMessageRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://walletobjects.googleapis.com/walletobjects/v1/eventTicketClass/{resourceId}/addMessage",
+     :uri-template-args {"resourceId" resourceId},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
+     :body AddMessageRequest}))
+
+(defn eventticketclass-insert
+  "Inserts an event ticket class with the given ID and properties.
+https://developers.google.com/wallet/v1/reference/rest/v1/eventticketclass/insert
+
+EventTicketClass:
+EventTicketClass"
+  [EventTicketClass]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://walletobjects.googleapis.com/walletobjects/v1/eventTicketClass",
+     :uri-template-args {},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
+     :body EventTicketClass}))
+
+(defn eventticketclass-list
+  "Returns a list of all event ticket classes for a given issuer ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/eventticketclass/list
+
+optional:
+issuerId <string> The ID of the issuer authorized to list classes.
+maxResults <integer> Identifies the max number of results returned by a list. All results are returned if `maxResults` isn't defined.
+token <string> Used to get the next set of results if `maxResults` is specified, but more than `maxResults` classes are available in a list. For example, if you have a list of 200 classes and you call list with `maxResults` set to 20, list will return the first 20 classes and a token. Call list again with `maxResults` set to 20 and the token to get the next 20 classes."
+  ([] (eventticketclass-list nil))
+  ([optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://walletobjects.googleapis.com/walletobjects/v1/eventTicketClass",
+       :uri-template-args {},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/wallet_object.issuer"]})))
+
+(defn eventticketclass-get
+  "Returns the event ticket class with the given class ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/eventticketclass/get
+
+resourceId <> "
+  [resourceId]
+  (client/*api-request*
+    {:method :get,
+     :uri-template
+     "https://walletobjects.googleapis.com/walletobjects/v1/eventTicketClass/{resourceId}",
+     :uri-template-args {"resourceId" resourceId},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"]}))
+
+(defn eventticketclass-patch
+  "Updates the event ticket class referenced by the given class ID. This method supports patch semantics.
+https://developers.google.com/wallet/v1/reference/rest/v1/eventticketclass/patch
+
+resourceId <> 
+EventTicketClass:
+EventTicketClass"
+  [resourceId EventTicketClass]
+  (client/*api-request*
+    {:method :patch,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/eventTicketClass/{resourceId}",
      :uri-template-args {"resourceId" resourceId},
@@ -291,7 +291,7 @@ resourceId <>
 Issuer:
 Issuer"
   [resourceId Issuer]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/issuer/{resourceId}",
@@ -304,13 +304,29 @@ Issuer"
   "Returns a list of all issuers shared to the caller.
 https://developers.google.com/wallet/v1/reference/rest/v1/issuer/list"
   []
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/issuer",
      :uri-template-args {},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"]}))
+
+(defn issuer-insert
+  "Inserts an issuer with the given ID and properties.
+https://developers.google.com/wallet/v1/reference/rest/v1/issuer/insert
+
+Issuer:
+Issuer"
+  [Issuer]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://walletobjects.googleapis.com/walletobjects/v1/issuer",
+     :uri-template-args {},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
+     :body Issuer}))
 
 (defn issuer-update
   "Updates the issuer referenced by the given issuer ID.
@@ -320,27 +336,11 @@ resourceId <>
 Issuer:
 Issuer"
   [resourceId Issuer]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/issuer/{resourceId}",
      :uri-template-args {"resourceId" resourceId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
-     :body Issuer}))
-
-(defn issuer-insert
-  "Inserts an issuer with the given ID and properties.
-https://developers.google.com/wallet/v1/reference/rest/v1/issuer/insert
-
-Issuer:
-Issuer"
-  [Issuer]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/issuer",
-     :uri-template-args {},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
      :body Issuer}))
@@ -351,10 +351,43 @@ https://developers.google.com/wallet/v1/reference/rest/v1/issuer/get
 
 resourceId <> "
   [resourceId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/issuer/{resourceId}",
+     :uri-template-args {"resourceId" resourceId},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"]}))
+
+(defn offerobject-list
+  "Returns a list of all offer objects for a given issuer ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/offerobject/list
+
+optional:
+maxResults <integer> Identifies the max number of results returned by a list. All results are returned if `maxResults` isn't defined.
+token <string> Used to get the next set of results if `maxResults` is specified, but more than `maxResults` objects are available in a list. For example, if you have a list of 200 objects and you call list with `maxResults` set to 20, list will return the first 20 objects and a token. Call list again with `maxResults` set to 20 and the token to get the next 20 objects.
+classId <string> The ID of the class whose objects will be listed."
+  ([] (offerobject-list nil))
+  ([optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://walletobjects.googleapis.com/walletobjects/v1/offerObject",
+       :uri-template-args {},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/wallet_object.issuer"]})))
+
+(defn offerobject-get
+  "Returns the offer object with the given object ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/offerobject/get
+
+resourceId <> "
+  [resourceId]
+  (client/*api-request*
+    {:method :get,
+     :uri-template
+     "https://walletobjects.googleapis.com/walletobjects/v1/offerObject/{resourceId}",
      :uri-template-args {"resourceId" resourceId},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"]}))
@@ -367,7 +400,7 @@ resourceId <>
 OfferObject:
 OfferObject"
   [resourceId OfferObject]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/offerObject/{resourceId}",
@@ -375,39 +408,6 @@ OfferObject"
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
      :body OfferObject}))
-
-(defn offerobject-get
-  "Returns the offer object with the given object ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/offerobject/get
-
-resourceId <> "
-  [resourceId]
-  (client/api-request
-    {:method :get,
-     :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/offerObject/{resourceId}",
-     :uri-template-args {"resourceId" resourceId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"]}))
-
-(defn offerobject-list
-  "Returns a list of all offer objects for a given issuer ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/offerobject/list
-
-optional:
-token <string> Used to get the next set of results if `maxResults` is specified, but more than `maxResults` objects are available in a list. For example, if you have a list of 200 objects and you call list with `maxResults` set to 20, list will return the first 20 objects and a token. Call list again with `maxResults` set to 20 and the token to get the next 20 objects.
-classId <string> The ID of the class whose objects will be listed.
-maxResults <integer> Identifies the max number of results returned by a list. All results are returned if `maxResults` isn't defined."
-  ([] (offerobject-list nil))
-  ([optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://walletobjects.googleapis.com/walletobjects/v1/offerObject",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/wallet_object.issuer"]})))
 
 (defn offerobject-addmessage
   "Adds a message to the offer object referenced by the given object ID.
@@ -417,7 +417,7 @@ resourceId <>
 AddMessageRequest:
 AddMessageRequest"
   [resourceId AddMessageRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/offerObject/{resourceId}/addMessage",
@@ -425,6 +425,22 @@ AddMessageRequest"
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
      :body AddMessageRequest}))
+
+(defn offerobject-insert
+  "Inserts an offer object with the given ID and properties.
+https://developers.google.com/wallet/v1/reference/rest/v1/offerobject/insert
+
+OfferObject:
+OfferObject"
+  [OfferObject]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://walletobjects.googleapis.com/walletobjects/v1/offerObject",
+     :uri-template-args {},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
+     :body OfferObject}))
 
 (defn offerobject-update
   "Updates the offer object referenced by the given object ID.
@@ -434,27 +450,11 @@ resourceId <>
 OfferObject:
 OfferObject"
   [resourceId OfferObject]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/offerObject/{resourceId}",
      :uri-template-args {"resourceId" resourceId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
-     :body OfferObject}))
-
-(defn offerobject-insert
-  "Inserts an offer object with the given ID and properties.
-https://developers.google.com/wallet/v1/reference/rest/v1/offerobject/insert
-
-OfferObject:
-OfferObject"
-  [OfferObject]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/offerObject",
-     :uri-template-args {},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
      :body OfferObject}))
@@ -466,7 +466,7 @@ https://developers.google.com/wallet/v1/reference/rest/v1/jwt/insert
 JwtResource:
 JwtResource"
   [JwtResource]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/jwt",
@@ -474,39 +474,6 @@ JwtResource"
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
      :body JwtResource}))
-
-(defn flightclass-addmessage
-  "Adds a message to the flight class referenced by the given class ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/flightclass/addmessage
-
-resourceId <> 
-AddMessageRequest:
-AddMessageRequest"
-  [resourceId AddMessageRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/flightClass/{resourceId}/addMessage",
-     :uri-template-args {"resourceId" resourceId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
-     :body AddMessageRequest}))
-
-(defn flightclass-insert
-  "Inserts an flight class with the given ID and properties.
-https://developers.google.com/wallet/v1/reference/rest/v1/flightclass/insert
-
-FlightClass:
-FlightClass"
-  [FlightClass]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/flightClass",
-     :uri-template-args {},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
-     :body FlightClass}))
 
 (defn flightclass-update
   "Updates the flight class referenced by the given class ID.
@@ -516,11 +483,63 @@ resourceId <>
 FlightClass:
 FlightClass"
   [resourceId FlightClass]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/flightClass/{resourceId}",
      :uri-template-args {"resourceId" resourceId},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
+     :body FlightClass}))
+
+(defn flightclass-addmessage
+  "Adds a message to the flight class referenced by the given class ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/flightclass/addmessage
+
+resourceId <> 
+AddMessageRequest:
+AddMessageRequest"
+  [resourceId AddMessageRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://walletobjects.googleapis.com/walletobjects/v1/flightClass/{resourceId}/addMessage",
+     :uri-template-args {"resourceId" resourceId},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
+     :body AddMessageRequest}))
+
+(defn flightclass-list
+  "Returns a list of all flight classes for a given issuer ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/flightclass/list
+
+optional:
+issuerId <string> The ID of the issuer authorized to list classes.
+token <string> Used to get the next set of results if `maxResults` is specified, but more than `maxResults` classes are available in a list. For example, if you have a list of 200 classes and you call list with `maxResults` set to 20, list will return the first 20 classes and a token. Call list again with `maxResults` set to 20 and the token to get the next 20 classes.
+maxResults <integer> Identifies the max number of results returned by a list. All results are returned if `maxResults` isn't defined."
+  ([] (flightclass-list nil))
+  ([optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://walletobjects.googleapis.com/walletobjects/v1/flightClass",
+       :uri-template-args {},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/wallet_object.issuer"]})))
+
+(defn flightclass-insert
+  "Inserts an flight class with the given ID and properties.
+https://developers.google.com/wallet/v1/reference/rest/v1/flightclass/insert
+
+FlightClass:
+FlightClass"
+  [FlightClass]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://walletobjects.googleapis.com/walletobjects/v1/flightClass",
+     :uri-template-args {},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
      :body FlightClass}))
@@ -533,7 +552,7 @@ resourceId <>
 FlightClass:
 FlightClass"
   [resourceId FlightClass]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/flightClass/{resourceId}",
@@ -548,49 +567,13 @@ https://developers.google.com/wallet/v1/reference/rest/v1/flightclass/get
 
 resourceId <> "
   [resourceId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/flightClass/{resourceId}",
      :uri-template-args {"resourceId" resourceId},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"]}))
-
-(defn flightclass-list
-  "Returns a list of all flight classes for a given issuer ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/flightclass/list
-
-optional:
-maxResults <integer> Identifies the max number of results returned by a list. All results are returned if `maxResults` isn't defined.
-issuerId <string> The ID of the issuer authorized to list classes.
-token <string> Used to get the next set of results if `maxResults` is specified, but more than `maxResults` classes are available in a list. For example, if you have a list of 200 classes and you call list with `maxResults` set to 20, list will return the first 20 classes and a token. Call list again with `maxResults` set to 20 and the token to get the next 20 classes."
-  ([] (flightclass-list nil))
-  ([optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://walletobjects.googleapis.com/walletobjects/v1/flightClass",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/wallet_object.issuer"]})))
-
-(defn giftcardobject-addmessage
-  "Adds a message to the gift card object referenced by the given object ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/giftcardobject/addmessage
-
-resourceId <> 
-AddMessageRequest:
-AddMessageRequest"
-  [resourceId AddMessageRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/giftCardObject/{resourceId}/addMessage",
-     :uri-template-args {"resourceId" resourceId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
-     :body AddMessageRequest}))
 
 (defn giftcardobject-patch
   "Updates the gift card object referenced by the given object ID. This method supports patch semantics.
@@ -600,7 +583,7 @@ resourceId <>
 GiftCardObject:
 GiftCardObject"
   [resourceId GiftCardObject]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/giftCardObject/{resourceId}",
@@ -615,29 +598,13 @@ https://developers.google.com/wallet/v1/reference/rest/v1/giftcardobject/get
 
 resourceId <> "
   [resourceId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/giftCardObject/{resourceId}",
      :uri-template-args {"resourceId" resourceId},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"]}))
-
-(defn giftcardobject-insert
-  "Inserts an gift card object with the given ID and properties.
-https://developers.google.com/wallet/v1/reference/rest/v1/giftcardobject/insert
-
-GiftCardObject:
-GiftCardObject"
-  [GiftCardObject]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/giftCardObject",
-     :uri-template-args {},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
-     :body GiftCardObject}))
 
 (defn giftcardobject-update
   "Updates the gift card object referenced by the given object ID.
@@ -647,7 +614,7 @@ resourceId <>
 GiftCardObject:
 GiftCardObject"
   [resourceId GiftCardObject]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/giftCardObject/{resourceId}",
@@ -656,17 +623,34 @@ GiftCardObject"
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
      :body GiftCardObject}))
 
+(defn giftcardobject-addmessage
+  "Adds a message to the gift card object referenced by the given object ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/giftcardobject/addmessage
+
+resourceId <> 
+AddMessageRequest:
+AddMessageRequest"
+  [resourceId AddMessageRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://walletobjects.googleapis.com/walletobjects/v1/giftCardObject/{resourceId}/addMessage",
+     :uri-template-args {"resourceId" resourceId},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
+     :body AddMessageRequest}))
+
 (defn giftcardobject-list
   "Returns a list of all gift card objects for a given issuer ID.
 https://developers.google.com/wallet/v1/reference/rest/v1/giftcardobject/list
 
 optional:
+maxResults <integer> Identifies the max number of results returned by a list. All results are returned if `maxResults` isn't defined.
 classId <string> The ID of the class whose objects will be listed.
-token <string> Used to get the next set of results if `maxResults` is specified, but more than `maxResults` objects are available in a list. For example, if you have a list of 200 objects and you call list with `maxResults` set to 20, list will return the first 20 objects and a token. Call list again with `maxResults` set to 20 and the token to get the next 20 objects.
-maxResults <integer> Identifies the max number of results returned by a list. All results are returned if `maxResults` isn't defined."
+token <string> Used to get the next set of results if `maxResults` is specified, but more than `maxResults` objects are available in a list. For example, if you have a list of 200 objects and you call list with `maxResults` set to 20, list will return the first 20 objects and a token. Call list again with `maxResults` set to 20 and the token to get the next 20 objects."
   ([] (giftcardobject-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://walletobjects.googleapis.com/walletobjects/v1/giftCardObject",
@@ -675,38 +659,37 @@ maxResults <integer> Identifies the max number of results returned by a list. Al
        :scopes
        ["https://www.googleapis.com/auth/wallet_object.issuer"]})))
 
-(defn transitobject-get
-  "Returns the transit object with the given object ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/transitobject/get
+(defn giftcardobject-insert
+  "Inserts an gift card object with the given ID and properties.
+https://developers.google.com/wallet/v1/reference/rest/v1/giftcardobject/insert
 
-resourceId <> "
-  [resourceId]
-  (client/api-request
-    {:method :get,
+GiftCardObject:
+GiftCardObject"
+  [GiftCardObject]
+  (client/*api-request*
+    {:method :post,
      :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/transitObject/{resourceId}",
-     :uri-template-args {"resourceId" resourceId},
+     "https://walletobjects.googleapis.com/walletobjects/v1/giftCardObject",
+     :uri-template-args {},
      :query-params {},
-     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"]}))
+     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
+     :body GiftCardObject}))
 
-(defn transitobject-list
-  "Returns a list of all transit objects for a given issuer ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/transitobject/list
+(defn transitobject-insert
+  "Inserts an transit object with the given ID and properties.
+https://developers.google.com/wallet/v1/reference/rest/v1/transitobject/insert
 
-optional:
-token <string> Used to get the next set of results if `maxResults` is specified, but more than `maxResults` objects are available in a list. For example, if you have a list of 200 objects and you call list with `maxResults` set to 20, list will return the first 20 objects and a token. Call list again with `maxResults` set to 20 and the token to get the next 20 objects.
-maxResults <integer> Identifies the max number of results returned by a list. All results are returned if `maxResults` isn't defined.
-classId <string> The ID of the class whose objects will be listed."
-  ([] (transitobject-list nil))
-  ([optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://walletobjects.googleapis.com/walletobjects/v1/transitObject",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/wallet_object.issuer"]})))
+TransitObject:
+TransitObject"
+  [TransitObject]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://walletobjects.googleapis.com/walletobjects/v1/transitObject",
+     :uri-template-args {},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
+     :body TransitObject}))
 
 (defn transitobject-addmessage
   "Adds a message to the transit object referenced by the given object ID.
@@ -716,7 +699,7 @@ resourceId <>
 AddMessageRequest:
 AddMessageRequest"
   [resourceId AddMessageRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/transitObject/{resourceId}/addMessage",
@@ -725,18 +708,19 @@ AddMessageRequest"
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
      :body AddMessageRequest}))
 
-(defn transitobject-insert
-  "Inserts an transit object with the given ID and properties.
-https://developers.google.com/wallet/v1/reference/rest/v1/transitobject/insert
+(defn transitobject-update
+  "Updates the transit object referenced by the given object ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/transitobject/update
 
+resourceId <> 
 TransitObject:
 TransitObject"
-  [TransitObject]
-  (client/api-request
-    {:method :post,
+  [resourceId TransitObject]
+  (client/*api-request*
+    {:method :put,
      :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/transitObject",
-     :uri-template-args {},
+     "https://walletobjects.googleapis.com/walletobjects/v1/transitObject/{resourceId}",
+     :uri-template-args {"resourceId" resourceId},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
      :body TransitObject}))
@@ -749,7 +733,7 @@ resourceId <>
 TransitObject:
 TransitObject"
   [resourceId TransitObject]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/transitObject/{resourceId}",
@@ -758,53 +742,38 @@ TransitObject"
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
      :body TransitObject}))
 
-(defn transitobject-update
-  "Updates the transit object referenced by the given object ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/transitobject/update
+(defn transitobject-list
+  "Returns a list of all transit objects for a given issuer ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/transitobject/list
 
-resourceId <> 
-TransitObject:
-TransitObject"
-  [resourceId TransitObject]
-  (client/api-request
-    {:method :put,
-     :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/transitObject/{resourceId}",
-     :uri-template-args {"resourceId" resourceId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
-     :body TransitObject}))
+optional:
+token <string> Used to get the next set of results if `maxResults` is specified, but more than `maxResults` objects are available in a list. For example, if you have a list of 200 objects and you call list with `maxResults` set to 20, list will return the first 20 objects and a token. Call list again with `maxResults` set to 20 and the token to get the next 20 objects.
+classId <string> The ID of the class whose objects will be listed.
+maxResults <integer> Identifies the max number of results returned by a list. All results are returned if `maxResults` isn't defined."
+  ([] (transitobject-list nil))
+  ([optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://walletobjects.googleapis.com/walletobjects/v1/transitObject",
+       :uri-template-args {},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/wallet_object.issuer"]})))
 
-(defn loyaltyclass-get
-  "Returns the loyalty class with the given class ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/loyaltyclass/get
+(defn transitobject-get
+  "Returns the transit object with the given object ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/transitobject/get
 
 resourceId <> "
   [resourceId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/loyaltyClass/{resourceId}",
+     "https://walletobjects.googleapis.com/walletobjects/v1/transitObject/{resourceId}",
      :uri-template-args {"resourceId" resourceId},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"]}))
-
-(defn loyaltyclass-patch
-  "Updates the loyalty class referenced by the given class ID. This method supports patch semantics.
-https://developers.google.com/wallet/v1/reference/rest/v1/loyaltyclass/patch
-
-resourceId <> 
-LoyaltyClass:
-LoyaltyClass"
-  [resourceId LoyaltyClass]
-  (client/api-request
-    {:method :patch,
-     :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/loyaltyClass/{resourceId}",
-     :uri-template-args {"resourceId" resourceId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
-     :body LoyaltyClass}))
 
 (defn loyaltyclass-addmessage
   "Adds a message to the loyalty class referenced by the given class ID.
@@ -814,7 +783,7 @@ resourceId <>
 AddMessageRequest:
 AddMessageRequest"
   [resourceId AddMessageRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/loyaltyClass/{resourceId}/addMessage",
@@ -822,6 +791,23 @@ AddMessageRequest"
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
      :body AddMessageRequest}))
+
+(defn loyaltyclass-update
+  "Updates the loyalty class referenced by the given class ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/loyaltyclass/update
+
+resourceId <> 
+LoyaltyClass:
+LoyaltyClass"
+  [resourceId LoyaltyClass]
+  (client/*api-request*
+    {:method :put,
+     :uri-template
+     "https://walletobjects.googleapis.com/walletobjects/v1/loyaltyClass/{resourceId}",
+     :uri-template-args {"resourceId" resourceId},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
+     :body LoyaltyClass}))
 
 (defn loyaltyclass-list
   "Returns a list of all loyalty classes for a given issuer ID.
@@ -833,7 +819,7 @@ token <string> Used to get the next set of results if `maxResults` is specified,
 maxResults <integer> Identifies the max number of results returned by a list. All results are returned if `maxResults` isn't defined."
   ([] (loyaltyclass-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://walletobjects.googleapis.com/walletobjects/v1/loyaltyClass",
@@ -842,6 +828,23 @@ maxResults <integer> Identifies the max number of results returned by a list. Al
        :scopes
        ["https://www.googleapis.com/auth/wallet_object.issuer"]})))
 
+(defn loyaltyclass-patch
+  "Updates the loyalty class referenced by the given class ID. This method supports patch semantics.
+https://developers.google.com/wallet/v1/reference/rest/v1/loyaltyclass/patch
+
+resourceId <> 
+LoyaltyClass:
+LoyaltyClass"
+  [resourceId LoyaltyClass]
+  (client/*api-request*
+    {:method :patch,
+     :uri-template
+     "https://walletobjects.googleapis.com/walletobjects/v1/loyaltyClass/{resourceId}",
+     :uri-template-args {"resourceId" resourceId},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
+     :body LoyaltyClass}))
+
 (defn loyaltyclass-insert
   "Inserts an loyalty class with the given ID and properties.
 https://developers.google.com/wallet/v1/reference/rest/v1/loyaltyclass/insert
@@ -849,7 +852,7 @@ https://developers.google.com/wallet/v1/reference/rest/v1/loyaltyclass/insert
 LoyaltyClass:
 LoyaltyClass"
   [LoyaltyClass]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/loyaltyClass",
@@ -858,22 +861,52 @@ LoyaltyClass"
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
      :body LoyaltyClass}))
 
-(defn loyaltyclass-update
-  "Updates the loyalty class referenced by the given class ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/loyaltyclass/update
+(defn loyaltyclass-get
+  "Returns the loyalty class with the given class ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/loyaltyclass/get
 
-resourceId <> 
-LoyaltyClass:
-LoyaltyClass"
-  [resourceId LoyaltyClass]
-  (client/api-request
-    {:method :put,
+resourceId <> "
+  [resourceId]
+  (client/*api-request*
+    {:method :get,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/loyaltyClass/{resourceId}",
      :uri-template-args {"resourceId" resourceId},
      :query-params {},
-     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
-     :body LoyaltyClass}))
+     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"]}))
+
+(defn transitclass-list
+  "Returns a list of all transit classes for a given issuer ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/transitclass/list
+
+optional:
+maxResults <integer> Identifies the max number of results returned by a list. All results are returned if `maxResults` isn't defined.
+issuerId <string> The ID of the issuer authorized to list classes.
+token <string> Used to get the next set of results if `maxResults` is specified, but more than `maxResults` classes are available in a list. For example, if you have a list of 200 classes and you call list with `maxResults` set to 20, list will return the first 20 classes and a token. Call list again with `maxResults` set to 20 and the token to get the next 20 classes."
+  ([] (transitclass-list nil))
+  ([optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://walletobjects.googleapis.com/walletobjects/v1/transitClass",
+       :uri-template-args {},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/wallet_object.issuer"]})))
+
+(defn transitclass-get
+  "Returns the transit class with the given class ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/transitclass/get
+
+resourceId <> "
+  [resourceId]
+  (client/*api-request*
+    {:method :get,
+     :uri-template
+     "https://walletobjects.googleapis.com/walletobjects/v1/transitClass/{resourceId}",
+     :uri-template-args {"resourceId" resourceId},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"]}))
 
 (defn transitclass-insert
   "Inserts a transit class with the given ID and properties.
@@ -882,11 +915,28 @@ https://developers.google.com/wallet/v1/reference/rest/v1/transitclass/insert
 TransitClass:
 TransitClass"
   [TransitClass]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/transitClass",
      :uri-template-args {},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
+     :body TransitClass}))
+
+(defn transitclass-patch
+  "Updates the transit class referenced by the given class ID. This method supports patch semantics.
+https://developers.google.com/wallet/v1/reference/rest/v1/transitclass/patch
+
+resourceId <> 
+TransitClass:
+TransitClass"
+  [resourceId TransitClass]
+  (client/*api-request*
+    {:method :patch,
+     :uri-template
+     "https://walletobjects.googleapis.com/walletobjects/v1/transitClass/{resourceId}",
+     :uri-template-args {"resourceId" resourceId},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
      :body TransitClass}))
@@ -899,7 +949,7 @@ resourceId <>
 TransitClass:
 TransitClass"
   [resourceId TransitClass]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/transitClass/{resourceId}",
@@ -916,7 +966,7 @@ resourceId <>
 AddMessageRequest:
 AddMessageRequest"
   [resourceId AddMessageRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/transitClass/{resourceId}/addMessage",
@@ -925,98 +975,17 @@ AddMessageRequest"
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
      :body AddMessageRequest}))
 
-(defn transitclass-get
-  "Returns the transit class with the given class ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/transitclass/get
-
-resourceId <> "
-  [resourceId]
-  (client/api-request
-    {:method :get,
-     :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/transitClass/{resourceId}",
-     :uri-template-args {"resourceId" resourceId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"]}))
-
-(defn transitclass-patch
-  "Updates the transit class referenced by the given class ID. This method supports patch semantics.
-https://developers.google.com/wallet/v1/reference/rest/v1/transitclass/patch
-
-resourceId <> 
-TransitClass:
-TransitClass"
-  [resourceId TransitClass]
-  (client/api-request
-    {:method :patch,
-     :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/transitClass/{resourceId}",
-     :uri-template-args {"resourceId" resourceId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
-     :body TransitClass}))
-
-(defn transitclass-list
-  "Returns a list of all transit classes for a given issuer ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/transitclass/list
-
-optional:
-maxResults <integer> Identifies the max number of results returned by a list. All results are returned if `maxResults` isn't defined.
-token <string> Used to get the next set of results if `maxResults` is specified, but more than `maxResults` classes are available in a list. For example, if you have a list of 200 classes and you call list with `maxResults` set to 20, list will return the first 20 classes and a token. Call list again with `maxResults` set to 20 and the token to get the next 20 classes.
-issuerId <string> The ID of the issuer authorized to list classes."
-  ([] (transitclass-list nil))
-  ([optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://walletobjects.googleapis.com/walletobjects/v1/transitClass",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/wallet_object.issuer"]})))
-
-(defn genericobject-get
-  "Returns the generic object with the given object ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/genericobject/get
-
-resourceId <> "
-  [resourceId]
-  (client/api-request
-    {:method :get,
-     :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/genericObject/{resourceId}",
-     :uri-template-args {"resourceId" resourceId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"]}))
-
-(defn genericobject-patch
-  "Updates the generic object referenced by the given object ID. This method supports patch semantics.
-https://developers.google.com/wallet/v1/reference/rest/v1/genericobject/patch
-
-resourceId <> 
-GenericObject:
-GenericObject"
-  [resourceId GenericObject]
-  (client/api-request
-    {:method :patch,
-     :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/genericObject/{resourceId}",
-     :uri-template-args {"resourceId" resourceId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
-     :body GenericObject}))
-
 (defn genericobject-list
   "Returns a list of all generic objects for a given issuer ID.
 https://developers.google.com/wallet/v1/reference/rest/v1/genericobject/list
 
 optional:
-maxResults <integer> Identifies the max number of results returned by a list. All results are returned if `maxResults` isn't defined.
 classId <string> The ID of the class whose objects will be listed.
+maxResults <integer> Identifies the max number of results returned by a list. All results are returned if `maxResults` isn't defined.
 token <string> Used to get the next set of results if `maxResults` is specified, but more than `maxResults` objects are available in a list. For example, if you have a list of 200 objects and you call list with `maxResults` set to 20, list will return the first 20 objects and a token. Call list again with `maxResults` set to 20 and the token to get the next 20 objects."
   ([] (genericobject-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://walletobjects.googleapis.com/walletobjects/v1/genericObject",
@@ -1032,28 +1001,11 @@ https://developers.google.com/wallet/v1/reference/rest/v1/genericobject/insert
 GenericObject:
 GenericObject"
   [GenericObject]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/genericObject",
      :uri-template-args {},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
-     :body GenericObject}))
-
-(defn genericobject-update
-  "Updates the generic object referenced by the given object ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/genericobject/update
-
-resourceId <> 
-GenericObject:
-GenericObject"
-  [resourceId GenericObject]
-  (client/api-request
-    {:method :put,
-     :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/genericObject/{resourceId}",
-     :uri-template-args {"resourceId" resourceId},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
      :body GenericObject}))
@@ -1066,7 +1018,7 @@ resourceId <>
 AddMessageRequest:
 AddMessageRequest"
   [resourceId AddMessageRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/genericObject/{resourceId}/addMessage",
@@ -1075,72 +1027,53 @@ AddMessageRequest"
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
      :body AddMessageRequest}))
 
-(defn flightobject-addmessage
-  "Adds a message to the flight object referenced by the given object ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/flightobject/addmessage
+(defn genericobject-update
+  "Updates the generic object referenced by the given object ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/genericobject/update
 
 resourceId <> 
-AddMessageRequest:
-AddMessageRequest"
-  [resourceId AddMessageRequest]
-  (client/api-request
-    {:method :post,
+GenericObject:
+GenericObject"
+  [resourceId GenericObject]
+  (client/*api-request*
+    {:method :put,
      :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/flightObject/{resourceId}/addMessage",
+     "https://walletobjects.googleapis.com/walletobjects/v1/genericObject/{resourceId}",
      :uri-template-args {"resourceId" resourceId},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
-     :body AddMessageRequest}))
+     :body GenericObject}))
 
-(defn flightobject-list
-  "Returns a list of all flight objects for a given issuer ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/flightobject/list
-
-optional:
-maxResults <integer> Identifies the max number of results returned by a list. All results are returned if `maxResults` isn't defined.
-token <string> Used to get the next set of results if `maxResults` is specified, but more than `maxResults` objects are available in a list. For example, if you have a list of 200 objects and you call list with `maxResults` set to 20, list will return the first 20 objects and a token. Call list again with `maxResults` set to 20 and the token to get the next 20 objects.
-classId <string> The ID of the class whose objects will be listed."
-  ([] (flightobject-list nil))
-  ([optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://walletobjects.googleapis.com/walletobjects/v1/flightObject",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/wallet_object.issuer"]})))
-
-(defn flightobject-get
-  "Returns the flight object with the given object ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/flightobject/get
+(defn genericobject-get
+  "Returns the generic object with the given object ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/genericobject/get
 
 resourceId <> "
   [resourceId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/flightObject/{resourceId}",
+     "https://walletobjects.googleapis.com/walletobjects/v1/genericObject/{resourceId}",
      :uri-template-args {"resourceId" resourceId},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"]}))
 
-(defn flightobject-update
-  "Updates the flight object referenced by the given object ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/flightobject/update
+(defn genericobject-patch
+  "Updates the generic object referenced by the given object ID. This method supports patch semantics.
+https://developers.google.com/wallet/v1/reference/rest/v1/genericobject/patch
 
 resourceId <> 
-FlightObject:
-FlightObject"
-  [resourceId FlightObject]
-  (client/api-request
-    {:method :put,
+GenericObject:
+GenericObject"
+  [resourceId GenericObject]
+  (client/*api-request*
+    {:method :patch,
      :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/flightObject/{resourceId}",
+     "https://walletobjects.googleapis.com/walletobjects/v1/genericObject/{resourceId}",
      :uri-template-args {"resourceId" resourceId},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
-     :body FlightObject}))
+     :body GenericObject}))
 
 (defn flightobject-patch
   "Updates the flight object referenced by the given object ID. This method supports patch semantics.
@@ -1150,8 +1083,58 @@ resourceId <>
 FlightObject:
 FlightObject"
   [resourceId FlightObject]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
+     :uri-template
+     "https://walletobjects.googleapis.com/walletobjects/v1/flightObject/{resourceId}",
+     :uri-template-args {"resourceId" resourceId},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
+     :body FlightObject}))
+
+(defn flightobject-get
+  "Returns the flight object with the given object ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/flightobject/get
+
+resourceId <> "
+  [resourceId]
+  (client/*api-request*
+    {:method :get,
+     :uri-template
+     "https://walletobjects.googleapis.com/walletobjects/v1/flightObject/{resourceId}",
+     :uri-template-args {"resourceId" resourceId},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"]}))
+
+(defn flightobject-list
+  "Returns a list of all flight objects for a given issuer ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/flightobject/list
+
+optional:
+classId <string> The ID of the class whose objects will be listed.
+maxResults <integer> Identifies the max number of results returned by a list. All results are returned if `maxResults` isn't defined.
+token <string> Used to get the next set of results if `maxResults` is specified, but more than `maxResults` objects are available in a list. For example, if you have a list of 200 objects and you call list with `maxResults` set to 20, list will return the first 20 objects and a token. Call list again with `maxResults` set to 20 and the token to get the next 20 objects."
+  ([] (flightobject-list nil))
+  ([optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://walletobjects.googleapis.com/walletobjects/v1/flightObject",
+       :uri-template-args {},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/wallet_object.issuer"]})))
+
+(defn flightobject-update
+  "Updates the flight object referenced by the given object ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/flightobject/update
+
+resourceId <> 
+FlightObject:
+FlightObject"
+  [resourceId FlightObject]
+  (client/*api-request*
+    {:method :put,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/flightObject/{resourceId}",
      :uri-template-args {"resourceId" resourceId},
@@ -1166,7 +1149,7 @@ https://developers.google.com/wallet/v1/reference/rest/v1/flightobject/insert
 FlightObject:
 FlightObject"
   [FlightObject]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/flightObject",
@@ -1175,55 +1158,22 @@ FlightObject"
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
      :body FlightObject}))
 
-(defn loyaltyobject-get
-  "Returns the loyalty object with the given object ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/loyaltyobject/get
-
-resourceId <> "
-  [resourceId]
-  (client/api-request
-    {:method :get,
-     :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/loyaltyObject/{resourceId}",
-     :uri-template-args {"resourceId" resourceId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"]}))
-
-(defn loyaltyobject-list
-  "Returns a list of all loyalty objects for a given issuer ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/loyaltyobject/list
-
-optional:
-classId <string> The ID of the class whose objects will be listed.
-maxResults <integer> Identifies the max number of results returned by a list. All results are returned if `maxResults` isn't defined.
-token <string> Used to get the next set of results if `maxResults` is specified, but more than `maxResults` objects are available in a list. For example, if you have a list of 200 objects and you call list with `maxResults` set to 20, list will return the first 20 objects and a token. Call list again with `maxResults` set to 20 and the token to get the next 20 objects."
-  ([] (loyaltyobject-list nil))
-  ([optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://walletobjects.googleapis.com/walletobjects/v1/loyaltyObject",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/wallet_object.issuer"]})))
-
-(defn loyaltyobject-modifylinkedofferobjects
-  "Modifies linked offer objects for the loyalty object with the given ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/loyaltyobject/modifylinkedofferobjects
+(defn flightobject-addmessage
+  "Adds a message to the flight object referenced by the given object ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/flightobject/addmessage
 
 resourceId <> 
-ModifyLinkedOfferObjectsRequest:
-ModifyLinkedOfferObjectsRequest"
-  [resourceId ModifyLinkedOfferObjectsRequest]
-  (client/api-request
+AddMessageRequest:
+AddMessageRequest"
+  [resourceId AddMessageRequest]
+  (client/*api-request*
     {:method :post,
      :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/loyaltyObject/{resourceId}/modifyLinkedOfferObjects",
+     "https://walletobjects.googleapis.com/walletobjects/v1/flightObject/{resourceId}/addMessage",
      :uri-template-args {"resourceId" resourceId},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
-     :body ModifyLinkedOfferObjectsRequest}))
+     :body AddMessageRequest}))
 
 (defn loyaltyobject-addmessage
   "Adds a message to the loyalty object referenced by the given object ID.
@@ -1233,7 +1183,7 @@ resourceId <>
 AddMessageRequest:
 AddMessageRequest"
   [resourceId AddMessageRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/loyaltyObject/{resourceId}/addMessage",
@@ -1242,21 +1192,24 @@ AddMessageRequest"
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
      :body AddMessageRequest}))
 
-(defn loyaltyobject-insert
-  "Inserts an loyalty object with the given ID and properties.
-https://developers.google.com/wallet/v1/reference/rest/v1/loyaltyobject/insert
+(defn loyaltyobject-list
+  "Returns a list of all loyalty objects for a given issuer ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/loyaltyobject/list
 
-LoyaltyObject:
-LoyaltyObject"
-  [LoyaltyObject]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/loyaltyObject",
-     :uri-template-args {},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
-     :body LoyaltyObject}))
+optional:
+token <string> Used to get the next set of results if `maxResults` is specified, but more than `maxResults` objects are available in a list. For example, if you have a list of 200 objects and you call list with `maxResults` set to 20, list will return the first 20 objects and a token. Call list again with `maxResults` set to 20 and the token to get the next 20 objects.
+maxResults <integer> Identifies the max number of results returned by a list. All results are returned if `maxResults` isn't defined.
+classId <string> The ID of the class whose objects will be listed."
+  ([] (loyaltyobject-list nil))
+  ([optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://walletobjects.googleapis.com/walletobjects/v1/loyaltyObject",
+       :uri-template-args {},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/wallet_object.issuer"]})))
 
 (defn loyaltyobject-patch
   "Updates the loyalty object referenced by the given object ID. This method supports patch semantics.
@@ -1266,11 +1219,44 @@ resourceId <>
 LoyaltyObject:
 LoyaltyObject"
   [resourceId LoyaltyObject]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/loyaltyObject/{resourceId}",
      :uri-template-args {"resourceId" resourceId},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
+     :body LoyaltyObject}))
+
+(defn loyaltyobject-modifylinkedofferobjects
+  "Modifies linked offer objects for the loyalty object with the given ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/loyaltyobject/modifylinkedofferobjects
+
+resourceId <> 
+ModifyLinkedOfferObjectsRequest:
+ModifyLinkedOfferObjectsRequest"
+  [resourceId ModifyLinkedOfferObjectsRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://walletobjects.googleapis.com/walletobjects/v1/loyaltyObject/{resourceId}/modifyLinkedOfferObjects",
+     :uri-template-args {"resourceId" resourceId},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
+     :body ModifyLinkedOfferObjectsRequest}))
+
+(defn loyaltyobject-insert
+  "Inserts an loyalty object with the given ID and properties.
+https://developers.google.com/wallet/v1/reference/rest/v1/loyaltyobject/insert
+
+LoyaltyObject:
+LoyaltyObject"
+  [LoyaltyObject]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://walletobjects.googleapis.com/walletobjects/v1/loyaltyObject",
+     :uri-template-args {},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
      :body LoyaltyObject}))
@@ -1283,7 +1269,7 @@ resourceId <>
 LoyaltyObject:
 LoyaltyObject"
   [resourceId LoyaltyObject]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/loyaltyObject/{resourceId}",
@@ -1292,6 +1278,20 @@ LoyaltyObject"
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
      :body LoyaltyObject}))
 
+(defn loyaltyobject-get
+  "Returns the loyalty object with the given object ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/loyaltyobject/get
+
+resourceId <> "
+  [resourceId]
+  (client/*api-request*
+    {:method :get,
+     :uri-template
+     "https://walletobjects.googleapis.com/walletobjects/v1/loyaltyObject/{resourceId}",
+     :uri-template-args {"resourceId" resourceId},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"]}))
+
 (defn smarttap-insert
   "Inserts the smart tap.
 https://developers.google.com/wallet/v1/reference/rest/v1/smarttap/insert
@@ -1299,7 +1299,7 @@ https://developers.google.com/wallet/v1/reference/rest/v1/smarttap/insert
 SmartTap:
 SmartTap"
   [SmartTap]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/smartTap",
@@ -1308,23 +1308,6 @@ SmartTap"
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
      :body SmartTap}))
 
-(defn genericclass-addmessage
-  "Adds a message to the generic class referenced by the given class ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/genericclass/addmessage
-
-resourceId <> 
-AddMessageRequest:
-AddMessageRequest"
-  [resourceId AddMessageRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/genericClass/{resourceId}/addMessage",
-     :uri-template-args {"resourceId" resourceId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
-     :body AddMessageRequest}))
-
 (defn genericclass-insert
   "Inserts a generic class with the given ID and properties.
 https://developers.google.com/wallet/v1/reference/rest/v1/genericclass/insert
@@ -1332,28 +1315,11 @@ https://developers.google.com/wallet/v1/reference/rest/v1/genericclass/insert
 GenericClass:
 GenericClass"
   [GenericClass]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/genericClass",
      :uri-template-args {},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
-     :body GenericClass}))
-
-(defn genericclass-update
-  "Updates the Generic class referenced by the given class ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/genericclass/update
-
-resourceId <> 
-GenericClass:
-GenericClass"
-  [resourceId GenericClass]
-  (client/api-request
-    {:method :put,
-     :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/genericClass/{resourceId}",
-     :uri-template-args {"resourceId" resourceId},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
      :body GenericClass}))
@@ -1364,7 +1330,7 @@ https://developers.google.com/wallet/v1/reference/rest/v1/genericclass/get
 
 resourceId <> "
   [resourceId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/genericClass/{resourceId}",
@@ -1372,24 +1338,39 @@ resourceId <> "
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"]}))
 
-(defn genericclass-list
-  "Returns a list of all generic classes for a given issuer ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/genericclass/list
+(defn genericclass-update
+  "Updates the Generic class referenced by the given class ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/genericclass/update
 
-optional:
-token <string> Used to get the next set of results if `maxResults` is specified, but more than `maxResults` classes are available in a list. For example, if you have a list of 200 classes and you call list with `maxResults` set to 20, list will return the first 20 classes and a token. Call list again with `maxResults` set to 20 and the token to get the next 20 classes.
-issuerId <string> The ID of the issuer authorized to list classes.
-maxResults <integer> Identifies the max number of results returned by a list. All results are returned if `maxResults` isn't defined."
-  ([] (genericclass-list nil))
-  ([optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://walletobjects.googleapis.com/walletobjects/v1/genericClass",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/wallet_object.issuer"]})))
+resourceId <> 
+GenericClass:
+GenericClass"
+  [resourceId GenericClass]
+  (client/*api-request*
+    {:method :put,
+     :uri-template
+     "https://walletobjects.googleapis.com/walletobjects/v1/genericClass/{resourceId}",
+     :uri-template-args {"resourceId" resourceId},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
+     :body GenericClass}))
+
+(defn genericclass-addmessage
+  "Adds a message to the generic class referenced by the given class ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/genericclass/addmessage
+
+resourceId <> 
+AddMessageRequest:
+AddMessageRequest"
+  [resourceId AddMessageRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://walletobjects.googleapis.com/walletobjects/v1/genericClass/{resourceId}/addMessage",
+     :uri-template-args {"resourceId" resourceId},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
+     :body AddMessageRequest}))
 
 (defn genericclass-patch
   "Updates the generic class referenced by the given class ID. This method supports patch semantics.
@@ -1399,7 +1380,7 @@ resourceId <>
 GenericClass:
 GenericClass"
   [resourceId GenericClass]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/genericClass/{resourceId}",
@@ -1407,6 +1388,25 @@ GenericClass"
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
      :body GenericClass}))
+
+(defn genericclass-list
+  "Returns a list of all generic classes for a given issuer ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/genericclass/list
+
+optional:
+issuerId <string> The ID of the issuer authorized to list classes.
+maxResults <integer> Identifies the max number of results returned by a list. All results are returned if `maxResults` isn't defined.
+token <string> Used to get the next set of results if `maxResults` is specified, but more than `maxResults` classes are available in a list. For example, if you have a list of 200 classes and you call list with `maxResults` set to 20, list will return the first 20 classes and a token. Call list again with `maxResults` set to 20 and the token to get the next 20 classes."
+  ([] (genericclass-list nil))
+  ([optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://walletobjects.googleapis.com/walletobjects/v1/genericClass",
+       :uri-template-args {},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/wallet_object.issuer"]})))
 
 (defn offerclass-addmessage
   "Adds a message to the offer class referenced by the given class ID.
@@ -1416,7 +1416,7 @@ resourceId <>
 AddMessageRequest:
 AddMessageRequest"
   [resourceId AddMessageRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/offerClass/{resourceId}/addMessage",
@@ -1424,58 +1424,6 @@ AddMessageRequest"
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
      :body AddMessageRequest}))
-
-(defn offerclass-update
-  "Updates the offer class referenced by the given class ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/offerclass/update
-
-resourceId <> 
-OfferClass:
-OfferClass"
-  [resourceId OfferClass]
-  (client/api-request
-    {:method :put,
-     :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/offerClass/{resourceId}",
-     :uri-template-args {"resourceId" resourceId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
-     :body OfferClass}))
-
-(defn offerclass-insert
-  "Inserts an offer class with the given ID and properties.
-https://developers.google.com/wallet/v1/reference/rest/v1/offerclass/insert
-
-OfferClass:
-OfferClass"
-  [OfferClass]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/offerClass",
-     :uri-template-args {},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
-     :body OfferClass}))
-
-(defn offerclass-list
-  "Returns a list of all offer classes for a given issuer ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/offerclass/list
-
-optional:
-issuerId <string> The ID of the issuer authorized to list classes.
-maxResults <integer> Identifies the max number of results returned by a list. All results are returned if `maxResults` isn't defined.
-token <string> Used to get the next set of results if `maxResults` is specified, but more than `maxResults` classes are available in a list. For example, if you have a list of 200 classes and you call list with `maxResults` set to 20, list will return the first 20 classes and a token. Call list again with `maxResults` set to 20 and the token to get the next 20 classes."
-  ([] (offerclass-list nil))
-  ([optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://walletobjects.googleapis.com/walletobjects/v1/offerClass",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/wallet_object.issuer"]})))
 
 (defn offerclass-patch
   "Updates the offer class referenced by the given class ID. This method supports patch semantics.
@@ -1485,8 +1433,44 @@ resourceId <>
 OfferClass:
 OfferClass"
   [resourceId OfferClass]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
+     :uri-template
+     "https://walletobjects.googleapis.com/walletobjects/v1/offerClass/{resourceId}",
+     :uri-template-args {"resourceId" resourceId},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
+     :body OfferClass}))
+
+(defn offerclass-list
+  "Returns a list of all offer classes for a given issuer ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/offerclass/list
+
+optional:
+maxResults <integer> Identifies the max number of results returned by a list. All results are returned if `maxResults` isn't defined.
+token <string> Used to get the next set of results if `maxResults` is specified, but more than `maxResults` classes are available in a list. For example, if you have a list of 200 classes and you call list with `maxResults` set to 20, list will return the first 20 classes and a token. Call list again with `maxResults` set to 20 and the token to get the next 20 classes.
+issuerId <string> The ID of the issuer authorized to list classes."
+  ([] (offerclass-list nil))
+  ([optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://walletobjects.googleapis.com/walletobjects/v1/offerClass",
+       :uri-template-args {},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/wallet_object.issuer"]})))
+
+(defn offerclass-update
+  "Updates the offer class referenced by the given class ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/offerclass/update
+
+resourceId <> 
+OfferClass:
+OfferClass"
+  [resourceId OfferClass]
+  (client/*api-request*
+    {:method :put,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/offerClass/{resourceId}",
      :uri-template-args {"resourceId" resourceId},
@@ -1500,7 +1484,7 @@ https://developers.google.com/wallet/v1/reference/rest/v1/offerclass/get
 
 resourceId <> "
   [resourceId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/offerClass/{resourceId}",
@@ -1508,55 +1492,38 @@ resourceId <> "
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"]}))
 
-(defn giftcardclass-list
-  "Returns a list of all gift card classes for a given issuer ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/giftcardclass/list
+(defn offerclass-insert
+  "Inserts an offer class with the given ID and properties.
+https://developers.google.com/wallet/v1/reference/rest/v1/offerclass/insert
 
-optional:
-token <string> Used to get the next set of results if `maxResults` is specified, but more than `maxResults` classes are available in a list. For example, if you have a list of 200 classes and you call list with `maxResults` set to 20, list will return the first 20 classes and a token. Call list again with `maxResults` set to 20 and the token to get the next 20 classes.
-issuerId <string> The ID of the issuer authorized to list classes.
-maxResults <integer> Identifies the max number of results returned by a list. All results are returned if `maxResults` isn't defined."
-  ([] (giftcardclass-list nil))
-  ([optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://walletobjects.googleapis.com/walletobjects/v1/giftCardClass",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/wallet_object.issuer"]})))
+OfferClass:
+OfferClass"
+  [OfferClass]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://walletobjects.googleapis.com/walletobjects/v1/offerClass",
+     :uri-template-args {},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
+     :body OfferClass}))
 
-(defn giftcardclass-update
-  "Updates the gift card class referenced by the given class ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/giftcardclass/update
+(defn giftcardclass-addmessage
+  "Adds a message to the gift card class referenced by the given class ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/giftcardclass/addmessage
 
 resourceId <> 
-GiftCardClass:
-GiftCardClass"
-  [resourceId GiftCardClass]
-  (client/api-request
-    {:method :put,
+AddMessageRequest:
+AddMessageRequest"
+  [resourceId AddMessageRequest]
+  (client/*api-request*
+    {:method :post,
      :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/giftCardClass/{resourceId}",
+     "https://walletobjects.googleapis.com/walletobjects/v1/giftCardClass/{resourceId}/addMessage",
      :uri-template-args {"resourceId" resourceId},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
-     :body GiftCardClass}))
-
-(defn giftcardclass-get
-  "Returns the gift card class with the given class ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/giftcardclass/get
-
-resourceId <> "
-  [resourceId]
-  (client/api-request
-    {:method :get,
-     :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/giftCardClass/{resourceId}",
-     :uri-template-args {"resourceId" resourceId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"]}))
+     :body AddMessageRequest}))
 
 (defn giftcardclass-insert
   "Inserts an gift card class with the given ID and properties.
@@ -1565,7 +1532,7 @@ https://developers.google.com/wallet/v1/reference/rest/v1/giftcardclass/insert
 GiftCardClass:
 GiftCardClass"
   [GiftCardClass]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/giftCardClass",
@@ -1582,7 +1549,7 @@ resourceId <>
 GiftCardClass:
 GiftCardClass"
   [resourceId GiftCardClass]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://walletobjects.googleapis.com/walletobjects/v1/giftCardClass/{resourceId}",
@@ -1591,19 +1558,52 @@ GiftCardClass"
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
      :body GiftCardClass}))
 
-(defn giftcardclass-addmessage
-  "Adds a message to the gift card class referenced by the given class ID.
-https://developers.google.com/wallet/v1/reference/rest/v1/giftcardclass/addmessage
+(defn giftcardclass-get
+  "Returns the gift card class with the given class ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/giftcardclass/get
+
+resourceId <> "
+  [resourceId]
+  (client/*api-request*
+    {:method :get,
+     :uri-template
+     "https://walletobjects.googleapis.com/walletobjects/v1/giftCardClass/{resourceId}",
+     :uri-template-args {"resourceId" resourceId},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"]}))
+
+(defn giftcardclass-update
+  "Updates the gift card class referenced by the given class ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/giftcardclass/update
 
 resourceId <> 
-AddMessageRequest:
-AddMessageRequest"
-  [resourceId AddMessageRequest]
-  (client/api-request
-    {:method :post,
+GiftCardClass:
+GiftCardClass"
+  [resourceId GiftCardClass]
+  (client/*api-request*
+    {:method :put,
      :uri-template
-     "https://walletobjects.googleapis.com/walletobjects/v1/giftCardClass/{resourceId}/addMessage",
+     "https://walletobjects.googleapis.com/walletobjects/v1/giftCardClass/{resourceId}",
      :uri-template-args {"resourceId" resourceId},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/wallet_object.issuer"],
-     :body AddMessageRequest}))
+     :body GiftCardClass}))
+
+(defn giftcardclass-list
+  "Returns a list of all gift card classes for a given issuer ID.
+https://developers.google.com/wallet/v1/reference/rest/v1/giftcardclass/list
+
+optional:
+issuerId <string> The ID of the issuer authorized to list classes.
+maxResults <integer> Identifies the max number of results returned by a list. All results are returned if `maxResults` isn't defined.
+token <string> Used to get the next set of results if `maxResults` is specified, but more than `maxResults` classes are available in a list. For example, if you have a list of 200 classes and you call list with `maxResults` set to 20, list will return the first 20 classes and a token. Call list again with `maxResults` set to 20 and the token to get the next 20 classes."
+  ([] (giftcardclass-list nil))
+  ([optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://walletobjects.googleapis.com/walletobjects/v1/giftCardClass",
+       :uri-template-args {},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/wallet_object.issuer"]})))

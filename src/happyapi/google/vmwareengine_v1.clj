@@ -10,7 +10,7 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/g
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -28,7 +28,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+name}/locations",
@@ -42,7 +42,7 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/g
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -60,7 +60,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+name}/operations",
@@ -74,7 +74,7 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/o
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -87,7 +87,7 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/o
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -106,7 +106,7 @@ filter <string> A filter expression that matches resources returned in the respo
 orderBy <string> Sorts list results by a certain order. By default, returned results are ordered by `name` in ascending order. You can also sort results in descending order based on the `name` value using `orderBy=\"name desc\"`. Currently, only ordering by `name` is supported."
   ([parent] (projects-locations-privateClouds-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+parent}/privateClouds",
@@ -122,7 +122,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vmwareengine.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -143,7 +143,7 @@ force <boolean> Optional. If set to true, cascade delete is enabled and all chil
 delayHours <integer> Optional. Time delay of the deletion specified in hours. The default value is `3`. Specifying a non-zero value for this field changes the value of `PrivateCloud.state` to `DELETED` and sets `expire_time` to the planned deletion time. Deletion can be cancelled before `expire_time` elapses using VmwareEngine.UndeletePrivateCloud. Specifying a value of `0` for this field instead begins the deletion process and ceases billing immediately. During the final deletion process, the value of `PrivateCloud.state` becomes `PURGING`."
   ([name] (projects-locations-privateClouds-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -158,7 +158,7 @@ name <>
 UndeletePrivateCloudRequest:
 UndeletePrivateCloudRequest"
   [name UndeletePrivateCloudRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vmwareengine.googleapis.com/v1/{+name}:undelete",
@@ -173,7 +173,7 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/p
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -188,7 +188,7 @@ privateCloud <>
 ResetNsxCredentialsRequest:
 ResetNsxCredentialsRequest"
   [privateCloud ResetNsxCredentialsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vmwareengine.googleapis.com/v1/{+privateCloud}:resetNsxCredentials",
@@ -211,7 +211,7 @@ requestId <string> Optional. The request ID must be a valid UUID with the except
   ([name PrivateCloud]
     (projects-locations-privateClouds-patch name PrivateCloud nil))
   ([name PrivateCloud optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -230,7 +230,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-privateClouds-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -246,7 +246,7 @@ privateCloud <>
 ResetVcenterCredentialsRequest:
 ResetVcenterCredentialsRequest"
   [privateCloud ResetVcenterCredentialsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vmwareengine.googleapis.com/v1/{+privateCloud}:resetVcenterCredentials",
@@ -270,7 +270,7 @@ validateOnly <boolean> Optional. True if you want the request to be validated an
   ([parent PrivateCloud]
     (projects-locations-privateClouds-create parent PrivateCloud nil))
   ([parent PrivateCloud optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+parent}/privateClouds",
@@ -292,7 +292,7 @@ username <string> Optional. The username of the user to be queried for credentia
       privateCloud
       nil))
   ([privateCloud optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+privateCloud}:showVcenterCredentials",
@@ -306,7 +306,7 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/p
 
 privateCloud <> "
   [privateCloud]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://vmwareengine.googleapis.com/v1/{+privateCloud}:showNsxCredentials",
@@ -320,7 +320,7 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/p
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -344,7 +344,7 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       DnsForwarding
       nil))
   ([name DnsForwarding optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -360,7 +360,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vmwareengine.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -382,7 +382,7 @@ orderBy <string> Sorts list results by a certain order. By default, returned res
   ([parent]
     (projects-locations-privateClouds-clusters-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+parent}/clusters",
@@ -396,7 +396,7 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/p
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -421,7 +421,7 @@ validateOnly <boolean> Optional. True if you want the request to be validated an
       Cluster
       nil))
   ([parent Cluster optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+parent}/clusters",
@@ -445,7 +445,7 @@ validateOnly <boolean> Optional. True if you want the request to be validated an
   ([name Cluster]
     (projects-locations-privateClouds-clusters-patch name Cluster nil))
   ([name Cluster optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -463,7 +463,7 @@ optional:
 requestId <string> Optional. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-privateClouds-clusters-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -478,7 +478,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vmwareengine.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -500,7 +500,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -516,7 +516,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vmwareengine.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -536,7 +536,7 @@ pageSize <integer> The maximum number of nodes to return in one page. The servic
   ([parent]
     (projects-locations-privateClouds-clusters-nodes-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+parent}/nodes",
@@ -550,7 +550,7 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/p
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -572,7 +572,7 @@ orderBy <string> Sorts list results by a certain order. By default, returned res
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+parent}/externalAddresses",
@@ -586,7 +586,7 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/p
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -610,7 +610,7 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       ExternalAddress
       nil))
   ([parent ExternalAddress optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+parent}/externalAddresses",
@@ -636,7 +636,7 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       ExternalAddress
       nil))
   ([name ExternalAddress optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -657,7 +657,7 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -674,7 +674,7 @@ optional:
 pageSize <integer> The maximum number of subnets to return in one page. The service may return fewer than this value. The maximum value is coerced to 1000. The default value of this field is 500."
   ([parent] (projects-locations-privateClouds-subnets-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+parent}/subnets",
@@ -688,7 +688,7 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/p
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -708,7 +708,7 @@ updateMask <string> Required. Field mask is used to specify the fields to be ove
   ([name Subnet]
     (projects-locations-privateClouds-subnets-patch name Subnet nil))
   ([name Subnet optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -729,7 +729,7 @@ orderBy <string> Sorts list results by a certain order. By default, returned res
   ([parent]
     (projects-locations-privateClouds-loggingServers-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+parent}/loggingServers",
@@ -743,7 +743,7 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/p
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -767,7 +767,7 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       LoggingServer
       nil))
   ([parent LoggingServer optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+parent}/loggingServers",
@@ -793,7 +793,7 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       LoggingServer
       nil))
   ([name LoggingServer optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -812,7 +812,7 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
   ([name]
     (projects-locations-privateClouds-loggingServers-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -836,7 +836,7 @@ requestId <string> A request ID to identify requests. Specify a unique request I
       HcxActivationKey
       nil))
   ([parent HcxActivationKey optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+parent}/hcxActivationKeys",
@@ -858,7 +858,7 @@ pageSize <integer> The maximum number of HCX activation keys to return in one pa
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+parent}/hcxActivationKeys",
@@ -872,7 +872,7 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/p
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -887,7 +887,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vmwareengine.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -909,7 +909,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -925,7 +925,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vmwareengine.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -949,7 +949,7 @@ orderBy <string> Sorts list results by a certain order. By default, returned res
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+parent}/managementDnsZoneBindings",
@@ -963,7 +963,7 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/p
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -987,7 +987,7 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       ManagementDnsZoneBinding
       nil))
   ([parent ManagementDnsZoneBinding optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+parent}/managementDnsZoneBindings",
@@ -1013,7 +1013,7 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       ManagementDnsZoneBinding
       nil))
   ([name ManagementDnsZoneBinding optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1034,7 +1034,7 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1049,7 +1049,7 @@ name <>
 RepairManagementDnsZoneBindingRequest:
 RepairManagementDnsZoneBindingRequest"
   [name RepairManagementDnsZoneBindingRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vmwareengine.googleapis.com/v1/{+name}:repair",
@@ -1071,7 +1071,7 @@ pageSize <integer> The maximum number of external IP addresses to return in one 
       networkPolicy
       nil))
   ([networkPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+networkPolicy}:fetchExternalAddresses",
@@ -1085,7 +1085,7 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/n
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1104,7 +1104,7 @@ filter <string> A filter expression that matches resources returned in the respo
 orderBy <string> Sorts list results by a certain order. By default, returned results are ordered by `name` in ascending order. You can also sort results in descending order based on the `name` value using `orderBy=\"name desc\"`. Currently, only ordering by `name` is supported."
   ([parent] (projects-locations-networkPolicies-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+parent}/networkPolicies",
@@ -1129,7 +1129,7 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       NetworkPolicy
       nil))
   ([parent NetworkPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+parent}/networkPolicies",
@@ -1152,7 +1152,7 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
   ([name NetworkPolicy]
     (projects-locations-networkPolicies-patch name NetworkPolicy nil))
   ([name NetworkPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1170,7 +1170,7 @@ optional:
 requestId <string> Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server guarantees that a request doesn't result in creation of duplicate commitments for at least 60 minutes. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-networkPolicies-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1192,7 +1192,7 @@ orderBy <string> Sorts list results by a certain order. By default, returned res
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+parent}/externalAccessRules",
@@ -1206,7 +1206,7 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/n
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1230,7 +1230,7 @@ requestId <string> A request ID to identify requests. Specify a unique request I
       ExternalAccessRule
       nil))
   ([parent ExternalAccessRule optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+parent}/externalAccessRules",
@@ -1256,7 +1256,7 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       ExternalAccessRule
       nil))
   ([name ExternalAccessRule optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1277,7 +1277,7 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1295,7 +1295,7 @@ pageSize <integer> The maximum number of node types to return in one page. The s
 filter <string> A filter expression that matches resources returned in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be `=`, `!=`, `>`, or `<`. For example, if you are filtering a list of node types, you can exclude the ones named `standard-72` by specifying `name != \"standard-72\"`. To filter on multiple expressions, provide each separate expression within parentheses. For example: ``` (name = \"standard-72\") (virtual_cpu_count > 2) ``` By default, each expression is an `AND` expression. However, you can include `AND` and `OR` expressions explicitly. For example: ``` (name = \"standard-96\") AND (virtual_cpu_count > 2) OR (name = \"standard-72\") ```"
   ([parent] (projects-locations-nodeTypes-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+parent}/nodeTypes",
@@ -1309,7 +1309,7 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/n
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1322,7 +1322,7 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/n
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1341,7 +1341,7 @@ filter <string> A filter expression that matches resources returned in the respo
 orderBy <string> Sorts list results by a certain order. By default, returned results are ordered by `name` in ascending order. You can also sort results in descending order based on the `name` value using `orderBy=\"name desc\"`. Currently, only ordering by `name` is supported."
   ([parent] (projects-locations-networkPeerings-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+parent}/networkPeerings",
@@ -1366,7 +1366,7 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       NetworkPeering
       nil))
   ([parent NetworkPeering optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+parent}/networkPeerings",
@@ -1385,7 +1385,7 @@ optional:
 requestId <string> Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server guarantees that a request doesn't result in creation of duplicate commitments for at least 60 minutes. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-networkPeerings-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1406,7 +1406,7 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
   ([name NetworkPeering]
     (projects-locations-networkPeerings-patch name NetworkPeering nil))
   ([name NetworkPeering optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1426,7 +1426,7 @@ filter <string> A filter expression that matches resources returned in the respo
   ([parent]
     (projects-locations-networkPeerings-peeringRoutes-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+parent}/peeringRoutes",
@@ -1451,7 +1451,7 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       VmwareEngineNetwork
       nil))
   ([parent VmwareEngineNetwork optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+parent}/vmwareEngineNetworks",
@@ -1477,7 +1477,7 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       VmwareEngineNetwork
       nil))
   ([name VmwareEngineNetwork optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1496,7 +1496,7 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
 etag <string> Optional. Checksum used to ensure that the user-provided value is up to date before the server processes the request. The server compares provided checksum with the current checksum of the resource. If the user-provided value is out of date, this request returns an `ABORTED` error."
   ([name] (projects-locations-vmwareEngineNetworks-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1509,7 +1509,7 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/v
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1528,7 +1528,7 @@ filter <string> A filter expression that matches resources returned in the respo
 orderBy <string> Sorts list results by a certain order. By default, returned results are ordered by `name` in ascending order. You can also sort results in descending order based on the `name` value using `orderBy=\"name desc\"`. Currently, only ordering by `name` is supported."
   ([parent] (projects-locations-vmwareEngineNetworks-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+parent}/vmwareEngineNetworks",
@@ -1553,7 +1553,7 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       PrivateConnection
       nil))
   ([parent PrivateConnection optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+parent}/privateConnections",
@@ -1568,7 +1568,7 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/p
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1587,7 +1587,7 @@ filter <string> A filter expression that matches resources returned in the respo
 orderBy <string> Sorts list results by a certain order. By default, returned results are ordered by `name` in ascending order. You can also sort results in descending order based on the `name` value using `orderBy=\"name desc\"`. Currently, only ordering by `name` is supported."
   ([parent] (projects-locations-privateConnections-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+parent}/privateConnections",
@@ -1612,7 +1612,7 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       PrivateConnection
       nil))
   ([name PrivateConnection optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1630,7 +1630,7 @@ optional:
 requestId <string> Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server guarantees that a request doesn't result in creation of duplicate commitments for at least 60 minutes. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-privateConnections-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1650,7 +1650,7 @@ pageSize <integer> The maximum number of peering routes to return in one page. T
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vmwareengine.googleapis.com/v1/{+parent}/peeringRoutes",
@@ -1666,7 +1666,7 @@ name <>
 GrantDnsBindPermissionRequest:
 GrantDnsBindPermissionRequest"
   [name GrantDnsBindPermissionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vmwareengine.googleapis.com/v1/{+name}:grant",
@@ -1683,7 +1683,7 @@ name <>
 RevokeDnsBindPermissionRequest:
 RevokeDnsBindPermissionRequest"
   [name RevokeDnsBindPermissionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vmwareengine.googleapis.com/v1/{+name}:revoke",

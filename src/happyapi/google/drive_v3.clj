@@ -23,7 +23,7 @@ useDomainAdminAccess <boolean> Issue the request as a domain administrator; if s
 supportsTeamDrives <boolean> Deprecated: Use `supportsAllDrives` instead."
   ([fileId Permission] (permissions-create fileId Permission nil))
   ([fileId Permission optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://www.googleapis.com/drive/v3/files/{fileId}/permissions",
@@ -47,7 +47,7 @@ supportsTeamDrives <boolean> Deprecated: Use `supportsAllDrives` instead.
 useDomainAdminAccess <boolean> Issue the request as a domain administrator; if set to true, then the requester will be granted access if the file ID parameter refers to a shared drive and the requester is an administrator of the domain to which the shared drive belongs."
   ([fileId permissionId] (permissions-delete fileId permissionId nil))
   ([fileId permissionId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://www.googleapis.com/drive/v3/files/{fileId}/permissions/{permissionId}",
@@ -71,7 +71,7 @@ supportsTeamDrives <boolean> Deprecated: Use `supportsAllDrives` instead.
 useDomainAdminAccess <boolean> Issue the request as a domain administrator; if set to true, then the requester will be granted access if the file ID parameter refers to a shared drive and the requester is an administrator of the domain to which the shared drive belongs."
   ([fileId permissionId] (permissions-get fileId permissionId nil))
   ([fileId permissionId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/drive/v3/files/{fileId}/permissions/{permissionId}",
@@ -101,7 +101,7 @@ useDomainAdminAccess <boolean> Issue the request as a domain administrator; if s
 includePermissionsForView <string> Specifies which additional view's permissions to include in the response. Only 'published' is supported."
   ([fileId] (permissions-list fileId nil))
   ([fileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/drive/v3/files/{fileId}/permissions",
@@ -134,7 +134,7 @@ useDomainAdminAccess <boolean> Issue the request as a domain administrator; if s
   ([fileId permissionId Permission]
     (permissions-update fileId permissionId Permission nil))
   ([fileId permissionId Permission optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://www.googleapis.com/drive/v3/files/{fileId}/permissions/{permissionId}",
@@ -154,7 +154,7 @@ requestId <>
 Drive:
 Drive"
   [requestId Drive]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://www.googleapis.com/drive/v3/drives",
      :uri-template-args {},
@@ -173,7 +173,7 @@ useDomainAdminAccess <boolean> Issue the request as a domain administrator; if s
 allowItemDeletion <boolean> Whether any items inside the shared drive should also be deleted. This option is only supported when `useDomainAdminAccess` is also set to `true`."
   ([driveId] (drives-delete driveId nil))
   ([driveId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://www.googleapis.com/drive/v3/drives/{driveId}",
@@ -191,7 +191,7 @@ optional:
 useDomainAdminAccess <boolean> Issue the request as a domain administrator; if set to true, then the requester will be granted access if they are an administrator of the domain to which the shared drive belongs."
   ([driveId] (drives-get driveId nil))
   ([driveId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/drive/v3/drives/{driveId}",
@@ -207,7 +207,7 @@ https://developers.google.com/drive/v3/reference/rest/v3/drives/hide
 
 driveId <> "
   [driveId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/drive/v3/drives/{driveId}/hide",
@@ -225,7 +225,7 @@ q <string> Query string for searching shared drives.
 useDomainAdminAccess <boolean> Issue the request as a domain administrator; if set to true, then all shared drives of the domain in which the requester is an administrator are returned."
   ([] (drives-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://www.googleapis.com/drive/v3/drives",
        :uri-template-args {},
@@ -240,7 +240,7 @@ https://developers.google.com/drive/v3/reference/rest/v3/drives/unhide
 
 driveId <> "
   [driveId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/drive/v3/drives/{driveId}/unhide",
@@ -260,7 +260,7 @@ optional:
 useDomainAdminAccess <boolean> Issue the request as a domain administrator; if set to true, then the requester will be granted access if they are an administrator of the domain to which the shared drive belongs."
   ([driveId Drive] (drives-update driveId Drive nil))
   ([driveId Drive optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://www.googleapis.com/drive/v3/drives/{driveId}",
@@ -273,7 +273,7 @@ useDomainAdminAccess <boolean> Issue the request as a domain administrator; if s
   "Gets information about the user, the user's Drive, and system capabilities.
 https://developers.google.com/drive/v3/reference/rest/v3/about/get"
   []
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://www.googleapis.com/drive/v3/about",
      :uri-template-args {},
@@ -297,7 +297,7 @@ space <string> The space in which the IDs can be used to create new files. Suppo
 type <string> The type of items which the IDs can be used for. Supported values are 'files' and 'shortcuts'. Note that 'shortcuts' are only supported in the `drive` 'space'. (Default: 'files')"
   ([] (files-generateIds nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/drive/v3/files/generateIds",
@@ -329,7 +329,7 @@ includePermissionsForView <string> Specifies which additional view's permissions
 supportsTeamDrives <boolean> Deprecated: Use `supportsAllDrives` instead."
   ([] (files-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://www.googleapis.com/drive/v3/files",
        :uri-template-args {},
@@ -363,7 +363,7 @@ supportsTeamDrives <boolean> Deprecated: Use `supportsAllDrives` instead.
 ocrLanguage <string> A language hint for OCR processing during image import (ISO 639-1 code)."
   ([fileId File] (files-copy fileId File nil))
   ([fileId File optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://www.googleapis.com/drive/v3/files/{fileId}/copy",
@@ -388,7 +388,7 @@ supportsTeamDrives <boolean> Deprecated: Use `supportsAllDrives` instead.
 enforceSingleParent <boolean> Deprecated: If an item is not in a shared drive and its last parent is deleted but the item itself is not, the item will be placed under its owner's root."
   ([fileId] (files-delete fileId nil))
   ([fileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://www.googleapis.com/drive/v3/files/{fileId}",
@@ -406,7 +406,7 @@ https://developers.google.com/drive/v3/reference/rest/v3/files/export
 fileId <> 
 mimeType <> "
   [fileId mimeType]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://www.googleapis.com/drive/v3/files/{fileId}/export",
@@ -426,7 +426,7 @@ fileId <>
 ModifyLabelsRequest:
 ModifyLabelsRequest"
   [fileId ModifyLabelsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/drive/v3/files/{fileId}/modifyLabels",
@@ -459,7 +459,7 @@ supportsTeamDrives <boolean> Deprecated: Use `supportsAllDrives` instead.
 ocrLanguage <string> A language hint for OCR processing during image import (ISO 639-1 code)."
   ([fileId File] (files-update fileId File nil))
   ([fileId File optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://www.googleapis.com/drive/v3/files/{fileId}",
@@ -484,12 +484,12 @@ Channel
 optional:
 supportsAllDrives <boolean> Whether the requesting application supports both My Drives and shared drives.
 supportsTeamDrives <boolean> Deprecated: Use `supportsAllDrives` instead.
-acknowledgeAbuse <boolean> Whether the user is acknowledging the risk of downloading known malware or other abusive files. This is only applicable when alt=media.
+acknowledgeAbuse <boolean> Whether the user is acknowledging the risk of downloading known malware or other abusive files. This is only applicable when the `alt` parameter is set to `media` and the user is the owner of the file or an organizer of the shared drive in which the file resides.
 includePermissionsForView <string> Specifies which additional view's permissions to include in the response. Only 'published' is supported.
 includeLabels <string> A comma-separated list of IDs of labels to include in the `labelInfo` part of the response."
   ([fileId Channel] (files-watch fileId Channel nil))
   ([fileId Channel optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://www.googleapis.com/drive/v3/files/{fileId}/watch",
@@ -525,7 +525,7 @@ supportsTeamDrives <boolean> Deprecated: Use `supportsAllDrives` instead.
 ocrLanguage <string> A language hint for OCR processing during image import (ISO 639-1 code)."
   ([File] (files-create File nil))
   ([File optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template "https://www.googleapis.com/drive/v3/files",
        :uri-template-args {},
@@ -543,14 +543,14 @@ https://developers.google.com/drive/v3/reference/rest/v3/files/get
 fileId <> 
 
 optional:
-acknowledgeAbuse <boolean> Whether the user is acknowledging the risk of downloading known malware or other abusive files. This is only applicable when alt=media.
+acknowledgeAbuse <boolean> Whether the user is acknowledging the risk of downloading known malware or other abusive files. This is only applicable when the `alt` parameter is set to `media` and the user is the owner of the file or an organizer of the shared drive in which the file resides.
 supportsAllDrives <boolean> Whether the requesting application supports both My Drives and shared drives.
 supportsTeamDrives <boolean> Deprecated: Use `supportsAllDrives` instead.
 includePermissionsForView <string> Specifies which additional view's permissions to include in the response. Only 'published' is supported.
 includeLabels <string> A comma-separated list of IDs of labels to include in the `labelInfo` part of the response."
   ([fileId] (files-get fileId nil))
   ([fileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/drive/v3/files/{fileId}",
@@ -575,7 +575,7 @@ enforceSingleParent <boolean> Deprecated: If an item is not in a shared drive an
 driveId <string> If set, empties the trash of the provided shared drive."
   ([] (files-emptyTrash nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://www.googleapis.com/drive/v3/files/trash",
        :uri-template-args {},
@@ -592,7 +592,7 @@ optional:
 maxResults <integer> The maximum number of labels to return per page. When not set, defaults to 100."
   ([fileId] (files-listLabels fileId nil))
   ([fileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/drive/v3/files/{fileId}/listLabels",
@@ -614,7 +614,7 @@ requestId <>
 TeamDrive:
 TeamDrive"
   [requestId TeamDrive]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://www.googleapis.com/drive/v3/teamdrives",
      :uri-template-args {},
@@ -628,7 +628,7 @@ https://developers.google.com/drive/v3/reference/rest/v3/teamdrives/delete
 
 teamDriveId <> "
   [teamDriveId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://www.googleapis.com/drive/v3/teamdrives/{teamDriveId}",
@@ -646,7 +646,7 @@ optional:
 useDomainAdminAccess <boolean> Issue the request as a domain administrator; if set to true, then the requester will be granted access if they are an administrator of the domain to which the Team Drive belongs."
   ([teamDriveId] (teamdrives-get teamDriveId nil))
   ([teamDriveId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/drive/v3/teamdrives/{teamDriveId}",
@@ -666,7 +666,7 @@ q <string> Query string for searching Team Drives.
 useDomainAdminAccess <boolean> Issue the request as a domain administrator; if set to true, then all Team Drives of the domain in which the requester is an administrator are returned."
   ([] (teamdrives-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://www.googleapis.com/drive/v3/teamdrives",
        :uri-template-args {},
@@ -688,7 +688,7 @@ useDomainAdminAccess <boolean> Issue the request as a domain administrator; if s
   ([teamDriveId TeamDrive]
     (teamdrives-update teamDriveId TeamDrive nil))
   ([teamDriveId TeamDrive optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://www.googleapis.com/drive/v3/teamdrives/{teamDriveId}",
@@ -708,7 +708,7 @@ supportsTeamDrives <boolean> Deprecated: Use `supportsAllDrives` instead.
 teamDriveId <string> Deprecated: Use `driveId` instead."
   ([] (changes-getStartPageToken nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/drive/v3/changes/startPageToken",
@@ -746,7 +746,7 @@ supportsTeamDrives <boolean> Deprecated: Use `supportsAllDrives` instead.
 restrictToMyDrive <boolean> Whether to restrict the results to changes inside the My Drive hierarchy. This omits changes to files such as those in the Application Data folder or shared files which have not been added to My Drive."
   ([pageToken] (changes-list pageToken nil))
   ([pageToken optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://www.googleapis.com/drive/v3/changes",
        :uri-template-args {},
@@ -785,7 +785,7 @@ supportsTeamDrives <boolean> Deprecated: Use `supportsAllDrives` instead.
 restrictToMyDrive <boolean> Whether to restrict the results to changes inside the My Drive hierarchy. This omits changes to files such as those in the Application Data folder or shared files which have not been added to My Drive."
   ([pageToken Channel] (changes-watch pageToken Channel nil))
   ([pageToken Channel optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://www.googleapis.com/drive/v3/changes/watch",
@@ -808,7 +808,7 @@ https://developers.google.com/drive/v3/reference/rest/v3/apps/get
 
 appId <> "
   [appId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://www.googleapis.com/drive/v3/apps/{appId}",
      :uri-template-args {"appId" appId},
@@ -832,7 +832,7 @@ appFilterMimeTypes <string> A comma-separated list of file extensions to limit r
 languageCode <string> A language or locale code, as defined by BCP 47, with some extensions from Unicode's LDML format (http://www.unicode.org/reports/tr35/)."
   ([] (apps-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://www.googleapis.com/drive/v3/apps",
        :uri-template-args {},
@@ -848,7 +848,7 @@ fileId <>
 Comment:
 Comment"
   [fileId Comment]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/drive/v3/files/{fileId}/comments",
@@ -866,7 +866,7 @@ https://developers.google.com/drive/v3/reference/rest/v3/comments/delete
 fileId <> 
 commentId <> "
   [fileId commentId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://www.googleapis.com/drive/v3/files/{fileId}/comments/{commentId}",
@@ -887,7 +887,7 @@ optional:
 includeDeleted <boolean> Whether to return deleted comments. Deleted comments will not include their original content."
   ([fileId commentId] (comments-get fileId commentId nil))
   ([fileId commentId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/drive/v3/files/{fileId}/comments/{commentId}",
@@ -911,7 +911,7 @@ pageSize <integer> The maximum number of comments to return per page.
 startModifiedTime <string> The minimum value of 'modifiedTime' for the result comments (RFC 3339 date-time)."
   ([fileId] (comments-list fileId nil))
   ([fileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/drive/v3/files/{fileId}/comments",
@@ -932,7 +932,7 @@ commentId <>
 Comment:
 Comment"
   [fileId commentId Comment]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://www.googleapis.com/drive/v3/files/{fileId}/comments/{commentId}",
@@ -950,7 +950,7 @@ https://developers.google.com/drive/v3/reference/rest/v3/revisions/delete
 fileId <> 
 revisionId <> "
   [fileId revisionId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://www.googleapis.com/drive/v3/files/{fileId}/revisions/{revisionId}",
@@ -969,10 +969,10 @@ fileId <>
 revisionId <> 
 
 optional:
-acknowledgeAbuse <boolean> Whether the user is acknowledging the risk of downloading known malware or other abusive files. This is only applicable when alt=media."
+acknowledgeAbuse <boolean> Whether the user is acknowledging the risk of downloading known malware or other abusive files. This is only applicable when the `alt` parameter is set to `media` and the user is the owner of the file or an organizer of the shared drive in which the file resides."
   ([fileId revisionId] (revisions-get fileId revisionId nil))
   ([fileId revisionId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/drive/v3/files/{fileId}/revisions/{revisionId}",
@@ -998,7 +998,7 @@ optional:
 pageSize <integer> The maximum number of revisions to return per page."
   ([fileId] (revisions-list fileId nil))
   ([fileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/drive/v3/files/{fileId}/revisions",
@@ -1023,7 +1023,7 @@ revisionId <>
 Revision:
 Revision"
   [fileId revisionId Revision]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://www.googleapis.com/drive/v3/files/{fileId}/revisions/{revisionId}",
@@ -1044,7 +1044,7 @@ commentId <>
 Reply:
 Reply"
   [fileId commentId Reply]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/drive/v3/files/{fileId}/comments/{commentId}/replies",
@@ -1063,7 +1063,7 @@ fileId <>
 commentId <> 
 replyId <> "
   [fileId commentId replyId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://www.googleapis.com/drive/v3/files/{fileId}/comments/{commentId}/replies/{replyId}",
@@ -1087,7 +1087,7 @@ includeDeleted <boolean> Whether to return deleted replies. Deleted replies will
   ([fileId commentId replyId]
     (replies-get fileId commentId replyId nil))
   ([fileId commentId replyId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/drive/v3/files/{fileId}/comments/{commentId}/replies/{replyId}",
@@ -1112,7 +1112,7 @@ includeDeleted <boolean> Whether to include deleted replies. Deleted replies wil
 pageSize <integer> The maximum number of replies to return per page."
   ([fileId commentId] (replies-list fileId commentId nil))
   ([fileId commentId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/drive/v3/files/{fileId}/comments/{commentId}/replies",
@@ -1134,7 +1134,7 @@ replyId <>
 Reply:
 Reply"
   [fileId commentId replyId Reply]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://www.googleapis.com/drive/v3/files/{fileId}/comments/{commentId}/replies/{replyId}",
@@ -1153,7 +1153,7 @@ https://developers.google.com/drive/v3/reference/rest/v3/channels/stop
 Channel:
 Channel"
   [Channel]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://www.googleapis.com/drive/v3/channels/stop",
      :uri-template-args {},

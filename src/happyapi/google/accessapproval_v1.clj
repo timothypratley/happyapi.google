@@ -10,7 +10,7 @@ https://cloud.google.com/assured-workloads/access-approval/docs/v1/reference/res
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://accessapproval.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -33,7 +33,7 @@ updateMask <string> The update mask applies to the settings. Only the top level 
       AccessApprovalSettings
       nil))
   ([name AccessApprovalSettings optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://accessapproval.googleapis.com/v1/{+name}",
@@ -48,7 +48,7 @@ https://cloud.google.com/assured-workloads/access-approval/docs/v1/reference/res
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://accessapproval.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -61,7 +61,7 @@ https://cloud.google.com/assured-workloads/access-approval/docs/v1/reference/res
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://accessapproval.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -79,7 +79,7 @@ filter <string> A filter on the type of approval requests to retrieve. Must be o
 pageSize <integer> Requested page size."
   ([parent] (projects-approvalRequests-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://accessapproval.googleapis.com/v1/{+parent}/approvalRequests",
@@ -93,7 +93,7 @@ https://cloud.google.com/assured-workloads/access-approval/docs/v1/reference/res
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://accessapproval.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -108,7 +108,7 @@ name <>
 ApproveApprovalRequestMessage:
 ApproveApprovalRequestMessage"
   [name ApproveApprovalRequestMessage]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://accessapproval.googleapis.com/v1/{+name}:approve",
@@ -125,7 +125,7 @@ name <>
 DismissApprovalRequestMessage:
 DismissApprovalRequestMessage"
   [name DismissApprovalRequestMessage]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://accessapproval.googleapis.com/v1/{+name}:dismiss",
@@ -142,7 +142,7 @@ name <>
 InvalidateApprovalRequestMessage:
 InvalidateApprovalRequestMessage"
   [name InvalidateApprovalRequestMessage]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://accessapproval.googleapis.com/v1/{+name}:invalidate",
@@ -157,7 +157,7 @@ https://cloud.google.com/assured-workloads/access-approval/docs/v1/reference/res
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://accessapproval.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -180,7 +180,7 @@ updateMask <string> The update mask applies to the settings. Only the top level 
       AccessApprovalSettings
       nil))
   ([name AccessApprovalSettings optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://accessapproval.googleapis.com/v1/{+name}",
@@ -195,7 +195,7 @@ https://cloud.google.com/assured-workloads/access-approval/docs/v1/reference/res
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://accessapproval.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -208,7 +208,7 @@ https://cloud.google.com/assured-workloads/access-approval/docs/v1/reference/res
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://accessapproval.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -226,7 +226,7 @@ filter <string> A filter on the type of approval requests to retrieve. Must be o
 pageSize <integer> Requested page size."
   ([parent] (folders-approvalRequests-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://accessapproval.googleapis.com/v1/{+parent}/approvalRequests",
@@ -240,7 +240,7 @@ https://cloud.google.com/assured-workloads/access-approval/docs/v1/reference/res
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://accessapproval.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -255,7 +255,7 @@ name <>
 ApproveApprovalRequestMessage:
 ApproveApprovalRequestMessage"
   [name ApproveApprovalRequestMessage]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://accessapproval.googleapis.com/v1/{+name}:approve",
@@ -272,7 +272,7 @@ name <>
 DismissApprovalRequestMessage:
 DismissApprovalRequestMessage"
   [name DismissApprovalRequestMessage]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://accessapproval.googleapis.com/v1/{+name}:dismiss",
@@ -289,7 +289,7 @@ name <>
 InvalidateApprovalRequestMessage:
 InvalidateApprovalRequestMessage"
   [name InvalidateApprovalRequestMessage]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://accessapproval.googleapis.com/v1/{+name}:invalidate",
@@ -304,7 +304,7 @@ https://cloud.google.com/assured-workloads/access-approval/docs/v1/reference/res
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://accessapproval.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -327,7 +327,7 @@ updateMask <string> The update mask applies to the settings. Only the top level 
       AccessApprovalSettings
       nil))
   ([name AccessApprovalSettings optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://accessapproval.googleapis.com/v1/{+name}",
@@ -342,7 +342,7 @@ https://cloud.google.com/assured-workloads/access-approval/docs/v1/reference/res
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://accessapproval.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -355,7 +355,7 @@ https://cloud.google.com/assured-workloads/access-approval/docs/v1/reference/res
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://accessapproval.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -373,7 +373,7 @@ filter <string> A filter on the type of approval requests to retrieve. Must be o
 pageSize <integer> Requested page size."
   ([parent] (organizations-approvalRequests-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://accessapproval.googleapis.com/v1/{+parent}/approvalRequests",
@@ -387,7 +387,7 @@ https://cloud.google.com/assured-workloads/access-approval/docs/v1/reference/res
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://accessapproval.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -402,7 +402,7 @@ name <>
 ApproveApprovalRequestMessage:
 ApproveApprovalRequestMessage"
   [name ApproveApprovalRequestMessage]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://accessapproval.googleapis.com/v1/{+name}:approve",
@@ -419,7 +419,7 @@ name <>
 DismissApprovalRequestMessage:
 DismissApprovalRequestMessage"
   [name DismissApprovalRequestMessage]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://accessapproval.googleapis.com/v1/{+name}:dismiss",
@@ -436,7 +436,7 @@ name <>
 InvalidateApprovalRequestMessage:
 InvalidateApprovalRequestMessage"
   [name InvalidateApprovalRequestMessage]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://accessapproval.googleapis.com/v1/{+name}:invalidate",

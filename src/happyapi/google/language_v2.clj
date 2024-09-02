@@ -4,24 +4,6 @@ Provides natural language understanding technologies, such as sentiment analysis
 See: https://cloud.google.com/natural-language/"
   (:require [happyapi.providers.google :as client]))
 
-(defn documents-moderateText
-  "Moderates a document for harmful and sensitive categories.
-https://cloud.google.com/natural-language/v2/reference/rest/v2/documents/moderateText
-
-ModerateTextRequest:
-ModerateTextRequest"
-  [ModerateTextRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://language.googleapis.com/v2/documents:moderateText",
-     :uri-template-args {},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-language"
-      "https://www.googleapis.com/auth/cloud-platform"],
-     :body ModerateTextRequest}))
-
 (defn documents-analyzeSentiment
   "Analyzes the sentiment of the provided text.
 https://cloud.google.com/natural-language/v2/reference/rest/v2/documents/analyzeSentiment
@@ -29,7 +11,7 @@ https://cloud.google.com/natural-language/v2/reference/rest/v2/documents/analyze
 AnalyzeSentimentRequest:
 AnalyzeSentimentRequest"
   [AnalyzeSentimentRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://language.googleapis.com/v2/documents:analyzeSentiment",
@@ -40,23 +22,23 @@ AnalyzeSentimentRequest"
       "https://www.googleapis.com/auth/cloud-platform"],
      :body AnalyzeSentimentRequest}))
 
-(defn documents-annotateText
-  "A convenience method that provides all features in one call.
-https://cloud.google.com/natural-language/v2/reference/rest/v2/documents/annotateText
+(defn documents-classifyText
+  "Classifies a document into categories.
+https://cloud.google.com/natural-language/v2/reference/rest/v2/documents/classifyText
 
-AnnotateTextRequest:
-AnnotateTextRequest"
-  [AnnotateTextRequest]
-  (client/api-request
+ClassifyTextRequest:
+ClassifyTextRequest"
+  [ClassifyTextRequest]
+  (client/*api-request*
     {:method :post,
      :uri-template
-     "https://language.googleapis.com/v2/documents:annotateText",
+     "https://language.googleapis.com/v2/documents:classifyText",
      :uri-template-args {},
      :query-params {},
      :scopes
      ["https://www.googleapis.com/auth/cloud-language"
       "https://www.googleapis.com/auth/cloud-platform"],
-     :body AnnotateTextRequest}))
+     :body ClassifyTextRequest}))
 
 (defn documents-analyzeEntities
   "Finds named entities (currently proper names and common nouns) in the text along with entity types, probability, mentions for each entity, and other properties.
@@ -65,7 +47,7 @@ https://cloud.google.com/natural-language/v2/reference/rest/v2/documents/analyze
 AnalyzeEntitiesRequest:
 AnalyzeEntitiesRequest"
   [AnalyzeEntitiesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://language.googleapis.com/v2/documents:analyzeEntities",
@@ -76,20 +58,38 @@ AnalyzeEntitiesRequest"
       "https://www.googleapis.com/auth/cloud-platform"],
      :body AnalyzeEntitiesRequest}))
 
-(defn documents-classifyText
-  "Classifies a document into categories.
-https://cloud.google.com/natural-language/v2/reference/rest/v2/documents/classifyText
+(defn documents-annotateText
+  "A convenience method that provides all features in one call.
+https://cloud.google.com/natural-language/v2/reference/rest/v2/documents/annotateText
 
-ClassifyTextRequest:
-ClassifyTextRequest"
-  [ClassifyTextRequest]
-  (client/api-request
+AnnotateTextRequest:
+AnnotateTextRequest"
+  [AnnotateTextRequest]
+  (client/*api-request*
     {:method :post,
      :uri-template
-     "https://language.googleapis.com/v2/documents:classifyText",
+     "https://language.googleapis.com/v2/documents:annotateText",
      :uri-template-args {},
      :query-params {},
      :scopes
      ["https://www.googleapis.com/auth/cloud-language"
       "https://www.googleapis.com/auth/cloud-platform"],
-     :body ClassifyTextRequest}))
+     :body AnnotateTextRequest}))
+
+(defn documents-moderateText
+  "Moderates a document for harmful and sensitive categories.
+https://cloud.google.com/natural-language/v2/reference/rest/v2/documents/moderateText
+
+ModerateTextRequest:
+ModerateTextRequest"
+  [ModerateTextRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://language.googleapis.com/v2/documents:moderateText",
+     :uri-template-args {},
+     :query-params {},
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-language"
+      "https://www.googleapis.com/auth/cloud-platform"],
+     :body ModerateTextRequest}))

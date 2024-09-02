@@ -1,12 +1,12 @@
 (ns happyapi.google.networkservices-v1
   "Network Services API
 
-See: https://cloud.google.com/networking"
+See: https://cloud.google.com/products/networking"
   (:require [happyapi.providers.google :as client]))
 
 (defn projects-locations-list
   "Lists information about the supported locations for this service.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/list
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/list
 
 name <> 
 
@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+name}/locations",
@@ -25,11 +25,11 @@ pageSize <integer> The maximum number of results to return. If not set, the serv
 
 (defn projects-locations-get
   "Gets information about a location.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/get
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://networkservices.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -38,7 +38,7 @@ name <> "
 
 (defn projects-locations-httpRoutes-list
   "Lists HttpRoute in a given project and location.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/httpRoutes/list
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/httpRoutes/list
 
 parent <> 
 
@@ -46,7 +46,7 @@ optional:
 pageSize <integer> Maximum number of HttpRoutes to return per call."
   ([parent] (projects-locations-httpRoutes-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+parent}/httpRoutes",
@@ -56,11 +56,11 @@ pageSize <integer> Maximum number of HttpRoutes to return per call."
 
 (defn projects-locations-httpRoutes-get
   "Gets details of a single HttpRoute.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/httpRoutes/get
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/httpRoutes/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://networkservices.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -69,7 +69,7 @@ name <> "
 
 (defn projects-locations-httpRoutes-create
   "Creates a new HttpRoute in a given project and location.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/httpRoutes/create
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/httpRoutes/create
 
 parent <> 
 HttpRoute:
@@ -80,7 +80,7 @@ httpRouteId <string> Required. Short name of the HttpRoute resource to be create
   ([parent HttpRoute]
     (projects-locations-httpRoutes-create parent HttpRoute nil))
   ([parent HttpRoute optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+parent}/httpRoutes",
@@ -91,7 +91,7 @@ httpRouteId <string> Required. Short name of the HttpRoute resource to be create
 
 (defn projects-locations-httpRoutes-patch
   "Updates the parameters of a single HttpRoute.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/httpRoutes/patch
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/httpRoutes/patch
 
 name <> 
 HttpRoute:
@@ -102,7 +102,7 @@ updateMask <string> Optional. Field mask is used to specify the fields to be ove
   ([name HttpRoute]
     (projects-locations-httpRoutes-patch name HttpRoute nil))
   ([name HttpRoute optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+name}",
@@ -113,11 +113,11 @@ updateMask <string> Optional. Field mask is used to specify the fields to be ove
 
 (defn projects-locations-httpRoutes-delete
   "Deletes a single HttpRoute.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/httpRoutes/delete
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/httpRoutes/delete
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://networkservices.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -126,7 +126,7 @@ name <> "
 
 (defn projects-locations-lbTrafficExtensions-list
   "Lists `LbTrafficExtension` resources in a given project and location.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/lbTrafficExtensions/list
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/lbTrafficExtensions/list
 
 parent <> 
 
@@ -136,7 +136,7 @@ filter <string> Optional. Filtering results.
 orderBy <string> Optional. Hint for how to order the results."
   ([parent] (projects-locations-lbTrafficExtensions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+parent}/lbTrafficExtensions",
@@ -146,11 +146,11 @@ orderBy <string> Optional. Hint for how to order the results."
 
 (defn projects-locations-lbTrafficExtensions-get
   "Gets details of the specified `LbTrafficExtension` resource.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/lbTrafficExtensions/get
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/lbTrafficExtensions/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://networkservices.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -159,7 +159,7 @@ name <> "
 
 (defn projects-locations-lbTrafficExtensions-create
   "Creates a new `LbTrafficExtension` resource in a given project and location.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/lbTrafficExtensions/create
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/lbTrafficExtensions/create
 
 parent <> 
 LbTrafficExtension:
@@ -174,7 +174,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
       LbTrafficExtension
       nil))
   ([parent LbTrafficExtension optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+parent}/lbTrafficExtensions",
@@ -185,7 +185,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
 
 (defn projects-locations-lbTrafficExtensions-patch
   "Updates the parameters of the specified `LbTrafficExtension` resource.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/lbTrafficExtensions/patch
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/lbTrafficExtensions/patch
 
 name <> 
 LbTrafficExtension:
@@ -200,7 +200,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
       LbTrafficExtension
       nil))
   ([name LbTrafficExtension optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+name}",
@@ -211,7 +211,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
 
 (defn projects-locations-lbTrafficExtensions-delete
   "Deletes the specified `LbTrafficExtension` resource.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/lbTrafficExtensions/delete
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/lbTrafficExtensions/delete
 
 name <> 
 
@@ -219,7 +219,7 @@ optional:
 requestId <string> Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server can ignore the request if it has already been completed. The server guarantees that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, ignores the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-lbTrafficExtensions-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+name}",
@@ -229,7 +229,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
 
 (defn projects-locations-gateways-list
   "Lists Gateways in a given project and location.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/gateways/list
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/gateways/list
 
 parent <> 
 
@@ -237,7 +237,7 @@ optional:
 pageSize <integer> Maximum number of Gateways to return per call."
   ([parent] (projects-locations-gateways-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+parent}/gateways",
@@ -247,11 +247,11 @@ pageSize <integer> Maximum number of Gateways to return per call."
 
 (defn projects-locations-gateways-get
   "Gets details of a single Gateway.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/gateways/get
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/gateways/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://networkservices.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -260,7 +260,7 @@ name <> "
 
 (defn projects-locations-gateways-create
   "Creates a new Gateway in a given project and location.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/gateways/create
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/gateways/create
 
 parent <> 
 Gateway:
@@ -271,7 +271,7 @@ gatewayId <string> Required. Short name of the Gateway resource to be created."
   ([parent Gateway]
     (projects-locations-gateways-create parent Gateway nil))
   ([parent Gateway optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+parent}/gateways",
@@ -282,7 +282,7 @@ gatewayId <string> Required. Short name of the Gateway resource to be created."
 
 (defn projects-locations-gateways-patch
   "Updates the parameters of a single Gateway.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/gateways/patch
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/gateways/patch
 
 name <> 
 Gateway:
@@ -292,7 +292,7 @@ optional:
 updateMask <string> Optional. Field mask is used to specify the fields to be overwritten in the Gateway resource by the update. The fields specified in the update_mask are relative to the resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all fields will be overwritten."
   ([name Gateway] (projects-locations-gateways-patch name Gateway nil))
   ([name Gateway optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+name}",
@@ -303,72 +303,20 @@ updateMask <string> Optional. Field mask is used to specify the fields to be ove
 
 (defn projects-locations-gateways-delete
   "Deletes a single Gateway.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/gateways/delete
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/gateways/delete
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://networkservices.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
-(defn projects-locations-gateways-setIamPolicy
-  "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/gateways/setIamPolicy
-
-resource <> 
-SetIamPolicyRequest:
-SetIamPolicyRequest"
-  [resource SetIamPolicyRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://networkservices.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
-
-(defn projects-locations-gateways-getIamPolicy
-  "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/gateways/getIamPolicy
-
-resource <> 
-
-optional:
-options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
-  ([resource] (projects-locations-gateways-getIamPolicy resource nil))
-  ([resource optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://networkservices.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
-
-(defn projects-locations-gateways-testIamPermissions
-  "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/gateways/testIamPermissions
-
-resource <> 
-TestIamPermissionsRequest:
-TestIamPermissionsRequest"
-  [resource TestIamPermissionsRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://networkservices.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
-
 (defn projects-locations-lbRouteExtensions-list
   "Lists `LbRouteExtension` resources in a given project and location.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/lbRouteExtensions/list
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/lbRouteExtensions/list
 
 parent <> 
 
@@ -378,7 +326,7 @@ filter <string> Optional. Filtering results.
 orderBy <string> Optional. Hint for how to order the results."
   ([parent] (projects-locations-lbRouteExtensions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+parent}/lbRouteExtensions",
@@ -388,11 +336,11 @@ orderBy <string> Optional. Hint for how to order the results."
 
 (defn projects-locations-lbRouteExtensions-get
   "Gets details of the specified `LbRouteExtension` resource.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/lbRouteExtensions/get
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/lbRouteExtensions/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://networkservices.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -401,7 +349,7 @@ name <> "
 
 (defn projects-locations-lbRouteExtensions-create
   "Creates a new `LbRouteExtension` resource in a given project and location.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/lbRouteExtensions/create
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/lbRouteExtensions/create
 
 parent <> 
 LbRouteExtension:
@@ -416,7 +364,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
       LbRouteExtension
       nil))
   ([parent LbRouteExtension optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+parent}/lbRouteExtensions",
@@ -427,7 +375,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
 
 (defn projects-locations-lbRouteExtensions-patch
   "Updates the parameters of the specified `LbRouteExtension` resource.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/lbRouteExtensions/patch
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/lbRouteExtensions/patch
 
 name <> 
 LbRouteExtension:
@@ -442,7 +390,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
       LbRouteExtension
       nil))
   ([name LbRouteExtension optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+name}",
@@ -453,7 +401,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
 
 (defn projects-locations-lbRouteExtensions-delete
   "Deletes the specified `LbRouteExtension` resource.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/lbRouteExtensions/delete
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/lbRouteExtensions/delete
 
 name <> 
 
@@ -461,7 +409,7 @@ optional:
 requestId <string> Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server can ignore the request if it has already been completed. The server guarantees that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, ignores the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-lbRouteExtensions-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+name}",
@@ -471,7 +419,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
 
 (defn projects-locations-serviceBindings-list
   "Lists ServiceBinding in a given project and location.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/serviceBindings/list
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/serviceBindings/list
 
 parent <> 
 
@@ -479,7 +427,7 @@ optional:
 pageSize <integer> Maximum number of ServiceBindings to return per call."
   ([parent] (projects-locations-serviceBindings-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+parent}/serviceBindings",
@@ -489,11 +437,11 @@ pageSize <integer> Maximum number of ServiceBindings to return per call."
 
 (defn projects-locations-serviceBindings-get
   "Gets details of a single ServiceBinding.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/serviceBindings/get
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/serviceBindings/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://networkservices.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -502,7 +450,7 @@ name <> "
 
 (defn projects-locations-serviceBindings-create
   "Creates a new ServiceBinding in a given project and location.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/serviceBindings/create
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/serviceBindings/create
 
 parent <> 
 ServiceBinding:
@@ -516,7 +464,7 @@ serviceBindingId <string> Required. Short name of the ServiceBinding resource to
       ServiceBinding
       nil))
   ([parent ServiceBinding optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+parent}/serviceBindings",
@@ -527,79 +475,26 @@ serviceBindingId <string> Required. Short name of the ServiceBinding resource to
 
 (defn projects-locations-serviceBindings-delete
   "Deletes a single ServiceBinding.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/serviceBindings/delete
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/serviceBindings/delete
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://networkservices.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
-(defn projects-locations-serviceBindings-setIamPolicy
-  "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/serviceBindings/setIamPolicy
-
-resource <> 
-SetIamPolicyRequest:
-SetIamPolicyRequest"
-  [resource SetIamPolicyRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://networkservices.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
-
-(defn projects-locations-serviceBindings-getIamPolicy
-  "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/serviceBindings/getIamPolicy
-
-resource <> 
-
-optional:
-options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
-  ([resource]
-    (projects-locations-serviceBindings-getIamPolicy resource nil))
-  ([resource optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://networkservices.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
-
-(defn projects-locations-serviceBindings-testIamPermissions
-  "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/serviceBindings/testIamPermissions
-
-resource <> 
-TestIamPermissionsRequest:
-TestIamPermissionsRequest"
-  [resource TestIamPermissionsRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://networkservices.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
-
 (defn projects-locations-edgeCacheOrigins-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/edgeCacheOrigins/setIamPolicy
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/edgeCacheOrigins/setIamPolicy
 
 resource <> 
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://networkservices.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -610,7 +505,7 @@ SetIamPolicyRequest"
 
 (defn projects-locations-edgeCacheOrigins-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/edgeCacheOrigins/getIamPolicy
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/edgeCacheOrigins/getIamPolicy
 
 resource <> 
 
@@ -619,7 +514,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-edgeCacheOrigins-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -629,13 +524,13 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
 
 (defn projects-locations-edgeCacheOrigins-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/edgeCacheOrigins/testIamPermissions
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/edgeCacheOrigins/testIamPermissions
 
 resource <> 
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://networkservices.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -646,7 +541,7 @@ TestIamPermissionsRequest"
 
 (defn projects-locations-serviceLbPolicies-list
   "Lists ServiceLbPolicies in a given project and location.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/serviceLbPolicies/list
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/serviceLbPolicies/list
 
 parent <> 
 
@@ -654,7 +549,7 @@ optional:
 pageSize <integer> Maximum number of ServiceLbPolicies to return per call."
   ([parent] (projects-locations-serviceLbPolicies-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+parent}/serviceLbPolicies",
@@ -664,11 +559,11 @@ pageSize <integer> Maximum number of ServiceLbPolicies to return per call."
 
 (defn projects-locations-serviceLbPolicies-get
   "Gets details of a single ServiceLbPolicy.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/serviceLbPolicies/get
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/serviceLbPolicies/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://networkservices.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -677,7 +572,7 @@ name <> "
 
 (defn projects-locations-serviceLbPolicies-create
   "Creates a new ServiceLbPolicy in a given project and location.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/serviceLbPolicies/create
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/serviceLbPolicies/create
 
 parent <> 
 ServiceLbPolicy:
@@ -691,7 +586,7 @@ serviceLbPolicyId <string> Required. Short name of the ServiceLbPolicy resource 
       ServiceLbPolicy
       nil))
   ([parent ServiceLbPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+parent}/serviceLbPolicies",
@@ -702,7 +597,7 @@ serviceLbPolicyId <string> Required. Short name of the ServiceLbPolicy resource 
 
 (defn projects-locations-serviceLbPolicies-patch
   "Updates the parameters of a single ServiceLbPolicy.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/serviceLbPolicies/patch
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/serviceLbPolicies/patch
 
 name <> 
 ServiceLbPolicy:
@@ -716,7 +611,7 @@ updateMask <string> Optional. Field mask is used to specify the fields to be ove
       ServiceLbPolicy
       nil))
   ([name ServiceLbPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+name}",
@@ -727,11 +622,11 @@ updateMask <string> Optional. Field mask is used to specify the fields to be ove
 
 (defn projects-locations-serviceLbPolicies-delete
   "Deletes a single ServiceLbPolicy.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/serviceLbPolicies/delete
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/serviceLbPolicies/delete
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://networkservices.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -740,13 +635,13 @@ name <> "
 
 (defn projects-locations-serviceLbPolicies-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/serviceLbPolicies/setIamPolicy
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/serviceLbPolicies/setIamPolicy
 
 resource <> 
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://networkservices.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -757,7 +652,7 @@ SetIamPolicyRequest"
 
 (defn projects-locations-serviceLbPolicies-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/serviceLbPolicies/getIamPolicy
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/serviceLbPolicies/getIamPolicy
 
 resource <> 
 
@@ -766,7 +661,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-serviceLbPolicies-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -776,13 +671,13 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
 
 (defn projects-locations-serviceLbPolicies-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/serviceLbPolicies/testIamPermissions
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/serviceLbPolicies/testIamPermissions
 
 resource <> 
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://networkservices.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -793,13 +688,13 @@ TestIamPermissionsRequest"
 
 (defn projects-locations-edgeCacheServices-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/edgeCacheServices/setIamPolicy
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/edgeCacheServices/setIamPolicy
 
 resource <> 
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://networkservices.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -810,7 +705,7 @@ SetIamPolicyRequest"
 
 (defn projects-locations-edgeCacheServices-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/edgeCacheServices/getIamPolicy
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/edgeCacheServices/getIamPolicy
 
 resource <> 
 
@@ -819,7 +714,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-edgeCacheServices-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -829,13 +724,13 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
 
 (defn projects-locations-edgeCacheServices-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/edgeCacheServices/testIamPermissions
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/edgeCacheServices/testIamPermissions
 
 resource <> 
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://networkservices.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -846,13 +741,13 @@ TestIamPermissionsRequest"
 
 (defn projects-locations-edgeCacheKeysets-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/edgeCacheKeysets/setIamPolicy
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/edgeCacheKeysets/setIamPolicy
 
 resource <> 
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://networkservices.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -863,7 +758,7 @@ SetIamPolicyRequest"
 
 (defn projects-locations-edgeCacheKeysets-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/edgeCacheKeysets/getIamPolicy
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/edgeCacheKeysets/getIamPolicy
 
 resource <> 
 
@@ -872,7 +767,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-edgeCacheKeysets-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -882,13 +777,13 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
 
 (defn projects-locations-edgeCacheKeysets-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/edgeCacheKeysets/testIamPermissions
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/edgeCacheKeysets/testIamPermissions
 
 resource <> 
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://networkservices.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -899,7 +794,7 @@ TestIamPermissionsRequest"
 
 (defn projects-locations-tcpRoutes-list
   "Lists TcpRoute in a given project and location.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/tcpRoutes/list
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/tcpRoutes/list
 
 parent <> 
 
@@ -907,7 +802,7 @@ optional:
 pageSize <integer> Maximum number of TcpRoutes to return per call."
   ([parent] (projects-locations-tcpRoutes-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+parent}/tcpRoutes",
@@ -917,11 +812,11 @@ pageSize <integer> Maximum number of TcpRoutes to return per call."
 
 (defn projects-locations-tcpRoutes-get
   "Gets details of a single TcpRoute.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/tcpRoutes/get
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/tcpRoutes/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://networkservices.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -930,7 +825,7 @@ name <> "
 
 (defn projects-locations-tcpRoutes-create
   "Creates a new TcpRoute in a given project and location.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/tcpRoutes/create
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/tcpRoutes/create
 
 parent <> 
 TcpRoute:
@@ -941,7 +836,7 @@ tcpRouteId <string> Required. Short name of the TcpRoute resource to be created.
   ([parent TcpRoute]
     (projects-locations-tcpRoutes-create parent TcpRoute nil))
   ([parent TcpRoute optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+parent}/tcpRoutes",
@@ -952,7 +847,7 @@ tcpRouteId <string> Required. Short name of the TcpRoute resource to be created.
 
 (defn projects-locations-tcpRoutes-patch
   "Updates the parameters of a single TcpRoute.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/tcpRoutes/patch
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/tcpRoutes/patch
 
 name <> 
 TcpRoute:
@@ -963,7 +858,7 @@ updateMask <string> Optional. Field mask is used to specify the fields to be ove
   ([name TcpRoute]
     (projects-locations-tcpRoutes-patch name TcpRoute nil))
   ([name TcpRoute optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+name}",
@@ -974,11 +869,11 @@ updateMask <string> Optional. Field mask is used to specify the fields to be ove
 
 (defn projects-locations-tcpRoutes-delete
   "Deletes a single TcpRoute.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/tcpRoutes/delete
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/tcpRoutes/delete
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://networkservices.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -987,7 +882,7 @@ name <> "
 
 (defn projects-locations-tlsRoutes-list
   "Lists TlsRoute in a given project and location.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/tlsRoutes/list
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/tlsRoutes/list
 
 parent <> 
 
@@ -995,7 +890,7 @@ optional:
 pageSize <integer> Maximum number of TlsRoutes to return per call."
   ([parent] (projects-locations-tlsRoutes-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+parent}/tlsRoutes",
@@ -1005,11 +900,11 @@ pageSize <integer> Maximum number of TlsRoutes to return per call."
 
 (defn projects-locations-tlsRoutes-get
   "Gets details of a single TlsRoute.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/tlsRoutes/get
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/tlsRoutes/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://networkservices.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1018,7 +913,7 @@ name <> "
 
 (defn projects-locations-tlsRoutes-create
   "Creates a new TlsRoute in a given project and location.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/tlsRoutes/create
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/tlsRoutes/create
 
 parent <> 
 TlsRoute:
@@ -1029,7 +924,7 @@ tlsRouteId <string> Required. Short name of the TlsRoute resource to be created.
   ([parent TlsRoute]
     (projects-locations-tlsRoutes-create parent TlsRoute nil))
   ([parent TlsRoute optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+parent}/tlsRoutes",
@@ -1040,7 +935,7 @@ tlsRouteId <string> Required. Short name of the TlsRoute resource to be created.
 
 (defn projects-locations-tlsRoutes-patch
   "Updates the parameters of a single TlsRoute.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/tlsRoutes/patch
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/tlsRoutes/patch
 
 name <> 
 TlsRoute:
@@ -1051,7 +946,7 @@ updateMask <string> Optional. Field mask is used to specify the fields to be ove
   ([name TlsRoute]
     (projects-locations-tlsRoutes-patch name TlsRoute nil))
   ([name TlsRoute optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+name}",
@@ -1062,11 +957,11 @@ updateMask <string> Optional. Field mask is used to specify the fields to be ove
 
 (defn projects-locations-tlsRoutes-delete
   "Deletes a single TlsRoute.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/tlsRoutes/delete
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/tlsRoutes/delete
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://networkservices.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1075,7 +970,7 @@ name <> "
 
 (defn projects-locations-grpcRoutes-list
   "Lists GrpcRoutes in a given project and location.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/grpcRoutes/list
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/grpcRoutes/list
 
 parent <> 
 
@@ -1083,7 +978,7 @@ optional:
 pageSize <integer> Maximum number of GrpcRoutes to return per call."
   ([parent] (projects-locations-grpcRoutes-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+parent}/grpcRoutes",
@@ -1093,11 +988,11 @@ pageSize <integer> Maximum number of GrpcRoutes to return per call."
 
 (defn projects-locations-grpcRoutes-get
   "Gets details of a single GrpcRoute.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/grpcRoutes/get
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/grpcRoutes/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://networkservices.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1106,7 +1001,7 @@ name <> "
 
 (defn projects-locations-grpcRoutes-create
   "Creates a new GrpcRoute in a given project and location.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/grpcRoutes/create
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/grpcRoutes/create
 
 parent <> 
 GrpcRoute:
@@ -1117,7 +1012,7 @@ grpcRouteId <string> Required. Short name of the GrpcRoute resource to be create
   ([parent GrpcRoute]
     (projects-locations-grpcRoutes-create parent GrpcRoute nil))
   ([parent GrpcRoute optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+parent}/grpcRoutes",
@@ -1128,7 +1023,7 @@ grpcRouteId <string> Required. Short name of the GrpcRoute resource to be create
 
 (defn projects-locations-grpcRoutes-patch
   "Updates the parameters of a single GrpcRoute.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/grpcRoutes/patch
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/grpcRoutes/patch
 
 name <> 
 GrpcRoute:
@@ -1139,7 +1034,7 @@ updateMask <string> Optional. Field mask is used to specify the fields to be ove
   ([name GrpcRoute]
     (projects-locations-grpcRoutes-patch name GrpcRoute nil))
   ([name GrpcRoute optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+name}",
@@ -1150,11 +1045,11 @@ updateMask <string> Optional. Field mask is used to specify the fields to be ove
 
 (defn projects-locations-grpcRoutes-delete
   "Deletes a single GrpcRoute.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/grpcRoutes/delete
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/grpcRoutes/delete
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://networkservices.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1163,7 +1058,7 @@ name <> "
 
 (defn projects-locations-meshes-list
   "Lists Meshes in a given project and location.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/meshes/list
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/meshes/list
 
 parent <> 
 
@@ -1171,7 +1066,7 @@ optional:
 pageSize <integer> Maximum number of Meshes to return per call."
   ([parent] (projects-locations-meshes-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+parent}/meshes",
@@ -1181,11 +1076,11 @@ pageSize <integer> Maximum number of Meshes to return per call."
 
 (defn projects-locations-meshes-get
   "Gets details of a single Mesh.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/meshes/get
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/meshes/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://networkservices.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1194,7 +1089,7 @@ name <> "
 
 (defn projects-locations-meshes-create
   "Creates a new Mesh in a given project and location.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/meshes/create
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/meshes/create
 
 parent <> 
 Mesh:
@@ -1204,7 +1099,7 @@ optional:
 meshId <string> Required. Short name of the Mesh resource to be created."
   ([parent Mesh] (projects-locations-meshes-create parent Mesh nil))
   ([parent Mesh optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+parent}/meshes",
@@ -1215,7 +1110,7 @@ meshId <string> Required. Short name of the Mesh resource to be created."
 
 (defn projects-locations-meshes-patch
   "Updates the parameters of a single Mesh.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/meshes/patch
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/meshes/patch
 
 name <> 
 Mesh:
@@ -1225,7 +1120,7 @@ optional:
 updateMask <string> Optional. Field mask is used to specify the fields to be overwritten in the Mesh resource by the update. The fields specified in the update_mask are relative to the resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all fields will be overwritten."
   ([name Mesh] (projects-locations-meshes-patch name Mesh nil))
   ([name Mesh optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+name}",
@@ -1236,72 +1131,20 @@ updateMask <string> Optional. Field mask is used to specify the fields to be ove
 
 (defn projects-locations-meshes-delete
   "Deletes a single Mesh.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/meshes/delete
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/meshes/delete
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://networkservices.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
-(defn projects-locations-meshes-setIamPolicy
-  "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/meshes/setIamPolicy
-
-resource <> 
-SetIamPolicyRequest:
-SetIamPolicyRequest"
-  [resource SetIamPolicyRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://networkservices.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
-
-(defn projects-locations-meshes-getIamPolicy
-  "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/meshes/getIamPolicy
-
-resource <> 
-
-optional:
-options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
-  ([resource] (projects-locations-meshes-getIamPolicy resource nil))
-  ([resource optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://networkservices.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
-
-(defn projects-locations-meshes-testIamPermissions
-  "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/meshes/testIamPermissions
-
-resource <> 
-TestIamPermissionsRequest:
-TestIamPermissionsRequest"
-  [resource TestIamPermissionsRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://networkservices.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
-
 (defn projects-locations-endpointPolicies-list
   "Lists EndpointPolicies in a given project and location.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/endpointPolicies/list
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/endpointPolicies/list
 
 parent <> 
 
@@ -1309,7 +1152,7 @@ optional:
 pageSize <integer> Maximum number of EndpointPolicies to return per call."
   ([parent] (projects-locations-endpointPolicies-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+parent}/endpointPolicies",
@@ -1319,11 +1162,11 @@ pageSize <integer> Maximum number of EndpointPolicies to return per call."
 
 (defn projects-locations-endpointPolicies-get
   "Gets details of a single EndpointPolicy.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/endpointPolicies/get
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/endpointPolicies/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://networkservices.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1332,7 +1175,7 @@ name <> "
 
 (defn projects-locations-endpointPolicies-create
   "Creates a new EndpointPolicy in a given project and location.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/endpointPolicies/create
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/endpointPolicies/create
 
 parent <> 
 EndpointPolicy:
@@ -1346,7 +1189,7 @@ endpointPolicyId <string> Required. Short name of the EndpointPolicy resource to
       EndpointPolicy
       nil))
   ([parent EndpointPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+parent}/endpointPolicies",
@@ -1357,7 +1200,7 @@ endpointPolicyId <string> Required. Short name of the EndpointPolicy resource to
 
 (defn projects-locations-endpointPolicies-patch
   "Updates the parameters of a single EndpointPolicy.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/endpointPolicies/patch
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/endpointPolicies/patch
 
 name <> 
 EndpointPolicy:
@@ -1371,7 +1214,7 @@ updateMask <string> Optional. Field mask is used to specify the fields to be ove
       EndpointPolicy
       nil))
   ([name EndpointPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+name}",
@@ -1382,73 +1225,20 @@ updateMask <string> Optional. Field mask is used to specify the fields to be ove
 
 (defn projects-locations-endpointPolicies-delete
   "Deletes a single EndpointPolicy.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/endpointPolicies/delete
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/endpointPolicies/delete
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://networkservices.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
-(defn projects-locations-endpointPolicies-setIamPolicy
-  "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/endpointPolicies/setIamPolicy
-
-resource <> 
-SetIamPolicyRequest:
-SetIamPolicyRequest"
-  [resource SetIamPolicyRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://networkservices.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
-
-(defn projects-locations-endpointPolicies-getIamPolicy
-  "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/endpointPolicies/getIamPolicy
-
-resource <> 
-
-optional:
-options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
-  ([resource]
-    (projects-locations-endpointPolicies-getIamPolicy resource nil))
-  ([resource optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://networkservices.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
-
-(defn projects-locations-endpointPolicies-testIamPermissions
-  "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/endpointPolicies/testIamPermissions
-
-resource <> 
-TestIamPermissionsRequest:
-TestIamPermissionsRequest"
-  [resource TestIamPermissionsRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://networkservices.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
-
 (defn projects-locations-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/operations/list
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/operations/list
 
 name <> 
 
@@ -1457,7 +1247,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkservices.googleapis.com/v1/{+name}/operations",
@@ -1467,11 +1257,11 @@ pageSize <integer> The standard list page size."
 
 (defn projects-locations-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/operations/get
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/operations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://networkservices.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1480,11 +1270,11 @@ name <> "
 
 (defn projects-locations-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/operations/delete
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/operations/delete
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://networkservices.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1493,13 +1283,13 @@ name <> "
 
 (defn projects-locations-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
-https://cloud.google.com/networking/v1/reference/rest/v1/projects/locations/operations/cancel
+https://cloud.google.com/products/networking/v1/reference/rest/v1/projects/locations/operations/cancel
 
 name <> 
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://networkservices.googleapis.com/v1/{+name}:cancel",

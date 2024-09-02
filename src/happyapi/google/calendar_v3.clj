@@ -11,7 +11,7 @@ https://developers.google.com/calendar/v3/reference/rest/v3/acl/delete
 calendarId <> 
 ruleId <> "
   [calendarId ruleId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/acl/{ruleId}",
@@ -26,7 +26,7 @@ https://developers.google.com/calendar/v3/reference/rest/v3/acl/get
 calendarId <> 
 ruleId <> "
   [calendarId ruleId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/acl/{ruleId}",
@@ -48,7 +48,7 @@ optional:
 sendNotifications <boolean> Whether to send notifications about the calendar sharing change. Optional. The default is True."
   ([calendarId AclRule] (acl-insert calendarId AclRule nil))
   ([calendarId AclRule optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/acl",
@@ -72,7 +72,7 @@ Learn more about incremental synchronization.
 Optional. The default is to return all entries."
   ([calendarId] (acl-list calendarId nil))
   ([calendarId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/acl",
@@ -94,7 +94,7 @@ sendNotifications <boolean> Whether to send notifications about the calendar sha
   ([calendarId ruleId AclRule]
     (acl-patch calendarId ruleId AclRule nil))
   ([calendarId ruleId AclRule optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/acl/{ruleId}",
@@ -117,7 +117,7 @@ sendNotifications <boolean> Whether to send notifications about the calendar sha
   ([calendarId ruleId AclRule]
     (acl-update calendarId ruleId AclRule nil))
   ([calendarId ruleId AclRule optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/acl/{ruleId}",
@@ -143,7 +143,7 @@ Learn more about incremental synchronization.
 Optional. The default is to return all entries."
   ([calendarId Channel] (acl-watch calendarId Channel nil))
   ([calendarId Channel optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/acl/watch",
@@ -158,7 +158,7 @@ https://developers.google.com/calendar/v3/reference/rest/v3/calendarList/delete
 
 calendarId <> "
   [calendarId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://www.googleapis.com/calendar/v3/users/me/calendarList/{calendarId}",
@@ -172,7 +172,7 @@ https://developers.google.com/calendar/v3/reference/rest/v3/calendarList/get
 
 calendarId <> "
   [calendarId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://www.googleapis.com/calendar/v3/users/me/calendarList/{calendarId}",
@@ -193,7 +193,7 @@ optional:
 colorRgbFormat <boolean> Whether to use the foregroundColor and backgroundColor fields to write the calendar colors (RGB). If this feature is used, the index-based colorId field will be set to the best matching option automatically. Optional. The default is False."
   ([CalendarListEntry] (calendarList-insert CalendarListEntry nil))
   ([CalendarListEntry optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://www.googleapis.com/calendar/v3/users/me/calendarList",
@@ -218,7 +218,7 @@ Learn more about incremental synchronization.
 Optional. The default is to return all entries."
   ([] (calendarList-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/calendar/v3/users/me/calendarList",
@@ -241,7 +241,7 @@ colorRgbFormat <boolean> Whether to use the foregroundColor and backgroundColor 
   ([calendarId CalendarListEntry]
     (calendarList-patch calendarId CalendarListEntry nil))
   ([calendarId CalendarListEntry optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://www.googleapis.com/calendar/v3/users/me/calendarList/{calendarId}",
@@ -263,7 +263,7 @@ colorRgbFormat <boolean> Whether to use the foregroundColor and backgroundColor 
   ([calendarId CalendarListEntry]
     (calendarList-update calendarId CalendarListEntry nil))
   ([calendarId CalendarListEntry optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://www.googleapis.com/calendar/v3/users/me/calendarList/{calendarId}",
@@ -291,7 +291,7 @@ Learn more about incremental synchronization.
 Optional. The default is to return all entries."
   ([Channel] (calendarList-watch Channel nil))
   ([Channel optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://www.googleapis.com/calendar/v3/users/me/calendarList/watch",
@@ -308,7 +308,7 @@ https://developers.google.com/calendar/v3/reference/rest/v3/calendars/clear
 
 calendarId <> "
   [calendarId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/clear",
@@ -322,7 +322,7 @@ https://developers.google.com/calendar/v3/reference/rest/v3/calendars/delete
 
 calendarId <> "
   [calendarId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://www.googleapis.com/calendar/v3/calendars/{calendarId}",
@@ -336,7 +336,7 @@ https://developers.google.com/calendar/v3/reference/rest/v3/calendars/get
 
 calendarId <> "
   [calendarId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://www.googleapis.com/calendar/v3/calendars/{calendarId}",
@@ -353,7 +353,7 @@ https://developers.google.com/calendar/v3/reference/rest/v3/calendars/insert
 Calendar:
 Calendar"
   [Calendar]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://www.googleapis.com/calendar/v3/calendars",
      :uri-template-args {},
@@ -369,7 +369,7 @@ calendarId <>
 Calendar:
 Calendar"
   [calendarId Calendar]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://www.googleapis.com/calendar/v3/calendars/{calendarId}",
@@ -386,7 +386,7 @@ calendarId <>
 Calendar:
 Calendar"
   [calendarId Calendar]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://www.googleapis.com/calendar/v3/calendars/{calendarId}",
@@ -402,7 +402,7 @@ https://developers.google.com/calendar/v3/reference/rest/v3/channels/stop
 Channel:
 Channel"
   [Channel]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/calendar/v3/channels/stop",
@@ -420,7 +420,7 @@ Channel"
   "Returns the color definitions for calendars and events.
 https://developers.google.com/calendar/v3/reference/rest/v3/colors/get"
   []
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://www.googleapis.com/calendar/v3/colors",
      :uri-template-args {},
@@ -481,7 +481,7 @@ showDeleted <boolean> Whether to include deleted events (with status equals \"ca
 showHiddenInvitations <boolean> Whether to include hidden invitations in the result. Optional. The default is False."
   ([calendarId] (events-list calendarId nil))
   ([calendarId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events",
@@ -507,7 +507,7 @@ Whether to send notifications about the deletion of the event. Note that some em
 sendUpdates <string> Guests who should receive notifications about the deletion of the event."
   ([calendarId eventId] (events-delete calendarId eventId nil))
   ([calendarId eventId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/{eventId}",
@@ -538,7 +538,7 @@ supportsAttachments <boolean> Whether API client performing operation supports e
   ([calendarId eventId Event]
     (events-update calendarId eventId Event nil))
   ([calendarId eventId Event optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/{eventId}",
@@ -603,7 +603,7 @@ showDeleted <boolean> Whether to include deleted events (with status equals \"ca
 showHiddenInvitations <boolean> Whether to include hidden invitations in the result. Optional. The default is False."
   ([calendarId Channel] (events-watch calendarId Channel nil))
   ([calendarId Channel optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/watch",
@@ -630,7 +630,7 @@ conferenceDataVersion <integer> Version number of conference data supported by t
 supportsAttachments <boolean> Whether API client performing operation supports event attachments. Optional. The default is False."
   ([calendarId Event] (events-import calendarId Event nil))
   ([calendarId Event optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/import",
@@ -662,7 +662,7 @@ supportsAttachments <boolean> Whether API client performing operation supports e
   ([calendarId eventId Event]
     (events-patch calendarId eventId Event nil))
   ([calendarId eventId Event optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/{eventId}",
@@ -689,7 +689,7 @@ sendUpdates <string> Guests who should receive notifications about the change of
   ([calendarId eventId destination]
     (events-move calendarId eventId destination nil))
   ([calendarId eventId destination optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/{eventId}/move",
@@ -717,7 +717,7 @@ sendUpdates <string> Whether to send notifications about the creation of the new
 supportsAttachments <boolean> Whether API client performing operation supports event attachments. Optional. The default is False."
   ([calendarId Event] (events-insert calendarId Event nil))
   ([calendarId Event optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events",
@@ -742,7 +742,7 @@ Whether to send notifications about the creation of the event. Note that some em
 sendUpdates <string> Guests who should receive notifications about the creation of the new event."
   ([calendarId text] (events-quickAdd calendarId text nil))
   ([calendarId text optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/quickAdd",
@@ -770,7 +770,7 @@ timeMin <string> Lower bound (inclusive) for an event's end time to filter by. O
 showDeleted <boolean> Whether to include deleted events (with status equals \"cancelled\") in the result. Cancelled instances of recurring events will still be included if singleEvents is False. Optional. The default is False."
   ([calendarId eventId] (events-instances calendarId eventId nil))
   ([calendarId eventId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/{eventId}/instances",
@@ -795,7 +795,7 @@ maxAttendees <integer> The maximum number of attendees to include in the respons
 timeZone <string> Time zone used in the response. Optional. The default is the time zone of the calendar."
   ([calendarId eventId] (events-get calendarId eventId nil))
   ([calendarId eventId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/{eventId}",
@@ -814,7 +814,7 @@ https://developers.google.com/calendar/v3/reference/rest/v3/freebusy/query
 FreeBusyRequest:
 FreeBusyRequest"
   [FreeBusyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://www.googleapis.com/calendar/v3/freeBusy",
      :uri-template-args {},
@@ -830,7 +830,7 @@ https://developers.google.com/calendar/v3/reference/rest/v3/settings/get
 
 setting <> "
   [setting]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://www.googleapis.com/calendar/v3/users/me/settings/{setting}",
@@ -853,7 +853,7 @@ Learn more about incremental synchronization.
 Optional. The default is to return all entries."
   ([] (settings-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/calendar/v3/users/me/settings",
@@ -879,7 +879,7 @@ Learn more about incremental synchronization.
 Optional. The default is to return all entries."
   ([Channel] (settings-watch Channel nil))
   ([Channel optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://www.googleapis.com/calendar/v3/users/me/settings/watch",

@@ -12,7 +12,7 @@ name <>
 TransferLocationRequest:
 TransferLocationRequest"
   [name TransferLocationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://mybusinessaccountmanagement.googleapis.com/v1/{+name}:transfer",
@@ -27,7 +27,7 @@ https://developers.google.com/my-business/v1/reference/rest/v1/locations/admins/
 
 parent <> "
   [parent]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://mybusinessaccountmanagement.googleapis.com/v1/{+parent}/admins",
@@ -43,7 +43,7 @@ parent <>
 Admin:
 Admin"
   [parent Admin]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://mybusinessaccountmanagement.googleapis.com/v1/{+parent}/admins",
@@ -58,7 +58,7 @@ https://developers.google.com/my-business/v1/reference/rest/v1/locations/admins/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://mybusinessaccountmanagement.googleapis.com/v1/{+name}",
@@ -78,7 +78,7 @@ optional:
 updateMask <string> Required. The specific fields that should be updated. The only editable field is role."
   ([name Admin] (locations-admins-patch name Admin nil))
   ([name Admin optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://mybusinessaccountmanagement.googleapis.com/v1/{+name}",
@@ -97,7 +97,7 @@ pageSize <integer> Optional. How many accounts to fetch per page. The default an
 filter <string> Optional. A filter constraining the accounts to return. The response includes only entries that match the filter. If `filter` is empty, then no constraints are applied and all accounts (paginated) are retrieved for the requested account. For example, a request with the filter `type=USER_GROUP` will only return user groups. The `type` field is the only supported filter."
   ([] (accounts-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://mybusinessaccountmanagement.googleapis.com/v1/accounts",
@@ -111,7 +111,7 @@ https://developers.google.com/my-business/v1/reference/rest/v1/accounts/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://mybusinessaccountmanagement.googleapis.com/v1/{+name}",
@@ -126,7 +126,7 @@ https://developers.google.com/my-business/v1/reference/rest/v1/accounts/create
 Account:
 Account"
   [Account]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://mybusinessaccountmanagement.googleapis.com/v1/accounts",
@@ -148,7 +148,7 @@ updateMask <string> Required. The specific fields that should be updated. The on
 validateOnly <boolean> Optional. If true, the request is validated without actually updating the account."
   ([name Account] (accounts-patch name Account nil))
   ([name Account optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://mybusinessaccountmanagement.googleapis.com/v1/{+name}",
@@ -165,7 +165,7 @@ name <>
 AcceptInvitationRequest:
 AcceptInvitationRequest"
   [name AcceptInvitationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://mybusinessaccountmanagement.googleapis.com/v1/{+name}:accept",
@@ -182,7 +182,7 @@ name <>
 DeclineInvitationRequest:
 DeclineInvitationRequest"
   [name DeclineInvitationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://mybusinessaccountmanagement.googleapis.com/v1/{+name}:decline",
@@ -201,7 +201,7 @@ optional:
 filter <string> Optional. Filtering the response is supported via the Invitation.target_type field."
   ([parent] (accounts-invitations-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://mybusinessaccountmanagement.googleapis.com/v1/{+parent}/invitations",
@@ -215,7 +215,7 @@ https://developers.google.com/my-business/v1/reference/rest/v1/accounts/admins/l
 
 parent <> "
   [parent]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://mybusinessaccountmanagement.googleapis.com/v1/{+parent}/admins",
@@ -231,7 +231,7 @@ parent <>
 Admin:
 Admin"
   [parent Admin]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://mybusinessaccountmanagement.googleapis.com/v1/{+parent}/admins",
@@ -246,7 +246,7 @@ https://developers.google.com/my-business/v1/reference/rest/v1/accounts/admins/d
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://mybusinessaccountmanagement.googleapis.com/v1/{+name}",
@@ -266,7 +266,7 @@ optional:
 updateMask <string> Required. The specific fields that should be updated. The only editable field is role."
   ([name Admin] (accounts-admins-patch name Admin nil))
   ([name Admin optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://mybusinessaccountmanagement.googleapis.com/v1/{+name}",

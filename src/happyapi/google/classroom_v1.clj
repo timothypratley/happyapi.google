@@ -11,7 +11,7 @@ https://developers.google.com/classroom/v1/reference/rest/v1/courses/create
 Course:
 Course"
   [Course]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://classroom.googleapis.com/v1/courses",
      :uri-template-args {},
@@ -25,7 +25,7 @@ https://developers.google.com/classroom/v1/reference/rest/v1/courses/get
 
 id <> "
   [id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://classroom.googleapis.com/v1/courses/{id}",
      :uri-template-args {"id" id},
@@ -42,7 +42,7 @@ id <>
 Course:
 Course"
   [id Course]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template "https://classroom.googleapis.com/v1/courses/{id}",
      :uri-template-args {"id" id},
@@ -62,7 +62,7 @@ optional:
 updateMask <string> Mask that identifies which fields on the course to update. This field is required to do an update. The update will fail if invalid fields are specified. The following fields are valid: * `name` * `section` * `descriptionHeading` * `description` * `room` * `courseState` * `ownerId` Note: patches to ownerId are treated as being effective immediately, but in practice it may take some time for the ownership transfer of all affected resources to complete. When set in a query parameter, this field should be specified as `updateMask=,,...`"
   ([id Course] (courses-patch id Course nil))
   ([id Course optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{id}",
@@ -77,7 +77,7 @@ https://developers.google.com/classroom/v1/reference/rest/v1/courses/delete
 
 id <> "
   [id]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://classroom.googleapis.com/v1/courses/{id}",
      :uri-template-args {"id" id},
@@ -95,7 +95,7 @@ courseStates <string> Restricts returned courses to those in one of the specifie
 pageSize <integer> Maximum number of items to return. Zero or unspecified indicates that the server may assign a maximum. The server may return fewer than the specified number of results."
   ([] (courses-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://classroom.googleapis.com/v1/courses",
        :uri-template-args {},
@@ -112,7 +112,7 @@ courseId <>
 CourseAlias:
 CourseAlias"
   [courseId CourseAlias]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://classroom.googleapis.com/v1/courses/{courseId}/aliases",
@@ -128,7 +128,7 @@ https://developers.google.com/classroom/v1/reference/rest/v1/courses/aliases/del
 courseId <> 
 alias <> "
   [courseId alias]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://classroom.googleapis.com/v1/courses/{courseId}/aliases/{alias}",
@@ -146,7 +146,7 @@ optional:
 pageSize <integer> Maximum number of items to return. Zero or unspecified indicates that the server may assign a maximum. The server may return fewer than the specified number of results."
   ([courseId] (courses-aliases-list courseId nil))
   ([courseId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/aliases",
@@ -164,7 +164,7 @@ courseId <>
 CourseWork:
 CourseWork"
   [courseId CourseWork]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://classroom.googleapis.com/v1/courses/{courseId}/courseWork",
@@ -188,7 +188,7 @@ updateMask <string> Mask that identifies which fields on the course work to upda
   ([courseId id CourseWork]
     (courses-courseWork-patch courseId id CourseWork nil))
   ([courseId id CourseWork optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/courseWork/{id}",
@@ -205,7 +205,7 @@ https://developers.google.com/classroom/v1/reference/rest/v1/courses/courseWork/
 courseId <> 
 id <> "
   [courseId id]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://classroom.googleapis.com/v1/courses/{courseId}/courseWork/{id}",
@@ -221,7 +221,7 @@ https://developers.google.com/classroom/v1/reference/rest/v1/courses/courseWork/
 courseId <> 
 id <> "
   [courseId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://classroom.googleapis.com/v1/courses/{courseId}/courseWork/{id}",
@@ -245,7 +245,7 @@ orderBy <string> Optional sort ordering for results. A comma-separated list of f
 pageSize <integer> Maximum number of items to return. Zero or unspecified indicates that the server may assign a maximum. The server may return fewer than the specified number of results."
   ([courseId] (courses-courseWork-list courseId nil))
   ([courseId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/courseWork",
@@ -266,7 +266,7 @@ id <>
 ModifyCourseWorkAssigneesRequest:
 ModifyCourseWorkAssigneesRequest"
   [courseId id ModifyCourseWorkAssigneesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://classroom.googleapis.com/v1/courses/{courseId}/courseWork/{id}:modifyAssignees",
@@ -286,11 +286,11 @@ itemId <>
 optional:
 postId <string> Optional. Deprecated, use item_id instead.
 addOnToken <string> Optional. Token that authorizes the request. The token is passed as a query parameter when the user is redirected from Classroom to the add-on's URL. The authorization token is required when neither of the following is true: * The add-on has attachments on the post. * The developer project issuing the request is the same project that created the post.
-attachmentId <string> Optional. The identifier of the attachment. This field is required for student users and optional for teacher users. If not provided in the student case, an error is returned."
+attachmentId <string> Optional. The identifier of the attachment. This field is required for all requests except when the user is in the [Attachment Discovery iframe](https://developers.google.com/classroom/add-ons/get-started/iframes/attachment-discovery-iframe)."
   ([courseId itemId]
     (courses-courseWork-getAddOnContext courseId itemId nil))
   ([courseId itemId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/courseWork/{itemId}/addOnContext",
@@ -306,7 +306,7 @@ courseId <>
 courseWorkId <> 
 id <> "
   [courseId courseWorkId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://classroom.googleapis.com/v1/courses/{courseId}/courseWork/{courseWorkId}/studentSubmissions/{id}",
@@ -341,7 +341,7 @@ updateMask <string> Mask that identifies which fields on the student submission 
       StudentSubmission
       nil))
   ([courseId courseWorkId id StudentSubmission optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/courseWork/{courseWorkId}/studentSubmissions/{id}",
@@ -371,7 +371,7 @@ pageSize <integer> Maximum number of items to return. Zero or unspecified indica
       courseWorkId
       nil))
   ([courseId courseWorkId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/courseWork/{courseWorkId}/studentSubmissions",
@@ -396,7 +396,7 @@ id <>
 TurnInStudentSubmissionRequest:
 TurnInStudentSubmissionRequest"
   [courseId courseWorkId id TurnInStudentSubmissionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://classroom.googleapis.com/v1/courses/{courseId}/courseWork/{courseWorkId}/studentSubmissions/{id}:turnIn",
@@ -417,7 +417,7 @@ id <>
 ReclaimStudentSubmissionRequest:
 ReclaimStudentSubmissionRequest"
   [courseId courseWorkId id ReclaimStudentSubmissionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://classroom.googleapis.com/v1/courses/{courseId}/courseWork/{courseWorkId}/studentSubmissions/{id}:reclaim",
@@ -438,7 +438,7 @@ id <>
 ReturnStudentSubmissionRequest:
 ReturnStudentSubmissionRequest"
   [courseId courseWorkId id ReturnStudentSubmissionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://classroom.googleapis.com/v1/courses/{courseId}/courseWork/{courseWorkId}/studentSubmissions/{id}:return",
@@ -459,7 +459,7 @@ id <>
 ModifyAttachmentsRequest:
 ModifyAttachmentsRequest"
   [courseId courseWorkId id ModifyAttachmentsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://classroom.googleapis.com/v1/courses/{courseId}/courseWork/{courseWorkId}/studentSubmissions/{id}:modifyAttachments",
@@ -488,7 +488,7 @@ postId <string> Optional. Deprecated, use item_id instead."
       attachmentId
       nil))
   ([courseId itemId attachmentId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/courseWork/{itemId}/addOnAttachments/{attachmentId}",
@@ -512,7 +512,7 @@ pageSize <integer> The maximum number of attachments to return. The service may 
   ([courseId itemId]
     (courses-courseWork-addOnAttachments-list courseId itemId nil))
   ([courseId itemId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/courseWork/{itemId}/addOnAttachments",
@@ -539,7 +539,7 @@ addOnToken <string> Optional. Token that authorizes the request. The token is pa
       AddOnAttachment
       nil))
   ([courseId itemId AddOnAttachment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/courseWork/{itemId}/addOnAttachments",
@@ -569,7 +569,7 @@ updateMask <string> Required. Mask that identifies which fields on the attachmen
       AddOnAttachment
       nil))
   ([courseId itemId attachmentId AddOnAttachment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/courseWork/{itemId}/addOnAttachments/{attachmentId}",
@@ -598,7 +598,7 @@ postId <string> Optional. Deprecated, use item_id instead."
       attachmentId
       nil))
   ([courseId itemId attachmentId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/courseWork/{itemId}/addOnAttachments/{attachmentId}",
@@ -641,7 +641,7 @@ updateMask <string> Required. Mask that identifies which fields on the attachmen
     submissionId
     AddOnAttachmentStudentSubmission
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/courseWork/{itemId}/addOnAttachments/{attachmentId}/studentSubmissions/{submissionId}",
@@ -673,7 +673,7 @@ postId <string> Optional. Deprecated, use item_id instead."
       submissionId
       nil))
   ([courseId itemId attachmentId submissionId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/courseWork/{itemId}/addOnAttachments/{attachmentId}/studentSubmissions/{submissionId}",
@@ -693,7 +693,7 @@ https://developers.google.com/classroom/v1/reference/rest/v1/courses/announcemen
 courseId <> 
 id <> "
   [courseId id]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://classroom.googleapis.com/v1/courses/{courseId}/announcements/{id}",
@@ -710,7 +710,7 @@ courseId <>
 Announcement:
 Announcement"
   [courseId Announcement]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://classroom.googleapis.com/v1/courses/{courseId}/announcements",
@@ -727,7 +727,7 @@ https://developers.google.com/classroom/v1/reference/rest/v1/courses/announcemen
 courseId <> 
 id <> "
   [courseId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://classroom.googleapis.com/v1/courses/{courseId}/announcements/{id}",
@@ -749,7 +749,7 @@ orderBy <string> Optional sort ordering for results. A comma-separated list of f
 pageSize <integer> Maximum number of items to return. Zero or unspecified indicates that the server may assign a maximum. The server may return fewer than the specified number of results."
   ([courseId] (courses-announcements-list courseId nil))
   ([courseId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/announcements",
@@ -773,7 +773,7 @@ updateMask <string> Mask that identifies which fields on the announcement to upd
   ([courseId id Announcement]
     (courses-announcements-patch courseId id Announcement nil))
   ([courseId id Announcement optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/announcements/{id}",
@@ -792,7 +792,7 @@ id <>
 ModifyAnnouncementAssigneesRequest:
 ModifyAnnouncementAssigneesRequest"
   [courseId id ModifyAnnouncementAssigneesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://classroom.googleapis.com/v1/courses/{courseId}/announcements/{id}:modifyAssignees",
@@ -812,11 +812,11 @@ itemId <>
 optional:
 postId <string> Optional. Deprecated, use item_id instead.
 addOnToken <string> Optional. Token that authorizes the request. The token is passed as a query parameter when the user is redirected from Classroom to the add-on's URL. The authorization token is required when neither of the following is true: * The add-on has attachments on the post. * The developer project issuing the request is the same project that created the post.
-attachmentId <string> Optional. The identifier of the attachment. This field is required for student users and optional for teacher users. If not provided in the student case, an error is returned."
+attachmentId <string> Optional. The identifier of the attachment. This field is required for all requests except when the user is in the [Attachment Discovery iframe](https://developers.google.com/classroom/add-ons/get-started/iframes/attachment-discovery-iframe)."
   ([courseId itemId]
     (courses-announcements-getAddOnContext courseId itemId nil))
   ([courseId itemId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/announcements/{itemId}/addOnContext",
@@ -841,7 +841,7 @@ postId <string> Optional. Deprecated, use item_id instead."
       attachmentId
       nil))
   ([courseId itemId attachmentId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/announcements/{itemId}/addOnAttachments/{attachmentId}",
@@ -865,7 +865,7 @@ pageSize <integer> The maximum number of attachments to return. The service may 
   ([courseId itemId]
     (courses-announcements-addOnAttachments-list courseId itemId nil))
   ([courseId itemId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/announcements/{itemId}/addOnAttachments",
@@ -892,7 +892,7 @@ addOnToken <string> Optional. Token that authorizes the request. The token is pa
       AddOnAttachment
       nil))
   ([courseId itemId AddOnAttachment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/announcements/{itemId}/addOnAttachments",
@@ -922,7 +922,7 @@ updateMask <string> Required. Mask that identifies which fields on the attachmen
       AddOnAttachment
       nil))
   ([courseId itemId attachmentId AddOnAttachment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/announcements/{itemId}/addOnAttachments/{attachmentId}",
@@ -951,7 +951,7 @@ postId <string> Optional. Deprecated, use item_id instead."
       attachmentId
       nil))
   ([courseId itemId attachmentId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/announcements/{itemId}/addOnAttachments/{attachmentId}",
@@ -970,7 +970,7 @@ courseId <>
 CourseWorkMaterial:
 CourseWorkMaterial"
   [courseId CourseWorkMaterial]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://classroom.googleapis.com/v1/courses/{courseId}/courseWorkMaterials",
@@ -987,7 +987,7 @@ https://developers.google.com/classroom/v1/reference/rest/v1/courses/courseWorkM
 courseId <> 
 id <> "
   [courseId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://classroom.googleapis.com/v1/courses/{courseId}/courseWorkMaterials/{id}",
@@ -1011,7 +1011,7 @@ materialLink <string> Optional filtering for course work material with at least 
 materialDriveId <string> Optional filtering for course work material with at least one Drive material whose ID matches the provided string. If `material_link` is also specified, course work material must have materials matching both filters."
   ([courseId] (courses-courseWorkMaterials-list courseId nil))
   ([courseId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/courseWorkMaterials",
@@ -1039,7 +1039,7 @@ updateMask <string> Mask that identifies which fields on the course work materia
       CourseWorkMaterial
       nil))
   ([courseId id CourseWorkMaterial optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/courseWorkMaterials/{id}",
@@ -1056,7 +1056,7 @@ https://developers.google.com/classroom/v1/reference/rest/v1/courses/courseWorkM
 courseId <> 
 id <> "
   [courseId id]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://classroom.googleapis.com/v1/courses/{courseId}/courseWorkMaterials/{id}",
@@ -1075,11 +1075,11 @@ itemId <>
 optional:
 postId <string> Optional. Deprecated, use item_id instead.
 addOnToken <string> Optional. Token that authorizes the request. The token is passed as a query parameter when the user is redirected from Classroom to the add-on's URL. The authorization token is required when neither of the following is true: * The add-on has attachments on the post. * The developer project issuing the request is the same project that created the post.
-attachmentId <string> Optional. The identifier of the attachment. This field is required for student users and optional for teacher users. If not provided in the student case, an error is returned."
+attachmentId <string> Optional. The identifier of the attachment. This field is required for all requests except when the user is in the [Attachment Discovery iframe](https://developers.google.com/classroom/add-ons/get-started/iframes/attachment-discovery-iframe)."
   ([courseId itemId]
     (courses-courseWorkMaterials-getAddOnContext courseId itemId nil))
   ([courseId itemId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/courseWorkMaterials/{itemId}/addOnContext",
@@ -1104,7 +1104,7 @@ postId <string> Optional. Deprecated, use item_id instead."
       attachmentId
       nil))
   ([courseId itemId attachmentId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/courseWorkMaterials/{itemId}/addOnAttachments/{attachmentId}",
@@ -1131,7 +1131,7 @@ pageSize <integer> The maximum number of attachments to return. The service may 
       itemId
       nil))
   ([courseId itemId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/courseWorkMaterials/{itemId}/addOnAttachments",
@@ -1158,7 +1158,7 @@ addOnToken <string> Optional. Token that authorizes the request. The token is pa
       AddOnAttachment
       nil))
   ([courseId itemId AddOnAttachment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/courseWorkMaterials/{itemId}/addOnAttachments",
@@ -1188,7 +1188,7 @@ updateMask <string> Required. Mask that identifies which fields on the attachmen
       AddOnAttachment
       nil))
   ([courseId itemId attachmentId AddOnAttachment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/courseWorkMaterials/{itemId}/addOnAttachments/{attachmentId}",
@@ -1217,7 +1217,7 @@ postId <string> Optional. Deprecated, use item_id instead."
       attachmentId
       nil))
   ([courseId itemId attachmentId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/courseWorkMaterials/{itemId}/addOnAttachments/{attachmentId}",
@@ -1236,7 +1236,7 @@ courseId <>
 Topic:
 Topic"
   [courseId Topic]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://classroom.googleapis.com/v1/courses/{courseId}/topics",
@@ -1258,7 +1258,7 @@ optional:
 updateMask <string> Mask that identifies which fields on the topic to update. This field is required to do an update. The update fails if invalid fields are specified. If a field supports empty values, it can be cleared by specifying it in the update mask and not in the Topic object. If a field that does not support empty values is included in the update mask and not set in the Topic object, an `INVALID_ARGUMENT` error is returned. The following fields may be specified: * `name`"
   ([courseId id Topic] (courses-topics-patch courseId id Topic nil))
   ([courseId id Topic optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/topics/{id}",
@@ -1274,7 +1274,7 @@ https://developers.google.com/classroom/v1/reference/rest/v1/courses/topics/dele
 courseId <> 
 id <> "
   [courseId id]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://classroom.googleapis.com/v1/courses/{courseId}/topics/{id}",
@@ -1289,7 +1289,7 @@ https://developers.google.com/classroom/v1/reference/rest/v1/courses/topics/get
 courseId <> 
 id <> "
   [courseId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://classroom.googleapis.com/v1/courses/{courseId}/topics/{id}",
@@ -1309,7 +1309,7 @@ optional:
 pageSize <integer> Maximum number of items to return. Zero or unspecified indicates that the server may assign a maximum. The server may return fewer than the specified number of results."
   ([courseId] (courses-topics-list courseId nil))
   ([courseId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/topics",
@@ -1329,11 +1329,11 @@ postId <>
 optional:
 itemId <string> Identifier of the announcement, courseWork, or courseWorkMaterial under which the attachment is attached. This field is required, but is not marked as such while we are migrating from post_id.
 addOnToken <string> Optional. Token that authorizes the request. The token is passed as a query parameter when the user is redirected from Classroom to the add-on's URL. The authorization token is required when neither of the following is true: * The add-on has attachments on the post. * The developer project issuing the request is the same project that created the post.
-attachmentId <string> Optional. The identifier of the attachment. This field is required for student users and optional for teacher users. If not provided in the student case, an error is returned."
+attachmentId <string> Optional. The identifier of the attachment. This field is required for all requests except when the user is in the [Attachment Discovery iframe](https://developers.google.com/classroom/add-ons/get-started/iframes/attachment-discovery-iframe)."
   ([courseId postId]
     (courses-posts-getAddOnContext courseId postId nil))
   ([courseId postId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/posts/{postId}/addOnContext",
@@ -1358,7 +1358,7 @@ itemId <string> Identifier of the announcement, courseWork, or courseWorkMateria
       attachmentId
       nil))
   ([courseId postId attachmentId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/posts/{postId}/addOnAttachments/{attachmentId}",
@@ -1382,7 +1382,7 @@ pageSize <integer> The maximum number of attachments to return. The service may 
   ([courseId postId]
     (courses-posts-addOnAttachments-list courseId postId nil))
   ([courseId postId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/posts/{postId}/addOnAttachments",
@@ -1409,7 +1409,7 @@ addOnToken <string> Optional. Token that authorizes the request. The token is pa
       AddOnAttachment
       nil))
   ([courseId postId AddOnAttachment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/posts/{postId}/addOnAttachments",
@@ -1439,7 +1439,7 @@ updateMask <string> Required. Mask that identifies which fields on the attachmen
       AddOnAttachment
       nil))
   ([courseId postId attachmentId AddOnAttachment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/posts/{postId}/addOnAttachments/{attachmentId}",
@@ -1468,7 +1468,7 @@ itemId <string> Identifier of the announcement, courseWork, or courseWorkMateria
       attachmentId
       nil))
   ([courseId postId attachmentId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/posts/{postId}/addOnAttachments/{attachmentId}",
@@ -1511,7 +1511,7 @@ updateMask <string> Required. Mask that identifies which fields on the attachmen
     submissionId
     AddOnAttachmentStudentSubmission
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/posts/{postId}/addOnAttachments/{attachmentId}/studentSubmissions/{submissionId}",
@@ -1543,7 +1543,7 @@ itemId <string> Identifier of the announcement, courseWork, or courseWorkMateria
       submissionId
       nil))
   ([courseId postId attachmentId submissionId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/posts/{postId}/addOnAttachments/{attachmentId}/studentSubmissions/{submissionId}",
@@ -1564,7 +1564,7 @@ courseId <>
 Teacher:
 Teacher"
   [courseId Teacher]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://classroom.googleapis.com/v1/courses/{courseId}/teachers",
@@ -1583,7 +1583,7 @@ https://developers.google.com/classroom/v1/reference/rest/v1/courses/teachers/ge
 courseId <> 
 userId <> "
   [courseId userId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://classroom.googleapis.com/v1/courses/{courseId}/teachers/{userId}",
@@ -1602,7 +1602,7 @@ https://developers.google.com/classroom/v1/reference/rest/v1/courses/teachers/de
 courseId <> 
 userId <> "
   [courseId userId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://classroom.googleapis.com/v1/courses/{courseId}/teachers/{userId}",
@@ -1620,7 +1620,7 @@ optional:
 pageSize <integer> Maximum number of items to return. The default is 30 if unspecified or `0`. The server may return fewer than the specified number of results."
   ([courseId] (courses-teachers-list courseId nil))
   ([courseId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/teachers",
@@ -1644,7 +1644,7 @@ optional:
 enrollmentCode <string> Enrollment code of the course to create the student in. This code is required if userId corresponds to the requesting user; it may be omitted if the requesting user has administrative permissions to create students for any user."
   ([courseId Student] (courses-students-create courseId Student nil))
   ([courseId Student optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/students",
@@ -1663,7 +1663,7 @@ https://developers.google.com/classroom/v1/reference/rest/v1/courses/students/ge
 courseId <> 
 userId <> "
   [courseId userId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://classroom.googleapis.com/v1/courses/{courseId}/students/{userId}",
@@ -1682,7 +1682,7 @@ https://developers.google.com/classroom/v1/reference/rest/v1/courses/students/de
 courseId <> 
 userId <> "
   [courseId userId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://classroom.googleapis.com/v1/courses/{courseId}/students/{userId}",
@@ -1700,7 +1700,7 @@ optional:
 pageSize <integer> Maximum number of items to return. The default is 30 if unspecified or `0`. The server may return fewer than the specified number of results."
   ([courseId] (courses-students-list courseId nil))
   ([courseId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://classroom.googleapis.com/v1/courses/{courseId}/students",
@@ -1718,7 +1718,7 @@ https://developers.google.com/classroom/v1/reference/rest/v1/userProfiles/get
 
 userId <> "
   [userId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://classroom.googleapis.com/v1/userProfiles/{userId}",
@@ -1742,7 +1742,7 @@ states <string> If specified, only results with the specified `state` values are
 pageSize <integer> Maximum number of items to return. Zero or unspecified indicates that the server may assign a maximum. The server may return fewer than the specified number of results."
   ([studentId] (userProfiles-guardianInvitations-list studentId nil))
   ([studentId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://classroom.googleapis.com/v1/userProfiles/{studentId}/guardianInvitations",
@@ -1759,7 +1759,7 @@ https://developers.google.com/classroom/v1/reference/rest/v1/userProfiles/guardi
 studentId <> 
 invitationId <> "
   [studentId invitationId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://classroom.googleapis.com/v1/userProfiles/{studentId}/guardianInvitations/{invitationId}",
@@ -1778,7 +1778,7 @@ studentId <>
 GuardianInvitation:
 GuardianInvitation"
   [studentId GuardianInvitation]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://classroom.googleapis.com/v1/userProfiles/{studentId}/guardianInvitations",
@@ -1806,7 +1806,7 @@ updateMask <string> Mask that identifies which fields on the course to update. T
       GuardianInvitation
       nil))
   ([studentId invitationId GuardianInvitation optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://classroom.googleapis.com/v1/userProfiles/{studentId}/guardianInvitations/{invitationId}",
@@ -1828,7 +1828,7 @@ invitedEmailAddress <string> Filter results by the email address that the origin
 pageSize <integer> Maximum number of items to return. Zero or unspecified indicates that the server may assign a maximum. The server may return fewer than the specified number of results."
   ([studentId] (userProfiles-guardians-list studentId nil))
   ([studentId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://classroom.googleapis.com/v1/userProfiles/{studentId}/guardians",
@@ -1846,7 +1846,7 @@ https://developers.google.com/classroom/v1/reference/rest/v1/userProfiles/guardi
 studentId <> 
 guardianId <> "
   [studentId guardianId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://classroom.googleapis.com/v1/userProfiles/{studentId}/guardians/{guardianId}",
@@ -1865,7 +1865,7 @@ https://developers.google.com/classroom/v1/reference/rest/v1/userProfiles/guardi
 studentId <> 
 guardianId <> "
   [studentId guardianId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://classroom.googleapis.com/v1/userProfiles/{studentId}/guardians/{guardianId}",
@@ -1882,7 +1882,7 @@ https://developers.google.com/classroom/v1/reference/rest/v1/invitations/create
 Invitation:
 Invitation"
   [Invitation]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://classroom.googleapis.com/v1/invitations",
      :uri-template-args {},
@@ -1896,7 +1896,7 @@ https://developers.google.com/classroom/v1/reference/rest/v1/invitations/get
 
 id <> "
   [id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://classroom.googleapis.com/v1/invitations/{id}",
@@ -1912,7 +1912,7 @@ https://developers.google.com/classroom/v1/reference/rest/v1/invitations/delete
 
 id <> "
   [id]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://classroom.googleapis.com/v1/invitations/{id}",
@@ -1930,7 +1930,7 @@ courseId <string> Restricts returned invitations to those for a course with the 
 pageSize <integer> Maximum number of items to return. The default is 500 if unspecified or `0`. The server may return fewer than the specified number of results."
   ([] (invitations-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://classroom.googleapis.com/v1/invitations",
        :uri-template-args {},
@@ -1945,7 +1945,7 @@ https://developers.google.com/classroom/v1/reference/rest/v1/invitations/accept
 
 id <> "
   [id]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://classroom.googleapis.com/v1/invitations/{id}:accept",
@@ -1960,7 +1960,7 @@ https://developers.google.com/classroom/v1/reference/rest/v1/registrations/creat
 Registration:
 Registration"
   [Registration]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://classroom.googleapis.com/v1/registrations",
      :uri-template-args {},
@@ -1975,7 +1975,7 @@ https://developers.google.com/classroom/v1/reference/rest/v1/registrations/delet
 
 registrationId <> "
   [registrationId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://classroom.googleapis.com/v1/registrations/{registrationId}",

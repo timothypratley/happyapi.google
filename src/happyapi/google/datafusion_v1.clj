@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datafusion.googleapis.com/v1/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/data-fusion/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://datafusion.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -47,7 +47,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datafusion.googleapis.com/v1/{+name}/operations",
@@ -61,7 +61,7 @@ https://cloud.google.com/data-fusion/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://datafusion.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -74,7 +74,7 @@ https://cloud.google.com/data-fusion/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://datafusion.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -89,7 +89,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datafusion.googleapis.com/v1/{+name}:cancel",
@@ -109,7 +109,7 @@ pageSize <integer> The maximum number of items to return.
 latestPatchOnly <boolean> Whether or not to return the latest patch of every available minor version. If true, only the latest patch will be returned. Ex. if allowed versions is [6.1.1, 6.1.2, 6.2.0] then response will be [6.1.2, 6.2.0]"
   ([parent] (projects-locations-versions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datafusion.googleapis.com/v1/{+parent}/versions",
@@ -129,7 +129,7 @@ filter <string> List filter.
 orderBy <string> Sort results. Supported values are \"name\", \"name desc\", or \"\" (unsorted)."
   ([parent] (projects-locations-instances-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datafusion.googleapis.com/v1/{+parent}/instances",
@@ -145,7 +145,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datafusion.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -160,7 +160,7 @@ https://cloud.google.com/data-fusion/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://datafusion.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -180,7 +180,7 @@ updateMask <string> Field mask is used to specify the fields that the update wil
   ([name Instance]
     (projects-locations-instances-patch name Instance nil))
   ([name Instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://datafusion.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -198,7 +198,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-locations-instances-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datafusion.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -214,7 +214,7 @@ name <>
 RestartInstanceRequest:
 RestartInstanceRequest"
   [name RestartInstanceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datafusion.googleapis.com/v1/{+name}:restart",
@@ -236,7 +236,7 @@ instanceId <string> Required. The name of the instance to create. Instance name 
   ([parent Instance]
     (projects-locations-instances-create parent Instance nil))
   ([parent Instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://datafusion.googleapis.com/v1/{+parent}/instances",
@@ -251,7 +251,7 @@ https://cloud.google.com/data-fusion/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://datafusion.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -266,7 +266,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datafusion.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -291,7 +291,7 @@ dnsPeeringId <string> Required. The name of the peering to create."
       DnsPeering
       nil))
   ([parent DnsPeering optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://datafusion.googleapis.com/v1/{+parent}/dnsPeerings",
@@ -306,7 +306,7 @@ https://cloud.google.com/data-fusion/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://datafusion.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -323,7 +323,7 @@ optional:
 pageSize <integer> The maximum number of dns peerings to return. The service may return fewer than this value. If unspecified, at most 50 dns peerings will be returned. The maximum value is 200; values above 200 will be coerced to 200."
   ([parent] (projects-locations-instances-dnsPeerings-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datafusion.googleapis.com/v1/{+parent}/dnsPeerings",

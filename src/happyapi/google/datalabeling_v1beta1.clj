@@ -15,7 +15,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datalabeling.googleapis.com/v1beta1/{+name}/operations",
@@ -29,7 +29,7 @@ https://cloud.google.com/ai-platform/data-labeling/docs/v1beta1/reference/rest/v
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+name}",
@@ -43,7 +43,7 @@ https://cloud.google.com/ai-platform/data-labeling/docs/v1beta1/reference/rest/v
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+name}",
@@ -57,7 +57,7 @@ https://cloud.google.com/ai-platform/data-labeling/docs/v1beta1/reference/rest/v
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+name}:cancel",
@@ -73,7 +73,7 @@ parent <>
 GoogleCloudDatalabelingV1beta1CreateDatasetRequest:
 GoogleCloudDatalabelingV1beta1CreateDatasetRequest"
   [parent GoogleCloudDatalabelingV1beta1CreateDatasetRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+parent}/datasets",
@@ -88,7 +88,7 @@ https://cloud.google.com/ai-platform/data-labeling/docs/v1beta1/reference/rest/v
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+name}",
@@ -107,7 +107,7 @@ filter <string> Optional. Filter on dataset is not supported at this moment.
 pageSize <integer> Optional. Requested page size. Server may return fewer results than requested. Default value is 100."
   ([parent] (projects-datasets-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datalabeling.googleapis.com/v1beta1/{+parent}/datasets",
@@ -121,7 +121,7 @@ https://cloud.google.com/ai-platform/data-labeling/docs/v1beta1/reference/rest/v
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+name}",
@@ -137,7 +137,7 @@ name <>
 GoogleCloudDatalabelingV1beta1ImportDataRequest:
 GoogleCloudDatalabelingV1beta1ImportDataRequest"
   [name GoogleCloudDatalabelingV1beta1ImportDataRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+name}:importData",
@@ -154,7 +154,7 @@ name <>
 GoogleCloudDatalabelingV1beta1ExportDataRequest:
 GoogleCloudDatalabelingV1beta1ExportDataRequest"
   [name GoogleCloudDatalabelingV1beta1ExportDataRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+name}:exportData",
@@ -169,7 +169,7 @@ https://cloud.google.com/ai-platform/data-labeling/docs/v1beta1/reference/rest/v
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+name}",
@@ -188,7 +188,7 @@ filter <string> Optional. Filter is not supported at this moment.
 pageSize <integer> Optional. Requested page size. Server may return fewer results than requested. Default value is 100."
   ([parent] (projects-datasets-dataItems-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datalabeling.googleapis.com/v1beta1/{+parent}/dataItems",
@@ -202,7 +202,7 @@ https://cloud.google.com/ai-platform/data-labeling/docs/v1beta1/reference/rest/v
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+name}",
@@ -221,7 +221,7 @@ filter <string> Optional. Filter is not supported at this moment.
 pageSize <integer> Optional. Requested page size. Server may return fewer results than requested. Default value is 100."
   ([parent] (projects-datasets-annotatedDatasets-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datalabeling.googleapis.com/v1beta1/{+parent}/annotatedDatasets",
@@ -235,7 +235,7 @@ https://cloud.google.com/ai-platform/data-labeling/docs/v1beta1/reference/rest/v
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+name}",
@@ -249,7 +249,7 @@ https://cloud.google.com/ai-platform/data-labeling/docs/v1beta1/reference/rest/v
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+name}",
@@ -269,7 +269,7 @@ pageSize <integer> Optional. Requested page size. Server may return fewer result
   ([parent]
     (projects-datasets-annotatedDatasets-dataItems-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datalabeling.googleapis.com/v1beta1/{+parent}/dataItems",
@@ -287,7 +287,7 @@ optional:
 filter <string> Optional. An expression for filtering Examples. Filter by annotation_spec.display_name is supported. Format \"annotation_spec.display_name = {display_name}\""
   ([name] (projects-datasets-annotatedDatasets-examples-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datalabeling.googleapis.com/v1beta1/{+name}",
@@ -307,7 +307,7 @@ pageSize <integer> Optional. Requested page size. Server may return fewer result
   ([parent]
     (projects-datasets-annotatedDatasets-examples-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datalabeling.googleapis.com/v1beta1/{+parent}/examples",
@@ -321,7 +321,7 @@ https://cloud.google.com/ai-platform/data-labeling/docs/v1beta1/reference/rest/v
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+name}",
@@ -342,7 +342,7 @@ pageSize <integer> Optional. Requested page size. Server may return fewer result
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datalabeling.googleapis.com/v1beta1/{+parent}/feedbackThreads",
@@ -356,7 +356,7 @@ https://cloud.google.com/ai-platform/data-labeling/docs/v1beta1/reference/rest/v
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+name}",
@@ -372,7 +372,7 @@ parent <>
 GoogleCloudDatalabelingV1beta1FeedbackMessage:
 GoogleCloudDatalabelingV1beta1FeedbackMessage"
   [parent GoogleCloudDatalabelingV1beta1FeedbackMessage]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+parent}/feedbackMessages",
@@ -387,7 +387,7 @@ https://cloud.google.com/ai-platform/data-labeling/docs/v1beta1/reference/rest/v
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+name}",
@@ -408,7 +408,7 @@ pageSize <integer> Optional. Requested page size. Server may return fewer result
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datalabeling.googleapis.com/v1beta1/{+parent}/feedbackMessages",
@@ -422,7 +422,7 @@ https://cloud.google.com/ai-platform/data-labeling/docs/v1beta1/reference/rest/v
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+name}",
@@ -438,7 +438,7 @@ parent <>
 GoogleCloudDatalabelingV1beta1LabelImageRequest:
 GoogleCloudDatalabelingV1beta1LabelImageRequest"
   [parent GoogleCloudDatalabelingV1beta1LabelImageRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+parent}/image:label",
@@ -455,7 +455,7 @@ parent <>
 GoogleCloudDatalabelingV1beta1LabelVideoRequest:
 GoogleCloudDatalabelingV1beta1LabelVideoRequest"
   [parent GoogleCloudDatalabelingV1beta1LabelVideoRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+parent}/video:label",
@@ -472,7 +472,7 @@ parent <>
 GoogleCloudDatalabelingV1beta1LabelTextRequest:
 GoogleCloudDatalabelingV1beta1LabelTextRequest"
   [parent GoogleCloudDatalabelingV1beta1LabelTextRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+parent}/text:label",
@@ -487,7 +487,7 @@ https://cloud.google.com/ai-platform/data-labeling/docs/v1beta1/reference/rest/v
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+name}",
@@ -504,7 +504,7 @@ GoogleCloudDatalabelingV1beta1SearchExampleComparisonsRequest:
 GoogleCloudDatalabelingV1beta1SearchExampleComparisonsRequest"
   [parent
    GoogleCloudDatalabelingV1beta1SearchExampleComparisonsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+parent}/exampleComparisons:search",
@@ -522,7 +522,7 @@ parent <>
 GoogleCloudDatalabelingV1beta1CreateAnnotationSpecSetRequest:
 GoogleCloudDatalabelingV1beta1CreateAnnotationSpecSetRequest"
   [parent GoogleCloudDatalabelingV1beta1CreateAnnotationSpecSetRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+parent}/annotationSpecSets",
@@ -538,7 +538,7 @@ https://cloud.google.com/ai-platform/data-labeling/docs/v1beta1/reference/rest/v
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+name}",
@@ -557,7 +557,7 @@ filter <string> Optional. Filter is not supported at this moment.
 pageSize <integer> Optional. Requested page size. Server may return fewer results than requested. Default value is 100."
   ([parent] (projects-annotationSpecSets-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datalabeling.googleapis.com/v1beta1/{+parent}/annotationSpecSets",
@@ -571,7 +571,7 @@ https://cloud.google.com/ai-platform/data-labeling/docs/v1beta1/reference/rest/v
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+name}",
@@ -587,7 +587,7 @@ parent <>
 GoogleCloudDatalabelingV1beta1CreateInstructionRequest:
 GoogleCloudDatalabelingV1beta1CreateInstructionRequest"
   [parent GoogleCloudDatalabelingV1beta1CreateInstructionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+parent}/instructions",
@@ -602,7 +602,7 @@ https://cloud.google.com/ai-platform/data-labeling/docs/v1beta1/reference/rest/v
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+name}",
@@ -621,7 +621,7 @@ filter <string> Optional. Filter is not supported at this moment.
 pageSize <integer> Optional. Requested page size. Server may return fewer results than requested. Default value is 100."
   ([parent] (projects-instructions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datalabeling.googleapis.com/v1beta1/{+parent}/instructions",
@@ -635,7 +635,7 @@ https://cloud.google.com/ai-platform/data-labeling/docs/v1beta1/reference/rest/v
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+name}",
@@ -654,7 +654,7 @@ filter <string> Optional. To search evaluations, you can filter by the following
 pageSize <integer> Optional. Requested page size. Server may return fewer results than requested. Default value is 100."
   ([parent] (projects-evaluations-search parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datalabeling.googleapis.com/v1beta1/{+parent}/evaluations:search",
@@ -670,7 +670,7 @@ parent <>
 GoogleCloudDatalabelingV1beta1CreateEvaluationJobRequest:
 GoogleCloudDatalabelingV1beta1CreateEvaluationJobRequest"
   [parent GoogleCloudDatalabelingV1beta1CreateEvaluationJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+parent}/evaluationJobs",
@@ -695,7 +695,7 @@ updateMask <string> Optional. Mask for which fields to update. You can only prov
       GoogleCloudDatalabelingV1beta1EvaluationJob
       nil))
   ([name GoogleCloudDatalabelingV1beta1EvaluationJob optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://datalabeling.googleapis.com/v1beta1/{+name}",
@@ -710,7 +710,7 @@ https://cloud.google.com/ai-platform/data-labeling/docs/v1beta1/reference/rest/v
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+name}",
@@ -726,7 +726,7 @@ name <>
 GoogleCloudDatalabelingV1beta1PauseEvaluationJobRequest:
 GoogleCloudDatalabelingV1beta1PauseEvaluationJobRequest"
   [name GoogleCloudDatalabelingV1beta1PauseEvaluationJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+name}:pause",
@@ -743,7 +743,7 @@ name <>
 GoogleCloudDatalabelingV1beta1ResumeEvaluationJobRequest:
 GoogleCloudDatalabelingV1beta1ResumeEvaluationJobRequest"
   [name GoogleCloudDatalabelingV1beta1ResumeEvaluationJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+name}:resume",
@@ -758,7 +758,7 @@ https://cloud.google.com/ai-platform/data-labeling/docs/v1beta1/reference/rest/v
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://datalabeling.googleapis.com/v1beta1/{+name}",
@@ -777,7 +777,7 @@ filter <string> Optional. You can filter the jobs to list by model_id (also know
 pageSize <integer> Optional. Requested page size. Server may return fewer results than requested. Default value is 100."
   ([parent] (projects-evaluationJobs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datalabeling.googleapis.com/v1beta1/{+parent}/evaluationJobs",

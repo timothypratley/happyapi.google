@@ -17,7 +17,7 @@ showAll <boolean> Metadata for all available attributes are returned when this f
 pageSize <integer> How many attributes to include per page. Default is 200, minimum is 1."
   ([] (attributes-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://mybusinessbusinessinformation.googleapis.com/v1/attributes",
@@ -37,7 +37,7 @@ optional:
 attributeMask <string> Required. Attribute name of attributes that you'd like to update. Represented by `attributes/{attribute}`. Updates: All attributes provided in the attributes field that you would like to update must be set in the `attribute_mask`. Attributes set in the above list but not in the `attribute_mask` will be ignored. Deletes: If you'd like to delete certain attributes, they must be specified in the `attribute_mask` with no matching entry in the attributes list. If you'd like to delete all attributes set on a location, you should look up all the applicable attributes for the location and then add them to the `attribute_mask` with an empty attributes field."
   ([name Attributes] (locations-updateAttributes name Attributes nil))
   ([name Attributes optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://mybusinessbusinessinformation.googleapis.com/v1/{+name}",
@@ -52,7 +52,7 @@ https://developers.google.com/my-business/v1/reference/rest/v1/locations/getAttr
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://mybusinessbusinessinformation.googleapis.com/v1/{+name}",
@@ -70,7 +70,7 @@ optional:
 readMask <string> Required. Read mask to specify what fields will be returned in the response."
   ([name] (locations-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://mybusinessbusinessinformation.googleapis.com/v1/{+name}",
@@ -88,7 +88,7 @@ optional:
 readMask <string> Required. Read mask to specify what fields will be returned in the response."
   ([name] (locations-getGoogleUpdated name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://mybusinessbusinessinformation.googleapis.com/v1/{+name}:getGoogleUpdated",
@@ -109,7 +109,7 @@ updateMask <string> Required. The specific fields to update.
 validateOnly <boolean> Optional. If true, the request is validated without actually updating the location. When this field is set, we will only return validation errors if there were any. The response will be empty if no errors were found."
   ([name Location] (locations-patch name Location nil))
   ([name Location optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://mybusinessbusinessinformation.googleapis.com/v1/{+name}",
@@ -124,7 +124,7 @@ https://developers.google.com/my-business/v1/reference/rest/v1/locations/delete
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://mybusinessbusinessinformation.googleapis.com/v1/{+name}",
@@ -138,7 +138,7 @@ https://developers.google.com/my-business/v1/reference/rest/v1/locations/attribu
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://mybusinessbusinessinformation.googleapis.com/v1/{+name}:getGoogleUpdated",
@@ -158,7 +158,7 @@ pageSize <integer> Optional. How many categories to fetch per page. Default is 1
 view <string> Required. Specifies which parts to the Category resource should be returned in the response."
   ([] (categories-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://mybusinessbusinessinformation.googleapis.com/v1/categories",
@@ -177,7 +177,7 @@ regionCode <string> Optional. The ISO 3166-1 alpha-2 country code used to infer 
 view <string> Required. Specifies which parts to the Category resource should be returned in the response."
   ([] (categories-batchGet nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://mybusinessbusinessinformation.googleapis.com/v1/categories:batchGet",
@@ -191,7 +191,7 @@ https://developers.google.com/my-business/v1/reference/rest/v1/chains/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://mybusinessbusinessinformation.googleapis.com/v1/{+name}",
@@ -208,7 +208,7 @@ chainName <string> Required. Search for a chain by its name. Exact/partial/fuzzy
 pageSize <integer> The maximum number of matched chains to return from this query. The default is 10. The maximum possible value is 500."
   ([] (chains-search nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://mybusinessbusinessinformation.googleapis.com/v1/chains:search",
@@ -223,7 +223,7 @@ https://developers.google.com/my-business/v1/reference/rest/v1/googleLocations/s
 SearchGoogleLocationsRequest:
 SearchGoogleLocationsRequest"
   [SearchGoogleLocationsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://mybusinessbusinessinformation.googleapis.com/v1/googleLocations:search",
@@ -245,7 +245,7 @@ orderBy <string> Optional. Sorting order for the request. Multiple fields should
 readMask <string> Required. Read mask to specify what fields will be returned in the response."
   ([parent] (accounts-locations-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://mybusinessbusinessinformation.googleapis.com/v1/{+parent}/locations",
@@ -266,7 +266,7 @@ validateOnly <boolean> Optional. If true, the request is validated without actua
 requestId <string> Optional. A unique request ID for the server to detect duplicated requests. We recommend using UUIDs. Max length is 50 characters."
   ([parent Location] (accounts-locations-create parent Location nil))
   ([parent Location optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://mybusinessbusinessinformation.googleapis.com/v1/{+parent}/locations",

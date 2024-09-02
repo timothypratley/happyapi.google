@@ -16,7 +16,7 @@ advertiserId <string> The ID of the advertiser that has access to the inventory 
   ([inventorySourceGroupId]
     (inventorySourceGroups-get inventorySourceGroupId nil))
   ([inventorySourceGroupId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/inventorySourceGroups/{+inventorySourceGroupId}",
@@ -37,7 +37,7 @@ orderBy <string> Field by which to sort the list. Acceptable values are: * `disp
 filter <string> Allows filtering by inventory source group fields. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by the logical operator `OR`. * A restriction has the form of `{field} {operator} {value}`. * All fields must use the `EQUALS (=)` operator. Supported fields: * `inventorySourceGroupId` The length of this field should be no more than 500 characters. Reference our [filter `LIST` requests](/display-video/api/guides/how-tos/filters) guide for more information."
   ([] (inventorySourceGroups-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/inventorySourceGroups",
@@ -58,7 +58,7 @@ advertiserId <string> The ID of the advertiser that owns the inventory source gr
   ([InventorySourceGroup]
     (inventorySourceGroups-create InventorySourceGroup nil))
   ([InventorySourceGroup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://displayvideo.googleapis.com/v3/inventorySourceGroups",
@@ -85,7 +85,7 @@ updateMask <string> Required. The mask to control which fields to update."
       InventorySourceGroup
       nil))
   ([inventorySourceGroupId InventorySourceGroup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://displayvideo.googleapis.com/v3/inventorySourceGroups/{inventorySourceGroupId}",
@@ -107,7 +107,7 @@ advertiserId <string> The ID of the advertiser that owns the inventory source gr
   ([inventorySourceGroupId]
     (inventorySourceGroups-delete inventorySourceGroupId nil))
   ([inventorySourceGroupId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://displayvideo.googleapis.com/v3/inventorySourceGroups/{+inventorySourceGroupId}",
@@ -133,7 +133,7 @@ filter <string> Allows filtering by assigned inventory source fields. Supported 
       inventorySourceGroupId
       nil))
   ([inventorySourceGroupId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/inventorySourceGroups/{+inventorySourceGroupId}/assignedInventorySources",
@@ -159,7 +159,7 @@ advertiserId <string> The ID of the advertiser that owns the parent inventory so
       AssignedInventorySource
       nil))
   ([inventorySourceGroupId AssignedInventorySource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://displayvideo.googleapis.com/v3/inventorySourceGroups/{+inventorySourceGroupId}/assignedInventorySources",
@@ -185,7 +185,7 @@ advertiserId <string> The ID of the advertiser that owns the parent inventory so
       assignedInventorySourceId
       nil))
   ([inventorySourceGroupId assignedInventorySourceId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://displayvideo.googleapis.com/v3/inventorySourceGroups/{+inventorySourceGroupId}/assignedInventorySources/{+assignedInventorySourceId}",
@@ -203,7 +203,7 @@ inventorySourceGroupId <>
 BulkEditAssignedInventorySourcesRequest:
 BulkEditAssignedInventorySourcesRequest"
   [inventorySourceGroupId BulkEditAssignedInventorySourcesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/inventorySourceGroups/{+inventorySourceGroupId}/assignedInventorySources:bulkEdit",
@@ -223,7 +223,7 @@ optional:
 partnerId <string> Required. The partner context by which the Floodlight group is being accessed."
   ([floodlightGroupId] (floodlightGroups-get floodlightGroupId nil))
   ([floodlightGroupId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/floodlightGroups/{+floodlightGroupId}",
@@ -245,7 +245,7 @@ updateMask <string> Required. The mask to control which fields to update."
   ([floodlightGroupId FloodlightGroup]
     (floodlightGroups-patch floodlightGroupId FloodlightGroup nil))
   ([floodlightGroupId FloodlightGroup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://displayvideo.googleapis.com/v3/floodlightGroups/{floodlightGroupId}",
@@ -269,7 +269,7 @@ partnerId <string> Required. The ID of the partner through which the Floodlight 
       floodlightActivityId
       nil))
   ([floodlightGroupId floodlightActivityId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/floodlightGroups/{+floodlightGroupId}/floodlightActivities/{+floodlightActivityId}",
@@ -292,7 +292,7 @@ orderBy <string> Optional. Field by which to sort the list. Acceptable values ar
   ([floodlightGroupId]
     (floodlightGroups-floodlightActivities-list floodlightGroupId nil))
   ([floodlightGroupId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/floodlightGroups/{+floodlightGroupId}/floodlightActivities",
@@ -308,7 +308,7 @@ resourceName <>
 GoogleBytestreamMedia:
 GoogleBytestreamMedia"
   [resourceName GoogleBytestreamMedia]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/media/{+resourceName}",
@@ -325,7 +325,7 @@ https://developers.google.com/display-video/api/guides/getting-started/overview/
 
 resourceName <> "
   [resourceName]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://displayvideo.googleapis.com/download/{+resourceName}",
@@ -348,7 +348,7 @@ filter <string> Allows filtering by assigned targeting option fields. Supported 
   ([advertiserId]
     (advertisers-listAssignedTargetingOptions advertiserId nil))
   ([advertiserId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}:listAssignedTargetingOptions",
@@ -364,7 +364,7 @@ advertiserId <>
 BulkEditAdvertiserAssignedTargetingOptionsRequest:
 BulkEditAdvertiserAssignedTargetingOptionsRequest"
   [advertiserId BulkEditAdvertiserAssignedTargetingOptionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}:editAssignedTargetingOptions",
@@ -379,7 +379,7 @@ https://developers.google.com/display-video/api/guides/getting-started/overview/
 
 advertiserId <> "
   [advertiserId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}",
@@ -398,7 +398,7 @@ orderBy <string> Field by which to sort the list. Acceptable values are: * `disp
 filter <string> Allows filtering by advertiser fields. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by `AND` or `OR` logical operators. * A restriction has the form of `{field} {operator} {value}`. * The `updateTime` field must use the `GREATER THAN OR EQUAL TO (>=)` or `LESS THAN OR EQUAL TO (<=)` operators. * All other fields must use the `EQUALS (=)` operator. Supported fields: * `advertiserId` * `displayName` * `entityStatus` * `updateTime` (input in ISO 8601 format, or `YYYY-MM-DDTHH:MM:SSZ`) Examples: * All active advertisers under a partner: `entityStatus=\"ENTITY_STATUS_ACTIVE\"` * All advertisers with an update time less than or equal to 2020-11-04T18:54:47Z (format of ISO 8601): `updateTime<=\"2020-11-04T18:54:47Z\"` * All advertisers with an update time greater than or equal to 2020-11-04T18:54:47Z (format of ISO 8601): `updateTime>=\"2020-11-04T18:54:47Z\"` The length of this field should be no more than 500 characters. Reference our [filter `LIST` requests](/display-video/api/guides/how-tos/filters) guide for more information."
   ([] (advertisers-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers",
@@ -413,7 +413,7 @@ https://developers.google.com/display-video/api/guides/getting-started/overview/
 Advertiser:
 Advertiser"
   [Advertiser]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers",
@@ -435,7 +435,7 @@ updateMask <string> Required. The mask to control which fields to update."
   ([advertiserId Advertiser]
     (advertisers-patch advertiserId Advertiser nil))
   ([advertiserId Advertiser optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}",
@@ -450,7 +450,7 @@ https://developers.google.com/display-video/api/guides/getting-started/overview/
 
 advertiserId <> "
   [advertiserId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}",
@@ -468,7 +468,7 @@ optional:
 readMask <string> Optional. The specific fields to return. If no mask is specified, all fields in the response proto will be filled. Valid values are: * usedLineItemsCount * usedInsertionOrdersCount * usedCampaignsCount * channelsCount * negativelyTargetedChannelsCount * negativeKeywordListsCount * adGroupCriteriaCount * campaignCriteriaCount"
   ([advertiserId] (advertisers-audit advertiserId nil))
   ([advertiserId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}:audit",
@@ -493,7 +493,7 @@ filter <string> Allows filtering by assigned targeting option fields. Supported 
       insertionOrderId
       nil))
   ([advertiserId insertionOrderId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/insertionOrders/{+insertionOrderId}:listAssignedTargetingOptions",
@@ -510,7 +510,7 @@ https://developers.google.com/display-video/api/guides/getting-started/overview/
 advertiserId <> 
 insertionOrderId <> "
   [advertiserId insertionOrderId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/insertionOrders/{+insertionOrderId}",
@@ -532,7 +532,7 @@ orderBy <string> Field by which to sort the list. Acceptable values are: * \"dis
 filter <string> Allows filtering by insertion order fields. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by `AND` or `OR` logical operators. A sequence of restrictions implicitly uses `AND`. * A restriction has the form of `{field} {operator} {value}`. * The `updateTime` field must use the `GREATER THAN OR EQUAL TO (>=)` or `LESS THAN OR EQUAL TO (<=)` operators. * All other fields must use the `EQUALS (=)` operator. Supported fields: * `campaignId` * `displayName` * `entityStatus` * `updateTime` (input in ISO 8601 format, or `YYYY-MM-DDTHH:MM:SSZ`) Examples: * All insertion orders under a campaign: `campaignId=\"1234\"` * All `ENTITY_STATUS_ACTIVE` or `ENTITY_STATUS_PAUSED` insertion orders under an advertiser: `(entityStatus=\"ENTITY_STATUS_ACTIVE\" OR entityStatus=\"ENTITY_STATUS_PAUSED\")` * All insertion orders with an update time less than or equal to 2020-11-04T18:54:47Z (format of ISO 8601): `updateTime<=\"2020-11-04T18:54:47Z\"` * All insertion orders with an update time greater than or equal to 2020-11-04T18:54:47Z (format of ISO 8601): `updateTime>=\"2020-11-04T18:54:47Z\"` The length of this field should be no more than 500 characters. Reference our [filter `LIST` requests](/display-video/api/guides/how-tos/filters) guide for more information."
   ([advertiserId] (advertisers-insertionOrders-list advertiserId nil))
   ([advertiserId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/insertionOrders",
@@ -548,7 +548,7 @@ advertiserId <>
 InsertionOrder:
 InsertionOrder"
   [advertiserId InsertionOrder]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/insertionOrders",
@@ -575,7 +575,7 @@ updateMask <string> Required. The mask to control which fields to update."
       InsertionOrder
       nil))
   ([advertiserId insertionOrderId InsertionOrder optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/insertionOrders/{+insertionOrderId}",
@@ -593,7 +593,7 @@ https://developers.google.com/display-video/api/guides/getting-started/overview/
 advertiserId <> 
 insertionOrderId <> "
   [advertiserId insertionOrderId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/insertionOrders/{+insertionOrderId}",
@@ -615,7 +615,7 @@ assignedTargetingOptionId <> "
    insertionOrderId
    targetingType
    assignedTargetingOptionId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/insertionOrders/{+insertionOrderId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}",
@@ -646,7 +646,7 @@ filter <string> Allows filtering by assigned targeting option fields. Supported 
       targetingType
       nil))
   ([advertiserId insertionOrderId targetingType optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/insertionOrders/{+insertionOrderId}/targetingTypes/{+targetingType}/assignedTargetingOptions",
@@ -667,7 +667,7 @@ targetingType <>
 AssignedTargetingOption:
 AssignedTargetingOption"
   [advertiserId insertionOrderId targetingType AssignedTargetingOption]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/insertionOrders/{+insertionOrderId}/targetingTypes/{+targetingType}/assignedTargetingOptions",
@@ -691,7 +691,7 @@ assignedTargetingOptionId <> "
    insertionOrderId
    targetingType
    assignedTargetingOptionId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/insertionOrders/{+insertionOrderId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}",
@@ -711,7 +711,7 @@ advertiserId <>
 BulkEditAssignedTargetingOptionsRequest:
 BulkEditAssignedTargetingOptionsRequest"
   [advertiserId BulkEditAssignedTargetingOptionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/lineItems:bulkEditAssignedTargetingOptions",
@@ -732,7 +732,7 @@ orderBy <string> Field by which to sort the list. Acceptable values are: * `disp
 filter <string> Allows filtering by line item fields. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by `AND` or `OR` logical operators. A sequence of restrictions implicitly uses `AND`. * A restriction has the form of `{field} {operator} {value}`. * The `updateTime` field must use the `GREATER THAN OR EQUAL TO (>=)` or `LESS THAN OR EQUAL TO (<=)` operators. * All other fields must use the `EQUALS (=)` operator. Supported fields: * `campaignId` * `displayName` * `entityStatus` * `insertionOrderId` * `lineItemId` * `lineItemType` * `updateTime` (input in ISO 8601 format, or `YYYY-MM-DDTHH:MM:SSZ`) Examples: * All line items under an insertion order: `insertionOrderId=\"1234\"` * All `ENTITY_STATUS_ACTIVE` or `ENTITY_STATUS_PAUSED` and `LINE_ITEM_TYPE_DISPLAY_DEFAULT` line items under an advertiser: `(entityStatus=\"ENTITY_STATUS_ACTIVE\" OR entityStatus=\"ENTITY_STATUS_PAUSED\") AND lineItemType=\"LINE_ITEM_TYPE_DISPLAY_DEFAULT\"` * All line items with an update time less than or equal to 2020-11-04T18:54:47Z (format of ISO 8601): `updateTime<=\"2020-11-04T18:54:47Z\"` * All line items with an update time greater than or equal to 2020-11-04T18:54:47Z (format of ISO 8601): `updateTime>=\"2020-11-04T18:54:47Z\"` The length of this field should be no more than 500 characters. Reference our [filter `LIST` requests](/display-video/api/guides/how-tos/filters) guide for more information."
   ([advertiserId] (advertisers-lineItems-list advertiserId nil))
   ([advertiserId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/lineItems",
@@ -747,7 +747,7 @@ https://developers.google.com/display-video/api/guides/getting-started/overview/
 advertiserId <> 
 lineItemId <> "
   [advertiserId lineItemId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/lineItems/{+lineItemId}",
@@ -765,7 +765,7 @@ lineItemId <>
 DuplicateLineItemRequest:
 DuplicateLineItemRequest"
   [advertiserId lineItemId DuplicateLineItemRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/lineItems/{+lineItemId}:duplicate",
@@ -791,7 +791,7 @@ filter <string> Allows filtering by assigned targeting option fields. Supported 
       advertiserId
       nil))
   ([advertiserId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/lineItems:bulkListAssignedTargetingOptions",
@@ -807,7 +807,7 @@ advertiserId <>
 GenerateDefaultLineItemRequest:
 GenerateDefaultLineItemRequest"
   [advertiserId GenerateDefaultLineItemRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/lineItems:generateDefault",
@@ -830,7 +830,7 @@ updateMask <string> Required. The mask to control which fields to update."
   ([advertiserId lineItemId LineItem]
     (advertisers-lineItems-patch advertiserId lineItemId LineItem nil))
   ([advertiserId lineItemId LineItem optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/lineItems/{+lineItemId}",
@@ -848,7 +848,7 @@ advertiserId <>
 LineItem:
 LineItem"
   [advertiserId LineItem]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/lineItems",
@@ -864,7 +864,7 @@ https://developers.google.com/display-video/api/guides/getting-started/overview/
 advertiserId <> 
 lineItemId <> "
   [advertiserId lineItemId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/lineItems/{+lineItemId}",
@@ -881,7 +881,7 @@ advertiserId <>
 BulkUpdateLineItemsRequest:
 BulkUpdateLineItemsRequest"
   [advertiserId BulkUpdateLineItemsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/lineItems:bulkUpdate",
@@ -899,7 +899,7 @@ lineItemId <>
 targetingType <> 
 assignedTargetingOptionId <> "
   [advertiserId lineItemId targetingType assignedTargetingOptionId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/lineItems/{+lineItemId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}",
@@ -930,7 +930,7 @@ filter <string> Allows filtering by assigned targeting option fields. Supported 
       targetingType
       nil))
   ([advertiserId lineItemId targetingType optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/lineItems/{+lineItemId}/targetingTypes/{+targetingType}/assignedTargetingOptions",
@@ -951,7 +951,7 @@ targetingType <>
 AssignedTargetingOption:
 AssignedTargetingOption"
   [advertiserId lineItemId targetingType AssignedTargetingOption]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/lineItems/{+lineItemId}/targetingTypes/{+targetingType}/assignedTargetingOptions",
@@ -972,7 +972,7 @@ lineItemId <>
 targetingType <> 
 assignedTargetingOptionId <> "
   [advertiserId lineItemId targetingType assignedTargetingOptionId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/lineItems/{+lineItemId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}",
@@ -991,7 +991,7 @@ https://developers.google.com/display-video/api/guides/getting-started/overview/
 advertiserId <> 
 creativeId <> "
   [advertiserId creativeId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/creatives/{+creativeId}",
@@ -1012,7 +1012,7 @@ orderBy <string> Field by which to sort the list. Acceptable values are: * `crea
 filter <string> Allows filtering by creative fields. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by `AND` or `OR` logical operators. A sequence of restrictions implicitly uses `AND`. * A restriction has the form of `{field} {operator} {value}`. * The `lineItemIds` field must use the `HAS (:)` operator. * The `updateTime` field must use the `GREATER THAN OR EQUAL TO (>=)` or `LESS THAN OR EQUAL TO (<=)` operators. * All other fields must use the `EQUALS (=)` operator. * For `entityStatus`, `minDuration`, `maxDuration`, `updateTime`, and `dynamic` fields, there may be at most one restriction. Supported Fields: * `approvalStatus` * `creativeId` * `creativeType` * `dimensions` (input in the form of `{width}x{height}`) * `dynamic` * `entityStatus` * `exchangeReviewStatus` (input in the form of `{exchange}-{reviewStatus}`) * `lineItemIds` * `maxDuration` (input in the form of `{duration}s`. Only seconds are supported) * `minDuration` (input in the form of `{duration}s`. Only seconds are supported) * `updateTime` (input in ISO 8601 format, or `YYYY-MM-DDTHH:MM:SSZ`) Notes: * For `updateTime`, a creative resource's field value reflects the last time that a creative has been updated, which includes updates made by the system (e.g. creative review updates). Examples: * All native creatives: `creativeType=\"CREATIVE_TYPE_NATIVE\"` * All active creatives with 300x400 or 50x100 dimensions: `entityStatus=\"ENTITY_STATUS_ACTIVE\" AND (dimensions=\"300x400\" OR dimensions=\"50x100\")` * All dynamic creatives that are approved by AdX or AppNexus, with a minimum duration of 5 seconds and 200ms: `dynamic=\"true\" AND minDuration=\"5.2s\" AND (exchangeReviewStatus=\"EXCHANGE_GOOGLE_AD_MANAGER-REVIEW_STATUS_APPROVED\" OR exchangeReviewStatus=\"EXCHANGE_APPNEXUS-REVIEW_STATUS_APPROVED\")` * All video creatives that are associated with line item ID 1 or 2: `creativeType=\"CREATIVE_TYPE_VIDEO\" AND (lineItemIds:1 OR lineItemIds:2)` * Find creatives by multiple creative IDs: `creativeId=1 OR creativeId=2` * All creatives with an update time greater than or equal to 2020-11-04T18:54:47Z (format of ISO 8601): `updateTime>=\"2020-11-04T18:54:47Z\"` The length of this field should be no more than 500 characters. Reference our [filter `LIST` requests](/display-video/api/guides/how-tos/filters) guide for more information."
   ([advertiserId] (advertisers-creatives-list advertiserId nil))
   ([advertiserId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/creatives",
@@ -1028,7 +1028,7 @@ advertiserId <>
 Creative:
 Creative"
   [advertiserId Creative]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/creatives",
@@ -1051,7 +1051,7 @@ updateMask <string> Required. The mask to control which fields to update."
   ([advertiserId creativeId Creative]
     (advertisers-creatives-patch advertiserId creativeId Creative nil))
   ([advertiserId creativeId Creative optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/creatives/{+creativeId}",
@@ -1068,7 +1068,7 @@ https://developers.google.com/display-video/api/guides/getting-started/overview/
 advertiserId <> 
 creativeId <> "
   [advertiserId creativeId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/creatives/{+creativeId}",
@@ -1094,7 +1094,7 @@ filter <string> Allows filtering by assigned targeting option fields. Supported 
       campaignId
       nil))
   ([advertiserId campaignId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/campaigns/{+campaignId}:listAssignedTargetingOptions",
@@ -1110,7 +1110,7 @@ https://developers.google.com/display-video/api/guides/getting-started/overview/
 advertiserId <> 
 campaignId <> "
   [advertiserId campaignId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/campaigns/{+campaignId}",
@@ -1133,7 +1133,7 @@ orderBy <string> Field by which to sort the list. Acceptable values are: * `disp
 filter <string> Allows filtering by campaign fields. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by `AND` or `OR` logical operators. A sequence of restrictions implicitly uses `AND`. * A restriction has the form of `{field} {operator} {value}`. * The `updateTime` field must use the `GREATER THAN OR EQUAL TO (>=)` or `LESS THAN OR EQUAL TO (<=)` operators. * All other fields must use the `EQUALS (=)` operator. Supported fields: * `campaignId` * `displayName` * `entityStatus` * `updateTime` (input in ISO 8601 format, or `YYYY-MM-DDTHH:MM:SSZ`) Examples: * All `ENTITY_STATUS_ACTIVE` or `ENTITY_STATUS_PAUSED` campaigns under an advertiser: `(entityStatus=\"ENTITY_STATUS_ACTIVE\" OR entityStatus=\"ENTITY_STATUS_PAUSED\")` * All campaigns with an update time less than or equal to 2020-11-04T18:54:47Z (format of ISO 8601): `updateTime<=\"2020-11-04T18:54:47Z\"` * All campaigns with an update time greater than or equal to 2020-11-04T18:54:47Z (format of ISO 8601): `updateTime>=\"2020-11-04T18:54:47Z\"` The length of this field should be no more than 500 characters. Reference our [filter `LIST` requests](/display-video/api/guides/how-tos/filters) guide for more information."
   ([advertiserId] (advertisers-campaigns-list advertiserId nil))
   ([advertiserId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/campaigns",
@@ -1151,7 +1151,7 @@ advertiserId <>
 Campaign:
 Campaign"
   [advertiserId Campaign]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/campaigns",
@@ -1176,7 +1176,7 @@ updateMask <string> Required. The mask to control which fields to update."
   ([advertiserId campaignId Campaign]
     (advertisers-campaigns-patch advertiserId campaignId Campaign nil))
   ([advertiserId campaignId Campaign optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/campaigns/{+campaignId}",
@@ -1195,7 +1195,7 @@ https://developers.google.com/display-video/api/guides/getting-started/overview/
 advertiserId <> 
 campaignId <> "
   [advertiserId campaignId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/campaigns/{+campaignId}",
@@ -1215,7 +1215,7 @@ campaignId <>
 targetingType <> 
 assignedTargetingOptionId <> "
   [advertiserId campaignId targetingType assignedTargetingOptionId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/campaigns/{+campaignId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}",
@@ -1246,7 +1246,7 @@ filter <string> Allows filtering by assigned targeting option fields. Supported 
       targetingType
       nil))
   ([advertiserId campaignId targetingType optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/campaigns/{+campaignId}/targetingTypes/{+targetingType}/assignedTargetingOptions",
@@ -1264,7 +1264,7 @@ https://developers.google.com/display-video/api/guides/getting-started/overview/
 advertiserId <> 
 locationListId <> "
   [advertiserId locationListId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/locationLists/{+locationListId}",
@@ -1285,7 +1285,7 @@ orderBy <string> Field by which to sort the list. Acceptable values are: * `loca
 filter <string> Allows filtering by location list fields. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by `AND` or `OR` logical operators. A sequence of restrictions implicitly uses `AND`. * A restriction has the form of `{field} {operator} {value}`. * All fields must use the `EQUALS (=)` operator. Supported fields: * `locationType` Examples: * All regional location list: `locationType=\"TARGETING_LOCATION_TYPE_REGIONAL\"` * All proximity location list: `locationType=\"TARGETING_LOCATION_TYPE_PROXIMITY\"` The length of this field should be no more than 500 characters. Reference our [filter `LIST` requests](/display-video/api/guides/how-tos/filters) guide for more information."
   ([advertiserId] (advertisers-locationLists-list advertiserId nil))
   ([advertiserId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/locationLists",
@@ -1301,7 +1301,7 @@ advertiserId <>
 LocationList:
 LocationList"
   [advertiserId LocationList]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/locationLists",
@@ -1328,7 +1328,7 @@ updateMask <string> Required. The mask to control which fields to update."
       LocationList
       nil))
   ([advertiserId locationListId LocationList optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/locationLists/{locationListId}",
@@ -1355,7 +1355,7 @@ filter <string> Allows filtering by location list assignment fields. Supported s
       locationListId
       nil))
   ([advertiserId locationListId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{advertiserId}/locationLists/{locationListId}/assignedLocations",
@@ -1373,7 +1373,7 @@ locationListId <>
 AssignedLocation:
 AssignedLocation"
   [advertiserId locationListId AssignedLocation]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{advertiserId}/locationLists/{locationListId}/assignedLocations",
@@ -1391,7 +1391,7 @@ advertiserId <>
 locationListId <> 
 assignedLocationId <> "
   [advertiserId locationListId assignedLocationId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{advertiserId}/locationLists/{locationListId}/assignedLocations/{+assignedLocationId}",
@@ -1411,7 +1411,7 @@ locationListId <>
 BulkEditAssignedLocationsRequest:
 BulkEditAssignedLocationsRequest"
   [advertiserId locationListId BulkEditAssignedLocationsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{advertiserId}/locationLists/{+locationListId}/assignedLocations:bulkEdit",
@@ -1437,7 +1437,7 @@ filter <string> Optional. Allows filtering by assigned targeting option fields. 
       advertiserId
       nil))
   ([advertiserId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/adGroups:bulkListAdGroupAssignedTargetingOptions",
@@ -1452,7 +1452,7 @@ https://developers.google.com/display-video/api/guides/getting-started/overview/
 advertiserId <> 
 adGroupId <> "
   [advertiserId adGroupId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/adGroups/{+adGroupId}",
@@ -1473,7 +1473,7 @@ orderBy <string> Optional. Field by which to sort the list. Acceptable values ar
 filter <string> Optional. Allows filtering by custom ad group fields. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by `AND` and `OR`. A sequence of restrictions implicitly uses `AND`. * A restriction has the form of `{field} {operator} {value}`. * All fields must use the `EQUALS (=)` operator. Supported properties: * `adGroupId` * `displayName` * `entityStatus` * `lineItemId` * `adGroupFormat` Examples: * All ad groups under an line item: `lineItemId=\"1234\"` * All `ENTITY_STATUS_ACTIVE` or `ENTITY_STATUS_PAUSED` `AD_GROUP_FORMAT_IN_STREAM` ad groups under an advertiser: `(entityStatus=\"ENTITY_STATUS_ACTIVE\" OR entityStatus=\"ENTITY_STATUS_PAUSED\") AND adGroupFormat=\"AD_GROUP_FORMAT_IN_STREAM\"` The length of this field should be no more than 500 characters. Reference our [filter `LIST` requests](/display-video/api/guides/how-tos/filters) guide for more information."
   ([advertiserId] (advertisers-adGroups-list advertiserId nil))
   ([advertiserId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/adGroups",
@@ -1490,7 +1490,7 @@ adGroupId <>
 targetingType <> 
 assignedTargetingOptionId <> "
   [advertiserId adGroupId targetingType assignedTargetingOptionId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/adGroups/{+adGroupId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}",
@@ -1521,7 +1521,7 @@ filter <string> Optional. Allows filtering by assigned targeting option fields. 
       targetingType
       nil))
   ([advertiserId adGroupId targetingType optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/adGroups/{+adGroupId}/targetingTypes/{+targetingType}/assignedTargetingOptions",
@@ -1540,7 +1540,7 @@ advertiserId <>
 targetingType <> 
 assignedTargetingOptionId <> "
   [advertiserId targetingType assignedTargetingOptionId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}",
@@ -1568,7 +1568,7 @@ filter <string> Allows filtering by assigned targeting option fields. Supported 
       targetingType
       nil))
   ([advertiserId targetingType optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/targetingTypes/{+targetingType}/assignedTargetingOptions",
@@ -1586,7 +1586,7 @@ targetingType <>
 AssignedTargetingOption:
 AssignedTargetingOption"
   [advertiserId targetingType AssignedTargetingOption]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/targetingTypes/{+targetingType}/assignedTargetingOptions",
@@ -1604,7 +1604,7 @@ advertiserId <>
 targetingType <> 
 assignedTargetingOptionId <> "
   [advertiserId targetingType assignedTargetingOptionId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}",
@@ -1622,7 +1622,7 @@ https://developers.google.com/display-video/api/guides/getting-started/overview/
 advertiserId <> 
 negativeKeywordListId <> "
   [advertiserId negativeKeywordListId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/negativeKeywordLists/{+negativeKeywordListId}",
@@ -1643,7 +1643,7 @@ pageSize <integer> Requested page size. Must be between `1` and `200`. Defaults 
   ([advertiserId]
     (advertisers-negativeKeywordLists-list advertiserId nil))
   ([advertiserId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/negativeKeywordLists",
@@ -1659,7 +1659,7 @@ advertiserId <>
 NegativeKeywordList:
 NegativeKeywordList"
   [advertiserId NegativeKeywordList]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/negativeKeywordLists",
@@ -1686,7 +1686,7 @@ updateMask <string> Required. The mask to control which fields to update."
       NegativeKeywordList
       nil))
   ([advertiserId negativeKeywordListId NegativeKeywordList optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/negativeKeywordLists/{negativeKeywordListId}",
@@ -1704,7 +1704,7 @@ https://developers.google.com/display-video/api/guides/getting-started/overview/
 advertiserId <> 
 negativeKeywordListId <> "
   [advertiserId negativeKeywordListId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/negativeKeywordLists/{+negativeKeywordListId}",
@@ -1731,7 +1731,7 @@ filter <string> Allows filtering by negative keyword fields. Supported syntax: *
       negativeKeywordListId
       nil))
   ([advertiserId negativeKeywordListId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/negativeKeywordLists/{+negativeKeywordListId}/negativeKeywords",
@@ -1750,7 +1750,7 @@ negativeKeywordListId <>
 NegativeKeyword:
 NegativeKeyword"
   [advertiserId negativeKeywordListId NegativeKeyword]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{advertiserId}/negativeKeywordLists/{+negativeKeywordListId}/negativeKeywords",
@@ -1769,7 +1769,7 @@ advertiserId <>
 negativeKeywordListId <> 
 keywordValue <> "
   [advertiserId negativeKeywordListId keywordValue]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{advertiserId}/negativeKeywordLists/{+negativeKeywordListId}/negativeKeywords/{+keywordValue}",
@@ -1789,7 +1789,7 @@ negativeKeywordListId <>
 BulkEditNegativeKeywordsRequest:
 BulkEditNegativeKeywordsRequest"
   [advertiserId negativeKeywordListId BulkEditNegativeKeywordsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{advertiserId}/negativeKeywordLists/{+negativeKeywordListId}/negativeKeywords:bulkEdit",
@@ -1809,7 +1809,7 @@ negativeKeywordListId <>
 ReplaceNegativeKeywordsRequest:
 ReplaceNegativeKeywordsRequest"
   [advertiserId negativeKeywordListId ReplaceNegativeKeywordsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{advertiserId}/negativeKeywordLists/{+negativeKeywordListId}/negativeKeywords:replace",
@@ -1828,7 +1828,7 @@ advertiserId <>
 CreateAssetRequest:
 CreateAssetRequest"
   [advertiserId CreateAssetRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/assets",
@@ -1844,7 +1844,7 @@ https://developers.google.com/display-video/api/guides/getting-started/overview/
 advertiserId <> 
 adGroupAdId <> "
   [advertiserId adGroupAdId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/adGroupAds/{+adGroupAdId}",
@@ -1865,7 +1865,7 @@ orderBy <string> Optional. Field by which to sort the list. Acceptable values ar
 filter <string> Optional. Allows filtering by custom ad group ad fields. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by `AND` and `OR`. A sequence of restrictions implicitly uses `AND`. * A restriction has the form of `{field} {operator} {value}`. * All fields must use the `EQUALS (=)` operator. Supported fields: * `adGroupId` * `displayName` * `entityStatus` * `adGroupAdId` Examples: * All ad group ads under an ad group: `adGroupId=\"1234\"` * All ad group ads under an ad group with an entityStatus of `ENTITY_STATUS_ACTIVE` or `ENTITY_STATUS_PAUSED`: `(entityStatus=\"ENTITY_STATUS_ACTIVE\" OR entityStatus=\"ENTITY_STATUS_PAUSED\") AND adGroupId=\"12345\"` The length of this field should be no more than 500 characters. Reference our [filter `LIST` requests](/display-video/api/guides/how-tos/filters) guide for more information."
   ([advertiserId] (advertisers-adGroupAds-list advertiserId nil))
   ([advertiserId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/adGroupAds",
@@ -1885,7 +1885,7 @@ loiSapinInvoiceType <string> Select type of invoice to retrieve for Loi Sapin ad
 pageSize <integer> Requested page size. Must be between `1` and `200`. If unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value is specified."
   ([advertiserId] (advertisers-invoices-list advertiserId nil))
   ([advertiserId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/invoices",
@@ -1906,7 +1906,7 @@ invoiceMonth <string> Month for which the currency is needed. If not set, the re
   ([advertiserId]
     (advertisers-invoices-lookupInvoiceCurrency advertiserId nil))
   ([advertiserId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/invoices:lookupInvoiceCurrency",
@@ -1928,7 +1928,7 @@ partnerId <string> The ID of the partner that owns the fetched channel."
   ([advertiserId channelId]
     (advertisers-channels-get advertiserId channelId nil))
   ([advertiserId channelId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/channels/{+channelId}",
@@ -1950,7 +1950,7 @@ orderBy <string> Field by which to sort the list. Acceptable values are: * `disp
 filter <string> Allows filtering by channel fields. Supported syntax: * Filter expressions for channel can only contain at most one restriction. * A restriction has the form of `{field} {operator} {value}`. * All fields must use the `HAS (:)` operator. Supported fields: * `displayName` Examples: * All channels for which the display name contains \"google\": `displayName : \"google\"`. The length of this field should be no more than 500 characters. Reference our [filter `LIST` requests](/display-video/api/guides/how-tos/filters) guide for more information."
   ([advertiserId] (advertisers-channels-list advertiserId nil))
   ([advertiserId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/channels",
@@ -1971,7 +1971,7 @@ partnerId <string> The ID of the partner that owns the created channel."
   ([advertiserId Channel]
     (advertisers-channels-create advertiserId Channel nil))
   ([advertiserId Channel optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/channels",
@@ -1995,7 +1995,7 @@ updateMask <string> Required. The mask to control which fields to update."
   ([advertiserId channelId Channel]
     (advertisers-channels-patch advertiserId channelId Channel nil))
   ([advertiserId channelId Channel optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/channels/{channelId}",
@@ -2020,7 +2020,7 @@ filter <string> Allows filtering by site fields. Supported syntax: * Filter expr
   ([advertiserId channelId]
     (advertisers-channels-sites-list advertiserId channelId nil))
   ([advertiserId channelId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{+advertiserId}/channels/{+channelId}/sites",
@@ -2047,7 +2047,7 @@ partnerId <string> The ID of the partner that owns the parent channel."
       Site
       nil))
   ([advertiserId channelId Site optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{advertiserId}/channels/{+channelId}/sites",
@@ -2074,7 +2074,7 @@ partnerId <string> The ID of the partner that owns the parent channel."
       urlOrAppId
       nil))
   ([advertiserId channelId urlOrAppId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://displayvideo.googleapis.com/v3/advertisers/{advertiserId}/channels/{+channelId}/sites/{+urlOrAppId}",
@@ -2094,7 +2094,7 @@ channelId <>
 BulkEditSitesRequest:
 BulkEditSitesRequest"
   [advertiserId channelId BulkEditSitesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{advertiserId}/channels/{+channelId}/sites:bulkEdit",
@@ -2113,7 +2113,7 @@ channelId <>
 ReplaceSitesRequest:
 ReplaceSitesRequest"
   [advertiserId channelId ReplaceSitesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/advertisers/{advertiserId}/channels/{+channelId}/sites:replace",
@@ -2134,7 +2134,7 @@ partnerId <string> The ID of the partner that has access to the fetched Google a
 advertiserId <string> The ID of the advertiser that has access to the fetched Google audience."
   ([googleAudienceId] (googleAudiences-get googleAudienceId nil))
   ([googleAudienceId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/googleAudiences/{+googleAudienceId}",
@@ -2154,7 +2154,7 @@ orderBy <string> Field by which to sort the list. Acceptable values are: * `goog
 filter <string> Allows filtering by Google audience fields. Supported syntax: * Filter expressions for Google audiences can only contain at most one restriction. * A restriction has the form of `{field} {operator} {value}`. * All fields must use the `HAS (:)` operator. Supported fields: * `displayName` Examples: * All Google audiences for which the display name contains \"Google\": `displayName:\"Google\"`. The length of this field should be no more than 500 characters. Reference our [filter `LIST` requests](/display-video/api/guides/how-tos/filters) guide for more information."
   ([] (googleAudiences-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/googleAudiences",
@@ -2170,7 +2170,7 @@ partnerId <>
 BulkEditPartnerAssignedTargetingOptionsRequest:
 BulkEditPartnerAssignedTargetingOptionsRequest"
   [partnerId BulkEditPartnerAssignedTargetingOptionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/partners/{+partnerId}:editAssignedTargetingOptions",
@@ -2185,7 +2185,7 @@ https://developers.google.com/display-video/api/guides/getting-started/overview/
 
 partnerId <> "
   [partnerId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://displayvideo.googleapis.com/v3/partners/{+partnerId}",
@@ -2203,7 +2203,7 @@ orderBy <string> Field by which to sort the list. Acceptable values are: * `disp
 filter <string> Allows filtering by partner fields. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by `AND` or `OR` logical operators. A sequence of restrictions implicitly uses `AND`. * A restriction has the form of `{field} {operator} {value}`. * All fields must use the `EQUALS (=)` operator. Supported fields: * `entityStatus` Examples: * All active partners: `entityStatus=\"ENTITY_STATUS_ACTIVE\"` The length of this field should be no more than 500 characters. Reference our [filter `LIST` requests](/display-video/api/guides/how-tos/filters) guide for more information."
   ([] (partners-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://displayvideo.googleapis.com/v3/partners",
        :uri-template-args {},
@@ -2222,7 +2222,7 @@ advertiserId <string> The ID of the advertiser that owns the fetched channel."
   ([partnerId channelId]
     (partners-channels-get partnerId channelId nil))
   ([partnerId channelId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/partners/{+partnerId}/channels/{+channelId}",
@@ -2244,7 +2244,7 @@ orderBy <string> Field by which to sort the list. Acceptable values are: * `disp
 filter <string> Allows filtering by channel fields. Supported syntax: * Filter expressions for channel can only contain at most one restriction. * A restriction has the form of `{field} {operator} {value}`. * All fields must use the `HAS (:)` operator. Supported fields: * `displayName` Examples: * All channels for which the display name contains \"google\": `displayName : \"google\"`. The length of this field should be no more than 500 characters. Reference our [filter `LIST` requests](/display-video/api/guides/how-tos/filters) guide for more information."
   ([partnerId] (partners-channels-list partnerId nil))
   ([partnerId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/partners/{+partnerId}/channels",
@@ -2265,7 +2265,7 @@ advertiserId <string> The ID of the advertiser that owns the created channel."
   ([partnerId Channel]
     (partners-channels-create partnerId Channel nil))
   ([partnerId Channel optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://displayvideo.googleapis.com/v3/partners/{+partnerId}/channels",
@@ -2289,7 +2289,7 @@ updateMask <string> Required. The mask to control which fields to update."
   ([partnerId channelId Channel]
     (partners-channels-patch partnerId channelId Channel nil))
   ([partnerId channelId Channel optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://displayvideo.googleapis.com/v3/partners/{+partnerId}/channels/{channelId}",
@@ -2314,7 +2314,7 @@ filter <string> Allows filtering by site fields. Supported syntax: * Filter expr
   ([partnerId channelId]
     (partners-channels-sites-list partnerId channelId nil))
   ([partnerId channelId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/partners/{+partnerId}/channels/{+channelId}/sites",
@@ -2337,7 +2337,7 @@ advertiserId <string> The ID of the advertiser that owns the parent channel."
   ([partnerId channelId Site]
     (partners-channels-sites-create partnerId channelId Site nil))
   ([partnerId channelId Site optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://displayvideo.googleapis.com/v3/partners/{partnerId}/channels/{+channelId}/sites",
@@ -2364,7 +2364,7 @@ advertiserId <string> The ID of the advertiser that owns the parent channel."
       urlOrAppId
       nil))
   ([partnerId channelId urlOrAppId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://displayvideo.googleapis.com/v3/partners/{partnerId}/channels/{+channelId}/sites/{+urlOrAppId}",
@@ -2384,7 +2384,7 @@ channelId <>
 BulkEditSitesRequest:
 BulkEditSitesRequest"
   [partnerId channelId BulkEditSitesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/partners/{partnerId}/channels/{+channelId}/sites:bulkEdit",
@@ -2402,7 +2402,7 @@ channelId <>
 ReplaceSitesRequest:
 ReplaceSitesRequest"
   [partnerId channelId ReplaceSitesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/partners/{partnerId}/channels/{+channelId}/sites:replace",
@@ -2419,7 +2419,7 @@ partnerId <>
 targetingType <> 
 assignedTargetingOptionId <> "
   [partnerId targetingType assignedTargetingOptionId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://displayvideo.googleapis.com/v3/partners/{+partnerId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}",
@@ -2447,7 +2447,7 @@ filter <string> Allows filtering by assigned targeting option fields. Supported 
       targetingType
       nil))
   ([partnerId targetingType optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/partners/{+partnerId}/targetingTypes/{+targetingType}/assignedTargetingOptions",
@@ -2465,7 +2465,7 @@ targetingType <>
 AssignedTargetingOption:
 AssignedTargetingOption"
   [partnerId targetingType AssignedTargetingOption]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/partners/{+partnerId}/targetingTypes/{+targetingType}/assignedTargetingOptions",
@@ -2483,7 +2483,7 @@ partnerId <>
 targetingType <> 
 assignedTargetingOptionId <> "
   [partnerId targetingType assignedTargetingOptionId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://displayvideo.googleapis.com/v3/partners/{+partnerId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}",
@@ -2506,7 +2506,7 @@ advertiserId <string> The ID of the advertiser that has access to the fetched fi
   ([firstAndThirdPartyAudienceId]
     (firstAndThirdPartyAudiences-get firstAndThirdPartyAudienceId nil))
   ([firstAndThirdPartyAudienceId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/firstAndThirdPartyAudiences/{+firstAndThirdPartyAudienceId}",
@@ -2527,7 +2527,7 @@ orderBy <string> Field by which to sort the list. Acceptable values are: * `firs
 filter <string> Allows filtering by first and third party audience fields. Supported syntax: * Filter expressions for first and third party audiences can only contain at most one restriction. * A restriction has the form of `{field} {operator} {value}`. * All fields must use the `HAS (:)` operator. Supported fields: * `displayName` Examples: * All first and third party audiences for which the display name contains \"Google\": `displayName:\"Google\"`. The length of this field should be no more than 500 characters. Reference our [filter `LIST` requests](/display-video/api/guides/how-tos/filters) guide for more information."
   ([] (firstAndThirdPartyAudiences-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/firstAndThirdPartyAudiences",
@@ -2549,7 +2549,7 @@ advertiserId <string> Required. The ID of the advertiser under whom the FirstAnd
       FirstAndThirdPartyAudience
       nil))
   ([FirstAndThirdPartyAudience optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://displayvideo.googleapis.com/v3/firstAndThirdPartyAudiences",
@@ -2575,7 +2575,7 @@ advertiserId <string> Required. The ID of the owner advertiser of the updated Fi
       FirstAndThirdPartyAudience
       nil))
   ([firstAndThirdPartyAudienceId FirstAndThirdPartyAudience optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://displayvideo.googleapis.com/v3/firstAndThirdPartyAudiences/{+firstAndThirdPartyAudienceId}",
@@ -2593,7 +2593,7 @@ firstAndThirdPartyAudienceId <>
 EditCustomerMatchMembersRequest:
 EditCustomerMatchMembersRequest"
   [firstAndThirdPartyAudienceId EditCustomerMatchMembersRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/firstAndThirdPartyAudiences/{+firstAndThirdPartyAudienceId}:editCustomerMatchMembers",
@@ -2614,7 +2614,7 @@ partnerId <string> The ID of the partner that has access to the fetched combined
 advertiserId <string> The ID of the advertiser that has access to the fetched combined audience."
   ([combinedAudienceId] (combinedAudiences-get combinedAudienceId nil))
   ([combinedAudienceId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/combinedAudiences/{+combinedAudienceId}",
@@ -2634,7 +2634,7 @@ orderBy <string> Field by which to sort the list. Acceptable values are: * `comb
 filter <string> Allows filtering by combined audience fields. Supported syntax: * Filter expressions for combined audiences can only contain at most one restriction. * A restriction has the form of `{field} {operator} {value}`. * All fields must use the `HAS (:)` operator. Supported fields: * `displayName` Examples: * All combined audiences for which the display name contains \"Google\": `displayName : \"Google\"`. The length of this field should be no more than 500 characters. Reference our [filter `LIST` requests](/display-video/api/guides/how-tos/filters) guide for more information."
   ([] (combinedAudiences-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/combinedAudiences",
@@ -2654,7 +2654,7 @@ partnerId <string> The ID of the partner that the request is being made within.
 advertiserId <string> The ID of the advertiser that the request is being made within."
   ([GuaranteedOrder] (guaranteedOrders-create GuaranteedOrder nil))
   ([GuaranteedOrder optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://displayvideo.googleapis.com/v3/guaranteedOrders",
@@ -2674,7 +2674,7 @@ partnerId <string> The ID of the partner that has access to the guaranteed order
 advertiserId <string> The ID of the advertiser that has access to the guaranteed order."
   ([guaranteedOrderId] (guaranteedOrders-get guaranteedOrderId nil))
   ([guaranteedOrderId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/guaranteedOrders/{+guaranteedOrderId}",
@@ -2694,7 +2694,7 @@ orderBy <string> Field by which to sort the list. Acceptable values are: * `disp
 filter <string> Allows filtering by guaranteed order fields. * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by `AND` or `OR` logical operators. A sequence of restrictions implicitly uses `AND`. * A restriction has the form of `{field} {operator} {value}`. * All fields must use the `EQUALS (=)` operator. Supported fields: * `guaranteed_order_id` * `exchange` * `display_name` * `status.entityStatus` Examples: * All active guaranteed orders: `status.entityStatus=\"ENTITY_STATUS_ACTIVE\"` * Guaranteed orders belonging to Google Ad Manager or Rubicon exchanges: `exchange=\"EXCHANGE_GOOGLE_AD_MANAGER\" OR exchange=\"EXCHANGE_RUBICON\"` The length of this field should be no more than 500 characters. Reference our [filter `LIST` requests](/display-video/api/guides/how-tos/filters) guide for more information."
   ([] (guaranteedOrders-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/guaranteedOrders",
@@ -2717,7 +2717,7 @@ advertiserId <string> The ID of the advertiser that the request is being made wi
   ([guaranteedOrderId GuaranteedOrder]
     (guaranteedOrders-patch guaranteedOrderId GuaranteedOrder nil))
   ([guaranteedOrderId GuaranteedOrder optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://displayvideo.googleapis.com/v3/guaranteedOrders/{+guaranteedOrderId}",
@@ -2734,7 +2734,7 @@ guaranteedOrderId <>
 EditGuaranteedOrderReadAccessorsRequest:
 EditGuaranteedOrderReadAccessorsRequest"
   [guaranteedOrderId EditGuaranteedOrderReadAccessorsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/guaranteedOrders/{+guaranteedOrderId}:editGuaranteedOrderReadAccessors",
@@ -2750,7 +2750,7 @@ https://developers.google.com/display-video/api/guides/getting-started/overview/
 CreateSdfDownloadTaskRequest:
 CreateSdfDownloadTaskRequest"
   [CreateSdfDownloadTaskRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/sdfdownloadtasks",
@@ -2765,7 +2765,7 @@ https://developers.google.com/display-video/api/guides/getting-started/overview/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://displayvideo.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -2780,7 +2780,7 @@ https://developers.google.com/display-video/api/guides/getting-started/overview/
 
 userId <> "
   [userId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://displayvideo.googleapis.com/v3/users/{+userId}",
@@ -2799,7 +2799,7 @@ orderBy <string> Field by which to sort the list. Acceptable values are: * `disp
 filter <string> Allows filtering by user fields. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by the logical operator `AND`. * A restriction has the form of `{field} {operator} {value}`. * The `displayName` and `email` fields must use the `HAS (:)` operator. * The `lastLoginTime` field must use either the `LESS THAN OR EQUAL TO (<=)` or `GREATER THAN OR EQUAL TO (>=)` operator. * All other fields must use the `EQUALS (=)` operator. Supported fields: * `assignedUserRole.advertiserId` * `assignedUserRole.entityType`: This is synthetic field of `AssignedUserRole` used for filtering. Identifies the type of entity to which the user role is assigned. Valid values are `Partner` and `Advertiser`. * `assignedUserRole.parentPartnerId`: This is a synthetic field of `AssignedUserRole` used for filtering. Identifies the parent partner of the entity to which the user role is assigned. * `assignedUserRole.partnerId` * `assignedUserRole.userRole` * `displayName` * `email` * `lastLoginTime` (input in ISO 8601 format, or `YYYY-MM-DDTHH:MM:SSZ`) Examples: * The user with `displayName` containing \"foo\": `displayName:\"foo\"` * The user with `email` containing \"bar\": `email:\"bar\"` * All users with standard user roles: `assignedUserRole.userRole=\"STANDARD\"` * All users with user roles for partner 123: `assignedUserRole.partnerId=\"123\"` * All users with user roles for advertiser 123: `assignedUserRole.advertiserId=\"123\"` * All users with partner level user roles: `entityType=\"PARTNER\"` * All users with user roles for partner 123 and advertisers under partner 123: `parentPartnerId=\"123\"` * All users that last logged in on or after 2023-01-01T00:00:00Z (format of ISO 8601): `lastLoginTime>=\"2023-01-01T00:00:00Z\"` The length of this field should be no more than 500 characters. Reference our [filter `LIST` requests](/display-video/api/guides/how-tos/filters) guide for more information."
   ([] (users-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://displayvideo.googleapis.com/v3/users",
        :uri-template-args {},
@@ -2814,7 +2814,7 @@ https://developers.google.com/display-video/api/guides/getting-started/overview/
 User:
 User"
   [User]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://displayvideo.googleapis.com/v3/users",
      :uri-template-args {},
@@ -2835,7 +2835,7 @@ optional:
 updateMask <string> Required. The mask to control which fields to update."
   ([userId User] (users-patch userId User nil))
   ([userId User optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://displayvideo.googleapis.com/v3/users/{+userId}",
@@ -2851,7 +2851,7 @@ https://developers.google.com/display-video/api/guides/getting-started/overview/
 
 userId <> "
   [userId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://displayvideo.googleapis.com/v3/users/{+userId}",
@@ -2868,7 +2868,7 @@ userId <>
 BulkEditAssignedUserRolesRequest:
 BulkEditAssignedUserRolesRequest"
   [userId BulkEditAssignedUserRolesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/users/{+userId}:bulkEditAssignedUserRoles",
@@ -2888,7 +2888,7 @@ optional:
 advertiserId <string> The ID of the DV360 advertiser that has access to the fetched custom lists."
   ([customListId] (customLists-get customListId nil))
   ([customListId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/customLists/{+customListId}",
@@ -2907,7 +2907,7 @@ orderBy <string> Field by which to sort the list. Acceptable values are: * `cust
 filter <string> Allows filtering by custom list fields. Supported syntax: * Filter expressions for custom lists can only contain at most one restriction. * A restriction has the form of `{field} {operator} {value}`. * All fields must use the `HAS (:)` operator. Supported fields: * `displayName` Examples: * All custom lists for which the display name contains \"Google\": `displayName:\"Google\"`. The length of this field should be no more than 500 characters. Reference our [filter `LIST` requests](/display-video/api/guides/how-tos/filters) guide for more information."
   ([] (customLists-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/customLists",
@@ -2930,7 +2930,7 @@ advertiserId <string> Required. The Advertiser this request is being made in the
       targetingOptionId
       nil))
   ([targetingType targetingOptionId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/targetingTypes/{+targetingType}/targetingOptions/{+targetingOptionId}",
@@ -2954,7 +2954,7 @@ filter <string> Allows filtering by targeting option fields. Supported syntax: *
   ([targetingType]
     (targetingTypes-targetingOptions-list targetingType nil))
   ([targetingType optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/targetingTypes/{+targetingType}/targetingOptions",
@@ -2970,7 +2970,7 @@ targetingType <>
 SearchTargetingOptionsRequest:
 SearchTargetingOptionsRequest"
   [targetingType SearchTargetingOptionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/targetingTypes/{+targetingType}/targetingOptions:search",
@@ -2990,7 +2990,7 @@ partnerId <string> Required. The ID of the DV360 partner to which the fetched in
 advertiserId <string> Optional. The ID of the DV360 advertiser to which the fetched inventory source is permissioned. If the user only has access to the advertiser and not the parent partner, use this field to specify the relevant advertiser."
   ([inventorySourceId] (inventorySources-get inventorySourceId nil))
   ([inventorySourceId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/inventorySources/{+inventorySourceId}",
@@ -3010,7 +3010,7 @@ orderBy <string> Field by which to sort the list. Acceptable values are: * `disp
 filter <string> Allows filtering by inventory source fields. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by `AND` or `OR` logical operators. A sequence of restrictions implicitly uses `AND`. * A restriction has the form of `{field} {operator} {value}`. * All fields must use the `EQUALS (=)` operator. Supported fields: * `status.entityStatus` * `commitment` * `deliveryMethod` * `rateDetails.rateType` * `exchange` Examples: * All active inventory sources: `status.entityStatus=\"ENTITY_STATUS_ACTIVE\"` * Inventory sources belonging to Google Ad Manager or Rubicon exchanges: `exchange=\"EXCHANGE_GOOGLE_AD_MANAGER\" OR exchange=\"EXCHANGE_RUBICON\"` The length of this field should be no more than 500 characters. Reference our [filter `LIST` requests](/display-video/api/guides/how-tos/filters) guide for more information."
   ([] (inventorySources-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/inventorySources",
@@ -3030,7 +3030,7 @@ partnerId <string> The ID of the partner that the request is being made within.
 advertiserId <string> The ID of the advertiser that the request is being made within."
   ([InventorySource] (inventorySources-create InventorySource nil))
   ([InventorySource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://displayvideo.googleapis.com/v3/inventorySources",
@@ -3054,7 +3054,7 @@ advertiserId <string> The ID of the advertiser that the request is being made wi
   ([inventorySourceId InventorySource]
     (inventorySources-patch inventorySourceId InventorySource nil))
   ([inventorySourceId InventorySource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://displayvideo.googleapis.com/v3/inventorySources/{+inventorySourceId}",
@@ -3071,7 +3071,7 @@ inventorySourceId <>
 EditInventorySourceReadWriteAccessorsRequest:
 EditInventorySourceReadWriteAccessorsRequest"
   [inventorySourceId EditInventorySourceReadWriteAccessorsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/inventorySources/{+inventorySourceId}:editInventorySourceReadWriteAccessors",
@@ -3092,7 +3092,7 @@ advertiserId <string> The ID of the advertiser that owns the parent custom biddi
   ([customBiddingAlgorithmId]
     (customBiddingAlgorithms-uploadRules customBiddingAlgorithmId nil))
   ([customBiddingAlgorithmId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/customBiddingAlgorithms/{+customBiddingAlgorithmId}:uploadRules",
@@ -3113,7 +3113,7 @@ advertiserId <string> The ID of the DV360 partner that has access to the custom 
   ([customBiddingAlgorithmId]
     (customBiddingAlgorithms-get customBiddingAlgorithmId nil))
   ([customBiddingAlgorithmId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/customBiddingAlgorithms/{+customBiddingAlgorithmId}",
@@ -3134,7 +3134,7 @@ orderBy <string> Field by which to sort the list. Acceptable values are: * `disp
 filter <string> Allows filtering by custom bidding algorithm fields. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by `AND`. A sequence of restrictions implicitly uses `AND`. * A restriction has the form of `{field} {operator} {value}`. * The `customBiddingAlgorithmType` field must use the `EQUALS (=)` operator. * The `displayName` field must use the `HAS (:)` operator. Supported fields: * `customBiddingAlgorithmType` * `displayName` Examples: * All custom bidding algorithms for which the display name contains \"politics\": `displayName:\"politics\"`. * All custom bidding algorithms for which the type is \"SCRIPT_BASED\": `customBiddingAlgorithmType=SCRIPT_BASED` The length of this field should be no more than 500 characters. Reference our [filter `LIST` requests](/display-video/api/guides/how-tos/filters) guide for more information."
   ([] (customBiddingAlgorithms-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/customBiddingAlgorithms",
@@ -3149,7 +3149,7 @@ https://developers.google.com/display-video/api/guides/getting-started/overview/
 CustomBiddingAlgorithm:
 CustomBiddingAlgorithm"
   [CustomBiddingAlgorithm]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://displayvideo.googleapis.com/v3/customBiddingAlgorithms",
@@ -3174,7 +3174,7 @@ updateMask <string> Required. The mask to control which fields to update."
       CustomBiddingAlgorithm
       nil))
   ([customBiddingAlgorithmId CustomBiddingAlgorithm optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://displayvideo.googleapis.com/v3/customBiddingAlgorithms/{+customBiddingAlgorithmId}",
@@ -3198,7 +3198,7 @@ advertiserId <string> The ID of the advertiser that owns the parent custom biddi
       customBiddingAlgorithmId
       nil))
   ([customBiddingAlgorithmId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/customBiddingAlgorithms/{+customBiddingAlgorithmId}:uploadScript",
@@ -3224,7 +3224,7 @@ advertiserId <string> The ID of the advertiser that owns the parent custom biddi
       CustomBiddingAlgorithmRules
       nil))
   ([customBiddingAlgorithmId CustomBiddingAlgorithmRules optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://displayvideo.googleapis.com/v3/customBiddingAlgorithms/{+customBiddingAlgorithmId}/rules",
@@ -3250,7 +3250,7 @@ advertiserId <string> The ID of the advertiser that owns the parent custom biddi
       customBiddingAlgorithmRulesId
       nil))
   ([customBiddingAlgorithmId customBiddingAlgorithmRulesId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/customBiddingAlgorithms/{+customBiddingAlgorithmId}/rules/{+customBiddingAlgorithmRulesId}",
@@ -3274,7 +3274,7 @@ orderBy <string> Field by which to sort the list. Acceptable values are: * `crea
   ([customBiddingAlgorithmId]
     (customBiddingAlgorithms-rules-list customBiddingAlgorithmId nil))
   ([customBiddingAlgorithmId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/customBiddingAlgorithms/{+customBiddingAlgorithmId}/rules",
@@ -3300,7 +3300,7 @@ advertiserId <string> The ID of the advertiser that owns the parent custom biddi
       CustomBiddingScript
       nil))
   ([customBiddingAlgorithmId CustomBiddingScript optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://displayvideo.googleapis.com/v3/customBiddingAlgorithms/{+customBiddingAlgorithmId}/scripts",
@@ -3326,7 +3326,7 @@ advertiserId <string> The ID of the advertiser that owns the parent custom biddi
       customBiddingScriptId
       nil))
   ([customBiddingAlgorithmId customBiddingScriptId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/customBiddingAlgorithms/{+customBiddingAlgorithmId}/scripts/{+customBiddingScriptId}",
@@ -3352,7 +3352,7 @@ orderBy <string> Field by which to sort the list. Acceptable values are: * `crea
       customBiddingAlgorithmId
       nil))
   ([customBiddingAlgorithmId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://displayvideo.googleapis.com/v3/customBiddingAlgorithms/{+customBiddingAlgorithmId}/scripts",

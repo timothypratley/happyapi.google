@@ -11,7 +11,7 @@ https://cloud.google.com/security/products/iam/v1/reference/rest/v1/iam/troubles
 GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyRequest:
 GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyRequest"
   [GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://policytroubleshooter.googleapis.com/v1/iam:troubleshoot",

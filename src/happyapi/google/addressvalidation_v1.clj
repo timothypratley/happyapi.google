@@ -11,7 +11,7 @@ https://developers.google.com/maps/documentation/address-validation/v1/reference
 GoogleMapsAddressvalidationV1ProvideValidationFeedbackRequest:
 GoogleMapsAddressvalidationV1ProvideValidationFeedbackRequest"
   [GoogleMapsAddressvalidationV1ProvideValidationFeedbackRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://addressvalidation.googleapis.com/v1:provideValidationFeedback",
@@ -30,7 +30,7 @@ https://developers.google.com/maps/documentation/address-validation/v1/reference
 GoogleMapsAddressvalidationV1ValidateAddressRequest:
 GoogleMapsAddressvalidationV1ValidateAddressRequest"
   [GoogleMapsAddressvalidationV1ValidateAddressRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://addressvalidation.googleapis.com/v1:validateAddress",

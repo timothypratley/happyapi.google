@@ -17,7 +17,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project ExternalVpnGateway]
     (externalVpnGateways-insert project ExternalVpnGateway nil))
   ([project ExternalVpnGateway optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/externalVpnGateways",
@@ -41,7 +41,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (externalVpnGateways-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/externalVpnGateways",
@@ -59,7 +59,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/externalVpnGatewa
 project <> 
 externalVpnGateway <> "
   [project externalVpnGateway]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/externalVpnGateways/{externalVpnGateway}",
@@ -83,7 +83,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project externalVpnGateway]
     (externalVpnGateways-delete project externalVpnGateway nil))
   ([project externalVpnGateway optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/externalVpnGateways/{externalVpnGateway}",
@@ -103,7 +103,7 @@ resource <>
 TestPermissionsRequest:
 TestPermissionsRequest"
   [project resource TestPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/externalVpnGateways/{resource}/testIamPermissions",
@@ -124,7 +124,7 @@ resource <>
 GlobalSetLabelsRequest:
 GlobalSetLabelsRequest"
   [project resource GlobalSetLabelsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/externalVpnGateways/{resource}/setLabels",
@@ -149,7 +149,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (regionZones-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/zones",
@@ -174,7 +174,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (regionInstantSnapshots-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instantSnapshots",
@@ -193,7 +193,7 @@ project <>
 region <> 
 instantSnapshot <> "
   [project region instantSnapshot]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instantSnapshots/{instantSnapshot}",
@@ -221,7 +221,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region InstantSnapshot]
     (regionInstantSnapshots-insert project region InstantSnapshot nil))
   ([project region InstantSnapshot optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instantSnapshots",
@@ -252,7 +252,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       RegionSetLabelsRequest
       nil))
   ([project region resource RegionSetLabelsRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instantSnapshots/{resource}/setLabels",
@@ -277,7 +277,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region instantSnapshot]
     (regionInstantSnapshots-delete project region instantSnapshot nil))
   ([project region instantSnapshot optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instantSnapshots/{instantSnapshot}",
@@ -303,7 +303,7 @@ optionsRequestedPolicyVersion <integer> Requested IAM Policy version."
   ([project region resource]
     (regionInstantSnapshots-getIamPolicy project region resource nil))
   ([project region resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instantSnapshots/{resource}/getIamPolicy",
@@ -325,7 +325,7 @@ resource <>
 RegionSetPolicyRequest:
 RegionSetPolicyRequest"
   [project region resource RegionSetPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instantSnapshots/{resource}/setIamPolicy",
@@ -347,7 +347,7 @@ resource <>
 TestPermissionsRequest:
 TestPermissionsRequest"
   [project region resource TestPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instantSnapshots/{resource}/testIamPermissions",
@@ -373,7 +373,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (httpsHealthChecks-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/httpsHealthChecks",
@@ -391,7 +391,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/httpsHealthChecks
 project <> 
 httpsHealthCheck <> "
   [project httpsHealthCheck]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/httpsHealthChecks/{httpsHealthCheck}",
@@ -416,7 +416,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project HttpsHealthCheck]
     (httpsHealthChecks-insert project HttpsHealthCheck nil))
   ([project HttpsHealthCheck optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/httpsHealthChecks",
@@ -439,7 +439,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project httpsHealthCheck]
     (httpsHealthChecks-delete project httpsHealthCheck nil))
   ([project httpsHealthCheck optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/httpsHealthChecks/{httpsHealthCheck}",
@@ -468,7 +468,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       HttpsHealthCheck
       nil))
   ([project httpsHealthCheck HttpsHealthCheck optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/httpsHealthChecks/{httpsHealthCheck}",
@@ -498,7 +498,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       HttpsHealthCheck
       nil))
   ([project httpsHealthCheck HttpsHealthCheck optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/httpsHealthChecks/{httpsHealthCheck}",
@@ -537,7 +537,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     instanceGroupManager
     RegionInstanceGroupManagerPatchInstanceConfigReq
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/patchPerInstanceConfigs",
@@ -566,7 +566,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
   ([project region]
     (regionInstanceGroupManagers-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers",
@@ -604,7 +604,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     instanceGroupManager
     RegionInstanceGroupManagerUpdateInstanceConfigReq
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/updatePerInstanceConfigs",
@@ -635,7 +635,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       instanceGroupManager
       nil))
   ([project region instanceGroupManager optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}",
@@ -675,7 +675,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     instanceGroupManager
     RegionInstanceGroupManagersCreateInstancesRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/createInstances",
@@ -702,7 +702,7 @@ RegionInstanceGroupManagersApplyUpdatesRequest"
    region
    instanceGroupManager
    RegionInstanceGroupManagersApplyUpdatesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/applyUpdatesToInstances",
@@ -743,7 +743,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     instanceGroupManager
     RegionInstanceGroupManagersSetTargetPoolsRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/setTargetPools",
@@ -784,7 +784,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     instanceGroupManager
     RegionInstanceGroupManagersSetTemplateRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/setInstanceTemplate",
@@ -825,7 +825,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     instanceGroupManager
     RegionInstanceGroupManagersRecreateRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/recreateInstances",
@@ -859,7 +859,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       InstanceGroupManager
       nil))
   ([project region instanceGroupManager InstanceGroupManager optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}",
@@ -900,7 +900,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     instanceGroupManager
     RegionInstanceGroupManagersAbandonInstancesRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/abandonInstances",
@@ -934,7 +934,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
       instanceGroupManager
       nil))
   ([project region instanceGroupManager optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/listManagedInstances",
@@ -961,7 +961,7 @@ RegionInstanceGroupManagerDeleteInstanceConfigReq"
    region
    instanceGroupManager
    RegionInstanceGroupManagerDeleteInstanceConfigReq]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/deletePerInstanceConfigs",
@@ -993,7 +993,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       InstanceGroupManager
       nil))
   ([project region InstanceGroupManager optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers",
@@ -1031,7 +1031,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     instanceGroupManager
     RegionInstanceGroupManagersDeleteInstancesRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/deleteInstances",
@@ -1064,7 +1064,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       size
       nil))
   ([project region instanceGroupManager size optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/resize",
@@ -1085,7 +1085,7 @@ project <>
 region <> 
 instanceGroupManager <> "
   [project region instanceGroupManager]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}",
@@ -1119,7 +1119,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
       instanceGroupManager
       nil))
   ([project region instanceGroupManager optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/listErrors",
@@ -1153,7 +1153,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
       instanceGroupManager
       nil))
   ([project region instanceGroupManager optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/listPerInstanceConfigs",
@@ -1181,7 +1181,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project zone] (networkEndpointGroups-list project zone nil))
   ([project zone optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/networkEndpointGroups",
@@ -1209,7 +1209,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       networkEndpointGroup
       nil))
   ([project zone networkEndpointGroup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/networkEndpointGroups/{networkEndpointGroup}",
@@ -1249,7 +1249,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     networkEndpointGroup
     NetworkEndpointGroupsDetachEndpointsRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/networkEndpointGroups/{networkEndpointGroup}/detachNetworkEndpoints",
@@ -1293,7 +1293,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
     networkEndpointGroup
     NetworkEndpointGroupsListEndpointsRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/networkEndpointGroups/{networkEndpointGroup}/listNetworkEndpoints",
@@ -1335,7 +1335,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     networkEndpointGroup
     NetworkEndpointGroupsAttachEndpointsRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/networkEndpointGroups/{networkEndpointGroup}/attachNetworkEndpoints",
@@ -1364,7 +1364,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (networkEndpointGroups-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/networkEndpointGroups",
@@ -1393,7 +1393,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       NetworkEndpointGroup
       nil))
   ([project zone NetworkEndpointGroup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/networkEndpointGroups",
@@ -1412,7 +1412,7 @@ project <>
 zone <> 
 networkEndpointGroup <> "
   [project zone networkEndpointGroup]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/networkEndpointGroups/{networkEndpointGroup}",
@@ -1436,7 +1436,7 @@ resource <>
 TestPermissionsRequest:
 TestPermissionsRequest"
   [project zone resource TestPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/networkEndpointGroups/{resource}/testIamPermissions",
@@ -1469,7 +1469,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       RegionSetLabelsRequest
       nil))
   ([project region resource RegionSetLabelsRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/disks/{resource}/setLabels",
@@ -1495,7 +1495,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (regionDisks-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/disks",
@@ -1516,7 +1516,7 @@ resource <>
 RegionSetPolicyRequest:
 RegionSetPolicyRequest"
   [project region resource RegionSetPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/disks/{resource}/setIamPolicy",
@@ -1552,7 +1552,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     disk
     RegionDisksStartAsyncReplicationRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/disks/{disk}/startAsyncReplication",
@@ -1588,7 +1588,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     disk
     RegionDisksRemoveResourcePoliciesRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/disks/{disk}/removeResourcePolicies",
@@ -1614,7 +1614,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region BulkInsertDiskResource]
     (regionDisks-bulkInsert project region BulkInsertDiskResource nil))
   ([project region BulkInsertDiskResource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/disks/bulkInsert",
@@ -1637,7 +1637,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project region disk] (regionDisks-delete project region disk nil))
   ([project region disk optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/disks/{disk}",
@@ -1665,7 +1665,7 @@ updateMask <string> update_mask indicates fields to be updated as part of this r
   ([project region disk Disk]
     (regionDisks-update project region disk Disk nil))
   ([project region disk Disk optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/disks/{disk}",
@@ -1690,7 +1690,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region disk]
     (regionDisks-stopAsyncReplication project region disk nil))
   ([project region disk optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/disks/{disk}/stopAsyncReplication",
@@ -1714,7 +1714,7 @@ optionsRequestedPolicyVersion <integer> Requested IAM Policy version."
   ([project region resource]
     (regionDisks-getIamPolicy project region resource nil))
   ([project region resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/disks/{resource}/getIamPolicy",
@@ -1740,7 +1740,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
 sourceImage <string> Source image to restore onto a disk. This field is optional."
   ([project region Disk] (regionDisks-insert project region Disk nil))
   ([project region Disk optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/disks",
@@ -1769,7 +1769,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       DisksStopGroupAsyncReplicationResource
       nil))
   ([project region DisksStopGroupAsyncReplicationResource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/disks/stopGroupAsyncReplication",
@@ -1800,7 +1800,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       RegionDisksResizeRequest
       nil))
   ([project region disk RegionDisksResizeRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/disks/{disk}/resize",
@@ -1832,7 +1832,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       RegionDisksAddResourcePoliciesRequest
       nil))
   ([project region disk RegionDisksAddResourcePoliciesRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/disks/{disk}/addResourcePolicies",
@@ -1852,7 +1852,7 @@ project <>
 region <> 
 disk <> "
   [project region disk]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/disks/{disk}",
@@ -1879,7 +1879,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region disk Snapshot]
     (regionDisks-createSnapshot project region disk Snapshot nil))
   ([project region disk Snapshot optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/disks/{disk}/createSnapshot",
@@ -1901,7 +1901,7 @@ resource <>
 TestPermissionsRequest:
 TestPermissionsRequest"
   [project region resource TestPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/disks/{resource}/testIamPermissions",
@@ -1928,7 +1928,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project zone] (targetInstances-list project zone nil))
   ([project zone optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/targetInstances",
@@ -1954,7 +1954,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (targetInstances-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/targetInstances",
@@ -1973,7 +1973,7 @@ project <>
 zone <> 
 targetInstance <> "
   [project zone targetInstance]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/targetInstances/{targetInstance}",
@@ -1999,7 +1999,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone TargetInstance]
     (targetInstances-insert project zone TargetInstance nil))
   ([project zone TargetInstance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/targetInstances",
@@ -2023,7 +2023,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone targetInstance]
     (targetInstances-delete project zone targetInstance nil))
   ([project zone targetInstance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/targetInstances/{targetInstance}",
@@ -2056,7 +2056,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       SecurityPolicyReference
       nil))
   ([project zone targetInstance SecurityPolicyReference optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/targetInstances/{targetInstance}/setSecurityPolicy",
@@ -2078,7 +2078,7 @@ project <>
 zone <> 
 family <> "
   [project zone family]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/imageFamilyViews/{family}",
@@ -2103,7 +2103,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (globalForwardingRules-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/forwardingRules",
@@ -2121,7 +2121,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/globalForwardingR
 project <> 
 forwardingRule <> "
   [project forwardingRule]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/forwardingRules/{forwardingRule}",
@@ -2146,7 +2146,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project ForwardingRule]
     (globalForwardingRules-insert project ForwardingRule nil))
   ([project ForwardingRule optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/forwardingRules",
@@ -2169,7 +2169,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project forwardingRule]
     (globalForwardingRules-delete project forwardingRule nil))
   ([project forwardingRule optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/forwardingRules/{forwardingRule}",
@@ -2198,7 +2198,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       TargetReference
       nil))
   ([project forwardingRule TargetReference optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/forwardingRules/{forwardingRule}/setTarget",
@@ -2228,7 +2228,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       ForwardingRule
       nil))
   ([project forwardingRule ForwardingRule optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/forwardingRules/{forwardingRule}",
@@ -2249,7 +2249,7 @@ resource <>
 GlobalSetLabelsRequest:
 GlobalSetLabelsRequest"
   [project resource GlobalSetLabelsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/forwardingRules/{resource}/setLabels",
@@ -2273,7 +2273,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (zones-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones",
@@ -2291,7 +2291,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/zones/get
 project <> 
 zone <> "
   [project zone]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}",
@@ -2316,7 +2316,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (subnetworks-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks",
@@ -2337,7 +2337,7 @@ resource <>
 RegionSetPolicyRequest:
 RegionSetPolicyRequest"
   [project region resource RegionSetPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks/{resource}/setIamPolicy",
@@ -2362,7 +2362,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region subnetwork]
     (subnetworks-delete project region subnetwork nil))
   ([project region subnetwork optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetwork}",
@@ -2397,7 +2397,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     subnetwork
     SubnetworksExpandIpCidrRangeRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetwork}/expandIpCidrRange",
@@ -2425,7 +2425,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region subnetwork Subnetwork]
     (subnetworks-patch project region subnetwork Subnetwork nil))
   ([project region subnetwork Subnetwork optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetwork}",
@@ -2450,7 +2450,7 @@ optionsRequestedPolicyVersion <integer> Requested IAM Policy version."
   ([project region resource]
     (subnetworks-getIamPolicy project region resource nil))
   ([project region resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks/{resource}/getIamPolicy",
@@ -2477,7 +2477,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (subnetworks-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/subnetworks",
@@ -2502,7 +2502,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region Subnetwork]
     (subnetworks-insert project region Subnetwork nil))
   ([project region Subnetwork optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks",
@@ -2540,7 +2540,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     subnetwork
     SubnetworksSetPrivateIpGoogleAccessRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetwork}/setPrivateIpGoogleAccess",
@@ -2560,7 +2560,7 @@ project <>
 region <> 
 subnetwork <> "
   [project region subnetwork]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetwork}",
@@ -2582,7 +2582,7 @@ resource <>
 TestPermissionsRequest:
 TestPermissionsRequest"
   [project region resource TestPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks/{resource}/testIamPermissions",
@@ -2608,7 +2608,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (subnetworks-listUsable project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/subnetworks/listUsable",
@@ -2634,7 +2634,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
   ([project region]
     (regionHealthCheckServices-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/healthCheckServices",
@@ -2653,7 +2653,7 @@ project <>
 region <> 
 healthCheckService <> "
   [project region healthCheckService]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/healthCheckServices/{healthCheckService}",
@@ -2685,7 +2685,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       HealthCheckService
       nil))
   ([project region HealthCheckService optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/healthCheckServices",
@@ -2713,7 +2713,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       healthCheckService
       nil))
   ([project region healthCheckService optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/healthCheckServices/{healthCheckService}",
@@ -2746,7 +2746,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       HealthCheckService
       nil))
   ([project region healthCheckService HealthCheckService optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/healthCheckServices/{healthCheckService}",
@@ -2774,7 +2774,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (regionBackendServices-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/backendServices",
@@ -2795,7 +2795,7 @@ resource <>
 RegionSetPolicyRequest:
 RegionSetPolicyRequest"
   [project region resource RegionSetPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/backendServices/{resource}/setIamPolicy",
@@ -2820,7 +2820,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region backendService]
     (regionBackendServices-delete project region backendService nil))
   ([project region backendService optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/backendServices/{backendService}",
@@ -2853,7 +2853,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       BackendService
       nil))
   ([project region backendService BackendService optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/backendServices/{backendService}",
@@ -2877,7 +2877,7 @@ backendService <>
 ResourceGroupReference:
 ResourceGroupReference"
   [project region backendService ResourceGroupReference]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/backendServices/{backendService}/getHealth",
@@ -2912,7 +2912,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       BackendService
       nil))
   ([project region backendService BackendService optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/backendServices/{backendService}",
@@ -2939,7 +2939,7 @@ optionsRequestedPolicyVersion <integer> Requested IAM Policy version."
   ([project region resource]
     (regionBackendServices-getIamPolicy project region resource nil))
   ([project region resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/backendServices/{resource}/getIamPolicy",
@@ -2965,7 +2965,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region BackendService]
     (regionBackendServices-insert project region BackendService nil))
   ([project region BackendService optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/backendServices",
@@ -2996,7 +2996,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       SecurityPolicyReference
       nil))
   ([project region backendService SecurityPolicyReference optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/backendServices/{backendService}/setSecurityPolicy",
@@ -3018,7 +3018,7 @@ project <>
 region <> 
 backendService <> "
   [project region backendService]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/backendServices/{backendService}",
@@ -3042,7 +3042,7 @@ resource <>
 TestPermissionsRequest:
 TestPermissionsRequest"
   [project region resource TestPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/backendServices/{resource}/testIamPermissions",
@@ -3070,7 +3070,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
   ([project region]
     (regionBackendServices-listUsable project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/backendServices/listUsable",
@@ -3088,7 +3088,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/licenseCodes/get
 project <> 
 licenseCode <> "
   [project licenseCode]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/licenseCodes/{licenseCode}",
@@ -3108,7 +3108,7 @@ resource <>
 TestPermissionsRequest:
 TestPermissionsRequest"
   [project resource TestPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/licenseCodes/{resource}/testIamPermissions",
@@ -3133,7 +3133,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (healthChecks-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/healthChecks",
@@ -3159,7 +3159,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (healthChecks-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/healthChecks",
@@ -3177,7 +3177,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/healthChecks/get
 project <> 
 healthCheck <> "
   [project healthCheck]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/healthChecks/{healthCheck}",
@@ -3200,7 +3200,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project HealthCheck] (healthChecks-insert project HealthCheck nil))
   ([project HealthCheck optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/healthChecks",
@@ -3222,7 +3222,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project healthCheck] (healthChecks-delete project healthCheck nil))
   ([project healthCheck optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/healthChecks/{healthCheck}",
@@ -3247,7 +3247,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project healthCheck HealthCheck]
     (healthChecks-update project healthCheck HealthCheck nil))
   ([project healthCheck HealthCheck optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/healthChecks/{healthCheck}",
@@ -3273,7 +3273,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project healthCheck HealthCheck]
     (healthChecks-patch project healthCheck HealthCheck nil))
   ([project healthCheck HealthCheck optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/healthChecks/{healthCheck}",
@@ -3292,7 +3292,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/licenses/get
 project <> 
 license <> "
   [project license]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/licenses/{license}",
@@ -3316,7 +3316,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (licenses-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/licenses",
@@ -3338,7 +3338,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project license] (licenses-delete project license nil))
   ([project license optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/licenses/{license}",
@@ -3360,7 +3360,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project License] (licenses-insert project License nil))
   ([project License optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/licenses",
@@ -3385,7 +3385,7 @@ optional:
 optionsRequestedPolicyVersion <integer> Requested IAM Policy version."
   ([project resource] (licenses-getIamPolicy project resource nil))
   ([project resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/licenses/{resource}/getIamPolicy",
@@ -3405,7 +3405,7 @@ resource <>
 GlobalSetPolicyRequest:
 GlobalSetPolicyRequest"
   [project resource GlobalSetPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/licenses/{resource}/setIamPolicy",
@@ -3425,7 +3425,7 @@ resource <>
 TestPermissionsRequest:
 TestPermissionsRequest"
   [project resource TestPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/licenses/{resource}/testIamPermissions",
@@ -3450,7 +3450,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project Interconnect]
     (interconnects-insert project Interconnect nil))
   ([project Interconnect optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/interconnects",
@@ -3474,7 +3474,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (interconnects-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/interconnects",
@@ -3492,7 +3492,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/interconnects/get
 project <> 
 interconnect <> "
   [project interconnect]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/interconnects/{interconnect}/getDiagnostics",
@@ -3511,7 +3511,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/interconnects/get
 project <> 
 interconnect <> "
   [project interconnect]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/interconnects/{interconnect}/getMacsecConfig",
@@ -3530,7 +3530,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/interconnects/get
 project <> 
 interconnect <> "
   [project interconnect]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/interconnects/{interconnect}",
@@ -3554,7 +3554,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project interconnect]
     (interconnects-delete project interconnect nil))
   ([project interconnect optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/interconnects/{interconnect}",
@@ -3579,7 +3579,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project interconnect Interconnect]
     (interconnects-patch project interconnect Interconnect nil))
   ([project interconnect Interconnect optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/interconnects/{interconnect}",
@@ -3600,7 +3600,7 @@ resource <>
 GlobalSetLabelsRequest:
 GlobalSetLabelsRequest"
   [project resource GlobalSetLabelsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/interconnects/{resource}/setLabels",
@@ -3625,7 +3625,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (nodeTemplates-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/nodeTemplates",
@@ -3651,7 +3651,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (nodeTemplates-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/nodeTemplates",
@@ -3670,7 +3670,7 @@ project <>
 region <> 
 nodeTemplate <> "
   [project region nodeTemplate]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/nodeTemplates/{nodeTemplate}",
@@ -3696,7 +3696,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region NodeTemplate]
     (nodeTemplates-insert project region NodeTemplate nil))
   ([project region NodeTemplate optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/nodeTemplates",
@@ -3720,7 +3720,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region nodeTemplate]
     (nodeTemplates-delete project region nodeTemplate nil))
   ([project region nodeTemplate optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/nodeTemplates/{nodeTemplate}",
@@ -3746,7 +3746,7 @@ optionsRequestedPolicyVersion <integer> Requested IAM Policy version."
   ([project region resource]
     (nodeTemplates-getIamPolicy project region resource nil))
   ([project region resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/nodeTemplates/{resource}/getIamPolicy",
@@ -3768,7 +3768,7 @@ resource <>
 RegionSetPolicyRequest:
 RegionSetPolicyRequest"
   [project region resource RegionSetPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/nodeTemplates/{resource}/setIamPolicy",
@@ -3790,7 +3790,7 @@ resource <>
 TestPermissionsRequest:
 TestPermissionsRequest"
   [project region resource TestPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/nodeTemplates/{resource}/testIamPermissions",
@@ -3821,7 +3821,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       SslPolicyReference
       nil))
   ([project targetSslProxy SslPolicyReference optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetSslProxies/{targetSslProxy}/setSslPolicy",
@@ -3846,7 +3846,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (targetSslProxies-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetSslProxies",
@@ -3878,7 +3878,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     targetSslProxy
     TargetSslProxiesSetCertificateMapRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetSslProxies/{targetSslProxy}/setCertificateMap",
@@ -3902,7 +3902,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project targetSslProxy]
     (targetSslProxies-delete project targetSslProxy nil))
   ([project targetSslProxy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetSslProxies/{targetSslProxy}",
@@ -3934,7 +3934,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     targetSslProxy
     TargetSslProxiesSetBackendServiceRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetSslProxies/{targetSslProxy}/setBackendService",
@@ -3967,7 +3967,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     targetSslProxy
     TargetSslProxiesSetSslCertificatesRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetSslProxies/{targetSslProxy}/setSslCertificates",
@@ -4000,7 +4000,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     targetSslProxy
     TargetSslProxiesSetProxyHeaderRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetSslProxies/{targetSslProxy}/setProxyHeader",
@@ -4025,7 +4025,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project TargetSslProxy]
     (targetSslProxies-insert project TargetSslProxy nil))
   ([project TargetSslProxy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetSslProxies",
@@ -4043,7 +4043,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/targetSslProxies/
 project <> 
 targetSslProxy <> "
   [project targetSslProxy]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetSslProxies/{targetSslProxy}",
@@ -4068,7 +4068,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (targetGrpcProxies-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetGrpcProxies",
@@ -4086,7 +4086,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/targetGrpcProxies
 project <> 
 targetGrpcProxy <> "
   [project targetGrpcProxy]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetGrpcProxies/{targetGrpcProxy}",
@@ -4111,7 +4111,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project TargetGrpcProxy]
     (targetGrpcProxies-insert project TargetGrpcProxy nil))
   ([project TargetGrpcProxy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetGrpcProxies",
@@ -4134,7 +4134,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project targetGrpcProxy]
     (targetGrpcProxies-delete project targetGrpcProxy nil))
   ([project targetGrpcProxy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetGrpcProxies/{targetGrpcProxy}",
@@ -4163,7 +4163,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       TargetGrpcProxy
       nil))
   ([project targetGrpcProxy TargetGrpcProxy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetGrpcProxies/{targetGrpcProxy}",
@@ -4187,7 +4187,7 @@ parentId <string> Parent ID for this request.
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([] (globalOrganizationOperations-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/locations/global/operations",
@@ -4208,7 +4208,7 @@ optional:
 parentId <string> Parent ID for this request."
   ([operation] (globalOrganizationOperations-get operation nil))
   ([operation optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/locations/global/operations/{operation}",
@@ -4229,7 +4229,7 @@ optional:
 parentId <string> Parent ID for this request."
   ([operation] (globalOrganizationOperations-delete operation nil))
   ([operation optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/locations/global/operations/{operation}",
@@ -4253,7 +4253,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project zone] (storagePoolTypes-list project zone nil))
   ([project zone optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/storagePoolTypes",
@@ -4279,7 +4279,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (storagePoolTypes-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/storagePoolTypes",
@@ -4298,7 +4298,7 @@ project <>
 zone <> 
 storagePoolType <> "
   [project zone storagePoolType]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/storagePoolTypes/{storagePoolType}",
@@ -4326,7 +4326,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project zone] (autoscalers-list project zone nil))
   ([project zone optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/autoscalers",
@@ -4352,7 +4352,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (autoscalers-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/autoscalers",
@@ -4371,7 +4371,7 @@ project <>
 zone <> 
 autoscaler <> "
   [project zone autoscaler]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/autoscalers/{autoscaler}",
@@ -4397,7 +4397,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone Autoscaler]
     (autoscalers-insert project zone Autoscaler nil))
   ([project zone Autoscaler optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/autoscalers",
@@ -4423,7 +4423,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone Autoscaler]
     (autoscalers-update project zone Autoscaler nil))
   ([project zone Autoscaler optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/autoscalers",
@@ -4449,7 +4449,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone Autoscaler]
     (autoscalers-patch project zone Autoscaler nil))
   ([project zone Autoscaler optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/autoscalers",
@@ -4473,7 +4473,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone autoscaler]
     (autoscalers-delete project zone autoscaler nil))
   ([project zone autoscaler optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/autoscalers/{autoscaler}",
@@ -4498,7 +4498,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (regionTargetTcpProxies-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/targetTcpProxies",
@@ -4517,7 +4517,7 @@ project <>
 region <> 
 targetTcpProxy <> "
   [project region targetTcpProxy]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/targetTcpProxies/{targetTcpProxy}",
@@ -4545,7 +4545,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region TargetTcpProxy]
     (regionTargetTcpProxies-insert project region TargetTcpProxy nil))
   ([project region TargetTcpProxy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/targetTcpProxies",
@@ -4569,7 +4569,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region targetTcpProxy]
     (regionTargetTcpProxies-delete project region targetTcpProxy nil))
   ([project region targetTcpProxy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/targetTcpProxies/{targetTcpProxy}",
@@ -4595,7 +4595,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (instanceTemplates-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/instanceTemplates",
@@ -4613,7 +4613,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/instanceTemplates
 project <> 
 instanceTemplate <> "
   [project instanceTemplate]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/instanceTemplates/{instanceTemplate}",
@@ -4638,7 +4638,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project InstanceTemplate]
     (instanceTemplates-insert project InstanceTemplate nil))
   ([project InstanceTemplate optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/instanceTemplates",
@@ -4661,7 +4661,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project instanceTemplate]
     (instanceTemplates-delete project instanceTemplate nil))
   ([project instanceTemplate optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/instanceTemplates/{instanceTemplate}",
@@ -4687,7 +4687,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (instanceTemplates-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/instanceTemplates",
@@ -4710,7 +4710,7 @@ optionsRequestedPolicyVersion <integer> Requested IAM Policy version."
   ([project resource]
     (instanceTemplates-getIamPolicy project resource nil))
   ([project resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/instanceTemplates/{resource}/getIamPolicy",
@@ -4730,7 +4730,7 @@ resource <>
 GlobalSetPolicyRequest:
 GlobalSetPolicyRequest"
   [project resource GlobalSetPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/instanceTemplates/{resource}/setIamPolicy",
@@ -4750,7 +4750,7 @@ resource <>
 TestPermissionsRequest:
 TestPermissionsRequest"
   [project resource TestPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/instanceTemplates/{resource}/testIamPermissions",
@@ -4779,7 +4779,7 @@ priority <integer> The priority of the rule to get from the firewall policy."
       firewallPolicy
       nil))
   ([project region firewallPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/firewallPolicies/{firewallPolicy}/getRule",
@@ -4811,7 +4811,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       firewallPolicy
       nil))
   ([project region firewallPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/firewallPolicies/{firewallPolicy}/removeRule",
@@ -4839,7 +4839,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
   ([project region]
     (regionNetworkFirewallPolicies-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/firewallPolicies",
@@ -4860,7 +4860,7 @@ resource <>
 RegionSetPolicyRequest:
 RegionSetPolicyRequest"
   [project region resource RegionSetPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/firewallPolicies/{resource}/setIamPolicy",
@@ -4894,7 +4894,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       FirewallPolicyRule
       nil))
   ([project region firewallPolicy FirewallPolicyRule optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/firewallPolicies/{firewallPolicy}/addRule",
@@ -4926,7 +4926,7 @@ sourceFirewallPolicy <string> The firewall policy from which to copy rules."
       firewallPolicy
       nil))
   ([project region firewallPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/firewallPolicies/{firewallPolicy}/cloneRules",
@@ -4956,7 +4956,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       firewallPolicy
       nil))
   ([project region firewallPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/firewallPolicies/{firewallPolicy}",
@@ -4977,7 +4977,7 @@ project <>
 region <> 
 network <> "
   [project region network]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/firewallPolicies/getEffectiveFirewalls",
@@ -5005,7 +5005,7 @@ name <string> The name of the association to get from the firewall policy."
       firewallPolicy
       nil))
   ([project region firewallPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/firewallPolicies/{firewallPolicy}/getAssociation",
@@ -5040,7 +5040,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       FirewallPolicyAssociation
       nil))
   ([project region firewallPolicy FirewallPolicyAssociation optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/firewallPolicies/{firewallPolicy}/addAssociation",
@@ -5074,7 +5074,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       FirewallPolicy
       nil))
   ([project region firewallPolicy FirewallPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/firewallPolicies/{firewallPolicy}",
@@ -5105,7 +5105,7 @@ optionsRequestedPolicyVersion <integer> Requested IAM Policy version."
       resource
       nil))
   ([project region resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/firewallPolicies/{resource}/getIamPolicy",
@@ -5135,7 +5135,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       FirewallPolicy
       nil))
   ([project region FirewallPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/firewallPolicies",
@@ -5167,7 +5167,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       FirewallPolicyRule
       nil))
   ([project region firewallPolicy FirewallPolicyRule optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/firewallPolicies/{firewallPolicy}/patchRule",
@@ -5199,7 +5199,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       firewallPolicy
       nil))
   ([project region firewallPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/firewallPolicies/{firewallPolicy}/removeAssociation",
@@ -5220,7 +5220,7 @@ project <>
 region <> 
 firewallPolicy <> "
   [project region firewallPolicy]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/firewallPolicies/{firewallPolicy}",
@@ -5244,7 +5244,7 @@ resource <>
 TestPermissionsRequest:
 TestPermissionsRequest"
   [project region resource TestPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/firewallPolicies/{resource}/testIamPermissions",
@@ -5270,7 +5270,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (interconnectLocations-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/interconnectLocations",
@@ -5288,7 +5288,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/interconnectLocat
 project <> 
 interconnectLocation <> "
   [project interconnectLocation]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/interconnectLocations/{interconnectLocation}",
@@ -5314,7 +5314,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (forwardingRules-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/forwardingRules",
@@ -5340,7 +5340,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (forwardingRules-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/forwardingRules",
@@ -5359,7 +5359,7 @@ project <>
 region <> 
 forwardingRule <> "
   [project region forwardingRule]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/forwardingRules/{forwardingRule}",
@@ -5387,7 +5387,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region ForwardingRule]
     (forwardingRules-insert project region ForwardingRule nil))
   ([project region ForwardingRule optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/forwardingRules",
@@ -5411,7 +5411,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region forwardingRule]
     (forwardingRules-delete project region forwardingRule nil))
   ([project region forwardingRule optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/forwardingRules/{forwardingRule}",
@@ -5444,7 +5444,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       TargetReference
       nil))
   ([project region forwardingRule TargetReference optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/forwardingRules/{forwardingRule}/setTarget",
@@ -5478,7 +5478,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       ForwardingRule
       nil))
   ([project region forwardingRule ForwardingRule optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/forwardingRules/{forwardingRule}",
@@ -5512,7 +5512,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       RegionSetLabelsRequest
       nil))
   ([project region resource RegionSetLabelsRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/forwardingRules/{resource}/setLabels",
@@ -5538,7 +5538,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project zone] (acceleratorTypes-list project zone nil))
   ([project zone optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/acceleratorTypes",
@@ -5564,7 +5564,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (acceleratorTypes-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/acceleratorTypes",
@@ -5583,7 +5583,7 @@ project <>
 zone <> 
 acceleratorType <> "
   [project zone acceleratorType]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/acceleratorTypes/{acceleratorType}",
@@ -5611,7 +5611,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (regionHealthChecks-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/healthChecks",
@@ -5630,7 +5630,7 @@ project <>
 region <> 
 healthCheck <> "
   [project region healthCheck]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/healthChecks/{healthCheck}",
@@ -5656,7 +5656,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region HealthCheck]
     (regionHealthChecks-insert project region HealthCheck nil))
   ([project region HealthCheck optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/healthChecks",
@@ -5680,7 +5680,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region healthCheck]
     (regionHealthChecks-delete project region healthCheck nil))
   ([project region healthCheck optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/healthChecks/{healthCheck}",
@@ -5711,7 +5711,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       HealthCheck
       nil))
   ([project region healthCheck HealthCheck optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/healthChecks/{healthCheck}",
@@ -5743,7 +5743,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       HealthCheck
       nil))
   ([project region healthCheck HealthCheck optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/healthChecks/{healthCheck}",
@@ -5769,7 +5769,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (resourcePolicies-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/resourcePolicies",
@@ -5790,7 +5790,7 @@ resource <>
 RegionSetPolicyRequest:
 RegionSetPolicyRequest"
   [project region resource RegionSetPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/resourcePolicies/{resource}/setIamPolicy",
@@ -5815,7 +5815,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region resourcePolicy]
     (resourcePolicies-delete project region resourcePolicy nil))
   ([project region resourcePolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/resourcePolicies/{resourcePolicy}",
@@ -5849,7 +5849,7 @@ updateMask <string> update_mask indicates fields to be updated as part of this r
       ResourcePolicy
       nil))
   ([project region resourcePolicy ResourcePolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/resourcePolicies/{resourcePolicy}",
@@ -5876,7 +5876,7 @@ optionsRequestedPolicyVersion <integer> Requested IAM Policy version."
   ([project region resource]
     (resourcePolicies-getIamPolicy project region resource nil))
   ([project region resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/resourcePolicies/{resource}/getIamPolicy",
@@ -5903,7 +5903,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (resourcePolicies-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/resourcePolicies",
@@ -5928,7 +5928,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region ResourcePolicy]
     (resourcePolicies-insert project region ResourcePolicy nil))
   ([project region ResourcePolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/resourcePolicies",
@@ -5947,7 +5947,7 @@ project <>
 region <> 
 resourcePolicy <> "
   [project region resourcePolicy]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/resourcePolicies/{resourcePolicy}",
@@ -5971,7 +5971,7 @@ resource <>
 TestPermissionsRequest:
 TestPermissionsRequest"
   [project region resource TestPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/resourcePolicies/{resource}/testIamPermissions",
@@ -5998,7 +5998,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (regionInstanceTemplates-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instanceTemplates",
@@ -6017,7 +6017,7 @@ project <>
 region <> 
 instanceTemplate <> "
   [project region instanceTemplate]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instanceTemplates/{instanceTemplate}",
@@ -6049,7 +6049,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       InstanceTemplate
       nil))
   ([project region InstanceTemplate optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instanceTemplates",
@@ -6077,7 +6077,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       instanceTemplate
       nil))
   ([project region instanceTemplate optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instanceTemplates/{instanceTemplate}",
@@ -6104,7 +6104,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (regionSslPolicies-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/sslPolicies",
@@ -6123,7 +6123,7 @@ project <>
 region <> 
 sslPolicy <> "
   [project region sslPolicy]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/sslPolicies/{sslPolicy}",
@@ -6149,7 +6149,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region SslPolicy]
     (regionSslPolicies-insert project region SslPolicy nil))
   ([project region SslPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/sslPolicies",
@@ -6173,7 +6173,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region sslPolicy]
     (regionSslPolicies-delete project region sslPolicy nil))
   ([project region sslPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/sslPolicies/{sslPolicy}",
@@ -6199,7 +6199,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region sslPolicy SslPolicy]
     (regionSslPolicies-patch project region sslPolicy SslPolicy nil))
   ([project region sslPolicy SslPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/sslPolicies/{sslPolicy}",
@@ -6226,7 +6226,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
   ([project region]
     (regionSslPolicies-listAvailableFeatures project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/sslPolicies/listAvailableFeatures",
@@ -6251,7 +6251,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (publicDelegatedPrefixes-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/publicDelegatedPrefixes",
@@ -6270,7 +6270,7 @@ project <>
 region <> 
 publicDelegatedPrefix <> "
   [project region publicDelegatedPrefix]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/publicDelegatedPrefixes/{publicDelegatedPrefix}",
@@ -6302,7 +6302,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       PublicDelegatedPrefix
       nil))
   ([project region PublicDelegatedPrefix optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/publicDelegatedPrefixes",
@@ -6330,7 +6330,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       publicDelegatedPrefix
       nil))
   ([project region publicDelegatedPrefix optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/publicDelegatedPrefixes/{publicDelegatedPrefix}",
@@ -6367,7 +6367,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     publicDelegatedPrefix
     PublicDelegatedPrefix
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/publicDelegatedPrefixes/{publicDelegatedPrefix}",
@@ -6398,7 +6398,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       publicDelegatedPrefix
       nil))
   ([project region publicDelegatedPrefix optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/publicDelegatedPrefixes/{publicDelegatedPrefix}/announce",
@@ -6428,7 +6428,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       publicDelegatedPrefix
       nil))
   ([project region publicDelegatedPrefix optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/publicDelegatedPrefixes/{publicDelegatedPrefix}/withdraw",
@@ -6456,7 +6456,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (publicDelegatedPrefixes-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/publicDelegatedPrefixes",
@@ -6480,7 +6480,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (globalOperations-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/operations",
@@ -6506,7 +6506,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (globalOperations-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/operations",
@@ -6524,7 +6524,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/globalOperations/
 project <> 
 operation <> "
   [project operation]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/operations/{operation}",
@@ -6542,7 +6542,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/globalOperations/
 project <> 
 operation <> "
   [project operation]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/operations/{operation}/wait",
@@ -6560,7 +6560,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/globalOperations/
 project <> 
 operation <> "
   [project operation]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/operations/{operation}",
@@ -6581,7 +6581,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project network] (networks-switchToCustomMode project network nil))
   ([project network optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/networks/{network}/switchToCustomMode",
@@ -6604,7 +6604,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (networks-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/networks",
@@ -6626,7 +6626,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project network] (networks-delete project network nil))
   ([project network optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/networks/{network}",
@@ -6653,7 +6653,7 @@ region <string> The region of the request. The response will include all subnet 
 filter <string> A filter expression that filters resources listed in the response. Most Compute resources support two types of filter expressions: expressions that support regular expressions and expressions that follow API improvement proposal AIP-160. These two types of filter expressions cannot be mixed in one request. If you want to use AIP-160, your expression must specify the field name, an operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are filtering Compute Engine instances, you can exclude instances named `example-instance` by specifying `name != example-instance`. The `:*` comparison can be used to test whether a key has been defined. For example, to find all objects with `owner` label use: ``` labels.owner:* ``` You can also filter nested fields. For example, you could specify `scheduling.automaticRestart = false` to include instances only if they are not scheduled for automatic restarts. You can use filtering on nested fields to filter based on resource labels. To filter on multiple expressions, provide each separate expression within parentheses. For example: ``` (scheduling.automaticRestart = true) (cpuPlatform = \"Intel Skylake\") ``` By default, each expression is an `AND` expression. However, you can include `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform = \"Intel Skylake\") OR (cpuPlatform = \"Intel Broadwell\") AND (scheduling.automaticRestart = true) ``` If you want to use a regular expression, use the `eq` (equal) or `ne` (not equal) operator against a single un-parenthesized expression with or without quotes or against multiple parenthesized expressions. Examples: `fieldname eq unquoted literal` `fieldname eq 'single quoted literal'` `fieldname eq \"double quoted literal\"` `(fieldname1 eq literal) (fieldname2 ne \"literal\")` The literal value is interpreted as a regular expression using Google RE2 library syntax. The literal value must match the entire field. For example, to filter for instances that do not end with name \"instance\", you would use `name ne .*instance`. You cannot combine constraints on multiple fields using regular expressions."
   ([project network] (networks-listPeeringRoutes project network nil))
   ([project network optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/networks/{network}/listPeeringRoutes",
@@ -6682,7 +6682,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       NetworksUpdatePeeringRequest
       nil))
   ([project network NetworksUpdatePeeringRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/networks/{network}/updatePeering",
@@ -6700,7 +6700,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/networks/getEffec
 project <> 
 network <> "
   [project network]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/networks/{network}/getEffectiveFirewalls",
@@ -6725,7 +6725,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project network Network]
     (networks-patch project network Network nil))
   ([project network Network optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/networks/{network}",
@@ -6754,7 +6754,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       NetworksRemovePeeringRequest
       nil))
   ([project network NetworksRemovePeeringRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/networks/{network}/removePeering",
@@ -6777,7 +6777,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project Network] (networks-insert project Network nil))
   ([project Network optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/networks",
@@ -6806,7 +6806,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       NetworksAddPeeringRequest
       nil))
   ([project network NetworksAddPeeringRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/networks/{network}/addPeering",
@@ -6824,7 +6824,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/networks/get
 project <> 
 network <> "
   [project network]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/networks/{network}",
@@ -6847,7 +6847,7 @@ priority <integer> The priority of the rule to get from the firewall policy."
   ([project firewallPolicy]
     (networkFirewallPolicies-getRule project firewallPolicy nil))
   ([project firewallPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/firewallPolicies/{firewallPolicy}/getRule",
@@ -6872,7 +6872,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project firewallPolicy]
     (networkFirewallPolicies-removeRule project firewallPolicy nil))
   ([project firewallPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/firewallPolicies/{firewallPolicy}/removeRule",
@@ -6896,7 +6896,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (networkFirewallPolicies-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/firewallPolicies",
@@ -6916,7 +6916,7 @@ resource <>
 GlobalSetPolicyRequest:
 GlobalSetPolicyRequest"
   [project resource GlobalSetPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/firewallPolicies/{resource}/setIamPolicy",
@@ -6947,7 +6947,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       FirewallPolicyRule
       nil))
   ([project firewallPolicy FirewallPolicyRule optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/firewallPolicies/{firewallPolicy}/addRule",
@@ -6972,7 +6972,7 @@ sourceFirewallPolicy <string> The firewall policy from which to copy rules."
   ([project firewallPolicy]
     (networkFirewallPolicies-cloneRules project firewallPolicy nil))
   ([project firewallPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/firewallPolicies/{firewallPolicy}/cloneRules",
@@ -6995,7 +6995,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project firewallPolicy]
     (networkFirewallPolicies-delete project firewallPolicy nil))
   ([project firewallPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/firewallPolicies/{firewallPolicy}",
@@ -7021,7 +7021,7 @@ name <string> The name of the association to get from the firewall policy."
       firewallPolicy
       nil))
   ([project firewallPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/firewallPolicies/{firewallPolicy}/getAssociation",
@@ -7052,7 +7052,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       FirewallPolicyAssociation
       nil))
   ([project firewallPolicy FirewallPolicyAssociation optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/firewallPolicies/{firewallPolicy}/addAssociation",
@@ -7082,7 +7082,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       FirewallPolicy
       nil))
   ([project firewallPolicy FirewallPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/firewallPolicies/{firewallPolicy}",
@@ -7106,7 +7106,7 @@ optionsRequestedPolicyVersion <integer> Requested IAM Policy version."
   ([project resource]
     (networkFirewallPolicies-getIamPolicy project resource nil))
   ([project resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/firewallPolicies/{resource}/getIamPolicy",
@@ -7130,7 +7130,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project FirewallPolicy]
     (networkFirewallPolicies-insert project FirewallPolicy nil))
   ([project FirewallPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/firewallPolicies",
@@ -7160,7 +7160,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       FirewallPolicyRule
       nil))
   ([project firewallPolicy FirewallPolicyRule optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/firewallPolicies/{firewallPolicy}/patchRule",
@@ -7188,7 +7188,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       firewallPolicy
       nil))
   ([project firewallPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/firewallPolicies/{firewallPolicy}/removeAssociation",
@@ -7206,7 +7206,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/networkFirewallPo
 project <> 
 firewallPolicy <> "
   [project firewallPolicy]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/firewallPolicies/{firewallPolicy}",
@@ -7227,7 +7227,7 @@ resource <>
 TestPermissionsRequest:
 TestPermissionsRequest"
   [project resource TestPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/firewallPolicies/{resource}/testIamPermissions",
@@ -7254,7 +7254,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
   ([project region]
     (regionNotificationEndpoints-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/notificationEndpoints",
@@ -7273,7 +7273,7 @@ project <>
 region <> 
 notificationEndpoint <> "
   [project region notificationEndpoint]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/notificationEndpoints/{notificationEndpoint}",
@@ -7305,7 +7305,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       NotificationEndpoint
       nil))
   ([project region NotificationEndpoint optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/notificationEndpoints",
@@ -7333,7 +7333,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       notificationEndpoint
       nil))
   ([project region notificationEndpoint optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/notificationEndpoints/{notificationEndpoint}",
@@ -7360,7 +7360,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (targetPools-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/targetPools",
@@ -7395,7 +7395,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     targetPool
     TargetPoolsRemoveInstanceRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/targetPools/{targetPool}/removeInstance",
@@ -7420,7 +7420,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region targetPool]
     (targetPools-delete project region targetPool nil))
   ([project region targetPool optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/targetPools/{targetPool}",
@@ -7451,7 +7451,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       TargetPoolsAddInstanceRequest
       nil))
   ([project region targetPool TargetPoolsAddInstanceRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/targetPools/{targetPool}/addInstance",
@@ -7473,7 +7473,7 @@ targetPool <>
 InstanceReference:
 InstanceReference"
   [project region targetPool InstanceReference]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/targetPools/{targetPool}/getHealth",
@@ -7510,7 +7510,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     targetPool
     TargetPoolsRemoveHealthCheckRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/targetPools/{targetPool}/removeHealthCheck",
@@ -7537,7 +7537,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (targetPools-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/targetPools",
@@ -7562,7 +7562,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region TargetPool]
     (targetPools-insert project region TargetPool nil))
   ([project region TargetPool optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/targetPools",
@@ -7597,7 +7597,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     targetPool
     TargetPoolsAddHealthCheckRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/targetPools/{targetPool}/addHealthCheck",
@@ -7629,7 +7629,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       SecurityPolicyReference
       nil))
   ([project region targetPool SecurityPolicyReference optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/targetPools/{targetPool}/setSecurityPolicy",
@@ -7662,7 +7662,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       TargetReference
       nil))
   ([project region targetPool TargetReference optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/targetPools/{targetPool}/setBackup",
@@ -7682,7 +7682,7 @@ project <>
 region <> 
 targetPool <> "
   [project region targetPool]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/targetPools/{targetPool}",
@@ -7708,7 +7708,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (interconnectAttachments-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/interconnectAttachments",
@@ -7734,7 +7734,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (interconnectAttachments-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/interconnectAttachments",
@@ -7753,7 +7753,7 @@ project <>
 region <> 
 interconnectAttachment <> "
   [project region interconnectAttachment]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/interconnectAttachments/{interconnectAttachment}",
@@ -7786,7 +7786,7 @@ validateOnly <boolean> If true, the request will not be committed."
       InterconnectAttachment
       nil))
   ([project region InterconnectAttachment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/interconnectAttachments",
@@ -7821,7 +7821,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     interconnectAttachment
     InterconnectAttachment
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/interconnectAttachments/{interconnectAttachment}",
@@ -7852,7 +7852,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       interconnectAttachment
       nil))
   ([project region interconnectAttachment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/interconnectAttachments/{interconnectAttachment}",
@@ -7885,7 +7885,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       RegionSetLabelsRequest
       nil))
   ([project region resource RegionSetLabelsRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/interconnectAttachments/{resource}/setLabels",
@@ -7911,7 +7911,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (targetVpnGateways-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/targetVpnGateways",
@@ -7937,7 +7937,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (targetVpnGateways-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/targetVpnGateways",
@@ -7956,7 +7956,7 @@ project <>
 region <> 
 targetVpnGateway <> "
   [project region targetVpnGateway]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/targetVpnGateways/{targetVpnGateway}",
@@ -7984,7 +7984,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region TargetVpnGateway]
     (targetVpnGateways-insert project region TargetVpnGateway nil))
   ([project region TargetVpnGateway optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/targetVpnGateways",
@@ -8008,7 +8008,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region targetVpnGateway]
     (targetVpnGateways-delete project region targetVpnGateway nil))
   ([project region targetVpnGateway optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/targetVpnGateways/{targetVpnGateway}",
@@ -8041,7 +8041,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       RegionSetLabelsRequest
       nil))
   ([project region resource RegionSetLabelsRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/targetVpnGateways/{resource}/setLabels",
@@ -8067,7 +8067,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (regionOperations-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/operations",
@@ -8086,7 +8086,7 @@ project <>
 region <> 
 operation <> "
   [project region operation]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/operations/{operation}",
@@ -8106,7 +8106,7 @@ project <>
 region <> 
 operation <> "
   [project region operation]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/operations/{operation}/wait",
@@ -8126,7 +8126,7 @@ project <>
 region <> 
 operation <> "
   [project region operation]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/operations/{operation}",
@@ -8150,7 +8150,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (sslPolicies-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/sslPolicies",
@@ -8168,7 +8168,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/sslPolicies/get
 project <> 
 sslPolicy <> "
   [project sslPolicy]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/sslPolicies/{sslPolicy}",
@@ -8191,7 +8191,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project SslPolicy] (sslPolicies-insert project SslPolicy nil))
   ([project SslPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/sslPolicies",
@@ -8213,7 +8213,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project sslPolicy] (sslPolicies-delete project sslPolicy nil))
   ([project sslPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/sslPolicies/{sslPolicy}",
@@ -8237,7 +8237,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project sslPolicy SslPolicy]
     (sslPolicies-patch project sslPolicy SslPolicy nil))
   ([project sslPolicy SslPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/sslPolicies/{sslPolicy}",
@@ -8261,7 +8261,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (sslPolicies-listAvailableFeatures project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/sslPolicies/listAvailableFeatures",
@@ -8287,7 +8287,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (sslPolicies-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/sslPolicies",
@@ -8307,7 +8307,7 @@ resource <>
 GlobalSetLabelsRequest:
 GlobalSetLabelsRequest"
   [project resource GlobalSetLabelsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/securityPolicies/{resource}/setLabels",
@@ -8330,7 +8330,7 @@ priority <integer> The priority of the rule to get from the security policy."
   ([project securityPolicy]
     (securityPolicies-getRule project securityPolicy nil))
   ([project securityPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/securityPolicies/{securityPolicy}/getRule",
@@ -8354,7 +8354,7 @@ priority <integer> The priority of the rule to remove from the security policy."
   ([project securityPolicy]
     (securityPolicies-removeRule project securityPolicy nil))
   ([project securityPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/securityPolicies/{securityPolicy}/removeRule",
@@ -8378,7 +8378,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (securityPolicies-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/securityPolicies",
@@ -8407,7 +8407,7 @@ validateOnly <boolean> If true, the request will not be committed."
       SecurityPolicyRule
       nil))
   ([project securityPolicy SecurityPolicyRule optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/securityPolicies/{securityPolicy}/addRule",
@@ -8433,7 +8433,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
   ([project]
     (securityPolicies-listPreconfiguredExpressionSets project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/securityPolicies/listPreconfiguredExpressionSets",
@@ -8456,7 +8456,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project securityPolicy]
     (securityPolicies-delete project securityPolicy nil))
   ([project securityPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/securityPolicies/{securityPolicy}",
@@ -8482,7 +8482,7 @@ updateMask <string> Indicates fields to be cleared as part of this request."
   ([project securityPolicy SecurityPolicy]
     (securityPolicies-patch project securityPolicy SecurityPolicy nil))
   ([project securityPolicy SecurityPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/securityPolicies/{securityPolicy}",
@@ -8509,7 +8509,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (securityPolicies-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/securityPolicies",
@@ -8534,7 +8534,7 @@ validateOnly <boolean> If true, the request will not be committed."
   ([project SecurityPolicy]
     (securityPolicies-insert project SecurityPolicy nil))
   ([project SecurityPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/securityPolicies",
@@ -8565,7 +8565,7 @@ validateOnly <boolean> If true, the request will not be committed."
       SecurityPolicyRule
       nil))
   ([project securityPolicy SecurityPolicyRule optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/securityPolicies/{securityPolicy}/patchRule",
@@ -8584,7 +8584,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/securityPolicies/
 project <> 
 securityPolicy <> "
   [project securityPolicy]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/securityPolicies/{securityPolicy}",
@@ -8616,7 +8616,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       NodeGroupsDeleteNodesRequest
       nil))
   ([project zone nodeGroup NodeGroupsDeleteNodesRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/nodeGroups/{nodeGroup}/deleteNodes",
@@ -8642,7 +8642,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project zone] (nodeGroups-list project zone nil))
   ([project zone optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/nodeGroups",
@@ -8663,7 +8663,7 @@ resource <>
 ZoneSetPolicyRequest:
 ZoneSetPolicyRequest"
   [project zone resource ZoneSetPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/nodeGroups/{resource}/setIamPolicy",
@@ -8699,7 +8699,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     nodeGroup
     NodeGroupsSimulateMaintenanceEventRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/nodeGroups/{nodeGroup}/simulateMaintenanceEvent",
@@ -8724,7 +8724,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone nodeGroup]
     (nodeGroups-delete project zone nodeGroup nil))
   ([project zone nodeGroup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/nodeGroups/{nodeGroup}",
@@ -8755,7 +8755,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       NodeGroupsAddNodesRequest
       nil))
   ([project zone nodeGroup NodeGroupsAddNodesRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/nodeGroups/{nodeGroup}/addNodes",
@@ -8783,7 +8783,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
   ([project zone nodeGroup]
     (nodeGroups-listNodes project zone nodeGroup nil))
   ([project zone nodeGroup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/nodeGroups/{nodeGroup}/listNodes",
@@ -8810,7 +8810,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone nodeGroup NodeGroup]
     (nodeGroups-patch project zone nodeGroup NodeGroup nil))
   ([project zone nodeGroup NodeGroup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/nodeGroups/{nodeGroup}",
@@ -8842,7 +8842,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       NodeGroupsSetNodeTemplateRequest
       nil))
   ([project zone nodeGroup NodeGroupsSetNodeTemplateRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/nodeGroups/{nodeGroup}/setNodeTemplate",
@@ -8867,7 +8867,7 @@ optionsRequestedPolicyVersion <integer> Requested IAM Policy version."
   ([project zone resource]
     (nodeGroups-getIamPolicy project zone resource nil))
   ([project zone resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/nodeGroups/{resource}/getIamPolicy",
@@ -8894,7 +8894,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (nodeGroups-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/nodeGroups",
@@ -8920,7 +8920,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone initialNodeCount NodeGroup]
     (nodeGroups-insert project zone initialNodeCount NodeGroup nil))
   ([project zone initialNodeCount NodeGroup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/nodeGroups",
@@ -8940,7 +8940,7 @@ project <>
 zone <> 
 nodeGroup <> "
   [project zone nodeGroup]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/nodeGroups/{nodeGroup}",
@@ -8976,7 +8976,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     nodeGroup
     NodeGroupsPerformMaintenanceRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/nodeGroups/{nodeGroup}/performMaintenance",
@@ -8998,7 +8998,7 @@ resource <>
 TestPermissionsRequest:
 TestPermissionsRequest"
   [project zone resource TestPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/nodeGroups/{resource}/testIamPermissions",
@@ -9031,7 +9031,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       ZoneSetLabelsRequest
       nil))
   ([project zone resource ZoneSetLabelsRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instantSnapshots/{resource}/setLabels",
@@ -9057,7 +9057,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project zone] (instantSnapshots-list project zone nil))
   ([project zone optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instantSnapshots",
@@ -9078,7 +9078,7 @@ resource <>
 ZoneSetPolicyRequest:
 ZoneSetPolicyRequest"
   [project zone resource ZoneSetPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instantSnapshots/{resource}/setIamPolicy",
@@ -9103,7 +9103,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone instantSnapshot]
     (instantSnapshots-delete project zone instantSnapshot nil))
   ([project zone instantSnapshot optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instantSnapshots/{instantSnapshot}",
@@ -9129,7 +9129,7 @@ optionsRequestedPolicyVersion <integer> Requested IAM Policy version."
   ([project zone resource]
     (instantSnapshots-getIamPolicy project zone resource nil))
   ([project zone resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instantSnapshots/{resource}/getIamPolicy",
@@ -9156,7 +9156,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (instantSnapshots-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/instantSnapshots",
@@ -9181,7 +9181,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone InstantSnapshot]
     (instantSnapshots-insert project zone InstantSnapshot nil))
   ([project zone InstantSnapshot optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instantSnapshots",
@@ -9200,7 +9200,7 @@ project <>
 zone <> 
 instantSnapshot <> "
   [project zone instantSnapshot]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instantSnapshots/{instantSnapshot}",
@@ -9224,7 +9224,7 @@ resource <>
 TestPermissionsRequest:
 TestPermissionsRequest"
   [project zone resource TestPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instantSnapshots/{resource}/testIamPermissions",
@@ -9250,7 +9250,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (firewalls-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/firewalls",
@@ -9268,7 +9268,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/firewalls/get
 project <> 
 firewall <> "
   [project firewall]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/firewalls/{firewall}",
@@ -9291,7 +9291,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project Firewall] (firewalls-insert project Firewall nil))
   ([project Firewall optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/firewalls",
@@ -9313,7 +9313,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project firewall] (firewalls-delete project firewall nil))
   ([project firewall optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/firewalls/{firewall}",
@@ -9337,7 +9337,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project firewall Firewall]
     (firewalls-update project firewall Firewall nil))
   ([project firewall Firewall optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/firewalls/{firewall}",
@@ -9362,7 +9362,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project firewall Firewall]
     (firewalls-patch project firewall Firewall nil))
   ([project firewall Firewall optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/firewalls/{firewall}",
@@ -9387,7 +9387,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (regionInstanceGroups-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instanceGroups",
@@ -9406,7 +9406,7 @@ project <>
 region <> 
 instanceGroup <> "
   [project region instanceGroup]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instanceGroups/{instanceGroup}",
@@ -9450,7 +9450,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
     instanceGroup
     RegionInstanceGroupsListInstancesRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instanceGroups/{instanceGroup}/listInstances",
@@ -9492,7 +9492,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     instanceGroup
     RegionInstanceGroupsSetNamedPortsRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instanceGroups/{instanceGroup}/setNamedPorts",
@@ -9520,7 +9520,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (regionAutoscalers-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/autoscalers",
@@ -9539,7 +9539,7 @@ project <>
 region <> 
 autoscaler <> "
   [project region autoscaler]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/autoscalers/{autoscaler}",
@@ -9565,7 +9565,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region Autoscaler]
     (regionAutoscalers-insert project region Autoscaler nil))
   ([project region Autoscaler optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/autoscalers",
@@ -9591,7 +9591,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region Autoscaler]
     (regionAutoscalers-update project region Autoscaler nil))
   ([project region Autoscaler optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/autoscalers",
@@ -9617,7 +9617,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region Autoscaler]
     (regionAutoscalers-patch project region Autoscaler nil))
   ([project region Autoscaler optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/autoscalers",
@@ -9641,12 +9641,197 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region autoscaler]
     (regionAutoscalers-delete project region autoscaler nil))
   ([project region autoscaler optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/autoscalers/{autoscaler}",
        :uri-template-args
        {"autoscaler" autoscaler, "project" project, "region" region},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/cloud-platform"
+        "https://www.googleapis.com/auth/compute"]})))
+
+(defn futureReservations-insert
+  "Creates a new Future Reservation.
+https://cloud.google.com/products/compute/v1/reference/rest/v1/futureReservations/insert
+
+project <> 
+zone <> 
+FutureReservation:
+FutureReservation
+
+optional:
+requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
+  ([project zone FutureReservation]
+    (futureReservations-insert project zone FutureReservation nil))
+  ([project zone FutureReservation optional]
+    (client/*api-request*
+      {:method :post,
+       :uri-template
+       "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/futureReservations",
+       :uri-template-args {"project" project, "zone" zone},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/cloud-platform"
+        "https://www.googleapis.com/auth/compute"],
+       :body FutureReservation})))
+
+(defn futureReservations-get
+  "Retrieves information about the specified future reservation.
+https://cloud.google.com/products/compute/v1/reference/rest/v1/futureReservations/get
+
+project <> 
+zone <> 
+futureReservation <> "
+  [project zone futureReservation]
+  (client/*api-request*
+    {:method :get,
+     :uri-template
+     "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/futureReservations/{futureReservation}",
+     :uri-template-args
+     {"futureReservation" futureReservation,
+      "project" project,
+      "zone" zone},
+     :query-params {},
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/compute"
+      "https://www.googleapis.com/auth/compute.readonly"]}))
+
+(defn futureReservations-delete
+  "Deletes the specified future reservation.
+https://cloud.google.com/products/compute/v1/reference/rest/v1/futureReservations/delete
+
+project <> 
+zone <> 
+futureReservation <> 
+
+optional:
+requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
+  ([project zone futureReservation]
+    (futureReservations-delete project zone futureReservation nil))
+  ([project zone futureReservation optional]
+    (client/*api-request*
+      {:method :delete,
+       :uri-template
+       "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/futureReservations/{futureReservation}",
+       :uri-template-args
+       {"futureReservation" futureReservation,
+        "project" project,
+        "zone" zone},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/cloud-platform"
+        "https://www.googleapis.com/auth/compute"]})))
+
+(defn futureReservations-list
+  "A list of all the future reservations that have been configured for the specified project in specified zone.
+https://cloud.google.com/products/compute/v1/reference/rest/v1/futureReservations/list
+
+project <> 
+zone <> 
+
+optional:
+filter <string> A filter expression that filters resources listed in the response. Most Compute resources support two types of filter expressions: expressions that support regular expressions and expressions that follow API improvement proposal AIP-160. These two types of filter expressions cannot be mixed in one request. If you want to use AIP-160, your expression must specify the field name, an operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are filtering Compute Engine instances, you can exclude instances named `example-instance` by specifying `name != example-instance`. The `:*` comparison can be used to test whether a key has been defined. For example, to find all objects with `owner` label use: ``` labels.owner:* ``` You can also filter nested fields. For example, you could specify `scheduling.automaticRestart = false` to include instances only if they are not scheduled for automatic restarts. You can use filtering on nested fields to filter based on resource labels. To filter on multiple expressions, provide each separate expression within parentheses. For example: ``` (scheduling.automaticRestart = true) (cpuPlatform = \"Intel Skylake\") ``` By default, each expression is an `AND` expression. However, you can include `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform = \"Intel Skylake\") OR (cpuPlatform = \"Intel Broadwell\") AND (scheduling.automaticRestart = true) ``` If you want to use a regular expression, use the `eq` (equal) or `ne` (not equal) operator against a single un-parenthesized expression with or without quotes or against multiple parenthesized expressions. Examples: `fieldname eq unquoted literal` `fieldname eq 'single quoted literal'` `fieldname eq \"double quoted literal\"` `(fieldname1 eq literal) (fieldname2 ne \"literal\")` The literal value is interpreted as a regular expression using Google RE2 library syntax. The literal value must match the entire field. For example, to filter for instances that do not end with name \"instance\", you would use `name ne .*instance`. You cannot combine constraints on multiple fields using regular expressions.
+maxResults <integer> The maximum number of results per page that should be returned. If the number of available results is larger than `maxResults`, Compute Engine returns a `nextPageToken` that can be used to get the next page of results in subsequent list requests. Acceptable values are `0` to `500`, inclusive. (Default: `500`)
+orderBy <string> Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name. You can also sort results in descending order based on the creation timestamp using `orderBy=\"creationTimestamp desc\"`. This sorts results based on the `creationTimestamp` field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation is returned first. Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
+  ([project zone] (futureReservations-list project zone nil))
+  ([project zone optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/futureReservations",
+       :uri-template-args {"project" project, "zone" zone},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/cloud-platform"
+        "https://www.googleapis.com/auth/compute"
+        "https://www.googleapis.com/auth/compute.readonly"]})))
+
+(defn futureReservations-aggregatedList
+  "Retrieves an aggregated list of future reservations. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+https://cloud.google.com/products/compute/v1/reference/rest/v1/futureReservations/aggregatedList
+
+project <> 
+
+optional:
+filter <string> A filter expression that filters resources listed in the response. Most Compute resources support two types of filter expressions: expressions that support regular expressions and expressions that follow API improvement proposal AIP-160. These two types of filter expressions cannot be mixed in one request. If you want to use AIP-160, your expression must specify the field name, an operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are filtering Compute Engine instances, you can exclude instances named `example-instance` by specifying `name != example-instance`. The `:*` comparison can be used to test whether a key has been defined. For example, to find all objects with `owner` label use: ``` labels.owner:* ``` You can also filter nested fields. For example, you could specify `scheduling.automaticRestart = false` to include instances only if they are not scheduled for automatic restarts. You can use filtering on nested fields to filter based on resource labels. To filter on multiple expressions, provide each separate expression within parentheses. For example: ``` (scheduling.automaticRestart = true) (cpuPlatform = \"Intel Skylake\") ``` By default, each expression is an `AND` expression. However, you can include `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform = \"Intel Skylake\") OR (cpuPlatform = \"Intel Broadwell\") AND (scheduling.automaticRestart = true) ``` If you want to use a regular expression, use the `eq` (equal) or `ne` (not equal) operator against a single un-parenthesized expression with or without quotes or against multiple parenthesized expressions. Examples: `fieldname eq unquoted literal` `fieldname eq 'single quoted literal'` `fieldname eq \"double quoted literal\"` `(fieldname1 eq literal) (fieldname2 ne \"literal\")` The literal value is interpreted as a regular expression using Google RE2 library syntax. The literal value must match the entire field. For example, to filter for instances that do not end with name \"instance\", you would use `name ne .*instance`. You cannot combine constraints on multiple fields using regular expressions.
+includeAllScopes <boolean> Indicates whether every visible scope for each scope type (zone, region, global) should be included in the response. For new resource types added after this field, the flag has no effect as new resource types will always include every visible scope for each scope type in response. For resource types which predate this field, if this flag is omitted or false, only scopes of the scope types where the resource type is expected to be found will be included.
+maxResults <integer> The maximum number of results per page that should be returned. If the number of available results is larger than `maxResults`, Compute Engine returns a `nextPageToken` that can be used to get the next page of results in subsequent list requests. Acceptable values are `0` to `500`, inclusive. (Default: `500`)
+orderBy <string> Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name. You can also sort results in descending order based on the creation timestamp using `orderBy=\"creationTimestamp desc\"`. This sorts results based on the `creationTimestamp` field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation is returned first. Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code.
+serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
+  ([project] (futureReservations-aggregatedList project nil))
+  ([project optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/futureReservations",
+       :uri-template-args {"project" project},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/cloud-platform"
+        "https://www.googleapis.com/auth/compute"
+        "https://www.googleapis.com/auth/compute.readonly"]})))
+
+(defn futureReservations-update
+  "Updates the specified future reservation.
+https://cloud.google.com/products/compute/v1/reference/rest/v1/futureReservations/update
+
+project <> 
+zone <> 
+futureReservation <> 
+FutureReservation:
+FutureReservation
+
+optional:
+requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+updateMask <string> update_mask indicates fields to be updated as part of this request."
+  ([project zone futureReservation FutureReservation]
+    (futureReservations-update
+      project
+      zone
+      futureReservation
+      FutureReservation
+      nil))
+  ([project zone futureReservation FutureReservation optional]
+    (client/*api-request*
+      {:method :patch,
+       :uri-template
+       "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/futureReservations/{futureReservation}",
+       :uri-template-args
+       {"futureReservation" futureReservation,
+        "project" project,
+        "zone" zone},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/cloud-platform"
+        "https://www.googleapis.com/auth/compute"],
+       :body FutureReservation})))
+
+(defn futureReservations-cancel
+  "Cancel the specified future reservation.
+https://cloud.google.com/products/compute/v1/reference/rest/v1/futureReservations/cancel
+
+project <> 
+zone <> 
+futureReservation <> 
+
+optional:
+requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
+  ([project zone futureReservation]
+    (futureReservations-cancel project zone futureReservation nil))
+  ([project zone futureReservation optional]
+    (client/*api-request*
+      {:method :post,
+       :uri-template
+       "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/futureReservations/{futureReservation}/cancel",
+       :uri-template-args
+       {"futureReservation" futureReservation,
+        "project" project,
+        "zone" zone},
        :query-params (merge {} optional),
        :scopes
        ["https://www.googleapis.com/auth/cloud-platform"
@@ -9666,7 +9851,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project zone] (nodeTypes-list project zone nil))
   ([project zone optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/nodeTypes",
@@ -9692,7 +9877,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (nodeTypes-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/nodeTypes",
@@ -9711,7 +9896,7 @@ project <>
 zone <> 
 nodeType <> "
   [project zone nodeType]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/nodeTypes/{nodeType}",
@@ -9730,7 +9915,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/instanceSettings/
 project <> 
 zone <> "
   [project zone]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceSettings",
@@ -9756,7 +9941,7 @@ updateMask <string> update_mask indicates fields to be updated as part of this r
   ([project zone InstanceSettings]
     (instanceSettings-patch project zone InstanceSettings nil))
   ([project zone InstanceSettings optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceSettings",
@@ -9781,7 +9966,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (networkAttachments-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/networkAttachments",
@@ -9802,7 +9987,7 @@ resource <>
 RegionSetPolicyRequest:
 RegionSetPolicyRequest"
   [project region resource RegionSetPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/networkAttachments/{resource}/setIamPolicy",
@@ -9827,7 +10012,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region networkAttachment]
     (networkAttachments-delete project region networkAttachment nil))
   ([project region networkAttachment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/networkAttachments/{networkAttachment}",
@@ -9860,7 +10045,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       NetworkAttachment
       nil))
   ([project region networkAttachment NetworkAttachment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/networkAttachments/{networkAttachment}",
@@ -9887,7 +10072,7 @@ optionsRequestedPolicyVersion <integer> Requested IAM Policy version."
   ([project region resource]
     (networkAttachments-getIamPolicy project region resource nil))
   ([project region resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/networkAttachments/{resource}/getIamPolicy",
@@ -9914,7 +10099,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (networkAttachments-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/networkAttachments",
@@ -9939,7 +10124,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region NetworkAttachment]
     (networkAttachments-insert project region NetworkAttachment nil))
   ([project region NetworkAttachment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/networkAttachments",
@@ -9958,7 +10143,7 @@ project <>
 region <> 
 networkAttachment <> "
   [project region networkAttachment]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/networkAttachments/{networkAttachment}",
@@ -9982,7 +10167,7 @@ resource <>
 TestPermissionsRequest:
 TestPermissionsRequest"
   [project region resource TestPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/networkAttachments/{resource}/testIamPermissions",
@@ -10004,7 +10189,7 @@ zone <>
 instanceGroupManager <> 
 resizeRequest <> "
   [project zone instanceGroupManager resizeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/resizeRequests/{resizeRequest}",
@@ -10046,7 +10231,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     instanceGroupManager
     InstanceGroupManagerResizeRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/resizeRequests",
@@ -10080,7 +10265,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
       instanceGroupManager
       nil))
   ([project zone instanceGroupManager optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/resizeRequests",
@@ -10113,7 +10298,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       resizeRequest
       nil))
   ([project zone instanceGroupManager resizeRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/resizeRequests/{resizeRequest}/cancel",
@@ -10146,7 +10331,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       resizeRequest
       nil))
   ([project zone instanceGroupManager resizeRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/resizeRequests/{resizeRequest}",
@@ -10170,7 +10355,7 @@ optional:
 priority <integer> The priority of the rule to get from the firewall policy."
   ([firewallPolicy] (firewallPolicies-getRule firewallPolicy nil))
   ([firewallPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/locations/global/firewallPolicies/{firewallPolicy}/getRule",
@@ -10192,7 +10377,7 @@ priority <integer> The priority of the rule to remove from the firewall policy.
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([firewallPolicy] (firewallPolicies-removeRule firewallPolicy nil))
   ([firewallPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/locations/global/firewallPolicies/{firewallPolicy}/removeRule",
@@ -10214,7 +10399,7 @@ parentId <string> Parent ID for this request. The ID can be either be \"folders/
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([] (firewallPolicies-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/locations/global/firewallPolicies",
@@ -10233,7 +10418,7 @@ resource <>
 GlobalOrganizationSetPolicyRequest:
 GlobalOrganizationSetPolicyRequest"
   [resource GlobalOrganizationSetPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/locations/global/firewallPolicies/{resource}/setIamPolicy",
@@ -10257,7 +10442,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([firewallPolicy FirewallPolicyRule]
     (firewallPolicies-addRule firewallPolicy FirewallPolicyRule nil))
   ([firewallPolicy FirewallPolicyRule optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/locations/global/firewallPolicies/{firewallPolicy}/addRule",
@@ -10279,7 +10464,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
 sourceFirewallPolicy <string> The firewall policy from which to copy rules."
   ([firewallPolicy] (firewallPolicies-cloneRules firewallPolicy nil))
   ([firewallPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/locations/global/firewallPolicies/{firewallPolicy}/cloneRules",
@@ -10299,7 +10484,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([firewallPolicy] (firewallPolicies-delete firewallPolicy nil))
   ([firewallPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/locations/global/firewallPolicies/{firewallPolicy}",
@@ -10317,7 +10502,7 @@ optional:
 targetResource <string> The target resource to list associations. It is an organization, or a folder."
   ([] (firewallPolicies-listAssociations nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/locations/global/firewallPolicies/listAssociations",
@@ -10339,7 +10524,7 @@ name <string> The name of the association to get from the firewall policy."
   ([firewallPolicy]
     (firewallPolicies-getAssociation firewallPolicy nil))
   ([firewallPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/locations/global/firewallPolicies/{firewallPolicy}/getAssociation",
@@ -10367,7 +10552,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       FirewallPolicyAssociation
       nil))
   ([firewallPolicy FirewallPolicyAssociation optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/locations/global/firewallPolicies/{firewallPolicy}/addAssociation",
@@ -10391,7 +10576,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([firewallPolicy FirewallPolicy]
     (firewallPolicies-patch firewallPolicy FirewallPolicy nil))
   ([firewallPolicy FirewallPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/locations/global/firewallPolicies/{firewallPolicy}",
@@ -10412,7 +10597,7 @@ optional:
 optionsRequestedPolicyVersion <integer> Requested IAM Policy version."
   ([resource] (firewallPolicies-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/locations/global/firewallPolicies/{resource}/getIamPolicy",
@@ -10434,7 +10619,7 @@ parentId <string> The new parent of the firewall policy. The ID can be either be
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([firewallPolicy] (firewallPolicies-move firewallPolicy nil))
   ([firewallPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/locations/global/firewallPolicies/{firewallPolicy}/move",
@@ -10456,7 +10641,7 @@ parentId <string> Parent ID for this request. The ID can be either be \"folders/
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([FirewallPolicy] (firewallPolicies-insert FirewallPolicy nil))
   ([FirewallPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/locations/global/firewallPolicies",
@@ -10481,7 +10666,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([firewallPolicy FirewallPolicyRule]
     (firewallPolicies-patchRule firewallPolicy FirewallPolicyRule nil))
   ([firewallPolicy FirewallPolicyRule optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/locations/global/firewallPolicies/{firewallPolicy}/patchRule",
@@ -10504,7 +10689,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([firewallPolicy]
     (firewallPolicies-removeAssociation firewallPolicy nil))
   ([firewallPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/locations/global/firewallPolicies/{firewallPolicy}/removeAssociation",
@@ -10520,7 +10705,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/firewallPolicies/
 
 firewallPolicy <> "
   [firewallPolicy]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/locations/global/firewallPolicies/{firewallPolicy}",
@@ -10539,7 +10724,7 @@ resource <>
 TestPermissionsRequest:
 TestPermissionsRequest"
   [resource TestPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/locations/global/firewallPolicies/{resource}/testIamPermissions",
@@ -10565,7 +10750,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project zone] (reservations-list project zone nil))
   ([project zone optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/reservations",
@@ -10586,7 +10771,7 @@ resource <>
 ZoneSetPolicyRequest:
 ZoneSetPolicyRequest"
   [project zone resource ZoneSetPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/reservations/{resource}/setIamPolicy",
@@ -10611,7 +10796,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone reservation]
     (reservations-delete project zone reservation nil))
   ([project zone reservation optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/reservations/{reservation}",
@@ -10639,7 +10824,7 @@ updateMask <string> Update_mask indicates fields to be updated as part of this r
   ([project zone reservation Reservation]
     (reservations-update project zone reservation Reservation nil))
   ([project zone reservation Reservation optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/reservations/{reservation}",
@@ -10664,7 +10849,7 @@ optionsRequestedPolicyVersion <integer> Requested IAM Policy version."
   ([project zone resource]
     (reservations-getIamPolicy project zone resource nil))
   ([project zone resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/reservations/{resource}/getIamPolicy",
@@ -10691,7 +10876,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (reservations-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/reservations",
@@ -10716,7 +10901,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone Reservation]
     (reservations-insert project zone Reservation nil))
   ([project zone Reservation optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/reservations",
@@ -10747,7 +10932,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       ReservationsResizeRequest
       nil))
   ([project zone reservation ReservationsResizeRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/reservations/{reservation}/resize",
@@ -10767,7 +10952,7 @@ project <>
 zone <> 
 reservation <> "
   [project zone reservation]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/reservations/{reservation}",
@@ -10789,7 +10974,7 @@ resource <>
 TestPermissionsRequest:
 TestPermissionsRequest"
   [project zone resource TestPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/reservations/{resource}/testIamPermissions",
@@ -10815,7 +11000,7 @@ priority <integer> The priority of the rule to get from the security policy."
   ([project region securityPolicy]
     (regionSecurityPolicies-getRule project region securityPolicy nil))
   ([project region securityPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/securityPolicies/{securityPolicy}/getRule",
@@ -10846,7 +11031,7 @@ priority <integer> The priority of the rule to remove from the security policy."
       securityPolicy
       nil))
   ([project region securityPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/securityPolicies/{securityPolicy}/removeRule",
@@ -10873,7 +11058,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (regionSecurityPolicies-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/securityPolicies",
@@ -10904,7 +11089,7 @@ validateOnly <boolean> If true, the request will not be committed."
       SecurityPolicyRule
       nil))
   ([project region securityPolicy SecurityPolicyRule optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/securityPolicies/{securityPolicy}/addRule",
@@ -10931,7 +11116,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region securityPolicy]
     (regionSecurityPolicies-delete project region securityPolicy nil))
   ([project region securityPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/securityPolicies/{securityPolicy}",
@@ -10965,7 +11150,7 @@ updateMask <string> Indicates fields to be cleared as part of this request."
       SecurityPolicy
       nil))
   ([project region securityPolicy SecurityPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/securityPolicies/{securityPolicy}",
@@ -10994,7 +11179,7 @@ validateOnly <boolean> If true, the request will not be committed."
   ([project region SecurityPolicy]
     (regionSecurityPolicies-insert project region SecurityPolicy nil))
   ([project region SecurityPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/securityPolicies",
@@ -11027,7 +11212,7 @@ validateOnly <boolean> If true, the request will not be committed."
       SecurityPolicyRule
       nil))
   ([project region securityPolicy SecurityPolicyRule optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/securityPolicies/{securityPolicy}/patchRule",
@@ -11049,7 +11234,7 @@ project <>
 region <> 
 securityPolicy <> "
   [project region securityPolicy]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/securityPolicies/{securityPolicy}",
@@ -11077,7 +11262,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project zone] (diskTypes-list project zone nil))
   ([project zone optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/diskTypes",
@@ -11103,7 +11288,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (diskTypes-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/diskTypes",
@@ -11122,7 +11307,7 @@ project <>
 zone <> 
 diskType <> "
   [project zone diskType]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/diskTypes/{diskType}",
@@ -11148,7 +11333,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (regionCommitments-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/commitments",
@@ -11174,7 +11359,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (regionCommitments-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/commitments",
@@ -11193,7 +11378,7 @@ project <>
 region <> 
 commitment <> "
   [project region commitment]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/commitments/{commitment}",
@@ -11219,7 +11404,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region Commitment]
     (regionCommitments-insert project region Commitment nil))
   ([project region Commitment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/commitments",
@@ -11252,7 +11437,7 @@ updateMask <string> update_mask indicates fields to be updated as part of this r
       Commitment
       nil))
   ([project region commitment Commitment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/commitments/{commitment}",
@@ -11278,7 +11463,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (regionSslCertificates-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/sslCertificates",
@@ -11297,7 +11482,7 @@ project <>
 region <> 
 sslCertificate <> "
   [project region sslCertificate]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/sslCertificates/{sslCertificate}",
@@ -11325,7 +11510,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region SslCertificate]
     (regionSslCertificates-insert project region SslCertificate nil))
   ([project region SslCertificate optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/sslCertificates",
@@ -11349,7 +11534,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region sslCertificate]
     (regionSslCertificates-delete project region sslCertificate nil))
   ([project region sslCertificate optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/sslCertificates/{sslCertificate}",
@@ -11375,7 +11560,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (machineImages-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/machineImages",
@@ -11393,7 +11578,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/machineImages/get
 project <> 
 machineImage <> "
   [project machineImage]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/machineImages/{machineImage}",
@@ -11419,7 +11604,7 @@ sourceInstance <string> Required. Source instance that is used to create the mac
   ([project MachineImage]
     (machineImages-insert project MachineImage nil))
   ([project MachineImage optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/machineImages",
@@ -11442,7 +11627,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project machineImage]
     (machineImages-delete project machineImage nil))
   ([project machineImage optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/machineImages/{machineImage}",
@@ -11465,7 +11650,7 @@ optionsRequestedPolicyVersion <integer> Requested IAM Policy version."
   ([project resource]
     (machineImages-getIamPolicy project resource nil))
   ([project resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/machineImages/{resource}/getIamPolicy",
@@ -11485,7 +11670,7 @@ resource <>
 GlobalSetPolicyRequest:
 GlobalSetPolicyRequest"
   [project resource GlobalSetPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/machineImages/{resource}/setIamPolicy",
@@ -11505,7 +11690,7 @@ resource <>
 TestPermissionsRequest:
 TestPermissionsRequest"
   [project resource TestPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/machineImages/{resource}/testIamPermissions",
@@ -11531,7 +11716,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (serviceAttachments-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/serviceAttachments",
@@ -11552,7 +11737,7 @@ resource <>
 RegionSetPolicyRequest:
 RegionSetPolicyRequest"
   [project region resource RegionSetPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/serviceAttachments/{resource}/setIamPolicy",
@@ -11577,7 +11762,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region serviceAttachment]
     (serviceAttachments-delete project region serviceAttachment nil))
   ([project region serviceAttachment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/serviceAttachments/{serviceAttachment}",
@@ -11610,7 +11795,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       ServiceAttachment
       nil))
   ([project region serviceAttachment ServiceAttachment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/serviceAttachments/{serviceAttachment}",
@@ -11637,7 +11822,7 @@ optionsRequestedPolicyVersion <integer> Requested IAM Policy version."
   ([project region resource]
     (serviceAttachments-getIamPolicy project region resource nil))
   ([project region resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/serviceAttachments/{resource}/getIamPolicy",
@@ -11664,7 +11849,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (serviceAttachments-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/serviceAttachments",
@@ -11689,7 +11874,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region ServiceAttachment]
     (serviceAttachments-insert project region ServiceAttachment nil))
   ([project region ServiceAttachment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/serviceAttachments",
@@ -11708,7 +11893,7 @@ project <>
 region <> 
 serviceAttachment <> "
   [project region serviceAttachment]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/serviceAttachments/{serviceAttachment}",
@@ -11732,7 +11917,7 @@ resource <>
 TestPermissionsRequest:
 TestPermissionsRequest"
   [project region resource TestPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/serviceAttachments/{resource}/testIamPermissions",
@@ -11758,7 +11943,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (sslCertificates-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/sslCertificates",
@@ -11776,7 +11961,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/sslCertificates/g
 project <> 
 sslCertificate <> "
   [project sslCertificate]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/sslCertificates/{sslCertificate}",
@@ -11801,7 +11986,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project SslCertificate]
     (sslCertificates-insert project SslCertificate nil))
   ([project SslCertificate optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/sslCertificates",
@@ -11824,7 +12009,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project sslCertificate]
     (sslCertificates-delete project sslCertificate nil))
   ([project sslCertificate optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/sslCertificates/{sslCertificate}",
@@ -11850,7 +12035,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (sslCertificates-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/sslCertificates",
@@ -11875,7 +12060,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (addresses-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/addresses",
@@ -11901,7 +12086,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (addresses-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/addresses",
@@ -11920,7 +12105,7 @@ project <>
 region <> 
 address <> "
   [project region address]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/addresses/{address}",
@@ -11946,7 +12131,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region Address]
     (addresses-insert project region Address nil))
   ([project region Address optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/addresses",
@@ -11970,7 +12155,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region address]
     (addresses-delete project region address nil))
   ([project region address optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/addresses/{address}",
@@ -12001,7 +12186,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       RegionAddressesMoveRequest
       nil))
   ([project region address RegionAddressesMoveRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/addresses/{address}/move",
@@ -12033,7 +12218,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       RegionSetLabelsRequest
       nil))
   ([project region resource RegionSetLabelsRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/addresses/{resource}/setLabels",
@@ -12058,7 +12243,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (interconnectRemoteLocations-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/interconnectRemoteLocations",
@@ -12076,7 +12261,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/interconnectRemot
 project <> 
 interconnectRemoteLocation <> "
   [project interconnectRemoteLocation]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/interconnectRemoteLocations/{interconnectRemoteLocation}",
@@ -12102,7 +12287,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (globalNetworkEndpointGroups-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/networkEndpointGroups",
@@ -12120,7 +12305,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/globalNetworkEndp
 project <> 
 networkEndpointGroup <> "
   [project networkEndpointGroup]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/networkEndpointGroups/{networkEndpointGroup}",
@@ -12148,7 +12333,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       NetworkEndpointGroup
       nil))
   ([project NetworkEndpointGroup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/networkEndpointGroups",
@@ -12174,7 +12359,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       networkEndpointGroup
       nil))
   ([project networkEndpointGroup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/networkEndpointGroups/{networkEndpointGroup}",
@@ -12209,7 +12394,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     networkEndpointGroup
     GlobalNetworkEndpointGroupsAttachEndpointsRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/networkEndpointGroups/{networkEndpointGroup}/attachNetworkEndpoints",
@@ -12245,7 +12430,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     networkEndpointGroup
     GlobalNetworkEndpointGroupsDetachEndpointsRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/networkEndpointGroups/{networkEndpointGroup}/detachNetworkEndpoints",
@@ -12276,7 +12461,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
       networkEndpointGroup
       nil))
   ([project networkEndpointGroup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/networkEndpointGroups/{networkEndpointGroup}/listNetworkEndpoints",
@@ -12295,7 +12480,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/snapshotSettings/
 
 project <> "
   [project]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/snapshotSettings",
@@ -12320,7 +12505,7 @@ updateMask <string> update_mask indicates fields to be updated as part of this r
   ([project SnapshotSettings]
     (snapshotSettings-patch project SnapshotSettings nil))
   ([project SnapshotSettings optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/snapshotSettings",
@@ -12344,7 +12529,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (backendServices-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/backendServices",
@@ -12373,7 +12558,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       SignedUrlKey
       nil))
   ([project backendService SignedUrlKey optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/backendServices/{backendService}/addSignedUrlKey",
@@ -12394,7 +12579,7 @@ resource <>
 GlobalSetPolicyRequest:
 GlobalSetPolicyRequest"
   [project resource GlobalSetPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/backendServices/{resource}/setIamPolicy",
@@ -12417,7 +12602,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project backendService]
     (backendServices-delete project backendService nil))
   ([project backendService optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/backendServices/{backendService}",
@@ -12442,7 +12627,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project backendService BackendService]
     (backendServices-update project backendService BackendService nil))
   ([project backendService BackendService optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/backendServices/{backendService}",
@@ -12463,7 +12648,7 @@ backendService <>
 ResourceGroupReference:
 ResourceGroupReference"
   [project backendService ResourceGroupReference]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/backendServices/{backendService}/getHealth",
@@ -12493,7 +12678,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       keyName
       nil))
   ([project backendService keyName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/backendServices/{backendService}/deleteSignedUrlKey",
@@ -12518,7 +12703,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project backendService BackendService]
     (backendServices-patch project backendService BackendService nil))
   ([project backendService BackendService optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/backendServices/{backendService}",
@@ -12542,7 +12727,7 @@ optionsRequestedPolicyVersion <integer> Requested IAM Policy version."
   ([project resource]
     (backendServices-getIamPolicy project resource nil))
   ([project resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/backendServices/{resource}/getIamPolicy",
@@ -12571,7 +12756,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       SecurityPolicyReference
       nil))
   ([project backendService SecurityPolicyReference optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/backendServices/{backendService}/setEdgeSecurityPolicy",
@@ -12598,7 +12783,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (backendServices-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/backendServices",
@@ -12622,7 +12807,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project BackendService]
     (backendServices-insert project BackendService nil))
   ([project BackendService optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/backendServices",
@@ -12651,7 +12836,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       SecurityPolicyReference
       nil))
   ([project backendService SecurityPolicyReference optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/backendServices/{backendService}/setSecurityPolicy",
@@ -12670,7 +12855,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/backendServices/g
 project <> 
 backendService <> "
   [project backendService]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/backendServices/{backendService}",
@@ -12691,7 +12876,7 @@ resource <>
 TestPermissionsRequest:
 TestPermissionsRequest"
   [project resource TestPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/backendServices/{resource}/testIamPermissions",
@@ -12716,7 +12901,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (backendServices-listUsable project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/backendServices/listUsable",
@@ -12741,7 +12926,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project zone] (storagePools-list project zone nil))
   ([project zone optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/storagePools",
@@ -12762,7 +12947,7 @@ resource <>
 ZoneSetPolicyRequest:
 ZoneSetPolicyRequest"
   [project zone resource ZoneSetPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/storagePools/{resource}/setIamPolicy",
@@ -12787,7 +12972,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone storagePool]
     (storagePools-delete project zone storagePool nil))
   ([project zone storagePool optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/storagePools/{storagePool}",
@@ -12814,7 +12999,7 @@ updateMask <string> update_mask indicates fields to be updated as part of this r
   ([project zone storagePool StoragePool]
     (storagePools-update project zone storagePool StoragePool nil))
   ([project zone storagePool StoragePool optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/storagePools/{storagePool}",
@@ -12839,7 +13024,7 @@ optionsRequestedPolicyVersion <integer> Requested IAM Policy version."
   ([project zone resource]
     (storagePools-getIamPolicy project zone resource nil))
   ([project zone resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/storagePools/{resource}/getIamPolicy",
@@ -12866,7 +13051,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (storagePools-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/storagePools",
@@ -12893,7 +13078,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
   ([project zone storagePool]
     (storagePools-listDisks project zone storagePool nil))
   ([project zone storagePool optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/storagePools/{storagePool}/listDisks",
@@ -12919,7 +13104,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone StoragePool]
     (storagePools-insert project zone StoragePool nil))
   ([project zone StoragePool optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/storagePools",
@@ -12938,7 +13123,7 @@ project <>
 zone <> 
 storagePool <> "
   [project zone storagePool]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/storagePools/{storagePool}",
@@ -12960,7 +13145,7 @@ resource <>
 TestPermissionsRequest:
 TestPermissionsRequest"
   [project zone resource TestPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/storagePools/{resource}/testIamPermissions",
@@ -12986,7 +13171,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (httpHealthChecks-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/httpHealthChecks",
@@ -13004,7 +13189,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/httpHealthChecks/
 project <> 
 httpHealthCheck <> "
   [project httpHealthCheck]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/httpHealthChecks/{httpHealthCheck}",
@@ -13029,7 +13214,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project HttpHealthCheck]
     (httpHealthChecks-insert project HttpHealthCheck nil))
   ([project HttpHealthCheck optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/httpHealthChecks",
@@ -13052,7 +13237,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project httpHealthCheck]
     (httpHealthChecks-delete project httpHealthCheck nil))
   ([project httpHealthCheck optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/httpHealthChecks/{httpHealthCheck}",
@@ -13081,7 +13266,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       HttpHealthCheck
       nil))
   ([project httpHealthCheck HttpHealthCheck optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/httpHealthChecks/{httpHealthCheck}",
@@ -13111,7 +13296,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       HttpHealthCheck
       nil))
   ([project httpHealthCheck HttpHealthCheck optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/httpHealthChecks/{httpHealthCheck}",
@@ -13137,7 +13322,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project zone] (machineTypes-list project zone nil))
   ([project zone optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/machineTypes",
@@ -13163,7 +13348,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (machineTypes-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/machineTypes",
@@ -13182,7 +13367,7 @@ project <>
 zone <> 
 machineType <> "
   [project zone machineType]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/machineTypes/{machineType}",
@@ -13208,7 +13393,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (routers-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/routers",
@@ -13231,7 +13416,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project region router] (routers-delete project region router nil))
   ([project region router optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/routers/{router}",
@@ -13255,7 +13440,7 @@ natName <string> Name of the nat service to filter the NAT IP information. If it
   ([project region router]
     (routers-getNatIpInfo project region router nil))
   ([project region router optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/routers/{router}/getNatIpInfo",
@@ -13282,7 +13467,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region router Router]
     (routers-update project region router Router nil))
   ([project region router Router optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/routers/{router}",
@@ -13309,7 +13494,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region router Router]
     (routers-patch project region router Router nil))
   ([project region router Router optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/routers/{router}",
@@ -13336,7 +13521,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (routers-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/routers",
@@ -13360,7 +13545,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project region Router] (routers-insert project region Router nil))
   ([project region Router optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/routers",
@@ -13381,7 +13566,7 @@ router <>
 Router:
 Router"
   [project region router Router]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/routers/{router}/preview",
@@ -13411,7 +13596,7 @@ natName <string> Name of the nat service to filter the Nat Mapping information. 
   ([project region router]
     (routers-getNatMappingInfo project region router nil))
   ([project region router optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/routers/{router}/getNatMappingInfo",
@@ -13431,7 +13616,7 @@ project <>
 region <> 
 router <> "
   [project region router]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/routers/{router}",
@@ -13451,7 +13636,7 @@ project <>
 region <> 
 router <> "
   [project region router]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/routers/{router}/getRouterStatus",
@@ -13472,7 +13657,7 @@ resource <>
 GlobalSetLabelsRequest:
 GlobalSetLabelsRequest"
   [project resource GlobalSetLabelsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/images/{resource}/setLabels",
@@ -13496,7 +13681,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (images-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/images",
@@ -13516,7 +13701,7 @@ resource <>
 GlobalSetPolicyRequest:
 GlobalSetPolicyRequest"
   [project resource GlobalSetPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/images/{resource}/setIamPolicy",
@@ -13541,7 +13726,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project image DeprecationStatus]
     (images-deprecate project image DeprecationStatus nil))
   ([project image DeprecationStatus optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/images/{image}/deprecate",
@@ -13563,7 +13748,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project image] (images-delete project image nil))
   ([project image optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/images/{image}",
@@ -13586,7 +13771,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project image Image] (images-patch project image Image nil))
   ([project image Image optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/images/{image}",
@@ -13608,7 +13793,7 @@ optional:
 optionsRequestedPolicyVersion <integer> Requested IAM Policy version."
   ([project resource] (images-getIamPolicy project resource nil))
   ([project resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/images/{resource}/getIamPolicy",
@@ -13632,7 +13817,7 @@ forceCreate <boolean> Force image creation if true.
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project Image] (images-insert project Image nil))
   ([project Image optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/images",
@@ -13653,7 +13838,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/images/get
 project <> 
 image <> "
   [project image]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/images/{image}",
@@ -13671,7 +13856,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/images/getFromFam
 project <> 
 family <> "
   [project family]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/images/family/{family}",
@@ -13691,7 +13876,7 @@ resource <>
 TestPermissionsRequest:
 TestPermissionsRequest"
   [project resource TestPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/images/{resource}/testIamPermissions",
@@ -13717,7 +13902,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (vpnGateways-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/vpnGateways",
@@ -13743,7 +13928,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (vpnGateways-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/vpnGateways",
@@ -13762,7 +13947,7 @@ project <>
 region <> 
 vpnGateway <> "
   [project region vpnGateway]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/vpnGateways/{vpnGateway}",
@@ -13782,7 +13967,7 @@ project <>
 region <> 
 vpnGateway <> "
   [project region vpnGateway]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/vpnGateways/{vpnGateway}/getStatus",
@@ -13808,7 +13993,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region VpnGateway]
     (vpnGateways-insert project region VpnGateway nil))
   ([project region VpnGateway optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/vpnGateways",
@@ -13832,7 +14017,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region vpnGateway]
     (vpnGateways-delete project region vpnGateway nil))
   ([project region vpnGateway optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/vpnGateways/{vpnGateway}",
@@ -13853,7 +14038,7 @@ resource <>
 TestPermissionsRequest:
 TestPermissionsRequest"
   [project region resource TestPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/vpnGateways/{resource}/testIamPermissions",
@@ -13886,7 +14071,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       RegionSetLabelsRequest
       nil))
   ([project region resource RegionSetLabelsRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/vpnGateways/{resource}/setLabels",
@@ -13911,7 +14096,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (targetTcpProxies-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetTcpProxies",
@@ -13937,7 +14122,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (targetTcpProxies-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/targetTcpProxies",
@@ -13955,7 +14140,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/targetTcpProxies/
 project <> 
 targetTcpProxy <> "
   [project targetTcpProxy]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetTcpProxies/{targetTcpProxy}",
@@ -13980,7 +14165,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project TargetTcpProxy]
     (targetTcpProxies-insert project TargetTcpProxy nil))
   ([project TargetTcpProxy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetTcpProxies",
@@ -14003,7 +14188,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project targetTcpProxy]
     (targetTcpProxies-delete project targetTcpProxy nil))
   ([project targetTcpProxy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetTcpProxies/{targetTcpProxy}",
@@ -14035,7 +14220,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     targetTcpProxy
     TargetTcpProxiesSetBackendServiceRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetTcpProxies/{targetTcpProxy}/setBackendService",
@@ -14068,7 +14253,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     targetTcpProxy
     TargetTcpProxiesSetProxyHeaderRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetTcpProxies/{targetTcpProxy}/setProxyHeader",
@@ -14093,7 +14278,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (backendBuckets-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/backendBuckets",
@@ -14122,7 +14307,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       SignedUrlKey
       nil))
   ([project backendBucket SignedUrlKey optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/backendBuckets/{backendBucket}/addSignedUrlKey",
@@ -14143,7 +14328,7 @@ resource <>
 GlobalSetPolicyRequest:
 GlobalSetPolicyRequest"
   [project resource GlobalSetPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/backendBuckets/{resource}/setIamPolicy",
@@ -14166,7 +14351,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project backendBucket]
     (backendBuckets-delete project backendBucket nil))
   ([project backendBucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/backendBuckets/{backendBucket}",
@@ -14191,7 +14376,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project backendBucket BackendBucket]
     (backendBuckets-update project backendBucket BackendBucket nil))
   ([project backendBucket BackendBucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/backendBuckets/{backendBucket}",
@@ -14220,7 +14405,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       keyName
       nil))
   ([project backendBucket keyName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/backendBuckets/{backendBucket}/deleteSignedUrlKey",
@@ -14245,7 +14430,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project backendBucket BackendBucket]
     (backendBuckets-patch project backendBucket BackendBucket nil))
   ([project backendBucket BackendBucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/backendBuckets/{backendBucket}",
@@ -14269,7 +14454,7 @@ optionsRequestedPolicyVersion <integer> Requested IAM Policy version."
   ([project resource]
     (backendBuckets-getIamPolicy project resource nil))
   ([project resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/backendBuckets/{resource}/getIamPolicy",
@@ -14298,7 +14483,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       SecurityPolicyReference
       nil))
   ([project backendBucket SecurityPolicyReference optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/backendBuckets/{backendBucket}/setEdgeSecurityPolicy",
@@ -14323,7 +14508,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project BackendBucket]
     (backendBuckets-insert project BackendBucket nil))
   ([project BackendBucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/backendBuckets",
@@ -14341,7 +14526,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/backendBuckets/ge
 project <> 
 backendBucket <> "
   [project backendBucket]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/backendBuckets/{backendBucket}",
@@ -14362,7 +14547,7 @@ resource <>
 TestPermissionsRequest:
 TestPermissionsRequest"
   [project resource TestPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/backendBuckets/{resource}/testIamPermissions",
@@ -14387,7 +14572,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (regions-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions",
@@ -14405,7 +14590,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/regions/get
 project <> 
 region <> "
   [project region]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}",
@@ -14424,7 +14609,7 @@ project <>
 region <> 
 packetMirroring <> "
   [project region packetMirroring]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/packetMirrorings/{packetMirroring}",
@@ -14452,7 +14637,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region PacketMirroring]
     (packetMirrorings-insert project region PacketMirroring nil))
   ([project region PacketMirroring optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/packetMirrorings",
@@ -14483,7 +14668,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       PacketMirroring
       nil))
   ([project region packetMirroring PacketMirroring optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/packetMirrorings/{packetMirroring}",
@@ -14510,7 +14695,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region packetMirroring]
     (packetMirrorings-delete project region packetMirroring nil))
   ([project region packetMirroring optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/packetMirrorings/{packetMirroring}",
@@ -14537,7 +14722,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (packetMirrorings-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/packetMirrorings",
@@ -14563,7 +14748,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (packetMirrorings-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/packetMirrorings",
@@ -14584,7 +14769,7 @@ resource <>
 TestPermissionsRequest:
 TestPermissionsRequest"
   [project region resource TestPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/packetMirrorings/{resource}/testIamPermissions",
@@ -14610,7 +14795,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (snapshots-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/snapshots",
@@ -14628,7 +14813,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/snapshots/get
 project <> 
 snapshot <> "
   [project snapshot]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/snapshots/{snapshot}",
@@ -14651,7 +14836,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project Snapshot] (snapshots-insert project Snapshot nil))
   ([project Snapshot optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/snapshots",
@@ -14671,7 +14856,7 @@ resource <>
 GlobalSetLabelsRequest:
 GlobalSetLabelsRequest"
   [project resource GlobalSetLabelsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/snapshots/{resource}/setLabels",
@@ -14693,7 +14878,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project snapshot] (snapshots-delete project snapshot nil))
   ([project snapshot optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/snapshots/{snapshot}",
@@ -14714,7 +14899,7 @@ optional:
 optionsRequestedPolicyVersion <integer> Requested IAM Policy version."
   ([project resource] (snapshots-getIamPolicy project resource nil))
   ([project resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/snapshots/{resource}/getIamPolicy",
@@ -14734,7 +14919,7 @@ resource <>
 GlobalSetPolicyRequest:
 GlobalSetPolicyRequest"
   [project resource GlobalSetPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/snapshots/{resource}/setIamPolicy",
@@ -14754,7 +14939,7 @@ resource <>
 TestPermissionsRequest:
 TestPermissionsRequest"
   [project resource TestPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/snapshots/{resource}/testIamPermissions",
@@ -14779,7 +14964,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (globalAddresses-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/addresses",
@@ -14797,7 +14982,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/globalAddresses/g
 project <> 
 address <> "
   [project address]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/addresses/{address}",
@@ -14820,7 +15005,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project Address] (globalAddresses-insert project Address nil))
   ([project Address optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/addresses",
@@ -14842,7 +15027,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project address] (globalAddresses-delete project address nil))
   ([project address optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/addresses/{address}",
@@ -14870,7 +15055,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       GlobalAddressesMoveRequest
       nil))
   ([project address GlobalAddressesMoveRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/addresses/{address}/move",
@@ -14890,7 +15075,7 @@ resource <>
 GlobalSetLabelsRequest:
 GlobalSetLabelsRequest"
   [project resource GlobalSetLabelsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/addresses/{resource}/setLabels",
@@ -14909,7 +15094,7 @@ project <>
 region <> 
 networkEdgeSecurityService <> "
   [project region networkEdgeSecurityService]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/networkEdgeSecurityServices/{networkEdgeSecurityService}",
@@ -14942,7 +15127,7 @@ validateOnly <boolean> If true, the request will not be committed."
       NetworkEdgeSecurityService
       nil))
   ([project region NetworkEdgeSecurityService optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/networkEdgeSecurityServices",
@@ -14970,7 +15155,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       networkEdgeSecurityService
       nil))
   ([project region networkEdgeSecurityService optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/networkEdgeSecurityServices/{networkEdgeSecurityService}",
@@ -15012,7 +15197,7 @@ updateMask <string> Indicates fields to be updated as part of this request."
     networkEdgeSecurityService
     NetworkEdgeSecurityService
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/networkEdgeSecurityServices/{networkEdgeSecurityService}",
@@ -15041,7 +15226,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (networkEdgeSecurityServices-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/networkEdgeSecurityServices",
@@ -15065,7 +15250,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project DiskMoveRequest]
     (projects-moveDisk project DiskMoveRequest nil))
   ([project DiskMoveRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/moveDisk",
@@ -15089,7 +15274,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project InstanceMoveRequest]
     (projects-moveInstance project InstanceMoveRequest nil))
   ([project InstanceMoveRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/moveInstance",
@@ -15116,7 +15301,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       ProjectsDisableXpnResourceRequest
       nil))
   ([project ProjectsDisableXpnResourceRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/disableXpnResource",
@@ -15133,7 +15318,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/projects/getXpnHo
 
 project <> "
   [project]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/getXpnHost",
@@ -15153,7 +15338,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project] (projects-disableXpnHost project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/disableXpnHost",
@@ -15176,7 +15361,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project UsageExportLocation]
     (projects-setUsageExportBucket project UsageExportLocation nil))
   ([project UsageExportLocation optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/setUsageExportBucket",
@@ -15206,7 +15391,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       ProjectsEnableXpnResourceRequest
       nil))
   ([project ProjectsEnableXpnResourceRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/enableXpnResource",
@@ -15233,7 +15418,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
   ([project ProjectsListXpnHostsRequest]
     (projects-listXpnHosts project ProjectsListXpnHostsRequest nil))
   ([project ProjectsListXpnHostsRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/listXpnHosts",
@@ -15257,7 +15442,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (projects-getXpnResources project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/getXpnResources",
@@ -15277,7 +15462,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project] (projects-enableXpnHost project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/enableXpnHost",
@@ -15303,7 +15488,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       ProjectsSetCloudArmorTierRequest
       nil))
   ([project ProjectsSetCloudArmorTierRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/setCloudArmorTier",
@@ -15327,7 +15512,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project Metadata]
     (projects-setCommonInstanceMetadata project Metadata nil))
   ([project Metadata optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/setCommonInstanceMetadata",
@@ -15354,7 +15539,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       ProjectsSetDefaultNetworkTierRequest
       nil))
   ([project ProjectsSetDefaultNetworkTierRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/setDefaultNetworkTier",
@@ -15371,7 +15556,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/projects/get
 
 project <> "
   [project]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}",
@@ -15395,7 +15580,7 @@ discardLocalSsd <boolean> This property is required if the instance has any atta
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project zone instance] (instances-stop project zone instance nil))
   ([project zone instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/stop",
@@ -15414,7 +15599,7 @@ project <>
 zone <> 
 instance <> "
   [project zone instance]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/screenshot",
@@ -15446,7 +15631,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       InstancesSetLabelsRequest
       nil))
   ([project zone instance InstancesSetLabelsRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/setLabels",
@@ -15472,7 +15657,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project zone] (instances-list project zone nil))
   ([project zone optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances",
@@ -15493,7 +15678,7 @@ resource <>
 ZoneSetPolicyRequest:
 ZoneSetPolicyRequest"
   [project zone resource ZoneSetPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{resource}/setIamPolicy",
@@ -15513,7 +15698,7 @@ project <>
 zone <> 
 instance <> "
   [project zone instance]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/getShieldedInstanceIdentity",
@@ -15539,7 +15724,7 @@ withExtendedNotifications <boolean> Determines whether the customers receive not
   ([project zone instance]
     (instances-simulateMaintenanceEvent project zone instance nil))
   ([project zone instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/simulateMaintenanceEvent",
@@ -15572,7 +15757,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       NetworkInterface
       nil))
   ([project zone instance networkInterface NetworkInterface optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/updateNetworkInterface",
@@ -15609,7 +15794,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     instance
     InstancesRemoveResourcePoliciesRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/removeResourcePolicies",
@@ -15641,7 +15826,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       ShieldedInstanceIntegrityPolicy
       nil))
   ([project zone instance ShieldedInstanceIntegrityPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/setShieldedInstanceIntegrityPolicy",
@@ -15667,7 +15852,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone BulkInsertInstanceResource]
     (instances-bulkInsert project zone BulkInsertInstanceResource nil))
   ([project zone BulkInsertInstanceResource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/bulkInsert",
@@ -15691,7 +15876,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone instance]
     (instances-delete project zone instance nil))
   ([project zone instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}",
@@ -15726,7 +15911,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     instance
     InstancesStartWithEncryptionKeyRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/startWithEncryptionKey",
@@ -15758,7 +15943,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       ShieldedInstanceConfig
       nil))
   ([project zone instance ShieldedInstanceConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/updateShieldedInstanceConfig",
@@ -15786,7 +15971,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone instance AttachedDisk]
     (instances-attachDisk project zone instance AttachedDisk nil))
   ([project zone instance AttachedDisk optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/attachDisk",
@@ -15813,7 +15998,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone instance Scheduling]
     (instances-setScheduling project zone instance Scheduling nil))
   ([project zone instance Scheduling optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/setScheduling",
@@ -15846,7 +16031,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       networkInterface
       nil))
   ([project zone instance accessConfig networkInterface optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/deleteAccessConfig",
@@ -15875,7 +16060,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone instance]
     (instances-suspend project zone instance nil))
   ([project zone instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/suspend",
@@ -15906,7 +16091,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       InstancesSetMinCpuPlatformRequest
       nil))
   ([project zone instance InstancesSetMinCpuPlatformRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/setMinCpuPlatform",
@@ -15938,7 +16123,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       InstancesSetNameRequest
       nil))
   ([project zone instance InstancesSetNameRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/setName",
@@ -15959,7 +16144,7 @@ zone <>
 instance <> 
 networkInterface <> "
   [project zone instance networkInterface]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/getEffectiveFirewalls",
@@ -15987,7 +16172,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
   ([project zone instance]
     (instances-listReferrers project zone instance nil))
   ([project zone instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/referrers",
@@ -16011,7 +16196,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project zone instance] (instances-reset project zone instance nil))
   ([project zone instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/reset",
@@ -16030,7 +16215,7 @@ project <>
 zone <> 
 instance <> "
   [project zone instance]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/sendDiagnosticInterrupt",
@@ -16058,7 +16243,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone instance Instance]
     (instances-update project zone instance Instance nil))
   ([project zone instance Instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}",
@@ -16090,7 +16275,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       InstancesSetServiceAccountRequest
       nil))
   ([project zone instance InstancesSetServiceAccountRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/setServiceAccount",
@@ -16124,7 +16309,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       AccessConfig
       nil))
   ([project zone instance networkInterface AccessConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/addAccessConfig",
@@ -16149,7 +16334,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project zone instance] (instances-start project zone instance nil))
   ([project zone instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/start",
@@ -16175,7 +16360,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone instance Tags]
     (instances-setTags project zone instance Tags nil))
   ([project zone instance Tags optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/setTags",
@@ -16207,7 +16392,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       InstancesSetMachineResourcesRequest
       nil))
   ([project zone instance InstancesSetMachineResourcesRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/setMachineResources",
@@ -16233,7 +16418,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone resource]
     (instances-setDeletionProtection project zone resource nil))
   ([project zone resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{resource}/setDeletionProtection",
@@ -16264,7 +16449,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       InstancesSetMachineTypeRequest
       nil))
   ([project zone instance InstancesSetMachineTypeRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/setMachineType",
@@ -16290,7 +16475,7 @@ start <string> Specifies the starting byte position of the output to return. To 
   ([project zone instance]
     (instances-getSerialPortOutput project zone instance nil))
   ([project zone instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/serialPort",
@@ -16315,7 +16500,7 @@ optionsRequestedPolicyVersion <integer> Requested IAM Policy version."
   ([project zone resource]
     (instances-getIamPolicy project zone resource nil))
   ([project zone resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{resource}/getIamPolicy",
@@ -16342,7 +16527,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (instances-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/instances",
@@ -16369,7 +16554,7 @@ sourceMachineImage <string> Specifies the machine image to use to create the ins
   ([project zone Instance]
     (instances-insert project zone Instance nil))
   ([project zone Instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances",
@@ -16402,7 +16587,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       AccessConfig
       nil))
   ([project zone instance networkInterface AccessConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/updateAccessConfig",
@@ -16429,7 +16614,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone instance deviceName]
     (instances-detachDisk project zone instance deviceName nil))
   ([project zone instance deviceName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/detachDisk",
@@ -16460,7 +16645,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       InstancesSetSecurityPolicyRequest
       nil))
   ([project zone instance InstancesSetSecurityPolicyRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/setSecurityPolicy",
@@ -16492,7 +16677,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       InstancesAddResourcePoliciesRequest
       nil))
   ([project zone instance InstancesAddResourcePoliciesRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/addResourcePolicies",
@@ -16512,7 +16697,7 @@ project <>
 zone <> 
 instance <> "
   [project zone instance]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}",
@@ -16537,7 +16722,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone instance]
     (instances-performMaintenance project zone instance nil))
   ([project zone instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/performMaintenance",
@@ -16568,7 +16753,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       DisplayDevice
       nil))
   ([project zone instance DisplayDevice optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/updateDisplayDevice",
@@ -16594,7 +16779,7 @@ variableKey <string> Specifies the key for the guest attributes entry."
   ([project zone instance]
     (instances-getGuestAttributes project zone instance nil))
   ([project zone instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/getGuestAttributes",
@@ -16621,7 +16806,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone instance Metadata]
     (instances-setMetadata project zone instance Metadata nil))
   ([project zone instance Metadata optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/setMetadata",
@@ -16643,7 +16828,7 @@ resource <>
 TestPermissionsRequest:
 TestPermissionsRequest"
   [project zone resource TestPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{resource}/testIamPermissions",
@@ -16669,7 +16854,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone instance]
     (instances-resume project zone instance nil))
   ([project zone instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/resume",
@@ -16701,7 +16886,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       deviceName
       nil))
   ([project zone instance autoDelete deviceName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instances/{instance}/setDiskAutoDelete",
@@ -16728,7 +16913,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (urlMaps-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/urlMaps",
@@ -16750,7 +16935,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project urlMap] (urlMaps-delete project urlMap nil))
   ([project urlMap optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/urlMaps/{urlMap}",
@@ -16769,7 +16954,7 @@ urlMap <>
 UrlMapsValidateRequest:
 UrlMapsValidateRequest"
   [project urlMap UrlMapsValidateRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/urlMaps/{urlMap}/validate",
@@ -16793,7 +16978,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project urlMap UrlMap] (urlMaps-update project urlMap UrlMap nil))
   ([project urlMap UrlMap optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/urlMaps/{urlMap}",
@@ -16817,7 +17002,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project urlMap UrlMap] (urlMaps-patch project urlMap UrlMap nil))
   ([project urlMap UrlMap optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/urlMaps/{urlMap}",
@@ -16843,7 +17028,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (urlMaps-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/urlMaps",
@@ -16866,7 +17051,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project UrlMap] (urlMaps-insert project UrlMap nil))
   ([project UrlMap optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/urlMaps",
@@ -16884,7 +17069,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/urlMaps/get
 project <> 
 urlMap <> "
   [project urlMap]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/urlMaps/{urlMap}",
@@ -16909,7 +17094,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project urlMap CacheInvalidationRule]
     (urlMaps-invalidateCache project urlMap CacheInvalidationRule nil))
   ([project urlMap CacheInvalidationRule optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/urlMaps/{urlMap}/invalidateCache",
@@ -16947,7 +17132,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     instanceGroupManager
     InstanceGroupManagersPatchPerInstanceConfigsReq
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/patchPerInstanceConfigs",
@@ -16975,7 +17160,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project zone] (instanceGroupManagers-list project zone nil))
   ([project zone optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers",
@@ -17013,7 +17198,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     instanceGroupManager
     InstanceGroupManagersUpdatePerInstanceConfigsReq
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/updatePerInstanceConfigs",
@@ -17044,7 +17229,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       instanceGroupManager
       nil))
   ([project zone instanceGroupManager optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}",
@@ -17084,7 +17269,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     instanceGroupManager
     InstanceGroupManagersCreateInstancesRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/createInstances",
@@ -17111,7 +17296,7 @@ InstanceGroupManagersApplyUpdatesRequest"
    zone
    instanceGroupManager
    InstanceGroupManagersApplyUpdatesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/applyUpdatesToInstances",
@@ -17152,7 +17337,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     instanceGroupManager
     InstanceGroupManagersSetTargetPoolsRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/setTargetPools",
@@ -17193,7 +17378,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     instanceGroupManager
     InstanceGroupManagersSetInstanceTemplateRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/setInstanceTemplate",
@@ -17234,7 +17419,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     instanceGroupManager
     InstanceGroupManagersRecreateInstancesRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/recreateInstances",
@@ -17268,7 +17453,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       InstanceGroupManager
       nil))
   ([project zone instanceGroupManager InstanceGroupManager optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}",
@@ -17309,7 +17494,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     instanceGroupManager
     InstanceGroupManagersAbandonInstancesRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/abandonInstances",
@@ -17343,7 +17528,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
       instanceGroupManager
       nil))
   ([project zone instanceGroupManager optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/listManagedInstances",
@@ -17372,7 +17557,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (instanceGroupManagers-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/instanceGroupManagers",
@@ -17396,7 +17581,7 @@ InstanceGroupManagersDeletePerInstanceConfigsReq"
    zone
    instanceGroupManager
    InstanceGroupManagersDeletePerInstanceConfigsReq]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/deletePerInstanceConfigs",
@@ -17428,7 +17613,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       InstanceGroupManager
       nil))
   ([project zone InstanceGroupManager optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers",
@@ -17466,7 +17651,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     instanceGroupManager
     InstanceGroupManagersDeleteInstancesRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/deleteInstances",
@@ -17499,7 +17684,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       size
       nil))
   ([project zone instanceGroupManager size optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/resize",
@@ -17520,7 +17705,7 @@ project <>
 zone <> 
 instanceGroupManager <> "
   [project zone instanceGroupManager]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}",
@@ -17554,7 +17739,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
       instanceGroupManager
       nil))
   ([project zone instanceGroupManager optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/listErrors",
@@ -17588,7 +17773,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
       instanceGroupManager
       nil))
   ([project zone instanceGroupManager optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/listPerInstanceConfigs",
@@ -17616,7 +17801,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project zone] (zoneOperations-list project zone nil))
   ([project zone optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/operations",
@@ -17635,7 +17820,7 @@ project <>
 zone <> 
 operation <> "
   [project zone operation]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/operations/{operation}",
@@ -17655,7 +17840,7 @@ project <>
 zone <> 
 operation <> "
   [project zone operation]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/operations/{operation}/wait",
@@ -17675,7 +17860,7 @@ project <>
 zone <> 
 operation <> "
   [project zone operation]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/operations/{operation}",
@@ -17700,7 +17885,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (regionUrlMaps-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/urlMaps",
@@ -17719,7 +17904,7 @@ project <>
 region <> 
 urlMap <> "
   [project region urlMap]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/urlMaps/{urlMap}",
@@ -17745,7 +17930,7 @@ requestId <string> begin_interface: MixerMutationRequestBuilder Request ID to su
   ([project region UrlMap]
     (regionUrlMaps-insert project region UrlMap nil))
   ([project region UrlMap optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/urlMaps",
@@ -17769,7 +17954,7 @@ requestId <string> begin_interface: MixerMutationRequestBuilder Request ID to su
   ([project region urlMap]
     (regionUrlMaps-delete project region urlMap nil))
   ([project region urlMap optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/urlMaps/{urlMap}",
@@ -17795,7 +17980,7 @@ requestId <string> begin_interface: MixerMutationRequestBuilder Request ID to su
   ([project region urlMap UrlMap]
     (regionUrlMaps-update project region urlMap UrlMap nil))
   ([project region urlMap UrlMap optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/urlMaps/{urlMap}",
@@ -17822,7 +18007,7 @@ requestId <string> begin_interface: MixerMutationRequestBuilder Request ID to su
   ([project region urlMap UrlMap]
     (regionUrlMaps-patch project region urlMap UrlMap nil))
   ([project region urlMap UrlMap optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/urlMaps/{urlMap}",
@@ -17844,7 +18029,7 @@ urlMap <>
 RegionUrlMapsValidateRequest:
 RegionUrlMapsValidateRequest"
   [project region urlMap RegionUrlMapsValidateRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/urlMaps/{urlMap}/validate",
@@ -17869,7 +18054,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (globalPublicDelegatedPrefixes-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/publicDelegatedPrefixes",
@@ -17887,7 +18072,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/globalPublicDeleg
 project <> 
 publicDelegatedPrefix <> "
   [project publicDelegatedPrefix]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/publicDelegatedPrefixes/{publicDelegatedPrefix}",
@@ -17916,7 +18101,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       PublicDelegatedPrefix
       nil))
   ([project PublicDelegatedPrefix optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/publicDelegatedPrefixes",
@@ -17942,7 +18127,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       publicDelegatedPrefix
       nil))
   ([project publicDelegatedPrefix optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/publicDelegatedPrefixes/{publicDelegatedPrefix}",
@@ -17972,7 +18157,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       PublicDelegatedPrefix
       nil))
   ([project publicDelegatedPrefix PublicDelegatedPrefix optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/publicDelegatedPrefixes/{publicDelegatedPrefix}",
@@ -17999,7 +18184,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (vpnTunnels-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/vpnTunnels",
@@ -18025,7 +18210,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (vpnTunnels-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/vpnTunnels",
@@ -18044,7 +18229,7 @@ project <>
 region <> 
 vpnTunnel <> "
   [project region vpnTunnel]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/vpnTunnels/{vpnTunnel}",
@@ -18070,7 +18255,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region VpnTunnel]
     (vpnTunnels-insert project region VpnTunnel nil))
   ([project region VpnTunnel optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/vpnTunnels",
@@ -18094,7 +18279,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project region vpnTunnel]
     (vpnTunnels-delete project region vpnTunnel nil))
   ([project region vpnTunnel optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/vpnTunnels/{vpnTunnel}",
@@ -18125,7 +18310,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       RegionSetLabelsRequest
       nil))
   ([project region resource RegionSetLabelsRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/vpnTunnels/{resource}/setLabels",
@@ -18161,7 +18346,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     instanceGroup
     InstanceGroupsSetNamedPortsRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceGroups/{instanceGroup}/setNamedPorts",
@@ -18187,7 +18372,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project zone] (instanceGroups-list project zone nil))
   ([project zone optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceGroups",
@@ -18211,7 +18396,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone instanceGroup]
     (instanceGroups-delete project zone instanceGroup nil))
   ([project zone instanceGroup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceGroups/{instanceGroup}",
@@ -18249,7 +18434,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
     instanceGroup
     InstanceGroupsListInstancesRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceGroups/{instanceGroup}/listInstances",
@@ -18286,7 +18471,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     instanceGroup
     InstanceGroupsRemoveInstancesRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceGroups/{instanceGroup}/removeInstances",
@@ -18313,7 +18498,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (instanceGroups-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/instanceGroups",
@@ -18338,7 +18523,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone InstanceGroup]
     (instanceGroups-insert project zone InstanceGroup nil))
   ([project zone InstanceGroup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceGroups",
@@ -18373,7 +18558,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     instanceGroup
     InstanceGroupsAddInstancesRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceGroups/{instanceGroup}/addInstances",
@@ -18393,7 +18578,7 @@ project <>
 zone <> 
 instanceGroup <> "
   [project zone instanceGroup]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/instanceGroups/{instanceGroup}",
@@ -18418,7 +18603,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (publicAdvertisedPrefixes-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/publicAdvertisedPrefixes",
@@ -18436,7 +18621,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/publicAdvertisedP
 project <> 
 publicAdvertisedPrefix <> "
   [project publicAdvertisedPrefix]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/publicAdvertisedPrefixes/{publicAdvertisedPrefix}",
@@ -18465,7 +18650,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       PublicAdvertisedPrefix
       nil))
   ([project PublicAdvertisedPrefix optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/publicAdvertisedPrefixes",
@@ -18491,7 +18676,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       publicAdvertisedPrefix
       nil))
   ([project publicAdvertisedPrefix optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/publicAdvertisedPrefixes/{publicAdvertisedPrefix}",
@@ -18521,7 +18706,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       PublicAdvertisedPrefix
       nil))
   ([project publicAdvertisedPrefix PublicAdvertisedPrefix optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/publicAdvertisedPrefixes/{publicAdvertisedPrefix}",
@@ -18549,7 +18734,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       publicAdvertisedPrefix
       nil))
   ([project publicAdvertisedPrefix optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/publicAdvertisedPrefixes/{publicAdvertisedPrefix}/announce",
@@ -18576,7 +18761,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       publicAdvertisedPrefix
       nil))
   ([project publicAdvertisedPrefix optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/publicAdvertisedPrefixes/{publicAdvertisedPrefix}/withdraw",
@@ -18601,7 +18786,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (routes-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/routes",
@@ -18619,7 +18804,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/routes/get
 project <> 
 route <> "
   [project route]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/routes/{route}",
@@ -18642,7 +18827,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project Route] (routes-insert project Route nil))
   ([project Route optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/routes",
@@ -18664,7 +18849,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project route] (routes-delete project route nil))
   ([project route optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/routes/{route}",
@@ -18688,7 +18873,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (regionDiskTypes-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/diskTypes",
@@ -18707,7 +18892,7 @@ project <>
 region <> 
 diskType <> "
   [project region diskType]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/diskTypes/{diskType}",
@@ -18737,7 +18922,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       BulkInsertInstanceResource
       nil))
   ([project region BulkInsertInstanceResource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/instances/bulkInsert",
@@ -18763,7 +18948,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone resource ZoneSetLabelsRequest]
     (disks-setLabels project zone resource ZoneSetLabelsRequest nil))
   ([project zone resource ZoneSetLabelsRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/disks/{resource}/setLabels",
@@ -18789,7 +18974,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project zone] (disks-list project zone nil))
   ([project zone optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/disks",
@@ -18810,7 +18995,7 @@ resource <>
 ZoneSetPolicyRequest:
 ZoneSetPolicyRequest"
   [project zone resource ZoneSetPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/disks/{resource}/setIamPolicy",
@@ -18842,7 +19027,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       DisksStartAsyncReplicationRequest
       nil))
   ([project zone disk DisksStartAsyncReplicationRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/disks/{disk}/startAsyncReplication",
@@ -18874,7 +19059,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       DisksRemoveResourcePoliciesRequest
       nil))
   ([project zone disk DisksRemoveResourcePoliciesRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/disks/{disk}/removeResourcePolicies",
@@ -18900,7 +19085,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone BulkInsertDiskResource]
     (disks-bulkInsert project zone BulkInsertDiskResource nil))
   ([project zone BulkInsertDiskResource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/disks/bulkInsert",
@@ -18923,7 +19108,7 @@ optional:
 requestId <string> An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000)."
   ([project zone disk] (disks-delete project zone disk nil))
   ([project zone disk optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/disks/{disk}",
@@ -18950,7 +19135,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
 updateMask <string> update_mask indicates fields to be updated as part of this request."
   ([project zone disk Disk] (disks-update project zone disk Disk nil))
   ([project zone disk Disk optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/disks/{disk}",
@@ -18975,7 +19160,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone disk]
     (disks-stopAsyncReplication project zone disk nil))
   ([project zone disk optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/disks/{disk}/stopAsyncReplication",
@@ -18999,7 +19184,7 @@ optionsRequestedPolicyVersion <integer> Requested IAM Policy version."
   ([project zone resource]
     (disks-getIamPolicy project zone resource nil))
   ([project zone resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/disks/{resource}/getIamPolicy",
@@ -19026,7 +19211,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (disks-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/disks",
@@ -19051,7 +19236,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
 sourceImage <string> Source image to restore onto a disk. This field is optional."
   ([project zone Disk] (disks-insert project zone Disk nil))
   ([project zone Disk optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/disks",
@@ -19080,7 +19265,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       DisksStopGroupAsyncReplicationResource
       nil))
   ([project zone DisksStopGroupAsyncReplicationResource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/disks/stopGroupAsyncReplication",
@@ -19106,7 +19291,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone disk DisksResizeRequest]
     (disks-resize project zone disk DisksResizeRequest nil))
   ([project zone disk DisksResizeRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/disks/{disk}/resize",
@@ -19138,7 +19323,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       DisksAddResourcePoliciesRequest
       nil))
   ([project zone disk DisksAddResourcePoliciesRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/disks/{disk}/addResourcePolicies",
@@ -19158,7 +19343,7 @@ project <>
 zone <> 
 disk <> "
   [project zone disk]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/disks/{disk}",
@@ -19185,7 +19370,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project zone disk Snapshot]
     (disks-createSnapshot project zone disk Snapshot nil))
   ([project zone disk Snapshot optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/disks/{disk}/createSnapshot",
@@ -19207,7 +19392,7 @@ resource <>
 TestPermissionsRequest:
 TestPermissionsRequest"
   [project zone resource TestPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/zones/{zone}/disks/{resource}/testIamPermissions",
@@ -19234,7 +19419,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (regionTargetHttpsProxies-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/targetHttpsProxies",
@@ -19253,7 +19438,7 @@ project <>
 region <> 
 targetHttpsProxy <> "
   [project region targetHttpsProxy]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/targetHttpsProxies/{targetHttpsProxy}",
@@ -19285,7 +19470,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       TargetHttpsProxy
       nil))
   ([project region TargetHttpsProxy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/targetHttpsProxies",
@@ -19313,7 +19498,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       targetHttpsProxy
       nil))
   ([project region targetHttpsProxy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/targetHttpsProxies/{targetHttpsProxy}",
@@ -19346,7 +19531,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       TargetHttpsProxy
       nil))
   ([project region targetHttpsProxy TargetHttpsProxy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/targetHttpsProxies/{targetHttpsProxy}",
@@ -19380,7 +19565,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       UrlMapReference
       nil))
   ([project region targetHttpsProxy UrlMapReference optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/targetHttpsProxies/{targetHttpsProxy}/setUrlMap",
@@ -19421,7 +19606,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     targetHttpsProxy
     RegionTargetHttpsProxiesSetSslCertificatesRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/targetHttpsProxies/{targetHttpsProxy}/setSslCertificates",
@@ -19448,7 +19633,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (targetHttpProxies-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetHttpProxies",
@@ -19466,7 +19651,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/targetHttpProxies
 project <> 
 targetHttpProxy <> "
   [project targetHttpProxy]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetHttpProxies/{targetHttpProxy}",
@@ -19491,7 +19676,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project TargetHttpProxy]
     (targetHttpProxies-insert project TargetHttpProxy nil))
   ([project TargetHttpProxy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetHttpProxies",
@@ -19514,7 +19699,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project targetHttpProxy]
     (targetHttpProxies-delete project targetHttpProxy nil))
   ([project targetHttpProxy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetHttpProxies/{targetHttpProxy}",
@@ -19543,7 +19728,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       TargetHttpProxy
       nil))
   ([project targetHttpProxy TargetHttpProxy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetHttpProxies/{targetHttpProxy}",
@@ -19573,7 +19758,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       UrlMapReference
       nil))
   ([project targetHttpProxy UrlMapReference optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/targetHttpProxies/{targetHttpProxy}/setUrlMap",
@@ -19600,7 +19785,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (targetHttpProxies-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/targetHttpProxies",
@@ -19625,7 +19810,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project region] (regionTargetHttpProxies-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/targetHttpProxies",
@@ -19644,7 +19829,7 @@ project <>
 region <> 
 targetHttpProxy <> "
   [project region targetHttpProxy]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/targetHttpProxies/{targetHttpProxy}",
@@ -19676,7 +19861,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       TargetHttpProxy
       nil))
   ([project region TargetHttpProxy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/targetHttpProxies",
@@ -19704,7 +19889,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       targetHttpProxy
       nil))
   ([project region targetHttpProxy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/targetHttpProxies/{targetHttpProxy}",
@@ -19737,7 +19922,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       UrlMapReference
       nil))
   ([project region targetHttpProxy UrlMapReference optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/targetHttpProxies/{targetHttpProxy}/setUrlMap",
@@ -19766,7 +19951,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
   ([project region]
     (regionNetworkEndpointGroups-list project region nil))
   ([project region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/networkEndpointGroups",
@@ -19785,7 +19970,7 @@ project <>
 region <> 
 networkEndpointGroup <> "
   [project region networkEndpointGroup]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/networkEndpointGroups/{networkEndpointGroup}",
@@ -19817,7 +20002,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       NetworkEndpointGroup
       nil))
   ([project region NetworkEndpointGroup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/networkEndpointGroups",
@@ -19845,7 +20030,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       networkEndpointGroup
       nil))
   ([project region networkEndpointGroup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/networkEndpointGroups/{networkEndpointGroup}",
@@ -19885,7 +20070,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     networkEndpointGroup
     RegionNetworkEndpointGroupsAttachEndpointsRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/networkEndpointGroups/{networkEndpointGroup}/attachNetworkEndpoints",
@@ -19926,7 +20111,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     networkEndpointGroup
     RegionNetworkEndpointGroupsDetachEndpointsRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/networkEndpointGroups/{networkEndpointGroup}/detachNetworkEndpoints",
@@ -19960,7 +20145,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
       networkEndpointGroup
       nil))
   ([project region networkEndpointGroup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/networkEndpointGroups/{networkEndpointGroup}/listNetworkEndpoints",
@@ -19992,7 +20177,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       SslPolicyReference
       nil))
   ([project targetHttpsProxy SslPolicyReference optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetHttpsProxies/{targetHttpsProxy}/setSslPolicy",
@@ -20017,7 +20202,7 @@ orderBy <string> Sorts list results by a certain order. By default, results are 
 returnPartialSuccess <boolean> Opt-in for partial success behavior which provides partial results in case of failure. The default value is false. For example, when partial success behavior is enabled, aggregatedList for a single zone scope either returns all resources in the zone or no resources, with an error code."
   ([project] (targetHttpsProxies-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetHttpsProxies",
@@ -20051,7 +20236,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     targetHttpsProxy
     TargetHttpsProxiesSetCertificateMapRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetHttpsProxies/{targetHttpsProxy}/setCertificateMap",
@@ -20075,7 +20260,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project targetHttpsProxy]
     (targetHttpsProxies-delete project targetHttpsProxy nil))
   ([project targetHttpsProxy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetHttpsProxies/{targetHttpsProxy}",
@@ -20109,7 +20294,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     targetHttpsProxy
     TargetHttpsProxiesSetSslCertificatesRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/targetHttpsProxies/{targetHttpsProxy}/setSslCertificates",
@@ -20139,7 +20324,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       UrlMapReference
       nil))
   ([project targetHttpsProxy UrlMapReference optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/targetHttpsProxies/{targetHttpsProxy}/setUrlMap",
@@ -20172,7 +20357,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
     targetHttpsProxy
     TargetHttpsProxiesSetQuicOverrideRequest
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetHttpsProxies/{targetHttpsProxy}/setQuicOverride",
@@ -20202,7 +20387,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
       TargetHttpsProxy
       nil))
   ([project targetHttpsProxy TargetHttpsProxy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetHttpsProxies/{targetHttpsProxy}",
@@ -20229,7 +20414,7 @@ returnPartialSuccess <boolean> Opt-in for partial success behavior which provide
 serviceProjectNumber <string> The Shared VPC service project id or service project number for which aggregated list request is invoked for subnetworks list-usable api."
   ([project] (targetHttpsProxies-aggregatedList project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/aggregated/targetHttpsProxies",
@@ -20253,7 +20438,7 @@ requestId <string> An optional request ID to identify requests. Specify a unique
   ([project TargetHttpsProxy]
     (targetHttpsProxies-insert project TargetHttpsProxy nil))
   ([project TargetHttpsProxy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetHttpsProxies",
@@ -20271,7 +20456,7 @@ https://cloud.google.com/products/compute/v1/reference/rest/v1/targetHttpsProxie
 project <> 
 targetHttpsProxy <> "
   [project targetHttpsProxy]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://compute.googleapis.com/compute/v1/projects/{project}/global/targetHttpsProxies/{targetHttpsProxy}",

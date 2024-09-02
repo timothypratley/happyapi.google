@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://lifesciences.googleapis.com/v2beta/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/life-sciences-solutions/v2beta/reference/rest/v2beta/pr
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://lifesciences.googleapis.com/v2beta/{+name}",
@@ -48,7 +48,7 @@ filter <string> A string for filtering Operations. The following filter fields a
 pageSize <integer> The maximum number of results to return. The maximum value is 256."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://lifesciences.googleapis.com/v2beta/{+name}/operations",
@@ -62,7 +62,7 @@ https://cloud.google.com/life-sciences-solutions/v2beta/reference/rest/v2beta/pr
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://lifesciences.googleapis.com/v2beta/{+name}",
@@ -78,7 +78,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://lifesciences.googleapis.com/v2beta/{+name}:cancel",
@@ -95,7 +95,7 @@ parent <>
 RunPipelineRequest:
 RunPipelineRequest"
   [parent RunPipelineRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://lifesciences.googleapis.com/v2beta/{+parent}/pipelines:run",

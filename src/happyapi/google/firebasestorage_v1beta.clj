@@ -10,7 +10,7 @@ https://firebase.google.com/docs/storage/v1beta/reference/rest/v1beta/projects/b
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://firebasestorage.googleapis.com/v1beta/{+name}",
@@ -30,7 +30,7 @@ optional:
 pageSize <integer> The maximum number of buckets to return. If not set, the server will use a reasonable default."
   ([parent] (projects-buckets-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://firebasestorage.googleapis.com/v1beta/{+parent}/buckets",
@@ -48,7 +48,7 @@ bucket <>
 AddFirebaseRequest:
 AddFirebaseRequest"
   [bucket AddFirebaseRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firebasestorage.googleapis.com/v1beta/{+bucket}:addFirebase",
@@ -67,7 +67,7 @@ bucket <>
 RemoveFirebaseRequest:
 RemoveFirebaseRequest"
   [bucket RemoveFirebaseRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firebasestorage.googleapis.com/v1beta/{+bucket}:removeFirebase",

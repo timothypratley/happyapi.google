@@ -10,7 +10,7 @@ https://developers.google.com/my-business/v1/reference/rest/v1/locations/getVoic
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://mybusinessverifications.googleapis.com/v1/{+name}/VoiceOfMerchantState",
@@ -26,7 +26,7 @@ location <>
 FetchVerificationOptionsRequest:
 FetchVerificationOptionsRequest"
   [location FetchVerificationOptionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://mybusinessverifications.googleapis.com/v1/{+location}:fetchVerificationOptions",
@@ -43,7 +43,7 @@ name <>
 VerifyLocationRequest:
 VerifyLocationRequest"
   [name VerifyLocationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://mybusinessverifications.googleapis.com/v1/{+name}:verify",
@@ -60,7 +60,7 @@ name <>
 CompleteVerificationRequest:
 CompleteVerificationRequest"
   [name CompleteVerificationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://mybusinessverifications.googleapis.com/v1/{+name}:complete",
@@ -79,7 +79,7 @@ optional:
 pageSize <integer> How many verification to include per page. Minimum is 1, and the default and maximum page size is 100."
   ([parent] (locations-verifications-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://mybusinessverifications.googleapis.com/v1/{+parent}/verifications",

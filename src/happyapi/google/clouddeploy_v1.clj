@@ -10,7 +10,7 @@ https://cloud.google.com/deploy/v1/reference/rest/v1/projects/locations/getConfi
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://clouddeploy.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -28,7 +28,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://clouddeploy.googleapis.com/v1/{+name}/locations",
@@ -42,7 +42,7 @@ https://cloud.google.com/deploy/v1/reference/rest/v1/projects/locations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://clouddeploy.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -60,7 +60,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://clouddeploy.googleapis.com/v1/{+name}/operations",
@@ -74,7 +74,7 @@ https://cloud.google.com/deploy/v1/reference/rest/v1/projects/locations/operatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://clouddeploy.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -87,7 +87,7 @@ https://cloud.google.com/deploy/v1/reference/rest/v1/projects/locations/operatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://clouddeploy.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -102,7 +102,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://clouddeploy.googleapis.com/v1/{+name}:cancel",
@@ -119,7 +119,7 @@ name <>
 RollbackTargetRequest:
 RollbackTargetRequest"
   [name RollbackTargetRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://clouddeploy.googleapis.com/v1/{+name}:rollbackTarget",
@@ -140,7 +140,7 @@ filter <string> Filter pipelines to be returned. See https://google.aip.dev/160 
 orderBy <string> Field to sort by. See https://google.aip.dev/132#ordering for more details."
   ([parent] (projects-locations-deliveryPipelines-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://clouddeploy.googleapis.com/v1/{+parent}/deliveryPipelines",
@@ -156,7 +156,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://clouddeploy.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -179,7 +179,7 @@ force <boolean> Optional. If set to true, all child resources under this pipelin
 etag <string> Optional. This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding."
   ([name] (projects-locations-deliveryPipelines-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://clouddeploy.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -195,7 +195,7 @@ DeliveryPipeline:
 DeliveryPipeline
 
 optional:
-updateMask <string> Required. Field mask is used to specify the fields to be overwritten in the `DeliveryPipeline` resource by the update. The fields specified in the update_mask are relative to the resource, not the full request. A field will be overwritten if it's in the mask. If the user doesn't provide a mask then all fields are overwritten.
+updateMask <string> Required. Field mask is used to specify the fields to be overwritten by the update in the `DeliveryPipeline` resource. The fields specified in the update_mask are relative to the resource, not the full request. A field will be overwritten if it's in the mask. If the user doesn't provide a mask then all fields are overwritten.
 requestId <string> Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server knows to ignore the request if it has already been completed. The server guarantees that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
 allowMissing <boolean> Optional. If set to true, updating a `DeliveryPipeline` that does not exist will result in the creation of a new `DeliveryPipeline`.
 validateOnly <boolean> Optional. If set to true, the request is validated and the user is provided with an expected result, but no actual change is made."
@@ -205,7 +205,7 @@ validateOnly <boolean> Optional. If set to true, the request is validated and th
       DeliveryPipeline
       nil))
   ([name DeliveryPipeline optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://clouddeploy.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -224,7 +224,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-deliveryPipelines-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://clouddeploy.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -250,7 +250,7 @@ validateOnly <boolean> Optional. If set to true, the request is validated and th
       DeliveryPipeline
       nil))
   ([parent DeliveryPipeline optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://clouddeploy.googleapis.com/v1/{+parent}/deliveryPipelines",
@@ -265,7 +265,7 @@ https://cloud.google.com/deploy/v1/reference/rest/v1/projects/locations/delivery
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://clouddeploy.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -280,7 +280,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://clouddeploy.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -302,7 +302,7 @@ orderBy <string> Optional. Field to sort by. See https://google.aip.dev/132#orde
   ([parent]
     (projects-locations-deliveryPipelines-releases-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://clouddeploy.googleapis.com/v1/{+parent}/releases",
@@ -316,7 +316,7 @@ https://cloud.google.com/deploy/v1/reference/rest/v1/projects/locations/delivery
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://clouddeploy.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -341,7 +341,7 @@ validateOnly <boolean> Optional. If set to true, the request is validated and th
       Release
       nil))
   ([parent Release optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://clouddeploy.googleapis.com/v1/{+parent}/releases",
@@ -358,7 +358,7 @@ name <>
 AbandonReleaseRequest:
 AbandonReleaseRequest"
   [name AbandonReleaseRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://clouddeploy.googleapis.com/v1/{+name}:abandon",
@@ -375,7 +375,7 @@ name <>
 ApproveRolloutRequest:
 ApproveRolloutRequest"
   [name ApproveRolloutRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://clouddeploy.googleapis.com/v1/{+name}:approve",
@@ -392,7 +392,7 @@ name <>
 AdvanceRolloutRequest:
 AdvanceRolloutRequest"
   [name AdvanceRolloutRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://clouddeploy.googleapis.com/v1/{+name}:advance",
@@ -409,7 +409,7 @@ name <>
 CancelRolloutRequest:
 CancelRolloutRequest"
   [name CancelRolloutRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://clouddeploy.googleapis.com/v1/{+name}:cancel",
@@ -433,7 +433,7 @@ orderBy <string> Optional. Field to sort by. See https://google.aip.dev/132#orde
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://clouddeploy.googleapis.com/v1/{+parent}/rollouts",
@@ -447,7 +447,7 @@ https://cloud.google.com/deploy/v1/reference/rest/v1/projects/locations/delivery
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://clouddeploy.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -473,7 +473,7 @@ startingPhaseId <string> Optional. The starting phase ID for the `Rollout`. If e
       Rollout
       nil))
   ([parent Rollout optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://clouddeploy.googleapis.com/v1/{+parent}/rollouts",
@@ -490,7 +490,7 @@ rollout <>
 IgnoreJobRequest:
 IgnoreJobRequest"
   [rollout IgnoreJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://clouddeploy.googleapis.com/v1/{+rollout}:ignoreJob",
@@ -507,7 +507,7 @@ rollout <>
 RetryJobRequest:
 RetryJobRequest"
   [rollout RetryJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://clouddeploy.googleapis.com/v1/{+rollout}:retryJob",
@@ -531,7 +531,7 @@ orderBy <string> Optional. Field to sort by. See https://google.aip.dev/132#orde
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://clouddeploy.googleapis.com/v1/{+parent}/jobRuns",
@@ -545,7 +545,7 @@ https://cloud.google.com/deploy/v1/reference/rest/v1/projects/locations/delivery
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://clouddeploy.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -560,7 +560,7 @@ name <>
 TerminateJobRunRequest:
 TerminateJobRunRequest"
   [name TerminateJobRunRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://clouddeploy.googleapis.com/v1/{+name}:terminate",
@@ -587,7 +587,7 @@ validateOnly <boolean> Optional. If set to true, the request is validated and th
       Automation
       nil))
   ([parent Automation optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://clouddeploy.googleapis.com/v1/{+parent}/automations",
@@ -605,7 +605,7 @@ Automation:
 Automation
 
 optional:
-updateMask <string> Required. Field mask is used to specify the fields to be overwritten in the `Automation` resource by the update. The fields specified in the update_mask are relative to the resource, not the full request. A field will be overwritten if it's in the mask. If the user doesn't provide a mask then all fields are overwritten.
+updateMask <string> Required. Field mask is used to specify the fields to be overwritten by the update in the `Automation` resource. The fields specified in the update_mask are relative to the resource, not the full request. A field will be overwritten if it's in the mask. If the user doesn't provide a mask then all fields are overwritten.
 requestId <string> Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server knows to ignore the request if it has already been completed. The server guarantees that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
 allowMissing <boolean> Optional. If set to true, updating a `Automation` that does not exist will result in the creation of a new `Automation`.
 validateOnly <boolean> Optional. If set to true, the request is validated and the user is provided with an expected result, but no actual change is made."
@@ -615,7 +615,7 @@ validateOnly <boolean> Optional. If set to true, the request is validated and th
       Automation
       nil))
   ([name Automation optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://clouddeploy.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -637,7 +637,7 @@ etag <string> Optional. The weak etag of the request. This checksum is computed 
   ([name]
     (projects-locations-deliveryPipelines-automations-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://clouddeploy.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -650,7 +650,7 @@ https://cloud.google.com/deploy/v1/reference/rest/v1/projects/locations/delivery
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://clouddeploy.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -670,7 +670,7 @@ orderBy <string> Field to sort by."
   ([parent]
     (projects-locations-deliveryPipelines-automations-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://clouddeploy.googleapis.com/v1/{+parent}/automations",
@@ -684,7 +684,7 @@ https://cloud.google.com/deploy/v1/reference/rest/v1/projects/locations/delivery
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://clouddeploy.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -706,7 +706,7 @@ orderBy <string> Field to sort by."
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://clouddeploy.googleapis.com/v1/{+parent}/automationRuns",
@@ -722,7 +722,7 @@ name <>
 CancelAutomationRunRequest:
 CancelAutomationRunRequest"
   [name CancelAutomationRunRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://clouddeploy.googleapis.com/v1/{+name}:cancel",
@@ -743,7 +743,7 @@ filter <string> Optional. Filter targets to be returned. See https://google.aip.
 orderBy <string> Optional. Field to sort by. See https://google.aip.dev/132#ordering for more details."
   ([parent] (projects-locations-targets-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://clouddeploy.googleapis.com/v1/{+parent}/targets",
@@ -757,7 +757,7 @@ https://cloud.google.com/deploy/v1/reference/rest/v1/projects/locations/targets/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://clouddeploy.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -779,7 +779,7 @@ validateOnly <boolean> Optional. If set to true, the request is validated and th
   ([parent Target]
     (projects-locations-targets-create parent Target nil))
   ([parent Target optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://clouddeploy.googleapis.com/v1/{+parent}/targets",
@@ -797,13 +797,13 @@ Target:
 Target
 
 optional:
-updateMask <string> Required. Field mask is used to specify the fields to be overwritten in the Target resource by the update. The fields specified in the update_mask are relative to the resource, not the full request. A field will be overwritten if it's in the mask. If the user doesn't provide a mask then all fields are overwritten.
+updateMask <string> Required. Field mask is used to specify the fields to be overwritten by the update in the `Target` resource. The fields specified in the update_mask are relative to the resource, not the full request. A field will be overwritten if it's in the mask. If the user doesn't provide a mask then all fields are overwritten.
 requestId <string> Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server knows to ignore the request if it has already been completed. The server guarantees that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
 allowMissing <boolean> Optional. If set to true, updating a `Target` that does not exist will result in the creation of a new `Target`.
 validateOnly <boolean> Optional. If set to true, the request is validated and the user is provided with an expected result, but no actual change is made."
   ([name Target] (projects-locations-targets-patch name Target nil))
   ([name Target optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://clouddeploy.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -824,7 +824,7 @@ validateOnly <boolean> Optional. If set, validate the request and preview the re
 etag <string> Optional. This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding."
   ([name] (projects-locations-targets-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://clouddeploy.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -839,7 +839,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://clouddeploy.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -858,7 +858,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-locations-targets-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://clouddeploy.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -874,7 +874,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://clouddeploy.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -895,7 +895,7 @@ filter <string> Optional. Filter custom target types to be returned. See https:/
 orderBy <string> Optional. Field to sort by. See https://google.aip.dev/132#ordering for more details."
   ([parent] (projects-locations-customTargetTypes-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://clouddeploy.googleapis.com/v1/{+parent}/customTargetTypes",
@@ -909,7 +909,7 @@ https://cloud.google.com/deploy/v1/reference/rest/v1/projects/locations/customTa
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://clouddeploy.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -934,7 +934,7 @@ validateOnly <boolean> Optional. If set to true, the request is validated and th
       CustomTargetType
       nil))
   ([parent CustomTargetType optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://clouddeploy.googleapis.com/v1/{+parent}/customTargetTypes",
@@ -952,7 +952,7 @@ CustomTargetType:
 CustomTargetType
 
 optional:
-updateMask <string> Required. Field mask is used to specify the fields to be overwritten in the `CustomTargetType` resource by the update. The fields specified in the update_mask are relative to the resource, not the full request. A field will be overwritten if it's in the mask. If the user doesn't provide a mask then all fields are overwritten.
+updateMask <string> Required. Field mask is used to specify the fields to be overwritten by the update in the `CustomTargetType` resource. The fields specified in the update_mask are relative to the resource, not the full request. A field will be overwritten if it's in the mask. If the user doesn't provide a mask then all fields are overwritten.
 requestId <string> Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server knows to ignore the request if it has already been completed. The server guarantees that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
 allowMissing <boolean> Optional. If set to true, updating a `CustomTargetType` that does not exist will result in the creation of a new `CustomTargetType`.
 validateOnly <boolean> Optional. If set to true, the request is validated and the user is provided with an expected result, but no actual change is made."
@@ -962,7 +962,7 @@ validateOnly <boolean> Optional. If set to true, the request is validated and th
       CustomTargetType
       nil))
   ([name CustomTargetType optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://clouddeploy.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -983,7 +983,7 @@ validateOnly <boolean> Optional. If set to true, the request is validated but no
 etag <string> Optional. This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding."
   ([name] (projects-locations-customTargetTypes-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://clouddeploy.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -998,7 +998,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://clouddeploy.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -1018,7 +1018,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-customTargetTypes-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://clouddeploy.googleapis.com/v1/{+resource}:getIamPolicy",

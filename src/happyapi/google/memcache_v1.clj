@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://memcache.googleapis.com/v1/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/memorystore/v1/reference/rest/v1/projects/locations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://memcache.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -47,7 +47,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://memcache.googleapis.com/v1/{+name}/operations",
@@ -61,7 +61,7 @@ https://cloud.google.com/memorystore/v1/reference/rest/v1/projects/locations/ope
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://memcache.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -74,7 +74,7 @@ https://cloud.google.com/memorystore/v1/reference/rest/v1/projects/locations/ope
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://memcache.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -89,7 +89,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://memcache.googleapis.com/v1/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -105,7 +105,7 @@ name <>
 ApplyParametersRequest:
 ApplyParametersRequest"
   [name ApplyParametersRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://memcache.googleapis.com/v1/{+name}:applyParameters",
@@ -122,7 +122,7 @@ instance <>
 RescheduleMaintenanceRequest:
 RescheduleMaintenanceRequest"
   [instance RescheduleMaintenanceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://memcache.googleapis.com/v1/{+instance}:rescheduleMaintenance",
@@ -143,7 +143,7 @@ filter <string> List filter. For example, exclude all Memcached instances with n
 orderBy <string> Sort results. Supported values are \"name\", \"name desc\" or \"\" (unsorted)."
   ([parent] (projects-locations-instances-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://memcache.googleapis.com/v1/{+parent}/instances",
@@ -157,7 +157,7 @@ https://cloud.google.com/memorystore/v1/reference/rest/v1/projects/locations/ins
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://memcache.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -172,7 +172,7 @@ name <>
 GoogleCloudMemcacheV1UpgradeInstanceRequest:
 GoogleCloudMemcacheV1UpgradeInstanceRequest"
   [name GoogleCloudMemcacheV1UpgradeInstanceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://memcache.googleapis.com/v1/{+name}:upgrade",
@@ -189,7 +189,7 @@ name <>
 UpdateParametersRequest:
 UpdateParametersRequest"
   [name UpdateParametersRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://memcache.googleapis.com/v1/{+name}:updateParameters",
@@ -211,7 +211,7 @@ updateMask <string> Required. Mask of fields to update. * `displayName`"
   ([name Instance]
     (projects-locations-instances-patch name Instance nil))
   ([name Instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://memcache.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -232,7 +232,7 @@ instanceId <string> Required. The logical name of the Memcached instance in the 
   ([parent Instance]
     (projects-locations-instances-create parent Instance nil))
   ([parent Instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://memcache.googleapis.com/v1/{+parent}/instances",
@@ -247,7 +247,7 @@ https://cloud.google.com/memorystore/v1/reference/rest/v1/projects/locations/ins
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://memcache.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},

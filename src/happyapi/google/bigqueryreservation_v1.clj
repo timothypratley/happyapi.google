@@ -15,7 +15,7 @@ query <string> Please specify resource name as assignee in the query. Examples: 
 pageSize <integer> The maximum number of items to return per page."
   ([parent] (projects-locations-searchAssignments parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigqueryreservation.googleapis.com/v1/{+parent}:searchAssignments",
@@ -36,7 +36,7 @@ query <string> Please specify resource name as assignee in the query. Examples: 
 pageSize <integer> The maximum number of items to return per page."
   ([parent] (projects-locations-searchAllAssignments parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigqueryreservation.googleapis.com/v1/{+parent}:searchAllAssignments",
@@ -52,7 +52,7 @@ https://cloud.google.com/bigquery/v1/reference/rest/v1/projects/locations/getBiR
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://bigqueryreservation.googleapis.com/v1/{+name}",
@@ -75,7 +75,7 @@ updateMask <string> A list of fields to be updated in this request."
   ([name BiReservation]
     (projects-locations-updateBiReservation name BiReservation nil))
   ([name BiReservation optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://bigqueryreservation.googleapis.com/v1/{+name}",
@@ -99,7 +99,7 @@ reservationId <string> The reservation ID. It must only contain lower case alpha
   ([parent Reservation]
     (projects-locations-reservations-create parent Reservation nil))
   ([parent Reservation optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://bigqueryreservation.googleapis.com/v1/{+parent}/reservations",
@@ -120,7 +120,7 @@ optional:
 pageSize <integer> The maximum number of items to return per page."
   ([parent] (projects-locations-reservations-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigqueryreservation.googleapis.com/v1/{+parent}/reservations",
@@ -136,7 +136,7 @@ https://cloud.google.com/bigquery/v1/reference/rest/v1/projects/locations/reserv
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://bigqueryreservation.googleapis.com/v1/{+name}",
@@ -152,7 +152,7 @@ https://cloud.google.com/bigquery/v1/reference/rest/v1/projects/locations/reserv
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://bigqueryreservation.googleapis.com/v1/{+name}",
@@ -175,7 +175,7 @@ updateMask <string> Standard field mask for the set of fields to be updated."
   ([name Reservation]
     (projects-locations-reservations-patch name Reservation nil))
   ([name Reservation optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://bigqueryreservation.googleapis.com/v1/{+name}",
@@ -194,7 +194,7 @@ name <>
 FailoverReservationRequest:
 FailoverReservationRequest"
   [name FailoverReservationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigqueryreservation.googleapis.com/v1/{+name}:failoverReservation",
@@ -221,7 +221,7 @@ assignmentId <string> The optional assignment ID. Assignment name will be genera
       Assignment
       nil))
   ([parent Assignment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://bigqueryreservation.googleapis.com/v1/{+parent}/assignments",
@@ -243,7 +243,7 @@ pageSize <integer> The maximum number of items to return per page."
   ([parent]
     (projects-locations-reservations-assignments-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigqueryreservation.googleapis.com/v1/{+parent}/assignments",
@@ -259,7 +259,7 @@ https://cloud.google.com/bigquery/v1/reference/rest/v1/projects/locations/reserv
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://bigqueryreservation.googleapis.com/v1/{+name}",
@@ -277,7 +277,7 @@ name <>
 MoveAssignmentRequest:
 MoveAssignmentRequest"
   [name MoveAssignmentRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigqueryreservation.googleapis.com/v1/{+name}:move",
@@ -304,7 +304,7 @@ updateMask <string> Standard field mask for the set of fields to be updated."
       Assignment
       nil))
   ([name Assignment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://bigqueryreservation.googleapis.com/v1/{+name}",
@@ -332,7 +332,7 @@ capacityCommitmentId <string> The optional capacity commitment ID. Capacity comm
       CapacityCommitment
       nil))
   ([parent CapacityCommitment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://bigqueryreservation.googleapis.com/v1/{+parent}/capacityCommitments",
@@ -353,7 +353,7 @@ optional:
 pageSize <integer> The maximum number of items to return."
   ([parent] (projects-locations-capacityCommitments-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigqueryreservation.googleapis.com/v1/{+parent}/capacityCommitments",
@@ -369,7 +369,7 @@ https://cloud.google.com/bigquery/v1/reference/rest/v1/projects/locations/capaci
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://bigqueryreservation.googleapis.com/v1/{+name}",
@@ -389,7 +389,7 @@ optional:
 force <boolean> Can be used to force delete commitments even if assignments exist. Deleting commitments with assignments may cause queries to fail if they no longer have access to slots."
   ([name] (projects-locations-capacityCommitments-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://bigqueryreservation.googleapis.com/v1/{+name}",
@@ -415,7 +415,7 @@ updateMask <string> Standard field mask for the set of fields to be updated."
       CapacityCommitment
       nil))
   ([name CapacityCommitment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://bigqueryreservation.googleapis.com/v1/{+name}",
@@ -434,7 +434,7 @@ name <>
 SplitCapacityCommitmentRequest:
 SplitCapacityCommitmentRequest"
   [name SplitCapacityCommitmentRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigqueryreservation.googleapis.com/v1/{+name}:split",
@@ -453,7 +453,7 @@ parent <>
 MergeCapacityCommitmentsRequest:
 MergeCapacityCommitmentsRequest"
   [parent MergeCapacityCommitmentsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigqueryreservation.googleapis.com/v1/{+parent}/capacityCommitments:merge",

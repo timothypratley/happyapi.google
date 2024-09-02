@@ -11,7 +11,7 @@ https://developers.google.com/travel/impact-model/v1/reference/rest/v1/flights/c
 ComputeFlightEmissionsRequest:
 ComputeFlightEmissionsRequest"
   [ComputeFlightEmissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://travelimpactmodel.googleapis.com/v1/flights:computeFlightEmissions",

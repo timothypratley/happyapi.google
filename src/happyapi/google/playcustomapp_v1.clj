@@ -12,7 +12,7 @@ account <>
 CustomApp:
 CustomApp"
   [account CustomApp]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://playcustomapp.googleapis.com/playcustomapp/v1/accounts/{account}/customApps",

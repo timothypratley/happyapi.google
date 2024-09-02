@@ -10,7 +10,7 @@ https://cloud.google.com/error-reporting/v1beta1/reference/rest/v1beta1/projects
 
 projectName <> "
   [projectName]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://clouderrorreporting.googleapis.com/v1beta1/{+projectName}/events",
@@ -24,7 +24,7 @@ https://cloud.google.com/error-reporting/v1beta1/reference/rest/v1beta1/projects
 
 groupName <> "
   [groupName]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://clouderrorreporting.googleapis.com/v1beta1/{+groupName}",
@@ -40,7 +40,7 @@ name <>
 ErrorGroup:
 ErrorGroup"
   [name ErrorGroup]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://clouderrorreporting.googleapis.com/v1beta1/{+name}",
@@ -68,7 +68,7 @@ serviceFilter.version <string> Optional. The exact value to match against [`Serv
 timedCountDuration <string> Optional. The preferred duration for a single returned TimedCount. If not set, no timed counts are returned."
   ([projectName] (projects-groupStats-list projectName nil))
   ([projectName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://clouderrorreporting.googleapis.com/v1beta1/{+projectName}/groupStats",
@@ -91,7 +91,7 @@ timeRange.period <string> Restricts the query to the specified time range.
 pageSize <integer> Optional. The maximum number of results to return per response."
   ([projectName] (projects-events-list projectName nil))
   ([projectName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://clouderrorreporting.googleapis.com/v1beta1/{+projectName}/events",
@@ -107,7 +107,7 @@ projectName <>
 ReportedErrorEvent:
 ReportedErrorEvent"
   [projectName ReportedErrorEvent]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://clouderrorreporting.googleapis.com/v1beta1/{+projectName}/events:report",
@@ -122,7 +122,7 @@ https://cloud.google.com/error-reporting/v1beta1/reference/rest/v1beta1/projects
 
 projectName <> "
   [projectName]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://clouderrorreporting.googleapis.com/v1beta1/{+projectName}/events",
@@ -136,7 +136,7 @@ https://cloud.google.com/error-reporting/v1beta1/reference/rest/v1beta1/projects
 
 groupName <> "
   [groupName]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://clouderrorreporting.googleapis.com/v1beta1/{+groupName}",
@@ -152,7 +152,7 @@ name <>
 ErrorGroup:
 ErrorGroup"
   [name ErrorGroup]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://clouderrorreporting.googleapis.com/v1beta1/{+name}",
@@ -180,7 +180,7 @@ serviceFilter.version <string> Optional. The exact value to match against [`Serv
 timedCountDuration <string> Optional. The preferred duration for a single returned TimedCount. If not set, no timed counts are returned."
   ([projectName] (projects-locations-groupStats-list projectName nil))
   ([projectName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://clouderrorreporting.googleapis.com/v1beta1/{+projectName}/groupStats",
@@ -203,7 +203,7 @@ timeRange.period <string> Restricts the query to the specified time range.
 pageSize <integer> Optional. The maximum number of results to return per response."
   ([projectName] (projects-locations-events-list projectName nil))
   ([projectName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://clouderrorreporting.googleapis.com/v1beta1/{+projectName}/events",

@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://looker.googleapis.com/v1/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/looker/docs/reference/rest/v1/reference/rest/v1/project
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://looker.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -47,7 +47,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://looker.googleapis.com/v1/{+name}/operations",
@@ -61,7 +61,7 @@ https://cloud.google.com/looker/docs/reference/rest/v1/reference/rest/v1/project
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://looker.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -74,7 +74,7 @@ https://cloud.google.com/looker/docs/reference/rest/v1/reference/rest/v1/project
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://looker.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -89,7 +89,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://looker.googleapis.com/v1/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -107,7 +107,7 @@ optional:
 pageSize <integer> The maximum number of instances to return. If unspecified at most 256 will be returned. The maximum possible value is 2048."
   ([parent] (projects-locations-instances-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://looker.googleapis.com/v1/{+parent}/instances",
@@ -123,7 +123,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://looker.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -142,7 +142,7 @@ optional:
 force <boolean> Whether to force cascading delete."
   ([name] (projects-locations-instances-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://looker.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -157,7 +157,7 @@ name <>
 ExportInstanceRequest:
 ExportInstanceRequest"
   [name ExportInstanceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://looker.googleapis.com/v1/{+name}:export",
      :uri-template-args {"name" name},
@@ -173,7 +173,7 @@ name <>
 ImportInstanceRequest:
 ImportInstanceRequest"
   [name ImportInstanceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://looker.googleapis.com/v1/{+name}:import",
      :uri-template-args {"name" name},
@@ -194,7 +194,7 @@ updateMask <string> Required. Field mask used to specify the fields to be overwr
   ([name Instance]
     (projects-locations-instances-patch name Instance nil))
   ([name Instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://looker.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -212,7 +212,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-locations-instances-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://looker.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -228,7 +228,7 @@ name <>
 RestartInstanceRequest:
 RestartInstanceRequest"
   [name RestartInstanceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://looker.googleapis.com/v1/{+name}:restart",
      :uri-template-args {"name" name},
@@ -249,7 +249,7 @@ instanceId <string> Required. The unique instance identifier. Must contain only 
   ([parent Instance]
     (projects-locations-instances-create parent Instance nil))
   ([parent Instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://looker.googleapis.com/v1/{+parent}/instances",
@@ -264,7 +264,7 @@ https://cloud.google.com/looker/docs/reference/rest/v1/reference/rest/v1/project
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://looker.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -279,7 +279,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://looker.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -296,7 +296,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://looker.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -316,7 +316,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-instances-backups-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://looker.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -332,7 +332,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://looker.googleapis.com/v1/{+resource}:testIamPermissions",

@@ -8,7 +8,7 @@ See: https://developers.google.com/search-ads/reporting"
   "Returns resource names of customers directly accessible by the user authenticating the call. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
 https://developers.google.com/search-ads/reporting/v0/reference/rest/v0/customers/listAccessibleCustomers"
   []
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://searchads360.googleapis.com/v0/customers:listAccessibleCustomers",
@@ -22,7 +22,7 @@ https://developers.google.com/search-ads/reporting/v0/reference/rest/v0/customer
 
 resourceName <> "
   [resourceName]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://searchads360.googleapis.com/v0/{+resourceName}",
@@ -36,7 +36,7 @@ https://developers.google.com/search-ads/reporting/v0/reference/rest/v0/customer
 
 customerId <> "
   [customerId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://searchads360.googleapis.com/v0/customers/{+customerId}/customColumns",
@@ -53,7 +53,7 @@ GoogleAdsSearchads360V0Services__SearchSearchAds360Request:
 GoogleAdsSearchads360V0Services__SearchSearchAds360Request"
   [customerId
    GoogleAdsSearchads360V0Services__SearchSearchAds360Request]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://searchads360.googleapis.com/v0/customers/{+customerId}/searchAds360:search",
@@ -68,7 +68,7 @@ https://developers.google.com/search-ads/reporting/v0/reference/rest/v0/searchAd
 
 resourceName <> "
   [resourceName]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://searchads360.googleapis.com/v0/{+resourceName}",
@@ -83,7 +83,7 @@ https://developers.google.com/search-ads/reporting/v0/reference/rest/v0/searchAd
 GoogleAdsSearchads360V0Services__SearchSearchAds360FieldsRequest:
 GoogleAdsSearchads360V0Services__SearchSearchAds360FieldsRequest"
   [GoogleAdsSearchads360V0Services__SearchSearchAds360FieldsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://searchads360.googleapis.com/v0/searchAds360Fields:search",

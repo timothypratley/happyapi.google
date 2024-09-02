@@ -1,4 +1,4 @@
-(ns happyapi.google.content-v2.1
+(ns happyapi.google.content-v2-1
   "Content API for Shopping
 Manage your product listings and accounts for Google Shopping
 See: https://developers.google.com/shopping-content/guides/quickstart"
@@ -12,7 +12,7 @@ merchantId <>
 ConversionSource:
 ConversionSource"
   [merchantId ConversionSource]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/conversionsources",
@@ -39,7 +39,7 @@ updateMask <string> Required. List of fields being updated."
       ConversionSource
       nil))
   ([merchantId conversionSourceId ConversionSource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/conversionsources/{conversionSourceId}",
@@ -57,7 +57,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 merchantId <> 
 conversionSourceId <> "
   [merchantId conversionSourceId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/conversionsources/{conversionSourceId}",
@@ -76,7 +76,7 @@ conversionSourceId <>
 UndeleteConversionSourceRequest:
 UndeleteConversionSourceRequest"
   [merchantId conversionSourceId UndeleteConversionSourceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/conversionsources/{conversionSourceId}:undelete",
@@ -94,7 +94,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 merchantId <> 
 conversionSourceId <> "
   [merchantId conversionSourceId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/conversionsources/{conversionSourceId}",
@@ -115,7 +115,7 @@ pageSize <integer> The maximum number of conversion sources to return in a page.
 showDeleted <boolean> If true, also returns archived conversion sources."
   ([merchantId] (conversionsources-list merchantId nil))
   ([merchantId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/conversionsources",
@@ -130,7 +130,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 ProductsCustomBatchRequest:
 ProductsCustomBatchRequest"
   [ProductsCustomBatchRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/products/batch",
@@ -150,7 +150,7 @@ optional:
 feedId <string> The Content API Supplemental Feed ID. If present then product deletion applies to the data in a supplemental feed. If absent, entire product will be deleted."
   ([merchantId productId] (products-delete merchantId productId nil))
   ([merchantId productId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/products/{productId}",
@@ -166,7 +166,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 merchantId <> 
 productId <> "
   [merchantId productId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/products/{productId}",
@@ -187,7 +187,7 @@ optional:
 feedId <string> The Content API Supplemental Feed ID. If present then product insertion applies to the data in a supplemental feed."
   ([merchantId Product] (products-insert merchantId Product nil))
   ([merchantId Product optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/products",
@@ -210,7 +210,7 @@ updateMask <string> The comma-separated list of product attributes to be updated
   ([merchantId productId Product]
     (products-update merchantId productId Product nil))
   ([merchantId productId Product optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/products/{productId}",
@@ -230,7 +230,7 @@ optional:
 maxResults <integer> The maximum number of products to return in the response, used for paging. The default value is 25. The maximum value is 250."
   ([merchantId] (products-list merchantId nil))
   ([merchantId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/products",
@@ -245,7 +245,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 ShippingsettingsCustomBatchRequest:
 ShippingsettingsCustomBatchRequest"
   [ShippingsettingsCustomBatchRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/shippingsettings/batch",
@@ -261,7 +261,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 merchantId <> 
 accountId <> "
   [merchantId accountId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/shippingsettings/{accountId}",
@@ -276,7 +276,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 
 merchantId <> "
   [merchantId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/supportedCarriers",
@@ -290,7 +290,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 
 merchantId <> "
   [merchantId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/supportedHolidays",
@@ -304,7 +304,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 
 merchantId <> "
   [merchantId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/supportedPickupServices",
@@ -322,7 +322,7 @@ optional:
 maxResults <integer> The maximum number of shipping settings to return in the response, used for paging."
   ([merchantId] (shippingsettings-list merchantId nil))
   ([merchantId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/shippingsettings",
@@ -339,7 +339,7 @@ accountId <>
 ShippingSettings:
 ShippingSettings"
   [merchantId accountId ShippingSettings]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/shippingsettings/{accountId}",
@@ -349,119 +349,6 @@ ShippingSettings"
      :scopes ["https://www.googleapis.com/auth/content"],
      :body ShippingSettings}))
 
-(defn orderreturns-acknowledge
-  "Acks an order return in your Merchant Center account.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/orderreturns/acknowledge
-
-merchantId <> 
-returnId <> 
-OrderreturnsAcknowledgeRequest:
-OrderreturnsAcknowledgeRequest"
-  [merchantId returnId OrderreturnsAcknowledgeRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/orderreturns/{returnId}/acknowledge",
-     :uri-template-args {"merchantId" merchantId, "returnId" returnId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/content"],
-     :body OrderreturnsAcknowledgeRequest}))
-
-(defn orderreturns-createorderreturn
-  "Create return in your Merchant Center account.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/orderreturns/createorderreturn
-
-merchantId <> 
-OrderreturnsCreateOrderReturnRequest:
-OrderreturnsCreateOrderReturnRequest"
-  [merchantId OrderreturnsCreateOrderReturnRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/orderreturns/createOrderReturn",
-     :uri-template-args {"merchantId" merchantId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/content"],
-     :body OrderreturnsCreateOrderReturnRequest}))
-
-(defn orderreturns-get
-  "Retrieves an order return from your Merchant Center account.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/orderreturns/get
-
-merchantId <> 
-returnId <> "
-  [merchantId returnId]
-  (client/api-request
-    {:method :get,
-     :uri-template
-     "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/orderreturns/{returnId}",
-     :uri-template-args {"merchantId" merchantId, "returnId" returnId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/content"]}))
-
-(defn orderreturns-list
-  "Lists order returns in your Merchant Center account.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/orderreturns/list
-
-merchantId <> 
-
-optional:
-googleOrderIds <string> Obtains order returns with the specified order ids. If this parameter is provided, createdStartDate, createdEndDate, shipmentType, shipmentStatus, shipmentState and acknowledged parameters must be not set. Note: if googleOrderId and shipmentTrackingNumber parameters are provided, the obtained results will include all order returns that either match the specified order id or the specified tracking number.
-shipmentTypes <string> Obtains order returns that match any shipment type provided in this parameter. When this parameter is not provided, order returns are obtained regardless of their shipment types.
-acknowledged <boolean> Obtains order returns that match the acknowledgement status. When set to true, obtains order returns that have been acknowledged. When false, obtains order returns that have not been acknowledged. When not provided, obtains order returns regardless of their acknowledgement status. We recommend using this filter set to `false`, in conjunction with the `acknowledge` call, such that only un-acknowledged order returns are returned. 
-maxResults <integer> The maximum number of order returns to return in the response, used for paging. The default value is 25 returns per page, and the maximum allowed value is 250 returns per page.
-orderBy <string> Return the results in the specified order.
-createdStartDate <string> Obtains order returns created after this date (inclusively), in ISO 8601 format.
-shipmentStatus <string> Obtains order returns that match any shipment status provided in this parameter. When this parameter is not provided, order returns are obtained regardless of their shipment statuses.
-createdEndDate <string> Obtains order returns created before this date (inclusively), in ISO 8601 format.
-shipmentStates <string> Obtains order returns that match any shipment state provided in this parameter. When this parameter is not provided, order returns are obtained regardless of their shipment states.
-shipmentTrackingNumbers <string> Obtains order returns with the specified tracking numbers. If this parameter is provided, createdStartDate, createdEndDate, shipmentType, shipmentStatus, shipmentState and acknowledged parameters must be not set. Note: if googleOrderId and shipmentTrackingNumber parameters are provided, the obtained results will include all order returns that either match the specified order id or the specified tracking number."
-  ([merchantId] (orderreturns-list merchantId nil))
-  ([merchantId optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/orderreturns",
-       :uri-template-args {"merchantId" merchantId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/content"]})))
-
-(defn orderreturns-process
-  "Processes return in your Merchant Center account.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/orderreturns/process
-
-merchantId <> 
-returnId <> 
-OrderreturnsProcessRequest:
-OrderreturnsProcessRequest"
-  [merchantId returnId OrderreturnsProcessRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/orderreturns/{returnId}/process",
-     :uri-template-args {"merchantId" merchantId, "returnId" returnId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/content"],
-     :body OrderreturnsProcessRequest}))
-
-(defn orderreturns-labels-create
-  "Links a return shipping label to a return id. You can only create one return label per return id. Since the label is sent to the buyer, the linked return label cannot be updated or deleted. If you try to create multiple return shipping labels for a single return id, every create request except the first will fail.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/orderreturns/labels/create
-
-merchantId <> 
-returnId <> 
-ReturnShippingLabel:
-ReturnShippingLabel"
-  [merchantId returnId ReturnShippingLabel]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/orderreturns/{returnId}/labels",
-     :uri-template-args {"merchantId" merchantId, "returnId" returnId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/content"],
-     :body ReturnShippingLabel}))
-
 (defn returnpolicy-custombatch
   "Batches multiple return policy related calls in a single request.
 https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/returnpolicy/custombatch
@@ -469,7 +356,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 ReturnpolicyCustomBatchRequest:
 ReturnpolicyCustomBatchRequest"
   [ReturnpolicyCustomBatchRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/returnpolicy/batch",
@@ -485,7 +372,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 merchantId <> 
 returnPolicyId <> "
   [merchantId returnPolicyId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/returnpolicy/{returnPolicyId}",
@@ -501,7 +388,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 merchantId <> 
 returnPolicyId <> "
   [merchantId returnPolicyId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/returnpolicy/{returnPolicyId}",
@@ -518,7 +405,7 @@ merchantId <>
 ReturnPolicy:
 ReturnPolicy"
   [merchantId ReturnPolicy]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/returnpolicy",
@@ -533,7 +420,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 
 merchantId <> "
   [merchantId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/returnpolicy",
@@ -548,7 +435,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 merchantId <> 
 collectionId <> "
   [merchantId collectionId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/collectionstatuses/{collectionId}",
@@ -567,7 +454,7 @@ optional:
 pageSize <integer> The maximum number of collection statuses to return in the response, used for paging. Defaults to 50; values above 1000 will be coerced to 1000."
   ([merchantId] (collectionstatuses-list merchantId nil))
   ([merchantId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/collectionstatuses",
@@ -582,7 +469,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 PosCustomBatchRequest:
 PosCustomBatchRequest"
   [PosCustomBatchRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/pos/batch",
@@ -599,7 +486,7 @@ merchantId <>
 targetMerchantId <> 
 storeCode <> "
   [merchantId targetMerchantId storeCode]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/pos/{targetMerchantId}/store/{storeCode}",
@@ -618,7 +505,7 @@ merchantId <>
 targetMerchantId <> 
 storeCode <> "
   [merchantId targetMerchantId storeCode]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/pos/{targetMerchantId}/store/{storeCode}",
@@ -638,7 +525,7 @@ targetMerchantId <>
 PosStore:
 PosStore"
   [merchantId targetMerchantId PosStore]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/pos/{targetMerchantId}/store",
@@ -657,7 +544,7 @@ targetMerchantId <>
 PosInventoryRequest:
 PosInventoryRequest"
   [merchantId targetMerchantId PosInventoryRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/pos/{targetMerchantId}/inventory",
@@ -674,7 +561,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 merchantId <> 
 targetMerchantId <> "
   [merchantId targetMerchantId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/pos/{targetMerchantId}/store",
@@ -692,7 +579,7 @@ targetMerchantId <>
 PosSaleRequest:
 PosSaleRequest"
   [merchantId targetMerchantId PosSaleRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/pos/{targetMerchantId}/sale",
@@ -710,7 +597,7 @@ merchantId <>
 ProductDeliveryTime:
 ProductDeliveryTime"
   [merchantId ProductDeliveryTime]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/productdeliverytime",
@@ -726,7 +613,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 merchantId <> 
 productId <> "
   [merchantId productId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/productdeliverytime/{productId}",
@@ -742,7 +629,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 merchantId <> 
 productId <> "
   [merchantId productId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/productdeliverytime/{productId}",
@@ -762,7 +649,7 @@ languageCode <string> Optional. Language code of the client. If not set, the res
 allowedTag <string> Optional. List of allowed tags. Tags are a set of predefined strings that describe the category that individual recommendation types belong to. User can specify zero or more tags in this field to indicate what categories of recommendations they want to receive. Current list of supported tags: - TREND"
   ([merchantId] (recommendations-generate merchantId nil))
   ([merchantId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/recommendations/generate",
@@ -778,7 +665,7 @@ merchantId <>
 ReportInteractionRequest:
 ReportInteractionRequest"
   [merchantId ReportInteractionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/recommendations/reportInteraction",
@@ -794,7 +681,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 merchantId <> 
 settlementId <> "
   [merchantId settlementId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/settlementreports/{settlementId}",
@@ -815,7 +702,7 @@ transferStartDate <string> Obtains settlements which have transactions after thi
 transferEndDate <string> Obtains settlements which have transactions before this date (inclusively), in ISO 8601 format."
   ([merchantId] (settlementreports-list merchantId nil))
   ([merchantId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/settlementreports",
@@ -836,7 +723,7 @@ transactionIds <string> The list of transactions to return. If not set, all tran
   ([merchantId settlementId]
     (settlementtransactions-list merchantId settlementId nil))
   ([merchantId settlementId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/settlementreports/{settlementId}/transactions",
@@ -852,7 +739,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 merchantId <> 
 returnPolicyId <> "
   [merchantId returnPolicyId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/returnpolicyonline/{returnPolicyId}",
@@ -869,7 +756,7 @@ merchantId <>
 ReturnPolicyOnline:
 ReturnPolicyOnline"
   [merchantId ReturnPolicyOnline]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/returnpolicyonline",
@@ -885,7 +772,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 merchantId <> 
 returnPolicyId <> "
   [merchantId returnPolicyId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/returnpolicyonline/{returnPolicyId}",
@@ -903,7 +790,7 @@ returnPolicyId <>
 ReturnPolicyOnline:
 ReturnPolicyOnline"
   [merchantId returnPolicyId ReturnPolicyOnline]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/returnpolicyonline/{returnPolicyId}",
@@ -919,7 +806,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 
 merchantId <> "
   [merchantId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/returnpolicyonline",
@@ -935,7 +822,7 @@ merchantId <>
 SearchRequest:
 SearchRequest"
   [merchantId SearchRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/reports/search",
@@ -950,7 +837,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 
 merchantId <> "
   [merchantId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/shoppingadsprogram",
@@ -966,7 +853,7 @@ merchantId <>
 RequestReviewShoppingAdsRequest:
 RequestReviewShoppingAdsRequest"
   [merchantId RequestReviewShoppingAdsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/shoppingadsprogram/requestreview",
@@ -981,7 +868,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 
 merchantId <> "
   [merchantId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/pubsubnotificationsettings",
@@ -997,7 +884,7 @@ merchantId <>
 PubsubNotificationSettings:
 PubsubNotificationSettings"
   [merchantId PubsubNotificationSettings]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/pubsubnotificationsettings",
@@ -1013,7 +900,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 ProductstatusesCustomBatchRequest:
 ProductstatusesCustomBatchRequest"
   [ProductstatusesCustomBatchRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/productstatuses/batch",
@@ -1034,7 +921,7 @@ destinations <string> If set, only issues for the specified destinations are ret
   ([merchantId productId]
     (productstatuses-get merchantId productId nil))
   ([merchantId productId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/productstatuses/{productId}",
@@ -1054,7 +941,7 @@ maxResults <integer> The maximum number of product statuses to return in the res
 destinations <string> If set, only issues for the specified destinations are returned, otherwise only issues for the Shopping destination."
   ([merchantId] (productstatuses-list merchantId nil))
   ([merchantId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/productstatuses",
@@ -1069,7 +956,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 merchantId <> 
 collectionId <> "
   [merchantId collectionId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/collections/{collectionId}",
@@ -1088,7 +975,7 @@ optional:
 pageSize <integer> The maximum number of collections to return in the response, used for paging. Defaults to 50; values above 1000 will be coerced to 1000."
   ([merchantId] (collections-list merchantId nil))
   ([merchantId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/collections",
@@ -1104,7 +991,7 @@ merchantId <>
 Collection:
 Collection"
   [merchantId Collection]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/collections",
@@ -1120,7 +1007,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 merchantId <> 
 collectionId <> "
   [merchantId collectionId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/collections/{collectionId}",
@@ -1136,7 +1023,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 ReturnaddressCustomBatchRequest:
 ReturnaddressCustomBatchRequest"
   [ReturnaddressCustomBatchRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/returnaddress/batch",
@@ -1152,7 +1039,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 merchantId <> 
 returnAddressId <> "
   [merchantId returnAddressId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/returnaddress/{returnAddressId}",
@@ -1168,7 +1055,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 merchantId <> 
 returnAddressId <> "
   [merchantId returnAddressId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/returnaddress/{returnAddressId}",
@@ -1185,7 +1072,7 @@ merchantId <>
 ReturnAddress:
 ReturnAddress"
   [merchantId ReturnAddress]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/returnaddress",
@@ -1205,54 +1092,11 @@ maxResults <integer> The maximum number of addresses in the response, used for p
 country <string> List only return addresses applicable to the given country of sale. When omitted, all return addresses are listed."
   ([merchantId] (returnaddress-list merchantId nil))
   ([merchantId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/returnaddress",
        :uri-template-args {"merchantId" merchantId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/content"]})))
-
-(defn orderreports-listdisbursements
-  "Retrieves a report for disbursements from your Merchant Center account.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/orderreports/listdisbursements
-
-merchantId <> 
-
-optional:
-maxResults <integer> The maximum number of disbursements to return in the response, used for paging.
-disbursementStartDate <string> The first date which disbursements occurred. In ISO 8601 format.
-disbursementEndDate <string> The last date which disbursements occurred. In ISO 8601 format. Default: current date."
-  ([merchantId] (orderreports-listdisbursements merchantId nil))
-  ([merchantId optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/orderreports/disbursements",
-       :uri-template-args {"merchantId" merchantId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/content"]})))
-
-(defn orderreports-listtransactions
-  "Retrieves a list of transactions for a disbursement from your Merchant Center account.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/orderreports/listtransactions
-
-merchantId <> 
-disbursementId <> 
-
-optional:
-maxResults <integer> The maximum number of disbursements to return in the response, used for paging.
-transactionStartDate <string> The first date in which transaction occurred. In ISO 8601 format.
-transactionEndDate <string> The last date in which transaction occurred. In ISO 8601 format. Default: current date."
-  ([merchantId disbursementId]
-    (orderreports-listtransactions merchantId disbursementId nil))
-  ([merchantId disbursementId optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/orderreports/disbursements/{disbursementId}/transactions",
-       :uri-template-args
-       {"merchantId" merchantId, "disbursementId" disbursementId},
        :query-params (merge {} optional),
        :scopes ["https://www.googleapis.com/auth/content"]})))
 
@@ -1265,7 +1109,7 @@ accountId <>
 AccountsUpdateLabelsRequest:
 AccountsUpdateLabelsRequest"
   [merchantId accountId AccountsUpdateLabelsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/accounts/{accountId}/updatelabels",
@@ -1288,7 +1132,7 @@ label <string> If view is set to \"css\", only return accounts that are assigned
 name <string> If set, only the accounts with the given name (case sensitive) will be returned."
   ([merchantId] (accounts-list merchantId nil))
   ([merchantId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/accounts",
@@ -1300,7 +1144,7 @@ name <string> If set, only the accounts with the given name (case sensitive) wil
   "Returns information about the authenticated user.
 https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/accounts/authinfo"
   []
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/accounts/authinfo",
@@ -1319,7 +1163,7 @@ optional:
 force <boolean> Option to delete sub-accounts with products. The default value is false."
   ([merchantId accountId] (accounts-delete merchantId accountId nil))
   ([merchantId accountId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/accounts/{accountId}",
@@ -1340,7 +1184,7 @@ maxResults <integer> The maximum number of links to return in the response, used
   ([merchantId accountId]
     (accounts-listlinks merchantId accountId nil))
   ([merchantId accountId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/accounts/{accountId}/listlinks",
@@ -1356,7 +1200,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 AccountsCustomBatchRequest:
 AccountsCustomBatchRequest"
   [AccountsCustomBatchRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/accounts/batch",
@@ -1377,7 +1221,7 @@ overwrite <boolean> Only available to selected merchants, for example multi-clie
   ([merchantId accountId]
     (accounts-claimwebsite merchantId accountId nil))
   ([merchantId accountId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/accounts/{accountId}/claimwebsite",
@@ -1395,7 +1239,7 @@ accountId <>
 Account:
 Account"
   [merchantId accountId Account]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/accounts/{accountId}",
@@ -1414,7 +1258,7 @@ accountId <>
 RequestPhoneVerificationRequest:
 RequestPhoneVerificationRequest"
   [merchantId accountId RequestPhoneVerificationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/accounts/{accountId}/requestphoneverification",
@@ -1433,7 +1277,7 @@ accountId <>
 AccountsLinkRequest:
 AccountsLinkRequest"
   [merchantId accountId AccountsLinkRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/accounts/{accountId}/link",
@@ -1452,7 +1296,7 @@ accountId <>
 VerifyPhoneNumberRequest:
 VerifyPhoneNumberRequest"
   [merchantId accountId VerifyPhoneNumberRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/accounts/{accountId}/verifyphonenumber",
@@ -1470,7 +1314,7 @@ merchantId <>
 Account:
 Account"
   [merchantId Account]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/accounts",
@@ -1490,7 +1334,7 @@ optional:
 view <string> Controls which fields will be populated. Acceptable values are: \"merchant\" and \"css\". The default value is \"merchant\"."
   ([merchantId accountId] (accounts-get merchantId accountId nil))
   ([merchantId accountId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/accounts/{accountId}",
@@ -1507,7 +1351,7 @@ accountId <>
 AccountCredentials:
 AccountCredentials"
   [accountId AccountCredentials]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/accounts/{accountId}/credentials",
@@ -1526,7 +1370,7 @@ optional:
 pageSize <integer> The maximum number of labels to return. The service may return fewer than this value. If unspecified, at most 50 labels will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([accountId] (accounts-labels-list accountId nil))
   ([accountId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/accounts/{accountId}/labels",
@@ -1542,7 +1386,7 @@ accountId <>
 AccountLabel:
 AccountLabel"
   [accountId AccountLabel]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/accounts/{accountId}/labels",
@@ -1560,7 +1404,7 @@ labelId <>
 AccountLabel:
 AccountLabel"
   [accountId labelId AccountLabel]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/accounts/{accountId}/labels/{labelId}",
@@ -1576,7 +1420,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 accountId <> 
 labelId <> "
   [accountId labelId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/accounts/{accountId}/labels/{labelId}",
@@ -1592,7 +1436,7 @@ accountId <>
 AccountReturnCarrier:
 AccountReturnCarrier"
   [accountId AccountReturnCarrier]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/accounts/{accountId}/returncarrier",
@@ -1610,7 +1454,7 @@ carrierAccountId <>
 AccountReturnCarrier:
 AccountReturnCarrier"
   [accountId carrierAccountId AccountReturnCarrier]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/accounts/{accountId}/returncarrier/{carrierAccountId}",
@@ -1627,7 +1471,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 accountId <> 
 carrierAccountId <> "
   [accountId carrierAccountId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/accounts/{accountId}/returncarrier/{carrierAccountId}",
@@ -1642,49 +1486,13 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 
 accountId <> "
   [accountId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/accounts/{accountId}/returncarrier",
      :uri-template-args {"accountId" accountId},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/content"]}))
-
-(defn orderinvoices-createchargeinvoice
-  "Creates a charge invoice for a shipment group, and triggers a charge capture for orderinvoice enabled orders.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/orderinvoices/createchargeinvoice
-
-merchantId <> 
-orderId <> 
-OrderinvoicesCreateChargeInvoiceRequest:
-OrderinvoicesCreateChargeInvoiceRequest"
-  [merchantId orderId OrderinvoicesCreateChargeInvoiceRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/orderinvoices/{orderId}/createChargeInvoice",
-     :uri-template-args {"merchantId" merchantId, "orderId" orderId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/content"],
-     :body OrderinvoicesCreateChargeInvoiceRequest}))
-
-(defn orderinvoices-createrefundinvoice
-  "Creates a refund invoice for one or more shipment groups, and triggers a refund for orderinvoice enabled orders. This can only be used for line items that have previously been charged using `createChargeInvoice`. All amounts (except for the summary) are incremental with respect to the previous invoice.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/orderinvoices/createrefundinvoice
-
-merchantId <> 
-orderId <> 
-OrderinvoicesCreateRefundInvoiceRequest:
-OrderinvoicesCreateRefundInvoiceRequest"
-  [merchantId orderId OrderinvoicesCreateRefundInvoiceRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/orderinvoices/{orderId}/createRefundInvoice",
-     :uri-template-args {"merchantId" merchantId, "orderId" orderId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/content"],
-     :body OrderinvoicesCreateRefundInvoiceRequest}))
 
 (defn quotas-list
   "Lists the daily call quota and usage per method for your Merchant Center account.
@@ -1696,7 +1504,7 @@ optional:
 pageSize <integer> The maximum number of quotas to return in the response, used for paging. Defaults to 500; values above 1000 will be coerced to 1000."
   ([merchantId] (quotas-list merchantId nil))
   ([merchantId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/quotas",
@@ -1711,7 +1519,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 RegionalinventoryCustomBatchRequest:
 RegionalinventoryCustomBatchRequest"
   [RegionalinventoryCustomBatchRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/regionalinventory/batch",
@@ -1729,7 +1537,7 @@ productId <>
 RegionalInventory:
 RegionalInventory"
   [merchantId productId RegionalInventory]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/products/{productId}/regionalinventory",
@@ -1746,7 +1554,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 LocalinventoryCustomBatchRequest:
 LocalinventoryCustomBatchRequest"
   [LocalinventoryCustomBatchRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/localinventory/batch",
@@ -1764,7 +1572,7 @@ productId <>
 LocalInventory:
 LocalInventory"
   [merchantId productId LocalInventory]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/products/{productId}/localinventory",
@@ -1784,7 +1592,7 @@ optional:
 maxResults <integer> The maximum number of LIA settings to return in the response, used for paging."
   ([merchantId] (liasettings-list merchantId nil))
   ([merchantId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/liasettings",
@@ -1800,7 +1608,7 @@ merchantId <>
 accountId <> 
 gmbEmail <> "
   [merchantId accountId gmbEmail]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/liasettings/{accountId}/requestgmbaccess",
@@ -1817,7 +1625,7 @@ merchantId <>
 accountId <> 
 country <> "
   [merchantId accountId country]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/liasettings/{accountId}/requestinventoryverification/{country}",
@@ -1835,7 +1643,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 LiasettingsCustomBatchRequest:
 LiasettingsCustomBatchRequest"
   [LiasettingsCustomBatchRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/liasettings/batch",
@@ -1858,7 +1666,7 @@ posExternalAccountId <string> The account ID by which this merchant is known to 
   ([merchantId accountId country]
     (liasettings-setposdataprovider merchantId accountId country nil))
   ([merchantId accountId country optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/liasettings/{accountId}/setposdataprovider",
@@ -1878,7 +1686,7 @@ language <>
 contactName <> 
 contactEmail <> "
   [merchantId accountId country language contactName contactEmail]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/liasettings/{accountId}/setinventoryverificationcontact",
@@ -1900,7 +1708,7 @@ accountId <>
 LiaSettings:
 LiaSettings"
   [merchantId accountId LiaSettings]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/liasettings/{accountId}",
@@ -1914,7 +1722,7 @@ LiaSettings"
   "Retrieves the list of POS data providers that have active settings for the all eiligible countries.
 https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/liasettings/listposdataproviders"
   []
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/liasettings/posdataproviders",
@@ -1929,7 +1737,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 merchantId <> 
 accountId <> "
   [merchantId accountId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/liasettings/{accountId}/accessiblegmbaccounts",
@@ -1952,7 +1760,7 @@ pickupTypes <string> The Pickup types for this country. Acceptable values are: -
   ([merchantId accountId]
     (liasettings-setomnichannelexperience merchantId accountId nil))
   ([merchantId accountId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/liasettings/{accountId}/setomnichannelexperience",
@@ -1968,7 +1776,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 merchantId <> 
 accountId <> "
   [merchantId accountId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/liasettings/{accountId}",
@@ -1977,126 +1785,6 @@ accountId <> "
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/content"]}))
 
-(defn buyongoogleprograms-get
-  "Retrieves a status of the BoG program for your Merchant Center account.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/buyongoogleprograms/get
-
-merchantId <> 
-regionCode <> "
-  [merchantId regionCode]
-  (client/api-request
-    {:method :get,
-     :uri-template
-     "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/buyongoogleprograms/{regionCode}",
-     :uri-template-args
-     {"merchantId" merchantId, "regionCode" regionCode},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/content"]}))
-
-(defn buyongoogleprograms-patch
-  "Updates the status of the BoG program for your Merchant Center account.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/buyongoogleprograms/patch
-
-merchantId <> 
-regionCode <> 
-BuyOnGoogleProgramStatus:
-BuyOnGoogleProgramStatus
-
-optional:
-updateMask <string> The list of fields to update. If the update mask is not provided, then all the fields set in buyOnGoogleProgramStatus will be updated. Clearing fields is only possible if update mask is provided."
-  ([merchantId regionCode BuyOnGoogleProgramStatus]
-    (buyongoogleprograms-patch
-      merchantId
-      regionCode
-      BuyOnGoogleProgramStatus
-      nil))
-  ([merchantId regionCode BuyOnGoogleProgramStatus optional]
-    (client/api-request
-      {:method :patch,
-       :uri-template
-       "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/buyongoogleprograms/{regionCode}",
-       :uri-template-args
-       {"merchantId" merchantId, "regionCode" regionCode},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/content"],
-       :body BuyOnGoogleProgramStatus})))
-
-(defn buyongoogleprograms-onboard
-  "Onboards the BoG program in your Merchant Center account. By using this method, you agree to the [Terms of Service](https://merchants.google.com/mc/termsofservice/transactions/US/latest). Calling this method is only possible if the authenticated account is the same as the merchant id in the request. Calling this method multiple times will only accept Terms of Service if the latest version is not currently signed.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/buyongoogleprograms/onboard
-
-merchantId <> 
-regionCode <> 
-OnboardBuyOnGoogleProgramRequest:
-OnboardBuyOnGoogleProgramRequest"
-  [merchantId regionCode OnboardBuyOnGoogleProgramRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/buyongoogleprograms/{regionCode}/onboard",
-     :uri-template-args
-     {"merchantId" merchantId, "regionCode" regionCode},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/content"],
-     :body OnboardBuyOnGoogleProgramRequest}))
-
-(defn buyongoogleprograms-requestreview
-  "Requests review and then activates the BoG program in your Merchant Center account for the first time. Moves the program to the REVIEW_PENDING state. This method is only available to selected merchants.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/buyongoogleprograms/requestreview
-
-merchantId <> 
-regionCode <> 
-RequestReviewBuyOnGoogleProgramRequest:
-RequestReviewBuyOnGoogleProgramRequest"
-  [merchantId regionCode RequestReviewBuyOnGoogleProgramRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/buyongoogleprograms/{regionCode}/requestreview",
-     :uri-template-args
-     {"merchantId" merchantId, "regionCode" regionCode},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/content"],
-     :body RequestReviewBuyOnGoogleProgramRequest}))
-
-(defn buyongoogleprograms-activate
-  "Reactivates the BoG program in your Merchant Center account. Moves the program to the active state when allowed, for example, when paused. This method is only available to selected merchants.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/buyongoogleprograms/activate
-
-merchantId <> 
-regionCode <> 
-ActivateBuyOnGoogleProgramRequest:
-ActivateBuyOnGoogleProgramRequest"
-  [merchantId regionCode ActivateBuyOnGoogleProgramRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/buyongoogleprograms/{regionCode}/activate",
-     :uri-template-args
-     {"merchantId" merchantId, "regionCode" regionCode},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/content"],
-     :body ActivateBuyOnGoogleProgramRequest}))
-
-(defn buyongoogleprograms-pause
-  "Pauses the BoG program in your Merchant Center account. This method is only available to selected merchants.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/buyongoogleprograms/pause
-
-merchantId <> 
-regionCode <> 
-PauseBuyOnGoogleProgramRequest:
-PauseBuyOnGoogleProgramRequest"
-  [merchantId regionCode PauseBuyOnGoogleProgramRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/buyongoogleprograms/{regionCode}/pause",
-     :uri-template-args
-     {"merchantId" merchantId, "regionCode" regionCode},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/content"],
-     :body PauseBuyOnGoogleProgramRequest}))
-
 (defn regions-get
   "Retrieves a region defined in your Merchant Center account.
 https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/regions/get
@@ -2104,7 +1792,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 merchantId <> 
 regionId <> "
   [merchantId regionId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/regions/{regionId}",
@@ -2124,7 +1812,7 @@ optional:
 regionId <string> Required. The id of the region to create."
   ([merchantId Region] (regions-create merchantId Region nil))
   ([merchantId Region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/regions",
@@ -2147,7 +1835,7 @@ updateMask <string> Optional. The comma-separated field mask indicating the fiel
   ([merchantId regionId Region]
     (regions-patch merchantId regionId Region nil))
   ([merchantId regionId Region optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/regions/{regionId}",
@@ -2164,7 +1852,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 merchantId <> 
 regionId <> "
   [merchantId regionId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/regions/{regionId}",
@@ -2182,7 +1870,7 @@ optional:
 pageSize <integer> The maximum number of regions to return. The service may return fewer than this value. If unspecified, at most 50 rules will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([merchantId] (regions-list merchantId nil))
   ([merchantId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/regions",
@@ -2196,7 +1884,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 
 merchantId <> "
   [merchantId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/freelistingsprogram",
@@ -2212,7 +1900,7 @@ merchantId <>
 RequestReviewFreeListingsRequest:
 RequestReviewFreeListingsRequest"
   [merchantId RequestReviewFreeListingsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/freelistingsprogram/requestreview",
@@ -2227,7 +1915,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 
 merchantId <> "
   [merchantId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/freelistingsprogram/checkoutsettings",
@@ -2243,7 +1931,7 @@ merchantId <>
 InsertCheckoutSettingsRequest:
 InsertCheckoutSettingsRequest"
   [merchantId InsertCheckoutSettingsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/freelistingsprogram/checkoutsettings",
@@ -2258,7 +1946,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 
 merchantId <> "
   [merchantId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/freelistingsprogram/checkoutsettings",
@@ -2273,7 +1961,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 AccounttaxCustomBatchRequest:
 AccounttaxCustomBatchRequest"
   [AccounttaxCustomBatchRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/accounttax/batch",
@@ -2289,7 +1977,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 merchantId <> 
 accountId <> "
   [merchantId accountId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/accounttax/{accountId}",
@@ -2308,7 +1996,7 @@ optional:
 maxResults <integer> The maximum number of tax settings to return in the response, used for paging."
   ([merchantId] (accounttax-list merchantId nil))
   ([merchantId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/accounttax",
@@ -2325,7 +2013,7 @@ accountId <>
 AccountTax:
 AccountTax"
   [merchantId accountId AccountTax]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/accounttax/{accountId}",
@@ -2342,7 +2030,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 DatafeedsCustomBatchRequest:
 DatafeedsCustomBatchRequest"
   [DatafeedsCustomBatchRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/datafeeds/batch",
@@ -2358,7 +2046,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 merchantId <> 
 datafeedId <> "
   [merchantId datafeedId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/datafeeds/{datafeedId}",
@@ -2374,7 +2062,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 merchantId <> 
 datafeedId <> "
   [merchantId datafeedId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/datafeeds/{datafeedId}/fetchNow",
@@ -2390,7 +2078,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 merchantId <> 
 datafeedId <> "
   [merchantId datafeedId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/datafeeds/{datafeedId}",
@@ -2407,7 +2095,7 @@ merchantId <>
 Datafeed:
 Datafeed"
   [merchantId Datafeed]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/datafeeds",
@@ -2426,7 +2114,7 @@ optional:
 maxResults <integer> The maximum number of products to return in the response, used for paging."
   ([merchantId] (datafeeds-list merchantId nil))
   ([merchantId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/datafeeds",
@@ -2443,7 +2131,7 @@ datafeedId <>
 Datafeed:
 Datafeed"
   [merchantId datafeedId Datafeed]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/datafeeds/{datafeedId}",
@@ -2461,7 +2149,7 @@ merchantId <>
 OrderTrackingSignal:
 OrderTrackingSignal"
   [merchantId OrderTrackingSignal]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/ordertrackingsignals",
@@ -2478,7 +2166,7 @@ merchantId <>
 Promotion:
 Promotion"
   [merchantId Promotion]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/promotions",
@@ -2494,7 +2182,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 merchantId <> 
 id <> "
   [merchantId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/promotions/{id}",
@@ -2514,7 +2202,7 @@ countryCode <string> [CLDR country code](http://www.unicode.org/repos/cldr/tags/
 languageCode <string> The two-letter ISO 639-1 language code associated with the promotions, used as a filter."
   ([merchantId] (promotions-list merchantId nil))
   ([merchantId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/promotions",
@@ -2532,7 +2220,7 @@ optional:
 pageSize <integer> The maximum number of CSS domains to return. The service may return fewer than this value. If unspecified, at most 50 CSS domains will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([cssGroupId] (csses-list cssGroupId nil))
   ([cssGroupId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{cssGroupId}/csses",
@@ -2547,7 +2235,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 cssGroupId <> 
 cssDomainId <> "
   [cssGroupId cssDomainId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{cssGroupId}/csses/{cssDomainId}",
@@ -2565,7 +2253,7 @@ cssDomainId <>
 LabelIds:
 LabelIds"
   [cssGroupId cssDomainId LabelIds]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/{cssGroupId}/csses/{cssDomainId}/updatelabels",
@@ -2592,7 +2280,7 @@ timeZone <string> Optional. The [IANA](https://www.iana.org/time-zones) timezone
       RenderAccountIssuesRequestPayload
       nil))
   ([merchantId RenderAccountIssuesRequestPayload optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/merchantsupport/renderaccountissues",
@@ -2620,7 +2308,7 @@ timeZone <string> Optional. The [IANA](https://www.iana.org/time-zones) timezone
       RenderProductIssuesRequestPayload
       nil))
   ([merchantId productId RenderProductIssuesRequestPayload optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/merchantsupport/renderproductissues/{productId}",
@@ -2646,7 +2334,7 @@ languageCode <string> Optional. Language code [IETF BCP 47 syntax](https://tools
       TriggerActionPayload
       nil))
   ([merchantId TriggerActionPayload optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/merchantsupport/triggeraction",
@@ -2655,401 +2343,6 @@ languageCode <string> Optional. Language code [IETF BCP 47 syntax](https://tools
        :scopes ["https://www.googleapis.com/auth/content"],
        :body TriggerActionPayload})))
 
-(defn orders-list
-  "Lists the orders in your Merchant Center account.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/orders/list
-
-merchantId <> 
-
-optional:
-maxResults <integer> The maximum number of orders to return in the response, used for paging. The default value is 25 orders per page, and the maximum allowed value is 250 orders per page.
-statuses <string> Obtains orders that match any of the specified statuses. Note that `active` is a shortcut for `pendingShipment` and `partiallyShipped`, and `completed` is a shortcut for `shipped`, `partiallyDelivered`, `delivered`, `partiallyReturned`, `returned`, and `canceled`.
-placedDateStart <string> Obtains orders placed after this date (inclusively), in ISO 8601 format.
-placedDateEnd <string> Obtains orders placed before this date (exclusively), in ISO 8601 format.
-orderBy <string> Order results by placement date in descending or ascending order. Acceptable values are: - placedDateAsc - placedDateDesc 
-acknowledged <boolean> Obtains orders that match the acknowledgement status. When set to true, obtains orders that have been acknowledged. When false, obtains orders that have not been acknowledged. We recommend using this filter set to `false`, in conjunction with the `acknowledge` call, such that only un-acknowledged orders are returned. "
-  ([merchantId] (orders-list merchantId nil))
-  ([merchantId optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/orders",
-       :uri-template-args {"merchantId" merchantId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/content"]})))
-
-(defn orders-updatemerchantorderid
-  "Updates the merchant order ID for a given order.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/orders/updatemerchantorderid
-
-merchantId <> 
-orderId <> 
-OrdersUpdateMerchantOrderIdRequest:
-OrdersUpdateMerchantOrderIdRequest"
-  [merchantId orderId OrdersUpdateMerchantOrderIdRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/orders/{orderId}/updateMerchantOrderId",
-     :uri-template-args {"merchantId" merchantId, "orderId" orderId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/content"],
-     :body OrdersUpdateMerchantOrderIdRequest}))
-
-(defn orders-refunditem
-  "Issues a partial or total refund for items and shipment.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/orders/refunditem
-
-merchantId <> 
-orderId <> 
-OrdersRefundItemRequest:
-OrdersRefundItemRequest"
-  [merchantId orderId OrdersRefundItemRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/orders/{orderId}/refunditem",
-     :uri-template-args {"merchantId" merchantId, "orderId" orderId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/content"],
-     :body OrdersRefundItemRequest}))
-
-(defn orders-getbymerchantorderid
-  "Retrieves an order using merchant order ID.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/orders/getbymerchantorderid
-
-merchantId <> 
-merchantOrderId <> "
-  [merchantId merchantOrderId]
-  (client/api-request
-    {:method :get,
-     :uri-template
-     "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/ordersbymerchantid/{merchantOrderId}",
-     :uri-template-args
-     {"merchantId" merchantId, "merchantOrderId" merchantOrderId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/content"]}))
-
-(defn orders-cancel
-  "Cancels all line items in an order, making a full refund.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/orders/cancel
-
-merchantId <> 
-orderId <> 
-OrdersCancelRequest:
-OrdersCancelRequest"
-  [merchantId orderId OrdersCancelRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/orders/{orderId}/cancel",
-     :uri-template-args {"merchantId" merchantId, "orderId" orderId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/content"],
-     :body OrdersCancelRequest}))
-
-(defn orders-shiplineitems
-  "Marks line item(s) as shipped.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/orders/shiplineitems
-
-merchantId <> 
-orderId <> 
-OrdersShipLineItemsRequest:
-OrdersShipLineItemsRequest"
-  [merchantId orderId OrdersShipLineItemsRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/orders/{orderId}/shipLineItems",
-     :uri-template-args {"merchantId" merchantId, "orderId" orderId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/content"],
-     :body OrdersShipLineItemsRequest}))
-
-(defn orders-captureOrder
-  "Capture funds from the customer for the current order total. This method should be called after the merchant verifies that they are able and ready to start shipping the order. This method blocks until a response is received from the payment processsor. If this method succeeds, the merchant is guaranteed to receive funds for the order after shipment. If the request fails, it can be retried or the order may be cancelled. This method cannot be called after the entire order is already shipped. A rejected error code is returned when the payment service provider has declined the charge. This indicates a problem between the PSP and either the merchant's or customer's account. Sometimes this error will be resolved by the customer. We recommend retrying these errors once per day or cancelling the order with reason `failedToCaptureFunds` if the items cannot be held.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/orders/captureOrder
-
-merchantId <> 
-orderId <> 
-CaptureOrderRequest:
-CaptureOrderRequest"
-  [merchantId orderId CaptureOrderRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/orders/{orderId}/captureOrder",
-     :uri-template-args {"merchantId" merchantId, "orderId" orderId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/content"],
-     :body CaptureOrderRequest}))
-
-(defn orders-rejectreturnlineitem
-  "Rejects return on an line item.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/orders/rejectreturnlineitem
-
-merchantId <> 
-orderId <> 
-OrdersRejectReturnLineItemRequest:
-OrdersRejectReturnLineItemRequest"
-  [merchantId orderId OrdersRejectReturnLineItemRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/orders/{orderId}/rejectReturnLineItem",
-     :uri-template-args {"merchantId" merchantId, "orderId" orderId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/content"],
-     :body OrdersRejectReturnLineItemRequest}))
-
-(defn orders-canceltestorderbycustomer
-  "Sandbox only. Cancels a test order for customer-initiated cancellation.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/orders/canceltestorderbycustomer
-
-merchantId <> 
-orderId <> 
-OrdersCancelTestOrderByCustomerRequest:
-OrdersCancelTestOrderByCustomerRequest"
-  [merchantId orderId OrdersCancelTestOrderByCustomerRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/testorders/{orderId}/cancelByCustomer",
-     :uri-template-args {"merchantId" merchantId, "orderId" orderId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/content"],
-     :body OrdersCancelTestOrderByCustomerRequest}))
-
-(defn orders-setlineitemmetadata
-  "Sets (or overrides if it already exists) merchant provided annotations in the form of key-value pairs. A common use case would be to supply us with additional structured information about a line item that cannot be provided through other methods. Submitted key-value pairs can be retrieved as part of the orders resource.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/orders/setlineitemmetadata
-
-merchantId <> 
-orderId <> 
-OrdersSetLineItemMetadataRequest:
-OrdersSetLineItemMetadataRequest"
-  [merchantId orderId OrdersSetLineItemMetadataRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/orders/{orderId}/setLineItemMetadata",
-     :uri-template-args {"merchantId" merchantId, "orderId" orderId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/content"],
-     :body OrdersSetLineItemMetadataRequest}))
-
-(defn orders-gettestordertemplate
-  "Sandbox only. Retrieves an order template that can be used to quickly create a new order in sandbox.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/orders/gettestordertemplate
-
-merchantId <> 
-templateName <> 
-
-optional:
-country <string> The country of the template to retrieve. Defaults to \"`US`\"."
-  ([merchantId templateName]
-    (orders-gettestordertemplate merchantId templateName nil))
-  ([merchantId templateName optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/testordertemplates/{templateName}",
-       :uri-template-args
-       {"merchantId" merchantId, "templateName" templateName},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/content"]})))
-
-(defn orders-createtestorder
-  "Sandbox only. Creates a test order.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/orders/createtestorder
-
-merchantId <> 
-OrdersCreateTestOrderRequest:
-OrdersCreateTestOrderRequest"
-  [merchantId OrdersCreateTestOrderRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/testorders",
-     :uri-template-args {"merchantId" merchantId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/content"],
-     :body OrdersCreateTestOrderRequest}))
-
-(defn orders-advancetestorder
-  "Sandbox only. Moves a test order from state \"`inProgress`\" to state \"`pendingShipment`\".
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/orders/advancetestorder
-
-merchantId <> 
-orderId <> "
-  [merchantId orderId]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/testorders/{orderId}/advance",
-     :uri-template-args {"merchantId" merchantId, "orderId" orderId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/content"]}))
-
-(defn orders-returnrefundlineitem
-  "Returns and refunds a line item. Note that this method can only be called on fully shipped orders. The Orderreturns API is the preferred way to handle returns after you receive a return from a customer. You can use Orderreturns.list or Orderreturns.get to search for the return, and then use Orderreturns.processreturn to issue the refund. If the return cannot be found, then we recommend using this API to issue a refund.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/orders/returnrefundlineitem
-
-merchantId <> 
-orderId <> 
-OrdersReturnRefundLineItemRequest:
-OrdersReturnRefundLineItemRequest"
-  [merchantId orderId OrdersReturnRefundLineItemRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/orders/{orderId}/returnRefundLineItem",
-     :uri-template-args {"merchantId" merchantId, "orderId" orderId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/content"],
-     :body OrdersReturnRefundLineItemRequest}))
-
-(defn orders-updateshipment
-  "Updates a shipment's status, carrier, and/or tracking ID.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/orders/updateshipment
-
-merchantId <> 
-orderId <> 
-OrdersUpdateShipmentRequest:
-OrdersUpdateShipmentRequest"
-  [merchantId orderId OrdersUpdateShipmentRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/orders/{orderId}/updateShipment",
-     :uri-template-args {"merchantId" merchantId, "orderId" orderId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/content"],
-     :body OrdersUpdateShipmentRequest}))
-
-(defn orders-acknowledge
-  "Marks an order as acknowledged.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/orders/acknowledge
-
-merchantId <> 
-orderId <> 
-OrdersAcknowledgeRequest:
-OrdersAcknowledgeRequest"
-  [merchantId orderId OrdersAcknowledgeRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/orders/{orderId}/acknowledge",
-     :uri-template-args {"merchantId" merchantId, "orderId" orderId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/content"],
-     :body OrdersAcknowledgeRequest}))
-
-(defn orders-createtestreturn
-  "Sandbox only. Creates a test return.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/orders/createtestreturn
-
-merchantId <> 
-orderId <> 
-OrdersCreateTestReturnRequest:
-OrdersCreateTestReturnRequest"
-  [merchantId orderId OrdersCreateTestReturnRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/orders/{orderId}/testreturn",
-     :uri-template-args {"merchantId" merchantId, "orderId" orderId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/content"],
-     :body OrdersCreateTestReturnRequest}))
-
-(defn orders-instorerefundlineitem
-  "Deprecated. Notifies that item return and refund was handled directly by merchant outside of Google payments processing (for example, cash refund done in store). Note: We recommend calling the returnrefundlineitem method to refund in-store returns. We will issue the refund directly to the customer. This helps to prevent possible differences arising between merchant and Google transaction records. We also recommend having the point of sale system communicate with Google to ensure that customers do not receive a double refund by first refunding through Google then through an in-store return.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/orders/instorerefundlineitem
-
-merchantId <> 
-orderId <> 
-OrdersInStoreRefundLineItemRequest:
-OrdersInStoreRefundLineItemRequest"
-  [merchantId orderId OrdersInStoreRefundLineItemRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/orders/{orderId}/inStoreRefundLineItem",
-     :uri-template-args {"merchantId" merchantId, "orderId" orderId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/content"],
-     :body OrdersInStoreRefundLineItemRequest}))
-
-(defn orders-updatelineitemshippingdetails
-  "Updates ship by and delivery by dates for a line item.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/orders/updatelineitemshippingdetails
-
-merchantId <> 
-orderId <> 
-OrdersUpdateLineItemShippingDetailsRequest:
-OrdersUpdateLineItemShippingDetailsRequest"
-  [merchantId orderId OrdersUpdateLineItemShippingDetailsRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/orders/{orderId}/updateLineItemShippingDetails",
-     :uri-template-args {"merchantId" merchantId, "orderId" orderId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/content"],
-     :body OrdersUpdateLineItemShippingDetailsRequest}))
-
-(defn orders-refundorder
-  "Issues a partial or total refund for an order.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/orders/refundorder
-
-merchantId <> 
-orderId <> 
-OrdersRefundOrderRequest:
-OrdersRefundOrderRequest"
-  [merchantId orderId OrdersRefundOrderRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/orders/{orderId}/refundorder",
-     :uri-template-args {"merchantId" merchantId, "orderId" orderId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/content"],
-     :body OrdersRefundOrderRequest}))
-
-(defn orders-cancellineitem
-  "Cancels a line item, making a full refund.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/orders/cancellineitem
-
-merchantId <> 
-orderId <> 
-OrdersCancelLineItemRequest:
-OrdersCancelLineItemRequest"
-  [merchantId orderId OrdersCancelLineItemRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/orders/{orderId}/cancelLineItem",
-     :uri-template-args {"merchantId" merchantId, "orderId" orderId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/content"],
-     :body OrdersCancelLineItemRequest}))
-
-(defn orders-get
-  "Retrieves an order from your Merchant Center account.
-https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/orders/get
-
-merchantId <> 
-orderId <> "
-  [merchantId orderId]
-  (client/api-request
-    {:method :get,
-     :uri-template
-     "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/orders/{orderId}",
-     :uri-template-args {"merchantId" merchantId, "orderId" orderId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/content"]}))
-
 (defn accountstatuses-custombatch
   "Retrieves multiple Merchant Center account statuses in a single request.
 https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/rest/v2.1/accountstatuses/custombatch
@@ -3057,7 +2350,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 AccountstatusesCustomBatchRequest:
 AccountstatusesCustomBatchRequest"
   [AccountstatusesCustomBatchRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/accountstatuses/batch",
@@ -3078,7 +2371,7 @@ destinations <string> If set, only issues for the specified destinations are ret
   ([merchantId accountId]
     (accountstatuses-get merchantId accountId nil))
   ([merchantId accountId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/accountstatuses/{accountId}",
@@ -3099,7 +2392,7 @@ destinations <string> If set, only issues for the specified destinations are ret
 name <string> If set, only the accounts with the given name (case sensitive) will be returned."
   ([merchantId] (accountstatuses-list merchantId nil))
   ([merchantId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/accountstatuses",
@@ -3114,7 +2407,7 @@ https://developers.google.com/shopping-content/guides/quickstart/v2.1/reference/
 DatafeedstatusesCustomBatchRequest:
 DatafeedstatusesCustomBatchRequest"
   [DatafeedstatusesCustomBatchRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://shoppingcontent.googleapis.com/content/v2.1/datafeedstatuses/batch",
@@ -3137,7 +2430,7 @@ language <string> The language to get the datafeed status for. If this parameter
   ([merchantId datafeedId]
     (datafeedstatuses-get merchantId datafeedId nil))
   ([merchantId datafeedId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/datafeedstatuses/{datafeedId}",
@@ -3156,7 +2449,7 @@ optional:
 maxResults <integer> The maximum number of products to return in the response, used for paging."
   ([merchantId] (datafeedstatuses-list merchantId nil))
   ([merchantId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://shoppingcontent.googleapis.com/content/v2.1/{merchantId}/datafeedstatuses",

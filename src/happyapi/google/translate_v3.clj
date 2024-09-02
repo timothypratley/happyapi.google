@@ -12,7 +12,7 @@ parent <>
 TranslateTextRequest:
 TranslateTextRequest"
   [parent TranslateTextRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://translation.googleapis.com/v3/{+parent}:translateText",
@@ -31,7 +31,7 @@ parent <>
 RomanizeTextRequest:
 RomanizeTextRequest"
   [parent RomanizeTextRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://translation.googleapis.com/v3/{+parent}:romanizeText",
@@ -50,7 +50,7 @@ parent <>
 DetectLanguageRequest:
 DetectLanguageRequest"
   [parent DetectLanguageRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://translation.googleapis.com/v3/{+parent}:detectLanguage",
@@ -72,7 +72,7 @@ displayLanguageCode <string> Optional. The language to use to return localized, 
 model <string> Optional. Get supported languages of this model. The format depends on model type: - AutoML Translation models: `projects/{project-number-or-id}/locations/{location-id}/models/{model-id}` - General (built-in) models: `projects/{project-number-or-id}/locations/{location-id}/models/general/nmt`, Returns languages supported by the specified model. If missing, we get supported languages of Google general NMT model."
   ([parent] (projects-getSupportedLanguages parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://translation.googleapis.com/v3/{+parent}/supportedLanguages",
@@ -90,7 +90,7 @@ parent <>
 AdaptiveMtTranslateRequest:
 AdaptiveMtTranslateRequest"
   [parent AdaptiveMtTranslateRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://translation.googleapis.com/v3/{+parent}:adaptiveMtTranslate",
@@ -109,7 +109,7 @@ parent <>
 BatchTranslateDocumentRequest:
 BatchTranslateDocumentRequest"
   [parent BatchTranslateDocumentRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://translation.googleapis.com/v3/{+parent}:batchTranslateDocument",
@@ -129,7 +129,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://translation.googleapis.com/v3/{+name}/locations",
@@ -147,7 +147,7 @@ parent <>
 TranslateTextRequest:
 TranslateTextRequest"
   [parent TranslateTextRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://translation.googleapis.com/v3/{+parent}:translateText",
@@ -166,7 +166,7 @@ parent <>
 RomanizeTextRequest:
 RomanizeTextRequest"
   [parent RomanizeTextRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://translation.googleapis.com/v3/{+parent}:romanizeText",
@@ -185,7 +185,7 @@ parent <>
 BatchTranslateTextRequest:
 BatchTranslateTextRequest"
   [parent BatchTranslateTextRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://translation.googleapis.com/v3/{+parent}:batchTranslateText",
@@ -205,7 +205,7 @@ displayLanguageCode <string> Optional. The language to use to return localized, 
 model <string> Optional. Get supported languages of this model. The format depends on model type: - AutoML Translation models: `projects/{project-number-or-id}/locations/{location-id}/models/{model-id}` - General (built-in) models: `projects/{project-number-or-id}/locations/{location-id}/models/general/nmt`, Returns languages supported by the specified model. If missing, we get supported languages of Google general NMT model."
   ([parent] (projects-locations-getSupportedLanguages parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://translation.googleapis.com/v3/{+parent}/supportedLanguages",
@@ -223,7 +223,7 @@ parent <>
 DetectLanguageRequest:
 DetectLanguageRequest"
   [parent DetectLanguageRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://translation.googleapis.com/v3/{+parent}:detectLanguage",
@@ -240,7 +240,7 @@ https://cloud.google.com/translate/docs/setup/v3/reference/rest/v3/projects/loca
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://translation.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -257,7 +257,7 @@ parent <>
 TranslateDocumentRequest:
 TranslateDocumentRequest"
   [parent TranslateDocumentRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://translation.googleapis.com/v3/{+parent}:translateDocument",
@@ -279,7 +279,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://translation.googleapis.com/v3/{+name}/operations",
@@ -295,7 +295,7 @@ https://cloud.google.com/translate/docs/setup/v3/reference/rest/v3/projects/loca
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://translation.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -310,7 +310,7 @@ https://cloud.google.com/translate/docs/setup/v3/reference/rest/v3/projects/loca
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://translation.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -327,7 +327,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://translation.googleapis.com/v3/{+name}:cancel",
@@ -346,7 +346,7 @@ name <>
 WaitOperationRequest:
 WaitOperationRequest"
   [name WaitOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://translation.googleapis.com/v3/{+name}:wait",
@@ -365,7 +365,7 @@ parent <>
 Glossary:
 Glossary"
   [parent Glossary]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://translation.googleapis.com/v3/{+parent}/glossaries",
@@ -387,12 +387,14 @@ updateMask <string> The list of fields to be updated. Currently only `display_na
   ([name Glossary]
     (projects-locations-glossaries-patch name Glossary nil))
   ([name Glossary optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://translation.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
        :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+       :scopes
+       ["https://www.googleapis.com/auth/cloud-platform"
+        "https://www.googleapis.com/auth/cloud-translation"],
        :body Glossary})))
 
 (defn projects-locations-glossaries-list
@@ -406,7 +408,7 @@ pageSize <integer> Optional. Requested page size. The server may return fewer gl
 filter <string> Optional. Filter specifying constraints of a list operation. Specify the constraint by the format of \"key=value\", where key must be \"src\" or \"tgt\", and the value must be a valid language code. For multiple restrictions, concatenate them by \"AND\" (uppercase only), such as: \"src=en-US AND tgt=zh-CN\". Notice that the exact match is used here, which means using 'en-US' and 'en' can lead to different results, which depends on the language code you used when you create the glossary. For the unidirectional glossaries, the \"src\" and \"tgt\" add restrictions on the source and target language code separately. For the equivalent term set glossaries, the \"src\" and/or \"tgt\" add restrictions on the term set. For example: \"src=en-US AND tgt=zh-CN\" will only pick the unidirectional glossaries which exactly match the source language code as \"en-US\" and the target language code \"zh-CN\", but all equivalent term set glossaries which contain \"en-US\" and \"zh-CN\" in their language set will be picked. If missing, no filtering is performed."
   ([parent] (projects-locations-glossaries-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://translation.googleapis.com/v3/{+parent}/glossaries",
@@ -422,7 +424,7 @@ https://cloud.google.com/translate/docs/setup/v3/reference/rest/v3/projects/loca
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://translation.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -437,7 +439,7 @@ https://cloud.google.com/translate/docs/setup/v3/reference/rest/v3/projects/loca
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://translation.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -452,7 +454,7 @@ https://cloud.google.com/translate/docs/setup/v3/reference/rest/v3/projects/loca
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://translation.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -472,7 +474,7 @@ pageSize <integer> Optional. Requested page size. The server may return fewer gl
   ([parent]
     (projects-locations-glossaries-glossaryEntries-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://translation.googleapis.com/v3/{+parent}/glossaryEntries",
@@ -490,7 +492,7 @@ parent <>
 GlossaryEntry:
 GlossaryEntry"
   [parent GlossaryEntry]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://translation.googleapis.com/v3/{+parent}/glossaryEntries",
@@ -509,7 +511,7 @@ name <>
 GlossaryEntry:
 GlossaryEntry"
   [name GlossaryEntry]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template "https://translation.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -525,7 +527,7 @@ https://cloud.google.com/translate/docs/setup/v3/reference/rest/v3/projects/loca
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://translation.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -542,7 +544,7 @@ parent <>
 Dataset:
 Dataset"
   [parent Dataset]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://translation.googleapis.com/v3/{+parent}/datasets",
@@ -559,7 +561,7 @@ https://cloud.google.com/translate/docs/setup/v3/reference/rest/v3/projects/loca
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://translation.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -578,7 +580,7 @@ optional:
 pageSize <integer> Optional. Requested page size. The server can return fewer results than requested."
   ([parent] (projects-locations-datasets-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://translation.googleapis.com/v3/{+parent}/datasets",
@@ -594,7 +596,7 @@ https://cloud.google.com/translate/docs/setup/v3/reference/rest/v3/projects/loca
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://translation.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -611,7 +613,7 @@ dataset <>
 ImportDataRequest:
 ImportDataRequest"
   [dataset ImportDataRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://translation.googleapis.com/v3/{+dataset}:importData",
@@ -630,7 +632,7 @@ dataset <>
 ExportDataRequest:
 ExportDataRequest"
   [dataset ExportDataRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://translation.googleapis.com/v3/{+dataset}:exportData",
@@ -652,7 +654,7 @@ filter <string> Optional. An expression for filtering the examples that will be 
 pageSize <integer> Optional. Requested page size. The server can return fewer results than requested."
   ([parent] (projects-locations-datasets-examples-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://translation.googleapis.com/v3/{+parent}/examples",
@@ -670,7 +672,7 @@ parent <>
 AdaptiveMtDataset:
 AdaptiveMtDataset"
   [parent AdaptiveMtDataset]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://translation.googleapis.com/v3/{+parent}/adaptiveMtDatasets",
@@ -687,7 +689,7 @@ https://cloud.google.com/translate/docs/setup/v3/reference/rest/v3/projects/loca
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://translation.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -702,7 +704,7 @@ https://cloud.google.com/translate/docs/setup/v3/reference/rest/v3/projects/loca
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://translation.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -722,7 +724,7 @@ pageSize <integer> Optional. Requested page size. The server may return fewer re
 filter <string> Optional. An expression for filtering the results of the request. Filter is not supported yet."
   ([parent] (projects-locations-adaptiveMtDatasets-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://translation.googleapis.com/v3/{+parent}/adaptiveMtDatasets",
@@ -740,7 +742,7 @@ parent <>
 ImportAdaptiveMtFileRequest:
 ImportAdaptiveMtFileRequest"
   [parent ImportAdaptiveMtFileRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://translation.googleapis.com/v3/{+parent}:importAdaptiveMtFile",
@@ -757,7 +759,7 @@ https://cloud.google.com/translate/docs/setup/v3/reference/rest/v3/projects/loca
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://translation.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -772,7 +774,7 @@ https://cloud.google.com/translate/docs/setup/v3/reference/rest/v3/projects/loca
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://translation.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -794,7 +796,7 @@ pageSize <integer> Optional. "
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://translation.googleapis.com/v3/{+parent}/adaptiveMtFiles",
@@ -817,7 +819,7 @@ pageSize <integer> "
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://translation.googleapis.com/v3/{+parent}/adaptiveMtSentences",
@@ -840,7 +842,7 @@ pageSize <integer> "
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://translation.googleapis.com/v3/{+parent}/adaptiveMtSentences",
@@ -858,7 +860,7 @@ parent <>
 Model:
 Model"
   [parent Model]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://translation.googleapis.com/v3/{+parent}/models",
@@ -880,7 +882,7 @@ filter <string> Optional. An expression for filtering the models that will be re
 pageSize <integer> Optional. Requested page size. The server can return fewer results than requested."
   ([parent] (projects-locations-models-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://translation.googleapis.com/v3/{+parent}/models",
@@ -896,7 +898,7 @@ https://cloud.google.com/translate/docs/setup/v3/reference/rest/v3/projects/loca
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://translation.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -911,7 +913,7 @@ https://cloud.google.com/translate/docs/setup/v3/reference/rest/v3/projects/loca
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://translation.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},

@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudfunctions.googleapis.com/v2/{+name}/locations",
@@ -34,7 +34,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudfunctions.googleapis.com/v2/{+name}/operations",
@@ -48,7 +48,7 @@ https://cloud.google.com/functions/v2/reference/rest/v2/projects/locations/opera
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudfunctions.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -63,7 +63,7 @@ name <>
 CommitFunctionUpgradeRequest:
 CommitFunctionUpgradeRequest"
   [name CommitFunctionUpgradeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudfunctions.googleapis.com/v2/{+name}:commitFunctionUpgrade",
@@ -84,7 +84,7 @@ filter <string> The filter for Functions that match the filter expression, follo
 orderBy <string> The sorting order of the resources returned. Value should be a comma separated list of fields. The default sorting oder is ascending. See https://google.aip.dev/132#ordering."
   ([parent] (projects-locations-functions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudfunctions.googleapis.com/v2/{+parent}/functions",
@@ -100,7 +100,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudfunctions.googleapis.com/v2/{+resource}:setIamPolicy",
@@ -115,7 +115,7 @@ https://cloud.google.com/functions/v2/reference/rest/v2/projects/locations/funct
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://cloudfunctions.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -130,7 +130,7 @@ parent <>
 GenerateUploadUrlRequest:
 GenerateUploadUrlRequest"
   [parent GenerateUploadUrlRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudfunctions.googleapis.com/v2/{+parent}/functions:generateUploadUrl",
@@ -147,7 +147,7 @@ name <>
 AbortFunctionUpgradeRequest:
 AbortFunctionUpgradeRequest"
   [name AbortFunctionUpgradeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudfunctions.googleapis.com/v2/{+name}:abortFunctionUpgrade",
@@ -164,7 +164,7 @@ name <>
 RollbackFunctionUpgradeTrafficRequest:
 RollbackFunctionUpgradeTrafficRequest"
   [name RollbackFunctionUpgradeTrafficRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudfunctions.googleapis.com/v2/{+name}:rollbackFunctionUpgradeTraffic",
@@ -182,11 +182,11 @@ Function:
 Function
 
 optional:
-updateMask <string> The list of fields to be updated. If no field mask is provided, all provided fields in the request will be updated."
+updateMask <string> The list of fields to be updated. If no field mask is provided, all fields will be updated."
   ([name Function]
     (projects-locations-functions-patch name Function nil))
   ([name Function optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://cloudfunctions.googleapis.com/v2/{+name}",
@@ -203,7 +203,7 @@ name <>
 GenerateDownloadUrlRequest:
 GenerateDownloadUrlRequest"
   [name GenerateDownloadUrlRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudfunctions.googleapis.com/v2/{+name}:generateDownloadUrl",
@@ -222,7 +222,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-locations-functions-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudfunctions.googleapis.com/v2/{+resource}:getIamPolicy",
@@ -238,7 +238,7 @@ name <>
 RedirectFunctionUpgradeTrafficRequest:
 RedirectFunctionUpgradeTrafficRequest"
   [name RedirectFunctionUpgradeTrafficRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudfunctions.googleapis.com/v2/{+name}:redirectFunctionUpgradeTraffic",
@@ -260,7 +260,7 @@ functionId <string> The ID to use for the function, which will become the final 
   ([parent Function]
     (projects-locations-functions-create parent Function nil))
   ([parent Function optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://cloudfunctions.googleapis.com/v2/{+parent}/functions",
@@ -277,7 +277,7 @@ name <>
 SetupFunctionUpgradeConfigRequest:
 SetupFunctionUpgradeConfigRequest"
   [name SetupFunctionUpgradeConfigRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudfunctions.googleapis.com/v2/{+name}:setupFunctionUpgradeConfig",
@@ -296,7 +296,7 @@ optional:
 revision <string> Optional. The optional version of the 1st gen function whose details should be obtained. The version of a 1st gen function is an integer that starts from 1 and gets incremented on redeployments. GCF may keep historical configs for old versions of 1st gen function. This field can be specified to fetch the historical configs. This field is valid only for GCF 1st gen function."
   ([name] (projects-locations-functions-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudfunctions.googleapis.com/v2/{+name}",
@@ -312,7 +312,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudfunctions.googleapis.com/v2/{+resource}:testIamPermissions",
@@ -331,7 +331,7 @@ optional:
 filter <string> The filter for Runtimes that match the filter expression, following the syntax outlined in https://google.aip.dev/160."
   ([parent] (projects-locations-runtimes-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudfunctions.googleapis.com/v2/{+parent}/runtimes",

@@ -14,7 +14,7 @@ optional:
 pageSize <integer> The maximum number of policies to return. IAM ignores this value and uses the value 1000."
   ([parent] (policies-listPolicies parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://iam.googleapis.com/v2/{+parent}",
        :uri-template-args {"parent" parent},
@@ -27,7 +27,7 @@ https://cloud.google.com/security/products/iam/v2/reference/rest/v2/policies/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://iam.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -47,7 +47,7 @@ policyId <string> The ID to use for this policy, which will become the final com
   ([parent GoogleIamV2Policy]
     (policies-createPolicy parent GoogleIamV2Policy nil))
   ([parent GoogleIamV2Policy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template "https://iam.googleapis.com/v2/{+parent}",
        :uri-template-args {"parent" parent},
@@ -63,7 +63,7 @@ name <>
 GoogleIamV2Policy:
 GoogleIamV2Policy"
   [name GoogleIamV2Policy]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template "https://iam.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -81,7 +81,7 @@ optional:
 etag <string> Optional. The expected `etag` of the policy to delete. If the value does not match the value that is stored in IAM, the request fails with a `409` error code and `ABORTED` status. If you omit this field, the policy is deleted regardless of its current `etag`."
   ([name] (policies-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://iam.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -94,7 +94,7 @@ https://cloud.google.com/security/products/iam/v2/reference/rest/v2/policies/ope
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://iam.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},

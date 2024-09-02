@@ -12,7 +12,7 @@ optional:
 pageSize <integer> Requested page size. Server may return fewer domains than requested. If unspecified, server will pick an appropriate default."
   ([] (domains-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gmailpostmastertools.googleapis.com/v1/domains",
@@ -27,7 +27,7 @@ https://developers.google.com/gmail/postmaster/v1/reference/rest/v1/domains/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://gmailpostmastertools.googleapis.com/v1/{+name}",
@@ -51,7 +51,7 @@ endDate.day <integer> Day of a month. Must be from 1 to 31 and valid for the yea
 startDate.day <integer> Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant."
   ([parent] (domains-trafficStats-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gmailpostmastertools.googleapis.com/v1/{+parent}/trafficStats",
@@ -66,7 +66,7 @@ https://developers.google.com/gmail/postmaster/v1/reference/rest/v1/domains/traf
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://gmailpostmastertools.googleapis.com/v1/{+name}",

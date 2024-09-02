@@ -17,7 +17,7 @@ updateMask <string> Required. Masks which fields of the AutokeyConfig to update,
   ([name AutokeyConfig]
     (folders-updateAutokeyConfig name AutokeyConfig nil))
   ([name AutokeyConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -33,7 +33,7 @@ https://cloud.google.com/security/products/security-key-management/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -48,7 +48,7 @@ https://cloud.google.com/security/products/security-key-management/v1/reference/
 
 parent <> "
   [parent]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://cloudkms.googleapis.com/v1/{+parent}:showEffectiveAutokeyConfig",
@@ -64,7 +64,7 @@ https://cloud.google.com/security/products/security-key-management/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -86,7 +86,7 @@ updateMask <string> Required. List of fields to be updated in this request."
   ([name EkmConfig]
     (projects-locations-updateEkmConfig name EkmConfig nil))
   ([name EkmConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -104,7 +104,7 @@ location <>
 GenerateRandomBytesRequest:
 GenerateRandomBytesRequest"
   [location GenerateRandomBytesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudkms.googleapis.com/v1/{+location}:generateRandomBytes",
@@ -126,7 +126,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudkms.googleapis.com/v1/{+name}/locations",
@@ -142,7 +142,7 @@ https://cloud.google.com/security/products/security-key-management/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -157,7 +157,7 @@ https://cloud.google.com/security/products/security-key-management/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -179,7 +179,7 @@ keyHandleId <string> Optional. Id of the KeyHandle. Must be unique to the resour
   ([parent KeyHandle]
     (projects-locations-keyHandles-create parent KeyHandle nil))
   ([parent KeyHandle optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://cloudkms.googleapis.com/v1/{+parent}/keyHandles",
@@ -196,7 +196,7 @@ https://cloud.google.com/security/products/security-key-management/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -212,10 +212,11 @@ https://cloud.google.com/security/products/security-key-management/v1/reference/
 parent <> 
 
 optional:
+pageSize <integer> Optional. Optional limit on the number of KeyHandles to include in the response. The service may return fewer than this value. Further KeyHandles can subsequently be obtained by including the ListKeyHandlesResponse.next_page_token in a subsequent request. If unspecified, at most KeyHandles 100 will be returned.
 filter <string> Optional. Filter to apply when listing KeyHandles, e.g. `resource_type_selector=\"{SERVICE}.googleapis.com/{TYPE}\"`."
   ([parent] (projects-locations-keyHandles-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudkms.googleapis.com/v1/{+parent}/keyHandles",
@@ -237,7 +238,7 @@ filter <string> Optional. Only include resources that match the filter in the re
 orderBy <string> Optional. Specify how the results should be sorted. If not specified, the results will be sorted in the default order. For more information, see [Sorting and filtering list results](https://cloud.google.com/kms/docs/sorting-and-filtering)."
   ([parent] (projects-locations-ekmConnections-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudkms.googleapis.com/v1/{+parent}/ekmConnections",
@@ -253,7 +254,7 @@ https://cloud.google.com/security/products/security-key-management/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -278,7 +279,7 @@ ekmConnectionId <string> Required. It must be unique within a location and match
       EkmConnection
       nil))
   ([parent EkmConnection optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://cloudkms.googleapis.com/v1/{+parent}/ekmConnections",
@@ -302,7 +303,7 @@ updateMask <string> Required. List of fields to be updated in this request."
   ([name EkmConnection]
     (projects-locations-ekmConnections-patch name EkmConnection nil))
   ([name EkmConnection optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -318,7 +319,7 @@ https://cloud.google.com/security/products/security-key-management/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://cloudkms.googleapis.com/v1/{+name}:verifyConnectivity",
@@ -336,7 +337,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudkms.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -358,7 +359,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-ekmConnections-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudkms.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -376,7 +377,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudkms.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -399,7 +400,7 @@ filter <string> Optional. Only include resources that match the filter in the re
 orderBy <string> Optional. Specify how the results should be sorted. If not specified, the results will be sorted in the default order. For more information, see [Sorting and filtering list results](https://cloud.google.com/kms/docs/sorting-and-filtering)."
   ([parent] (projects-locations-keyRings-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudkms.googleapis.com/v1/{+parent}/keyRings",
@@ -415,7 +416,7 @@ https://cloud.google.com/security/products/security-key-management/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -437,7 +438,7 @@ keyRingId <string> Required. It must be unique within a location and match the r
   ([parent KeyRing]
     (projects-locations-keyRings-create parent KeyRing nil))
   ([parent KeyRing optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://cloudkms.googleapis.com/v1/{+parent}/keyRings",
@@ -456,7 +457,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudkms.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -477,7 +478,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-locations-keyRings-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudkms.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -495,7 +496,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudkms.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -514,7 +515,7 @@ name <>
 EncryptRequest:
 EncryptRequest"
   [name EncryptRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudkms.googleapis.com/v1/{+name}:encrypt",
@@ -538,7 +539,7 @@ filter <string> Optional. Only include resources that match the filter in the re
 orderBy <string> Optional. Specify how the results should be sorted. If not specified, the results will be sorted in the default order. For more information, see [Sorting and filtering list results](https://cloud.google.com/kms/docs/sorting-and-filtering)."
   ([parent] (projects-locations-keyRings-cryptoKeys-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudkms.googleapis.com/v1/{+parent}/cryptoKeys",
@@ -556,7 +557,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudkms.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -575,7 +576,7 @@ name <>
 UpdateCryptoKeyPrimaryVersionRequest:
 UpdateCryptoKeyPrimaryVersionRequest"
   [name UpdateCryptoKeyPrimaryVersionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudkms.googleapis.com/v1/{+name}:updatePrimaryVersion",
@@ -599,7 +600,7 @@ updateMask <string> Required. List of fields to be updated in this request."
   ([name CryptoKey]
     (projects-locations-keyRings-cryptoKeys-patch name CryptoKey nil))
   ([name CryptoKey optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -620,7 +621,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-keyRings-cryptoKeys-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudkms.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -638,7 +639,7 @@ name <>
 DecryptRequest:
 DecryptRequest"
   [name DecryptRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudkms.googleapis.com/v1/{+name}:decrypt",
@@ -666,7 +667,7 @@ skipInitialVersionCreation <boolean> If set to true, the request will create a C
       CryptoKey
       nil))
   ([parent CryptoKey optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://cloudkms.googleapis.com/v1/{+parent}/cryptoKeys",
@@ -683,7 +684,7 @@ https://cloud.google.com/security/products/security-key-management/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -700,7 +701,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudkms.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -727,7 +728,7 @@ orderBy <string> Optional. Specify how the results should be sorted. If not spec
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudkms.googleapis.com/v1/{+parent}/cryptoKeyVersions",
@@ -745,7 +746,7 @@ name <>
 MacVerifyRequest:
 MacVerifyRequest"
   [name MacVerifyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudkms.googleapis.com/v1/{+name}:macVerify",
@@ -764,7 +765,7 @@ name <>
 AsymmetricDecryptRequest:
 AsymmetricDecryptRequest"
   [name AsymmetricDecryptRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudkms.googleapis.com/v1/{+name}:asymmetricDecrypt",
@@ -783,7 +784,7 @@ name <>
 MacSignRequest:
 MacSignRequest"
   [name MacSignRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudkms.googleapis.com/v1/{+name}:macSign",
@@ -802,7 +803,7 @@ name <>
 RawDecryptRequest:
 RawDecryptRequest"
   [name RawDecryptRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudkms.googleapis.com/v1/{+name}:rawDecrypt",
@@ -821,7 +822,7 @@ name <>
 DestroyCryptoKeyVersionRequest:
 DestroyCryptoKeyVersionRequest"
   [name DestroyCryptoKeyVersionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudkms.googleapis.com/v1/{+name}:destroy",
@@ -840,7 +841,7 @@ parent <>
 ImportCryptoKeyVersionRequest:
 ImportCryptoKeyVersionRequest"
   [parent ImportCryptoKeyVersionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudkms.googleapis.com/v1/{+parent}/cryptoKeyVersions:import",
@@ -867,7 +868,7 @@ updateMask <string> Required. List of fields to be updated in this request."
       CryptoKeyVersion
       nil))
   ([name CryptoKeyVersion optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -883,7 +884,7 @@ https://cloud.google.com/security/products/security-key-management/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://cloudkms.googleapis.com/v1/{+name}/publicKey",
@@ -901,7 +902,7 @@ name <>
 RawEncryptRequest:
 RawEncryptRequest"
   [name RawEncryptRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudkms.googleapis.com/v1/{+name}:rawEncrypt",
@@ -920,7 +921,7 @@ name <>
 AsymmetricSignRequest:
 AsymmetricSignRequest"
   [name AsymmetricSignRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudkms.googleapis.com/v1/{+name}:asymmetricSign",
@@ -939,7 +940,7 @@ parent <>
 CryptoKeyVersion:
 CryptoKeyVersion"
   [parent CryptoKeyVersion]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudkms.googleapis.com/v1/{+parent}/cryptoKeyVersions",
@@ -958,7 +959,7 @@ name <>
 RestoreCryptoKeyVersionRequest:
 RestoreCryptoKeyVersionRequest"
   [name RestoreCryptoKeyVersionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudkms.googleapis.com/v1/{+name}:restore",
@@ -975,7 +976,7 @@ https://cloud.google.com/security/products/security-key-management/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -996,7 +997,7 @@ filter <string> Optional. Only include resources that match the filter in the re
 orderBy <string> Optional. Specify how the results should be sorted. If not specified, the results will be sorted in the default order. For more information, see [Sorting and filtering list results](https://cloud.google.com/kms/docs/sorting-and-filtering)."
   ([parent] (projects-locations-keyRings-importJobs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudkms.googleapis.com/v1/{+parent}/importJobs",
@@ -1012,7 +1013,7 @@ https://cloud.google.com/security/products/security-key-management/v1/reference/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1037,7 +1038,7 @@ importJobId <string> Required. It must be unique within a KeyRing and match the 
       ImportJob
       nil))
   ([parent ImportJob optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://cloudkms.googleapis.com/v1/{+parent}/importJobs",
@@ -1056,7 +1057,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudkms.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -1078,7 +1079,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-keyRings-importJobs-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudkms.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -1096,7 +1097,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudkms.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -1115,7 +1116,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudkms.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -1136,7 +1137,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-locations-ekmConfig-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudkms.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -1154,7 +1155,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudkms.googleapis.com/v1/{+resource}:testIamPermissions",

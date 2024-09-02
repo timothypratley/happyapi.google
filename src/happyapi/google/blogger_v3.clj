@@ -4,219 +4,46 @@ The Blogger API provides access to posts, comments and pages of a Blogger blog.
 See: https://developers.google.com/blogger/docs/3.0/getting_started"
   (:require [happyapi.providers.google :as client]))
 
-(defn pageViews-get
-  "Gets page views by blog id.
-https://developers.google.com/blogger/docs/3.0/getting_started/v3/reference/rest/v3/pageViews/get
+(defn comments-get
+  "Gets a comment by id.
+https://developers.google.com/blogger/docs/3.0/getting_started/v3/reference/rest/v3/comments/get
 
 blogId <> 
-
-optional:
-range <string> "
-  ([blogId] (pageViews-get blogId nil))
-  ([blogId optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://blogger.googleapis.com/v3/blogs/{blogId}/pageviews",
-       :uri-template-args {"blogId" blogId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/blogger"]})))
-
-(defn users-get
-  "Gets one user by user_id.
-https://developers.google.com/blogger/docs/3.0/getting_started/v3/reference/rest/v3/users/get
-
-userId <> "
-  [userId]
-  (client/api-request
-    {:method :get,
-     :uri-template "https://blogger.googleapis.com/v3/users/{userId}",
-     :uri-template-args {"userId" userId},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/blogger"
-      "https://www.googleapis.com/auth/blogger.readonly"]}))
-
-(defn pages-update
-  "Updates a page by blog id and page id.
-https://developers.google.com/blogger/docs/3.0/getting_started/v3/reference/rest/v3/pages/update
-
-blogId <> 
-pageId <> 
-Page:
-Page
-
-optional:
-publish <boolean> 
-revert <boolean> "
-  ([blogId pageId Page] (pages-update blogId pageId Page nil))
-  ([blogId pageId Page optional]
-    (client/api-request
-      {:method :put,
-       :uri-template
-       "https://blogger.googleapis.com/v3/blogs/{blogId}/pages/{pageId}",
-       :uri-template-args {"blogId" blogId, "pageId" pageId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/blogger"],
-       :body Page})))
-
-(defn pages-revert
-  "Reverts a published or scheduled page to draft state.
-https://developers.google.com/blogger/docs/3.0/getting_started/v3/reference/rest/v3/pages/revert
-
-blogId <> 
-pageId <> "
-  [blogId pageId]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://blogger.googleapis.com/v3/blogs/{blogId}/pages/{pageId}/revert",
-     :uri-template-args {"blogId" blogId, "pageId" pageId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/blogger"]}))
-
-(defn pages-get
-  "Gets a page by blog id and page id.
-https://developers.google.com/blogger/docs/3.0/getting_started/v3/reference/rest/v3/pages/get
-
-blogId <> 
-pageId <> 
+postId <> 
+commentId <> 
 
 optional:
 view <string> "
-  ([blogId pageId] (pages-get blogId pageId nil))
-  ([blogId pageId optional]
-    (client/api-request
+  ([blogId postId commentId]
+    (comments-get blogId postId commentId nil))
+  ([blogId postId commentId optional]
+    (client/*api-request*
       {:method :get,
        :uri-template
-       "https://blogger.googleapis.com/v3/blogs/{blogId}/pages/{pageId}",
-       :uri-template-args {"pageId" pageId, "blogId" blogId},
+       "https://blogger.googleapis.com/v3/blogs/{blogId}/posts/{postId}/comments/{commentId}",
+       :uri-template-args
+       {"postId" postId, "blogId" blogId, "commentId" commentId},
        :query-params (merge {} optional),
        :scopes
        ["https://www.googleapis.com/auth/blogger"
         "https://www.googleapis.com/auth/blogger.readonly"]})))
 
-(defn pages-publish
-  "Publishes a page.
-https://developers.google.com/blogger/docs/3.0/getting_started/v3/reference/rest/v3/pages/publish
+(defn comments-approve
+  "Marks a comment as not spam by blog id, post id and comment id.
+https://developers.google.com/blogger/docs/3.0/getting_started/v3/reference/rest/v3/comments/approve
 
 blogId <> 
-pageId <> "
-  [blogId pageId]
-  (client/api-request
+postId <> 
+commentId <> "
+  [blogId postId commentId]
+  (client/*api-request*
     {:method :post,
      :uri-template
-     "https://blogger.googleapis.com/v3/blogs/{blogId}/pages/{pageId}/publish",
-     :uri-template-args {"blogId" blogId, "pageId" pageId},
+     "https://blogger.googleapis.com/v3/blogs/{blogId}/posts/{postId}/comments/{commentId}/approve",
+     :uri-template-args
+     {"blogId" blogId, "commentId" commentId, "postId" postId},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/blogger"]}))
-
-(defn pages-list
-  "Lists pages.
-https://developers.google.com/blogger/docs/3.0/getting_started/v3/reference/rest/v3/pages/list
-
-blogId <> 
-
-optional:
-status <string> 
-maxResults <integer> 
-view <string> 
-fetchBodies <boolean> "
-  ([blogId] (pages-list blogId nil))
-  ([blogId optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://blogger.googleapis.com/v3/blogs/{blogId}/pages",
-       :uri-template-args {"blogId" blogId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/blogger"
-        "https://www.googleapis.com/auth/blogger.readonly"]})))
-
-(defn pages-patch
-  "Patches a page.
-https://developers.google.com/blogger/docs/3.0/getting_started/v3/reference/rest/v3/pages/patch
-
-blogId <> 
-pageId <> 
-Page:
-Page
-
-optional:
-publish <boolean> 
-revert <boolean> "
-  ([blogId pageId Page] (pages-patch blogId pageId Page nil))
-  ([blogId pageId Page optional]
-    (client/api-request
-      {:method :patch,
-       :uri-template
-       "https://blogger.googleapis.com/v3/blogs/{blogId}/pages/{pageId}",
-       :uri-template-args {"pageId" pageId, "blogId" blogId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/blogger"],
-       :body Page})))
-
-(defn pages-insert
-  "Inserts a page.
-https://developers.google.com/blogger/docs/3.0/getting_started/v3/reference/rest/v3/pages/insert
-
-blogId <> 
-Page:
-Page
-
-optional:
-isDraft <boolean> "
-  ([blogId Page] (pages-insert blogId Page nil))
-  ([blogId Page optional]
-    (client/api-request
-      {:method :post,
-       :uri-template
-       "https://blogger.googleapis.com/v3/blogs/{blogId}/pages",
-       :uri-template-args {"blogId" blogId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/blogger"],
-       :body Page})))
-
-(defn pages-delete
-  "Deletes a page by blog id and page id.
-https://developers.google.com/blogger/docs/3.0/getting_started/v3/reference/rest/v3/pages/delete
-
-blogId <> 
-pageId <> 
-
-optional:
-useTrash <boolean> Move to Trash if possible"
-  ([blogId pageId] (pages-delete blogId pageId nil))
-  ([blogId pageId optional]
-    (client/api-request
-      {:method :delete,
-       :uri-template
-       "https://blogger.googleapis.com/v3/blogs/{blogId}/pages/{pageId}",
-       :uri-template-args {"pageId" pageId, "blogId" blogId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/blogger"]})))
-
-(defn blogUserInfos-get
-  "Gets one blog and user info pair by blog id and user id.
-https://developers.google.com/blogger/docs/3.0/getting_started/v3/reference/rest/v3/blogUserInfos/get
-
-userId <> 
-blogId <> 
-
-optional:
-maxPosts <integer> "
-  ([userId blogId] (blogUserInfos-get userId blogId nil))
-  ([userId blogId optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://blogger.googleapis.com/v3/users/{userId}/blogs/{blogId}",
-       :uri-template-args {"blogId" blogId, "userId" userId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/blogger"
-        "https://www.googleapis.com/auth/blogger.readonly"]})))
 
 (defn comments-delete
   "Deletes a comment by blog id, post id and comment id.
@@ -226,7 +53,7 @@ blogId <>
 postId <> 
 commentId <> "
   [blogId postId commentId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://blogger.googleapis.com/v3/blogs/{blogId}/posts/{postId}/comments/{commentId}",
@@ -243,12 +70,12 @@ blogId <>
 postId <> 
 commentId <> "
   [blogId postId commentId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://blogger.googleapis.com/v3/blogs/{blogId}/posts/{postId}/comments/{commentId}/spam",
      :uri-template-args
-     {"blogId" blogId, "commentId" commentId, "postId" postId},
+     {"postId" postId, "commentId" commentId, "blogId" blogId},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/blogger"]}))
 
@@ -260,7 +87,7 @@ blogId <>
 postId <> 
 commentId <> "
   [blogId postId commentId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://blogger.googleapis.com/v3/blogs/{blogId}/posts/{postId}/comments/{commentId}/removecontent",
@@ -268,6 +95,30 @@ commentId <> "
      {"blogId" blogId, "commentId" commentId, "postId" postId},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/blogger"]}))
+
+(defn comments-listByBlog
+  "Lists comments by blog.
+https://developers.google.com/blogger/docs/3.0/getting_started/v3/reference/rest/v3/comments/listByBlog
+
+blogId <> 
+
+optional:
+maxResults <integer> 
+fetchBodies <boolean> 
+status <string> 
+startDate <string> 
+endDate <string> "
+  ([blogId] (comments-listByBlog blogId nil))
+  ([blogId optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://blogger.googleapis.com/v3/blogs/{blogId}/comments",
+       :uri-template-args {"blogId" blogId},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/blogger"
+        "https://www.googleapis.com/auth/blogger.readonly"]})))
 
 (defn comments-list
   "Lists comments.
@@ -285,7 +136,7 @@ view <string>
 endDate <string> "
   ([blogId postId] (comments-list blogId postId nil))
   ([blogId postId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://blogger.googleapis.com/v3/blogs/{blogId}/posts/{postId}/comments",
@@ -295,70 +146,204 @@ endDate <string> "
        ["https://www.googleapis.com/auth/blogger"
         "https://www.googleapis.com/auth/blogger.readonly"]})))
 
-(defn comments-listByBlog
-  "Lists comments by blog.
-https://developers.google.com/blogger/docs/3.0/getting_started/v3/reference/rest/v3/comments/listByBlog
+(defn pageViews-get
+  "Gets page views by blog id.
+https://developers.google.com/blogger/docs/3.0/getting_started/v3/reference/rest/v3/pageViews/get
+
+blogId <> 
+
+optional:
+range <string> "
+  ([blogId] (pageViews-get blogId nil))
+  ([blogId optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://blogger.googleapis.com/v3/blogs/{blogId}/pageviews",
+       :uri-template-args {"blogId" blogId},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/blogger"]})))
+
+(defn pages-publish
+  "Publishes a page.
+https://developers.google.com/blogger/docs/3.0/getting_started/v3/reference/rest/v3/pages/publish
+
+blogId <> 
+pageId <> "
+  [blogId pageId]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://blogger.googleapis.com/v3/blogs/{blogId}/pages/{pageId}/publish",
+     :uri-template-args {"pageId" pageId, "blogId" blogId},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/blogger"]}))
+
+(defn pages-update
+  "Updates a page by blog id and page id.
+https://developers.google.com/blogger/docs/3.0/getting_started/v3/reference/rest/v3/pages/update
+
+blogId <> 
+pageId <> 
+Page:
+Page
+
+optional:
+publish <boolean> 
+revert <boolean> "
+  ([blogId pageId Page] (pages-update blogId pageId Page nil))
+  ([blogId pageId Page optional]
+    (client/*api-request*
+      {:method :put,
+       :uri-template
+       "https://blogger.googleapis.com/v3/blogs/{blogId}/pages/{pageId}",
+       :uri-template-args {"blogId" blogId, "pageId" pageId},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/blogger"],
+       :body Page})))
+
+(defn pages-patch
+  "Patches a page.
+https://developers.google.com/blogger/docs/3.0/getting_started/v3/reference/rest/v3/pages/patch
+
+blogId <> 
+pageId <> 
+Page:
+Page
+
+optional:
+publish <boolean> 
+revert <boolean> "
+  ([blogId pageId Page] (pages-patch blogId pageId Page nil))
+  ([blogId pageId Page optional]
+    (client/*api-request*
+      {:method :patch,
+       :uri-template
+       "https://blogger.googleapis.com/v3/blogs/{blogId}/pages/{pageId}",
+       :uri-template-args {"blogId" blogId, "pageId" pageId},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/blogger"],
+       :body Page})))
+
+(defn pages-insert
+  "Inserts a page.
+https://developers.google.com/blogger/docs/3.0/getting_started/v3/reference/rest/v3/pages/insert
+
+blogId <> 
+Page:
+Page
+
+optional:
+isDraft <boolean> "
+  ([blogId Page] (pages-insert blogId Page nil))
+  ([blogId Page optional]
+    (client/*api-request*
+      {:method :post,
+       :uri-template
+       "https://blogger.googleapis.com/v3/blogs/{blogId}/pages",
+       :uri-template-args {"blogId" blogId},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/blogger"],
+       :body Page})))
+
+(defn pages-revert
+  "Reverts a published or scheduled page to draft state.
+https://developers.google.com/blogger/docs/3.0/getting_started/v3/reference/rest/v3/pages/revert
+
+blogId <> 
+pageId <> "
+  [blogId pageId]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://blogger.googleapis.com/v3/blogs/{blogId}/pages/{pageId}/revert",
+     :uri-template-args {"blogId" blogId, "pageId" pageId},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/blogger"]}))
+
+(defn pages-list
+  "Lists pages.
+https://developers.google.com/blogger/docs/3.0/getting_started/v3/reference/rest/v3/pages/list
 
 blogId <> 
 
 optional:
 fetchBodies <boolean> 
-startDate <string> 
+status <string> 
 maxResults <integer> 
-endDate <string> 
-status <string> "
-  ([blogId] (comments-listByBlog blogId nil))
+view <string> "
+  ([blogId] (pages-list blogId nil))
   ([blogId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
-       "https://blogger.googleapis.com/v3/blogs/{blogId}/comments",
+       "https://blogger.googleapis.com/v3/blogs/{blogId}/pages",
        :uri-template-args {"blogId" blogId},
        :query-params (merge {} optional),
        :scopes
        ["https://www.googleapis.com/auth/blogger"
         "https://www.googleapis.com/auth/blogger.readonly"]})))
 
-(defn comments-get
-  "Gets a comment by id.
-https://developers.google.com/blogger/docs/3.0/getting_started/v3/reference/rest/v3/comments/get
+(defn pages-delete
+  "Deletes a page by blog id and page id.
+https://developers.google.com/blogger/docs/3.0/getting_started/v3/reference/rest/v3/pages/delete
 
 blogId <> 
-postId <> 
-commentId <> 
+pageId <> 
+
+optional:
+useTrash <boolean> Move to Trash if possible"
+  ([blogId pageId] (pages-delete blogId pageId nil))
+  ([blogId pageId optional]
+    (client/*api-request*
+      {:method :delete,
+       :uri-template
+       "https://blogger.googleapis.com/v3/blogs/{blogId}/pages/{pageId}",
+       :uri-template-args {"blogId" blogId, "pageId" pageId},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/blogger"]})))
+
+(defn pages-get
+  "Gets a page by blog id and page id.
+https://developers.google.com/blogger/docs/3.0/getting_started/v3/reference/rest/v3/pages/get
+
+blogId <> 
+pageId <> 
 
 optional:
 view <string> "
-  ([blogId postId commentId]
-    (comments-get blogId postId commentId nil))
-  ([blogId postId commentId optional]
-    (client/api-request
+  ([blogId pageId] (pages-get blogId pageId nil))
+  ([blogId pageId optional]
+    (client/*api-request*
       {:method :get,
        :uri-template
-       "https://blogger.googleapis.com/v3/blogs/{blogId}/posts/{postId}/comments/{commentId}",
-       :uri-template-args
-       {"blogId" blogId, "commentId" commentId, "postId" postId},
+       "https://blogger.googleapis.com/v3/blogs/{blogId}/pages/{pageId}",
+       :uri-template-args {"pageId" pageId, "blogId" blogId},
        :query-params (merge {} optional),
        :scopes
        ["https://www.googleapis.com/auth/blogger"
         "https://www.googleapis.com/auth/blogger.readonly"]})))
 
-(defn comments-approve
-  "Marks a comment as not spam by blog id, post id and comment id.
-https://developers.google.com/blogger/docs/3.0/getting_started/v3/reference/rest/v3/comments/approve
+(defn blogUserInfos-get
+  "Gets one blog and user info pair by blog id and user id.
+https://developers.google.com/blogger/docs/3.0/getting_started/v3/reference/rest/v3/blogUserInfos/get
 
+userId <> 
 blogId <> 
-postId <> 
-commentId <> "
-  [blogId postId commentId]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://blogger.googleapis.com/v3/blogs/{blogId}/posts/{postId}/comments/{commentId}/approve",
-     :uri-template-args
-     {"commentId" commentId, "postId" postId, "blogId" blogId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/blogger"]}))
+
+optional:
+maxPosts <integer> "
+  ([userId blogId] (blogUserInfos-get userId blogId nil))
+  ([userId blogId optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://blogger.googleapis.com/v3/users/{userId}/blogs/{blogId}",
+       :uri-template-args {"blogId" blogId, "userId" userId},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/blogger"
+        "https://www.googleapis.com/auth/blogger.readonly"]})))
 
 (defn postUserInfos-get
   "Gets one post and user info pair, by post_id and user_id.
@@ -372,7 +357,7 @@ optional:
 maxComments <integer> "
   ([userId blogId postId] (postUserInfos-get userId blogId postId nil))
   ([userId blogId postId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://blogger.googleapis.com/v3/users/{userId}/blogs/{blogId}/posts/{postId}",
@@ -401,34 +386,11 @@ view <string>
 endDate <string> "
   ([userId blogId] (postUserInfos-list userId blogId nil))
   ([userId blogId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://blogger.googleapis.com/v3/users/{userId}/blogs/{blogId}/posts",
        :uri-template-args {"blogId" blogId, "userId" userId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/blogger"
-        "https://www.googleapis.com/auth/blogger.readonly"]})))
-
-(defn blogs-listByUser
-  "Lists blogs by user.
-https://developers.google.com/blogger/docs/3.0/getting_started/v3/reference/rest/v3/blogs/listByUser
-
-userId <> 
-
-optional:
-view <string> 
-fetchUserInfo <boolean> 
-role <string> 
-status <string> Default value of status is LIVE."
-  ([userId] (blogs-listByUser userId nil))
-  ([userId optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://blogger.googleapis.com/v3/users/{userId}/blogs",
-       :uri-template-args {"userId" userId},
        :query-params (merge {} optional),
        :scopes
        ["https://www.googleapis.com/auth/blogger"
@@ -444,11 +406,34 @@ optional:
 view <string> "
   ([url] (blogs-getByUrl url nil))
   ([url optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://blogger.googleapis.com/v3/blogs/byurl",
        :uri-template-args {},
        :query-params (merge {"url" url} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/blogger"
+        "https://www.googleapis.com/auth/blogger.readonly"]})))
+
+(defn blogs-listByUser
+  "Lists blogs by user.
+https://developers.google.com/blogger/docs/3.0/getting_started/v3/reference/rest/v3/blogs/listByUser
+
+userId <> 
+
+optional:
+fetchUserInfo <boolean> 
+view <string> 
+status <string> Default value of status is LIVE.
+role <string> "
+  ([userId] (blogs-listByUser userId nil))
+  ([userId optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://blogger.googleapis.com/v3/users/{userId}/blogs",
+       :uri-template-args {"userId" userId},
+       :query-params (merge {} optional),
        :scopes
        ["https://www.googleapis.com/auth/blogger"
         "https://www.googleapis.com/auth/blogger.readonly"]})))
@@ -464,7 +449,7 @@ view <string>
 maxPosts <integer> "
   ([blogId] (blogs-get blogId nil))
   ([blogId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://blogger.googleapis.com/v3/blogs/{blogId}",
@@ -474,6 +459,21 @@ maxPosts <integer> "
        ["https://www.googleapis.com/auth/blogger"
         "https://www.googleapis.com/auth/blogger.readonly"]})))
 
+(defn users-get
+  "Gets one user by user_id.
+https://developers.google.com/blogger/docs/3.0/getting_started/v3/reference/rest/v3/users/get
+
+userId <> "
+  [userId]
+  (client/*api-request*
+    {:method :get,
+     :uri-template "https://blogger.googleapis.com/v3/users/{userId}",
+     :uri-template-args {"userId" userId},
+     :query-params {},
+     :scopes
+     ["https://www.googleapis.com/auth/blogger"
+      "https://www.googleapis.com/auth/blogger.readonly"]}))
+
 (defn posts-revert
   "Reverts a published or scheduled post to draft state.
 https://developers.google.com/blogger/docs/3.0/getting_started/v3/reference/rest/v3/posts/revert
@@ -481,7 +481,7 @@ https://developers.google.com/blogger/docs/3.0/getting_started/v3/reference/rest
 blogId <> 
 postId <> "
   [blogId postId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://blogger.googleapis.com/v3/blogs/{blogId}/posts/{postId}/revert",
@@ -508,7 +508,7 @@ view <string>
 endDate <string> "
   ([blogId] (posts-list blogId nil))
   ([blogId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://blogger.googleapis.com/v3/blogs/{blogId}/posts",
@@ -529,7 +529,7 @@ optional:
 useTrash <boolean> Move to Trash if possible"
   ([blogId postId] (posts-delete blogId postId nil))
   ([blogId postId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://blogger.googleapis.com/v3/blogs/{blogId}/posts/{postId}",
@@ -545,11 +545,11 @@ blogId <>
 path <> 
 
 optional:
-view <string> 
-maxComments <integer> "
+maxComments <integer> 
+view <string> "
   ([blogId path] (posts-getByPath blogId path nil))
   ([blogId path optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://blogger.googleapis.com/v3/blogs/{blogId}/posts/bypath",
@@ -569,14 +569,14 @@ Post:
 Post
 
 optional:
+fetchBody <boolean> 
 revert <boolean> 
 maxComments <integer> 
 fetchImages <boolean> 
-publish <boolean> 
-fetchBody <boolean> "
+publish <boolean> "
   ([blogId postId Post] (posts-update blogId postId Post nil))
   ([blogId postId Post optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://blogger.googleapis.com/v3/blogs/{blogId}/posts/{postId}",
@@ -595,18 +595,18 @@ Post:
 Post
 
 optional:
-revert <boolean> 
-publish <boolean> 
-fetchBody <boolean> 
 fetchImages <boolean> 
-maxComments <integer> "
+fetchBody <boolean> 
+maxComments <integer> 
+revert <boolean> 
+publish <boolean> "
   ([blogId postId Post] (posts-patch blogId postId Post nil))
   ([blogId postId Post optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://blogger.googleapis.com/v3/blogs/{blogId}/posts/{postId}",
-       :uri-template-args {"blogId" blogId, "postId" postId},
+       :uri-template-args {"postId" postId, "blogId" blogId},
        :query-params (merge {} optional),
        :scopes ["https://www.googleapis.com/auth/blogger"],
        :body Post})))
@@ -622,11 +622,11 @@ optional:
 publishDate <string> "
   ([blogId postId] (posts-publish blogId postId nil))
   ([blogId postId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://blogger.googleapis.com/v3/blogs/{blogId}/posts/{postId}/publish",
-       :uri-template-args {"postId" postId, "blogId" blogId},
+       :uri-template-args {"blogId" blogId, "postId" postId},
        :query-params (merge {} optional),
        :scopes ["https://www.googleapis.com/auth/blogger"]})))
 
@@ -640,11 +640,11 @@ Post
 
 optional:
 fetchBody <boolean> 
-isDraft <boolean> 
-fetchImages <boolean> "
+fetchImages <boolean> 
+isDraft <boolean> "
   ([blogId Post] (posts-insert blogId Post nil))
   ([blogId Post optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://blogger.googleapis.com/v3/blogs/{blogId}/posts",
@@ -665,7 +665,7 @@ orderBy <string>
 fetchBodies <boolean> "
   ([blogId q] (posts-search blogId q nil))
   ([blogId q optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://blogger.googleapis.com/v3/blogs/{blogId}/posts/search",
@@ -683,17 +683,17 @@ blogId <>
 postId <> 
 
 optional:
-view <string> 
-fetchBody <boolean> 
 fetchImages <boolean> 
-maxComments <integer> "
+maxComments <integer> 
+fetchBody <boolean> 
+view <string> "
   ([blogId postId] (posts-get blogId postId nil))
   ([blogId postId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://blogger.googleapis.com/v3/blogs/{blogId}/posts/{postId}",
-       :uri-template-args {"postId" postId, "blogId" blogId},
+       :uri-template-args {"blogId" blogId, "postId" postId},
        :query-params (merge {} optional),
        :scopes
        ["https://www.googleapis.com/auth/blogger"

@@ -11,11 +11,11 @@ https://cloud.google.com/document-ai/docs/v1/reference/rest/v1/projects/location
 name <> 
 
 optional:
-filter <string> A filter to narrow down results to a preferred subset. The filtering language accepts strings like `\"displayName=tokyo\"`, and is documented in more detail in [AIP-160](https://google.aip.dev/160).
-pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
+pageSize <integer> The maximum number of results to return. If not set, the service selects a default.
+filter <string> A filter to narrow down results to a preferred subset. The filtering language accepts strings like `\"displayName=tokyo\"`, and is documented in more detail in [AIP-160](https://google.aip.dev/160)."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://documentai.googleapis.com/v1/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/document-ai/docs/v1/reference/rest/v1/projects/location
 
 parent <> "
   [parent]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://documentai.googleapis.com/v1/{+parent}:fetchProcessorTypes",
@@ -43,38 +43,7 @@ https://cloud.google.com/document-ai/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/api-request
-    {:method :get,
-     :uri-template "https://documentai.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
-
-(defn projects-locations-processorTypes-list
-  "Lists the processor types that exist.
-https://cloud.google.com/document-ai/docs/v1/reference/rest/v1/projects/locations/processorTypes/list
-
-parent <> 
-
-optional:
-pageSize <integer> The maximum number of processor types to return. If unspecified, at most `100` processor types will be returned. The maximum value is `500`. Values above `500` will be coerced to `500`."
-  ([parent] (projects-locations-processorTypes-list parent nil))
-  ([parent optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://documentai.googleapis.com/v1/{+parent}/processorTypes",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
-
-(defn projects-locations-processorTypes-get
-  "Gets a processor type detail.
-https://cloud.google.com/document-ai/docs/v1/reference/rest/v1/projects/locations/processorTypes/get
-
-name <> "
-  [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://documentai.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -91,7 +60,7 @@ optional:
 pageSize <integer> The maximum number of processors to return. If unspecified, at most `50` processors will be returned. The maximum value is `100`. Values above `100` will be coerced to `100`."
   ([parent] (projects-locations-processors-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://documentai.googleapis.com/v1/{+parent}/processors",
@@ -107,7 +76,7 @@ processor <>
 GoogleCloudDocumentaiV1SetDefaultProcessorVersionRequest:
 GoogleCloudDocumentaiV1SetDefaultProcessorVersionRequest"
   [processor GoogleCloudDocumentaiV1SetDefaultProcessorVersionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://documentai.googleapis.com/v1/{+processor}:setDefaultProcessorVersion",
@@ -122,7 +91,7 @@ https://cloud.google.com/document-ai/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://documentai.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -137,7 +106,7 @@ name <>
 GoogleCloudDocumentaiV1ProcessRequest:
 GoogleCloudDocumentaiV1ProcessRequest"
   [name GoogleCloudDocumentaiV1ProcessRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://documentai.googleapis.com/v1/{+name}:process",
@@ -154,7 +123,7 @@ name <>
 GoogleCloudDocumentaiV1EnableProcessorRequest:
 GoogleCloudDocumentaiV1EnableProcessorRequest"
   [name GoogleCloudDocumentaiV1EnableProcessorRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://documentai.googleapis.com/v1/{+name}:enable",
@@ -171,7 +140,7 @@ name <>
 GoogleCloudDocumentaiV1DisableProcessorRequest:
 GoogleCloudDocumentaiV1DisableProcessorRequest"
   [name GoogleCloudDocumentaiV1DisableProcessorRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://documentai.googleapis.com/v1/{+name}:disable",
@@ -188,7 +157,7 @@ parent <>
 GoogleCloudDocumentaiV1Processor:
 GoogleCloudDocumentaiV1Processor"
   [parent GoogleCloudDocumentaiV1Processor]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://documentai.googleapis.com/v1/{+parent}/processors",
@@ -203,7 +172,7 @@ https://cloud.google.com/document-ai/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://documentai.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -218,7 +187,7 @@ name <>
 GoogleCloudDocumentaiV1BatchProcessRequest:
 GoogleCloudDocumentaiV1BatchProcessRequest"
   [name GoogleCloudDocumentaiV1BatchProcessRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://documentai.googleapis.com/v1/{+name}:batchProcess",
@@ -226,23 +195,6 @@ GoogleCloudDocumentaiV1BatchProcessRequest"
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/cloud-platform"],
      :body GoogleCloudDocumentaiV1BatchProcessRequest}))
-
-(defn projects-locations-processors-humanReviewConfig-reviewDocument
-  "Send a document for Human Review. The input document should be processed by the specified processor.
-https://cloud.google.com/document-ai/docs/v1/reference/rest/v1/projects/locations/processors/humanReviewConfig/reviewDocument
-
-humanReviewConfig <> 
-GoogleCloudDocumentaiV1ReviewDocumentRequest:
-GoogleCloudDocumentaiV1ReviewDocumentRequest"
-  [humanReviewConfig GoogleCloudDocumentaiV1ReviewDocumentRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://documentai.googleapis.com/v1/{+humanReviewConfig}:reviewDocument",
-     :uri-template-args {"humanReviewConfig" humanReviewConfig},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDocumentaiV1ReviewDocumentRequest}))
 
 (defn projects-locations-processors-processorVersions-deploy
   "Deploys the processor version.
@@ -252,7 +204,7 @@ name <>
 GoogleCloudDocumentaiV1DeployProcessorVersionRequest:
 GoogleCloudDocumentaiV1DeployProcessorVersionRequest"
   [name GoogleCloudDocumentaiV1DeployProcessorVersionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://documentai.googleapis.com/v1/{+name}:deploy",
@@ -269,7 +221,7 @@ name <>
 GoogleCloudDocumentaiV1UndeployProcessorVersionRequest:
 GoogleCloudDocumentaiV1UndeployProcessorVersionRequest"
   [name GoogleCloudDocumentaiV1UndeployProcessorVersionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://documentai.googleapis.com/v1/{+name}:undeploy",
@@ -289,7 +241,7 @@ pageSize <integer> The maximum number of processor versions to return. If unspec
   ([parent]
     (projects-locations-processors-processorVersions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://documentai.googleapis.com/v1/{+parent}/processorVersions",
@@ -306,7 +258,7 @@ GoogleCloudDocumentaiV1EvaluateProcessorVersionRequest:
 GoogleCloudDocumentaiV1EvaluateProcessorVersionRequest"
   [processorVersion
    GoogleCloudDocumentaiV1EvaluateProcessorVersionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://documentai.googleapis.com/v1/{+processorVersion}:evaluateProcessorVersion",
@@ -321,7 +273,7 @@ https://cloud.google.com/document-ai/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://documentai.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -336,7 +288,7 @@ name <>
 GoogleCloudDocumentaiV1ProcessRequest:
 GoogleCloudDocumentaiV1ProcessRequest"
   [name GoogleCloudDocumentaiV1ProcessRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://documentai.googleapis.com/v1/{+name}:process",
@@ -353,7 +305,7 @@ parent <>
 GoogleCloudDocumentaiV1TrainProcessorVersionRequest:
 GoogleCloudDocumentaiV1TrainProcessorVersionRequest"
   [parent GoogleCloudDocumentaiV1TrainProcessorVersionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://documentai.googleapis.com/v1/{+parent}/processorVersions:train",
@@ -368,7 +320,7 @@ https://cloud.google.com/document-ai/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://documentai.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -383,7 +335,7 @@ name <>
 GoogleCloudDocumentaiV1BatchProcessRequest:
 GoogleCloudDocumentaiV1BatchProcessRequest"
   [name GoogleCloudDocumentaiV1BatchProcessRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://documentai.googleapis.com/v1/{+name}:batchProcess",
@@ -405,7 +357,7 @@ pageSize <integer> The standard list page size. If unspecified, at most `5` eval
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://documentai.googleapis.com/v1/{+parent}/evaluations",
@@ -419,26 +371,29 @@ https://cloud.google.com/document-ai/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://documentai.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
-(defn projects-locations-operations-cancel
-  "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
-https://cloud.google.com/document-ai/docs/v1/reference/rest/v1/projects/locations/operations/cancel
+(defn projects-locations-processors-humanReviewConfig-reviewDocument
+  "Send a document for Human Review. The input document should be processed by the specified processor.
+https://cloud.google.com/document-ai/docs/v1/reference/rest/v1/projects/locations/processors/humanReviewConfig/reviewDocument
 
-name <> "
-  [name]
-  (client/api-request
+humanReviewConfig <> 
+GoogleCloudDocumentaiV1ReviewDocumentRequest:
+GoogleCloudDocumentaiV1ReviewDocumentRequest"
+  [humanReviewConfig GoogleCloudDocumentaiV1ReviewDocumentRequest]
+  (client/*api-request*
     {:method :post,
      :uri-template
-     "https://documentai.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
+     "https://documentai.googleapis.com/v1/{+humanReviewConfig}:reviewDocument",
+     :uri-template-args {"humanReviewConfig" humanReviewConfig},
      :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDocumentaiV1ReviewDocumentRequest}))
 
 (defn projects-locations-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -446,7 +401,7 @@ https://cloud.google.com/document-ai/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://documentai.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -460,14 +415,59 @@ https://cloud.google.com/document-ai/docs/v1/reference/rest/v1/projects/location
 name <> 
 
 optional:
-pageSize <integer> The standard list page size.
-filter <string> The standard list filter."
+filter <string> The standard list filter.
+pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://documentai.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+
+(defn projects-locations-operations-cancel
+  "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+https://cloud.google.com/document-ai/docs/v1/reference/rest/v1/projects/locations/operations/cancel
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://documentai.googleapis.com/v1/{+name}:cancel",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+
+(defn projects-locations-processorTypes-get
+  "Gets a processor type detail.
+https://cloud.google.com/document-ai/docs/v1/reference/rest/v1/projects/locations/processorTypes/get
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :get,
+     :uri-template "https://documentai.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+
+(defn projects-locations-processorTypes-list
+  "Lists the processor types that exist.
+https://cloud.google.com/document-ai/docs/v1/reference/rest/v1/projects/locations/processorTypes/list
+
+parent <> 
+
+optional:
+pageSize <integer> The maximum number of processor types to return. If unspecified, at most `100` processor types will be returned. The maximum value is `500`. Values above `500` will be coerced to `500`."
+  ([parent] (projects-locations-processorTypes-list parent nil))
+  ([parent optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://documentai.googleapis.com/v1/{+parent}/processorTypes",
+       :uri-template-args {"parent" parent},
        :query-params (merge {} optional),
        :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
 
@@ -477,7 +477,7 @@ https://cloud.google.com/document-ai/docs/v1/reference/rest/v1/projects/operatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://documentai.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -490,7 +490,7 @@ https://cloud.google.com/document-ai/docs/v1/reference/rest/v1/operations/delete
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://documentai.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},

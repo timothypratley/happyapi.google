@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/apigee/docs/apihub/what-is-api-hub/v1/reference/rest/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://apigeeregistry.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -47,7 +47,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+name}/operations",
@@ -61,7 +61,7 @@ https://cloud.google.com/apigee/docs/apihub/what-is-api-hub/v1/reference/rest/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://apigeeregistry.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -74,7 +74,7 @@ https://cloud.google.com/apigee/docs/apihub/what-is-api-hub/v1/reference/rest/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://apigeeregistry.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -89,7 +89,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+name}:cancel",
@@ -111,7 +111,7 @@ instanceId <string> Required. Identifier to assign to the Instance. Must be uniq
   ([parent Instance]
     (projects-locations-instances-create parent Instance nil))
   ([parent Instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+parent}/instances",
@@ -126,7 +126,7 @@ https://cloud.google.com/apigee/docs/apihub/what-is-api-hub/v1/reference/rest/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://apigeeregistry.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -139,7 +139,7 @@ https://cloud.google.com/apigee/docs/apihub/what-is-api-hub/v1/reference/rest/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://apigeeregistry.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -154,7 +154,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -173,7 +173,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-locations-instances-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -189,7 +189,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -210,7 +210,7 @@ filter <string> An expression that can be used to filter the list. Filters use t
 orderBy <string> A comma-separated list of fields, e.g. \"foo,bar\" Fields can be sorted in descending order using the \"desc\" identifier, e.g. \"foo desc,bar\""
   ([parent] (projects-locations-apis-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+parent}/apis",
@@ -224,7 +224,7 @@ https://cloud.google.com/apigee/docs/apihub/what-is-api-hub/v1/reference/rest/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://apigeeregistry.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -243,7 +243,7 @@ optional:
 apiId <string> Required. The ID to use for the API, which will become the final component of the API's resource name. This value should be 4-63 characters, and valid characters are /a-z-/. Following AIP-162, IDs must not have the form of a UUID."
   ([parent Api] (projects-locations-apis-create parent Api nil))
   ([parent Api optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+parent}/apis",
@@ -265,7 +265,7 @@ updateMask <string> The list of fields to be updated. If omitted, all fields are
 allowMissing <boolean> If set to true, and the API is not found, a new API will be created. In this situation, `update_mask` is ignored."
   ([name Api] (projects-locations-apis-patch name Api nil))
   ([name Api optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+name}",
@@ -284,7 +284,7 @@ optional:
 force <boolean> If set to true, any child resources will also be deleted. (Otherwise, the request will only work if there are no child resources.)"
   ([name] (projects-locations-apis-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+name}",
@@ -300,7 +300,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -319,7 +319,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-locations-apis-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -335,7 +335,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -356,7 +356,7 @@ filter <string> An expression that can be used to filter the list. Filters use t
 orderBy <string> A comma-separated list of fields, e.g. \"foo,bar\" Fields can be sorted in descending order using the \"desc\" identifier, e.g. \"foo desc,bar\""
   ([parent] (projects-locations-apis-versions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+parent}/versions",
@@ -370,7 +370,7 @@ https://cloud.google.com/apigee/docs/apihub/what-is-api-hub/v1/reference/rest/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://apigeeregistry.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -390,7 +390,7 @@ apiVersionId <string> Required. The ID to use for the version, which will become
   ([parent ApiVersion]
     (projects-locations-apis-versions-create parent ApiVersion nil))
   ([parent ApiVersion optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+parent}/versions",
@@ -413,7 +413,7 @@ allowMissing <boolean> If set to true, and the version is not found, a new versi
   ([name ApiVersion]
     (projects-locations-apis-versions-patch name ApiVersion nil))
   ([name ApiVersion optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+name}",
@@ -432,7 +432,7 @@ optional:
 force <boolean> If set to true, any child resources will also be deleted. (Otherwise, the request will only work if there are no child resources.)"
   ([name] (projects-locations-apis-versions-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+name}",
@@ -448,7 +448,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -468,7 +468,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-apis-versions-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -484,7 +484,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -505,7 +505,7 @@ filter <string> An expression that can be used to filter the list. Filters use t
 orderBy <string> A comma-separated list of fields, e.g. \"foo,bar\" Fields can be sorted in descending order using the \"desc\" identifier, e.g. \"foo desc,bar\""
   ([parent] (projects-locations-apis-versions-specs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+parent}/specs",
@@ -521,7 +521,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -540,7 +540,7 @@ optional:
 force <boolean> If set to true, any child resources will also be deleted. (Otherwise, the request will only work if there are no child resources.)"
   ([name] (projects-locations-apis-versions-specs-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+name}",
@@ -562,7 +562,7 @@ allowMissing <boolean> If set to true, and the spec is not found, a new spec wil
   ([name ApiSpec]
     (projects-locations-apis-versions-specs-patch name ApiSpec nil))
   ([name ApiSpec optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+name}",
@@ -583,7 +583,7 @@ filter <string> An expression that can be used to filter the list. Filters use t
   ([name]
     (projects-locations-apis-versions-specs-listRevisions name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+name}:listRevisions",
@@ -602,7 +602,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-apis-versions-specs-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -623,7 +623,7 @@ apiSpecId <string> Required. The ID to use for the spec, which will become the f
   ([parent ApiSpec]
     (projects-locations-apis-versions-specs-create parent ApiSpec nil))
   ([parent ApiSpec optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+parent}/specs",
@@ -640,7 +640,7 @@ name <>
 RollbackApiSpecRequest:
 RollbackApiSpecRequest"
   [name RollbackApiSpecRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+name}:rollback",
@@ -655,7 +655,7 @@ https://cloud.google.com/apigee/docs/apihub/what-is-api-hub/v1/reference/rest/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+name}:getContents",
@@ -669,7 +669,7 @@ https://cloud.google.com/apigee/docs/apihub/what-is-api-hub/v1/reference/rest/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://apigeeregistry.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -684,7 +684,7 @@ name <>
 TagApiSpecRevisionRequest:
 TagApiSpecRevisionRequest"
   [name TagApiSpecRevisionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+name}:tagRevision",
@@ -701,7 +701,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -716,7 +716,7 @@ https://cloud.google.com/apigee/docs/apihub/what-is-api-hub/v1/reference/rest/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+name}:deleteRevision",
@@ -737,7 +737,7 @@ orderBy <string> A comma-separated list of fields, e.g. \"foo,bar\" Fields can b
   ([parent]
     (projects-locations-apis-versions-specs-artifacts-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+parent}/artifacts",
@@ -753,7 +753,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -768,7 +768,7 @@ https://cloud.google.com/apigee/docs/apihub/what-is-api-hub/v1/reference/rest/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://apigeeregistry.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -783,7 +783,7 @@ name <>
 Artifact:
 Artifact"
   [name Artifact]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template "https://apigeeregistry.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -804,7 +804,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -828,7 +828,7 @@ artifactId <string> Required. The ID to use for the artifact, which will become 
       Artifact
       nil))
   ([parent Artifact optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+parent}/artifacts",
@@ -843,7 +843,7 @@ https://cloud.google.com/apigee/docs/apihub/what-is-api-hub/v1/reference/rest/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+name}:getContents",
@@ -857,7 +857,7 @@ https://cloud.google.com/apigee/docs/apihub/what-is-api-hub/v1/reference/rest/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://apigeeregistry.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -872,7 +872,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -894,7 +894,7 @@ orderBy <string> A comma-separated list of fields, e.g. \"foo,bar\" Fields can b
   ([parent]
     (projects-locations-apis-versions-artifacts-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+parent}/artifacts",
@@ -910,7 +910,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -925,7 +925,7 @@ https://cloud.google.com/apigee/docs/apihub/what-is-api-hub/v1/reference/rest/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://apigeeregistry.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -940,7 +940,7 @@ name <>
 Artifact:
 Artifact"
   [name Artifact]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template "https://apigeeregistry.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -961,7 +961,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -985,7 +985,7 @@ artifactId <string> Required. The ID to use for the artifact, which will become 
       Artifact
       nil))
   ([parent Artifact optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+parent}/artifacts",
@@ -1000,7 +1000,7 @@ https://cloud.google.com/apigee/docs/apihub/what-is-api-hub/v1/reference/rest/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+name}:getContents",
@@ -1014,7 +1014,7 @@ https://cloud.google.com/apigee/docs/apihub/what-is-api-hub/v1/reference/rest/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://apigeeregistry.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1029,7 +1029,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -1050,7 +1050,7 @@ filter <string> An expression that can be used to filter the list. Filters use t
 orderBy <string> A comma-separated list of fields, e.g. \"foo,bar\" Fields can be sorted in descending order using the \"desc\" identifier, e.g. \"foo desc,bar\""
   ([parent] (projects-locations-apis-deployments-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+parent}/deployments",
@@ -1066,7 +1066,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -1085,7 +1085,7 @@ optional:
 force <boolean> If set to true, any child resources will also be deleted. (Otherwise, the request will only work if there are no child resources.)"
   ([name] (projects-locations-apis-deployments-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+name}",
@@ -1107,7 +1107,7 @@ allowMissing <boolean> If set to true, and the deployment is not found, a new de
   ([name ApiDeployment]
     (projects-locations-apis-deployments-patch name ApiDeployment nil))
   ([name ApiDeployment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+name}",
@@ -1127,7 +1127,7 @@ pageSize <integer> The maximum number of revisions to return per page.
 filter <string> An expression that can be used to filter the list. Filters use the Common Expression Language and can refer to all message fields."
   ([name] (projects-locations-apis-deployments-listRevisions name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+name}:listRevisions",
@@ -1146,7 +1146,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-apis-deployments-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -1170,7 +1170,7 @@ apiDeploymentId <string> Required. The ID to use for the deployment, which will 
       ApiDeployment
       nil))
   ([parent ApiDeployment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+parent}/deployments",
@@ -1187,7 +1187,7 @@ name <>
 RollbackApiDeploymentRequest:
 RollbackApiDeploymentRequest"
   [name RollbackApiDeploymentRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+name}:rollback",
@@ -1202,7 +1202,7 @@ https://cloud.google.com/apigee/docs/apihub/what-is-api-hub/v1/reference/rest/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://apigeeregistry.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1217,7 +1217,7 @@ name <>
 TagApiDeploymentRevisionRequest:
 TagApiDeploymentRevisionRequest"
   [name TagApiDeploymentRevisionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+name}:tagRevision",
@@ -1234,7 +1234,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -1249,7 +1249,7 @@ https://cloud.google.com/apigee/docs/apihub/what-is-api-hub/v1/reference/rest/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+name}:deleteRevision",
@@ -1270,7 +1270,7 @@ orderBy <string> A comma-separated list of fields, e.g. \"foo,bar\" Fields can b
   ([parent]
     (projects-locations-apis-deployments-artifacts-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+parent}/artifacts",
@@ -1284,7 +1284,7 @@ https://cloud.google.com/apigee/docs/apihub/what-is-api-hub/v1/reference/rest/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://apigeeregistry.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1297,7 +1297,7 @@ https://cloud.google.com/apigee/docs/apihub/what-is-api-hub/v1/reference/rest/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+name}:getContents",
@@ -1321,7 +1321,7 @@ artifactId <string> Required. The ID to use for the artifact, which will become 
       Artifact
       nil))
   ([parent Artifact optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+parent}/artifacts",
@@ -1338,7 +1338,7 @@ name <>
 Artifact:
 Artifact"
   [name Artifact]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template "https://apigeeregistry.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1352,7 +1352,7 @@ https://cloud.google.com/apigee/docs/apihub/what-is-api-hub/v1/reference/rest/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://apigeeregistry.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1371,7 +1371,7 @@ filter <string> An expression that can be used to filter the list. Filters use t
 orderBy <string> A comma-separated list of fields, e.g. \"foo,bar\" Fields can be sorted in descending order using the \"desc\" identifier, e.g. \"foo desc,bar\""
   ([parent] (projects-locations-apis-artifacts-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+parent}/artifacts",
@@ -1387,7 +1387,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -1402,7 +1402,7 @@ https://cloud.google.com/apigee/docs/apihub/what-is-api-hub/v1/reference/rest/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://apigeeregistry.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1417,7 +1417,7 @@ name <>
 Artifact:
 Artifact"
   [name Artifact]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template "https://apigeeregistry.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1436,7 +1436,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-apis-artifacts-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -1457,7 +1457,7 @@ artifactId <string> Required. The ID to use for the artifact, which will become 
   ([parent Artifact]
     (projects-locations-apis-artifacts-create parent Artifact nil))
   ([parent Artifact optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+parent}/artifacts",
@@ -1472,7 +1472,7 @@ https://cloud.google.com/apigee/docs/apihub/what-is-api-hub/v1/reference/rest/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+name}:getContents",
@@ -1486,7 +1486,7 @@ https://cloud.google.com/apigee/docs/apihub/what-is-api-hub/v1/reference/rest/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://apigeeregistry.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1501,7 +1501,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -1522,7 +1522,7 @@ filter <string> An expression that can be used to filter the list. Filters use t
 orderBy <string> A comma-separated list of fields, e.g. \"foo,bar\" Fields can be sorted in descending order using the \"desc\" identifier, e.g. \"foo desc,bar\""
   ([parent] (projects-locations-artifacts-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+parent}/artifacts",
@@ -1538,7 +1538,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -1553,7 +1553,7 @@ https://cloud.google.com/apigee/docs/apihub/what-is-api-hub/v1/reference/rest/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://apigeeregistry.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1568,7 +1568,7 @@ name <>
 Artifact:
 Artifact"
   [name Artifact]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template "https://apigeeregistry.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1586,7 +1586,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-locations-artifacts-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -1607,7 +1607,7 @@ artifactId <string> Required. The ID to use for the artifact, which will become 
   ([parent Artifact]
     (projects-locations-artifacts-create parent Artifact nil))
   ([parent Artifact optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+parent}/artifacts",
@@ -1622,7 +1622,7 @@ https://cloud.google.com/apigee/docs/apihub/what-is-api-hub/v1/reference/rest/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+name}:getContents",
@@ -1636,7 +1636,7 @@ https://cloud.google.com/apigee/docs/apihub/what-is-api-hub/v1/reference/rest/v1
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://apigeeregistry.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1651,7 +1651,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -1668,7 +1668,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -1687,7 +1687,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-locations-runtime-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -1703,7 +1703,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -1720,7 +1720,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -1739,7 +1739,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-locations-documents-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://apigeeregistry.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -1755,7 +1755,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://apigeeregistry.googleapis.com/v1/{+resource}:testIamPermissions",

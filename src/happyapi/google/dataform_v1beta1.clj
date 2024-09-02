@@ -4,6 +4,39 @@ Service to develop, version control, and operationalize SQL pipelines in BigQuer
 See: https://cloud.google.com/dataform/docs"
   (:require [happyapi.providers.google :as client]))
 
+(defn projects-locations-getConfig
+  "Get default config for a given project and location.
+https://cloud.google.com/dataform/docs/v1beta1/reference/rest/v1beta1/projects/locations/getConfig
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :get,
+     :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+
+(defn projects-locations-updateConfig
+  "Update default config for a given project and location.
+https://cloud.google.com/dataform/docs/v1beta1/reference/rest/v1beta1/projects/locations/updateConfig
+
+name <> 
+Config:
+Config
+
+optional:
+updateMask <string> Optional. Specifies the fields to be updated in the config."
+  ([name Config] (projects-locations-updateConfig name Config nil))
+  ([name Config optional]
+    (client/*api-request*
+      {:method :patch,
+       :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
+       :uri-template-args {"name" name},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+       :body Config})))
+
 (defn projects-locations-list
   "Lists information about the supported locations for this service.
 https://cloud.google.com/dataform/docs/v1beta1/reference/rest/v1beta1/projects/locations/list
@@ -15,7 +48,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataform.googleapis.com/v1beta1/{+name}/locations",
@@ -29,7 +62,7 @@ https://cloud.google.com/dataform/docs/v1beta1/reference/rest/v1beta1/projects/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
      :uri-template-args {"name" name},
@@ -47,7 +80,7 @@ commitSha <string> Optional. The commit SHA for the commit to read from. If unse
 path <string> Required. Full file path to read including filename, from repository root."
   ([name] (projects-locations-repositories-readFile name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataform.googleapis.com/v1beta1/{+name}:readFile",
@@ -67,7 +100,7 @@ orderBy <string> Optional. This field only supports ordering by `name`. If unspe
 filter <string> Optional. Filter for the returned list."
   ([parent] (projects-locations-repositories-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataform.googleapis.com/v1beta1/{+parent}/repositories",
@@ -83,7 +116,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataform.googleapis.com/v1beta1/{+resource}:setIamPolicy",
@@ -98,7 +131,7 @@ https://cloud.google.com/dataform/docs/v1beta1/reference/rest/v1beta1/projects/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dataform.googleapis.com/v1beta1/{+name}:fetchRemoteBranches",
@@ -116,7 +149,7 @@ optional:
 force <boolean> If set to true, any child resources of this repository will also be deleted. (Otherwise, the request will only succeed if the repository has no child resources.)"
   ([name] (projects-locations-repositories-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
        :uri-template-args {"name" name},
@@ -131,7 +164,7 @@ name <>
 CommitRepositoryChangesRequest:
 CommitRepositoryChangesRequest"
   [name CommitRepositoryChangesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataform.googleapis.com/v1beta1/{+name}:commit",
@@ -153,7 +186,7 @@ pageSize <integer> Optional. Maximum number of paths to return. The server may r
   ([name]
     (projects-locations-repositories-queryDirectoryContents name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataform.googleapis.com/v1beta1/{+name}:queryDirectoryContents",
@@ -174,7 +207,7 @@ updateMask <string> Optional. Specifies the fields to be updated in the reposito
   ([name Repository]
     (projects-locations-repositories-patch name Repository nil))
   ([name Repository optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
        :uri-template-args {"name" name},
@@ -193,7 +226,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-repositories-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataform.googleapis.com/v1beta1/{+resource}:getIamPolicy",
@@ -211,7 +244,7 @@ optional:
 pageSize <integer> Optional. Maximum number of commits to return. The server may return fewer items than requested. If unspecified, the server will pick an appropriate default."
   ([name] (projects-locations-repositories-fetchHistory name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataform.googleapis.com/v1beta1/{+name}:fetchHistory",
@@ -232,7 +265,7 @@ repositoryId <string> Required. The ID to use for the repository, which will bec
   ([parent Repository]
     (projects-locations-repositories-create parent Repository nil))
   ([parent Repository optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dataform.googleapis.com/v1beta1/{+parent}/repositories",
@@ -247,7 +280,7 @@ https://cloud.google.com/dataform/docs/v1beta1/reference/rest/v1beta1/projects/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dataform.googleapis.com/v1beta1/{+name}:computeAccessTokenStatus",
@@ -261,7 +294,7 @@ https://cloud.google.com/dataform/docs/v1beta1/reference/rest/v1beta1/projects/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
      :uri-template-args {"name" name},
@@ -276,7 +309,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataform.googleapis.com/v1beta1/{+resource}:testIamPermissions",
@@ -299,7 +332,7 @@ revision <string> Optional. The Git revision of the file to return. If left empt
       workspace
       nil))
   ([workspace optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataform.googleapis.com/v1beta1/{+workspace}:readFile",
@@ -320,7 +353,7 @@ filter <string> Optional. Filter for the returned list."
   ([parent]
     (projects-locations-repositories-workspaces-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataform.googleapis.com/v1beta1/{+parent}/workspaces",
@@ -336,7 +369,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataform.googleapis.com/v1beta1/{+resource}:setIamPolicy",
@@ -353,7 +386,7 @@ workspace <>
 MoveDirectoryRequest:
 MoveDirectoryRequest"
   [workspace MoveDirectoryRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataform.googleapis.com/v1beta1/{+workspace}:moveDirectory",
@@ -370,7 +403,7 @@ workspace <>
 MoveFileRequest:
 MoveFileRequest"
   [workspace MoveFileRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataform.googleapis.com/v1beta1/{+workspace}:moveFile",
@@ -392,7 +425,7 @@ remoteBranch <string> Optional. The name of the branch in the Git remote against
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataform.googleapis.com/v1beta1/{+name}:fetchGitAheadBehind",
@@ -406,7 +439,7 @@ https://cloud.google.com/dataform/docs/v1beta1/reference/rest/v1beta1/projects/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
      :uri-template-args {"name" name},
@@ -421,7 +454,7 @@ workspace <>
 RemoveFileRequest:
 RemoveFileRequest"
   [workspace RemoveFileRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataform.googleapis.com/v1beta1/{+workspace}:removeFile",
@@ -438,7 +471,7 @@ workspace <>
 InstallNpmPackagesRequest:
 InstallNpmPackagesRequest"
   [workspace InstallNpmPackagesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataform.googleapis.com/v1beta1/{+workspace}:installNpmPackages",
@@ -455,7 +488,7 @@ name <>
 ResetWorkspaceChangesRequest:
 ResetWorkspaceChangesRequest"
   [name ResetWorkspaceChangesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataform.googleapis.com/v1beta1/{+name}:reset",
@@ -472,7 +505,7 @@ name <>
 PushGitCommitsRequest:
 PushGitCommitsRequest"
   [name PushGitCommitsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataform.googleapis.com/v1beta1/{+name}:push",
@@ -487,7 +520,7 @@ https://cloud.google.com/dataform/docs/v1beta1/reference/rest/v1beta1/projects/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dataform.googleapis.com/v1beta1/{+name}:fetchFileGitStatuses",
@@ -503,7 +536,7 @@ name <>
 CommitWorkspaceChangesRequest:
 CommitWorkspaceChangesRequest"
   [name CommitWorkspaceChangesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataform.googleapis.com/v1beta1/{+name}:commit",
@@ -526,7 +559,7 @@ pageSize <integer> Optional. Maximum number of paths to return. The server may r
       workspace
       nil))
   ([workspace optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataform.googleapis.com/v1beta1/{+workspace}:queryDirectoryContents",
@@ -542,7 +575,7 @@ workspace <>
 MakeDirectoryRequest:
 MakeDirectoryRequest"
   [workspace MakeDirectoryRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataform.googleapis.com/v1beta1/{+workspace}:makeDirectory",
@@ -559,7 +592,7 @@ name <>
 PullGitCommitsRequest:
 PullGitCommitsRequest"
   [name PullGitCommitsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataform.googleapis.com/v1beta1/{+name}:pull",
@@ -581,7 +614,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataform.googleapis.com/v1beta1/{+resource}:getIamPolicy",
@@ -597,7 +630,7 @@ workspace <>
 WriteFileRequest:
 WriteFileRequest"
   [workspace WriteFileRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataform.googleapis.com/v1beta1/{+workspace}:writeFile",
@@ -614,7 +647,7 @@ workspace <>
 RemoveDirectoryRequest:
 RemoveDirectoryRequest"
   [workspace RemoveDirectoryRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataform.googleapis.com/v1beta1/{+workspace}:removeDirectory",
@@ -636,7 +669,7 @@ path <string> Required. The file's full path including filename, relative to the
       workspace
       nil))
   ([workspace optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataform.googleapis.com/v1beta1/{+workspace}:fetchFileDiff",
@@ -660,7 +693,7 @@ workspaceId <string> Required. The ID to use for the workspace, which will becom
       Workspace
       nil))
   ([parent Workspace optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dataform.googleapis.com/v1beta1/{+parent}/workspaces",
@@ -683,7 +716,7 @@ filter <string> Optional. Optional filter for the returned list in filtering for
       workspace
       nil))
   ([workspace optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataform.googleapis.com/v1beta1/{+workspace}:searchFiles",
@@ -697,7 +730,7 @@ https://cloud.google.com/dataform/docs/v1beta1/reference/rest/v1beta1/projects/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
      :uri-template-args {"name" name},
@@ -712,7 +745,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataform.googleapis.com/v1beta1/{+resource}:testIamPermissions",
@@ -732,7 +765,7 @@ pageSize <integer> Optional. Maximum number of release configs to return. The se
   ([parent]
     (projects-locations-repositories-releaseConfigs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataform.googleapis.com/v1beta1/{+parent}/releaseConfigs",
@@ -746,7 +779,7 @@ https://cloud.google.com/dataform/docs/v1beta1/reference/rest/v1beta1/projects/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
      :uri-template-args {"name" name},
@@ -769,7 +802,7 @@ releaseConfigId <string> Required. The ID to use for the release config, which w
       ReleaseConfig
       nil))
   ([parent ReleaseConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dataform.googleapis.com/v1beta1/{+parent}/releaseConfigs",
@@ -794,7 +827,7 @@ updateMask <string> Optional. Specifies the fields to be updated in the release 
       ReleaseConfig
       nil))
   ([name ReleaseConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
        :uri-template-args {"name" name},
@@ -808,7 +841,7 @@ https://cloud.google.com/dataform/docs/v1beta1/reference/rest/v1beta1/projects/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
      :uri-template-args {"name" name},
@@ -830,7 +863,7 @@ filter <string> Optional. Filter for the returned list."
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataform.googleapis.com/v1beta1/{+parent}/compilationResults",
@@ -844,7 +877,7 @@ https://cloud.google.com/dataform/docs/v1beta1/reference/rest/v1beta1/projects/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
      :uri-template-args {"name" name},
@@ -859,7 +892,7 @@ parent <>
 CompilationResult:
 CompilationResult"
   [parent CompilationResult]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataform.googleapis.com/v1beta1/{+parent}/compilationResults",
@@ -882,7 +915,7 @@ filter <string> Optional. Optional filter for the returned list. Filtering is on
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataform.googleapis.com/v1beta1/{+name}:query",
@@ -901,7 +934,7 @@ pageSize <integer> Optional. Maximum number of workflow configs to return. The s
   ([parent]
     (projects-locations-repositories-workflowConfigs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataform.googleapis.com/v1beta1/{+parent}/workflowConfigs",
@@ -915,7 +948,7 @@ https://cloud.google.com/dataform/docs/v1beta1/reference/rest/v1beta1/projects/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
      :uri-template-args {"name" name},
@@ -938,7 +971,7 @@ workflowConfigId <string> Required. The ID to use for the workflow config, which
       WorkflowConfig
       nil))
   ([parent WorkflowConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dataform.googleapis.com/v1beta1/{+parent}/workflowConfigs",
@@ -963,7 +996,7 @@ updateMask <string> Optional. Specifies the fields to be updated in the workflow
       WorkflowConfig
       nil))
   ([name WorkflowConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
        :uri-template-args {"name" name},
@@ -977,7 +1010,7 @@ https://cloud.google.com/dataform/docs/v1beta1/reference/rest/v1beta1/projects/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
      :uri-template-args {"name" name},
@@ -999,7 +1032,7 @@ filter <string> Optional. Filter for the returned list."
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataform.googleapis.com/v1beta1/{+parent}/workflowInvocations",
@@ -1013,7 +1046,7 @@ https://cloud.google.com/dataform/docs/v1beta1/reference/rest/v1beta1/projects/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
      :uri-template-args {"name" name},
@@ -1028,7 +1061,7 @@ parent <>
 WorkflowInvocation:
 WorkflowInvocation"
   [parent WorkflowInvocation]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataform.googleapis.com/v1beta1/{+parent}/workflowInvocations",
@@ -1043,7 +1076,7 @@ https://cloud.google.com/dataform/docs/v1beta1/reference/rest/v1beta1/projects/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
      :uri-template-args {"name" name},
@@ -1058,7 +1091,7 @@ name <>
 CancelWorkflowInvocationRequest:
 CancelWorkflowInvocationRequest"
   [name CancelWorkflowInvocationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataform.googleapis.com/v1beta1/{+name}:cancel",
@@ -1080,7 +1113,7 @@ pageSize <integer> Optional. Maximum number of workflow invocations to return. T
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataform.googleapis.com/v1beta1/{+name}:query",
@@ -1096,7 +1129,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataform.googleapis.com/v1beta1/{+resource}:setIamPolicy",
@@ -1118,7 +1151,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataform.googleapis.com/v1beta1/{+resource}:getIamPolicy",
@@ -1134,7 +1167,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataform.googleapis.com/v1beta1/{+resource}:setIamPolicy",
@@ -1156,7 +1189,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataform.googleapis.com/v1beta1/{+resource}:getIamPolicy",
@@ -1172,7 +1205,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataform.googleapis.com/v1beta1/{+resource}:setIamPolicy",
@@ -1192,7 +1225,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-collections-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dataform.googleapis.com/v1beta1/{+resource}:getIamPolicy",
@@ -1208,7 +1241,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dataform.googleapis.com/v1beta1/{+resource}:testIamPermissions",

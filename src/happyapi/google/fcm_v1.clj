@@ -12,7 +12,7 @@ parent <>
 SendMessageRequest:
 SendMessageRequest"
   [parent SendMessageRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://fcm.googleapis.com/v1/{+parent}/messages:send",

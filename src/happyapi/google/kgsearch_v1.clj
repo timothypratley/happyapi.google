@@ -9,16 +9,16 @@ See: https://developers.google.com/knowledge-graph/"
 https://developers.google.com/knowledge-graph/v1/reference/rest/v1/entities/search
 
 optional:
-languages <string> The list of language codes (defined in ISO 693) to run the query with, e.g. 'en'.
-types <string> Restricts returned entities with these types, e.g. Person (as defined in http://schema.org/Person). If multiple types are specified, returned entities will contain one or more of these types.
-prefix <boolean> Enables prefix match against names and aliases of entities
-query <string> The literal query string for search.
-indent <boolean> Enables indenting of json results.
 limit <integer> Limits the number of entities to be returned.
-ids <string> The list of entity id to be used for search instead of query string. To specify multiple ids in the HTTP request, repeat the parameter in the URL as in ...?ids=A&ids=B"
+prefix <boolean> Enables prefix match against names and aliases of entities
+types <string> Restricts returned entities with these types, e.g. Person (as defined in http://schema.org/Person). If multiple types are specified, returned entities will contain one or more of these types.
+query <string> The literal query string for search.
+languages <string> The list of language codes (defined in ISO 693) to run the query with, e.g. 'en'.
+ids <string> The list of entity id to be used for search instead of query string. To specify multiple ids in the HTTP request, repeat the parameter in the URL as in ...?ids=A&ids=B
+indent <boolean> Enables indenting of json results."
   ([] (entities-search nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://kgsearch.googleapis.com/v1/entities:search",

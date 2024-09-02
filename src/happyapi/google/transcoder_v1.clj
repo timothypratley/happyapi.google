@@ -12,7 +12,7 @@ parent <>
 Job:
 Job"
   [parent Job]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://transcoder.googleapis.com/v1/{+parent}/jobs",
@@ -33,7 +33,7 @@ filter <string> The filter expression, following the syntax outlined in https://
 orderBy <string> One or more fields to compare and use to sort the output. See https://google.aip.dev/132#ordering."
   ([parent] (projects-locations-jobs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://transcoder.googleapis.com/v1/{+parent}/jobs",
@@ -47,7 +47,7 @@ https://cloud.google.com/transcoder/docs/v1/reference/rest/v1/projects/locations
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://transcoder.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -64,7 +64,7 @@ optional:
 allowMissing <boolean> If set to true, and the job is not found, the request will succeed but no action will be taken on the server."
   ([name] (projects-locations-jobs-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://transcoder.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -84,7 +84,7 @@ jobTemplateId <string> Required. The ID to use for the job template, which will 
   ([parent JobTemplate]
     (projects-locations-jobTemplates-create parent JobTemplate nil))
   ([parent JobTemplate optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://transcoder.googleapis.com/v1/{+parent}/jobTemplates",
@@ -105,7 +105,7 @@ filter <string> The filter expression, following the syntax outlined in https://
 orderBy <string> One or more fields to compare and use to sort the output. See https://google.aip.dev/132#ordering."
   ([parent] (projects-locations-jobTemplates-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://transcoder.googleapis.com/v1/{+parent}/jobTemplates",
@@ -119,7 +119,7 @@ https://cloud.google.com/transcoder/docs/v1/reference/rest/v1/projects/locations
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://transcoder.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -136,7 +136,7 @@ optional:
 allowMissing <boolean> If set to true, and the job template is not found, the request will succeed but no action will be taken on the server."
   ([name] (projects-locations-jobTemplates-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://transcoder.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},

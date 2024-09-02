@@ -15,7 +15,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dialogflow.googleapis.com/v3/{+name}/operations",
@@ -31,7 +31,7 @@ https://cloud.google.com/dialogflow/v3/reference/rest/v3/projects/operations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -46,7 +46,7 @@ https://cloud.google.com/dialogflow/v3/reference/rest/v3/projects/operations/can
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+name}:cancel",
@@ -67,7 +67,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dialogflow.googleapis.com/v3/{+name}/locations",
@@ -83,7 +83,7 @@ https://cloud.google.com/dialogflow/v3/reference/rest/v3/projects/locations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -103,7 +103,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dialogflow.googleapis.com/v3/{+name}/operations",
@@ -119,7 +119,7 @@ https://cloud.google.com/dialogflow/v3/reference/rest/v3/projects/locations/oper
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -134,7 +134,7 @@ https://cloud.google.com/dialogflow/v3/reference/rest/v3/projects/locations/oper
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+name}:cancel",
@@ -152,7 +152,7 @@ parent <>
 GoogleCloudDialogflowCxV3SecuritySettings:
 GoogleCloudDialogflowCxV3SecuritySettings"
   [parent GoogleCloudDialogflowCxV3SecuritySettings]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+parent}/securitySettings",
@@ -169,7 +169,7 @@ https://cloud.google.com/dialogflow/v3/reference/rest/v3/projects/locations/secu
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -194,7 +194,7 @@ updateMask <string> Required. The mask to control which fields get updated. If t
       GoogleCloudDialogflowCxV3SecuritySettings
       nil))
   ([name GoogleCloudDialogflowCxV3SecuritySettings optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -214,7 +214,7 @@ optional:
 pageSize <integer> The maximum number of items to return in a single page. By default 20 and at most 100."
   ([parent] (projects-locations-securitySettings-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dialogflow.googleapis.com/v3/{+parent}/securitySettings",
@@ -230,7 +230,7 @@ https://cloud.google.com/dialogflow/v3/reference/rest/v3/projects/locations/secu
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -249,7 +249,7 @@ optional:
 languageCode <string> If not specified, the agent's default language is used."
   ([name] (projects-locations-agents-getValidationResult name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -268,7 +268,7 @@ optional:
 pageSize <integer> The maximum number of items to return in a single page. By default 100 and at most 1000."
   ([parent] (projects-locations-agents-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dialogflow.googleapis.com/v3/{+parent}/agents",
@@ -284,7 +284,7 @@ https://cloud.google.com/dialogflow/v3/reference/rest/v3/projects/locations/agen
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -301,7 +301,7 @@ name <>
 GoogleCloudDialogflowCxV3ExportAgentRequest:
 GoogleCloudDialogflowCxV3ExportAgentRequest"
   [name GoogleCloudDialogflowCxV3ExportAgentRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+name}:export",
@@ -320,7 +320,7 @@ name <>
 GoogleCloudDialogflowCxV3ValidateAgentRequest:
 GoogleCloudDialogflowCxV3ValidateAgentRequest"
   [name GoogleCloudDialogflowCxV3ValidateAgentRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+name}:validate",
@@ -341,7 +341,7 @@ optional:
 languageCode <string> Required. Language code of the generative settings."
   ([name] (projects-locations-agents-getGenerativeSettings name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -366,7 +366,7 @@ updateMask <string> The mask to control which fields get updated. If the mask is
       GoogleCloudDialogflowCxV3Agent
       nil))
   ([name GoogleCloudDialogflowCxV3Agent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -392,7 +392,7 @@ updateMask <string> Optional. The mask to control which fields get updated. If t
       GoogleCloudDialogflowCxV3GenerativeSettings
       nil))
   ([name GoogleCloudDialogflowCxV3GenerativeSettings optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -410,7 +410,7 @@ parent <>
 GoogleCloudDialogflowCxV3Agent:
 GoogleCloudDialogflowCxV3Agent"
   [parent GoogleCloudDialogflowCxV3Agent]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+parent}/agents",
@@ -429,7 +429,7 @@ name <>
 GoogleCloudDialogflowCxV3RestoreAgentRequest:
 GoogleCloudDialogflowCxV3RestoreAgentRequest"
   [name GoogleCloudDialogflowCxV3RestoreAgentRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+name}:restore",
@@ -446,7 +446,7 @@ https://cloud.google.com/dialogflow/v3/reference/rest/v3/projects/locations/agen
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -465,7 +465,7 @@ optional:
 languageCode <string> The language to retrieve the entity type for. The following fields are language dependent: * `EntityType.entities.value` * `EntityType.entities.synonyms` * `EntityType.excluded_phrases.value` If not specified, the agent's default language is used. [Many languages](https://cloud.google.com/dialogflow/cx/docs/reference/language) are supported. Note: languages must be enabled in the agent before they can be used."
   ([name] (projects-locations-agents-entityTypes-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -490,7 +490,7 @@ languageCode <string> The language of the following fields in `entity_type`: * `
       GoogleCloudDialogflowCxV3EntityType
       nil))
   ([parent GoogleCloudDialogflowCxV3EntityType optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dialogflow.googleapis.com/v3/{+parent}/entityTypes",
@@ -518,7 +518,7 @@ updateMask <string> The mask to control which fields get updated."
       GoogleCloudDialogflowCxV3EntityType
       nil))
   ([name GoogleCloudDialogflowCxV3EntityType optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -538,7 +538,7 @@ optional:
 force <boolean> This field has no effect for entity type not being used. For entity types that are used by intents or pages: * If `force` is set to false, an error will be returned with message indicating the referencing resources. * If `force` is set to true, Dialogflow will remove the entity type, as well as any references to the entity type (i.e. Page parameter of the entity type will be changed to '@sys.any' and intent parameter of the entity type will be removed)."
   ([name] (projects-locations-agents-entityTypes-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -558,7 +558,7 @@ languageCode <string> The language to list entity types for. The following field
 pageSize <integer> The maximum number of items to return in a single page. By default 100 and at most 1000."
   ([parent] (projects-locations-agents-entityTypes-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dialogflow.googleapis.com/v3/{+parent}/entityTypes",
@@ -576,7 +576,7 @@ parent <>
 GoogleCloudDialogflowCxV3ExportEntityTypesRequest:
 GoogleCloudDialogflowCxV3ExportEntityTypesRequest"
   [parent GoogleCloudDialogflowCxV3ExportEntityTypesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+parent}/entityTypes:export",
@@ -595,7 +595,7 @@ parent <>
 GoogleCloudDialogflowCxV3ImportEntityTypesRequest:
 GoogleCloudDialogflowCxV3ImportEntityTypesRequest"
   [parent GoogleCloudDialogflowCxV3ImportEntityTypesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+parent}/entityTypes:import",
@@ -614,7 +614,7 @@ session <>
 GoogleCloudDialogflowCxV3DetectIntentRequest:
 GoogleCloudDialogflowCxV3DetectIntentRequest"
   [session GoogleCloudDialogflowCxV3DetectIntentRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+session}:detectIntent",
@@ -633,7 +633,7 @@ session <>
 GoogleCloudDialogflowCxV3DetectIntentRequest:
 GoogleCloudDialogflowCxV3DetectIntentRequest"
   [session GoogleCloudDialogflowCxV3DetectIntentRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+session}:serverStreamingDetectIntent",
@@ -652,7 +652,7 @@ session <>
 GoogleCloudDialogflowCxV3MatchIntentRequest:
 GoogleCloudDialogflowCxV3MatchIntentRequest"
   [session GoogleCloudDialogflowCxV3MatchIntentRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+session}:matchIntent",
@@ -671,7 +671,7 @@ session <>
 GoogleCloudDialogflowCxV3FulfillIntentRequest:
 GoogleCloudDialogflowCxV3FulfillIntentRequest"
   [session GoogleCloudDialogflowCxV3FulfillIntentRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+session}:fulfillIntent",
@@ -690,7 +690,7 @@ session <>
 GoogleCloudDialogflowCxV3SubmitAnswerFeedbackRequest:
 GoogleCloudDialogflowCxV3SubmitAnswerFeedbackRequest"
   [session GoogleCloudDialogflowCxV3SubmitAnswerFeedbackRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+session}:submitAnswerFeedback",
@@ -712,7 +712,7 @@ pageSize <integer> The maximum number of items to return in a single page. By de
   ([parent]
     (projects-locations-agents-sessions-entityTypes-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dialogflow.googleapis.com/v3/{+parent}/entityTypes",
@@ -728,7 +728,7 @@ https://cloud.google.com/dialogflow/v3/reference/rest/v3/projects/locations/agen
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -745,7 +745,7 @@ parent <>
 GoogleCloudDialogflowCxV3SessionEntityType:
 GoogleCloudDialogflowCxV3SessionEntityType"
   [parent GoogleCloudDialogflowCxV3SessionEntityType]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+parent}/entityTypes",
@@ -772,7 +772,7 @@ updateMask <string> The mask to control which fields get updated."
       GoogleCloudDialogflowCxV3SessionEntityType
       nil))
   ([name GoogleCloudDialogflowCxV3SessionEntityType optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -788,7 +788,7 @@ https://cloud.google.com/dialogflow/v3/reference/rest/v3/projects/locations/agen
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -809,7 +809,7 @@ intentView <string> The resource view to apply to the returned intent.
 pageSize <integer> The maximum number of items to return in a single page. By default 100 and at most 1000."
   ([parent] (projects-locations-agents-intents-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dialogflow.googleapis.com/v3/{+parent}/intents",
@@ -829,7 +829,7 @@ optional:
 languageCode <string> The language to retrieve the intent for. The following fields are language dependent: * `Intent.training_phrases.parts.text` If not specified, the agent's default language is used. [Many languages](https://cloud.google.com/dialogflow/cx/docs/reference/language) are supported. Note: languages must be enabled in the agent before they can be used."
   ([name] (projects-locations-agents-intents-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -854,7 +854,7 @@ languageCode <string> The language of the following fields in `intent`: * `Inten
       GoogleCloudDialogflowCxV3Intent
       nil))
   ([parent GoogleCloudDialogflowCxV3Intent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dialogflow.googleapis.com/v3/{+parent}/intents",
@@ -882,7 +882,7 @@ updateMask <string> The mask to control which fields get updated. If the mask is
       GoogleCloudDialogflowCxV3Intent
       nil))
   ([name GoogleCloudDialogflowCxV3Intent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -898,7 +898,7 @@ https://cloud.google.com/dialogflow/v3/reference/rest/v3/projects/locations/agen
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -915,7 +915,7 @@ parent <>
 GoogleCloudDialogflowCxV3ImportIntentsRequest:
 GoogleCloudDialogflowCxV3ImportIntentsRequest"
   [parent GoogleCloudDialogflowCxV3ImportIntentsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+parent}/intents:import",
@@ -934,7 +934,7 @@ parent <>
 GoogleCloudDialogflowCxV3ExportIntentsRequest:
 GoogleCloudDialogflowCxV3ExportIntentsRequest"
   [parent GoogleCloudDialogflowCxV3ExportIntentsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+parent}/intents:export",
@@ -955,7 +955,7 @@ optional:
 pageSize <integer> The maximum number of items to return in a single page. By default 100 and at most 1000."
   ([parent] (projects-locations-agents-webhooks-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dialogflow.googleapis.com/v3/{+parent}/webhooks",
@@ -971,7 +971,7 @@ https://cloud.google.com/dialogflow/v3/reference/rest/v3/projects/locations/agen
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -988,7 +988,7 @@ parent <>
 GoogleCloudDialogflowCxV3Webhook:
 GoogleCloudDialogflowCxV3Webhook"
   [parent GoogleCloudDialogflowCxV3Webhook]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+parent}/webhooks",
@@ -1015,7 +1015,7 @@ updateMask <string> The mask to control which fields get updated. If the mask is
       GoogleCloudDialogflowCxV3Webhook
       nil))
   ([name GoogleCloudDialogflowCxV3Webhook optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -1035,7 +1035,7 @@ optional:
 force <boolean> This field has no effect for webhook not being used. For webhooks that are used by pages/flows/transition route groups: * If `force` is set to false, an error will be returned with message indicating the referenced resources. * If `force` is set to true, Dialogflow will remove the webhook, as well as any references to the webhook (i.e. Webhook and tagin fulfillments that point to this webhook will be removed)."
   ([name] (projects-locations-agents-webhooks-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -1054,7 +1054,7 @@ optional:
 pageSize <integer> The maximum number of items to return in a single page. By default 20 and at most 100."
   ([parent] (projects-locations-agents-environments-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dialogflow.googleapis.com/v3/{+parent}/environments",
@@ -1070,7 +1070,7 @@ https://cloud.google.com/dialogflow/v3/reference/rest/v3/projects/locations/agen
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -1087,7 +1087,7 @@ parent <>
 GoogleCloudDialogflowCxV3Environment:
 GoogleCloudDialogflowCxV3Environment"
   [parent GoogleCloudDialogflowCxV3Environment]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+parent}/environments",
@@ -1114,7 +1114,7 @@ updateMask <string> Required. The mask to control which fields get updated."
       GoogleCloudDialogflowCxV3Environment
       nil))
   ([name GoogleCloudDialogflowCxV3Environment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -1130,7 +1130,7 @@ https://cloud.google.com/dialogflow/v3/reference/rest/v3/projects/locations/agen
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -1152,7 +1152,7 @@ pageSize <integer> The maximum number of items to return in a single page. By de
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dialogflow.googleapis.com/v3/{+name}:lookupEnvironmentHistory",
@@ -1170,7 +1170,7 @@ environment <>
 GoogleCloudDialogflowCxV3RunContinuousTestRequest:
 GoogleCloudDialogflowCxV3RunContinuousTestRequest"
   [environment GoogleCloudDialogflowCxV3RunContinuousTestRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+environment}:runContinuousTest",
@@ -1189,7 +1189,7 @@ environment <>
 GoogleCloudDialogflowCxV3DeployFlowRequest:
 GoogleCloudDialogflowCxV3DeployFlowRequest"
   [environment GoogleCloudDialogflowCxV3DeployFlowRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+environment}:deployFlow",
@@ -1213,7 +1213,7 @@ pageSize <integer> The maximum number of items to return in a single page. By de
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dialogflow.googleapis.com/v3/{+parent}/deployments",
@@ -1229,7 +1229,7 @@ https://cloud.google.com/dialogflow/v3/reference/rest/v3/projects/locations/agen
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -1246,7 +1246,7 @@ session <>
 GoogleCloudDialogflowCxV3DetectIntentRequest:
 GoogleCloudDialogflowCxV3DetectIntentRequest"
   [session GoogleCloudDialogflowCxV3DetectIntentRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+session}:detectIntent",
@@ -1265,7 +1265,7 @@ session <>
 GoogleCloudDialogflowCxV3DetectIntentRequest:
 GoogleCloudDialogflowCxV3DetectIntentRequest"
   [session GoogleCloudDialogflowCxV3DetectIntentRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+session}:serverStreamingDetectIntent",
@@ -1284,7 +1284,7 @@ session <>
 GoogleCloudDialogflowCxV3MatchIntentRequest:
 GoogleCloudDialogflowCxV3MatchIntentRequest"
   [session GoogleCloudDialogflowCxV3MatchIntentRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+session}:matchIntent",
@@ -1303,7 +1303,7 @@ session <>
 GoogleCloudDialogflowCxV3FulfillIntentRequest:
 GoogleCloudDialogflowCxV3FulfillIntentRequest"
   [session GoogleCloudDialogflowCxV3FulfillIntentRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+session}:fulfillIntent",
@@ -1327,7 +1327,7 @@ pageSize <integer> The maximum number of items to return in a single page. By de
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dialogflow.googleapis.com/v3/{+parent}/entityTypes",
@@ -1343,7 +1343,7 @@ https://cloud.google.com/dialogflow/v3/reference/rest/v3/projects/locations/agen
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -1360,7 +1360,7 @@ parent <>
 GoogleCloudDialogflowCxV3SessionEntityType:
 GoogleCloudDialogflowCxV3SessionEntityType"
   [parent GoogleCloudDialogflowCxV3SessionEntityType]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+parent}/entityTypes",
@@ -1387,7 +1387,7 @@ updateMask <string> The mask to control which fields get updated."
       GoogleCloudDialogflowCxV3SessionEntityType
       nil))
   ([name GoogleCloudDialogflowCxV3SessionEntityType optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -1403,7 +1403,7 @@ https://cloud.google.com/dialogflow/v3/reference/rest/v3/projects/locations/agen
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -1425,7 +1425,7 @@ pageSize <integer> The maximum number of items to return in a single page. By de
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dialogflow.googleapis.com/v3/{+parent}/continuousTestResults",
@@ -1448,7 +1448,7 @@ pageSize <integer> The maximum number of items to return in a single page. By de
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dialogflow.googleapis.com/v3/{+parent}/experiments",
@@ -1464,7 +1464,7 @@ https://cloud.google.com/dialogflow/v3/reference/rest/v3/projects/locations/agen
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -1481,7 +1481,7 @@ parent <>
 GoogleCloudDialogflowCxV3Experiment:
 GoogleCloudDialogflowCxV3Experiment"
   [parent GoogleCloudDialogflowCxV3Experiment]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+parent}/experiments",
@@ -1508,7 +1508,7 @@ updateMask <string> Required. The mask to control which fields get updated."
       GoogleCloudDialogflowCxV3Experiment
       nil))
   ([name GoogleCloudDialogflowCxV3Experiment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -1524,7 +1524,7 @@ https://cloud.google.com/dialogflow/v3/reference/rest/v3/projects/locations/agen
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -1541,7 +1541,7 @@ name <>
 GoogleCloudDialogflowCxV3StartExperimentRequest:
 GoogleCloudDialogflowCxV3StartExperimentRequest"
   [name GoogleCloudDialogflowCxV3StartExperimentRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+name}:start",
@@ -1560,7 +1560,7 @@ name <>
 GoogleCloudDialogflowCxV3StopExperimentRequest:
 GoogleCloudDialogflowCxV3StopExperimentRequest"
   [name GoogleCloudDialogflowCxV3StopExperimentRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://dialogflow.googleapis.com/v3/{+name}:stop",
      :uri-template-args {"name" name},
@@ -1582,7 +1582,7 @@ languageCode <string> The language to list transition route groups for. The foll
   ([parent]
     (projects-locations-agents-transitionRouteGroups-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dialogflow.googleapis.com/v3/{+parent}/transitionRouteGroups",
@@ -1603,7 +1603,7 @@ languageCode <string> The language to retrieve the transition route group for. T
   ([name]
     (projects-locations-agents-transitionRouteGroups-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -1628,7 +1628,7 @@ languageCode <string> The language of the following fields in `TransitionRouteGr
       GoogleCloudDialogflowCxV3TransitionRouteGroup
       nil))
   ([parent GoogleCloudDialogflowCxV3TransitionRouteGroup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dialogflow.googleapis.com/v3/{+parent}/transitionRouteGroups",
@@ -1656,7 +1656,7 @@ languageCode <string> The language of the following fields in `TransitionRouteGr
       GoogleCloudDialogflowCxV3TransitionRouteGroup
       nil))
   ([name GoogleCloudDialogflowCxV3TransitionRouteGroup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -1677,7 +1677,7 @@ force <boolean> This field has no effect for transition route group that no page
   ([name]
     (projects-locations-agents-transitionRouteGroups-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -1697,7 +1697,7 @@ languageCode <string> The language to list generators for.
 pageSize <integer> The maximum number of items to return in a single page. By default 100 and at most 1000."
   ([parent] (projects-locations-agents-generators-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dialogflow.googleapis.com/v3/{+parent}/generators",
@@ -1717,7 +1717,7 @@ optional:
 languageCode <string> The language to list generators for."
   ([name] (projects-locations-agents-generators-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -1742,7 +1742,7 @@ languageCode <string> The language to create generators for the following fields
       GoogleCloudDialogflowCxV3Generator
       nil))
   ([parent GoogleCloudDialogflowCxV3Generator optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dialogflow.googleapis.com/v3/{+parent}/generators",
@@ -1770,7 +1770,7 @@ updateMask <string> The mask to control which fields get updated. If the mask is
       GoogleCloudDialogflowCxV3Generator
       nil))
   ([name GoogleCloudDialogflowCxV3Generator optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -1790,7 +1790,7 @@ optional:
 force <boolean> This field has no effect for generators not being used. For generators that are used by pages/flows/transition route groups: * If `force` is set to false, an error will be returned with message indicating the referenced resources. * If `force` is set to true, Dialogflow will remove the generator, as well as any references to the generator (i.e. Generator) in fulfillments."
   ([name] (projects-locations-agents-generators-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -1810,7 +1810,7 @@ filter <string> The filter string. Supports filter by user_email, resource, type
 pageSize <integer> The maximum number of items to return in a single page. By default 100 and at most 1000."
   ([parent] (projects-locations-agents-changelogs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dialogflow.googleapis.com/v3/{+parent}/changelogs",
@@ -1826,7 +1826,7 @@ https://cloud.google.com/dialogflow/v3/reference/rest/v3/projects/locations/agen
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -1846,7 +1846,7 @@ pageSize <integer> The maximum number of items to return in a single page. By de
 view <string> Specifies whether response should include all fields or just the metadata."
   ([parent] (projects-locations-agents-testCases-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dialogflow.googleapis.com/v3/{+parent}/testCases",
@@ -1864,7 +1864,7 @@ parent <>
 GoogleCloudDialogflowCxV3ExportTestCasesRequest:
 GoogleCloudDialogflowCxV3ExportTestCasesRequest"
   [parent GoogleCloudDialogflowCxV3ExportTestCasesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+parent}/testCases:export",
@@ -1883,7 +1883,7 @@ name <>
 GoogleCloudDialogflowCxV3RunTestCaseRequest:
 GoogleCloudDialogflowCxV3RunTestCaseRequest"
   [name GoogleCloudDialogflowCxV3RunTestCaseRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://dialogflow.googleapis.com/v3/{+name}:run",
      :uri-template-args {"name" name},
@@ -1901,7 +1901,7 @@ parent <>
 GoogleCloudDialogflowCxV3ImportTestCasesRequest:
 GoogleCloudDialogflowCxV3ImportTestCasesRequest"
   [parent GoogleCloudDialogflowCxV3ImportTestCasesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+parent}/testCases:import",
@@ -1923,7 +1923,7 @@ type <string> Required. The type of coverage requested."
   ([agent]
     (projects-locations-agents-testCases-calculateCoverage agent nil))
   ([agent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dialogflow.googleapis.com/v3/{+agent}/testCases:calculateCoverage",
@@ -1949,7 +1949,7 @@ updateMask <string> Required. The mask to specify which fields should be updated
       GoogleCloudDialogflowCxV3TestCase
       nil))
   ([name GoogleCloudDialogflowCxV3TestCase optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -1967,7 +1967,7 @@ parent <>
 GoogleCloudDialogflowCxV3TestCase:
 GoogleCloudDialogflowCxV3TestCase"
   [parent GoogleCloudDialogflowCxV3TestCase]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+parent}/testCases",
@@ -1986,7 +1986,7 @@ parent <>
 GoogleCloudDialogflowCxV3BatchRunTestCasesRequest:
 GoogleCloudDialogflowCxV3BatchRunTestCasesRequest"
   [parent GoogleCloudDialogflowCxV3BatchRunTestCasesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+parent}/testCases:batchRun",
@@ -2003,7 +2003,7 @@ https://cloud.google.com/dialogflow/v3/reference/rest/v3/projects/locations/agen
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -2020,7 +2020,7 @@ parent <>
 GoogleCloudDialogflowCxV3BatchDeleteTestCasesRequest:
 GoogleCloudDialogflowCxV3BatchDeleteTestCasesRequest"
   [parent GoogleCloudDialogflowCxV3BatchDeleteTestCasesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+parent}/testCases:batchDelete",
@@ -2043,7 +2043,7 @@ filter <string> The filter expression used to filter test case results. See [API
   ([parent]
     (projects-locations-agents-testCases-results-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dialogflow.googleapis.com/v3/{+parent}/results",
@@ -2059,7 +2059,7 @@ https://cloud.google.com/dialogflow/v3/reference/rest/v3/projects/locations/agen
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -2079,7 +2079,7 @@ languageCode <string> If not specified, the agent's default language is used."
   ([name]
     (projects-locations-agents-flows-getValidationResult name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -2099,7 +2099,7 @@ pageSize <integer> The maximum number of items to return in a single page. By de
 languageCode <string> The language to list flows for. The following fields are language dependent: * `Flow.event_handlers.trigger_fulfillment.messages` * `Flow.event_handlers.trigger_fulfillment.conditional_cases` * `Flow.transition_routes.trigger_fulfillment.messages` * `Flow.transition_routes.trigger_fulfillment.conditional_cases` If not specified, the agent's default language is used. [Many languages](https://cloud.google.com/dialogflow/cx/docs/reference/language) are supported. Note: languages must be enabled in the agent before they can be used."
   ([parent] (projects-locations-agents-flows-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dialogflow.googleapis.com/v3/{+parent}/flows",
@@ -2119,7 +2119,7 @@ optional:
 force <boolean> This field has no effect for flows with no incoming transitions. For flows with incoming transitions: * If `force` is set to false, an error will be returned with message indicating the incoming transitions. * If `force` is set to true, Dialogflow will remove the flow, as well as any transitions to the flow (i.e. Target flow in event handlers or Target flow in transition routes that point to this flow will be cleared)."
   ([name] (projects-locations-agents-flows-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -2136,7 +2136,7 @@ name <>
 GoogleCloudDialogflowCxV3ExportFlowRequest:
 GoogleCloudDialogflowCxV3ExportFlowRequest"
   [name GoogleCloudDialogflowCxV3ExportFlowRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+name}:export",
@@ -2155,7 +2155,7 @@ name <>
 GoogleCloudDialogflowCxV3ValidateFlowRequest:
 GoogleCloudDialogflowCxV3ValidateFlowRequest"
   [name GoogleCloudDialogflowCxV3ValidateFlowRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+name}:validate",
@@ -2174,7 +2174,7 @@ name <>
 GoogleCloudDialogflowCxV3TrainFlowRequest:
 GoogleCloudDialogflowCxV3TrainFlowRequest"
   [name GoogleCloudDialogflowCxV3TrainFlowRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+name}:train",
@@ -2193,7 +2193,7 @@ parent <>
 GoogleCloudDialogflowCxV3ImportFlowRequest:
 GoogleCloudDialogflowCxV3ImportFlowRequest"
   [parent GoogleCloudDialogflowCxV3ImportFlowRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+parent}/flows:import",
@@ -2221,7 +2221,7 @@ languageCode <string> The language of the following fields in `flow`: * `Flow.ev
       GoogleCloudDialogflowCxV3Flow
       nil))
   ([name GoogleCloudDialogflowCxV3Flow optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -2247,7 +2247,7 @@ languageCode <string> The language of the following fields in `flow`: * `Flow.ev
       GoogleCloudDialogflowCxV3Flow
       nil))
   ([parent GoogleCloudDialogflowCxV3Flow optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dialogflow.googleapis.com/v3/{+parent}/flows",
@@ -2268,7 +2268,7 @@ optional:
 languageCode <string> The language to retrieve the flow for. The following fields are language dependent: * `Flow.event_handlers.trigger_fulfillment.messages` * `Flow.event_handlers.trigger_fulfillment.conditional_cases` * `Flow.transition_routes.trigger_fulfillment.messages` * `Flow.transition_routes.trigger_fulfillment.conditional_cases` If not specified, the agent's default language is used. [Many languages](https://cloud.google.com/dialogflow/cx/docs/reference/language) are supported. Note: languages must be enabled in the agent before they can be used."
   ([name] (projects-locations-agents-flows-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -2288,7 +2288,7 @@ languageCode <string> The language to list pages for. The following fields are l
 pageSize <integer> The maximum number of items to return in a single page. By default 100 and at most 1000."
   ([parent] (projects-locations-agents-flows-pages-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dialogflow.googleapis.com/v3/{+parent}/pages",
@@ -2308,7 +2308,7 @@ optional:
 languageCode <string> The language to retrieve the page for. The following fields are language dependent: * `Page.entry_fulfillment.messages` * `Page.entry_fulfillment.conditional_cases` * `Page.event_handlers.trigger_fulfillment.messages` * `Page.event_handlers.trigger_fulfillment.conditional_cases` * `Page.form.parameters.fill_behavior.initial_prompt_fulfillment.messages` * `Page.form.parameters.fill_behavior.initial_prompt_fulfillment.conditional_cases` * `Page.form.parameters.fill_behavior.reprompt_event_handlers.messages` * `Page.form.parameters.fill_behavior.reprompt_event_handlers.conditional_cases` * `Page.transition_routes.trigger_fulfillment.messages` * `Page.transition_routes.trigger_fulfillment.conditional_cases` If not specified, the agent's default language is used. [Many languages](https://cloud.google.com/dialogflow/cx/docs/reference/language) are supported. Note: languages must be enabled in the agent before they can be used."
   ([name] (projects-locations-agents-flows-pages-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -2333,7 +2333,7 @@ languageCode <string> The language of the following fields in `page`: * `Page.en
       GoogleCloudDialogflowCxV3Page
       nil))
   ([parent GoogleCloudDialogflowCxV3Page optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dialogflow.googleapis.com/v3/{+parent}/pages",
@@ -2361,7 +2361,7 @@ updateMask <string> The mask to control which fields get updated. If the mask is
       GoogleCloudDialogflowCxV3Page
       nil))
   ([name GoogleCloudDialogflowCxV3Page optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -2381,7 +2381,7 @@ optional:
 force <boolean> This field has no effect for pages with no incoming transitions. For pages with incoming transitions: * If `force` is set to false, an error will be returned with message indicating the incoming transitions. * If `force` is set to true, Dialogflow will remove the page, as well as any transitions to the page (i.e. Target page in event handlers or Target page in transition routes that point to this page will be cleared)."
   ([name] (projects-locations-agents-flows-pages-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -2404,7 +2404,7 @@ languageCode <string> The language to list transition route groups for. The foll
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dialogflow.googleapis.com/v3/{+parent}/transitionRouteGroups",
@@ -2427,7 +2427,7 @@ languageCode <string> The language to retrieve the transition route group for. T
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -2452,7 +2452,7 @@ languageCode <string> The language of the following fields in `TransitionRouteGr
       GoogleCloudDialogflowCxV3TransitionRouteGroup
       nil))
   ([parent GoogleCloudDialogflowCxV3TransitionRouteGroup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dialogflow.googleapis.com/v3/{+parent}/transitionRouteGroups",
@@ -2480,7 +2480,7 @@ languageCode <string> The language of the following fields in `TransitionRouteGr
       GoogleCloudDialogflowCxV3TransitionRouteGroup
       nil))
   ([name GoogleCloudDialogflowCxV3TransitionRouteGroup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -2503,7 +2503,7 @@ force <boolean> This field has no effect for transition route group that no page
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -2522,7 +2522,7 @@ optional:
 pageSize <integer> The maximum number of items to return in a single page. By default 20 and at most 100."
   ([parent] (projects-locations-agents-flows-versions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dialogflow.googleapis.com/v3/{+parent}/versions",
@@ -2538,7 +2538,7 @@ https://cloud.google.com/dialogflow/v3/reference/rest/v3/projects/locations/agen
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -2555,7 +2555,7 @@ parent <>
 GoogleCloudDialogflowCxV3Version:
 GoogleCloudDialogflowCxV3Version"
   [parent GoogleCloudDialogflowCxV3Version]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+parent}/versions",
@@ -2582,7 +2582,7 @@ updateMask <string> Required. The mask to control which fields get updated. Curr
       GoogleCloudDialogflowCxV3Version
       nil))
   ([name GoogleCloudDialogflowCxV3Version optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -2598,7 +2598,7 @@ https://cloud.google.com/dialogflow/v3/reference/rest/v3/projects/locations/agen
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://dialogflow.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -2615,7 +2615,7 @@ name <>
 GoogleCloudDialogflowCxV3LoadVersionRequest:
 GoogleCloudDialogflowCxV3LoadVersionRequest"
   [name GoogleCloudDialogflowCxV3LoadVersionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://dialogflow.googleapis.com/v3/{+name}:load",
      :uri-template-args {"name" name},
@@ -2633,7 +2633,7 @@ baseVersion <>
 GoogleCloudDialogflowCxV3CompareVersionsRequest:
 GoogleCloudDialogflowCxV3CompareVersionsRequest"
   [baseVersion GoogleCloudDialogflowCxV3CompareVersionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dialogflow.googleapis.com/v3/{+baseVersion}:compareVersions",

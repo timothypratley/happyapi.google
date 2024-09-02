@@ -14,7 +14,7 @@ optional:
 pageSize <integer> Maximum number of IPs to return."
   ([name] (projects-locations-fetchStaticIps name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datamigration.googleapis.com/v1/{+name}:fetchStaticIps",
@@ -33,7 +33,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datamigration.googleapis.com/v1/{+name}/locations",
@@ -47,7 +47,7 @@ https://cloud.google.com/database-migration/v1/reference/rest/v1/projects/locati
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://datamigration.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -65,7 +65,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datamigration.googleapis.com/v1/{+name}/operations",
@@ -79,7 +79,7 @@ https://cloud.google.com/database-migration/v1/reference/rest/v1/projects/locati
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://datamigration.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -92,7 +92,7 @@ https://cloud.google.com/database-migration/v1/reference/rest/v1/projects/locati
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://datamigration.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -107,7 +107,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datamigration.googleapis.com/v1/{+name}:cancel",
@@ -124,7 +124,7 @@ name <>
 StopMigrationJobRequest:
 StopMigrationJobRequest"
   [name StopMigrationJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datamigration.googleapis.com/v1/{+name}:stop",
@@ -145,7 +145,7 @@ filter <string> A filter expression that filters migration jobs listed in the re
 orderBy <string> Sort the results based on the migration job name. Valid values are: \"name\", \"name asc\", and \"name desc\"."
   ([parent] (projects-locations-migrationJobs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datamigration.googleapis.com/v1/{+parent}/migrationJobs",
@@ -161,7 +161,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datamigration.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -178,7 +178,7 @@ migrationJob <>
 GenerateTcpProxyScriptRequest:
 GenerateTcpProxyScriptRequest"
   [migrationJob GenerateTcpProxyScriptRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datamigration.googleapis.com/v1/{+migrationJob}:generateTcpProxyScript",
@@ -195,7 +195,7 @@ migrationJob <>
 GenerateSshScriptRequest:
 GenerateSshScriptRequest"
   [migrationJob GenerateSshScriptRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datamigration.googleapis.com/v1/{+migrationJob}:generateSshScript",
@@ -215,7 +215,7 @@ requestId <string> A unique ID used to identify the request. If the server recei
 force <boolean> The destination CloudSQL connection profile is always deleted with the migration job. In case of force delete, the destination CloudSQL replica database is also deleted."
   ([name] (projects-locations-migrationJobs-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://datamigration.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -230,7 +230,7 @@ name <>
 VerifyMigrationJobRequest:
 VerifyMigrationJobRequest"
   [name VerifyMigrationJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datamigration.googleapis.com/v1/{+name}:verify",
@@ -247,7 +247,7 @@ name <>
 DemoteDestinationRequest:
 DemoteDestinationRequest"
   [name DemoteDestinationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datamigration.googleapis.com/v1/{+name}:demoteDestination",
@@ -264,7 +264,7 @@ name <>
 PromoteMigrationJobRequest:
 PromoteMigrationJobRequest"
   [name PromoteMigrationJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datamigration.googleapis.com/v1/{+name}:promote",
@@ -281,7 +281,7 @@ name <>
 StartMigrationJobRequest:
 StartMigrationJobRequest"
   [name StartMigrationJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datamigration.googleapis.com/v1/{+name}:start",
@@ -304,7 +304,7 @@ requestId <string> A unique ID used to identify the request. If the server recei
   ([name MigrationJob]
     (projects-locations-migrationJobs-patch name MigrationJob nil))
   ([name MigrationJob optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://datamigration.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -323,7 +323,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-migrationJobs-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datamigration.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -339,7 +339,7 @@ name <>
 RestartMigrationJobRequest:
 RestartMigrationJobRequest"
   [name RestartMigrationJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datamigration.googleapis.com/v1/{+name}:restart",
@@ -362,7 +362,7 @@ requestId <string> Optional. A unique ID used to identify the request. If the se
   ([parent MigrationJob]
     (projects-locations-migrationJobs-create parent MigrationJob nil))
   ([parent MigrationJob optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://datamigration.googleapis.com/v1/{+parent}/migrationJobs",
@@ -377,7 +377,7 @@ https://cloud.google.com/database-migration/v1/reference/rest/v1/projects/locati
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://datamigration.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -392,7 +392,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datamigration.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -409,7 +409,7 @@ name <>
 ResumeMigrationJobRequest:
 ResumeMigrationJobRequest"
   [name ResumeMigrationJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datamigration.googleapis.com/v1/{+name}:resume",
@@ -417,6 +417,61 @@ ResumeMigrationJobRequest"
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/cloud-platform"],
      :body ResumeMigrationJobRequest}))
+
+(defn projects-locations-migrationJobs-objects-setIamPolicy
+  "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+https://cloud.google.com/database-migration/v1/reference/rest/v1/projects/locations/migrationJobs/objects/setIamPolicy
+
+resource <> 
+SetIamPolicyRequest:
+SetIamPolicyRequest"
+  [resource SetIamPolicyRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://datamigration.googleapis.com/v1/{+resource}:setIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body SetIamPolicyRequest}))
+
+(defn projects-locations-migrationJobs-objects-getIamPolicy
+  "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
+https://cloud.google.com/database-migration/v1/reference/rest/v1/projects/locations/migrationJobs/objects/getIamPolicy
+
+resource <> 
+
+optional:
+options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
+  ([resource]
+    (projects-locations-migrationJobs-objects-getIamPolicy
+      resource
+      nil))
+  ([resource optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://datamigration.googleapis.com/v1/{+resource}:getIamPolicy",
+       :uri-template-args {"resource" resource},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+
+(defn projects-locations-migrationJobs-objects-testIamPermissions
+  "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
+https://cloud.google.com/database-migration/v1/reference/rest/v1/projects/locations/migrationJobs/objects/testIamPermissions
+
+resource <> 
+TestIamPermissionsRequest:
+TestIamPermissionsRequest"
+  [resource TestIamPermissionsRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://datamigration.googleapis.com/v1/{+resource}:testIamPermissions",
+     :uri-template-args {"resource" resource},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body TestIamPermissionsRequest}))
 
 (defn projects-locations-connectionProfiles-list
   "Retrieves a list of all connection profiles in a given project and location.
@@ -430,7 +485,7 @@ filter <string> A filter expression that filters connection profiles listed in t
 orderBy <string> A comma-separated list of fields to order results according to."
   ([parent] (projects-locations-connectionProfiles-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datamigration.googleapis.com/v1/{+parent}/connectionProfiles",
@@ -444,7 +499,7 @@ https://cloud.google.com/database-migration/v1/reference/rest/v1/projects/locati
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://datamigration.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -470,7 +525,7 @@ skipValidation <boolean> Optional. Create the connection profile without validat
       ConnectionProfile
       nil))
   ([parent ConnectionProfile optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://datamigration.googleapis.com/v1/{+parent}/connectionProfiles",
@@ -498,7 +553,7 @@ skipValidation <boolean> Optional. Update the connection profile without validat
       ConnectionProfile
       nil))
   ([name ConnectionProfile optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://datamigration.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -517,7 +572,7 @@ requestId <string> A unique ID used to identify the request. If the server recei
 force <boolean> In case of force delete, the CloudSQL replica database is also deleted (only for CloudSQL connection profile)."
   ([name] (projects-locations-connectionProfiles-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://datamigration.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -532,7 +587,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datamigration.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -552,7 +607,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-connectionProfiles-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datamigration.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -568,7 +623,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datamigration.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -595,7 +650,7 @@ skipValidation <boolean> Optional. If set to true, will skip validations."
       PrivateConnection
       nil))
   ([parent PrivateConnection optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://datamigration.googleapis.com/v1/{+parent}/privateConnections",
@@ -610,7 +665,7 @@ https://cloud.google.com/database-migration/v1/reference/rest/v1/projects/locati
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://datamigration.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -629,7 +684,7 @@ filter <string> A filter expression that filters private connections listed in t
 orderBy <string> Order by fields for the result."
   ([parent] (projects-locations-privateConnections-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datamigration.googleapis.com/v1/{+parent}/privateConnections",
@@ -647,7 +702,7 @@ optional:
 requestId <string> Optional. A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters."
   ([name] (projects-locations-privateConnections-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://datamigration.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -662,7 +717,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datamigration.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -682,7 +737,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-privateConnections-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datamigration.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -698,7 +753,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datamigration.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -718,7 +773,7 @@ pageSize <integer> The maximum number of conversion workspaces to return. The se
 filter <string> A filter expression that filters conversion workspaces listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <. For example, list conversion workspaces created this year by specifying **createTime %gt; 2020-01-01T00:00:00.000000000Z.** You can also filter nested fields. For example, you could specify **source.version = \"12.c.1\"** to select all conversion workspaces with source database version equal to 12.c.1."
   ([parent] (projects-locations-conversionWorkspaces-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datamigration.googleapis.com/v1/{+parent}/conversionWorkspaces",
@@ -734,7 +789,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datamigration.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -761,7 +816,7 @@ view <string> Optional. Results view based on AIP-157"
       conversionWorkspace
       nil))
   ([conversionWorkspace optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datamigration.googleapis.com/v1/{+conversionWorkspace}:describeDatabaseEntities",
@@ -780,7 +835,7 @@ requestId <string> A unique ID used to identify the request. If the server recei
 force <boolean> Force delete the conversion workspace, even if there's a running migration that is using the workspace."
   ([name] (projects-locations-conversionWorkspaces-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://datamigration.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -795,7 +850,7 @@ name <>
 ConvertConversionWorkspaceRequest:
 ConvertConversionWorkspaceRequest"
   [name ConvertConversionWorkspaceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datamigration.googleapis.com/v1/{+name}:convert",
@@ -812,7 +867,7 @@ name <>
 ApplyConversionWorkspaceRequest:
 ApplyConversionWorkspaceRequest"
   [name ApplyConversionWorkspaceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datamigration.googleapis.com/v1/{+name}:apply",
@@ -829,7 +884,7 @@ name <>
 CommitConversionWorkspaceRequest:
 CommitConversionWorkspaceRequest"
   [name CommitConversionWorkspaceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datamigration.googleapis.com/v1/{+name}:commit",
@@ -846,7 +901,7 @@ name <>
 SeedConversionWorkspaceRequest:
 SeedConversionWorkspaceRequest"
   [name SeedConversionWorkspaceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datamigration.googleapis.com/v1/{+name}:seed",
@@ -872,7 +927,7 @@ requestId <string> A unique ID used to identify the request. If the server recei
       ConversionWorkspace
       nil))
   ([name ConversionWorkspace optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://datamigration.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -895,7 +950,7 @@ completedUntilTime <string> Optional. If provided, only returns jobs that comple
       conversionWorkspace
       nil))
   ([conversionWorkspace optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datamigration.googleapis.com/v1/{+conversionWorkspace}:searchBackgroundJobs",
@@ -916,7 +971,7 @@ commitId <string> Optional. Optional filter to request a specific commit ID."
       conversionWorkspace
       nil))
   ([conversionWorkspace optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datamigration.googleapis.com/v1/{+conversionWorkspace}:describeConversionWorkspaceRevisions",
@@ -937,7 +992,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datamigration.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -962,7 +1017,7 @@ requestId <string> A unique ID used to identify the request. If the server recei
       ConversionWorkspace
       nil))
   ([parent ConversionWorkspace optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://datamigration.googleapis.com/v1/{+parent}/conversionWorkspaces",
@@ -979,7 +1034,7 @@ name <>
 RollbackConversionWorkspaceRequest:
 RollbackConversionWorkspaceRequest"
   [name RollbackConversionWorkspaceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datamigration.googleapis.com/v1/{+name}:rollback",
@@ -994,7 +1049,7 @@ https://cloud.google.com/database-migration/v1/reference/rest/v1/projects/locati
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://datamigration.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1009,7 +1064,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datamigration.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -1035,7 +1090,7 @@ requestId <string> A unique ID used to identify the request. If the server recei
       MappingRule
       nil))
   ([parent MappingRule optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://datamigration.googleapis.com/v1/{+parent}/mappingRules",
@@ -1057,7 +1112,7 @@ requestId <string> Optional. A unique ID used to identify the request. If the se
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://datamigration.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1077,7 +1132,7 @@ pageSize <integer> The maximum number of rules to return. The service may return
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datamigration.googleapis.com/v1/{+parent}/mappingRules",
@@ -1091,7 +1146,7 @@ https://cloud.google.com/database-migration/v1/reference/rest/v1/projects/locati
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://datamigration.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1106,7 +1161,7 @@ parent <>
 ImportMappingRulesRequest:
 ImportMappingRulesRequest"
   [parent ImportMappingRulesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datamigration.googleapis.com/v1/{+parent}/mappingRules:import",

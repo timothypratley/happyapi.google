@@ -10,7 +10,7 @@ https://developers.google.com/ad-experience-report/v1/reference/rest/v1/sites/ge
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://adexperiencereport.googleapis.com/v1/{+name}",
@@ -22,7 +22,7 @@ name <> "
   "Lists sites that are failing in the Ad Experience Report on at least one platform.
 https://developers.google.com/ad-experience-report/v1/reference/rest/v1/violatingSites/list"
   []
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://adexperiencereport.googleapis.com/v1/violatingSites",

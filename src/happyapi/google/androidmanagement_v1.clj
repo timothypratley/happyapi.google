@@ -14,7 +14,7 @@ callbackUrl <string> The callback URL that the admin will be redirected to after
 adminEmail <string> Optional. Email address used to prefill the admin field of the enterprise signup form. This value is a hint only and can be altered by the user."
   ([] (signupUrls-create nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://androidmanagement.googleapis.com/v1/signupUrls",
@@ -36,7 +36,7 @@ enterpriseToken <string> The enterprise token appended to the callback URL. Set 
 agreementAccepted <boolean> Whether the enterprise admin has seen and agreed to the managed Google Play Agreement (https://www.android.com/enterprise/terms/). Do not set this field for any customer-managed enterprise (https://developers.google.com/android/management/create-enterprise#customer-managed_enterprises). Set this to field to true for all EMM-managed enterprises (https://developers.google.com/android/management/create-enterprise#emm-managed_enterprises)."
   ([Enterprise] (enterprises-create Enterprise nil))
   ([Enterprise optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://androidmanagement.googleapis.com/v1/enterprises",
@@ -51,7 +51,7 @@ https://developers.google.com/android/management/v1/reference/rest/v1/enterprise
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://androidmanagement.googleapis.com/v1/{+name}",
@@ -65,7 +65,7 @@ https://developers.google.com/android/management/v1/reference/rest/v1/enterprise
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidmanagement.googleapis.com/v1/{+name}",
@@ -85,7 +85,7 @@ optional:
 updateMask <string> The field mask indicating the fields to update. If not set, all modifiable fields will be modified."
   ([name Enterprise] (enterprises-patch name Enterprise nil))
   ([name Enterprise optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://androidmanagement.googleapis.com/v1/{+name}",
@@ -104,7 +104,7 @@ pageSize <integer> The requested page size. The actual page size may be fixed to
 view <string> Specifies which Enterprise fields to return. This method only supports BASIC."
   ([] (enterprises-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://androidmanagement.googleapis.com/v1/enterprises",
@@ -113,14 +113,14 @@ view <string> Specifies which Enterprise fields to return. This method only supp
        :scopes ["https://www.googleapis.com/auth/androidmanagement"]})))
 
 (defn enterprises-enrollmentTokens-create
-  "Creates an enrollment token for a given enterprise. It's up to the caller's responsibility to manage the lifecycle of newly created tokens and deleting them when they're not intended to be used anymore. Once an enrollment token has been created, it's not possible to retrieve the token's content anymore using AM API. It is recommended for EMMs to securely store the token if it's intended to be reused.
+  "Creates an enrollment token for a given enterprise. It's up to the caller's responsibility to manage the lifecycle of newly created tokens and deleting them when they're not intended to be used anymore.
 https://developers.google.com/android/management/v1/reference/rest/v1/enterprises/enrollmentTokens/create
 
 parent <> 
 EnrollmentToken:
 EnrollmentToken"
   [parent EnrollmentToken]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidmanagement.googleapis.com/v1/{+parent}/enrollmentTokens",
@@ -135,7 +135,7 @@ https://developers.google.com/android/management/v1/reference/rest/v1/enterprise
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://androidmanagement.googleapis.com/v1/{+name}",
@@ -149,7 +149,7 @@ https://developers.google.com/android/management/v1/reference/rest/v1/enterprise
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidmanagement.googleapis.com/v1/{+name}",
@@ -167,7 +167,7 @@ optional:
 pageSize <integer> The requested page size. The service may return fewer than this value. If unspecified, at most 10 items will be returned. The maximum value is 100; values above 100 will be coerced to 100."
   ([parent] (enterprises-enrollmentTokens-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://androidmanagement.googleapis.com/v1/{+parent}/enrollmentTokens",
@@ -183,7 +183,7 @@ parent <>
 WebToken:
 WebToken"
   [parent WebToken]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidmanagement.googleapis.com/v1/{+parent}/webTokens",
@@ -198,7 +198,7 @@ https://developers.google.com/android/management/v1/reference/rest/v1/enterprise
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidmanagement.googleapis.com/v1/{+name}",
@@ -216,7 +216,7 @@ optional:
 pageSize <integer> The requested page size. The actual page size may be fixed to a min or max value."
   ([parent] (enterprises-devices-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://androidmanagement.googleapis.com/v1/{+parent}/devices",
@@ -236,7 +236,7 @@ optional:
 updateMask <string> The field mask indicating the fields to update. If not set, all modifiable fields will be modified."
   ([name Device] (enterprises-devices-patch name Device nil))
   ([name Device optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://androidmanagement.googleapis.com/v1/{+name}",
@@ -256,7 +256,7 @@ wipeDataFlags <string> Optional flags that control the device wiping behavior.
 wipeReasonMessage <string> Optional. A short message displayed to the user before wiping the work profile on personal devices. This has no effect on company owned devices. The maximum message length is 200 characters."
   ([name] (enterprises-devices-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://androidmanagement.googleapis.com/v1/{+name}",
@@ -272,7 +272,7 @@ name <>
 Command:
 Command"
   [name Command]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidmanagement.googleapis.com/v1/{+name}:issueCommand",
@@ -292,7 +292,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (enterprises-devices-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://androidmanagement.googleapis.com/v1/{+name}",
@@ -306,7 +306,7 @@ https://developers.google.com/android/management/v1/reference/rest/v1/enterprise
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidmanagement.googleapis.com/v1/{+name}",
@@ -320,7 +320,7 @@ https://developers.google.com/android/management/v1/reference/rest/v1/enterprise
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidmanagement.googleapis.com/v1/{+name}:cancel",
@@ -334,7 +334,7 @@ https://developers.google.com/android/management/v1/reference/rest/v1/enterprise
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidmanagement.googleapis.com/v1/{+name}",
@@ -352,7 +352,7 @@ optional:
 pageSize <integer> The requested page size. The actual page size may be fixed to a min or max value."
   ([parent] (enterprises-policies-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://androidmanagement.googleapis.com/v1/{+parent}/policies",
@@ -372,7 +372,7 @@ optional:
 updateMask <string> The field mask indicating the fields to update. If not set, all modifiable fields will be modified."
   ([name Policy] (enterprises-policies-patch name Policy nil))
   ([name Policy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://androidmanagement.googleapis.com/v1/{+name}",
@@ -387,7 +387,7 @@ https://developers.google.com/android/management/v1/reference/rest/v1/enterprise
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://androidmanagement.googleapis.com/v1/{+name}",
@@ -405,7 +405,7 @@ optional:
 languageCode <string> The preferred language for localized application info, as a BCP47 tag (e.g. \"en-US\", \"de\"). If not specified the default language of the application will be used."
   ([name] (enterprises-applications-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://androidmanagement.googleapis.com/v1/{+name}",
@@ -421,7 +421,7 @@ parent <>
 WebApp:
 WebApp"
   [parent WebApp]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidmanagement.googleapis.com/v1/{+parent}/webApps",
@@ -436,7 +436,7 @@ https://developers.google.com/android/management/v1/reference/rest/v1/enterprise
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidmanagement.googleapis.com/v1/{+name}",
@@ -454,7 +454,7 @@ optional:
 pageSize <integer> The requested page size. This is a hint and the actual page size in the response may be different."
   ([parent] (enterprises-webApps-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://androidmanagement.googleapis.com/v1/{+parent}/webApps",
@@ -474,7 +474,7 @@ optional:
 updateMask <string> The field mask indicating the fields to update. If not set, all modifiable fields will be modified."
   ([name WebApp] (enterprises-webApps-patch name WebApp nil))
   ([name WebApp optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://androidmanagement.googleapis.com/v1/{+name}",
@@ -489,7 +489,7 @@ https://developers.google.com/android/management/v1/reference/rest/v1/enterprise
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://androidmanagement.googleapis.com/v1/{+name}",
@@ -505,7 +505,7 @@ parent <>
 MigrationToken:
 MigrationToken"
   [parent MigrationToken]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidmanagement.googleapis.com/v1/{+parent}/migrationTokens",
@@ -520,7 +520,7 @@ https://developers.google.com/android/management/v1/reference/rest/v1/enterprise
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidmanagement.googleapis.com/v1/{+name}",
@@ -538,7 +538,7 @@ optional:
 pageSize <integer> The maximum number of migration tokens to return. Fewer migration tokens may be returned. If unspecified, at most 100 migration tokens will be returned. The maximum value is 100; values above 100 will be coerced to 100."
   ([parent] (enterprises-migrationTokens-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://androidmanagement.googleapis.com/v1/{+parent}/migrationTokens",
@@ -552,7 +552,7 @@ https://developers.google.com/android/management/v1/reference/rest/v1/provisioni
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidmanagement.googleapis.com/v1/{+name}",

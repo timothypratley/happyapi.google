@@ -10,7 +10,7 @@ https://cloud.google.com/sovereign-controls-by-partners/docs/sovereign-partners/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://cloudcontrolspartner.googleapis.com/v1/{+name}",
@@ -24,7 +24,7 @@ https://cloud.google.com/sovereign-controls-by-partners/docs/sovereign-partners/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://cloudcontrolspartner.googleapis.com/v1/{+name}",
@@ -44,7 +44,7 @@ filter <string> Optional. Filtering results
 orderBy <string> Optional. Hint for how to order the results"
   ([parent] (organizations-locations-customers-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudcontrolspartner.googleapis.com/v1/{+parent}/customers",
@@ -58,7 +58,7 @@ https://cloud.google.com/sovereign-controls-by-partners/docs/sovereign-partners/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://cloudcontrolspartner.googleapis.com/v1/{+name}",
@@ -79,7 +79,7 @@ orderBy <string> Optional. Hint for how to order the results."
   ([parent]
     (organizations-locations-customers-workloads-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudcontrolspartner.googleapis.com/v1/{+parent}/workloads",
@@ -93,7 +93,7 @@ https://cloud.google.com/sovereign-controls-by-partners/docs/sovereign-partners/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://cloudcontrolspartner.googleapis.com/v1/{+name}",
@@ -107,7 +107,7 @@ https://cloud.google.com/sovereign-controls-by-partners/docs/sovereign-partners/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://cloudcontrolspartner.googleapis.com/v1/{+name}",
@@ -130,7 +130,7 @@ orderBy <string> Optional. Hint for how to order the results."
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudcontrolspartner.googleapis.com/v1/{+parent}/accessApprovalRequests",
@@ -155,7 +155,7 @@ interval.endTime <string> Optional. Exclusive end of the interval. If specified,
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudcontrolspartner.googleapis.com/v1/{+parent}/violations",
@@ -169,7 +169,7 @@ https://cloud.google.com/sovereign-controls-by-partners/docs/sovereign-partners/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://cloudcontrolspartner.googleapis.com/v1/{+name}",

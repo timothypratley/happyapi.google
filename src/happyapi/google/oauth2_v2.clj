@@ -8,7 +8,7 @@ See: https://developers.google.com/identity/protocols/oauth2/"
   "
 https://developers.google.com/identity/protocols/oauth2/v2/reference/rest/v2/userinfo/get"
   []
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://www.googleapis.com/oauth2/v2/userinfo",
      :uri-template-args {},
@@ -22,7 +22,7 @@ https://developers.google.com/identity/protocols/oauth2/v2/reference/rest/v2/use
   "
 https://developers.google.com/identity/protocols/oauth2/v2/reference/rest/v2/userinfo/v2/me/get"
   []
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://www.googleapis.com/userinfo/v2/me",
      :uri-template-args {},

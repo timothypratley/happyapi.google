@@ -10,7 +10,7 @@ https://developers.google.com/authorized-buyers/apis/marketplace/reference/rest/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://authorizedbuyersmarketplace.googleapis.com/v1/{+name}",
@@ -31,7 +31,7 @@ filter <string> Optional. Optional query string using the [Cloud API list filter
 orderBy <string> Optional. An optional query string to sort auction packages using the [Cloud API sorting syntax](https://cloud.google.com/apis/design/design_patterns#sorting_order). If no sort order is specified, results will be returned in an arbitrary order. Only supported when parent is bidder. Supported columns for sorting are: * displayName * createTime * updateTime"
   ([parent] (buyers-auctionPackages-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://authorizedbuyersmarketplace.googleapis.com/v1/{+parent}/auctionPackages",
@@ -48,7 +48,7 @@ name <>
 SubscribeAuctionPackageRequest:
 SubscribeAuctionPackageRequest"
   [name SubscribeAuctionPackageRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://authorizedbuyersmarketplace.googleapis.com/v1/{+name}:subscribe",
@@ -66,7 +66,7 @@ name <>
 UnsubscribeAuctionPackageRequest:
 UnsubscribeAuctionPackageRequest"
   [name UnsubscribeAuctionPackageRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://authorizedbuyersmarketplace.googleapis.com/v1/{+name}:unsubscribe",
@@ -84,7 +84,7 @@ auctionPackage <>
 SubscribeClientsRequest:
 SubscribeClientsRequest"
   [auctionPackage SubscribeClientsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://authorizedbuyersmarketplace.googleapis.com/v1/{+auctionPackage}:subscribeClients",
@@ -102,7 +102,7 @@ auctionPackage <>
 UnsubscribeClientsRequest:
 UnsubscribeClientsRequest"
   [auctionPackage UnsubscribeClientsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://authorizedbuyersmarketplace.googleapis.com/v1/{+auctionPackage}:unsubscribeClients",
@@ -118,7 +118,7 @@ https://developers.google.com/authorized-buyers/apis/marketplace/reference/rest/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://authorizedbuyersmarketplace.googleapis.com/v1/{+name}",
@@ -138,7 +138,7 @@ pageSize <integer> Requested page size. If left blank, a default page size of 50
 filter <string> Query string using the [Filtering Syntax](https://developers.google.com/authorized-buyers/apis/guides/list-filters) Supported fields for filtering are: * partnerClientId Use this field to filter the clients by the partnerClientId. For example, if the partnerClientId of the client is \"1234\", the value of this field should be `partnerClientId = \"1234\"`, in order to get only the client whose partnerClientId is \"1234\" in the response."
   ([parent] (buyers-clients-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://authorizedbuyersmarketplace.googleapis.com/v1/{+parent}/clients",
@@ -155,7 +155,7 @@ parent <>
 Client:
 Client"
   [parent Client]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://authorizedbuyersmarketplace.googleapis.com/v1/{+parent}/clients",
@@ -177,7 +177,7 @@ optional:
 updateMask <string> List of fields to be updated. If empty or unspecified, the service will update all fields populated in the update request excluding the output only fields and primitive fields with default value. Note that explicit field mask is required in order to reset a primitive field back to its default value, for example, false for boolean fields, 0 for integer fields. A special field mask consisting of a single path \"*\" can be used to indicate full replacement(the equivalent of PUT method), updatable fields unset or unspecified in the input will be cleared or set to default value. Output only fields will be ignored regardless of the value of updateMask."
   ([name Client] (buyers-clients-patch name Client nil))
   ([name Client optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://authorizedbuyersmarketplace.googleapis.com/v1/{+name}",
@@ -195,7 +195,7 @@ name <>
 ActivateClientRequest:
 ActivateClientRequest"
   [name ActivateClientRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://authorizedbuyersmarketplace.googleapis.com/v1/{+name}:activate",
@@ -213,7 +213,7 @@ name <>
 DeactivateClientRequest:
 DeactivateClientRequest"
   [name DeactivateClientRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://authorizedbuyersmarketplace.googleapis.com/v1/{+name}:deactivate",
@@ -229,7 +229,7 @@ https://developers.google.com/authorized-buyers/apis/marketplace/reference/rest/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://authorizedbuyersmarketplace.googleapis.com/v1/{+name}",
@@ -248,7 +248,7 @@ optional:
 pageSize <integer> Requested page size. If left blank, a default page size of 500 will be applied."
   ([parent] (buyers-clients-users-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://authorizedbuyersmarketplace.googleapis.com/v1/{+parent}/users",
@@ -265,7 +265,7 @@ parent <>
 ClientUser:
 ClientUser"
   [parent ClientUser]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://authorizedbuyersmarketplace.googleapis.com/v1/{+parent}/users",
@@ -281,7 +281,7 @@ https://developers.google.com/authorized-buyers/apis/marketplace/reference/rest/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://authorizedbuyersmarketplace.googleapis.com/v1/{+name}",
@@ -298,7 +298,7 @@ name <>
 ActivateClientUserRequest:
 ActivateClientUserRequest"
   [name ActivateClientUserRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://authorizedbuyersmarketplace.googleapis.com/v1/{+name}:activate",
@@ -316,7 +316,7 @@ name <>
 DeactivateClientUserRequest:
 DeactivateClientUserRequest"
   [name DeactivateClientUserRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://authorizedbuyersmarketplace.googleapis.com/v1/{+name}:deactivate",
@@ -332,7 +332,7 @@ https://developers.google.com/authorized-buyers/apis/marketplace/reference/rest/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://authorizedbuyersmarketplace.googleapis.com/v1/{+name}",
@@ -353,7 +353,7 @@ orderBy <string> An optional query string to sort finalized deals using the [Clo
 pageSize <integer> Requested page size. The server may return fewer results than requested. If requested more than 500, the server will return 500 results per page. If unspecified, the server will pick a default page size of 100."
   ([parent] (buyers-finalizedDeals-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://authorizedbuyersmarketplace.googleapis.com/v1/{+parent}/finalizedDeals",
@@ -370,7 +370,7 @@ name <>
 PauseFinalizedDealRequest:
 PauseFinalizedDealRequest"
   [name PauseFinalizedDealRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://authorizedbuyersmarketplace.googleapis.com/v1/{+name}:pause",
@@ -388,7 +388,7 @@ name <>
 ResumeFinalizedDealRequest:
 ResumeFinalizedDealRequest"
   [name ResumeFinalizedDealRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://authorizedbuyersmarketplace.googleapis.com/v1/{+name}:resume",
@@ -406,7 +406,7 @@ deal <>
 AddCreativeRequest:
 AddCreativeRequest"
   [deal AddCreativeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://authorizedbuyersmarketplace.googleapis.com/v1/{+deal}:addCreative",
@@ -424,7 +424,7 @@ deal <>
 SetReadyToServeRequest:
 SetReadyToServeRequest"
   [deal SetReadyToServeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://authorizedbuyersmarketplace.googleapis.com/v1/{+deal}:setReadyToServe",
@@ -440,7 +440,7 @@ https://developers.google.com/authorized-buyers/apis/marketplace/reference/rest/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://authorizedbuyersmarketplace.googleapis.com/v1/{+name}",
@@ -461,7 +461,7 @@ optional:
 updateMask <string> List of fields to be updated. If empty or unspecified, the service will update all fields populated in the update request excluding the output only fields and primitive fields with default value. Note that explicit field mask is required in order to reset a primitive field back to its default value, for example, false for boolean fields, 0 for integer fields. A special field mask consisting of a single path \"*\" can be used to indicate full replacement(the equivalent of PUT method), updatable fields unset or unspecified in the input will be cleared or set to default value. Output only fields will be ignored regardless of the value of updateMask."
   ([name Proposal] (buyers-proposals-patch name Proposal nil))
   ([name Proposal optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://authorizedbuyersmarketplace.googleapis.com/v1/{+name}",
@@ -482,7 +482,7 @@ filter <string> Optional query string using the [Cloud API list filtering syntax
 pageSize <integer> Requested page size. The server may return fewer results than requested. If unspecified, the server will put a size of 500."
   ([parent] (buyers-proposals-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://authorizedbuyersmarketplace.googleapis.com/v1/{+parent}/proposals",
@@ -499,7 +499,7 @@ proposal <>
 CancelNegotiationRequest:
 CancelNegotiationRequest"
   [proposal CancelNegotiationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://authorizedbuyersmarketplace.googleapis.com/v1/{+proposal}:cancelNegotiation",
@@ -517,7 +517,7 @@ name <>
 AcceptProposalRequest:
 AcceptProposalRequest"
   [name AcceptProposalRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://authorizedbuyersmarketplace.googleapis.com/v1/{+name}:accept",
@@ -535,7 +535,7 @@ proposal <>
 AddNoteRequest:
 AddNoteRequest"
   [proposal AddNoteRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://authorizedbuyersmarketplace.googleapis.com/v1/{+proposal}:addNote",
@@ -553,7 +553,7 @@ buyer <>
 SendRfpRequest:
 SendRfpRequest"
   [buyer SendRfpRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://authorizedbuyersmarketplace.googleapis.com/v1/{+buyer}/proposals:sendRfp",
@@ -569,7 +569,7 @@ https://developers.google.com/authorized-buyers/apis/marketplace/reference/rest/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://authorizedbuyersmarketplace.googleapis.com/v1/{+name}",
@@ -590,7 +590,7 @@ optional:
 updateMask <string> List of fields to be updated. If empty or unspecified, the service will update all fields populated in the update request excluding the output only fields and primitive fields with default value. Note that explicit field mask is required in order to reset a primitive field back to its default value, for example, false for boolean fields, 0 for integer fields. A special field mask consisting of a single path \"*\" can be used to indicate full replacement(the equivalent of PUT method), updatable fields unset or unspecified in the input will be cleared or set to default value. Output only fields will be ignored regardless of the value of updateMask."
   ([name Deal] (buyers-proposals-deals-patch name Deal nil))
   ([name Deal optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://authorizedbuyersmarketplace.googleapis.com/v1/{+name}",
@@ -608,7 +608,7 @@ parent <>
 BatchUpdateDealsRequest:
 BatchUpdateDealsRequest"
   [parent BatchUpdateDealsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://authorizedbuyersmarketplace.googleapis.com/v1/{+parent}/deals:batchUpdate",
@@ -628,7 +628,7 @@ optional:
 pageSize <integer> Requested page size. The server may return fewer results than requested. If requested more than 500, the server will return 500 results per page. If unspecified, the server will pick a default page size of 100."
   ([parent] (buyers-proposals-deals-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://authorizedbuyersmarketplace.googleapis.com/v1/{+parent}/deals",
@@ -643,7 +643,7 @@ https://developers.google.com/authorized-buyers/apis/marketplace/reference/rest/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://authorizedbuyersmarketplace.googleapis.com/v1/{+name}",
@@ -663,7 +663,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
 filter <string> Optional query string using the [Cloud API list filtering] (https://developers.google.com/authorized-buyers/apis/guides/list-filters) syntax."
   ([parent] (buyers-publisherProfiles-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://authorizedbuyersmarketplace.googleapis.com/v1/{+parent}/publisherProfiles",
@@ -684,7 +684,7 @@ filter <string> Optional. Optional query string using the [Cloud API list filter
 orderBy <string> Optional. An optional query string to sort auction packages using the [Cloud API sorting syntax](https://cloud.google.com/apis/design/design_patterns#sorting_order). If no sort order is specified, results will be returned in an arbitrary order. Only supported when parent is bidder. Supported columns for sorting are: * displayName * createTime * updateTime"
   ([parent] (bidders-auctionPackages-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://authorizedbuyersmarketplace.googleapis.com/v1/{+parent}/auctionPackages",
@@ -705,7 +705,7 @@ orderBy <string> An optional query string to sort finalized deals using the [Clo
 pageSize <integer> Requested page size. The server may return fewer results than requested. If requested more than 500, the server will return 500 results per page. If unspecified, the server will pick a default page size of 100."
   ([parent] (bidders-finalizedDeals-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://authorizedbuyersmarketplace.googleapis.com/v1/{+parent}/finalizedDeals",

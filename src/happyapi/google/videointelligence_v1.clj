@@ -15,7 +15,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://videointelligence.googleapis.com/v1/{+name}/operations",
@@ -29,7 +29,7 @@ https://cloud.google.com/video-intelligence/docs/v1/reference/rest/v1/projects/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://videointelligence.googleapis.com/v1/{+name}",
@@ -43,7 +43,7 @@ https://cloud.google.com/video-intelligence/docs/v1/reference/rest/v1/projects/l
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://videointelligence.googleapis.com/v1/{+name}",
@@ -59,7 +59,7 @@ name <>
 GoogleLongrunning_CancelOperationRequest:
 GoogleLongrunning_CancelOperationRequest"
   [name GoogleLongrunning_CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://videointelligence.googleapis.com/v1/{+name}:cancel",
@@ -74,7 +74,7 @@ https://cloud.google.com/video-intelligence/docs/v1/reference/rest/v1/operations
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://videointelligence.googleapis.com/v1/operations/{+name}",
@@ -88,7 +88,7 @@ https://cloud.google.com/video-intelligence/docs/v1/reference/rest/v1/operations
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://videointelligence.googleapis.com/v1/operations/{+name}",
@@ -102,7 +102,7 @@ https://cloud.google.com/video-intelligence/docs/v1/reference/rest/v1/operations
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://videointelligence.googleapis.com/v1/operations/{+name}:cancel",
@@ -117,7 +117,7 @@ https://cloud.google.com/video-intelligence/docs/v1/reference/rest/v1/videos/ann
 GoogleCloudVideointelligenceV1_AnnotateVideoRequest:
 GoogleCloudVideointelligenceV1_AnnotateVideoRequest"
   [GoogleCloudVideointelligenceV1_AnnotateVideoRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://videointelligence.googleapis.com/v1/videos:annotate",

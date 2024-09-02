@@ -10,7 +10,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/getPro
 
 userId <> "
   [userId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/profile",
@@ -31,7 +31,7 @@ userId <>
 WatchRequest:
 WatchRequest"
   [userId WatchRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/watch",
@@ -50,7 +50,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/stop
 
 userId <> "
   [userId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/stop",
@@ -69,7 +69,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/drafts
 userId <> 
 id <> "
   [userId id]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/drafts/{id}",
@@ -89,7 +89,7 @@ userId <>
 Draft:
 Draft"
   [userId Draft]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/drafts",
@@ -113,7 +113,7 @@ optional:
 format <string> The format to return the draft in."
   ([userId id] (users-drafts-get userId id nil))
   ([userId id optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gmail.googleapis.com/gmail/v1/users/{userId}/drafts/{id}",
@@ -137,7 +137,7 @@ q <string> Only return draft messages matching the specified query. Supports the
 includeSpamTrash <boolean> Include drafts from `SPAM` and `TRASH` in the results."
   ([userId] (users-drafts-list userId nil))
   ([userId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gmail.googleapis.com/gmail/v1/users/{userId}/drafts",
@@ -157,7 +157,7 @@ userId <>
 Draft:
 Draft"
   [userId Draft]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/drafts/send",
@@ -179,7 +179,7 @@ id <>
 Draft:
 Draft"
   [userId id Draft]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/drafts/{id}",
@@ -205,7 +205,7 @@ labelId <string> Only return messages with a label matching the ID.
 historyTypes <string> History types to be returned by the function"
   ([userId] (users-history-list userId nil))
   ([userId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gmail.googleapis.com/gmail/v1/users/{userId}/history",
@@ -224,7 +224,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/messag
 userId <> 
 id <> "
   [userId id]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/messages/{id}/trash",
@@ -247,7 +247,7 @@ labelIds <string> Only return messages with labels that match all of the specifi
 includeSpamTrash <boolean> Include messages from `SPAM` and `TRASH` in the results."
   ([userId] (users-messages-list userId nil))
   ([userId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gmail.googleapis.com/gmail/v1/users/{userId}/messages",
@@ -266,7 +266,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/messag
 userId <> 
 id <> "
   [userId id]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/messages/{id}",
@@ -281,7 +281,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/messag
 userId <> 
 id <> "
   [userId id]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/messages/{id}/untrash",
@@ -299,7 +299,7 @@ userId <>
 Message:
 Message"
   [userId Message]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/messages/send",
@@ -322,7 +322,7 @@ id <>
 ModifyMessageRequest:
 ModifyMessageRequest"
   [userId id ModifyMessageRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/messages/{id}/modify",
@@ -348,7 +348,7 @@ processForCalendar <boolean> Process calendar invites in the email and add any e
 deleted <boolean> Mark the email as permanently deleted (not TRASH) and only visible in Google Vault to a Vault administrator. Only used for Google Workspace accounts."
   ([userId Message] (users-messages-import userId Message nil))
   ([userId Message optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://gmail.googleapis.com/gmail/v1/users/{userId}/messages/import",
@@ -373,7 +373,7 @@ internalDateSource <string> Source for Gmail's internal date of the message.
 deleted <boolean> Mark the email as permanently deleted (not TRASH) and only visible in Google Vault to a Vault administrator. Only used for Google Workspace accounts."
   ([userId Message] (users-messages-insert userId Message nil))
   ([userId Message optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://gmail.googleapis.com/gmail/v1/users/{userId}/messages",
@@ -393,7 +393,7 @@ userId <>
 BatchModifyMessagesRequest:
 BatchModifyMessagesRequest"
   [userId BatchModifyMessagesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/messages/batchModify",
@@ -416,7 +416,7 @@ format <string> The format to return the message in.
 metadataHeaders <string> When given and format is `METADATA`, only include headers specified."
   ([userId id] (users-messages-get userId id nil))
   ([userId id optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gmail.googleapis.com/gmail/v1/users/{userId}/messages/{id}",
@@ -439,7 +439,7 @@ userId <>
 BatchDeleteMessagesRequest:
 BatchDeleteMessagesRequest"
   [userId BatchDeleteMessagesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/messages/batchDelete",
@@ -456,7 +456,7 @@ userId <>
 messageId <> 
 id <> "
   [userId messageId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/messages/{messageId}/attachments/{id}",
@@ -478,7 +478,7 @@ userId <>
 Label:
 Label"
   [userId Label]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/labels",
@@ -497,7 +497,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/labels
 userId <> 
 id <> "
   [userId id]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/labels/{id}",
@@ -515,7 +515,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/labels
 userId <> 
 id <> "
   [userId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/labels/{id}",
@@ -534,7 +534,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/labels
 
 userId <> "
   [userId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/labels",
@@ -556,7 +556,7 @@ id <>
 Label:
 Label"
   [userId id Label]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/labels/{id}",
@@ -577,7 +577,7 @@ id <>
 Label:
 Label"
   [userId id Label]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/labels/{id}",
@@ -596,7 +596,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/thread
 userId <> 
 id <> "
   [userId id]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/threads/{id}/trash",
@@ -613,7 +613,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/thread
 userId <> 
 id <> "
   [userId id]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/threads/{id}/untrash",
@@ -630,7 +630,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/thread
 userId <> 
 id <> "
   [userId id]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/threads/{id}",
@@ -650,7 +650,7 @@ format <string> The format to return the messages in.
 metadataHeaders <string> When given and format is METADATA, only include headers specified."
   ([userId id] (users-threads-get userId id nil))
   ([userId id optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gmail.googleapis.com/gmail/v1/users/{userId}/threads/{id}",
@@ -678,7 +678,7 @@ labelIds <string> Only return threads with labels that match all of the specifie
 includeSpamTrash <boolean> Include threads from `SPAM` and `TRASH` in the results."
   ([userId] (users-threads-list userId nil))
   ([userId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gmail.googleapis.com/gmail/v1/users/{userId}/threads",
@@ -699,7 +699,7 @@ id <>
 ModifyThreadRequest:
 ModifyThreadRequest"
   [userId id ModifyThreadRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/threads/{id}/modify",
@@ -716,7 +716,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/settin
 
 userId <> "
   [userId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/language",
@@ -734,7 +734,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/settin
 
 userId <> "
   [userId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/autoForwarding",
@@ -754,7 +754,7 @@ userId <>
 VacationSettings:
 VacationSettings"
   [userId VacationSettings]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/vacation",
@@ -771,7 +771,7 @@ userId <>
 LanguageSettings:
 LanguageSettings"
   [userId LanguageSettings]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/language",
@@ -788,7 +788,7 @@ userId <>
 PopSettings:
 PopSettings"
   [userId PopSettings]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/pop",
@@ -805,7 +805,7 @@ userId <>
 ImapSettings:
 ImapSettings"
   [userId ImapSettings]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/imap",
@@ -820,7 +820,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/settin
 
 userId <> "
   [userId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/vacation",
@@ -838,7 +838,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/settin
 
 userId <> "
   [userId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/pop",
@@ -856,7 +856,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/settin
 
 userId <> "
   [userId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/imap",
@@ -876,7 +876,7 @@ userId <>
 AutoForwarding:
 AutoForwarding"
   [userId AutoForwarding]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/autoForwarding",
@@ -892,7 +892,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/settin
 
 userId <> "
   [userId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/sendAs",
@@ -911,7 +911,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/settin
 userId <> 
 sendAsEmail <> "
   [userId sendAsEmail]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}",
@@ -931,7 +931,7 @@ userId <>
 SendAs:
 SendAs"
   [userId SendAs]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/sendAs",
@@ -950,7 +950,7 @@ sendAsEmail <>
 SendAs:
 SendAs"
   [userId sendAsEmail SendAs]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}",
@@ -970,7 +970,7 @@ sendAsEmail <>
 SendAs:
 SendAs"
   [userId sendAsEmail SendAs]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}",
@@ -988,7 +988,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/settin
 userId <> 
 sendAsEmail <> "
   [userId sendAsEmail]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}",
@@ -1004,7 +1004,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/settin
 userId <> 
 sendAsEmail <> "
   [userId sendAsEmail]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/verify",
@@ -1020,7 +1020,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/settin
 userId <> 
 sendAsEmail <> "
   [userId sendAsEmail]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo",
@@ -1041,7 +1041,7 @@ userId <>
 sendAsEmail <> 
 id <> "
   [userId sendAsEmail id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo/{id}",
@@ -1064,7 +1064,7 @@ sendAsEmail <>
 SmimeInfo:
 SmimeInfo"
   [userId sendAsEmail SmimeInfo]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo",
@@ -1083,7 +1083,7 @@ userId <>
 sendAsEmail <> 
 id <> "
   [userId sendAsEmail id]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo/{id}",
@@ -1102,7 +1102,7 @@ userId <>
 sendAsEmail <> 
 id <> "
   [userId sendAsEmail id]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/sendAs/{sendAsEmail}/smimeInfo/{id}/setDefault",
@@ -1121,7 +1121,7 @@ userId <>
 CseIdentity:
 CseIdentity"
   [userId CseIdentity]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/cse/identities",
@@ -1139,7 +1139,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/settin
 userId <> 
 cseEmailAddress <> "
   [userId cseEmailAddress]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/cse/identities/{cseEmailAddress}",
@@ -1157,7 +1157,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/settin
 userId <> 
 cseEmailAddress <> "
   [userId cseEmailAddress]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/cse/identities/{cseEmailAddress}",
@@ -1181,7 +1181,7 @@ optional:
 pageSize <integer> The number of identities to return. If not provided, the page size will default to 20 entries."
   ([userId] (users-settings-cse-identities-list userId nil))
   ([userId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/cse/identities",
@@ -1203,7 +1203,7 @@ emailAddress <>
 CseIdentity:
 CseIdentity"
   [userId emailAddress CseIdentity]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/cse/identities/{emailAddress}",
@@ -1222,7 +1222,7 @@ userId <>
 CseKeyPair:
 CseKeyPair"
   [userId CseKeyPair]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/cse/keypairs",
@@ -1242,7 +1242,7 @@ keyPairId <>
 DisableCseKeyPairRequest:
 DisableCseKeyPairRequest"
   [userId keyPairId DisableCseKeyPairRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/cse/keypairs/{keyPairId}:disable",
@@ -1262,7 +1262,7 @@ keyPairId <>
 EnableCseKeyPairRequest:
 EnableCseKeyPairRequest"
   [userId keyPairId EnableCseKeyPairRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/cse/keypairs/{keyPairId}:enable",
@@ -1280,7 +1280,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/settin
 userId <> 
 keyPairId <> "
   [userId keyPairId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/cse/keypairs/{keyPairId}",
@@ -1303,7 +1303,7 @@ optional:
 pageSize <integer> The number of key pairs to return. If not provided, the page size will default to 20 entries."
   ([userId] (users-settings-cse-keypairs-list userId nil))
   ([userId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/cse/keypairs",
@@ -1325,7 +1325,7 @@ keyPairId <>
 ObliterateCseKeyPairRequest:
 ObliterateCseKeyPairRequest"
   [userId keyPairId ObliterateCseKeyPairRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/cse/keypairs/{keyPairId}:obliterate",
@@ -1342,7 +1342,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/settin
 
 userId <> "
   [userId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/filters",
@@ -1361,7 +1361,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/settin
 userId <> 
 id <> "
   [userId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/filters/{id}",
@@ -1381,7 +1381,7 @@ userId <>
 Filter:
 Filter"
   [userId Filter]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/filters",
@@ -1397,7 +1397,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/settin
 userId <> 
 id <> "
   [userId id]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/filters/{id}",
@@ -1411,7 +1411,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/settin
 
 userId <> "
   [userId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/forwardingAddresses",
@@ -1430,7 +1430,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/settin
 userId <> 
 forwardingEmail <> "
   [userId forwardingEmail]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/forwardingAddresses/{forwardingEmail}",
@@ -1451,7 +1451,7 @@ userId <>
 ForwardingAddress:
 ForwardingAddress"
   [userId ForwardingAddress]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/forwardingAddresses",
@@ -1468,7 +1468,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/settin
 userId <> 
 forwardingEmail <> "
   [userId forwardingEmail]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/forwardingAddresses/{forwardingEmail}",
@@ -1484,7 +1484,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/settin
 
 userId <> "
   [userId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/delegates",
@@ -1503,7 +1503,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/settin
 userId <> 
 delegateEmail <> "
   [userId delegateEmail]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/delegates/{delegateEmail}",
@@ -1524,7 +1524,7 @@ userId <>
 Delegate:
 Delegate"
   [userId Delegate]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/delegates",
@@ -1541,7 +1541,7 @@ https://developers.google.com/gmail/api/guides/v1/reference/rest/v1/users/settin
 userId <> 
 delegateEmail <> "
   [userId delegateEmail]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://gmail.googleapis.com/gmail/v1/users/{userId}/settings/delegates/{delegateEmail}",

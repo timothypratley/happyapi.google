@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://firestore.googleapis.com/v1/{+name}/locations",
@@ -31,7 +31,7 @@ https://cloud.google.com/firestore/v1/reference/rest/v1/projects/locations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://firestore.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -46,7 +46,7 @@ https://cloud.google.com/firestore/v1/reference/rest/v1/projects/locations/backu
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://firestore.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -61,7 +61,7 @@ https://cloud.google.com/firestore/v1/reference/rest/v1/projects/locations/backu
 
 parent <> "
   [parent]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://firestore.googleapis.com/v1/{+parent}/backups",
@@ -77,7 +77,7 @@ https://cloud.google.com/firestore/v1/reference/rest/v1/projects/locations/backu
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://firestore.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -94,7 +94,7 @@ name <>
 GoogleFirestoreAdminV1ImportDocumentsRequest:
 GoogleFirestoreAdminV1ImportDocumentsRequest"
   [name GoogleFirestoreAdminV1ImportDocumentsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firestore.googleapis.com/v1/{+name}:importDocuments",
@@ -113,7 +113,7 @@ name <>
 GoogleFirestoreAdminV1ExportDocumentsRequest:
 GoogleFirestoreAdminV1ExportDocumentsRequest"
   [name GoogleFirestoreAdminV1ExportDocumentsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firestore.googleapis.com/v1/{+name}:exportDocuments",
@@ -134,7 +134,7 @@ optional:
 showDeleted <boolean> If true, also returns deleted resources."
   ([parent] (projects-databases-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://firestore.googleapis.com/v1/{+parent}/databases",
@@ -154,7 +154,7 @@ optional:
 etag <string> The current etag of the Database. If an etag is provided and does not match the current etag of the database, deletion will be blocked and a FAILED_PRECONDITION error will be returned."
   ([name] (projects-databases-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://firestore.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -176,7 +176,7 @@ updateMask <string> The list of fields to be updated."
   ([name GoogleFirestoreAdminV1Database]
     (projects-databases-patch name GoogleFirestoreAdminV1Database nil))
   ([name GoogleFirestoreAdminV1Database optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://firestore.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -194,7 +194,7 @@ name <>
 GoogleFirestoreAdminV1BulkDeleteDocumentsRequest:
 GoogleFirestoreAdminV1BulkDeleteDocumentsRequest"
   [name GoogleFirestoreAdminV1BulkDeleteDocumentsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firestore.googleapis.com/v1/{+name}:bulkDeleteDocuments",
@@ -214,14 +214,14 @@ GoogleFirestoreAdminV1Database:
 GoogleFirestoreAdminV1Database
 
 optional:
-databaseId <string> Required. The ID to use for the database, which will become the final component of the database's resource name. This value should be 4-63 characters. Valid characters are /a-z-/ with first character a letter and the last a letter or a number. Must not be UUID-like /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/. \"(default)\" database id is also valid."
+databaseId <string> Required. The ID to use for the database, which will become the final component of the database's resource name. This value should be 4-63 characters. Valid characters are /a-z-/ with first character a letter and the last a letter or a number. Must not be UUID-like /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/. \"(default)\" database ID is also valid."
   ([parent GoogleFirestoreAdminV1Database]
     (projects-databases-create
       parent
       GoogleFirestoreAdminV1Database
       nil))
   ([parent GoogleFirestoreAdminV1Database optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://firestore.googleapis.com/v1/{+parent}/databases",
@@ -240,7 +240,7 @@ parent <>
 GoogleFirestoreAdminV1RestoreDatabaseRequest:
 GoogleFirestoreAdminV1RestoreDatabaseRequest"
   [parent GoogleFirestoreAdminV1RestoreDatabaseRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firestore.googleapis.com/v1/{+parent}/databases:restore",
@@ -257,7 +257,7 @@ https://cloud.google.com/firestore/v1/reference/rest/v1/projects/databases/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://firestore.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -277,7 +277,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-databases-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://firestore.googleapis.com/v1/{+name}/operations",
@@ -293,7 +293,7 @@ https://cloud.google.com/firestore/v1/reference/rest/v1/projects/databases/opera
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://firestore.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -308,7 +308,7 @@ https://cloud.google.com/firestore/v1/reference/rest/v1/projects/databases/opera
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://firestore.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -325,7 +325,7 @@ name <>
 GoogleLongrunningCancelOperationRequest:
 GoogleLongrunningCancelOperationRequest"
   [name GoogleLongrunningCancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firestore.googleapis.com/v1/{+name}:cancel",
@@ -344,7 +344,7 @@ parent <>
 GoogleFirestoreAdminV1Index:
 GoogleFirestoreAdminV1Index"
   [parent GoogleFirestoreAdminV1Index]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firestore.googleapis.com/v1/{+parent}/indexes",
@@ -367,7 +367,7 @@ pageSize <integer> The number of results to return."
   ([parent]
     (projects-databases-collectionGroups-indexes-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://firestore.googleapis.com/v1/{+parent}/indexes",
@@ -383,7 +383,7 @@ https://cloud.google.com/firestore/v1/reference/rest/v1/projects/databases/colle
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://firestore.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -398,7 +398,7 @@ https://cloud.google.com/firestore/v1/reference/rest/v1/projects/databases/colle
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://firestore.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -413,7 +413,7 @@ https://cloud.google.com/firestore/v1/reference/rest/v1/projects/databases/colle
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://firestore.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -438,7 +438,7 @@ updateMask <string> A mask, relative to the field. If specified, only configurat
       GoogleFirestoreAdminV1Field
       nil))
   ([name GoogleFirestoreAdminV1Field optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://firestore.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -460,7 +460,7 @@ pageSize <integer> The number of results to return."
   ([parent]
     (projects-databases-collectionGroups-fields-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://firestore.googleapis.com/v1/{+parent}/fields",
@@ -478,7 +478,7 @@ parent <>
 GoogleFirestoreAdminV1BackupSchedule:
 GoogleFirestoreAdminV1BackupSchedule"
   [parent GoogleFirestoreAdminV1BackupSchedule]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firestore.googleapis.com/v1/{+parent}/backupSchedules",
@@ -495,7 +495,7 @@ https://cloud.google.com/firestore/v1/reference/rest/v1/projects/databases/backu
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://firestore.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -510,7 +510,7 @@ https://cloud.google.com/firestore/v1/reference/rest/v1/projects/databases/backu
 
 parent <> "
   [parent]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://firestore.googleapis.com/v1/{+parent}/backupSchedules",
@@ -536,7 +536,7 @@ updateMask <string> The list of fields to be updated."
       GoogleFirestoreAdminV1BackupSchedule
       nil))
   ([name GoogleFirestoreAdminV1BackupSchedule optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://firestore.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -552,7 +552,7 @@ https://cloud.google.com/firestore/v1/reference/rest/v1/projects/databases/backu
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://firestore.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -569,7 +569,7 @@ parent <>
 ListCollectionIdsRequest:
 ListCollectionIdsRequest"
   [parent ListCollectionIdsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firestore.googleapis.com/v1/{+parent}:listCollectionIds",
@@ -588,7 +588,7 @@ parent <>
 RunAggregationQueryRequest:
 RunAggregationQueryRequest"
   [parent RunAggregationQueryRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firestore.googleapis.com/v1/{+parent}:runAggregationQuery",
@@ -616,7 +616,7 @@ readTime <string> Perform the read at the provided time. This must be a microsec
   ([parent collectionId]
     (projects-databases-documents-list parent collectionId nil))
   ([parent collectionId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://firestore.googleapis.com/v1/{+parent}/{collectionId}",
@@ -638,7 +638,7 @@ currentDocument.exists <boolean> When set to `true`, the target document must ex
 currentDocument.updateTime <string> When set, the target document must exist and have been last updated at that time. Timestamp must be microsecond aligned."
   ([name] (projects-databases-documents-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://firestore.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -666,7 +666,7 @@ mask.fieldPaths <string> The list of field paths in the mask. See Document.field
       Document
       nil))
   ([parent collectionId Document optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://firestore.googleapis.com/v1/{+parent}/{collectionId}",
@@ -686,7 +686,7 @@ database <>
 CommitRequest:
 CommitRequest"
   [database CommitRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firestore.googleapis.com/v1/{+database}/documents:commit",
@@ -705,7 +705,7 @@ database <>
 ListenRequest:
 ListenRequest"
   [database ListenRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firestore.googleapis.com/v1/{+database}/documents:listen",
@@ -724,7 +724,7 @@ database <>
 BatchWriteRequest:
 BatchWriteRequest"
   [database BatchWriteRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firestore.googleapis.com/v1/{+database}/documents:batchWrite",
@@ -751,7 +751,7 @@ currentDocument.updateTime <string> When set, the target document must exist and
   ([name Document]
     (projects-databases-documents-patch name Document nil))
   ([name Document optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://firestore.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -769,7 +769,7 @@ parent <>
 PartitionQueryRequest:
 PartitionQueryRequest"
   [parent PartitionQueryRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firestore.googleapis.com/v1/{+parent}:partitionQuery",
@@ -800,7 +800,7 @@ readTime <string> Perform the read at the provided time. This must be a microsec
       collectionId
       nil))
   ([parent collectionId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://firestore.googleapis.com/v1/{+parent}/{collectionId}",
@@ -819,7 +819,7 @@ database <>
 BatchGetDocumentsRequest:
 BatchGetDocumentsRequest"
   [database BatchGetDocumentsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firestore.googleapis.com/v1/{+database}/documents:batchGet",
@@ -838,7 +838,7 @@ database <>
 RollbackRequest:
 RollbackRequest"
   [database RollbackRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firestore.googleapis.com/v1/{+database}/documents:rollback",
@@ -857,7 +857,7 @@ database <>
 BeginTransactionRequest:
 BeginTransactionRequest"
   [database BeginTransactionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firestore.googleapis.com/v1/{+database}/documents:beginTransaction",
@@ -876,7 +876,7 @@ parent <>
 RunQueryRequest:
 RunQueryRequest"
   [parent RunQueryRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firestore.googleapis.com/v1/{+parent}:runQuery",
@@ -895,7 +895,7 @@ database <>
 WriteRequest:
 WriteRequest"
   [database WriteRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firestore.googleapis.com/v1/{+database}/documents:write",
@@ -918,7 +918,7 @@ transaction <string> Reads the document in a transaction.
 readTime <string> Reads the version of the document at the given time. This must be a microsecond precision timestamp within the past one hour, or if Point-in-Time Recovery is enabled, can additionally be a whole minute timestamp within the past 7 days."
   ([name] (projects-databases-documents-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://firestore.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},

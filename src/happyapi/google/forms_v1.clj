@@ -11,7 +11,7 @@ https://developers.google.com/forms/api/guides/v1/reference/rest/v1/forms/create
 Form:
 Form"
   [Form]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://forms.googleapis.com/v1/forms",
      :uri-template-args {},
@@ -28,7 +28,7 @@ https://developers.google.com/forms/api/guides/v1/reference/rest/v1/forms/get
 
 formId <> "
   [formId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://forms.googleapis.com/v1/forms/{formId}",
      :uri-template-args {"formId" formId},
@@ -48,7 +48,7 @@ formId <>
 BatchUpdateFormRequest:
 BatchUpdateFormRequest"
   [formId BatchUpdateFormRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://forms.googleapis.com/v1/forms/{formId}:batchUpdate",
@@ -67,7 +67,7 @@ https://developers.google.com/forms/api/guides/v1/reference/rest/v1/forms/respon
 formId <> 
 responseId <> "
   [formId responseId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://forms.googleapis.com/v1/forms/{formId}/responses/{responseId}",
@@ -89,7 +89,7 @@ filter <string> Which form responses to return. Currently, the only supported fi
 pageSize <integer> The maximum number of responses to return. The service may return fewer than this value. If unspecified or zero, at most 5000 responses are returned."
   ([formId] (forms-responses-list formId nil))
   ([formId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://forms.googleapis.com/v1/forms/{formId}/responses",
@@ -108,7 +108,7 @@ formId <>
 CreateWatchRequest:
 CreateWatchRequest"
   [formId CreateWatchRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://forms.googleapis.com/v1/forms/{formId}/watches",
@@ -129,7 +129,7 @@ https://developers.google.com/forms/api/guides/v1/reference/rest/v1/forms/watche
 
 formId <> "
   [formId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://forms.googleapis.com/v1/forms/{formId}/watches",
@@ -152,7 +152,7 @@ watchId <>
 RenewWatchRequest:
 RenewWatchRequest"
   [formId watchId RenewWatchRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://forms.googleapis.com/v1/forms/{formId}/watches/{watchId}:renew",
@@ -174,7 +174,7 @@ https://developers.google.com/forms/api/guides/v1/reference/rest/v1/forms/watche
 formId <> 
 watchId <> "
   [formId watchId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://forms.googleapis.com/v1/forms/{formId}/watches/{watchId}",

@@ -16,7 +16,7 @@ fullName <string> If set, only the MC accounts with the given name (case sensiti
 pageSize <integer> Optional. The maximum number of accounts to return. The service may return fewer than this value. If unspecified, at most 50 accounts will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (accounts-listChildAccounts parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://css.googleapis.com/v1/{+parent}:listChildAccounts",
@@ -34,7 +34,7 @@ optional:
 parent <string> Optional. Only required when retrieving MC account information. The CSS domain that is the parent resource of the MC account. Format: accounts/{account}"
   ([name] (accounts-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://css.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -49,7 +49,7 @@ name <>
 UpdateAccountLabelsRequest:
 UpdateAccountLabelsRequest"
   [name UpdateAccountLabelsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://css.googleapis.com/v1/{+name}:updateLabels",
@@ -68,7 +68,7 @@ optional:
 pageSize <integer> The maximum number of labels to return. The service may return fewer than this value. If unspecified, at most 50 labels will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (accounts-labels-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://css.googleapis.com/v1/{+parent}/labels",
        :uri-template-args {"parent" parent},
@@ -83,7 +83,7 @@ parent <>
 AccountLabel:
 AccountLabel"
   [parent AccountLabel]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://css.googleapis.com/v1/{+parent}/labels",
      :uri-template-args {"parent" parent},
@@ -99,7 +99,7 @@ name <>
 AccountLabel:
 AccountLabel"
   [name AccountLabel]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template "https://css.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -113,7 +113,7 @@ https://developers.google.com/comparison-shopping-services/api/overview/v1/refer
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://css.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -133,7 +133,7 @@ feedId <string> Required. The primary or supplemental feed id. If CSS Product al
   ([parent CssProductInput]
     (accounts-cssProductInputs-insert parent CssProductInput nil))
   ([parent CssProductInput optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://css.googleapis.com/v1/{+parent}/cssProductInputs:insert",
@@ -152,7 +152,7 @@ optional:
 supplementalFeedId <string> The Content API Supplemental Feed ID. The field must not be set if the action applies to a primary feed. If the field is set, then product action applies to a supplemental feed instead of primary Content API feed."
   ([name] (accounts-cssProductInputs-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://css.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -165,7 +165,7 @@ https://developers.google.com/comparison-shopping-services/api/overview/v1/refer
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://css.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -182,7 +182,7 @@ optional:
 pageSize <integer> The maximum number of CSS Products to return. The service may return fewer than this value. The maximum value is 1000; values above 1000 will be coerced to 1000. If unspecified, the maximum number of CSS products will be returned."
   ([parent] (accounts-cssProducts-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://css.googleapis.com/v1/{+parent}/cssProducts",

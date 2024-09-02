@@ -10,7 +10,7 @@ https://developers.google.com/adsense/management/v2/reference/rest/v2/accounts/g
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://adsense.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -27,7 +27,7 @@ optional:
 pageSize <integer> The maximum number of accounts to include in the response, used for paging. If unspecified, at most 10000 accounts will be returned. The maximum value is 10000; values above 10000 will be coerced to 10000."
   ([] (accounts-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://adsense.googleapis.com/v2/accounts",
        :uri-template-args {},
@@ -46,7 +46,7 @@ optional:
 pageSize <integer> The maximum number of accounts to include in the response, used for paging. If unspecified, at most 10000 accounts will be returned. The maximum value is 10000; values above 10000 will be coerced to 10000."
   ([parent] (accounts-listChildAccounts parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adsense.googleapis.com/v2/{+parent}:listChildAccounts",
@@ -62,7 +62,7 @@ https://developers.google.com/adsense/management/v2/reference/rest/v2/accounts/g
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://adsense.googleapis.com/v2/{+name}/adBlockingRecoveryTag",
@@ -82,7 +82,7 @@ optional:
 pageSize <integer> The maximum number of ad clients to include in the response, used for paging. If unspecified, at most 10000 ad clients will be returned. The maximum value is 10000; values above 10000 will be coerced to 10000."
   ([parent] (accounts-adclients-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adsense.googleapis.com/v2/{+parent}/adclients",
@@ -98,7 +98,7 @@ https://developers.google.com/adsense/management/v2/reference/rest/v2/accounts/a
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://adsense.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -113,7 +113,7 @@ https://developers.google.com/adsense/management/v2/reference/rest/v2/accounts/a
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://adsense.googleapis.com/v2/{+name}/adcode",
      :uri-template-args {"name" name},
@@ -128,7 +128,7 @@ https://developers.google.com/adsense/management/v2/reference/rest/v2/accounts/a
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://adsense.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -147,7 +147,7 @@ optional:
 pageSize <integer> The maximum number of ad units to include in the response, used for paging. If unspecified, at most 10000 ad units will be returned. The maximum value is 10000; values above 10000 will be coerced to 10000."
   ([parent] (accounts-adclients-adunits-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adsense.googleapis.com/v2/{+parent}/adunits",
@@ -163,7 +163,7 @@ https://developers.google.com/adsense/management/v2/reference/rest/v2/accounts/a
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://adsense.googleapis.com/v2/{+name}/adcode",
      :uri-template-args {"name" name},
@@ -180,7 +180,7 @@ parent <>
 AdUnit:
 AdUnit"
   [parent AdUnit]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://adsense.googleapis.com/v2/{+parent}/adunits",
@@ -201,7 +201,7 @@ optional:
 updateMask <string> The list of fields to update. If empty, a full update is performed."
   ([name AdUnit] (accounts-adclients-adunits-patch name AdUnit nil))
   ([name AdUnit optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://adsense.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -220,7 +220,7 @@ pageSize <integer> The maximum number of custom channels to include in the respo
   ([parent]
     (accounts-adclients-adunits-listLinkedCustomChannels parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adsense.googleapis.com/v2/{+parent}:listLinkedCustomChannels",
@@ -241,7 +241,7 @@ pageSize <integer> The maximum number of ad units to include in the response, us
   ([parent]
     (accounts-adclients-customchannels-listLinkedAdUnits parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adsense.googleapis.com/v2/{+parent}:listLinkedAdUnits",
@@ -257,7 +257,7 @@ https://developers.google.com/adsense/management/v2/reference/rest/v2/accounts/a
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://adsense.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -276,7 +276,7 @@ optional:
 pageSize <integer> The maximum number of custom channels to include in the response, used for paging. If unspecified, at most 10000 custom channels will be returned. The maximum value is 10000; values above 10000 will be coerced to 10000."
   ([parent] (accounts-adclients-customchannels-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adsense.googleapis.com/v2/{+parent}/customchannels",
@@ -294,7 +294,7 @@ parent <>
 CustomChannel:
 CustomChannel"
   [parent CustomChannel]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://adsense.googleapis.com/v2/{+parent}/customchannels",
@@ -316,7 +316,7 @@ updateMask <string> The list of fields to update. If empty, a full update is per
   ([name CustomChannel]
     (accounts-adclients-customchannels-patch name CustomChannel nil))
   ([name CustomChannel optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://adsense.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -330,7 +330,7 @@ https://developers.google.com/adsense/management/v2/reference/rest/v2/accounts/a
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://adsense.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -343,7 +343,7 @@ https://developers.google.com/adsense/management/v2/reference/rest/v2/accounts/a
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://adsense.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -362,7 +362,7 @@ optional:
 pageSize <integer> The maximum number of url channels to include in the response, used for paging. If unspecified, at most 10000 url channels will be returned. The maximum value is 10000; values above 10000 will be coerced to 10000."
   ([parent] (accounts-adclients-urlchannels-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adsense.googleapis.com/v2/{+parent}/urlchannels",
@@ -382,7 +382,7 @@ optional:
 languageCode <string> The language to use for translating alert messages. If unspecified, this defaults to the user's display language. If the given language is not supported, alerts will be returned in English. The language is specified as an [IETF BCP-47 language code](https://en.wikipedia.org/wiki/IETF_language_tag)."
   ([parent] (accounts-alerts-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adsense.googleapis.com/v2/{+parent}/alerts",
@@ -398,7 +398,7 @@ https://developers.google.com/adsense/management/v2/reference/rest/v2/accounts/p
 
 parent <> "
   [parent]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://adsense.googleapis.com/v2/{+parent}/payments",
@@ -414,7 +414,7 @@ https://developers.google.com/adsense/management/v2/reference/rest/v2/accounts/p
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://adsense.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -433,7 +433,7 @@ optional:
 pageSize <integer> The maximum number of policy issues to include in the response, used for paging. If unspecified, at most 10000 policy issues will be returned. The maximum value is 10000; values above 10000 will be coerced to 10000."
   ([parent] (accounts-policyIssues-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adsense.googleapis.com/v2/{+parent}/policyIssues",
@@ -449,7 +449,7 @@ https://developers.google.com/adsense/management/v2/reference/rest/v2/accounts/r
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://adsense.googleapis.com/v2/{+name}/saved",
      :uri-template-args {"name" name},
@@ -482,7 +482,7 @@ metrics <string> Required. Reporting metrics.
 dateRange <string> Date range of the report, if unset the range will be considered CUSTOM."
   ([account] (accounts-reports-generate account nil))
   ([account optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adsense.googleapis.com/v2/{+account}/reports:generate",
@@ -516,7 +516,7 @@ metrics <string> Required. Reporting metrics.
 dateRange <string> Date range of the report, if unset the range will be considered CUSTOM."
   ([account] (accounts-reports-generateCsv account nil))
   ([account optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adsense.googleapis.com/v2/{+account}/reports:generateCsv",
@@ -545,7 +545,7 @@ reportingTimeZone <string> Timezone in which to generate the report. If unspecif
 dateRange <string> Date range of the report, if unset the range will be considered CUSTOM."
   ([name] (accounts-reports-saved-generate name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adsense.googleapis.com/v2/{+name}/saved:generate",
@@ -574,7 +574,7 @@ reportingTimeZone <string> Timezone in which to generate the report. If unspecif
 dateRange <string> Date range of the report, if unset the range will be considered CUSTOM."
   ([name] (accounts-reports-saved-generateCsv name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adsense.googleapis.com/v2/{+name}/saved:generateCsv",
@@ -594,7 +594,7 @@ optional:
 pageSize <integer> The maximum number of reports to include in the response, used for paging. If unspecified, at most 10000 reports will be returned. The maximum value is 10000; values above 10000 will be coerced to 10000."
   ([parent] (accounts-reports-saved-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adsense.googleapis.com/v2/{+parent}/reports/saved",
@@ -610,7 +610,7 @@ https://developers.google.com/adsense/management/v2/reference/rest/v2/accounts/s
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://adsense.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -629,7 +629,7 @@ optional:
 pageSize <integer> The maximum number of sites to include in the response, used for paging. If unspecified, at most 10000 sites will be returned. The maximum value is 10000; values above 10000 will be coerced to 10000."
   ([parent] (accounts-sites-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adsense.googleapis.com/v2/{+parent}/sites",

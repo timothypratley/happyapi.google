@@ -13,7 +13,7 @@ instance <>
 SslCertsCreateEphemeralRequest:
 SslCertsCreateEphemeralRequest"
   [project instance SslCertsCreateEphemeralRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/createEphemeral",
@@ -32,7 +32,7 @@ project <>
 instance <> 
 sha1Fingerprint <> "
   [project instance sha1Fingerprint]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/sslCerts/{sha1Fingerprint}",
@@ -53,7 +53,7 @@ project <>
 instance <> 
 sha1Fingerprint <> "
   [project instance sha1Fingerprint]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/sslCerts/{sha1Fingerprint}",
@@ -75,7 +75,7 @@ instance <>
 SslCertsInsertRequest:
 SslCertsInsertRequest"
   [project instance SslCertsInsertRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/sslCerts",
@@ -93,7 +93,7 @@ https://cloud.google.com/sql/docs/v1/reference/rest/v1/sslCerts/list
 project <> 
 instance <> "
   [project instance]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/sslCerts",
@@ -111,7 +111,7 @@ project <>
 instance <> 
 database <> "
   [project instance database]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/databases/{database}",
@@ -130,7 +130,7 @@ project <>
 instance <> 
 database <> "
   [project instance database]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/databases/{database}",
@@ -150,7 +150,7 @@ instance <>
 Database:
 Database"
   [project instance Database]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/databases",
@@ -168,7 +168,7 @@ https://cloud.google.com/sql/docs/v1/reference/rest/v1/databases/list
 project <> 
 instance <> "
   [project instance]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/databases",
@@ -188,7 +188,7 @@ database <>
 Database:
 Database"
   [project instance database Database]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/databases/{database}",
@@ -210,7 +210,7 @@ database <>
 Database:
 Database"
   [project instance database Database]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/databases/{database}",
@@ -230,7 +230,7 @@ optional:
 databaseVersion <string> Database type and version you want to retrieve flags for. By default, this method returns flags for all database types and versions."
   ([] (flags-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://sqladmin.googleapis.com/v1/flags",
        :uri-template-args {},
@@ -250,7 +250,7 @@ optional:
 readTime <string> Optional. Optional snapshot read timestamp to trade freshness for performance."
   ([project instance] (connect-get project instance nil))
   ([project instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/connectSettings",
@@ -269,7 +269,7 @@ instance <>
 GenerateEphemeralCertRequest:
 GenerateEphemeralCertRequest"
   [project instance GenerateEphemeralCertRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}:generateEphemeralCert",
@@ -292,7 +292,7 @@ host <string> Host of the user in the instance.
 name <string> Name of the user in the instance."
   ([project instance] (users-delete project instance nil))
   ([project instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/users",
@@ -314,7 +314,7 @@ optional:
 host <string> Host of a user of the instance."
   ([project instance name] (users-get project instance name nil))
   ([project instance name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/users/{name}",
@@ -334,7 +334,7 @@ instance <>
 User:
 User"
   [project instance User]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/users",
@@ -352,7 +352,7 @@ https://cloud.google.com/sql/docs/v1/reference/rest/v1/users/list
 project <> 
 instance <> "
   [project instance]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/users",
@@ -376,7 +376,7 @@ host <string> Optional. Host of the user in the instance.
 name <string> Name of the user in the instance."
   ([project instance User] (users-update project instance User nil))
   ([project instance User optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/users",
@@ -396,7 +396,7 @@ instance <>
 SqlInstancesRescheduleMaintenanceRequestBody:
 SqlInstancesRescheduleMaintenanceRequestBody"
   [project instance SqlInstancesRescheduleMaintenanceRequestBody]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/rescheduleMaintenance",
@@ -416,7 +416,7 @@ instance <>
 SqlInstancesVerifyExternalSyncSettingsRequest:
 SqlInstancesVerifyExternalSyncSettingsRequest"
   [project instance SqlInstancesVerifyExternalSyncSettingsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/verifyExternalSyncSettings",
@@ -436,7 +436,7 @@ instance <>
 SqlInstancesStartExternalSyncRequest:
 SqlInstancesStartExternalSyncRequest"
   [project instance SqlInstancesStartExternalSyncRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/startExternalSync",
@@ -456,7 +456,7 @@ instance <>
 PerformDiskShrinkContext:
 PerformDiskShrinkContext"
   [project instance PerformDiskShrinkContext]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/performDiskShrink",
@@ -474,7 +474,7 @@ https://cloud.google.com/sql/docs/v1/reference/rest/v1/projects/instances/getDis
 project <> 
 instance <> "
   [project instance]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/getDiskShrinkConfig",
@@ -493,7 +493,7 @@ instance <>
 SqlInstancesResetReplicaSizeRequest:
 SqlInstancesResetReplicaSizeRequest"
   [project instance SqlInstancesResetReplicaSizeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/resetReplicaSize",
@@ -511,7 +511,7 @@ https://cloud.google.com/sql/docs/v1/reference/rest/v1/projects/instances/getLat
 project <> 
 instance <> "
   [project instance]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/getLatestRecoveryTime",
@@ -527,7 +527,7 @@ https://cloud.google.com/sql/docs/v1/reference/rest/v1/tiers/list
 
 project <> "
   [project]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/tiers",
@@ -548,7 +548,7 @@ filter <string> A filter expression that filters resources listed in the respons
 maxResults <integer> The maximum number of instances to return. The service may return fewer than this value. If unspecified, at most 500 instances are returned. The maximum value is 1000; values above 1000 are coerced to 1000."
   ([project] (instances-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://sqladmin.googleapis.com/v1/projects/{project}/instances",
@@ -567,7 +567,7 @@ instance <>
 InstancesFailoverRequest:
 InstancesFailoverRequest"
   [project instance InstancesFailoverRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/failover",
@@ -579,13 +579,13 @@ InstancesFailoverRequest"
      :body InstancesFailoverRequest}))
 
 (defn instances-addServerCa
-  "Adds a new trusted Certificate Authority (CA) version for the specified instance. Required to prepare for a certificate rotation. If a CA version was previously added but never used in a certificate rotation, this operation replaces that version. There cannot be more than one CA version waiting to be rotated in.
+  "Adds a new trusted Certificate Authority (CA) version for the specified instance. Required to prepare for a certificate rotation. If a CA version was previously added but never used in a certificate rotation, this operation replaces that version. There cannot be more than one CA version waiting to be rotated in. For instances that have enabled Certificate Authority Service (CAS) based server CA, please use AddServerCertificate to add a new server certificate.
 https://cloud.google.com/sql/docs/v1/reference/rest/v1/instances/addServerCa
 
 project <> 
 instance <> "
   [project instance]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/addServerCa",
@@ -602,7 +602,7 @@ https://cloud.google.com/sql/docs/v1/reference/rest/v1/instances/listServerCas
 project <> 
 instance <> "
   [project instance]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/listServerCas",
@@ -619,7 +619,7 @@ https://cloud.google.com/sql/docs/v1/reference/rest/v1/instances/delete
 project <> 
 instance <> "
   [project instance]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}",
@@ -636,7 +636,7 @@ https://cloud.google.com/sql/docs/v1/reference/rest/v1/instances/stopReplica
 project <> 
 instance <> "
   [project instance]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/stopReplica",
@@ -655,7 +655,7 @@ instance <>
 InstancesDemoteMasterRequest:
 InstancesDemoteMasterRequest"
   [project instance InstancesDemoteMasterRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/demoteMaster",
@@ -675,7 +675,7 @@ instance <>
 InstancesExportRequest:
 InstancesExportRequest"
   [project instance InstancesExportRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/export",
@@ -693,7 +693,7 @@ instance <>
 InstancesTruncateLogRequest:
 InstancesTruncateLogRequest"
   [project instance InstancesTruncateLogRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/truncateLog",
@@ -713,7 +713,7 @@ instance <>
 InstancesReencryptRequest:
 InstancesReencryptRequest"
   [project instance InstancesReencryptRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/reencrypt",
@@ -733,7 +733,7 @@ instance <>
 InstancesRestoreBackupRequest:
 InstancesRestoreBackupRequest"
   [project instance InstancesRestoreBackupRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/restoreBackup",
@@ -753,7 +753,7 @@ instance <>
 DatabaseInstance:
 DatabaseInstance"
   [project instance DatabaseInstance]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}",
@@ -765,7 +765,7 @@ DatabaseInstance"
      :body DatabaseInstance}))
 
 (defn instances-rotateServerCa
-  "Rotates the server certificate to one signed by the Certificate Authority (CA) version previously added with the addServerCA method.
+  "Rotates the server certificate to one signed by the Certificate Authority (CA) version previously added with the addServerCA method. For instances that have enabled Certificate Authority Service (CAS) based server CA, please use RotateServerCertificate to rotate the server certificate.
 https://cloud.google.com/sql/docs/v1/reference/rest/v1/instances/rotateServerCa
 
 project <> 
@@ -773,7 +773,7 @@ instance <>
 InstancesRotateServerCaRequest:
 InstancesRotateServerCaRequest"
   [project instance InstancesRotateServerCaRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/rotateServerCa",
@@ -793,7 +793,7 @@ instance <>
 InstancesImportRequest:
 InstancesImportRequest"
   [project instance InstancesImportRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/import",
@@ -809,7 +809,7 @@ https://cloud.google.com/sql/docs/v1/reference/rest/v1/instances/releaseSsrsLeas
 project <> 
 instance <> "
   [project instance]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/releaseSsrsLease",
@@ -830,7 +830,7 @@ optional:
 failover <boolean> Set to true to invoke a replica failover to the designated DR replica. As part of replica failover, the promote operation attempts to add the original primary instance as a replica of the promoted DR replica when the original primary instance comes back online. If set to false or not specified, then the original primary instance becomes an independent Cloud SQL primary instance. Only applicable to MySQL."
   ([project instance] (instances-promoteReplica project instance nil))
   ([project instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/promoteReplica",
@@ -851,7 +851,7 @@ optional:
 dbTimeout <string> Optional. (MySQL only) Cloud SQL instance operations timeout, which is a sum of all database operations. Default value is 10 minutes and can be modified to a maximum value of 24 hours."
   ([project instance] (instances-switchover project instance nil))
   ([project instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/switchover",
@@ -870,7 +870,7 @@ instance <>
 DatabaseInstance:
 DatabaseInstance"
   [project instance DatabaseInstance]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}",
@@ -888,7 +888,7 @@ https://cloud.google.com/sql/docs/v1/reference/rest/v1/instances/restart
 project <> 
 instance <> "
   [project instance]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/restart",
@@ -907,7 +907,7 @@ instance <>
 InstancesDemoteRequest:
 InstancesDemoteRequest"
   [project instance InstancesDemoteRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/demote",
@@ -926,7 +926,7 @@ project <>
 DatabaseInstance:
 DatabaseInstance"
   [project DatabaseInstance]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances",
@@ -946,7 +946,7 @@ instance <>
 InstancesCloneRequest:
 InstancesCloneRequest"
   [project instance InstancesCloneRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/clone",
@@ -966,7 +966,7 @@ instance <>
 InstancesAcquireSsrsLeaseRequest:
 InstancesAcquireSsrsLeaseRequest"
   [project instance InstancesAcquireSsrsLeaseRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/acquireSsrsLease",
@@ -984,7 +984,7 @@ https://cloud.google.com/sql/docs/v1/reference/rest/v1/instances/get
 project <> 
 instance <> "
   [project instance]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}",
@@ -1001,7 +1001,7 @@ https://cloud.google.com/sql/docs/v1/reference/rest/v1/instances/startReplica
 project <> 
 instance <> "
   [project instance]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/startReplica",
@@ -1018,7 +1018,7 @@ https://cloud.google.com/sql/docs/v1/reference/rest/v1/instances/resetSslConfig
 project <> 
 instance <> "
   [project instance]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/resetSslConfig",
@@ -1036,7 +1036,7 @@ project <>
 instance <> 
 id <> "
   [project instance id]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/backupRuns/{id}",
@@ -1055,7 +1055,7 @@ project <>
 instance <> 
 id <> "
   [project instance id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/backupRuns/{id}",
@@ -1075,7 +1075,7 @@ instance <>
 BackupRun:
 BackupRun"
   [project instance BackupRun]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/backupRuns",
@@ -1097,7 +1097,7 @@ optional:
 maxResults <integer> Maximum number of backup runs per response."
   ([project instance] (backupRuns-list project instance nil))
   ([project instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://sqladmin.googleapis.com/v1/projects/{project}/instances/{instance}/backupRuns",
@@ -1114,7 +1114,7 @@ https://cloud.google.com/sql/docs/v1/reference/rest/v1/operations/get
 project <> 
 operation <> "
   [project operation]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/operations/{operation}",
@@ -1135,7 +1135,7 @@ instance <string> Cloud SQL instance ID. This does not include the project ID.
 maxResults <integer> Maximum number of operations per response."
   ([project] (operations-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://sqladmin.googleapis.com/v1/projects/{project}/operations",
@@ -1152,7 +1152,7 @@ https://cloud.google.com/sql/docs/v1/reference/rest/v1/operations/cancel
 project <> 
 operation <> "
   [project operation]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://sqladmin.googleapis.com/v1/projects/{project}/operations/{operation}/cancel",

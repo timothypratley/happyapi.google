@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://config.googleapis.com/v1/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/infrastructure-manager/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://config.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -47,7 +47,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://config.googleapis.com/v1/{+name}/operations",
@@ -61,7 +61,7 @@ https://cloud.google.com/infrastructure-manager/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://config.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -74,7 +74,7 @@ https://cloud.google.com/infrastructure-manager/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://config.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -89,7 +89,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://config.googleapis.com/v1/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -109,7 +109,7 @@ filter <string> Lists the Deployments that match the filter expression. A filter
 orderBy <string> Field to use to sort the list."
   ([parent] (projects-locations-deployments-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://config.googleapis.com/v1/{+parent}/deployments",
@@ -125,7 +125,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://config.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -140,7 +140,7 @@ https://cloud.google.com/infrastructure-manager/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://config.googleapis.com/v1/{+name}:exportLock",
@@ -160,7 +160,7 @@ force <boolean> Optional. If set to true, any revisions for this deployment will
 deletePolicy <string> Optional. Policy on how resources actuated by the deployment should be deleted. If unspecified, the default behavior is to delete the underlying resources."
   ([name] (projects-locations-deployments-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://config.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -175,7 +175,7 @@ name <>
 UnlockDeploymentRequest:
 UnlockDeploymentRequest"
   [name UnlockDeploymentRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://config.googleapis.com/v1/{+name}:unlock",
      :uri-template-args {"name" name},
@@ -191,7 +191,7 @@ name <>
 DeleteStatefileRequest:
 DeleteStatefileRequest"
   [name DeleteStatefileRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://config.googleapis.com/v1/{+name}:deleteState",
@@ -208,7 +208,7 @@ parent <>
 ImportStatefileRequest:
 ImportStatefileRequest"
   [parent ImportStatefileRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://config.googleapis.com/v1/{+parent}:importState",
@@ -225,7 +225,7 @@ parent <>
 ExportDeploymentStatefileRequest:
 ExportDeploymentStatefileRequest"
   [parent ExportDeploymentStatefileRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://config.googleapis.com/v1/{+parent}:exportState",
@@ -248,7 +248,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
   ([name Deployment]
     (projects-locations-deployments-patch name Deployment nil))
   ([name Deployment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://config.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -267,7 +267,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-deployments-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://config.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -283,7 +283,7 @@ name <>
 LockDeploymentRequest:
 LockDeploymentRequest"
   [name LockDeploymentRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://config.googleapis.com/v1/{+name}:lock",
      :uri-template-args {"name" name},
@@ -305,7 +305,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
   ([parent Deployment]
     (projects-locations-deployments-create parent Deployment nil))
   ([parent Deployment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://config.googleapis.com/v1/{+parent}/deployments",
@@ -320,7 +320,7 @@ https://cloud.google.com/infrastructure-manager/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://config.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -335,7 +335,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://config.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -356,7 +356,7 @@ filter <string> Lists the Revisions that match the filter expression. A filter e
 orderBy <string> Field to use to sort the list."
   ([parent] (projects-locations-deployments-revisions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://config.googleapis.com/v1/{+parent}/revisions",
@@ -370,7 +370,7 @@ https://cloud.google.com/infrastructure-manager/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://config.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -385,7 +385,7 @@ parent <>
 ExportRevisionStatefileRequest:
 ExportRevisionStatefileRequest"
   [parent ExportRevisionStatefileRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://config.googleapis.com/v1/{+parent}:exportState",
@@ -400,7 +400,7 @@ https://cloud.google.com/infrastructure-manager/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://config.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -422,7 +422,7 @@ orderBy <string> Field to use to sort the list."
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://config.googleapis.com/v1/{+parent}/resources",
@@ -444,7 +444,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
   ([parent Preview]
     (projects-locations-previews-create parent Preview nil))
   ([parent Preview optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://config.googleapis.com/v1/{+parent}/previews",
@@ -459,7 +459,7 @@ https://cloud.google.com/infrastructure-manager/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://config.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -478,7 +478,7 @@ filter <string> Optional. Lists the Deployments that match the filter expression
 orderBy <string> Optional. Field to use to sort the list."
   ([parent] (projects-locations-previews-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://config.googleapis.com/v1/{+parent}/previews",
@@ -496,7 +496,7 @@ optional:
 requestId <string> Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-previews-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://config.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -511,7 +511,7 @@ parent <>
 ExportPreviewResultRequest:
 ExportPreviewResultRequest"
   [parent ExportPreviewResultRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://config.googleapis.com/v1/{+parent}:export",
      :uri-template-args {"parent" parent},
@@ -531,7 +531,7 @@ filter <string> Optional. Lists the TerraformVersions that match the filter expr
 orderBy <string> Optional. Field to use to sort the list."
   ([parent] (projects-locations-terraformVersions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://config.googleapis.com/v1/{+parent}/terraformVersions",
@@ -545,7 +545,7 @@ https://cloud.google.com/infrastructure-manager/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://config.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},

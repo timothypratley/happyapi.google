@@ -17,7 +17,7 @@ clientOperationId <string> For mutating operation requests only. An optional ide
   ([project managedZone operation]
     (managedZoneOperations-get project managedZone operation nil))
   ([project managedZone operation optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/managedZones/{managedZone}/operations/{operation}",
@@ -45,7 +45,7 @@ sortBy <string> Sorting criterion. The only supported values are START_TIME and 
   ([project managedZone]
     (managedZoneOperations-list project managedZone nil))
   ([project managedZone optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/managedZones/{managedZone}/operations",
@@ -69,7 +69,7 @@ maxResults <integer> Optional. Maximum number of results to be returned. If unsp
 dnsName <string> Restricts the list to return only zones with this domain name."
   ([project] (managedZones-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/managedZones",
@@ -89,7 +89,7 @@ resource <>
 GoogleIamV1SetIamPolicyRequest:
 GoogleIamV1SetIamPolicyRequest"
   [resource GoogleIamV1SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dns.googleapis.com/dns/v1/{+resource}:setIamPolicy",
@@ -111,7 +111,7 @@ optional:
 clientOperationId <string> For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection."
   ([project managedZone] (managedZones-delete project managedZone nil))
   ([project managedZone optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/managedZones/{managedZone}",
@@ -136,7 +136,7 @@ clientOperationId <string> For mutating operation requests only. An optional ide
   ([project managedZone ManagedZone]
     (managedZones-update project managedZone ManagedZone nil))
   ([project managedZone ManagedZone optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/managedZones/{managedZone}",
@@ -162,7 +162,7 @@ clientOperationId <string> For mutating operation requests only. An optional ide
   ([project managedZone ManagedZone]
     (managedZones-patch project managedZone ManagedZone nil))
   ([project managedZone ManagedZone optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/managedZones/{managedZone}",
@@ -182,7 +182,7 @@ resource <>
 GoogleIamV1GetIamPolicyRequest:
 GoogleIamV1GetIamPolicyRequest"
   [resource GoogleIamV1GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dns.googleapis.com/dns/v1/{+resource}:getIamPolicy",
@@ -207,7 +207,7 @@ optional:
 clientOperationId <string> For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection."
   ([project ManagedZone] (managedZones-create project ManagedZone nil))
   ([project ManagedZone optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/managedZones",
@@ -229,7 +229,7 @@ optional:
 clientOperationId <string> For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection."
   ([project managedZone] (managedZones-get project managedZone nil))
   ([project managedZone optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/managedZones/{managedZone}",
@@ -250,7 +250,7 @@ resource <>
 GoogleIamV1TestIamPermissionsRequest:
 GoogleIamV1TestIamPermissionsRequest"
   [resource GoogleIamV1TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dns.googleapis.com/dns/v1/{+resource}:testIamPermissions",
@@ -277,7 +277,7 @@ clientOperationId <string> For mutating operation requests only. An optional ide
   ([project managedZone Change]
     (changes-create project managedZone Change nil))
   ([project managedZone Change optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/managedZones/{managedZone}/changes",
@@ -302,7 +302,7 @@ clientOperationId <string> For mutating operation requests only. An optional ide
   ([project managedZone changeId]
     (changes-get project managedZone changeId nil))
   ([project managedZone changeId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/managedZones/{managedZone}/changes/{changeId}",
@@ -330,7 +330,7 @@ sortBy <string> Sorting criterion. The only supported value is change sequence.
 sortOrder <string> Sorting order direction: 'ascending' or 'descending'."
   ([project managedZone] (changes-list project managedZone nil))
   ([project managedZone optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/managedZones/{managedZone}/changes",
@@ -355,7 +355,7 @@ optional:
 clientOperationId <string> For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection."
   ([project Policy] (policies-create project Policy nil))
   ([project Policy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/policies",
@@ -377,7 +377,7 @@ optional:
 clientOperationId <string> For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection."
   ([project policy] (policies-get project policy nil))
   ([project policy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/policies/{policy}",
@@ -399,7 +399,7 @@ optional:
 maxResults <integer> Optional. Maximum number of results to be returned. If unspecified, the server decides how many results to return."
   ([project] (policies-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/policies",
@@ -422,7 +422,7 @@ optional:
 clientOperationId <string> For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection."
   ([project policy] (policies-delete project policy nil))
   ([project policy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/policies/{policy}",
@@ -445,7 +445,7 @@ optional:
 clientOperationId <string> For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection."
   ([project policy Policy] (policies-patch project policy Policy nil))
   ([project policy Policy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/policies/{policy}",
@@ -469,7 +469,7 @@ optional:
 clientOperationId <string> For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection."
   ([project policy Policy] (policies-update project policy Policy nil))
   ([project policy Policy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/policies/{policy}",
@@ -498,7 +498,7 @@ clientOperationId <string> For mutating operation requests only. An optional ide
       ResponsePolicyRule
       nil))
   ([project responsePolicy ResponsePolicyRule optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/responsePolicies/{responsePolicy}/rules",
@@ -527,7 +527,7 @@ clientOperationId <string> For mutating operation requests only. An optional ide
       responsePolicyRule
       nil))
   ([project responsePolicy responsePolicyRule optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/responsePolicies/{responsePolicy}/rules/{responsePolicyRule}",
@@ -559,7 +559,7 @@ clientOperationId <string> For mutating operation requests only. An optional ide
       responsePolicyRule
       nil))
   ([project responsePolicy responsePolicyRule optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/responsePolicies/{responsePolicy}/rules/{responsePolicyRule}",
@@ -584,7 +584,7 @@ maxResults <integer> Optional. Maximum number of results to be returned. If unsp
   ([project responsePolicy]
     (responsePolicyRules-list project responsePolicy nil))
   ([project responsePolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/responsePolicies/{responsePolicy}/rules",
@@ -621,7 +621,7 @@ clientOperationId <string> For mutating operation requests only. An optional ide
     responsePolicyRule
     ResponsePolicyRule
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/responsePolicies/{responsePolicy}/rules/{responsePolicyRule}",
@@ -659,7 +659,7 @@ clientOperationId <string> For mutating operation requests only. An optional ide
     responsePolicyRule
     ResponsePolicyRule
     optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/responsePolicies/{responsePolicy}/rules/{responsePolicyRule}",
@@ -686,7 +686,7 @@ clientOperationId <string> For mutating operation requests only. An optional ide
   ([project ResponsePolicy]
     (responsePolicies-create project ResponsePolicy nil))
   ([project ResponsePolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/responsePolicies",
@@ -709,7 +709,7 @@ clientOperationId <string> For mutating operation requests only. An optional ide
   ([project responsePolicy]
     (responsePolicies-get project responsePolicy nil))
   ([project responsePolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/responsePolicies/{responsePolicy}",
@@ -732,7 +732,7 @@ optional:
 maxResults <integer> Optional. Maximum number of results to be returned. If unspecified, the server decides how many results to return."
   ([project] (responsePolicies-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/responsePolicies",
@@ -756,7 +756,7 @@ clientOperationId <string> For mutating operation requests only. An optional ide
   ([project responsePolicy]
     (responsePolicies-delete project responsePolicy nil))
   ([project responsePolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/responsePolicies/{responsePolicy}",
@@ -781,7 +781,7 @@ clientOperationId <string> For mutating operation requests only. An optional ide
   ([project responsePolicy ResponsePolicy]
     (responsePolicies-patch project responsePolicy ResponsePolicy nil))
   ([project responsePolicy ResponsePolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/responsePolicies/{responsePolicy}",
@@ -811,7 +811,7 @@ clientOperationId <string> For mutating operation requests only. An optional ide
       ResponsePolicy
       nil))
   ([project responsePolicy ResponsePolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/responsePolicies/{responsePolicy}",
@@ -833,7 +833,7 @@ optional:
 clientOperationId <string> For mutating operation requests only. An optional identifier specified by the client. Must be unique for operation resources in the Operations collection."
   ([project] (projects-get project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}",
@@ -859,7 +859,7 @@ digestType <string> An optional comma-separated list of digest types to compute 
   ([project managedZone dnsKeyId]
     (dnsKeys-get project managedZone dnsKeyId nil))
   ([project managedZone dnsKeyId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/managedZones/{managedZone}/dnsKeys/{dnsKeyId}",
@@ -886,7 +886,7 @@ maxResults <integer> Optional. Maximum number of results to be returned. If unsp
 digestType <string> An optional comma-separated list of digest types to compute and display for key signing keys. If omitted, the recommended digest type is computed and displayed."
   ([project managedZone] (dnsKeys-list project managedZone nil))
   ([project managedZone optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/managedZones/{managedZone}/dnsKeys",
@@ -913,7 +913,7 @@ type <string> Restricts the list to return only records of this type. If present
   ([project managedZone]
     (resourceRecordSets-list project managedZone nil))
   ([project managedZone optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/managedZones/{managedZone}/rrsets",
@@ -944,7 +944,7 @@ clientOperationId <string> For mutating operation requests only. An optional ide
       ResourceRecordSet
       nil))
   ([project managedZone ResourceRecordSet optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/managedZones/{managedZone}/rrsets",
@@ -970,7 +970,7 @@ clientOperationId <string> For mutating operation requests only. An optional ide
   ([project managedZone name type]
     (resourceRecordSets-get project managedZone name type nil))
   ([project managedZone name type optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/managedZones/{managedZone}/rrsets/{name}/{type}",
@@ -1000,7 +1000,7 @@ clientOperationId <string> For mutating operation requests only. An optional ide
   ([project managedZone name type]
     (resourceRecordSets-delete project managedZone name type nil))
   ([project managedZone name type optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/managedZones/{managedZone}/rrsets/{name}/{type}",
@@ -1036,7 +1036,7 @@ clientOperationId <string> For mutating operation requests only. An optional ide
       ResourceRecordSet
       nil))
   ([project managedZone name type ResourceRecordSet optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://dns.googleapis.com/dns/v1/projects/{project}/managedZones/{managedZone}/rrsets/{name}/{type}",

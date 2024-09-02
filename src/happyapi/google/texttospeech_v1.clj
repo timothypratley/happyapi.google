@@ -12,7 +12,7 @@ optional:
 languageCode <string> Optional. Recommended. [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag. If not specified, the API will return all supported voices. If specified, the ListVoices call will only return voices that can be used to synthesize this language_code. For example, if you specify `\"en-NZ\"`, all `\"en-NZ\"` voices will be returned. If you specify `\"no\"`, both `\"no-\\*\"` (Norwegian) and `\"nb-\\*\"` (Norwegian Bokmal) voices will be returned."
   ([] (voices-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://texttospeech.googleapis.com/v1/voices",
        :uri-template-args {},
@@ -26,7 +26,7 @@ https://cloud.google.com/text-to-speech/v1/reference/rest/v1/text/synthesize
 SynthesizeSpeechRequest:
 SynthesizeSpeechRequest"
   [SynthesizeSpeechRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://texttospeech.googleapis.com/v1/text:synthesize",
@@ -43,7 +43,7 @@ parent <>
 SynthesizeLongAudioRequest:
 SynthesizeLongAudioRequest"
   [parent SynthesizeLongAudioRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://texttospeech.googleapis.com/v1/{+parent}:synthesizeLongAudio",
@@ -63,7 +63,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://texttospeech.googleapis.com/v1/{+name}/operations",
@@ -77,7 +77,7 @@ https://cloud.google.com/text-to-speech/v1/reference/rest/v1/projects/locations/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://texttospeech.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -90,7 +90,7 @@ https://cloud.google.com/text-to-speech/v1/reference/rest/v1/operations/delete
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://texttospeech.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -105,7 +105,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://texttospeech.googleapis.com/v1/{+name}:cancel",

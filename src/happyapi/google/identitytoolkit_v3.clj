@@ -11,7 +11,7 @@ https://developers.google.com/identity/toolkit/migrate-identityplatform/v3/refer
 IdentitytoolkitRelyingpartyUploadAccountRequest:
 IdentitytoolkitRelyingpartyUploadAccountRequest"
   [IdentitytoolkitRelyingpartyUploadAccountRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/identitytoolkit/v3/relyingparty/uploadAccount",
@@ -29,7 +29,7 @@ https://developers.google.com/identity/toolkit/migrate-identityplatform/v3/refer
 IdentitytoolkitRelyingpartyDownloadAccountRequest:
 IdentitytoolkitRelyingpartyDownloadAccountRequest"
   [IdentitytoolkitRelyingpartyDownloadAccountRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/identitytoolkit/v3/relyingparty/downloadAccount",
@@ -47,7 +47,7 @@ https://developers.google.com/identity/toolkit/migrate-identityplatform/v3/refer
 IdentitytoolkitRelyingpartyResetPasswordRequest:
 IdentitytoolkitRelyingpartyResetPasswordRequest"
   [IdentitytoolkitRelyingpartyResetPasswordRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/identitytoolkit/v3/relyingparty/resetPassword",
@@ -65,7 +65,7 @@ delegatedProjectNumber <string> Delegated GCP project number of the request.
 projectNumber <string> GCP project number of the request."
   ([] (relyingparty-getProjectConfig nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/identitytoolkit/v3/relyingparty/getProjectConfig",
@@ -80,7 +80,7 @@ https://developers.google.com/identity/toolkit/migrate-identityplatform/v3/refer
 IdentitytoolkitRelyingpartySetAccountInfoRequest:
 IdentitytoolkitRelyingpartySetAccountInfoRequest"
   [IdentitytoolkitRelyingpartySetAccountInfoRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/identitytoolkit/v3/relyingparty/setAccountInfo",
@@ -96,7 +96,7 @@ https://developers.google.com/identity/toolkit/migrate-identityplatform/v3/refer
 IdentitytoolkitRelyingpartyVerifyCustomTokenRequest:
 IdentitytoolkitRelyingpartyVerifyCustomTokenRequest"
   [IdentitytoolkitRelyingpartyVerifyCustomTokenRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyCustomToken",
@@ -112,7 +112,7 @@ https://developers.google.com/identity/toolkit/migrate-identityplatform/v3/refer
 IdentitytoolkitRelyingpartyVerifyAssertionRequest:
 IdentitytoolkitRelyingpartyVerifyAssertionRequest"
   [IdentitytoolkitRelyingpartyVerifyAssertionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyAssertion",
@@ -128,7 +128,7 @@ https://developers.google.com/identity/toolkit/migrate-identityplatform/v3/refer
 IdentitytoolkitRelyingpartySetProjectConfigRequest:
 IdentitytoolkitRelyingpartySetProjectConfigRequest"
   [IdentitytoolkitRelyingpartySetProjectConfigRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/identitytoolkit/v3/relyingparty/setProjectConfig",
@@ -144,7 +144,7 @@ https://developers.google.com/identity/toolkit/migrate-identityplatform/v3/refer
 IdentitytoolkitRelyingpartySendVerificationCodeRequest:
 IdentitytoolkitRelyingpartySendVerificationCodeRequest"
   [IdentitytoolkitRelyingpartySendVerificationCodeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/identitytoolkit/v3/relyingparty/sendVerificationCode",
@@ -160,7 +160,7 @@ https://developers.google.com/identity/toolkit/migrate-identityplatform/v3/refer
 IdentitytoolkitRelyingpartySignOutUserRequest:
 IdentitytoolkitRelyingpartySignOutUserRequest"
   [IdentitytoolkitRelyingpartySignOutUserRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signOutUser",
@@ -176,7 +176,7 @@ https://developers.google.com/identity/toolkit/migrate-identityplatform/v3/refer
 IdentitytoolkitRelyingpartySignupNewUserRequest:
 IdentitytoolkitRelyingpartySignupNewUserRequest"
   [IdentitytoolkitRelyingpartySignupNewUserRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser",
@@ -192,7 +192,7 @@ https://developers.google.com/identity/toolkit/migrate-identityplatform/v3/refer
 IdentitytoolkitRelyingpartyDeleteAccountRequest:
 IdentitytoolkitRelyingpartyDeleteAccountRequest"
   [IdentitytoolkitRelyingpartyDeleteAccountRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/identitytoolkit/v3/relyingparty/deleteAccount",
@@ -208,7 +208,7 @@ https://developers.google.com/identity/toolkit/migrate-identityplatform/v3/refer
 IdentitytoolkitRelyingpartyGetAccountInfoRequest:
 IdentitytoolkitRelyingpartyGetAccountInfoRequest"
   [IdentitytoolkitRelyingpartyGetAccountInfoRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/identitytoolkit/v3/relyingparty/getAccountInfo",
@@ -221,7 +221,7 @@ IdentitytoolkitRelyingpartyGetAccountInfoRequest"
   "Get token signing public key.
 https://developers.google.com/identity/toolkit/migrate-identityplatform/v3/reference/rest/v3/relyingparty/getPublicKeys"
   []
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://www.googleapis.com/identitytoolkit/v3/relyingparty/publicKeys",
@@ -233,7 +233,7 @@ https://developers.google.com/identity/toolkit/migrate-identityplatform/v3/refer
   "Get recaptcha secure param.
 https://developers.google.com/identity/toolkit/migrate-identityplatform/v3/reference/rest/v3/relyingparty/getRecaptchaParam"
   []
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://www.googleapis.com/identitytoolkit/v3/relyingparty/getRecaptchaParam",
@@ -248,7 +248,7 @@ https://developers.google.com/identity/toolkit/migrate-identityplatform/v3/refer
 IdentitytoolkitRelyingpartyEmailLinkSigninRequest:
 IdentitytoolkitRelyingpartyEmailLinkSigninRequest"
   [IdentitytoolkitRelyingpartyEmailLinkSigninRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/identitytoolkit/v3/relyingparty/emailLinkSignin",
@@ -264,7 +264,7 @@ https://developers.google.com/identity/toolkit/migrate-identityplatform/v3/refer
 Relyingparty:
 Relyingparty"
   [Relyingparty]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/identitytoolkit/v3/relyingparty/getOobConfirmationCode",
@@ -280,7 +280,7 @@ https://developers.google.com/identity/toolkit/migrate-identityplatform/v3/refer
 IdentitytoolkitRelyingpartyVerifyPasswordRequest:
 IdentitytoolkitRelyingpartyVerifyPasswordRequest"
   [IdentitytoolkitRelyingpartyVerifyPasswordRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword",
@@ -296,7 +296,7 @@ https://developers.google.com/identity/toolkit/migrate-identityplatform/v3/refer
 IdentitytoolkitRelyingpartyCreateAuthUriRequest:
 IdentitytoolkitRelyingpartyCreateAuthUriRequest"
   [IdentitytoolkitRelyingpartyCreateAuthUriRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/identitytoolkit/v3/relyingparty/createAuthUri",
@@ -312,7 +312,7 @@ https://developers.google.com/identity/toolkit/migrate-identityplatform/v3/refer
 IdentitytoolkitRelyingpartyVerifyPhoneNumberRequest:
 IdentitytoolkitRelyingpartyVerifyPhoneNumberRequest"
   [IdentitytoolkitRelyingpartyVerifyPhoneNumberRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPhoneNumber",

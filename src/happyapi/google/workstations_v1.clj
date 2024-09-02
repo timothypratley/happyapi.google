@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://workstations.googleapis.com/v1/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/workstations/v1/reference/rest/v1/projects/locations/ge
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://workstations.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -47,7 +47,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://workstations.googleapis.com/v1/{+name}/operations",
@@ -61,7 +61,7 @@ https://cloud.google.com/workstations/v1/reference/rest/v1/projects/locations/op
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://workstations.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -74,7 +74,7 @@ https://cloud.google.com/workstations/v1/reference/rest/v1/projects/locations/op
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://workstations.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -89,7 +89,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://workstations.googleapis.com/v1/{+name}:cancel",
@@ -104,7 +104,7 @@ https://cloud.google.com/workstations/v1/reference/rest/v1/projects/locations/wo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://workstations.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -121,7 +121,7 @@ optional:
 pageSize <integer> Optional. Maximum number of items to return."
   ([parent] (projects-locations-workstationClusters-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://workstations.googleapis.com/v1/{+parent}/workstationClusters",
@@ -146,7 +146,7 @@ validateOnly <boolean> Optional. If set, validate the request and preview the re
       WorkstationCluster
       nil))
   ([parent WorkstationCluster optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://workstations.googleapis.com/v1/{+parent}/workstationClusters",
@@ -173,7 +173,7 @@ allowMissing <boolean> Optional. If set, and the workstation cluster is not foun
       WorkstationCluster
       nil))
   ([name WorkstationCluster optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://workstations.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -193,7 +193,7 @@ etag <string> Optional. If set, the request will be rejected if the latest versi
 force <boolean> Optional. If set, any workstation configurations and workstations in the workstation cluster are also deleted. Otherwise, the request only works if the workstation cluster has no configurations or workstations."
   ([name] (projects-locations-workstationClusters-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://workstations.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -213,7 +213,7 @@ pageSize <integer> Optional. Maximum number of items to return."
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://workstations.googleapis.com/v1/{+parent}/workstationConfigs",
@@ -229,7 +229,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://workstations.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -253,7 +253,7 @@ force <boolean> Optional. If set, any workstations in the workstation configurat
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://workstations.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -278,7 +278,7 @@ allowMissing <boolean> Optional. If set and the workstation configuration is not
       WorkstationConfig
       nil))
   ([name WorkstationConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://workstations.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -299,7 +299,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://workstations.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -324,7 +324,7 @@ validateOnly <boolean> Optional. If set, validate the request and preview the re
       WorkstationConfig
       nil))
   ([parent WorkstationConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://workstations.googleapis.com/v1/{+parent}/workstationConfigs",
@@ -339,7 +339,7 @@ https://cloud.google.com/workstations/v1/reference/rest/v1/projects/locations/wo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://workstations.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -354,7 +354,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://workstations.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -376,7 +376,7 @@ pageSize <integer> Optional. Maximum number of items to return."
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://workstations.googleapis.com/v1/{+parent}/workstationConfigs:listUsable",
@@ -392,7 +392,7 @@ name <>
 StopWorkstationRequest:
 StopWorkstationRequest"
   [name StopWorkstationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://workstations.googleapis.com/v1/{+name}:stop",
@@ -414,7 +414,7 @@ pageSize <integer> Optional. Maximum number of items to return."
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://workstations.googleapis.com/v1/{+parent}/workstations",
@@ -430,7 +430,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://workstations.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -453,7 +453,7 @@ etag <string> Optional. If set, the request will be rejected if the latest versi
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://workstations.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -468,7 +468,7 @@ workstation <>
 GenerateAccessTokenRequest:
 GenerateAccessTokenRequest"
   [workstation GenerateAccessTokenRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://workstations.googleapis.com/v1/{+workstation}:generateAccessToken",
@@ -485,7 +485,7 @@ name <>
 StartWorkstationRequest:
 StartWorkstationRequest"
   [name StartWorkstationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://workstations.googleapis.com/v1/{+name}:start",
@@ -512,7 +512,7 @@ allowMissing <boolean> Optional. If set and the workstation configuration is not
       Workstation
       nil))
   ([name Workstation optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://workstations.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -533,7 +533,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://workstations.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -558,7 +558,7 @@ validateOnly <boolean> Optional. If set, validate the request and preview the re
       Workstation
       nil))
   ([parent Workstation optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://workstations.googleapis.com/v1/{+parent}/workstations",
@@ -573,7 +573,7 @@ https://cloud.google.com/workstations/v1/reference/rest/v1/projects/locations/wo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://workstations.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -588,7 +588,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://workstations.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -610,7 +610,7 @@ pageSize <integer> Optional. Maximum number of items to return."
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://workstations.googleapis.com/v1/{+parent}/workstations:listUsable",

@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://rapidmigrationassessment.googleapis.com/v1/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/migration-center/docs/v1/reference/rest/v1/projects/loc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://rapidmigrationassessment.googleapis.com/v1/{+name}",
@@ -48,7 +48,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://rapidmigrationassessment.googleapis.com/v1/{+name}/operations",
@@ -62,7 +62,7 @@ https://cloud.google.com/migration-center/docs/v1/reference/rest/v1/projects/loc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://rapidmigrationassessment.googleapis.com/v1/{+name}",
@@ -76,7 +76,7 @@ https://cloud.google.com/migration-center/docs/v1/reference/rest/v1/projects/loc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://rapidmigrationassessment.googleapis.com/v1/{+name}",
@@ -92,7 +92,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://rapidmigrationassessment.googleapis.com/v1/{+name}:cancel",
@@ -115,7 +115,7 @@ requestId <string> Optional. An optional request ID to identify requests."
   ([parent Collector]
     (projects-locations-collectors-create parent Collector nil))
   ([parent Collector optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://rapidmigrationassessment.googleapis.com/v1/{+parent}/collectors",
@@ -136,7 +136,7 @@ filter <string> Filtering results.
 orderBy <string> Hint for how to order the results."
   ([parent] (projects-locations-collectors-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://rapidmigrationassessment.googleapis.com/v1/{+parent}/collectors",
@@ -150,7 +150,7 @@ https://cloud.google.com/migration-center/docs/v1/reference/rest/v1/projects/loc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://rapidmigrationassessment.googleapis.com/v1/{+name}",
@@ -172,7 +172,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
   ([name Collector]
     (projects-locations-collectors-patch name Collector nil))
   ([name Collector optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://rapidmigrationassessment.googleapis.com/v1/{+name}",
@@ -191,7 +191,7 @@ optional:
 requestId <string> Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-collectors-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://rapidmigrationassessment.googleapis.com/v1/{+name}",
@@ -207,7 +207,7 @@ name <>
 ResumeCollectorRequest:
 ResumeCollectorRequest"
   [name ResumeCollectorRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://rapidmigrationassessment.googleapis.com/v1/{+name}:resume",
@@ -224,7 +224,7 @@ name <>
 RegisterCollectorRequest:
 RegisterCollectorRequest"
   [name RegisterCollectorRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://rapidmigrationassessment.googleapis.com/v1/{+name}:register",
@@ -241,7 +241,7 @@ name <>
 PauseCollectorRequest:
 PauseCollectorRequest"
   [name PauseCollectorRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://rapidmigrationassessment.googleapis.com/v1/{+name}:pause",
@@ -263,7 +263,7 @@ requestId <string> Optional. An optional request ID to identify requests."
   ([parent Annotation]
     (projects-locations-annotations-create parent Annotation nil))
   ([parent Annotation optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://rapidmigrationassessment.googleapis.com/v1/{+parent}/annotations",
@@ -278,7 +278,7 @@ https://cloud.google.com/migration-center/docs/v1/reference/rest/v1/projects/loc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://rapidmigrationassessment.googleapis.com/v1/{+name}",

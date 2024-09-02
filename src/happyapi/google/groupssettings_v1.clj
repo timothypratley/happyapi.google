@@ -4,13 +4,30 @@ Manages permission levels and related settings of a group.
 See: https://developers.google.com/admin-sdk/groups-settings/concepts"
   (:require [happyapi.providers.google :as client]))
 
+(defn groups-update
+  "Updates an existing resource.
+https://developers.google.com/admin-sdk/groups-settings/concepts/v1/reference/rest/v1/groups/update
+
+groupUniqueId <> 
+Groups:
+Groups"
+  [groupUniqueId Groups]
+  (client/*api-request*
+    {:method :put,
+     :uri-template
+     "https://www.googleapis.com/groups/v1/groups/{groupUniqueId}",
+     :uri-template-args {"groupUniqueId" groupUniqueId},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/apps.groups.settings"],
+     :body Groups}))
+
 (defn groups-get
   "Gets one resource by id.
 https://developers.google.com/admin-sdk/groups-settings/concepts/v1/reference/rest/v1/groups/get
 
 groupUniqueId <> "
   [groupUniqueId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://www.googleapis.com/groups/v1/groups/{groupUniqueId}",
@@ -26,25 +43,8 @@ groupUniqueId <>
 Groups:
 Groups"
   [groupUniqueId Groups]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
-     :uri-template
-     "https://www.googleapis.com/groups/v1/groups/{groupUniqueId}",
-     :uri-template-args {"groupUniqueId" groupUniqueId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/apps.groups.settings"],
-     :body Groups}))
-
-(defn groups-update
-  "Updates an existing resource.
-https://developers.google.com/admin-sdk/groups-settings/concepts/v1/reference/rest/v1/groups/update
-
-groupUniqueId <> 
-Groups:
-Groups"
-  [groupUniqueId Groups]
-  (client/api-request
-    {:method :put,
      :uri-template
      "https://www.googleapis.com/groups/v1/groups/{groupUniqueId}",
      :uri-template-args {"groupUniqueId" groupUniqueId},

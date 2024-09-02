@@ -11,7 +11,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/adver
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserGroups/{+id}",
@@ -26,7 +26,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/adver
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserGroups/{+id}",
@@ -42,7 +42,7 @@ profileId <>
 AdvertiserGroup:
 AdvertiserGroup"
   [profileId AdvertiserGroup]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserGroups",
@@ -65,7 +65,7 @@ sortField <string> Field by which to sort the list.
 sortOrder <string> Order of sorted results."
   ([profileId] (advertiserGroups-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserGroups",
@@ -81,7 +81,7 @@ profileId <>
 AdvertiserGroup:
 AdvertiserGroup"
   [profileId AdvertiserGroup]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserGroups",
@@ -99,7 +99,7 @@ id <>
 AdvertiserGroup:
 AdvertiserGroup"
   [profileId id AdvertiserGroup]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserGroups",
@@ -117,7 +117,7 @@ campaignId <>
 CampaignCreativeAssociation:
 CampaignCreativeAssociation"
   [profileId campaignId CampaignCreativeAssociation]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/campaigns/{+campaignId}/campaignCreativeAssociations",
@@ -140,7 +140,7 @@ sortOrder <string> Order of sorted results."
   ([profileId campaignId]
     (campaignCreativeAssociations-list profileId campaignId nil))
   ([profileId campaignId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/campaigns/{+campaignId}/campaignCreativeAssociations",
@@ -156,7 +156,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/adver
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertisers/{+id}",
@@ -172,7 +172,7 @@ profileId <>
 Advertiser:
 Advertiser"
   [profileId Advertiser]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertisers",
@@ -201,7 +201,7 @@ sortField <string> Field by which to sort the list.
 includeAdvertisersWithoutGroupsOnly <boolean> Select only advertisers which do not belong to any advertiser group."
   ([profileId] (advertisers-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertisers",
@@ -217,7 +217,7 @@ profileId <>
 Advertiser:
 Advertiser"
   [profileId Advertiser]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertisers",
@@ -235,7 +235,7 @@ id <>
 Advertiser:
 Advertiser"
   [profileId id Advertiser]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertisers",
@@ -251,7 +251,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/targe
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/targetableRemarketingLists/{+id}",
@@ -275,7 +275,7 @@ sortOrder <string> Order of sorted results."
   ([profileId advertiserId]
     (targetableRemarketingLists-list profileId advertiserId nil))
   ([profileId advertiserId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/targetableRemarketingLists",
@@ -290,7 +290,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/creat
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creatives/{+id}",
@@ -306,7 +306,7 @@ profileId <>
 Creative:
 Creative"
   [profileId Creative]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creatives",
@@ -339,7 +339,7 @@ active <boolean> Select only active creatives. Leave blank to select active and 
 sortField <string> Field by which to sort the list."
   ([profileId] (creatives-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creatives",
@@ -355,7 +355,7 @@ profileId <>
 Creative:
 Creative"
   [profileId Creative]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creatives",
@@ -373,7 +373,7 @@ id <>
 Creative:
 Creative"
   [profileId id Creative]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creatives",
@@ -391,7 +391,7 @@ id <>
 Placement:
 Placement"
   [profileId id Placement]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placements",
@@ -412,7 +412,7 @@ campaignId <string> Generate placements belonging to this campaign. This is a re
 tagFormats <string> Tag formats to generate for these placements. *Note:* PLACEMENT_TAG_STANDARD can only be generated for 1x1 placements."
   ([profileId] (placements-generatetags profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placements/generatetags",
@@ -427,7 +427,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/place
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placements/{+id}",
@@ -443,7 +443,7 @@ profileId <>
 Placement:
 Placement"
   [profileId Placement]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placements",
@@ -482,7 +482,7 @@ sortField <string> Field by which to sort the list.
 minEndDate <string> Select only placements or placement groups whose end date is on or after the specified minEndDate. The date should be formatted as \"yyyy-MM-dd\"."
   ([profileId] (placements-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placements",
@@ -498,7 +498,7 @@ profileId <>
 Placement:
 Placement"
   [profileId Placement]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placements",
@@ -514,7 +514,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/accou
 profileId <> 
 summaryAccountId <> "
   [profileId summaryAccountId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accountActiveAdSummaries/{+summaryAccountId}",
@@ -530,7 +530,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/conte
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/contentCategories/{+id}",
@@ -545,7 +545,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/conte
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/contentCategories/{+id}",
@@ -561,7 +561,7 @@ profileId <>
 ContentCategory:
 ContentCategory"
   [profileId ContentCategory]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/contentCategories",
@@ -584,7 +584,7 @@ sortField <string> Field by which to sort the list.
 sortOrder <string> Order of sorted results."
   ([profileId] (contentCategories-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/contentCategories",
@@ -600,7 +600,7 @@ profileId <>
 ContentCategory:
 ContentCategory"
   [profileId ContentCategory]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/contentCategories",
@@ -618,7 +618,7 @@ id <>
 ContentCategory:
 ContentCategory"
   [profileId id ContentCategory]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/contentCategories",
@@ -634,7 +634,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/opera
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/operatingSystemVersions/{+id}",
@@ -648,7 +648,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/opera
 
 profileId <> "
   [profileId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/operatingSystemVersions",
@@ -665,7 +665,7 @@ id <>
 Site:
 Site"
   [profileId id Site]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/sites",
@@ -681,7 +681,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/sites
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/sites/{+id}",
@@ -697,7 +697,7 @@ profileId <>
 Site:
 Site"
   [profileId Site]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/sites",
@@ -729,7 +729,7 @@ sortOrder <string> Order of sorted results.
 sortField <string> Field by which to sort the list."
   ([profileId] (sites-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/sites",
@@ -745,7 +745,7 @@ profileId <>
 Site:
 Site"
   [profileId Site]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/sites",
@@ -763,7 +763,7 @@ id <>
 RemarketingListShare:
 RemarketingListShare"
   [profileId id RemarketingListShare]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/remarketingListShares",
@@ -779,7 +779,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/remar
 profileId <> 
 remarketingListId <> "
   [profileId remarketingListId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/remarketingListShares/{+remarketingListId}",
@@ -796,7 +796,7 @@ profileId <>
 RemarketingListShare:
 RemarketingListShare"
   [profileId RemarketingListShare]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/remarketingListShares",
@@ -812,7 +812,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/accou
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accountPermissionGroups/{+id}",
@@ -826,7 +826,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/accou
 
 profileId <> "
   [profileId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accountPermissionGroups",
@@ -841,7 +841,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/posta
 profileId <> 
 code <> "
   [profileId code]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/postalCodes/{+code}",
@@ -855,7 +855,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/posta
 
 profileId <> "
   [profileId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/postalCodes",
@@ -870,7 +870,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/campa
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/campaigns/{+id}",
@@ -886,7 +886,7 @@ profileId <>
 Campaign:
 Campaign"
   [profileId Campaign]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/campaigns",
@@ -916,7 +916,7 @@ sortOrder <string> Order of sorted results.
 sortField <string> Field by which to sort the list."
   ([profileId] (campaigns-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/campaigns",
@@ -932,7 +932,7 @@ profileId <>
 Campaign:
 Campaign"
   [profileId Campaign]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/campaigns",
@@ -950,7 +950,7 @@ id <>
 Campaign:
 Campaign"
   [profileId id Campaign]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/campaigns",
@@ -965,7 +965,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/brows
 
 profileId <> "
   [profileId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/browsers",
@@ -980,7 +980,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/repor
 profileId <> 
 reportId <> "
   [profileId reportId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/reports/{reportId}",
@@ -995,7 +995,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/repor
 profileId <> 
 reportId <> "
   [profileId reportId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/reports/{reportId}",
@@ -1011,7 +1011,7 @@ profileId <>
 Report:
 Report"
   [profileId Report]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/reports",
@@ -1033,7 +1033,7 @@ sortField <string> The field by which to sort the list.
 sortOrder <string> Order of sorted results."
   ([profileId] (reports-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/reports",
@@ -1052,7 +1052,7 @@ optional:
 synchronous <boolean> If set and true, tries to run the report synchronously."
   ([profileId reportId] (reports-run profileId reportId nil))
   ([profileId reportId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/reports/{reportId}/run",
@@ -1069,7 +1069,7 @@ reportId <>
 Report:
 Report"
   [profileId reportId Report]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/reports/{reportId}",
@@ -1087,7 +1087,7 @@ reportId <>
 Report:
 Report"
   [profileId reportId Report]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/reports/{reportId}",
@@ -1104,7 +1104,7 @@ profileId <>
 reportId <> 
 fileId <> "
   [profileId reportId fileId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/reports/{reportId}/files/{fileId}",
@@ -1126,7 +1126,7 @@ sortOrder <string> Order of sorted results.
 maxResults <integer> Maximum number of results to return."
   ([profileId reportId] (reports-files-list profileId reportId nil))
   ([profileId reportId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/reports/{reportId}/files",
@@ -1142,7 +1142,7 @@ profileId <>
 Report:
 Report"
   [profileId Report]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/reports/compatiblefields/query",
@@ -1157,7 +1157,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/metro
 
 profileId <> "
   [profileId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/metros",
@@ -1172,7 +1172,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/userR
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/userRolePermissions/{+id}",
@@ -1190,7 +1190,7 @@ optional:
 ids <string> Select only user role permissions with these IDs."
   ([profileId] (userRolePermissions-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/userRolePermissions",
@@ -1206,7 +1206,7 @@ profileId <>
 projectId <> 
 id <> "
   [profileId projectId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/projects/{projectId}/inventoryItems/{+id}",
@@ -1233,7 +1233,7 @@ sortField <string> Field by which to sort the list.
 siteId <string> Select only inventory items that are associated with these sites."
   ([profileId projectId] (inventoryItems-list profileId projectId nil))
   ([profileId projectId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/projects/{projectId}/inventoryItems",
@@ -1249,7 +1249,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/accou
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accountPermissions/{+id}",
@@ -1263,7 +1263,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/accou
 
 profileId <> "
   [profileId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accountPermissions",
@@ -1278,7 +1278,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/billi
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/billingProfiles/{+id}",
@@ -1304,7 +1304,7 @@ sortField <string> Field by which to sort the list.
 onlySuggestion <boolean> Select only billing profile which is suggested for the currency_code & subaccount_id using the Billing Suggestion API."
   ([profileId] (billingProfiles-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/billingProfiles",
@@ -1320,7 +1320,7 @@ profileId <>
 BillingProfile:
 BillingProfile"
   [profileId BillingProfile]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/billingProfiles",
@@ -1336,7 +1336,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/files
 reportId <> 
 fileId <> "
   [reportId fileId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/reports/{reportId}/files/{fileId}",
@@ -1357,7 +1357,7 @@ sortField <string> The field by which to sort the list.
 sortOrder <string> Order of sorted results."
   ([profileId] (files-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/files",
@@ -1373,7 +1373,7 @@ profileId <>
 ConversionsBatchInsertRequest:
 ConversionsBatchInsertRequest"
   [profileId ConversionsBatchInsertRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/conversions/batchinsert",
@@ -1390,7 +1390,7 @@ profileId <>
 ConversionsBatchUpdateRequest:
 ConversionsBatchUpdateRequest"
   [profileId ConversionsBatchUpdateRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/conversions/batchupdate",
@@ -1406,7 +1406,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/mobil
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/mobileApps/{+id}",
@@ -1427,7 +1427,7 @@ directories <string> Select only apps from these directories.
 maxResults <integer> Maximum number of results to return."
   ([profileId] (mobileApps-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/mobileApps",
@@ -1442,7 +1442,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/event
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/eventTags/{+id}",
@@ -1457,7 +1457,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/event
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/eventTags/{+id}",
@@ -1473,7 +1473,7 @@ profileId <>
 EventTag:
 EventTag"
   [profileId EventTag]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/eventTags",
@@ -1501,7 +1501,7 @@ sortOrder <string> Order of sorted results.
 sortField <string> Field by which to sort the list."
   ([profileId] (eventTags-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/eventTags",
@@ -1517,7 +1517,7 @@ profileId <>
 EventTag:
 EventTag"
   [profileId EventTag]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/eventTags",
@@ -1535,7 +1535,7 @@ id <>
 EventTag:
 EventTag"
   [profileId id EventTag]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/eventTags",
@@ -1551,7 +1551,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/platf
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/platformTypes/{+id}",
@@ -1565,7 +1565,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/platf
 
 profileId <> "
   [profileId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/platformTypes",
@@ -1580,7 +1580,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/accou
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/accountUserProfiles/{+id}",
@@ -1596,7 +1596,7 @@ profileId <>
 AccountUserProfile:
 AccountUserProfile"
   [profileId AccountUserProfile]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accountUserProfiles",
@@ -1622,7 +1622,7 @@ active <boolean> Select only active user profiles.
 sortField <string> Field by which to sort the list."
   ([profileId] (accountUserProfiles-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accountUserProfiles",
@@ -1638,7 +1638,7 @@ profileId <>
 AccountUserProfile:
 AccountUserProfile"
   [profileId AccountUserProfile]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accountUserProfiles",
@@ -1656,7 +1656,7 @@ id <>
 AccountUserProfile:
 AccountUserProfile"
   [profileId id AccountUserProfile]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accountUserProfiles",
@@ -1672,7 +1672,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/direc
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/directorySites/{+id}",
@@ -1688,7 +1688,7 @@ profileId <>
 DirectorySite:
 DirectorySite"
   [profileId DirectorySite]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/directorySites",
@@ -1716,7 +1716,7 @@ active <boolean> Select only active directory sites. Leave blank to retrieve bot
 sortField <string> Field by which to sort the list."
   ([profileId] (directorySites-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/directorySites",
@@ -1731,7 +1731,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/mobil
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/mobileCarriers/{+id}",
@@ -1745,7 +1745,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/mobil
 
 profileId <> "
   [profileId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/mobileCarriers",
@@ -1760,7 +1760,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/opera
 profileId <> 
 dartId <> "
   [profileId dartId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/operatingSystems/{+dartId}",
@@ -1774,7 +1774,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/opera
 
 profileId <> "
   [profileId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/operatingSystems",
@@ -1789,7 +1789,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/flood
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightConfigurations/{+id}",
@@ -1807,7 +1807,7 @@ optional:
 ids <string> Set of IDs of floodlight configurations to retrieve. Required field; otherwise an empty list will be returned."
   ([profileId] (floodlightConfigurations-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightConfigurations",
@@ -1823,7 +1823,7 @@ profileId <>
 FloodlightConfiguration:
 FloodlightConfiguration"
   [profileId FloodlightConfiguration]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightConfigurations",
@@ -1841,7 +1841,7 @@ id <>
 FloodlightConfiguration:
 FloodlightConfiguration"
   [profileId id FloodlightConfiguration]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightConfigurations",
@@ -1859,7 +1859,7 @@ id <>
 UserRole:
 UserRole"
   [profileId id UserRole]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/userRoles",
@@ -1875,7 +1875,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/userR
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/userRoles/{+id}",
@@ -1891,7 +1891,7 @@ profileId <>
 UserRole:
 UserRole"
   [profileId UserRole]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/userRoles",
@@ -1916,7 +1916,7 @@ sortOrder <string> Order of sorted results.
 sortField <string> Field by which to sort the list."
   ([profileId] (userRoles-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/userRoles",
@@ -1932,7 +1932,7 @@ profileId <>
 UserRole:
 UserRole"
   [profileId UserRole]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/userRoles",
@@ -1948,7 +1948,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/userR
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/userRoles/{+id}",
@@ -1963,7 +1963,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/flood
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivityGroups/{+id}",
@@ -1979,7 +1979,7 @@ profileId <>
 FloodlightActivityGroup:
 FloodlightActivityGroup"
   [profileId FloodlightActivityGroup]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivityGroups",
@@ -2005,7 +2005,7 @@ sortField <string> Field by which to sort the list.
 floodlightConfigurationId <string> Select only floodlight activity groups with the specified floodlight configuration ID. Must specify either advertiserId, or floodlightConfigurationId for a non-empty result."
   ([profileId] (floodlightActivityGroups-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivityGroups",
@@ -2021,7 +2021,7 @@ profileId <>
 FloodlightActivityGroup:
 FloodlightActivityGroup"
   [profileId FloodlightActivityGroup]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivityGroups",
@@ -2039,7 +2039,7 @@ id <>
 FloodlightActivityGroup:
 FloodlightActivityGroup"
   [profileId id FloodlightActivityGroup]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivityGroups",
@@ -2057,7 +2057,7 @@ objectId <>
 name <> 
 objectType <> "
   [profileId objectId name objectType]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/dynamicTargetingKeys/{+objectId}",
@@ -2073,7 +2073,7 @@ profileId <>
 DynamicTargetingKey:
 DynamicTargetingKey"
   [profileId DynamicTargetingKey]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/dynamicTargetingKeys",
@@ -2095,7 +2095,7 @@ objectId <string> Select only dynamic targeting keys with this object ID.
 advertiserId <string> Select only dynamic targeting keys whose object has this advertiser ID."
   ([profileId] (dynamicTargetingKeys-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/dynamicTargetingKeys",
@@ -2110,7 +2110,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/adver
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserLandingPages/{+id}",
@@ -2126,7 +2126,7 @@ profileId <>
 LandingPage:
 LandingPage"
   [profileId LandingPage]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserLandingPages",
@@ -2153,7 +2153,7 @@ sortOrder <string> Order of sorted results.
 sortField <string> Field by which to sort the list."
   ([profileId] (advertiserLandingPages-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserLandingPages",
@@ -2169,7 +2169,7 @@ profileId <>
 LandingPage:
 LandingPage"
   [profileId LandingPage]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserLandingPages",
@@ -2187,7 +2187,7 @@ id <>
 LandingPage:
 LandingPage"
   [profileId id LandingPage]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserLandingPages",
@@ -2202,7 +2202,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/langu
 
 profileId <> "
   [profileId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/languages",
@@ -2217,7 +2217,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/accou
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accounts/{+id}",
@@ -2240,7 +2240,7 @@ sortField <string> Field by which to sort the list.
 sortOrder <string> Order of sorted results."
   ([profileId] (accounts-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accounts",
@@ -2256,7 +2256,7 @@ profileId <>
 Account:
 Account"
   [profileId Account]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accounts",
@@ -2274,7 +2274,7 @@ id <>
 Account:
 Account"
   [profileId id Account]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accounts",
@@ -2290,7 +2290,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/count
 profileId <> 
 dartId <> "
   [profileId dartId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/countries/{+dartId}",
@@ -2304,7 +2304,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/count
 
 profileId <> "
   [profileId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/countries",
@@ -2321,7 +2321,7 @@ id <>
 PlacementGroup:
 PlacementGroup"
   [profileId id PlacementGroup]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementGroups",
@@ -2337,7 +2337,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/place
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementGroups/{+id}",
@@ -2353,7 +2353,7 @@ profileId <>
 PlacementGroup:
 PlacementGroup"
   [profileId PlacementGroup]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementGroups",
@@ -2389,7 +2389,7 @@ sortField <string> Field by which to sort the list.
 minEndDate <string> Select only placements or placement groups whose end date is on or after the specified minEndDate. The date should be formatted as \"yyyy-MM-dd\"."
   ([profileId] (placementGroups-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementGroups",
@@ -2405,7 +2405,7 @@ profileId <>
 PlacementGroup:
 PlacementGroup"
   [profileId PlacementGroup]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementGroups",
@@ -2427,7 +2427,7 @@ issueMonth <string> Month for which invoices are needed in the format YYYYMM. Re
   ([profileId advertiserId]
     (advertiserInvoices-list profileId advertiserId nil))
   ([profileId advertiserId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertisers/{+advertiserId}/invoices",
@@ -2443,7 +2443,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/creat
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields/{+id}",
@@ -2458,7 +2458,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/creat
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields/{+id}",
@@ -2474,7 +2474,7 @@ profileId <>
 CreativeField:
 CreativeField"
   [profileId CreativeField]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields",
@@ -2498,7 +2498,7 @@ sortField <string> Field by which to sort the list.
 sortOrder <string> Order of sorted results."
   ([profileId] (creativeFields-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields",
@@ -2514,7 +2514,7 @@ profileId <>
 CreativeField:
 CreativeField"
   [profileId CreativeField]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields",
@@ -2532,7 +2532,7 @@ id <>
 CreativeField:
 CreativeField"
   [profileId id CreativeField]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields",
@@ -2547,7 +2547,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/regio
 
 profileId <> "
   [profileId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/regions",
@@ -2562,7 +2562,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/flood
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivities/{+id}",
@@ -2580,7 +2580,7 @@ optional:
 floodlightActivityId <string> Floodlight activity ID for which we want to generate a tag."
   ([profileId] (floodlightActivities-generatetag profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivities/generatetag",
@@ -2595,7 +2595,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/flood
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivities/{+id}",
@@ -2611,7 +2611,7 @@ profileId <>
 FloodlightActivity:
 FloodlightActivity"
   [profileId FloodlightActivity]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivities",
@@ -2641,7 +2641,7 @@ sortField <string> Field by which to sort the list.
 floodlightConfigurationId <string> Select only floodlight activities for the specified floodlight configuration ID. Must specify either ids, advertiserId, or floodlightConfigurationId for a non-empty result."
   ([profileId] (floodlightActivities-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivities",
@@ -2657,7 +2657,7 @@ profileId <>
 FloodlightActivity:
 FloodlightActivity"
   [profileId FloodlightActivity]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivities",
@@ -2675,7 +2675,7 @@ id <>
 FloodlightActivity:
 FloodlightActivity"
   [profileId id FloodlightActivity]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivities",
@@ -2691,7 +2691,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/userR
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/userRolePermissionGroups/{+id}",
@@ -2705,7 +2705,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/userR
 
 profileId <> "
   [profileId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/userRolePermissionGroups",
@@ -2722,7 +2722,7 @@ id <>
 TargetingTemplate:
 TargetingTemplate"
   [profileId id TargetingTemplate]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/targetingTemplates",
@@ -2738,7 +2738,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/targe
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/targetingTemplates/{+id}",
@@ -2754,7 +2754,7 @@ profileId <>
 TargetingTemplate:
 TargetingTemplate"
   [profileId TargetingTemplate]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/targetingTemplates",
@@ -2778,7 +2778,7 @@ sortField <string> Field by which to sort the list.
 sortOrder <string> Order of sorted results."
   ([profileId] (targetingTemplates-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/targetingTemplates",
@@ -2794,7 +2794,7 @@ profileId <>
 TargetingTemplate:
 TargetingTemplate"
   [profileId TargetingTemplate]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/targetingTemplates",
@@ -2812,7 +2812,7 @@ billingProfileId <>
 BillingAssignment:
 BillingAssignment"
   [profileId billingProfileId BillingAssignment]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/billingProfiles/{+billingProfileId}/billingAssignments",
@@ -2829,7 +2829,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/billi
 profileId <> 
 billingProfileId <> "
   [profileId billingProfileId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/billingProfiles/{+billingProfileId}/billingAssignments",
@@ -2847,7 +2847,7 @@ id <>
 RemarketingList:
 RemarketingList"
   [profileId id RemarketingList]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/remarketingLists",
@@ -2863,7 +2863,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/remar
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/remarketingLists/{+id}",
@@ -2879,7 +2879,7 @@ profileId <>
 RemarketingList:
 RemarketingList"
   [profileId RemarketingList]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/remarketingLists",
@@ -2905,7 +2905,7 @@ sortField <string> Field by which to sort the list."
   ([profileId advertiserId]
     (remarketingLists-list profileId advertiserId nil))
   ([profileId advertiserId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/remarketingLists",
@@ -2921,7 +2921,7 @@ profileId <>
 RemarketingList:
 RemarketingList"
   [profileId RemarketingList]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/remarketingLists",
@@ -2937,7 +2937,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/proje
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/projects/{+id}",
@@ -2960,7 +2960,7 @@ sortField <string> Field by which to sort the list.
 sortOrder <string> Order of sorted results."
   ([profileId] (projects-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/projects",
@@ -2975,7 +2975,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/sizes
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/sizes/{+id}",
@@ -2991,7 +2991,7 @@ profileId <>
 Size:
 Size"
   [profileId Size]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/sizes",
@@ -3013,7 +3013,7 @@ iabStandard <boolean> Select only IAB standard sizes.
 width <integer> Select only sizes with this width."
   ([profileId] (sizes-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/sizes",
@@ -3028,7 +3028,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/billi
 profileId <> 
 billingProfileId <> "
   [profileId billingProfileId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/billingProfiles/{+billingProfileId}/billingRates",
@@ -3044,7 +3044,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/chang
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/changeLogs/{+id}",
@@ -3070,7 +3070,7 @@ action <string> Select only change logs with the specified action.
 objectType <string> Select only change logs with the specified object type."
   ([profileId] (changeLogs-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/changeLogs",
@@ -3087,7 +3087,7 @@ id <>
 PlacementStrategy:
 PlacementStrategy"
   [profileId id PlacementStrategy]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementStrategies",
@@ -3103,7 +3103,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/place
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementStrategies/{+id}",
@@ -3118,7 +3118,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/place
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementStrategies/{+id}",
@@ -3134,7 +3134,7 @@ profileId <>
 PlacementStrategy:
 PlacementStrategy"
   [profileId PlacementStrategy]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementStrategies",
@@ -3157,7 +3157,7 @@ sortField <string> Field by which to sort the list.
 sortOrder <string> Order of sorted results."
   ([profileId] (placementStrategies-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementStrategies",
@@ -3173,7 +3173,7 @@ profileId <>
 PlacementStrategy:
 PlacementStrategy"
   [profileId PlacementStrategy]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementStrategies",
@@ -3195,7 +3195,7 @@ dartIds <string> Select only cities with these DART IDs.
 regionDartIds <string> Select only cities from these regions."
   ([profileId] (cities-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/cities",
@@ -3216,7 +3216,7 @@ maxResults <integer> Maximum number of results to return."
   ([profileId DimensionValueRequest]
     (dimensionValues-query profileId DimensionValueRequest nil))
   ([profileId DimensionValueRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/dimensionvalues/query",
@@ -3232,7 +3232,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/conne
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/connectionTypes/{+id}",
@@ -3246,7 +3246,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/conne
 
 profileId <> "
   [profileId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/connectionTypes",
@@ -3262,7 +3262,7 @@ profileId <>
 creativeFieldId <> 
 id <> "
   [profileId creativeFieldId id]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields/{+creativeFieldId}/creativeFieldValues/{+id}",
@@ -3281,7 +3281,7 @@ profileId <>
 creativeFieldId <> 
 id <> "
   [profileId creativeFieldId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields/{+creativeFieldId}/creativeFieldValues/{+id}",
@@ -3301,7 +3301,7 @@ creativeFieldId <>
 CreativeFieldValue:
 CreativeFieldValue"
   [profileId creativeFieldId CreativeFieldValue]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields/{+creativeFieldId}/creativeFieldValues",
@@ -3327,7 +3327,7 @@ sortOrder <string> Order of sorted results."
   ([profileId creativeFieldId]
     (creativeFieldValues-list profileId creativeFieldId nil))
   ([profileId creativeFieldId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields/{+creativeFieldId}/creativeFieldValues",
@@ -3345,7 +3345,7 @@ creativeFieldId <>
 CreativeFieldValue:
 CreativeFieldValue"
   [profileId creativeFieldId CreativeFieldValue]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields/{+creativeFieldId}/creativeFieldValues",
@@ -3365,7 +3365,7 @@ id <>
 CreativeFieldValue:
 CreativeFieldValue"
   [profileId creativeFieldId id CreativeFieldValue]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields/{+creativeFieldId}/creativeFieldValues",
@@ -3382,7 +3382,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/ads/g
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/ads/{+id}",
@@ -3398,7 +3398,7 @@ profileId <>
 Ad:
 Ad"
   [profileId Ad]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/ads",
@@ -3438,7 +3438,7 @@ sortField <string> Field by which to sort the list.
 creativeOptimizationConfigurationIds <string> Select only ads with these creative optimization configuration IDs."
   ([profileId] (ads-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/ads",
@@ -3454,7 +3454,7 @@ profileId <>
 Ad:
 Ad"
   [profileId Ad]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/ads",
@@ -3472,7 +3472,7 @@ id <>
 Ad:
 Ad"
   [profileId id Ad]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/ads",
@@ -3490,7 +3490,7 @@ id <>
 Subaccount:
 Subaccount"
   [profileId id Subaccount]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/subaccounts",
@@ -3506,7 +3506,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/subac
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/subaccounts/{+id}",
@@ -3522,7 +3522,7 @@ profileId <>
 Subaccount:
 Subaccount"
   [profileId Subaccount]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/subaccounts",
@@ -3545,7 +3545,7 @@ sortField <string> Field by which to sort the list.
 sortOrder <string> Order of sorted results."
   ([profileId] (subaccounts-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/subaccounts",
@@ -3561,7 +3561,7 @@ profileId <>
 Subaccount:
 Subaccount"
   [profileId Subaccount]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/subaccounts",
@@ -3578,7 +3578,7 @@ profileId <>
 projectId <> 
 id <> "
   [profileId projectId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/projects/{projectId}/orders/{+id}",
@@ -3603,7 +3603,7 @@ sortField <string> Field by which to sort the list.
 siteId <string> Select only orders that are associated with these site IDs."
   ([profileId projectId] (orders-list profileId projectId nil))
   ([profileId projectId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/projects/{projectId}/orders",
@@ -3621,7 +3621,7 @@ advertiserId <>
 CreativeAssetMetadata:
 CreativeAssetMetadata"
   [profileId advertiserId CreativeAssetMetadata]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeAssets/{+advertiserId}/creativeAssets",
@@ -3638,7 +3638,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/video
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/videoFormats/{+id}",
@@ -3652,7 +3652,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/video
 
 profileId <> "
   [profileId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/videoFormats",
@@ -3667,7 +3667,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/creat
 profileId <> 
 id <> "
   [profileId id]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeGroups/{+id}",
@@ -3683,7 +3683,7 @@ profileId <>
 CreativeGroup:
 CreativeGroup"
   [profileId CreativeGroup]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeGroups",
@@ -3708,7 +3708,7 @@ sortField <string> Field by which to sort the list.
 groupNumber <integer> Select only creative groups that belong to this subgroup."
   ([profileId] (creativeGroups-list profileId nil))
   ([profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeGroups",
@@ -3724,7 +3724,7 @@ profileId <>
 CreativeGroup:
 CreativeGroup"
   [profileId CreativeGroup]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeGroups",
@@ -3742,7 +3742,7 @@ id <>
 CreativeGroup:
 CreativeGroup"
   [profileId id CreativeGroup]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeGroups",
@@ -3757,7 +3757,7 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/userP
 
 profileId <> "
   [profileId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}",
@@ -3772,7 +3772,7 @@ profileId <> "
   "Retrieves list of user profiles for a user.
 https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/userProfiles/list"
   []
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles",

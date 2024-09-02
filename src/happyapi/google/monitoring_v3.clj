@@ -12,7 +12,7 @@ name <>
 CreateCollectdTimeSeriesRequest:
 CreateCollectdTimeSeriesRequest"
   [name CreateCollectdTimeSeriesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://monitoring.googleapis.com/v3/{+name}/collectdTimeSeries",
@@ -47,7 +47,7 @@ view <string> Required. Specifies which information is returned about the time s
 aggregation.groupByFields <string> The set of fields to preserve when cross_series_reducer is specified. The group_by_fields determine how the time series are partitioned into subsets prior to applying the aggregation operation. Each subset contains time series that have the same value for each of the grouping fields. Each individual time series is a member of exactly one subset. The cross_series_reducer is applied to each subset of time series. It is not possible to reduce across different resource types, so this field implicitly contains resource.type. Fields not specified in group_by_fields are aggregated away. If group_by_fields is not specified and all the time series have the same resource type, then the time series are aggregated into a single output time series. If cross_series_reducer is not defined, this field is ignored."
   ([name] (projects-timeSeries-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://monitoring.googleapis.com/v3/{+name}/timeSeries",
@@ -66,7 +66,7 @@ name <>
 CreateTimeSeriesRequest:
 CreateTimeSeriesRequest"
   [name CreateTimeSeriesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://monitoring.googleapis.com/v3/{+name}/timeSeries",
@@ -86,7 +86,7 @@ name <>
 CreateTimeSeriesRequest:
 CreateTimeSeriesRequest"
   [name CreateTimeSeriesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://monitoring.googleapis.com/v3/{+name}/timeSeries:createService",
@@ -106,7 +106,7 @@ name <>
 QueryTimeSeriesRequest:
 QueryTimeSeriesRequest"
   [name QueryTimeSeriesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://monitoring.googleapis.com/v3/{+name}/timeSeries:query",
@@ -129,7 +129,7 @@ filter <string> If this field is empty, all custom and system-defined metric des
 pageSize <integer> A positive number that is the maximum number of results to return. The default and maximum value is 10,000. If a page_size <= 0 or > 10,000 is submitted, will instead return a maximum of 10,000 results."
   ([name] (projects-metricDescriptors-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://monitoring.googleapis.com/v3/{+name}/metricDescriptors",
@@ -147,7 +147,7 @@ https://cloud.google.com/monitoring/api/v3/v3/reference/rest/v3/projects/metricD
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://monitoring.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -166,7 +166,7 @@ name <>
 MetricDescriptor:
 MetricDescriptor"
   [name MetricDescriptor]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://monitoring.googleapis.com/v3/{+name}/metricDescriptors",
@@ -184,7 +184,7 @@ https://cloud.google.com/monitoring/api/v3/v3/reference/rest/v3/projects/metricD
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://monitoring.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -204,7 +204,7 @@ filter <string> An optional filter (https://cloud.google.com/monitoring/api/v3/f
 pageSize <integer> A positive number that is the maximum number of results to return."
   ([name] (projects-monitoredResourceDescriptors-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://monitoring.googleapis.com/v3/{+name}/monitoredResourceDescriptors",
@@ -222,7 +222,7 @@ https://cloud.google.com/monitoring/api/v3/v3/reference/rest/v3/projects/monitor
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://monitoring.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -241,7 +241,7 @@ parent <>
 Snooze:
 Snooze"
   [parent Snooze]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://monitoring.googleapis.com/v3/{+parent}/snoozes",
@@ -263,7 +263,7 @@ filter <string> Optional. Optional filter to restrict results to the given crite
 pageSize <integer> Optional. The maximum number of results to return for a single query. The server may further constrain the maximum number of results returned in a single page. The value should be in the range 1, 1000. If the value given is outside this range, the server will decide the number of results to be returned."
   ([parent] (projects-snoozes-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://monitoring.googleapis.com/v3/{+parent}/snoozes",
@@ -280,7 +280,7 @@ https://cloud.google.com/monitoring/api/v3/v3/reference/rest/v3/projects/snoozes
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://monitoring.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -302,7 +302,7 @@ optional:
 updateMask <string> Required. The fields to update.For each field listed in update_mask: If the Snooze object supplied in the UpdateSnoozeRequest has a value for that field, the value of the field in the existing Snooze will be set to the value of the field in the supplied Snooze. If the field does not have a value in the supplied Snooze, the field in the existing Snooze is set to its default value.Fields not listed retain their existing value.The following are the field names that are accepted in update_mask: display_name interval.start_time interval.end_timeThat said, the start time and end time of the Snooze determines which fields can legally be updated. Before attempting an update, users should consult the documentation for UpdateSnoozeRequest, which talks about which fields can be updated."
   ([name Snooze] (projects-snoozes-patch name Snooze nil))
   ([name Snooze optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://monitoring.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -319,12 +319,12 @@ https://cloud.google.com/monitoring/api/v3/v3/reference/rest/v3/projects/notific
 name <> 
 
 optional:
-filter <string> If provided, this field specifies the criteria that must be met by notification channels to be included in the response.For more details, see sorting and filtering (https://cloud.google.com/monitoring/api/v3/sorting-and-filtering).
-orderBy <string> A comma-separated list of fields by which to sort the result. Supports the same set of fields as in filter. Entries can be prefixed with a minus sign to sort in descending rather than ascending order.For more details, see sorting and filtering (https://cloud.google.com/monitoring/api/v3/sorting-and-filtering).
-pageSize <integer> The maximum number of results to return in a single response. If not set to a positive number, a reasonable value will be chosen by the service."
+filter <string> Optional. If provided, this field specifies the criteria that must be met by notification channels to be included in the response.For more details, see sorting and filtering (https://cloud.google.com/monitoring/api/v3/sorting-and-filtering).
+orderBy <string> Optional. A comma-separated list of fields by which to sort the result. Supports the same set of fields as in filter. Entries can be prefixed with a minus sign to sort in descending rather than ascending order.For more details, see sorting and filtering (https://cloud.google.com/monitoring/api/v3/sorting-and-filtering).
+pageSize <integer> Optional. The maximum number of results to return in a single response. If not set to a positive number, a reasonable value will be chosen by the service."
   ([name] (projects-notificationChannels-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://monitoring.googleapis.com/v3/{+name}/notificationChannels",
@@ -341,7 +341,7 @@ https://cloud.google.com/monitoring/api/v3/v3/reference/rest/v3/projects/notific
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://monitoring.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -359,7 +359,7 @@ name <>
 NotificationChannel:
 NotificationChannel"
   [name NotificationChannel]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://monitoring.googleapis.com/v3/{+name}/notificationChannels",
@@ -379,11 +379,11 @@ NotificationChannel:
 NotificationChannel
 
 optional:
-updateMask <string> The fields to update."
+updateMask <string> Optional. The fields to update."
   ([name NotificationChannel]
     (projects-notificationChannels-patch name NotificationChannel nil))
   ([name NotificationChannel optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://monitoring.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -403,7 +403,7 @@ optional:
 force <boolean> If true, the notification channel will be deleted regardless of its use in alert policies (the policies will be updated to remove the channel). If false, channels that are still referenced by an existing alerting policy will fail to be deleted in a delete operation."
   ([name] (projects-notificationChannels-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://monitoring.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -420,7 +420,7 @@ name <>
 SendNotificationChannelVerificationCodeRequest:
 SendNotificationChannelVerificationCodeRequest"
   [name SendNotificationChannelVerificationCodeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://monitoring.googleapis.com/v3/{+name}:sendVerificationCode",
@@ -439,7 +439,7 @@ name <>
 GetNotificationChannelVerificationCodeRequest:
 GetNotificationChannelVerificationCodeRequest"
   [name GetNotificationChannelVerificationCodeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://monitoring.googleapis.com/v3/{+name}:getVerificationCode",
@@ -458,7 +458,7 @@ name <>
 VerifyNotificationChannelRequest:
 VerifyNotificationChannelRequest"
   [name VerifyNotificationChannelRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://monitoring.googleapis.com/v3/{+name}:verify",
@@ -476,12 +476,12 @@ https://cloud.google.com/monitoring/api/v3/v3/reference/rest/v3/projects/alertPo
 name <> 
 
 optional:
-filter <string> If provided, this field specifies the criteria that must be met by alert policies to be included in the response.For more details, see sorting and filtering (https://cloud.google.com/monitoring/api/v3/sorting-and-filtering).
-orderBy <string> A comma-separated list of fields by which to sort the result. Supports the same set of field references as the filter field. Entries can be prefixed with a minus sign to sort by the field in descending order.For more details, see sorting and filtering (https://cloud.google.com/monitoring/api/v3/sorting-and-filtering).
-pageSize <integer> The maximum number of results to return in a single response."
+filter <string> Optional. If provided, this field specifies the criteria that must be met by alert policies to be included in the response.For more details, see sorting and filtering (https://cloud.google.com/monitoring/api/v3/sorting-and-filtering).
+orderBy <string> Optional. A comma-separated list of fields by which to sort the result. Supports the same set of field references as the filter field. Entries can be prefixed with a minus sign to sort by the field in descending order.For more details, see sorting and filtering (https://cloud.google.com/monitoring/api/v3/sorting-and-filtering).
+pageSize <integer> Optional. The maximum number of results to return in a single response."
   ([name] (projects-alertPolicies-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://monitoring.googleapis.com/v3/{+name}/alertPolicies",
@@ -498,7 +498,7 @@ https://cloud.google.com/monitoring/api/v3/v3/reference/rest/v3/projects/alertPo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://monitoring.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -516,7 +516,7 @@ name <>
 AlertPolicy:
 AlertPolicy"
   [name AlertPolicy]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://monitoring.googleapis.com/v3/{+name}/alertPolicies",
@@ -533,7 +533,7 @@ https://cloud.google.com/monitoring/api/v3/v3/reference/rest/v3/projects/alertPo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://monitoring.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -555,7 +555,7 @@ updateMask <string> Optional. A list of alerting policy field names. If this fie
   ([name AlertPolicy]
     (projects-alertPolicies-patch name AlertPolicy nil))
   ([name AlertPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://monitoring.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -575,7 +575,7 @@ optional:
 pageSize <integer> The maximum number of results to return in a single response. If not set to a positive number, a reasonable value will be chosen by the service."
   ([name] (projects-notificationChannelDescriptors-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://monitoring.googleapis.com/v3/{+name}/notificationChannelDescriptors",
@@ -592,7 +592,7 @@ https://cloud.google.com/monitoring/api/v3/v3/reference/rest/v3/projects/notific
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://monitoring.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -613,7 +613,7 @@ filter <string> If provided, this field specifies the criteria that must be met 
 pageSize <integer> The maximum number of results to return in a single response. The server may further constrain the maximum number of results returned in a single page. If the page_size is <=0, the server will decide the number of results to be returned."
   ([parent] (projects-uptimeCheckConfigs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://monitoring.googleapis.com/v3/{+parent}/uptimeCheckConfigs",
@@ -630,7 +630,7 @@ https://cloud.google.com/monitoring/api/v3/v3/reference/rest/v3/projects/uptimeC
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://monitoring.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -648,7 +648,7 @@ parent <>
 UptimeCheckConfig:
 UptimeCheckConfig"
   [parent UptimeCheckConfig]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://monitoring.googleapis.com/v3/{+parent}/uptimeCheckConfigs",
@@ -672,7 +672,7 @@ updateMask <string> Optional. If present, only the listed fields in the current 
   ([name UptimeCheckConfig]
     (projects-uptimeCheckConfigs-patch name UptimeCheckConfig nil))
   ([name UptimeCheckConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://monitoring.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -688,7 +688,7 @@ https://cloud.google.com/monitoring/api/v3/v3/reference/rest/v3/projects/uptimeC
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://monitoring.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -710,7 +710,7 @@ descendantsOfGroup <string> A group name. The format is: projects/[PROJECT_ID_OR
 pageSize <integer> A positive number that is the maximum number of results to return."
   ([name] (projects-groups-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://monitoring.googleapis.com/v3/{+name}/groups",
@@ -727,7 +727,7 @@ https://cloud.google.com/monitoring/api/v3/v3/reference/rest/v3/projects/groups/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://monitoring.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -749,7 +749,7 @@ optional:
 validateOnly <boolean> If true, validate this request but do not create the group."
   ([name Group] (projects-groups-create name Group nil))
   ([name Group optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://monitoring.googleapis.com/v3/{+name}/groups",
@@ -772,7 +772,7 @@ optional:
 validateOnly <boolean> If true, validate this request but do not update the existing group."
   ([name Group] (projects-groups-update name Group nil))
   ([name Group optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template "https://monitoring.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -792,7 +792,7 @@ optional:
 recursive <boolean> If this field is true, then the request means to delete a group with all its descendants. Otherwise, the request means to delete a group only when it has no descendants. The default value is false."
   ([name] (projects-groups-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://monitoring.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -814,7 +814,7 @@ interval.endTime <string> Required. The end of the time interval.
 interval.startTime <string> Optional. The beginning of the time interval. The default value for the start time is the end time. The start time must not be later than the end time."
   ([name] (projects-groups-members-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://monitoring.googleapis.com/v3/{+name}/members",
@@ -848,7 +848,7 @@ view <string> Required. Specifies which information is returned about the time s
 aggregation.groupByFields <string> The set of fields to preserve when cross_series_reducer is specified. The group_by_fields determine how the time series are partitioned into subsets prior to applying the aggregation operation. Each subset contains time series that have the same value for each of the grouping fields. Each individual time series is a member of exactly one subset. The cross_series_reducer is applied to each subset of time series. It is not possible to reduce across different resource types, so this field implicitly contains resource.type. Fields not specified in group_by_fields are aggregated away. If group_by_fields is not specified and all the time series have the same resource type, then the time series are aggregated into a single output time series. If cross_series_reducer is not defined, this field is ignored."
   ([name] (organizations-timeSeries-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://monitoring.googleapis.com/v3/{+name}/timeSeries",
@@ -882,7 +882,7 @@ view <string> Required. Specifies which information is returned about the time s
 aggregation.groupByFields <string> The set of fields to preserve when cross_series_reducer is specified. The group_by_fields determine how the time series are partitioned into subsets prior to applying the aggregation operation. Each subset contains time series that have the same value for each of the grouping fields. Each individual time series is a member of exactly one subset. The cross_series_reducer is applied to each subset of time series. It is not possible to reduce across different resource types, so this field implicitly contains resource.type. Fields not specified in group_by_fields are aggregated away. If group_by_fields is not specified and all the time series have the same resource type, then the time series are aggregated into a single output time series. If cross_series_reducer is not defined, this field is ignored."
   ([name] (folders-timeSeries-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://monitoring.googleapis.com/v3/{+name}/timeSeries",
@@ -905,7 +905,7 @@ optional:
 serviceId <string> Optional. The Service id to use for this Service. If omitted, an id will be generated instead. Must match the pattern [a-z0-9\\-]+"
   ([parent Service] (services-create parent Service nil))
   ([parent Service optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://monitoring.googleapis.com/v3/{+parent}/services",
@@ -922,7 +922,7 @@ https://cloud.google.com/monitoring/api/v3/v3/reference/rest/v3/services/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://monitoring.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -943,7 +943,7 @@ filter <string> A filter specifying what Services to return. The filter supports
 pageSize <integer> A non-negative number that is the maximum number of results to return. When 0, use default page size."
   ([parent] (services-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://monitoring.googleapis.com/v3/{+parent}/services",
@@ -966,7 +966,7 @@ optional:
 updateMask <string> A set of field paths defining which fields to use for the update."
   ([name Service] (services-patch name Service nil))
   ([name Service optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://monitoring.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -982,7 +982,7 @@ https://cloud.google.com/monitoring/api/v3/v3/reference/rest/v3/services/delete
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://monitoring.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -1007,7 +1007,7 @@ serviceLevelObjectiveId <string> Optional. The ServiceLevelObjective id to use f
       ServiceLevelObjective
       nil))
   ([parent ServiceLevelObjective optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://monitoring.googleapis.com/v3/{+parent}/serviceLevelObjectives",
@@ -1028,7 +1028,7 @@ optional:
 view <string> View of the ServiceLevelObjective to return. If DEFAULT, return the ServiceLevelObjective as originally defined. If EXPLICIT and the ServiceLevelObjective is defined in terms of a BasicSli, replace the BasicSli with a RequestBasedSli spelling out how the SLI is computed."
   ([name] (services-serviceLevelObjectives-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://monitoring.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -1050,7 +1050,7 @@ pageSize <integer> A non-negative number that is the maximum number of results t
 view <string> View of the ServiceLevelObjectives to return. If DEFAULT, return each ServiceLevelObjective as originally defined. If EXPLICIT and the ServiceLevelObjective is defined in terms of a BasicSli, replace the BasicSli with a RequestBasedSli spelling out how the SLI is computed."
   ([parent] (services-serviceLevelObjectives-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://monitoring.googleapis.com/v3/{+parent}/serviceLevelObjectives",
@@ -1077,7 +1077,7 @@ updateMask <string> A set of field paths defining which fields to use for the up
       ServiceLevelObjective
       nil))
   ([name ServiceLevelObjective optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://monitoring.googleapis.com/v3/{+name}",
        :uri-template-args {"name" name},
@@ -1093,7 +1093,7 @@ https://cloud.google.com/monitoring/api/v3/v3/reference/rest/v3/services/service
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://monitoring.googleapis.com/v3/{+name}",
      :uri-template-args {"name" name},
@@ -1110,7 +1110,7 @@ optional:
 pageSize <integer> The maximum number of results to return in a single response. The server may further constrain the maximum number of results returned in a single page. If the page_size is <=0, the server will decide the number of results to be returned. NOTE: this field is not yet implemented"
   ([] (uptimeCheckIps-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://monitoring.googleapis.com/v3/uptimeCheckIps",

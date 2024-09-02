@@ -1,5 +1,5 @@
 (ns happyapi.google.gkeonprem-v1
-  "Anthos On-Prem API
+  "GDC Virtual API
 
 See: https://cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs"
   (:require [happyapi.providers.google :as client]))
@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/v1/refe
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -47,7 +47,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+name}/operations",
@@ -61,7 +61,7 @@ https://cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/v1/refe
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -74,7 +74,7 @@ https://cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/v1/refe
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -89,7 +89,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gkeonprem.googleapis.com/v1/{+name}:cancel",
@@ -107,10 +107,11 @@ parent <>
 optional:
 pageSize <integer> Requested page size. Server may return fewer items than requested. If unspecified, at most 50 clusters will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000.
 filter <string> A resource filtering expression following https://google.aip.dev/160. When non-empty, only resource's whose attributes field matches the filter are returned.
-view <string> View for bare metal Clusters. When `BASIC` is specified, only the cluster resource name and admin cluster membership are returned. The default/unset value `CLUSTER_VIEW_UNSPECIFIED` is the same as `FULL', which returns the complete cluster configuration details."
+view <string> View for bare metal Clusters. When `BASIC` is specified, only the cluster resource name and admin cluster membership are returned. The default/unset value `CLUSTER_VIEW_UNSPECIFIED` is the same as `FULL', which returns the complete cluster configuration details.
+allowMissing <boolean> Optional. If true, return list of BareMetal Clusters including the ones that only exists in RMS."
   ([parent] (projects-locations-bareMetalClusters-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalClusters",
@@ -126,7 +127,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gkeonprem.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -149,7 +150,7 @@ force <boolean> If set to true, any node pools from the cluster will also be del
 ignoreErrors <boolean> If set to true, the deletion of a bare metal user cluster resource will succeed even if errors occur during deletion. This parameter can be used when you want to delete GCP's cluster resource and the on-prem admin cluster that hosts your user cluster is disconnected / unreachable or deleted. WARNING: Using this parameter when your user cluster still exists may result in a deleted GCP user cluster but an existing on-prem user cluster."
   ([name] (projects-locations-bareMetalClusters-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -169,7 +170,7 @@ validateOnly <boolean> Validate the request without actually doing any updates.
 force <boolean> This is required if the cluster has any associated node pools. When set, any child node pools will also be unenrolled."
   ([name] (projects-locations-bareMetalClusters-unenroll name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+name}:unenroll",
@@ -195,7 +196,7 @@ validateOnly <boolean> Validate the request without actually doing any updates."
       BareMetalCluster
       nil))
   ([name BareMetalCluster optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -218,7 +219,7 @@ upgradeConfig.clusterName <string> The user cluster resource name. This is the f
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalClusters:queryVersionConfig",
@@ -237,7 +238,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-bareMetalClusters-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -253,7 +254,7 @@ parent <>
 EnrollBareMetalClusterRequest:
 EnrollBareMetalClusterRequest"
   [parent EnrollBareMetalClusterRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalClusters:enroll",
@@ -272,14 +273,15 @@ BareMetalCluster
 
 optional:
 bareMetalClusterId <string> Required. User provided identifier that is used as part of the resource name; must conform to RFC-1034 and additionally restrict to lower-cased letters. This comes out roughly to: /^a-z+[a-z0-9]$/
-validateOnly <boolean> Validate the request without actually doing any updates."
+validateOnly <boolean> Validate the request without actually doing any updates.
+allowPreflightFailure <boolean> Optional. If set to true, CLM will force CCFE to persist the cluster resource in RMS when the creation fails during standalone preflight checks. In that case the subsequent create call will fail with \"cluster already exists\" error and hence a update cluster is required to fix the cluster."
   ([parent BareMetalCluster]
     (projects-locations-bareMetalClusters-create
       parent
       BareMetalCluster
       nil))
   ([parent BareMetalCluster optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalClusters",
@@ -295,10 +297,11 @@ https://cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/v1/refe
 name <> 
 
 optional:
-view <string> View for bare metal user cluster. When `BASIC` is specified, only the cluster resource name and admin cluster membership are returned. The default/unset value `CLUSTER_VIEW_UNSPECIFIED` is the same as `FULL', which returns the complete cluster configuration details."
+view <string> View for bare metal user cluster. When `BASIC` is specified, only the cluster resource name and admin cluster membership are returned. The default/unset value `CLUSTER_VIEW_UNSPECIFIED` is the same as `FULL', which returns the complete cluster configuration details.
+allowMissing <boolean> Optional. If true, return BareMetal Cluster including the one that only exists in RMS."
   ([name] (projects-locations-bareMetalClusters-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -313,7 +316,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gkeonprem.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -334,7 +337,7 @@ pageSize <integer> The standard list page size."
   ([name]
     (projects-locations-bareMetalClusters-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+name}/operations",
@@ -348,7 +351,7 @@ https://cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/v1/refe
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -369,7 +372,7 @@ view <string> View for bare metal node pools. When `BASIC` is specified, only th
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalNodePools",
@@ -385,7 +388,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gkeonprem.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -410,7 +413,7 @@ ignoreErrors <boolean> If set to true, the deletion of a bare metal node pool re
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -432,7 +435,7 @@ validateOnly <boolean> If set, only validate the request, but do not actually un
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+name}:unenroll",
@@ -458,7 +461,7 @@ validateOnly <boolean> Validate the request without actually doing any updates."
       BareMetalNodePool
       nil))
   ([name BareMetalNodePool optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -479,7 +482,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -495,7 +498,7 @@ parent <>
 EnrollBareMetalNodePoolRequest:
 EnrollBareMetalNodePoolRequest"
   [parent EnrollBareMetalNodePoolRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalNodePools:enroll",
@@ -521,7 +524,7 @@ validateOnly <boolean> If set, only validate the request, but do not actually cr
       BareMetalNodePool
       nil))
   ([parent BareMetalNodePool optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalNodePools",
@@ -543,7 +546,7 @@ view <string> View for bare metal node pool. When `BASIC` is specified, only the
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -558,7 +561,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gkeonprem.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -581,7 +584,7 @@ pageSize <integer> The standard list page size."
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+name}/operations",
@@ -595,7 +598,7 @@ https://cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/v1/refe
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -611,10 +614,11 @@ parent <>
 optional:
 pageSize <integer> Requested page size. Server may return fewer items than requested. If unspecified, at most 50 clusters will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000.
 filter <string> A resource filtering expression following https://google.aip.dev/160. When non-empty, only resource's whose attributes field matches the filter are returned.
-view <string> View for VMware clusters. When `BASIC` is specified, only the cluster resource name and admin cluster membership are returned. The default/unset value `CLUSTER_VIEW_UNSPECIFIED` is the same as `FULL', which returns the complete cluster configuration details."
+view <string> View for VMware clusters. When `BASIC` is specified, only the cluster resource name and admin cluster membership are returned. The default/unset value `CLUSTER_VIEW_UNSPECIFIED` is the same as `FULL', which returns the complete cluster configuration details.
+allowMissing <boolean> Optional. If true, return list of Vmware Clusters including the ones that only exists in RMS."
   ([parent] (projects-locations-vmwareClusters-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+parent}/vmwareClusters",
@@ -630,7 +634,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gkeonprem.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -653,7 +657,7 @@ force <boolean> If set to true, any node pools from the cluster will also be del
 ignoreErrors <boolean> If set to true, the deletion of a VMware user cluster resource will succeed even if errors occur during deletion. This parameter can be used when you want to delete GCP's cluster resource and the on-prem admin cluster that hosts your user cluster is disconnected / unreachable or deleted. WARNING: Using this parameter when your user cluster still exists may result in a deleted GCP user cluster but an existing on-prem user cluster."
   ([name] (projects-locations-vmwareClusters-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -673,7 +677,7 @@ validateOnly <boolean> Validate the request without actually doing any updates.
 force <boolean> This is required if the cluster has any associated node pools. When set, any child node pools will also be unenrolled."
   ([name] (projects-locations-vmwareClusters-unenroll name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+name}:unenroll",
@@ -695,7 +699,7 @@ validateOnly <boolean> Validate the request without actually doing any updates."
   ([name VmwareCluster]
     (projects-locations-vmwareClusters-patch name VmwareCluster nil))
   ([name VmwareCluster optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -716,7 +720,7 @@ upgradeConfig.clusterName <string> The user cluster resource name. This is the f
   ([parent]
     (projects-locations-vmwareClusters-queryVersionConfig parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+parent}/vmwareClusters:queryVersionConfig",
@@ -735,7 +739,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-vmwareClusters-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -751,7 +755,7 @@ parent <>
 EnrollVmwareClusterRequest:
 EnrollVmwareClusterRequest"
   [parent EnrollVmwareClusterRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gkeonprem.googleapis.com/v1/{+parent}/vmwareClusters:enroll",
@@ -770,14 +774,15 @@ VmwareCluster
 
 optional:
 vmwareClusterId <string> User provided identifier that is used as part of the resource name; This value must be up to 40 characters and follow RFC-1123 (https://tools.ietf.org/html/rfc1123) format.
-validateOnly <boolean> Validate the request without actually doing any updates."
+validateOnly <boolean> Validate the request without actually doing any updates.
+allowPreflightFailure <boolean> Optional. If set to true, CLM will force CCFE to persist the cluster resource in RMS when the creation fails during standalone preflight checks. In that case the subsequent create call will fail with \"cluster already exists\" error and hence a update cluster is required to fix the cluster."
   ([parent VmwareCluster]
     (projects-locations-vmwareClusters-create
       parent
       VmwareCluster
       nil))
   ([parent VmwareCluster optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+parent}/vmwareClusters",
@@ -793,10 +798,11 @@ https://cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/v1/refe
 name <> 
 
 optional:
-view <string> View for VMware user cluster. When `BASIC` is specified, only the cluster resource name and admin cluster membership are returned. The default/unset value `CLUSTER_VIEW_UNSPECIFIED` is the same as `FULL', which returns the complete cluster configuration details."
+view <string> View for VMware user cluster. When `BASIC` is specified, only the cluster resource name and admin cluster membership are returned. The default/unset value `CLUSTER_VIEW_UNSPECIFIED` is the same as `FULL', which returns the complete cluster configuration details.
+allowMissing <boolean> Optional. If true, return Vmware Cluster including the one that only exists in RMS."
   ([name] (projects-locations-vmwareClusters-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -811,7 +817,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gkeonprem.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -831,7 +837,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-vmwareClusters-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+name}/operations",
@@ -845,7 +851,7 @@ https://cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/v1/refe
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -866,7 +872,7 @@ view <string> View for VMware node pools. When `BASIC` is specified, only the no
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+parent}/vmwareNodePools",
@@ -882,7 +888,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gkeonprem.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -907,7 +913,7 @@ ignoreErrors <boolean> If set to true, the deletion of a VMware node pool resour
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -929,7 +935,7 @@ validateOnly <boolean> If set, only validate the request, but do not actually un
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+name}:unenroll",
@@ -954,7 +960,7 @@ validateOnly <boolean> Validate the request without actually doing any updates."
       VmwareNodePool
       nil))
   ([name VmwareNodePool optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -975,7 +981,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -991,7 +997,7 @@ parent <>
 EnrollVmwareNodePoolRequest:
 EnrollVmwareNodePoolRequest"
   [parent EnrollVmwareNodePoolRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gkeonprem.googleapis.com/v1/{+parent}/vmwareNodePools:enroll",
@@ -1017,7 +1023,7 @@ validateOnly <boolean> If set, only validate the request, but do not actually cr
       VmwareNodePool
       nil))
   ([parent VmwareNodePool optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+parent}/vmwareNodePools",
@@ -1037,7 +1043,7 @@ view <string> View for VMware node pool. When `BASIC` is specified, only the nod
   ([name]
     (projects-locations-vmwareClusters-vmwareNodePools-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1052,7 +1058,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gkeonprem.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -1075,7 +1081,7 @@ pageSize <integer> The standard list page size."
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+name}/operations",
@@ -1089,7 +1095,7 @@ https://cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/v1/refe
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1104,10 +1110,11 @@ parent <>
 
 optional:
 pageSize <integer> Requested page size. Server may return fewer items than requested. If unspecified, at most 50 clusters will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000.
-view <string> View for VMware admin clusters. When `BASIC` is specified, only the admin cluster resource name and membership are returned. The default/unset value `CLUSTER_VIEW_UNSPECIFIED` is the same as `FULL', which returns the complete admin cluster configuration details."
+view <string> View for VMware admin clusters. When `BASIC` is specified, only the admin cluster resource name and membership are returned. The default/unset value `CLUSTER_VIEW_UNSPECIFIED` is the same as `FULL', which returns the complete admin cluster configuration details.
+allowMissing <boolean> Optional. If true, return list of Vmware Admin Clusters including the ones that only exists in RMS."
   ([parent] (projects-locations-vmwareAdminClusters-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+parent}/vmwareAdminClusters",
@@ -1122,10 +1129,11 @@ https://cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/v1/refe
 name <> 
 
 optional:
-view <string> View for VMware admin cluster. When `BASIC` is specified, only the cluster resource name and membership are returned. The default/unset value `CLUSTER_VIEW_UNSPECIFIED` is the same as `FULL', which returns the complete cluster configuration details."
+view <string> View for VMware admin cluster. When `BASIC` is specified, only the cluster resource name and membership are returned. The default/unset value `CLUSTER_VIEW_UNSPECIFIED` is the same as `FULL', which returns the complete cluster configuration details.
+allowMissing <boolean> Optional. If true, return Vmware Admin Cluster including the one that only exists in RMS."
   ([name] (projects-locations-vmwareAdminClusters-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1140,7 +1148,7 @@ parent <>
 EnrollVmwareAdminClusterRequest:
 EnrollVmwareAdminClusterRequest"
   [parent EnrollVmwareAdminClusterRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gkeonprem.googleapis.com/v1/{+parent}/vmwareAdminClusters:enroll",
@@ -1161,7 +1169,7 @@ allowMissing <boolean> If set to true, and the VMware admin cluster is not found
 validateOnly <boolean> Validate the request without actually doing any updates."
   ([name] (projects-locations-vmwareAdminClusters-unenroll name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+name}:unenroll",
@@ -1186,7 +1194,7 @@ validateOnly <boolean> Validate the request without actually doing any updates."
       VmwareAdminCluster
       nil))
   ([name VmwareAdminCluster optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1202,7 +1210,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gkeonprem.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -1222,7 +1230,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-vmwareAdminClusters-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -1238,7 +1246,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gkeonprem.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -1259,7 +1267,7 @@ pageSize <integer> The standard list page size."
   ([name]
     (projects-locations-vmwareAdminClusters-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+name}/operations",
@@ -1273,7 +1281,7 @@ https://cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/v1/refe
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1288,11 +1296,12 @@ parent <>
 
 optional:
 pageSize <integer> Requested page size. Server may return fewer items than requested. If unspecified, at most 50 clusters will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000.
-view <string> View for bare metal admin clusters. When `BASIC` is specified, only the admin cluster resource name and membership are returned. The default/unset value `CLUSTER_VIEW_UNSPECIFIED` is the same as `FULL', which returns the complete admin cluster configuration details."
+view <string> View for bare metal admin clusters. When `BASIC` is specified, only the admin cluster resource name and membership are returned. The default/unset value `CLUSTER_VIEW_UNSPECIFIED` is the same as `FULL', which returns the complete admin cluster configuration details.
+allowMissing <boolean> Optional. If true, return list of BareMetal Admin Clusters including the ones that only exists in RMS."
   ([parent]
     (projects-locations-bareMetalAdminClusters-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalAdminClusters",
@@ -1308,7 +1317,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gkeonprem.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -1331,7 +1340,7 @@ ignoreErrors <boolean> If set to true, the unenrollment of a bare metal admin cl
   ([name]
     (projects-locations-bareMetalAdminClusters-unenroll name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+name}:unenroll",
@@ -1356,7 +1365,7 @@ validateOnly <boolean> Validate the request without actually doing any updates."
       BareMetalAdminCluster
       nil))
   ([name BareMetalAdminCluster optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1377,7 +1386,7 @@ upgradeConfig.clusterName <string> The admin cluster resource name. This is the 
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalAdminClusters:queryVersionConfig",
@@ -1398,7 +1407,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -1414,7 +1423,7 @@ parent <>
 EnrollBareMetalAdminClusterRequest:
 EnrollBareMetalAdminClusterRequest"
   [parent EnrollBareMetalAdminClusterRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalAdminClusters:enroll",
@@ -1433,14 +1442,15 @@ BareMetalAdminCluster
 
 optional:
 bareMetalAdminClusterId <string> Required. User provided identifier that is used as part of the resource name; must conform to RFC-1034 and additionally restrict to lower-cased letters. This comes out roughly to: /^a-z+[a-z0-9]$/
-validateOnly <boolean> Validate the request without actually doing any updates."
+validateOnly <boolean> Validate the request without actually doing any updates.
+allowPreflightFailure <boolean> Optional. If set to true, CLM will force CCFE to persist the cluster resource in RMS when the creation fails during standalone preflight checks. In that case the subsequent create call will fail with \"cluster already exists\" error and hence a update cluster is required to fix the cluster."
   ([parent BareMetalAdminCluster]
     (projects-locations-bareMetalAdminClusters-create
       parent
       BareMetalAdminCluster
       nil))
   ([parent BareMetalAdminCluster optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalAdminClusters",
@@ -1456,10 +1466,11 @@ https://cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/v1/refe
 name <> 
 
 optional:
-view <string> View for bare metal admin cluster. When `BASIC` is specified, only the cluster resource name and membership are returned. The default/unset value `CLUSTER_VIEW_UNSPECIFIED` is the same as `FULL', which returns the complete cluster configuration details."
+view <string> View for bare metal admin cluster. When `BASIC` is specified, only the cluster resource name and membership are returned. The default/unset value `CLUSTER_VIEW_UNSPECIFIED` is the same as `FULL', which returns the complete cluster configuration details.
+allowMissing <boolean> Optional. If true, return BareMetal Admin Cluster including the one that only exists in RMS."
   ([name] (projects-locations-bareMetalAdminClusters-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1474,7 +1485,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gkeonprem.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -1497,7 +1508,7 @@ pageSize <integer> The standard list page size."
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gkeonprem.googleapis.com/v1/{+name}/operations",
@@ -1511,7 +1522,7 @@ https://cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/v1/refe
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},

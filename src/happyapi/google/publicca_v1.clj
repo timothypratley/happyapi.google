@@ -12,7 +12,7 @@ parent <>
 ExternalAccountKey:
 ExternalAccountKey"
   [parent ExternalAccountKey]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://publicca.googleapis.com/v1/{+parent}/externalAccountKeys",

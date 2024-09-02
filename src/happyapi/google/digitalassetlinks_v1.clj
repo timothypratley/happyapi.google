@@ -18,7 +18,7 @@ target.androidApp.packageName <string> Android App assets are naturally identifi
 target.androidApp.certificate.sha256Fingerprint <string> The uppercase SHA-265 fingerprint of the certificate. From the PEM certificate, it can be acquired like this: $ keytool -printcert -file $CERTFILE | grep SHA256: SHA256: 14:6D:E9:83:C5:73:06:50:D8:EE:B9:95:2F:34:FC:64:16:A0:83: \\ 42:E6:1D:BE:A8:8A:04:96:B2:3F:CF:44:E5 or like this: $ openssl x509 -in $CERTFILE -noout -fingerprint -sha256 SHA256 Fingerprint=14:6D:E9:83:C5:73:06:50:D8:EE:B9:95:2F:34:FC:64: \\ 16:A0:83:42:E6:1D:BE:A8:8A:04:96:B2:3F:CF:44:E5 In this example, the contents of this field would be `14:6D:E9:83:C5:73: 06:50:D8:EE:B9:95:2F:34:FC:64:16:A0:83:42:E6:1D:BE:A8:8A:04:96:B2:3F:CF: 44:E5`. If these tools are not available to you, you can convert the PEM certificate into the DER format, compute the SHA-256 hash of that string and represent the result as a hexstring (that is, uppercase hexadecimal representations of each octet, separated by colons)."
   ([] (assetlinks-check nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://digitalassetlinks.googleapis.com/v1/assetlinks:check",
@@ -33,7 +33,7 @@ https://developers.google.com/digital-asset-links/v1/reference/rest/v1/assetlink
 BulkCheckRequest:
 BulkCheckRequest"
   [BulkCheckRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://digitalassetlinks.googleapis.com/v1/assetlinks:bulkCheck",
@@ -53,7 +53,7 @@ source.androidApp.certificate.sha256Fingerprint <string> The uppercase SHA-265 f
 relation <string> Use only associations that match the specified relation. See the [`Statement`](#Statement) message for a detailed definition of relation strings. For a query to match a statement, one of the following must be true: * both the query's and the statement's relation strings match exactly, or * the query's relation string is empty or missing. Example: A query with relation `delegate_permission/common.handle_all_urls` matches an asset link with relation `delegate_permission/common.handle_all_urls`."
   ([] (statements-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://digitalassetlinks.googleapis.com/v1/statements:list",

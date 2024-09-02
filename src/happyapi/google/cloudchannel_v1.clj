@@ -15,7 +15,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://cloudchannel.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -28,7 +28,7 @@ https://cloud.google.com/channel/docs/v1/reference/rest/v1/operations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudchannel.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -41,7 +41,7 @@ https://cloud.google.com/channel/docs/v1/reference/rest/v1/operations/delete
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://cloudchannel.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -56,7 +56,7 @@ name <>
 GoogleLongrunningCancelOperationRequest:
 GoogleLongrunningCancelOperationRequest"
   [name GoogleLongrunningCancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudchannel.googleapis.com/v1/{+name}:cancel",
@@ -73,7 +73,7 @@ parent <>
 GoogleCloudChannelV1CheckCloudIdentityAccountsExistRequest:
 GoogleCloudChannelV1CheckCloudIdentityAccountsExistRequest"
   [parent GoogleCloudChannelV1CheckCloudIdentityAccountsExistRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudchannel.googleapis.com/v1/{+parent}:checkCloudIdentityAccountsExist",
@@ -90,7 +90,7 @@ parent <>
 GoogleCloudChannelV1ListTransferableSkusRequest:
 GoogleCloudChannelV1ListTransferableSkusRequest"
   [parent GoogleCloudChannelV1ListTransferableSkusRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudchannel.googleapis.com/v1/{+parent}:listTransferableSkus",
@@ -107,7 +107,7 @@ parent <>
 GoogleCloudChannelV1ListTransferableOffersRequest:
 GoogleCloudChannelV1ListTransferableOffersRequest"
   [parent GoogleCloudChannelV1ListTransferableOffersRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudchannel.googleapis.com/v1/{+parent}:listTransferableOffers",
@@ -124,7 +124,7 @@ account <>
 GoogleCloudChannelV1RegisterSubscriberRequest:
 GoogleCloudChannelV1RegisterSubscriberRequest"
   [account GoogleCloudChannelV1RegisterSubscriberRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudchannel.googleapis.com/v1/{+account}:register",
@@ -141,7 +141,7 @@ account <>
 GoogleCloudChannelV1UnregisterSubscriberRequest:
 GoogleCloudChannelV1UnregisterSubscriberRequest"
   [account GoogleCloudChannelV1UnregisterSubscriberRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudchannel.googleapis.com/v1/{+account}:unregister",
@@ -157,10 +157,11 @@ https://cloud.google.com/channel/docs/v1/reference/rest/v1/accounts/listSubscrib
 account <> 
 
 optional:
-pageSize <integer> Optional. The maximum number of service accounts to return. The service may return fewer than this value. If unspecified, returns at most 100 service accounts. The maximum value is 1000; the server will coerce values above 1000."
+pageSize <integer> Optional. The maximum number of service accounts to return. The service may return fewer than this value. If unspecified, returns at most 100 service accounts. The maximum value is 1000; the server will coerce values above 1000.
+integrator <string> Optional. Resource name of the integrator."
   ([account] (accounts-listSubscribers account nil))
   ([account optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudchannel.googleapis.com/v1/{+account}:listSubscribers",
@@ -176,7 +177,7 @@ name <>
 GoogleCloudChannelV1RunReportJobRequest:
 GoogleCloudChannelV1RunReportJobRequest"
   [name GoogleCloudChannelV1RunReportJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudchannel.googleapis.com/v1/{+name}:run",
@@ -197,7 +198,7 @@ pageSize <integer> Optional. Requested page size of the report. The server might
 languageCode <string> Optional. The BCP-47 language code, such as \"en-US\". If specified, the response is localized to the corresponding language code if the original data sources support it. Default is \"en-US\"."
   ([parent] (accounts-reports-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudchannel.googleapis.com/v1/{+parent}/reports",
@@ -214,7 +215,7 @@ reportJob <>
 GoogleCloudChannelV1FetchReportResultsRequest:
 GoogleCloudChannelV1FetchReportResultsRequest"
   [reportJob GoogleCloudChannelV1FetchReportResultsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudchannel.googleapis.com/v1/{+reportJob}:fetchReportResults",
@@ -240,7 +241,7 @@ pageSize <integer> Optional. Requested page size. Server might return fewer resu
 createEntitlementPurchase.billingAccount <string> Optional. Billing account that the result should be restricted to. Format: accounts/{account_id}/billingAccounts/{billing_account_id}."
   ([customer] (accounts-customers-listPurchasableOffers customer nil))
   ([customer optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudchannel.googleapis.com/v1/{+customer}:listPurchasableOffers",
@@ -259,7 +260,7 @@ pageSize <integer> Optional. The maximum number of customers to return. The serv
 filter <string> Optional. Filters applied to the [CloudChannelService.ListCustomers] results. See https://cloud.google.com/channel/docs/concepts/google-cloud/filter-customers for more information."
   ([parent] (accounts-customers-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudchannel.googleapis.com/v1/{+parent}/customers",
@@ -273,7 +274,7 @@ https://cloud.google.com/channel/docs/v1/reference/rest/v1/accounts/customers/de
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://cloudchannel.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -288,7 +289,7 @@ parent <>
 GoogleCloudChannelV1TransferEntitlementsRequest:
 GoogleCloudChannelV1TransferEntitlementsRequest"
   [parent GoogleCloudChannelV1TransferEntitlementsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudchannel.googleapis.com/v1/{+parent}:transferEntitlements",
@@ -311,7 +312,7 @@ pageSize <integer> Optional. Requested page size. Server might return fewer resu
 languageCode <string> Optional. The BCP-47 language code. For example, \"en-US\". The response will localize in the corresponding language code, if specified. The default value is \"en-US\"."
   ([customer] (accounts-customers-listPurchasableSkus customer nil))
   ([customer optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudchannel.googleapis.com/v1/{+customer}:listPurchasableSkus",
@@ -327,7 +328,7 @@ parent <>
 GoogleCloudChannelV1TransferEntitlementsToGoogleRequest:
 GoogleCloudChannelV1TransferEntitlementsToGoogleRequest"
   [parent GoogleCloudChannelV1TransferEntitlementsToGoogleRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudchannel.googleapis.com/v1/{+parent}:transferEntitlementsToGoogle",
@@ -344,7 +345,7 @@ customer <>
 GoogleCloudChannelV1ProvisionCloudIdentityRequest:
 GoogleCloudChannelV1ProvisionCloudIdentityRequest"
   [customer GoogleCloudChannelV1ProvisionCloudIdentityRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudchannel.googleapis.com/v1/{+customer}:provisionCloudIdentity",
@@ -361,7 +362,7 @@ parent <>
 GoogleCloudChannelV1ImportCustomerRequest:
 GoogleCloudChannelV1ImportCustomerRequest"
   [parent GoogleCloudChannelV1ImportCustomerRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudchannel.googleapis.com/v1/{+parent}/customers:import",
@@ -383,7 +384,7 @@ updateMask <string> The update mask that applies to the resource. Optional."
   ([name GoogleCloudChannelV1Customer]
     (accounts-customers-patch name GoogleCloudChannelV1Customer nil))
   ([name GoogleCloudChannelV1Customer optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://cloudchannel.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -399,7 +400,7 @@ parent <>
 GoogleCloudChannelV1Customer:
 GoogleCloudChannelV1Customer"
   [parent GoogleCloudChannelV1Customer]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudchannel.googleapis.com/v1/{+parent}/customers",
@@ -414,7 +415,7 @@ https://cloud.google.com/channel/docs/v1/reference/rest/v1/accounts/customers/ge
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudchannel.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -432,7 +433,7 @@ skus <string> Required. List of SKUs to list eligible billing accounts for. At l
   ([customer]
     (accounts-customers-queryEligibleBillingAccounts customer nil))
   ([customer optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudchannel.googleapis.com/v1/{+customer}:queryEligibleBillingAccounts",
@@ -450,7 +451,7 @@ optional:
 pageSize <integer> Optional. Requested page size. Server might return fewer results than requested. If unspecified, return at most 50 entitlements. The maximum value is 100; the server will coerce values above 100."
   ([parent] (accounts-customers-entitlements-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudchannel.googleapis.com/v1/{+parent}/entitlements",
@@ -466,7 +467,7 @@ name <>
 GoogleCloudChannelV1StartPaidServiceRequest:
 GoogleCloudChannelV1StartPaidServiceRequest"
   [name GoogleCloudChannelV1StartPaidServiceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudchannel.googleapis.com/v1/{+name}:startPaidService",
@@ -483,7 +484,7 @@ name <>
 GoogleCloudChannelV1CancelEntitlementRequest:
 GoogleCloudChannelV1CancelEntitlementRequest"
   [name GoogleCloudChannelV1CancelEntitlementRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudchannel.googleapis.com/v1/{+name}:cancel",
@@ -500,7 +501,7 @@ name <>
 GoogleCloudChannelV1ActivateEntitlementRequest:
 GoogleCloudChannelV1ActivateEntitlementRequest"
   [name GoogleCloudChannelV1ActivateEntitlementRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudchannel.googleapis.com/v1/{+name}:activate",
@@ -517,7 +518,7 @@ name <>
 GoogleCloudChannelV1SuspendEntitlementRequest:
 GoogleCloudChannelV1SuspendEntitlementRequest"
   [name GoogleCloudChannelV1SuspendEntitlementRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudchannel.googleapis.com/v1/{+name}:suspend",
@@ -534,7 +535,7 @@ name <>
 GoogleCloudChannelV1ChangeRenewalSettingsRequest:
 GoogleCloudChannelV1ChangeRenewalSettingsRequest"
   [name GoogleCloudChannelV1ChangeRenewalSettingsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudchannel.googleapis.com/v1/{+name}:changeRenewalSettings",
@@ -551,7 +552,7 @@ parent <>
 GoogleCloudChannelV1CreateEntitlementRequest:
 GoogleCloudChannelV1CreateEntitlementRequest"
   [parent GoogleCloudChannelV1CreateEntitlementRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudchannel.googleapis.com/v1/{+parent}/entitlements",
@@ -568,7 +569,7 @@ name <>
 GoogleCloudChannelV1ChangeOfferRequest:
 GoogleCloudChannelV1ChangeOfferRequest"
   [name GoogleCloudChannelV1ChangeOfferRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudchannel.googleapis.com/v1/{+name}:changeOffer",
@@ -583,7 +584,7 @@ https://cloud.google.com/channel/docs/v1/reference/rest/v1/accounts/customers/en
 
 entitlement <> "
   [entitlement]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://cloudchannel.googleapis.com/v1/{+entitlement}:lookupOffer",
@@ -605,7 +606,7 @@ filter <string> Optional. Filters applied to the list results."
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudchannel.googleapis.com/v1/{+parent}:listEntitlementChanges",
@@ -619,7 +620,7 @@ https://cloud.google.com/channel/docs/v1/reference/rest/v1/accounts/customers/en
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudchannel.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -634,7 +635,7 @@ name <>
 GoogleCloudChannelV1ChangeParametersRequest:
 GoogleCloudChannelV1ChangeParametersRequest"
   [name GoogleCloudChannelV1ChangeParametersRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudchannel.googleapis.com/v1/{+name}:changeParameters",
@@ -649,7 +650,7 @@ https://cloud.google.com/channel/docs/v1/reference/rest/v1/accounts/customers/cu
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudchannel.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -668,7 +669,7 @@ filter <string> Optional. A filter for [CloudChannelService.ListCustomerRepricin
   ([parent]
     (accounts-customers-customerRepricingConfigs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudchannel.googleapis.com/v1/{+parent}/customerRepricingConfigs",
@@ -684,7 +685,7 @@ parent <>
 GoogleCloudChannelV1CustomerRepricingConfig:
 GoogleCloudChannelV1CustomerRepricingConfig"
   [parent GoogleCloudChannelV1CustomerRepricingConfig]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudchannel.googleapis.com/v1/{+parent}/customerRepricingConfigs",
@@ -701,7 +702,7 @@ name <>
 GoogleCloudChannelV1CustomerRepricingConfig:
 GoogleCloudChannelV1CustomerRepricingConfig"
   [name GoogleCloudChannelV1CustomerRepricingConfig]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template "https://cloudchannel.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -715,7 +716,7 @@ https://cloud.google.com/channel/docs/v1/reference/rest/v1/accounts/customers/cu
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://cloudchannel.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -733,7 +734,7 @@ pageSize <integer> Optional. Requested page size. Server might return fewer resu
 view <string> Optional. The level of granularity the ChannelPartnerLink will display."
   ([parent] (accounts-channelPartnerLinks-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudchannel.googleapis.com/v1/{+parent}/channelPartnerLinks",
@@ -751,7 +752,7 @@ optional:
 view <string> Optional. The level of granularity the ChannelPartnerLink will display."
   ([name] (accounts-channelPartnerLinks-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://cloudchannel.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -766,7 +767,7 @@ parent <>
 GoogleCloudChannelV1ChannelPartnerLink:
 GoogleCloudChannelV1ChannelPartnerLink"
   [parent GoogleCloudChannelV1ChannelPartnerLink]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudchannel.googleapis.com/v1/{+parent}/channelPartnerLinks",
@@ -783,7 +784,7 @@ name <>
 GoogleCloudChannelV1UpdateChannelPartnerLinkRequest:
 GoogleCloudChannelV1UpdateChannelPartnerLinkRequest"
   [name GoogleCloudChannelV1UpdateChannelPartnerLinkRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template "https://cloudchannel.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -802,7 +803,7 @@ pageSize <integer> Optional. The maximum number of customers to return. The serv
 filter <string> Optional. Filters applied to the [CloudChannelService.ListCustomers] results. See https://cloud.google.com/channel/docs/concepts/google-cloud/filter-customers for more information."
   ([parent] (accounts-channelPartnerLinks-customers-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudchannel.googleapis.com/v1/{+parent}/customers",
@@ -816,7 +817,7 @@ https://cloud.google.com/channel/docs/v1/reference/rest/v1/accounts/channelPartn
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudchannel.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -831,7 +832,7 @@ parent <>
 GoogleCloudChannelV1Customer:
 GoogleCloudChannelV1Customer"
   [parent GoogleCloudChannelV1Customer]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudchannel.googleapis.com/v1/{+parent}/customers",
@@ -856,7 +857,7 @@ updateMask <string> The update mask that applies to the resource. Optional."
       GoogleCloudChannelV1Customer
       nil))
   ([name GoogleCloudChannelV1Customer optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://cloudchannel.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -870,7 +871,7 @@ https://cloud.google.com/channel/docs/v1/reference/rest/v1/accounts/channelPartn
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://cloudchannel.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -885,7 +886,7 @@ parent <>
 GoogleCloudChannelV1ImportCustomerRequest:
 GoogleCloudChannelV1ImportCustomerRequest"
   [parent GoogleCloudChannelV1ImportCustomerRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudchannel.googleapis.com/v1/{+parent}/customers:import",
@@ -900,7 +901,7 @@ https://cloud.google.com/channel/docs/v1/reference/rest/v1/accounts/channelPartn
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudchannel.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -921,7 +922,7 @@ filter <string> Optional. A filter for [CloudChannelService.ListChannelPartnerRe
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudchannel.googleapis.com/v1/{+parent}/channelPartnerRepricingConfigs",
@@ -937,7 +938,7 @@ parent <>
 GoogleCloudChannelV1ChannelPartnerRepricingConfig:
 GoogleCloudChannelV1ChannelPartnerRepricingConfig"
   [parent GoogleCloudChannelV1ChannelPartnerRepricingConfig]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudchannel.googleapis.com/v1/{+parent}/channelPartnerRepricingConfigs",
@@ -954,7 +955,7 @@ name <>
 GoogleCloudChannelV1ChannelPartnerRepricingConfig:
 GoogleCloudChannelV1ChannelPartnerRepricingConfig"
   [name GoogleCloudChannelV1ChannelPartnerRepricingConfig]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template "https://cloudchannel.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -968,7 +969,7 @@ https://cloud.google.com/channel/docs/v1/reference/rest/v1/accounts/channelPartn
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://cloudchannel.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -985,7 +986,7 @@ optional:
 pageSize <integer> Optional. The maximum number of SKU groups to return. The service may return fewer than this value. If unspecified, returns a maximum of 1000 SKU groups. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (accounts-skuGroups-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudchannel.googleapis.com/v1/{+parent}/skuGroups",
@@ -1003,7 +1004,7 @@ optional:
 pageSize <integer> Optional. The maximum number of SKUs to return. The service may return fewer than this value. If unspecified, returns a maximum of 100000 SKUs. The maximum value is 100000; values above 100000 will be coerced to 100000."
   ([parent] (accounts-skuGroups-billableSkus-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudchannel.googleapis.com/v1/{+parent}/billableSkus",
@@ -1024,7 +1025,7 @@ languageCode <string> Optional. The BCP-47 language code. For example, \"en-US\"
 showFutureOffers <boolean> Optional. A boolean flag that determines if a response returns future offers 30 days from now. If the show_future_offers is true, the response will only contain offers that are scheduled to be available 30 days from now."
   ([parent] (accounts-offers-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudchannel.googleapis.com/v1/{+parent}/offers",
@@ -1042,7 +1043,7 @@ pageSize <integer> Optional. Requested page size. Server might return fewer resu
 languageCode <string> Optional. The BCP-47 language code. For example, \"en-US\". The response will localize in the corresponding language code, if specified. The default value is \"en-US\"."
   ([] (products-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://cloudchannel.googleapis.com/v1/products",
        :uri-template-args {},
@@ -1061,10 +1062,67 @@ pageSize <integer> Optional. Requested page size. Server might return fewer resu
 languageCode <string> Optional. The BCP-47 language code. For example, \"en-US\". The response will localize in the corresponding language code, if specified. The default value is \"en-US\"."
   ([parent] (products-skus-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudchannel.googleapis.com/v1/{+parent}/skus",
        :uri-template-args {"parent" parent},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/apps.order"]})))
+
+(defn integrators-register
+  "Registers a service account with subscriber privileges on the Cloud Pub/Sub topic for this Channel Services account. After you create a subscriber, you get the events through SubscriberEvent Possible error codes: * PERMISSION_DENIED: The reseller account making the request and the provided reseller account are different, or the impersonated user is not a super admin. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * INTERNAL: Any non-user error related to a technical issue in the backend. Contact Cloud Channel support. * UNKNOWN: Any non-user error related to a technical issue in the backend. Contact Cloud Channel support. Return value: The topic name with the registered service email address.
+https://cloud.google.com/channel/docs/v1/reference/rest/v1/integrators/register
+
+integrator <> 
+
+optional:
+account <string> Optional. Resource name of the account.
+serviceAccount <string> Required. Service account that provides subscriber access to the registered topic."
+  ([integrator] (integrators-register integrator nil))
+  ([integrator optional]
+    (client/*api-request*
+      {:method :post,
+       :uri-template
+       "https://cloudchannel.googleapis.com/v1/{+integrator}:register",
+       :uri-template-args {"integrator" integrator},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/apps.order"]})))
+
+(defn integrators-unregister
+  "Unregisters a service account with subscriber privileges on the Cloud Pub/Sub topic created for this Channel Services account. If there are no service accounts left with subscriber privileges, this deletes the topic. You can call ListSubscribers to check for these accounts. Possible error codes: * PERMISSION_DENIED: The reseller account making the request and the provided reseller account are different, or the impersonated user is not a super admin. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: The topic resource doesn't exist. * INTERNAL: Any non-user error related to a technical issue in the backend. Contact Cloud Channel support. * UNKNOWN: Any non-user error related to a technical issue in the backend. Contact Cloud Channel support. Return value: The topic name that unregistered the service email address. Returns a success response if the service email address wasn't registered with the topic.
+https://cloud.google.com/channel/docs/v1/reference/rest/v1/integrators/unregister
+
+integrator <> 
+
+optional:
+account <string> Optional. Resource name of the account.
+serviceAccount <string> Required. Service account to unregister from subscriber access to the topic."
+  ([integrator] (integrators-unregister integrator nil))
+  ([integrator optional]
+    (client/*api-request*
+      {:method :post,
+       :uri-template
+       "https://cloudchannel.googleapis.com/v1/{+integrator}:unregister",
+       :uri-template-args {"integrator" integrator},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/apps.order"]})))
+
+(defn integrators-listSubscribers
+  "Lists service accounts with subscriber privileges on the Cloud Pub/Sub topic created for this Channel Services account. Possible error codes: * PERMISSION_DENIED: The reseller account making the request and the provided reseller account are different, or the impersonated user is not a super admin. * INVALID_ARGUMENT: Required request parameters are missing or invalid. * NOT_FOUND: The topic resource doesn't exist. * INTERNAL: Any non-user error related to a technical issue in the backend. Contact Cloud Channel support. * UNKNOWN: Any non-user error related to a technical issue in the backend. Contact Cloud Channel support. Return value: A list of service email addresses.
+https://cloud.google.com/channel/docs/v1/reference/rest/v1/integrators/listSubscribers
+
+integrator <> 
+
+optional:
+account <string> Optional. Resource name of the account.
+pageSize <integer> Optional. The maximum number of service accounts to return. The service may return fewer than this value. If unspecified, returns at most 100 service accounts. The maximum value is 1000; the server will coerce values above 1000."
+  ([integrator] (integrators-listSubscribers integrator nil))
+  ([integrator optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://cloudchannel.googleapis.com/v1/{+integrator}:listSubscribers",
+       :uri-template-args {"integrator" integrator},
        :query-params (merge {} optional),
        :scopes ["https://www.googleapis.com/auth/apps.order"]})))

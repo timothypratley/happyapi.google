@@ -14,7 +14,7 @@ optional:
 pageSize <integer> Optional. Maximum number of topics to return."
   ([project] (projects-topics-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://pubsub.googleapis.com/v1/{+project}/topics",
@@ -32,7 +32,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://pubsub.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -49,7 +49,7 @@ https://cloud.google.com/pubsub/docs/v1/reference/rest/v1/projects/topics/delete
 
 topic <> "
   [topic]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://pubsub.googleapis.com/v1/{+topic}",
      :uri-template-args {"topic" topic},
@@ -66,7 +66,7 @@ name <>
 UpdateTopicRequest:
 UpdateTopicRequest"
   [name UpdateTopicRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template "https://pubsub.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -84,7 +84,7 @@ topic <>
 PublishRequest:
 PublishRequest"
   [topic PublishRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://pubsub.googleapis.com/v1/{+topic}:publish",
      :uri-template-args {"topic" topic},
@@ -104,7 +104,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-topics-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://pubsub.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -122,7 +122,7 @@ name <>
 Topic:
 Topic"
   [name Topic]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template "https://pubsub.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -138,7 +138,7 @@ https://cloud.google.com/pubsub/docs/v1/reference/rest/v1/projects/topics/get
 
 topic <> "
   [topic]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://pubsub.googleapis.com/v1/{+topic}",
      :uri-template-args {"topic" topic},
@@ -155,7 +155,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://pubsub.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -176,7 +176,7 @@ optional:
 pageSize <integer> Optional. Maximum number of subscription names to return."
   ([topic] (projects-topics-subscriptions-list topic nil))
   ([topic optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://pubsub.googleapis.com/v1/{+topic}/subscriptions",
@@ -196,7 +196,7 @@ optional:
 pageSize <integer> Optional. Maximum number of snapshot names to return."
   ([topic] (projects-topics-snapshots-list topic nil))
   ([topic optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://pubsub.googleapis.com/v1/{+topic}/snapshots",
@@ -214,7 +214,7 @@ subscription <>
 ModifyAckDeadlineRequest:
 ModifyAckDeadlineRequest"
   [subscription ModifyAckDeadlineRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://pubsub.googleapis.com/v1/{+subscription}:modifyAckDeadline",
@@ -235,7 +235,7 @@ optional:
 pageSize <integer> Optional. Maximum number of subscriptions to return."
   ([project] (projects-subscriptions-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://pubsub.googleapis.com/v1/{+project}/subscriptions",
@@ -253,7 +253,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://pubsub.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -270,7 +270,7 @@ https://cloud.google.com/pubsub/docs/v1/reference/rest/v1/projects/subscriptions
 
 subscription <> "
   [subscription]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://pubsub.googleapis.com/v1/{+subscription}",
      :uri-template-args {"subscription" subscription},
@@ -285,7 +285,7 @@ https://cloud.google.com/pubsub/docs/v1/reference/rest/v1/projects/subscriptions
 
 subscription <> "
   [subscription]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://pubsub.googleapis.com/v1/{+subscription}:detach",
@@ -303,7 +303,7 @@ subscription <>
 SeekRequest:
 SeekRequest"
   [subscription SeekRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://pubsub.googleapis.com/v1/{+subscription}:seek",
@@ -322,7 +322,7 @@ subscription <>
 ModifyPushConfigRequest:
 ModifyPushConfigRequest"
   [subscription ModifyPushConfigRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://pubsub.googleapis.com/v1/{+subscription}:modifyPushConfig",
@@ -341,7 +341,7 @@ name <>
 UpdateSubscriptionRequest:
 UpdateSubscriptionRequest"
   [name UpdateSubscriptionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template "https://pubsub.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -359,7 +359,7 @@ subscription <>
 PullRequest:
 PullRequest"
   [subscription PullRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://pubsub.googleapis.com/v1/{+subscription}:pull",
@@ -380,7 +380,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-subscriptions-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://pubsub.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -398,7 +398,7 @@ subscription <>
 AcknowledgeRequest:
 AcknowledgeRequest"
   [subscription AcknowledgeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://pubsub.googleapis.com/v1/{+subscription}:acknowledge",
@@ -417,7 +417,7 @@ name <>
 Subscription:
 Subscription"
   [name Subscription]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template "https://pubsub.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -433,7 +433,7 @@ https://cloud.google.com/pubsub/docs/v1/reference/rest/v1/projects/subscriptions
 
 subscription <> "
   [subscription]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://pubsub.googleapis.com/v1/{+subscription}",
      :uri-template-args {"subscription" subscription},
@@ -450,7 +450,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://pubsub.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -469,7 +469,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://pubsub.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -490,7 +490,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-snapshots-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://pubsub.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -508,7 +508,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://pubsub.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -525,7 +525,7 @@ https://cloud.google.com/pubsub/docs/v1/reference/rest/v1/projects/snapshots/get
 
 snapshot <> "
   [snapshot]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://pubsub.googleapis.com/v1/{+snapshot}",
      :uri-template-args {"snapshot" snapshot},
@@ -544,7 +544,7 @@ optional:
 pageSize <integer> Optional. Maximum number of snapshots to return."
   ([project] (projects-snapshots-list project nil))
   ([project optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://pubsub.googleapis.com/v1/{+project}/snapshots",
@@ -562,7 +562,7 @@ name <>
 CreateSnapshotRequest:
 CreateSnapshotRequest"
   [name CreateSnapshotRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template "https://pubsub.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -580,7 +580,7 @@ name <>
 UpdateSnapshotRequest:
 UpdateSnapshotRequest"
   [name UpdateSnapshotRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template "https://pubsub.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -596,7 +596,7 @@ https://cloud.google.com/pubsub/docs/v1/reference/rest/v1/projects/snapshots/del
 
 snapshot <> "
   [snapshot]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://pubsub.googleapis.com/v1/{+snapshot}",
      :uri-template-args {"snapshot" snapshot},
@@ -613,7 +613,7 @@ parent <>
 ValidateMessageRequest:
 ValidateMessageRequest"
   [parent ValidateMessageRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://pubsub.googleapis.com/v1/{+parent}/schemas:validateMessage",
@@ -635,7 +635,7 @@ view <string> The set of Schema fields to return in the response. If not set, re
 pageSize <integer> Maximum number of schemas to return."
   ([parent] (projects-schemas-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://pubsub.googleapis.com/v1/{+parent}/schemas",
@@ -653,7 +653,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://pubsub.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -670,7 +670,7 @@ https://cloud.google.com/pubsub/docs/v1/reference/rest/v1/projects/schemas/delet
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://pubsub.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -687,7 +687,7 @@ parent <>
 ValidateSchemaRequest:
 ValidateSchemaRequest"
   [parent ValidateSchemaRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://pubsub.googleapis.com/v1/{+parent}/schemas:validate",
@@ -706,7 +706,7 @@ name <>
 CommitSchemaRequest:
 CommitSchemaRequest"
   [name CommitSchemaRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://pubsub.googleapis.com/v1/{+name}:commit",
      :uri-template-args {"name" name},
@@ -727,7 +727,7 @@ view <string> The set of Schema fields to return in the response. If not set, re
 pageSize <integer> The maximum number of revisions to return per page."
   ([name] (projects-schemas-listRevisions name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://pubsub.googleapis.com/v1/{+name}:listRevisions",
@@ -747,7 +747,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-schemas-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://pubsub.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -769,7 +769,7 @@ optional:
 schemaId <string> The ID to use for the schema, which will become the final component of the schema's resource name. See https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names for resource name constraints."
   ([parent Schema] (projects-schemas-create parent Schema nil))
   ([parent Schema optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://pubsub.googleapis.com/v1/{+parent}/schemas",
@@ -788,7 +788,7 @@ name <>
 RollbackSchemaRequest:
 RollbackSchemaRequest"
   [name RollbackSchemaRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://pubsub.googleapis.com/v1/{+name}:rollback",
      :uri-template-args {"name" name},
@@ -808,7 +808,7 @@ optional:
 view <string> The set of fields to return in the response. If not set, returns a Schema with all fields filled out. Set to `BASIC` to omit the `definition`."
   ([name] (projects-schemas-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://pubsub.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -825,7 +825,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://pubsub.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -846,7 +846,7 @@ optional:
 revisionId <string> Optional. This field is deprecated and should not be used for specifying the revision ID. The revision ID should be specified via the `name` parameter."
   ([name] (projects-schemas-deleteRevision name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://pubsub.googleapis.com/v1/{+name}:deleteRevision",

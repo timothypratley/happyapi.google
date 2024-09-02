@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudscheduler.googleapis.com/v1/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/scheduler/v1/reference/rest/v1/projects/locations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudscheduler.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -46,7 +46,7 @@ optional:
 pageSize <integer> Requested page size. The maximum page size is 500. If unspecified, the page size will be the maximum. Fewer jobs than requested might be returned, even if more jobs exist; use next_page_token to determine if more jobs exist."
   ([parent] (projects-locations-jobs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://cloudscheduler.googleapis.com/v1/{+parent}/jobs",
@@ -60,7 +60,7 @@ https://cloud.google.com/scheduler/v1/reference/rest/v1/projects/locations/jobs/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudscheduler.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -75,7 +75,7 @@ parent <>
 Job:
 Job"
   [parent Job]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudscheduler.googleapis.com/v1/{+parent}/jobs",
@@ -96,7 +96,7 @@ optional:
 updateMask <string> A mask used to specify which fields of the job are being updated."
   ([name Job] (projects-locations-jobs-patch name Job nil))
   ([name Job optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://cloudscheduler.googleapis.com/v1/{+name}",
@@ -111,7 +111,7 @@ https://cloud.google.com/scheduler/v1/reference/rest/v1/projects/locations/jobs/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://cloudscheduler.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -126,7 +126,7 @@ name <>
 PauseJobRequest:
 PauseJobRequest"
   [name PauseJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudscheduler.googleapis.com/v1/{+name}:pause",
@@ -143,7 +143,7 @@ name <>
 ResumeJobRequest:
 ResumeJobRequest"
   [name ResumeJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudscheduler.googleapis.com/v1/{+name}:resume",
@@ -160,7 +160,7 @@ name <>
 RunJobRequest:
 RunJobRequest"
   [name RunJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudscheduler.googleapis.com/v1/{+name}:run",

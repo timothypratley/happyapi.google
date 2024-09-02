@@ -17,7 +17,7 @@ duplicateIdMode <string> Indicates if multiple creatives can share an ID or not.
   ([accountId Creative]
     (accounts-creatives-create accountId Creative nil))
   ([accountId Creative optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/creatives",
@@ -35,7 +35,7 @@ creativeId <>
 Creative:
 Creative"
   [accountId creativeId Creative]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/creatives/{creativeId}",
@@ -52,7 +52,7 @@ https://developers.google.com/authorized-buyers/apis/reference/rest/v2beta1/refe
 accountId <> 
 creativeId <> "
   [accountId creativeId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/creatives/{creativeId}",
@@ -72,7 +72,7 @@ pageSize <integer> Requested page size. The server may return fewer creatives th
 query <string> An optional query string to filter creatives. If no filter is specified, all active creatives will be returned. Supported queries are: - accountId=*account_id_string* - creativeId=*creative_id_string* - dealsStatus: {approved, conditionally_approved, disapproved, not_checked} - openAuctionStatus: {approved, conditionally_approved, disapproved, not_checked} - attribute: {a numeric attribute from the list of attributes} - disapprovalReason: {a reason from DisapprovalReason} Example: 'accountId=12345 AND (dealsStatus:disapproved AND disapprovalReason:unacceptable_content) OR attribute:47'"
   ([accountId] (accounts-creatives-list accountId nil))
   ([accountId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/creatives",
@@ -89,7 +89,7 @@ creativeId <>
 WatchCreativeRequest:
 WatchCreativeRequest"
   [accountId creativeId WatchCreativeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/creatives/{creativeId}:watch",
@@ -108,7 +108,7 @@ creativeId <>
 StopWatchingCreativeRequest:
 StopWatchingCreativeRequest"
   [accountId creativeId StopWatchingCreativeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/creatives/{creativeId}:stopWatching",
@@ -127,7 +127,7 @@ creativeId <>
 AddDealAssociationRequest:
 AddDealAssociationRequest"
   [accountId creativeId AddDealAssociationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/creatives/{creativeId}/dealAssociations:add",
@@ -146,7 +146,7 @@ creativeId <>
 RemoveDealAssociationRequest:
 RemoveDealAssociationRequest"
   [accountId creativeId RemoveDealAssociationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/creatives/{creativeId}/dealAssociations:remove",
@@ -172,7 +172,7 @@ query <string> An optional query string to filter deal associations. If no filte
       creativeId
       nil))
   ([accountId creativeId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/creatives/{creativeId}/dealAssociations",
@@ -188,7 +188,7 @@ https://developers.google.com/authorized-buyers/apis/reference/rest/v2beta1/refe
 accountId <> 
 clientAccountId <> "
   [accountId clientAccountId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/clients/{clientAccountId}",
@@ -208,7 +208,7 @@ pageSize <integer> Requested page size. The server may return fewer clients than
 partnerClientId <string> Optional unique identifier (from the standpoint of an Ad Exchange sponsor buyer partner) of the client to return. If specified, at most one client will be returned in the response."
   ([accountId] (accounts-clients-list accountId nil))
   ([accountId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/clients",
@@ -224,7 +224,7 @@ accountId <>
 Client:
 Client"
   [accountId Client]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/clients",
@@ -242,7 +242,7 @@ clientAccountId <>
 Client:
 Client"
   [accountId clientAccountId Client]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/clients/{clientAccountId}",
@@ -264,7 +264,7 @@ pageSize <integer> Requested page size. The server may return fewer clients than
   ([accountId clientAccountId]
     (accounts-clients-users-list accountId clientAccountId nil))
   ([accountId clientAccountId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/clients/{clientAccountId}/users",
@@ -283,7 +283,7 @@ userId <>
 ClientUser:
 ClientUser"
   [accountId clientAccountId userId ClientUser]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/clients/{clientAccountId}/users/{userId}",
@@ -303,7 +303,7 @@ accountId <>
 clientAccountId <> 
 userId <> "
   [accountId clientAccountId userId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/clients/{clientAccountId}/users/{userId}",
@@ -323,7 +323,7 @@ clientAccountId <>
 ClientUserInvitation:
 ClientUserInvitation"
   [accountId clientAccountId ClientUserInvitation]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/clients/{clientAccountId}/invitations",
@@ -341,7 +341,7 @@ accountId <>
 clientAccountId <> 
 invitationId <> "
   [accountId clientAccountId invitationId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/clients/{clientAccountId}/invitations/{invitationId}",
@@ -364,7 +364,7 @@ pageSize <integer> Requested page size. Server may return fewer clients than req
   ([accountId clientAccountId]
     (accounts-clients-invitations-list accountId clientAccountId nil))
   ([accountId clientAccountId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/clients/{clientAccountId}/invitations",
@@ -385,7 +385,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
 filterSyntax <string> Syntax the filter is written in. Current implementation defaults to PQL but in the future it will be LIST_FILTER."
   ([accountId] (accounts-proposals-list accountId nil))
   ([accountId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/proposals",
@@ -402,7 +402,7 @@ proposalId <>
 CancelNegotiationRequest:
 CancelNegotiationRequest"
   [accountId proposalId CancelNegotiationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/proposals/{proposalId}:cancelNegotiation",
@@ -421,7 +421,7 @@ proposalId <>
 CompleteSetupRequest:
 CompleteSetupRequest"
   [accountId proposalId CompleteSetupRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/proposals/{proposalId}:completeSetup",
@@ -440,7 +440,7 @@ proposalId <>
 Proposal:
 Proposal"
   [accountId proposalId Proposal]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/proposals/{proposalId}",
@@ -459,7 +459,7 @@ proposalId <>
 AcceptProposalRequest:
 AcceptProposalRequest"
   [accountId proposalId AcceptProposalRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/proposals/{proposalId}:accept",
@@ -478,7 +478,7 @@ proposalId <>
 PauseProposalRequest:
 PauseProposalRequest"
   [accountId proposalId PauseProposalRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/proposals/{proposalId}:pause",
@@ -496,7 +496,7 @@ accountId <>
 Proposal:
 Proposal"
   [accountId Proposal]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/proposals",
@@ -512,7 +512,7 @@ https://developers.google.com/authorized-buyers/apis/reference/rest/v2beta1/refe
 accountId <> 
 proposalId <> "
   [accountId proposalId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/proposals/{proposalId}",
@@ -530,7 +530,7 @@ proposalId <>
 AddNoteRequest:
 AddNoteRequest"
   [accountId proposalId AddNoteRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/proposals/{proposalId}:addNote",
@@ -549,7 +549,7 @@ proposalId <>
 ResumeProposalRequest:
 ResumeProposalRequest"
   [accountId proposalId ResumeProposalRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/proposals/{proposalId}:resume",
@@ -571,7 +571,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
 filterSyntax <string> Syntax the filter is written in. Current implementation defaults to PQL but in the future it will be LIST_FILTER."
   ([accountId] (accounts-finalizedProposals-list accountId nil))
   ([accountId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/finalizedProposals",
@@ -588,7 +588,7 @@ proposalId <>
 PauseProposalDealsRequest:
 PauseProposalDealsRequest"
   [accountId proposalId PauseProposalDealsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/finalizedProposals/{proposalId}:pause",
@@ -607,7 +607,7 @@ proposalId <>
 ResumeProposalDealsRequest:
 ResumeProposalDealsRequest"
   [accountId proposalId ResumeProposalDealsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/finalizedProposals/{proposalId}:resume",
@@ -624,7 +624,7 @@ https://developers.google.com/authorized-buyers/apis/reference/rest/v2beta1/refe
 accountId <> 
 productId <> "
   [accountId productId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/products/{productId}",
@@ -643,7 +643,7 @@ filter <string> An optional PQL query used to query for products. See https://de
 pageSize <integer> Requested page size. The server may return fewer results than requested. If unspecified, the server will pick an appropriate default."
   ([accountId] (accounts-products-list accountId nil))
   ([accountId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/products",
@@ -658,7 +658,7 @@ https://developers.google.com/authorized-buyers/apis/reference/rest/v2beta1/refe
 accountId <> 
 publisherProfileId <> "
   [accountId publisherProfileId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/publisherProfiles/{publisherProfileId}",
@@ -677,7 +677,7 @@ optional:
 pageSize <integer> Specify the number of results to include per page."
   ([accountId] (accounts-publisherProfiles-list accountId nil))
   ([accountId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/accounts/{accountId}/publisherProfiles",
@@ -698,7 +698,7 @@ isTransient <boolean> Whether the filter set is transient, or should be persiste
   ([ownerName FilterSet]
     (bidders-accounts-filterSets-create ownerName FilterSet nil))
   ([ownerName FilterSet optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+ownerName}/filterSets",
@@ -713,7 +713,7 @@ https://developers.google.com/authorized-buyers/apis/reference/rest/v2beta1/refe
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://adexchangebuyer.googleapis.com/v2beta1/{+name}",
@@ -731,7 +731,7 @@ optional:
 pageSize <integer> Requested page size. The server may return fewer results than requested. If unspecified, the server will pick an appropriate default."
   ([ownerName] (bidders-accounts-filterSets-list ownerName nil))
   ([ownerName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+ownerName}/filterSets",
@@ -745,7 +745,7 @@ https://developers.google.com/authorized-buyers/apis/reference/rest/v2beta1/refe
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://adexchangebuyer.googleapis.com/v2beta1/{+name}",
@@ -766,7 +766,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
       filterSetName
       nil))
   ([filterSetName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+filterSetName}/impressionMetrics",
@@ -785,7 +785,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
   ([filterSetName]
     (bidders-accounts-filterSets-bidMetrics-list filterSetName nil))
   ([filterSetName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+filterSetName}/bidMetrics",
@@ -806,7 +806,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
       filterSetName
       nil))
   ([filterSetName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+filterSetName}/filteredBidRequests",
@@ -827,7 +827,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
       filterSetName
       nil))
   ([filterSetName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+filterSetName}/bidResponseErrors",
@@ -848,7 +848,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
       filterSetName
       nil))
   ([filterSetName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+filterSetName}/bidResponsesWithoutBids",
@@ -867,7 +867,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
   ([filterSetName]
     (bidders-accounts-filterSets-filteredBids-list filterSetName nil))
   ([filterSetName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+filterSetName}/filteredBids",
@@ -890,7 +890,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
       creativeStatusId
       nil))
   ([filterSetName creativeStatusId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+filterSetName}/filteredBids/{creativeStatusId}/details",
@@ -915,7 +915,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
       creativeStatusId
       nil))
   ([filterSetName creativeStatusId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+filterSetName}/filteredBids/{creativeStatusId}/creatives",
@@ -936,7 +936,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
   ([filterSetName]
     (bidders-accounts-filterSets-losingBids-list filterSetName nil))
   ([filterSetName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+filterSetName}/losingBids",
@@ -957,7 +957,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
       filterSetName
       nil))
   ([filterSetName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+filterSetName}/nonBillableWinningBids",
@@ -978,7 +978,7 @@ isTransient <boolean> Whether the filter set is transient, or should be persiste
   ([ownerName FilterSet]
     (bidders-filterSets-create ownerName FilterSet nil))
   ([ownerName FilterSet optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+ownerName}/filterSets",
@@ -993,7 +993,7 @@ https://developers.google.com/authorized-buyers/apis/reference/rest/v2beta1/refe
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://adexchangebuyer.googleapis.com/v2beta1/{+name}",
@@ -1011,7 +1011,7 @@ optional:
 pageSize <integer> Requested page size. The server may return fewer results than requested. If unspecified, the server will pick an appropriate default."
   ([ownerName] (bidders-filterSets-list ownerName nil))
   ([ownerName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+ownerName}/filterSets",
@@ -1025,7 +1025,7 @@ https://developers.google.com/authorized-buyers/apis/reference/rest/v2beta1/refe
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://adexchangebuyer.googleapis.com/v2beta1/{+name}",
@@ -1044,7 +1044,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
   ([filterSetName]
     (bidders-filterSets-impressionMetrics-list filterSetName nil))
   ([filterSetName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+filterSetName}/impressionMetrics",
@@ -1063,7 +1063,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
   ([filterSetName]
     (bidders-filterSets-bidMetrics-list filterSetName nil))
   ([filterSetName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+filterSetName}/bidMetrics",
@@ -1082,7 +1082,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
   ([filterSetName]
     (bidders-filterSets-filteredBidRequests-list filterSetName nil))
   ([filterSetName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+filterSetName}/filteredBidRequests",
@@ -1101,7 +1101,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
   ([filterSetName]
     (bidders-filterSets-bidResponseErrors-list filterSetName nil))
   ([filterSetName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+filterSetName}/bidResponseErrors",
@@ -1122,7 +1122,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
       filterSetName
       nil))
   ([filterSetName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+filterSetName}/bidResponsesWithoutBids",
@@ -1141,7 +1141,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
   ([filterSetName]
     (bidders-filterSets-filteredBids-list filterSetName nil))
   ([filterSetName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+filterSetName}/filteredBids",
@@ -1164,7 +1164,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
       creativeStatusId
       nil))
   ([filterSetName creativeStatusId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+filterSetName}/filteredBids/{creativeStatusId}/details",
@@ -1189,7 +1189,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
       creativeStatusId
       nil))
   ([filterSetName creativeStatusId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+filterSetName}/filteredBids/{creativeStatusId}/creatives",
@@ -1210,7 +1210,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
   ([filterSetName]
     (bidders-filterSets-losingBids-list filterSetName nil))
   ([filterSetName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+filterSetName}/losingBids",
@@ -1229,7 +1229,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
   ([filterSetName]
     (bidders-filterSets-nonBillableWinningBids-list filterSetName nil))
   ([filterSetName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+filterSetName}/nonBillableWinningBids",
@@ -1250,7 +1250,7 @@ isTransient <boolean> Whether the filter set is transient, or should be persiste
   ([ownerName FilterSet]
     (buyers-filterSets-create ownerName FilterSet nil))
   ([ownerName FilterSet optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+ownerName}/filterSets",
@@ -1265,7 +1265,7 @@ https://developers.google.com/authorized-buyers/apis/reference/rest/v2beta1/refe
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://adexchangebuyer.googleapis.com/v2beta1/{+name}",
@@ -1283,7 +1283,7 @@ optional:
 pageSize <integer> Requested page size. The server may return fewer results than requested. If unspecified, the server will pick an appropriate default."
   ([ownerName] (buyers-filterSets-list ownerName nil))
   ([ownerName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+ownerName}/filterSets",
@@ -1297,7 +1297,7 @@ https://developers.google.com/authorized-buyers/apis/reference/rest/v2beta1/refe
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://adexchangebuyer.googleapis.com/v2beta1/{+name}",
@@ -1316,7 +1316,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
   ([filterSetName]
     (buyers-filterSets-impressionMetrics-list filterSetName nil))
   ([filterSetName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+filterSetName}/impressionMetrics",
@@ -1335,7 +1335,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
   ([filterSetName]
     (buyers-filterSets-bidMetrics-list filterSetName nil))
   ([filterSetName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+filterSetName}/bidMetrics",
@@ -1354,7 +1354,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
   ([filterSetName]
     (buyers-filterSets-filteredBidRequests-list filterSetName nil))
   ([filterSetName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+filterSetName}/filteredBidRequests",
@@ -1373,7 +1373,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
   ([filterSetName]
     (buyers-filterSets-bidResponseErrors-list filterSetName nil))
   ([filterSetName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+filterSetName}/bidResponseErrors",
@@ -1392,7 +1392,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
   ([filterSetName]
     (buyers-filterSets-bidResponsesWithoutBids-list filterSetName nil))
   ([filterSetName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+filterSetName}/bidResponsesWithoutBids",
@@ -1411,7 +1411,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
   ([filterSetName]
     (buyers-filterSets-filteredBids-list filterSetName nil))
   ([filterSetName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+filterSetName}/filteredBids",
@@ -1434,7 +1434,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
       creativeStatusId
       nil))
   ([filterSetName creativeStatusId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+filterSetName}/filteredBids/{creativeStatusId}/details",
@@ -1459,7 +1459,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
       creativeStatusId
       nil))
   ([filterSetName creativeStatusId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+filterSetName}/filteredBids/{creativeStatusId}/creatives",
@@ -1480,7 +1480,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
   ([filterSetName]
     (buyers-filterSets-losingBids-list filterSetName nil))
   ([filterSetName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+filterSetName}/losingBids",
@@ -1499,7 +1499,7 @@ pageSize <integer> Requested page size. The server may return fewer results than
   ([filterSetName]
     (buyers-filterSets-nonBillableWinningBids-list filterSetName nil))
   ([filterSetName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://adexchangebuyer.googleapis.com/v2beta1/{+filterSetName}/nonBillableWinningBids",

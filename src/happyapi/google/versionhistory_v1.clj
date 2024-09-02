@@ -14,7 +14,7 @@ optional:
 pageSize <integer> Optional. Optional limit on the number of channels to include in the response. If unspecified, the server will pick an appropriate default."
   ([parent] (platforms-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://versionhistory.googleapis.com/v1/{+parent}/platforms",
@@ -32,7 +32,7 @@ optional:
 pageSize <integer> Optional. Optional limit on the number of channels to include in the response. If unspecified, the server will pick an appropriate default."
   ([parent] (platforms-channels-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://versionhistory.googleapis.com/v1/{+parent}/channels",
@@ -52,7 +52,7 @@ orderBy <string> Optional. Ordering string. Valid order_by strings are \"version
 filter <string> Optional. Filter string. Format is a comma separated list of All comma separated filter clauses are conjoined with a logical \"and\". Valid field_names are \"version\", \"name\", \"platform\", and \"channel\". Valid operators are \"<\", \"<=\", \"=\", \">=\", and \">\". Channel comparison is done by distance from stable. Ex) stable < beta, beta < dev, canary < canary_asan. Version comparison is done numerically. If version is not entirely written, the version will be appended with 0 in missing fields. Ex) version > 80 becoms version > 80.0.0.0 Name and platform are filtered by string comparison. Ex) \"...?filter=channel<=beta, version >= 80 Ex) \"...?filter=version > 80, version < 81"
   ([parent] (platforms-channels-versions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://versionhistory.googleapis.com/v1/{+parent}/versions",
@@ -72,7 +72,7 @@ orderBy <string> Optional. Ordering string. Valid order_by strings are \"version
 filter <string> Optional. Filter string. Format is a comma separated list of All comma separated filter clauses are conjoined with a logical \"and\". Valid field_names are \"version\", \"name\", \"platform\", \"channel\", \"fraction\" \"starttime\", and \"endtime\". Valid operators are \"<\", \"<=\", \"=\", \">=\", and \">\". Channel comparison is done by distance from stable. must be a valid channel when filtering by channel. Ex) stable < beta, beta < dev, canary < canary_asan. Version comparison is done numerically. Ex) 1.0.0.8 < 1.0.0.10. If version is not entirely written, the version will be appended with 0 for the missing fields. Ex) version > 80 becoms version > 80.0.0.0 When filtering by starttime or endtime, string must be in RFC 3339 date string format. Name and platform are filtered by string comparison. Ex) \"...?filter=channel<=beta, version >= 80 Ex) \"...?filter=version > 80, version < 81 Ex) \"...?filter=starttime>2020-01-01T00:00:00Z"
   ([parent] (platforms-channels-versions-releases-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://versionhistory.googleapis.com/v1/{+parent}/releases",

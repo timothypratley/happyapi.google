@@ -10,7 +10,7 @@ https://developers.google.com/admob/api/v1/reference/rest/v1/accounts/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://admob.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -27,7 +27,7 @@ optional:
 pageSize <integer> Maximum number of accounts to return."
   ([] (accounts-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://admob.googleapis.com/v1/accounts",
        :uri-template-args {},
@@ -44,7 +44,7 @@ parent <>
 GenerateNetworkReportRequest:
 GenerateNetworkReportRequest"
   [parent GenerateNetworkReportRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://admob.googleapis.com/v1/{+parent}/networkReport:generate",
@@ -63,7 +63,7 @@ parent <>
 GenerateMediationReportRequest:
 GenerateMediationReportRequest"
   [parent GenerateMediationReportRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://admob.googleapis.com/v1/{+parent}/mediationReport:generate",
@@ -84,7 +84,7 @@ optional:
 pageSize <integer> The maximum number of apps to return. If unspecified or 0, at most 10,000 apps will be returned. The maximum value is 20,000; values above 20,000 will be coerced to 20,000."
   ([parent] (accounts-apps-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://admob.googleapis.com/v1/{+parent}/apps",
        :uri-template-args {"parent" parent},
@@ -101,7 +101,7 @@ optional:
 pageSize <integer> The maximum number of ad units to return. If unspecified or 0, at most 10,000 ad units will be returned. The maximum value is 20,000; values above 20,000 will be coerced to 20,000."
   ([parent] (accounts-adUnits-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://admob.googleapis.com/v1/{+parent}/adUnits",

@@ -25,7 +25,7 @@ dailyRange.endDate.month <integer> Month of a year. Must be from 1 to 12, or 0 t
 dailyRange.startDate.month <integer> Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day."
   ([name] (locations-getDailyMetricsTimeSeries name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://businessprofileperformance.googleapis.com/v1/{+name}:getDailyMetricsTimeSeries",
@@ -50,7 +50,7 @@ dailyRange.endDate.day <integer> Day of a month. Must be from 1 to 31 and valid 
   ([location]
     (locations-fetchMultiDailyMetricsTimeSeries location nil))
   ([location optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://businessprofileperformance.googleapis.com/v1/{+location}:fetchMultiDailyMetricsTimeSeries",
@@ -75,7 +75,7 @@ monthlyRange.startMonth.month <integer> Month of a year. Must be from 1 to 12, o
   ([parent]
     (locations-searchkeywords-impressions-monthly-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://businessprofileperformance.googleapis.com/v1/{+parent}/searchkeywords/impressions/monthly",

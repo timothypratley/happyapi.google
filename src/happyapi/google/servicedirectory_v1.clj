@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://servicedirectory.googleapis.com/v1/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/service-directory/v1/reference/rest/v1/projects/locatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://servicedirectory.googleapis.com/v1/{+name}",
@@ -50,7 +50,7 @@ namespaceId <string> Required. The Resource ID must be 1-63 characters long, and
   ([parent Namespace]
     (projects-locations-namespaces-create parent Namespace nil))
   ([parent Namespace optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://servicedirectory.googleapis.com/v1/{+parent}/namespaces",
@@ -71,7 +71,7 @@ filter <string> Optional. The filter to list results by. General `filter` string
 orderBy <string> Optional. The order to list results by. General `order_by` string syntax: ` () (,)` * `` allows value: `name` * `` ascending or descending order by ``. If this is left blank, `asc` is used Note that an empty `order_by` string results in default order, which is order by `name` in ascending order."
   ([parent] (projects-locations-namespaces-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://servicedirectory.googleapis.com/v1/{+parent}/namespaces",
@@ -85,7 +85,7 @@ https://cloud.google.com/service-directory/v1/reference/rest/v1/projects/locatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://servicedirectory.googleapis.com/v1/{+name}",
@@ -106,7 +106,7 @@ updateMask <string> Required. List of fields to be updated in this request."
   ([name Namespace]
     (projects-locations-namespaces-patch name Namespace nil))
   ([name Namespace optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://servicedirectory.googleapis.com/v1/{+name}",
@@ -121,7 +121,7 @@ https://cloud.google.com/service-directory/v1/reference/rest/v1/projects/locatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://servicedirectory.googleapis.com/v1/{+name}",
@@ -137,7 +137,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://servicedirectory.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -154,7 +154,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://servicedirectory.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -171,7 +171,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://servicedirectory.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -192,7 +192,7 @@ filter <string> Optional. The filter to list results by. General `filter` string
 orderBy <string> Optional. The order to list results by. General `order_by` string syntax: ` () (,)` * `` allows value: `name` * `` ascending or descending order by ``. If this is left blank, `asc` is used Note that an empty `order_by` string results in default order, which is order by `name` in ascending order."
   ([parent] (projects-locations-namespaces-services-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://servicedirectory.googleapis.com/v1/{+parent}/services",
@@ -208,7 +208,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://servicedirectory.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -225,7 +225,7 @@ name <>
 ResolveServiceRequest:
 ResolveServiceRequest"
   [name ResolveServiceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://servicedirectory.googleapis.com/v1/{+name}:resolve",
@@ -240,7 +240,7 @@ https://cloud.google.com/service-directory/v1/reference/rest/v1/projects/locatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://servicedirectory.googleapis.com/v1/{+name}",
@@ -261,7 +261,7 @@ updateMask <string> Required. List of fields to be updated in this request."
   ([name Service]
     (projects-locations-namespaces-services-patch name Service nil))
   ([name Service optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://servicedirectory.googleapis.com/v1/{+name}",
@@ -278,7 +278,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://servicedirectory.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -300,7 +300,7 @@ serviceId <string> Required. The Resource ID must be 1-63 characters long, and c
   ([parent Service]
     (projects-locations-namespaces-services-create parent Service nil))
   ([parent Service optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://servicedirectory.googleapis.com/v1/{+parent}/services",
@@ -315,7 +315,7 @@ https://cloud.google.com/service-directory/v1/reference/rest/v1/projects/locatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://servicedirectory.googleapis.com/v1/{+name}",
@@ -331,7 +331,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://servicedirectory.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -356,7 +356,7 @@ endpointId <string> Required. The Resource ID must be 1-63 characters long, and 
       Endpoint
       nil))
   ([parent Endpoint optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://servicedirectory.googleapis.com/v1/{+parent}/endpoints",
@@ -378,7 +378,7 @@ orderBy <string> Optional. The order to list results by. General `order_by` stri
   ([parent]
     (projects-locations-namespaces-services-endpoints-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://servicedirectory.googleapis.com/v1/{+parent}/endpoints",
@@ -392,7 +392,7 @@ https://cloud.google.com/service-directory/v1/reference/rest/v1/projects/locatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://servicedirectory.googleapis.com/v1/{+name}",
@@ -416,7 +416,7 @@ updateMask <string> Required. List of fields to be updated in this request."
       Endpoint
       nil))
   ([name Endpoint optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://servicedirectory.googleapis.com/v1/{+name}",
@@ -431,7 +431,7 @@ https://cloud.google.com/service-directory/v1/reference/rest/v1/projects/locatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://servicedirectory.googleapis.com/v1/{+name}",

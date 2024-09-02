@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://certificatemanager.googleapis.com/v1/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/certificate-manager/docs/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://certificatemanager.googleapis.com/v1/{+name}",
@@ -48,7 +48,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://certificatemanager.googleapis.com/v1/{+name}/operations",
@@ -62,7 +62,7 @@ https://cloud.google.com/certificate-manager/docs/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://certificatemanager.googleapis.com/v1/{+name}",
@@ -76,7 +76,7 @@ https://cloud.google.com/certificate-manager/docs/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://certificatemanager.googleapis.com/v1/{+name}",
@@ -92,7 +92,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://certificatemanager.googleapis.com/v1/{+name}:cancel",
@@ -108,12 +108,12 @@ https://cloud.google.com/certificate-manager/docs/v1/reference/rest/v1/projects/
 parent <> 
 
 optional:
-pageSize <integer> Maximum number of certificates to return per call.
-filter <string> Filter expression to restrict the Certificates returned.
-orderBy <string> A list of Certificate field names used to specify the order of the returned results. The default sorting order is ascending. To specify descending order for a field, add a suffix `\" desc\"`."
+pageSize <integer> Optional. Maximum number of certificates to return per call.
+filter <string> Optional. Filter expression to restrict the Certificates returned.
+orderBy <string> Optional. A list of Certificate field names used to specify the order of the returned results. The default sorting order is ascending. To specify descending order for a field, add a suffix `\" desc\"`."
   ([parent] (projects-locations-certificates-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://certificatemanager.googleapis.com/v1/{+parent}/certificates",
@@ -127,7 +127,7 @@ https://cloud.google.com/certificate-manager/docs/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://certificatemanager.googleapis.com/v1/{+name}",
@@ -148,7 +148,7 @@ certificateId <string> Required. A user-provided name of the certificate."
   ([parent Certificate]
     (projects-locations-certificates-create parent Certificate nil))
   ([parent Certificate optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://certificatemanager.googleapis.com/v1/{+parent}/certificates",
@@ -170,7 +170,7 @@ updateMask <string> Required. The update mask applies to the resource. For the `
   ([name Certificate]
     (projects-locations-certificates-patch name Certificate nil))
   ([name Certificate optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://certificatemanager.googleapis.com/v1/{+name}",
@@ -185,7 +185,7 @@ https://cloud.google.com/certificate-manager/docs/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://certificatemanager.googleapis.com/v1/{+name}",
@@ -200,12 +200,12 @@ https://cloud.google.com/certificate-manager/docs/v1/reference/rest/v1/projects/
 parent <> 
 
 optional:
-pageSize <integer> Maximum number of certificate maps to return per call.
-filter <string> Filter expression to restrict the Certificates Maps returned.
-orderBy <string> A list of Certificate Map field names used to specify the order of the returned results. The default sorting order is ascending. To specify descending order for a field, add a suffix `\" desc\"`."
+pageSize <integer> Optional. Maximum number of certificate maps to return per call.
+filter <string> Optional. Filter expression to restrict the Certificates Maps returned.
+orderBy <string> Optional. A list of Certificate Map field names used to specify the order of the returned results. The default sorting order is ascending. To specify descending order for a field, add a suffix `\" desc\"`."
   ([parent] (projects-locations-certificateMaps-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://certificatemanager.googleapis.com/v1/{+parent}/certificateMaps",
@@ -219,7 +219,7 @@ https://cloud.google.com/certificate-manager/docs/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://certificatemanager.googleapis.com/v1/{+name}",
@@ -243,7 +243,7 @@ certificateMapId <string> Required. A user-provided name of the certificate map.
       CertificateMap
       nil))
   ([parent CertificateMap optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://certificatemanager.googleapis.com/v1/{+parent}/certificateMaps",
@@ -265,7 +265,7 @@ updateMask <string> Required. The update mask applies to the resource. For the `
   ([name CertificateMap]
     (projects-locations-certificateMaps-patch name CertificateMap nil))
   ([name CertificateMap optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://certificatemanager.googleapis.com/v1/{+name}",
@@ -280,7 +280,7 @@ https://cloud.google.com/certificate-manager/docs/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://certificatemanager.googleapis.com/v1/{+name}",
@@ -295,15 +295,15 @@ https://cloud.google.com/certificate-manager/docs/v1/reference/rest/v1/projects/
 parent <> 
 
 optional:
-pageSize <integer> Maximum number of certificate map entries to return. The service may return fewer than this value. If unspecified, at most 50 certificate map entries will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000.
-filter <string> Filter expression to restrict the returned Certificate Map Entries.
-orderBy <string> A list of Certificate Map Entry field names used to specify the order of the returned results. The default sorting order is ascending. To specify descending order for a field, add a suffix `\" desc\"`."
+pageSize <integer> Optional. Maximum number of certificate map entries to return. The service may return fewer than this value. If unspecified, at most 50 certificate map entries will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000.
+filter <string> Optional. Filter expression to restrict the returned Certificate Map Entries.
+orderBy <string> Optional. A list of Certificate Map Entry field names used to specify the order of the returned results. The default sorting order is ascending. To specify descending order for a field, add a suffix `\" desc\"`."
   ([parent]
     (projects-locations-certificateMaps-certificateMapEntries-list
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://certificatemanager.googleapis.com/v1/{+parent}/certificateMapEntries",
@@ -317,7 +317,7 @@ https://cloud.google.com/certificate-manager/docs/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://certificatemanager.googleapis.com/v1/{+name}",
@@ -341,7 +341,7 @@ certificateMapEntryId <string> Required. A user-provided name of the certificate
       CertificateMapEntry
       nil))
   ([parent CertificateMapEntry optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://certificatemanager.googleapis.com/v1/{+parent}/certificateMapEntries",
@@ -366,7 +366,7 @@ updateMask <string> Required. The update mask applies to the resource. For the `
       CertificateMapEntry
       nil))
   ([name CertificateMapEntry optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://certificatemanager.googleapis.com/v1/{+name}",
@@ -381,7 +381,7 @@ https://cloud.google.com/certificate-manager/docs/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://certificatemanager.googleapis.com/v1/{+name}",
@@ -396,12 +396,12 @@ https://cloud.google.com/certificate-manager/docs/v1/reference/rest/v1/projects/
 parent <> 
 
 optional:
-pageSize <integer> Maximum number of dns authorizations to return per call.
-filter <string> Filter expression to restrict the Dns Authorizations returned.
-orderBy <string> A list of Dns Authorization field names used to specify the order of the returned results. The default sorting order is ascending. To specify descending order for a field, add a suffix `\" desc\"`."
+pageSize <integer> Optional. Maximum number of dns authorizations to return per call.
+filter <string> Optional. Filter expression to restrict the Dns Authorizations returned.
+orderBy <string> Optional. A list of Dns Authorization field names used to specify the order of the returned results. The default sorting order is ascending. To specify descending order for a field, add a suffix `\" desc\"`."
   ([parent] (projects-locations-dnsAuthorizations-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://certificatemanager.googleapis.com/v1/{+parent}/dnsAuthorizations",
@@ -415,7 +415,7 @@ https://cloud.google.com/certificate-manager/docs/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://certificatemanager.googleapis.com/v1/{+name}",
@@ -439,7 +439,7 @@ dnsAuthorizationId <string> Required. A user-provided name of the dns authorizat
       DnsAuthorization
       nil))
   ([parent DnsAuthorization optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://certificatemanager.googleapis.com/v1/{+parent}/dnsAuthorizations",
@@ -464,7 +464,7 @@ updateMask <string> Required. The update mask applies to the resource. For the `
       DnsAuthorization
       nil))
   ([name DnsAuthorization optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://certificatemanager.googleapis.com/v1/{+name}",
@@ -479,7 +479,7 @@ https://cloud.google.com/certificate-manager/docs/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://certificatemanager.googleapis.com/v1/{+name}",
@@ -494,13 +494,13 @@ https://cloud.google.com/certificate-manager/docs/v1/reference/rest/v1/projects/
 parent <> 
 
 optional:
-pageSize <integer> Maximum number of certificate configs to return per call.
-filter <string> Filter expression to restrict the Certificates Configs returned.
-orderBy <string> A list of Certificate Config field names used to specify the order of the returned results. The default sorting order is ascending. To specify descending order for a field, add a suffix `\" desc\"`."
+pageSize <integer> Optional. Maximum number of certificate configs to return per call.
+filter <string> Optional. Filter expression to restrict the Certificates Configs returned.
+orderBy <string> Optional. A list of Certificate Config field names used to specify the order of the returned results. The default sorting order is ascending. To specify descending order for a field, add a suffix `\" desc\"`."
   ([parent]
     (projects-locations-certificateIssuanceConfigs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://certificatemanager.googleapis.com/v1/{+parent}/certificateIssuanceConfigs",
@@ -514,7 +514,7 @@ https://cloud.google.com/certificate-manager/docs/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://certificatemanager.googleapis.com/v1/{+name}",
@@ -538,11 +538,36 @@ certificateIssuanceConfigId <string> Required. A user-provided name of the certi
       CertificateIssuanceConfig
       nil))
   ([parent CertificateIssuanceConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://certificatemanager.googleapis.com/v1/{+parent}/certificateIssuanceConfigs",
        :uri-template-args {"parent" parent},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+       :body CertificateIssuanceConfig})))
+
+(defn projects-locations-certificateIssuanceConfigs-patch
+  "Updates a CertificateIssuanceConfig.
+https://cloud.google.com/certificate-manager/docs/v1/reference/rest/v1/projects/locations/certificateIssuanceConfigs/patch
+
+name <> 
+CertificateIssuanceConfig:
+CertificateIssuanceConfig
+
+optional:
+updateMask <string> Required. The update mask applies to the resource. For the `FieldMask` definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask."
+  ([name CertificateIssuanceConfig]
+    (projects-locations-certificateIssuanceConfigs-patch
+      name
+      CertificateIssuanceConfig
+      nil))
+  ([name CertificateIssuanceConfig optional]
+    (client/*api-request*
+      {:method :patch,
+       :uri-template
+       "https://certificatemanager.googleapis.com/v1/{+name}",
+       :uri-template-args {"name" name},
        :query-params (merge {} optional),
        :scopes ["https://www.googleapis.com/auth/cloud-platform"],
        :body CertificateIssuanceConfig})))
@@ -553,7 +578,7 @@ https://cloud.google.com/certificate-manager/docs/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://certificatemanager.googleapis.com/v1/{+name}",
@@ -568,12 +593,12 @@ https://cloud.google.com/certificate-manager/docs/v1/reference/rest/v1/projects/
 parent <> 
 
 optional:
-pageSize <integer> Maximum number of TrustConfigs to return per call.
-filter <string> Filter expression to restrict the TrustConfigs returned.
-orderBy <string> A list of TrustConfig field names used to specify the order of the returned results. The default sorting order is ascending. To specify descending order for a field, add a suffix `\" desc\"`."
+pageSize <integer> Optional. Maximum number of TrustConfigs to return per call.
+filter <string> Optional. Filter expression to restrict the TrustConfigs returned.
+orderBy <string> Optional. A list of TrustConfig field names used to specify the order of the returned results. The default sorting order is ascending. To specify descending order for a field, add a suffix `\" desc\"`."
   ([parent] (projects-locations-trustConfigs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://certificatemanager.googleapis.com/v1/{+parent}/trustConfigs",
@@ -587,7 +612,7 @@ https://cloud.google.com/certificate-manager/docs/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://certificatemanager.googleapis.com/v1/{+name}",
@@ -608,7 +633,7 @@ trustConfigId <string> Required. A user-provided name of the TrustConfig. Must m
   ([parent TrustConfig]
     (projects-locations-trustConfigs-create parent TrustConfig nil))
   ([parent TrustConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://certificatemanager.googleapis.com/v1/{+parent}/trustConfigs",
@@ -630,7 +655,7 @@ updateMask <string> Required. The update mask applies to the resource. For the `
   ([name TrustConfig]
     (projects-locations-trustConfigs-patch name TrustConfig nil))
   ([name TrustConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://certificatemanager.googleapis.com/v1/{+name}",
@@ -646,10 +671,10 @@ https://cloud.google.com/certificate-manager/docs/v1/reference/rest/v1/projects/
 name <> 
 
 optional:
-etag <string> The current etag of the TrustConfig. If an etag is provided and does not match the current etag of the resource, deletion will be blocked and an ABORTED error will be returned."
+etag <string> Optional. The current etag of the TrustConfig. If an etag is provided and does not match the current etag of the resource, deletion will be blocked and an ABORTED error will be returned."
   ([name] (projects-locations-trustConfigs-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://certificatemanager.googleapis.com/v1/{+name}",

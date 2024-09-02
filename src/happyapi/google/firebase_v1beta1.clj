@@ -10,7 +10,7 @@ https://firebase.google.com/v1beta1/reference/rest/v1beta1/operations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://firebase.googleapis.com/v1beta1/{+name}",
      :uri-template-args {"name" name},
@@ -30,7 +30,7 @@ pageSize <integer> The maximum number of Projects to return in the response. The
 showDeleted <boolean> Optional. Controls whether Projects in the DELETED state should be returned in the response. If not specified, only `ACTIVE` Projects will be returned."
   ([] (projects-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://firebase.googleapis.com/v1beta1/projects",
@@ -50,7 +50,7 @@ parent <>
 AddGoogleAnalyticsRequest:
 AddGoogleAnalyticsRequest"
   [parent AddGoogleAnalyticsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firebase.googleapis.com/v1beta1/{+parent}:addGoogleAnalytics",
@@ -69,7 +69,7 @@ project <>
 AddFirebaseRequest:
 AddFirebaseRequest"
   [project AddFirebaseRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firebase.googleapis.com/v1beta1/{+project}:addFirebase",
@@ -86,7 +86,7 @@ https://firebase.google.com/v1beta1/reference/rest/v1beta1/projects/getAdminSdkC
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://firebase.googleapis.com/v1beta1/{+name}",
      :uri-template-args {"name" name},
@@ -109,7 +109,7 @@ filter <string> A query string compatible with Google's [AIP-160 standard](https
 showDeleted <boolean> Controls whether Apps in the DELETED state should be returned. If not specified, only `ACTIVE` Apps will be returned."
   ([parent] (projects-searchApps parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://firebase.googleapis.com/v1beta1/{+parent}:searchApps",
@@ -127,7 +127,7 @@ https://firebase.google.com/v1beta1/reference/rest/v1beta1/projects/getAnalytics
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://firebase.googleapis.com/v1beta1/{+name}",
      :uri-template-args {"name" name},
@@ -150,7 +150,7 @@ optional:
 updateMask <string> Specifies which fields of the FirebaseProject to update. Note that the following fields are immutable: `name`, `project_id`, and `project_number`. To update `state`, use any of the following Google Cloud endpoints: [`projects.delete`](https://cloud.google.com/resource-manager/reference/rest/v1/projects/delete) or [`projects.undelete`](https://cloud.google.com/resource-manager/reference/rest/v1/projects/undelete)"
   ([name FirebaseProject] (projects-patch name FirebaseProject nil))
   ([name FirebaseProject optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://firebase.googleapis.com/v1beta1/{+name}",
        :uri-template-args {"name" name},
@@ -168,7 +168,7 @@ parent <>
 RemoveAnalyticsRequest:
 RemoveAnalyticsRequest"
   [parent RemoveAnalyticsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firebase.googleapis.com/v1beta1/{+parent}:removeAnalytics",
@@ -185,7 +185,7 @@ https://firebase.google.com/v1beta1/reference/rest/v1beta1/projects/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://firebase.googleapis.com/v1beta1/{+name}",
      :uri-template-args {"name" name},
@@ -202,7 +202,7 @@ https://firebase.google.com/v1beta1/reference/rest/v1beta1/projects/androidApps/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://firebase.googleapis.com/v1beta1/{+name}",
      :uri-template-args {"name" name},
@@ -224,7 +224,7 @@ pageSize <integer> The maximum number of Apps to return in the response. The ser
 showDeleted <boolean> Controls whether Apps in the DELETED state should be returned in the response. If not specified, only `ACTIVE` Apps will be returned."
   ([parent] (projects-androidApps-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://firebase.googleapis.com/v1beta1/{+parent}/androidApps",
@@ -244,7 +244,7 @@ parent <>
 AndroidApp:
 AndroidApp"
   [parent AndroidApp]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firebase.googleapis.com/v1beta1/{+parent}/androidApps",
@@ -267,7 +267,7 @@ optional:
 updateMask <string> Specifies which fields of the AndroidApp to update. Note that the following fields are immutable: `name`, `app_id`, `project_id`, and `package_name`. To update `state`, use any of the following endpoints: RemoveAndroidApp or UndeleteAndroidApp."
   ([name AndroidApp] (projects-androidApps-patch name AndroidApp nil))
   ([name AndroidApp optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://firebase.googleapis.com/v1beta1/{+name}",
        :uri-template-args {"name" name},
@@ -285,7 +285,7 @@ name <>
 RemoveAndroidAppRequest:
 RemoveAndroidAppRequest"
   [name RemoveAndroidAppRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firebase.googleapis.com/v1beta1/{+name}:remove",
@@ -304,7 +304,7 @@ name <>
 UndeleteAndroidAppRequest:
 UndeleteAndroidAppRequest"
   [name UndeleteAndroidAppRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firebase.googleapis.com/v1beta1/{+name}:undelete",
@@ -321,7 +321,7 @@ https://firebase.google.com/v1beta1/reference/rest/v1beta1/projects/androidApps/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://firebase.googleapis.com/v1beta1/{+name}",
      :uri-template-args {"name" name},
@@ -338,7 +338,7 @@ https://firebase.google.com/v1beta1/reference/rest/v1beta1/projects/androidApps/
 
 parent <> "
   [parent]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://firebase.googleapis.com/v1beta1/{+parent}/sha",
@@ -358,7 +358,7 @@ parent <>
 ShaCertificate:
 ShaCertificate"
   [parent ShaCertificate]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firebase.googleapis.com/v1beta1/{+parent}/sha",
@@ -375,7 +375,7 @@ https://firebase.google.com/v1beta1/reference/rest/v1beta1/projects/androidApps/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://firebase.googleapis.com/v1beta1/{+name}",
      :uri-template-args {"name" name},
@@ -390,7 +390,7 @@ https://firebase.google.com/v1beta1/reference/rest/v1beta1/projects/iosApps/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://firebase.googleapis.com/v1beta1/{+name}",
      :uri-template-args {"name" name},
@@ -412,7 +412,7 @@ pageSize <integer> The maximum number of Apps to return in the response. The ser
 showDeleted <boolean> Controls whether Apps in the DELETED state should be returned in the response. If not specified, only `ACTIVE` Apps will be returned."
   ([parent] (projects-iosApps-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://firebase.googleapis.com/v1beta1/{+parent}/iosApps",
@@ -432,7 +432,7 @@ parent <>
 IosApp:
 IosApp"
   [parent IosApp]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firebase.googleapis.com/v1beta1/{+parent}/iosApps",
@@ -455,7 +455,7 @@ optional:
 updateMask <string> Specifies which fields of the IosApp to update. Note that the following fields are immutable: `name`, `app_id`, `project_id`, and `bundle_id`. To update `state`, use any of the following endpoints: RemoveIosApp or UndeleteIosApp."
   ([name IosApp] (projects-iosApps-patch name IosApp nil))
   ([name IosApp optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://firebase.googleapis.com/v1beta1/{+name}",
        :uri-template-args {"name" name},
@@ -473,7 +473,7 @@ name <>
 RemoveIosAppRequest:
 RemoveIosAppRequest"
   [name RemoveIosAppRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firebase.googleapis.com/v1beta1/{+name}:remove",
@@ -492,7 +492,7 @@ name <>
 UndeleteIosAppRequest:
 UndeleteIosAppRequest"
   [name UndeleteIosAppRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firebase.googleapis.com/v1beta1/{+name}:undelete",
@@ -509,7 +509,7 @@ https://firebase.google.com/v1beta1/reference/rest/v1beta1/projects/iosApps/getC
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://firebase.googleapis.com/v1beta1/{+name}",
      :uri-template-args {"name" name},
@@ -530,7 +530,7 @@ optional:
 pageSize <integer> The maximum number of locations to return in the response. The server may return fewer than this value at its discretion. If no value is specified (or too large a value is specified), then the server will impose its own limit. This value cannot be negative."
   ([parent] (projects-availableLocations-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://firebase.googleapis.com/v1beta1/{+parent}/availableLocations",
@@ -550,7 +550,7 @@ parent <>
 FinalizeDefaultLocationRequest:
 FinalizeDefaultLocationRequest"
   [parent FinalizeDefaultLocationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firebase.googleapis.com/v1beta1/{+parent}/defaultLocation:finalize",
@@ -567,7 +567,7 @@ https://firebase.google.com/v1beta1/reference/rest/v1beta1/projects/webApps/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://firebase.googleapis.com/v1beta1/{+name}",
      :uri-template-args {"name" name},
@@ -589,7 +589,7 @@ pageSize <integer> The maximum number of Apps to return in the response. The ser
 showDeleted <boolean> Controls whether Apps in the DELETED state should be returned in the response. If not specified, only `ACTIVE` Apps will be returned."
   ([parent] (projects-webApps-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://firebase.googleapis.com/v1beta1/{+parent}/webApps",
@@ -609,7 +609,7 @@ parent <>
 WebApp:
 WebApp"
   [parent WebApp]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firebase.googleapis.com/v1beta1/{+parent}/webApps",
@@ -632,7 +632,7 @@ optional:
 updateMask <string> Specifies which fields of the WebApp to update. Note that the following fields are immutable: `name`, `app_id`, and `project_id`. To update `state`, use any of the following endpoints: RemoveWebApp or UndeleteWebApp."
   ([name WebApp] (projects-webApps-patch name WebApp nil))
   ([name WebApp optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://firebase.googleapis.com/v1beta1/{+name}",
        :uri-template-args {"name" name},
@@ -650,7 +650,7 @@ name <>
 RemoveWebAppRequest:
 RemoveWebAppRequest"
   [name RemoveWebAppRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firebase.googleapis.com/v1beta1/{+name}:remove",
@@ -669,7 +669,7 @@ name <>
 UndeleteWebAppRequest:
 UndeleteWebAppRequest"
   [name UndeleteWebAppRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firebase.googleapis.com/v1beta1/{+name}:undelete",
@@ -686,7 +686,7 @@ https://firebase.google.com/v1beta1/reference/rest/v1beta1/projects/webApps/getC
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://firebase.googleapis.com/v1beta1/{+name}",
      :uri-template-args {"name" name},
@@ -705,7 +705,7 @@ optional:
 pageSize <integer> The maximum number of Projects to return in the response. The server may return fewer than this value at its discretion. If no value is specified (or too large a value is specified), the server will impose its own limit. This value cannot be negative."
   ([] (availableProjects-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://firebase.googleapis.com/v1beta1/availableProjects",

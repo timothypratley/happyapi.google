@@ -14,7 +14,7 @@ optional:
 language <string> The BCP47 tag for the user's preferred language (e.g. \"en-US\", \"de\")"
   ([permissionId] (permissions-get permissionId nil))
   ([permissionId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://androidenterprise.googleapis.com/androidenterprise/v1/permissions/{permissionId}",
@@ -33,7 +33,7 @@ optional:
 language <string> The BCP47 tag for the user's preferred language (e.g. \"en-US\", \"de\")."
   ([enterpriseId productId] (products-get enterpriseId productId nil))
   ([enterpriseId productId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/products/{productId}",
@@ -56,7 +56,7 @@ query <string> The search query as typed in the Google Play store search box. If
 language <string> The BCP47 tag for the user's preferred language (e.g. \"en-US\", \"de\"). Results are returned in the language best matching the preferred language."
   ([enterpriseId] (products-list enterpriseId nil))
   ([enterpriseId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/products",
@@ -71,7 +71,7 @@ https://developers.google.com/android/work/play/emm-api/v1/reference/rest/v1/pro
 enterpriseId <> 
 productId <> "
   [enterpriseId productId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/products/{productId}/permissions",
@@ -92,7 +92,7 @@ languageCode <string> The BCP 47 language code used for permission names and des
   ([enterpriseId productId]
     (products-generateApprovalUrl enterpriseId productId nil))
   ([enterpriseId productId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/products/{productId}/generateApprovalUrl",
@@ -110,7 +110,7 @@ productId <>
 ProductsApproveRequest:
 ProductsApproveRequest"
   [enterpriseId productId ProductsApproveRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/products/{productId}/approve",
@@ -127,7 +127,7 @@ https://developers.google.com/android/work/play/emm-api/v1/reference/rest/v1/pro
 enterpriseId <> 
 productId <> "
   [enterpriseId productId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/products/{productId}/unapprove",
@@ -148,7 +148,7 @@ language <string> The BCP47 tag for the user's preferred language (e.g. \"en-US\
   ([enterpriseId productId]
     (products-getAppRestrictionsSchema enterpriseId productId nil))
   ([enterpriseId productId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/products/{productId}/appRestrictionsSchema",
@@ -164,7 +164,7 @@ https://developers.google.com/android/work/play/emm-api/v1/reference/rest/v1/ent
 enterpriseId <> 
 userId <> "
   [enterpriseId userId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/entitlements",
@@ -180,7 +180,7 @@ enterpriseId <>
 userId <> 
 entitlementId <> "
   [enterpriseId userId entitlementId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/entitlements/{entitlementId}",
@@ -211,7 +211,7 @@ install <boolean> Set to true to also install the product on all the user's devi
       Entitlement
       nil))
   ([enterpriseId userId entitlementId Entitlement optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/entitlements/{entitlementId}",
@@ -231,7 +231,7 @@ enterpriseId <>
 userId <> 
 entitlementId <> "
   [enterpriseId userId entitlementId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/entitlements/{entitlementId}",
@@ -250,7 +250,7 @@ enterpriseId <>
 userId <> 
 deviceId <> "
   [enterpriseId userId deviceId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/installs",
@@ -270,7 +270,7 @@ userId <>
 deviceId <> 
 installId <> "
   [enterpriseId userId deviceId installId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/installs/{installId}",
@@ -293,7 +293,7 @@ installId <>
 Install:
 Install"
   [enterpriseId userId deviceId installId Install]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/installs/{installId}",
@@ -315,7 +315,7 @@ userId <>
 deviceId <> 
 installId <> "
   [enterpriseId userId deviceId installId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/installs/{installId}",
@@ -334,7 +334,7 @@ https://developers.google.com/android/work/play/emm-api/v1/reference/rest/v1/dev
 enterpriseId <> 
 userId <> "
   [enterpriseId userId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/devices",
@@ -350,7 +350,7 @@ enterpriseId <>
 userId <> 
 deviceId <> "
   [enterpriseId userId deviceId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}",
@@ -376,7 +376,7 @@ updateMask <string> Mask that identifies which fields to update. If not set, all
   ([enterpriseId userId deviceId Device]
     (devices-update enterpriseId userId deviceId Device nil))
   ([enterpriseId userId deviceId Device optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}",
@@ -396,7 +396,7 @@ enterpriseId <>
 userId <> 
 deviceId <> "
   [enterpriseId userId deviceId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/state",
@@ -417,7 +417,7 @@ deviceId <>
 DeviceState:
 DeviceState"
   [enterpriseId userId deviceId DeviceState]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/state",
@@ -437,7 +437,7 @@ enterpriseId <>
 userId <> 
 deviceId <> "
   [enterpriseId userId deviceId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/forceReportUpload",
@@ -456,7 +456,7 @@ enterpriseId <>
 userId <> 
 deviceId <> "
   [enterpriseId userId deviceId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/managedConfigurationsForDevice",
@@ -476,7 +476,7 @@ userId <>
 deviceId <> 
 managedConfigurationForDeviceId <> "
   [enterpriseId userId deviceId managedConfigurationForDeviceId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/managedConfigurationsForDevice/{managedConfigurationForDeviceId}",
@@ -504,7 +504,7 @@ ManagedConfiguration"
    deviceId
    managedConfigurationForDeviceId
    ManagedConfiguration]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/managedConfigurationsForDevice/{managedConfigurationForDeviceId}",
@@ -527,7 +527,7 @@ userId <>
 deviceId <> 
 managedConfigurationForDeviceId <> "
   [enterpriseId userId deviceId managedConfigurationForDeviceId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/managedConfigurationsForDevice/{managedConfigurationForDeviceId}",
@@ -547,7 +547,7 @@ https://developers.google.com/android/work/play/emm-api/v1/reference/rest/v1/web
 enterpriseId <> 
 webAppId <> "
   [enterpriseId webAppId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/webApps/{webAppId}",
@@ -562,7 +562,7 @@ https://developers.google.com/android/work/play/emm-api/v1/reference/rest/v1/web
 
 enterpriseId <> "
   [enterpriseId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/webApps",
@@ -578,7 +578,7 @@ enterpriseId <>
 WebApp:
 WebApp"
   [enterpriseId WebApp]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/webApps",
@@ -596,7 +596,7 @@ webAppId <>
 WebApp:
 WebApp"
   [enterpriseId webAppId WebApp]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/webApps/{webAppId}",
@@ -613,7 +613,7 @@ https://developers.google.com/android/work/play/emm-api/v1/reference/rest/v1/web
 enterpriseId <> 
 webAppId <> "
   [enterpriseId webAppId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/webApps/{webAppId}",
@@ -630,7 +630,7 @@ enterpriseId <>
 ServiceAccountKey:
 ServiceAccountKey"
   [enterpriseId ServiceAccountKey]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/serviceAccountKeys",
@@ -645,7 +645,7 @@ https://developers.google.com/android/work/play/emm-api/v1/reference/rest/v1/ser
 
 enterpriseId <> "
   [enterpriseId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/serviceAccountKeys",
@@ -660,7 +660,7 @@ https://developers.google.com/android/work/play/emm-api/v1/reference/rest/v1/ser
 enterpriseId <> 
 keyId <> "
   [enterpriseId keyId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/serviceAccountKeys/{keyId}",
@@ -674,7 +674,7 @@ https://developers.google.com/android/work/play/emm-api/v1/reference/rest/v1/ent
 
 domain <> "
   [domain]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises",
@@ -691,7 +691,7 @@ callbackUrl <string> The callback URL to which the Admin will be redirected afte
 adminEmail <string> Optional. Email address used to prefill the admin field of the enterprise signup form. This value is a hint only and can be altered by the user."
   ([] (enterprises-generateSignupUrl nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/signupUrl",
@@ -707,7 +707,7 @@ enterpriseId <>
 StoreLayout:
 StoreLayout"
   [enterpriseId StoreLayout]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/storeLayout",
@@ -725,7 +725,7 @@ completionToken <string> The Completion token initially returned by GenerateSign
 enterpriseToken <string> The Enterprise token appended to the Callback URL."
   ([] (enterprises-completeSignup nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/completeSignup",
@@ -743,7 +743,7 @@ optional:
 keyType <string> The type of credential to return with the service account. Required."
   ([enterpriseId] (enterprises-getServiceAccount enterpriseId nil))
   ([enterpriseId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/serviceAccount",
@@ -757,7 +757,7 @@ https://developers.google.com/android/work/play/emm-api/v1/reference/rest/v1/ent
 
 enterpriseId <> "
   [enterpriseId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/unenroll",
@@ -771,7 +771,7 @@ https://developers.google.com/android/work/play/emm-api/v1/reference/rest/v1/ent
 
 enterpriseId <> "
   [enterpriseId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/storeLayout",
@@ -787,7 +787,7 @@ enterpriseId <>
 AdministratorWebTokenSpec:
 AdministratorWebTokenSpec"
   [enterpriseId AdministratorWebTokenSpec]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/createWebToken",
@@ -804,7 +804,7 @@ token <>
 Enterprise:
 Enterprise"
   [token Enterprise]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/enroll",
@@ -823,7 +823,7 @@ optional:
 deviceType <string> Whether it’s a dedicated device or a knowledge worker device."
   ([enterpriseId] (enterprises-createEnrollmentToken enterpriseId nil))
   ([enterpriseId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/createEnrollmentToken",
@@ -837,7 +837,7 @@ https://developers.google.com/android/work/play/emm-api/v1/reference/rest/v1/ent
 
 enterpriseId <> "
   [enterpriseId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/sendTestPushNotification",
@@ -851,7 +851,7 @@ https://developers.google.com/android/work/play/emm-api/v1/reference/rest/v1/ent
 
 enterpriseId <> "
   [enterpriseId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}",
@@ -867,7 +867,7 @@ enterpriseId <>
 EnterpriseAccount:
 EnterpriseAccount"
   [enterpriseId EnterpriseAccount]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/account",
@@ -884,7 +884,7 @@ optional:
 notificationSetId <string> The notification set ID as returned by Enterprises.PullNotificationSet. This must be provided."
   ([] (enterprises-acknowledgeNotificationSet nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/acknowledgeNotificationSet",
@@ -900,7 +900,7 @@ optional:
 requestMode <string> The request mode for pulling notifications. Specifying waitForNotifications will cause the request to block and wait until one or more notifications are present, or return an empty notification list if no notifications are present after some time. Specifying returnImmediately will cause the request to immediately return the pending notifications, or an empty list if no notifications are present. If omitted, defaults to waitForNotifications."
   ([] (enterprises-pullNotificationSet nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/pullNotificationSet",
@@ -914,7 +914,7 @@ https://developers.google.com/android/work/play/emm-api/v1/reference/rest/v1/gro
 
 enterpriseId <> "
   [enterpriseId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/groupLicenses",
@@ -929,7 +929,7 @@ https://developers.google.com/android/work/play/emm-api/v1/reference/rest/v1/gro
 enterpriseId <> 
 groupLicenseId <> "
   [enterpriseId groupLicenseId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/groupLicenses/{groupLicenseId}",
@@ -945,7 +945,7 @@ https://developers.google.com/android/work/play/emm-api/v1/reference/rest/v1/use
 enterpriseId <> 
 email <> "
   [enterpriseId email]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/users",
@@ -960,7 +960,7 @@ https://developers.google.com/android/work/play/emm-api/v1/reference/rest/v1/use
 enterpriseId <> 
 userId <> "
   [enterpriseId userId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}",
@@ -975,7 +975,7 @@ https://developers.google.com/android/work/play/emm-api/v1/reference/rest/v1/use
 enterpriseId <> 
 userId <> "
   [enterpriseId userId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/availableProductSet",
@@ -990,7 +990,7 @@ https://developers.google.com/android/work/play/emm-api/v1/reference/rest/v1/use
 enterpriseId <> 
 userId <> "
   [enterpriseId userId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/authenticationToken",
@@ -1007,7 +1007,7 @@ userId <>
 ProductSet:
 ProductSet"
   [enterpriseId userId ProductSet]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/availableProductSet",
@@ -1025,7 +1025,7 @@ userId <>
 User:
 User"
   [enterpriseId userId User]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}",
@@ -1041,7 +1041,7 @@ https://developers.google.com/android/work/play/emm-api/v1/reference/rest/v1/use
 enterpriseId <> 
 userId <> "
   [enterpriseId userId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/deviceAccess",
@@ -1057,7 +1057,7 @@ enterpriseId <>
 User:
 User"
   [enterpriseId User]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/users",
@@ -1073,7 +1073,7 @@ https://developers.google.com/android/work/play/emm-api/v1/reference/rest/v1/use
 enterpriseId <> 
 userId <> "
   [enterpriseId userId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}",
@@ -1088,7 +1088,7 @@ https://developers.google.com/android/work/play/emm-api/v1/reference/rest/v1/man
 enterpriseId <> 
 productId <> "
   [enterpriseId productId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/products/{productId}/managedConfigurationsSettings",
@@ -1104,7 +1104,7 @@ https://developers.google.com/android/work/play/emm-api/v1/reference/rest/v1/sto
 enterpriseId <> 
 pageId <> "
   [enterpriseId pageId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/storeLayout/pages/{pageId}/clusters",
@@ -1121,7 +1121,7 @@ pageId <>
 StoreCluster:
 StoreCluster"
   [enterpriseId pageId StoreCluster]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/storeLayout/pages/{pageId}/clusters",
@@ -1138,7 +1138,7 @@ enterpriseId <>
 pageId <> 
 clusterId <> "
   [enterpriseId pageId clusterId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/storeLayout/pages/{pageId}/clusters/{clusterId}",
@@ -1159,7 +1159,7 @@ clusterId <>
 StoreCluster:
 StoreCluster"
   [enterpriseId pageId clusterId StoreCluster]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/storeLayout/pages/{pageId}/clusters/{clusterId}",
@@ -1179,7 +1179,7 @@ enterpriseId <>
 pageId <> 
 clusterId <> "
   [enterpriseId pageId clusterId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/storeLayout/pages/{pageId}/clusters/{clusterId}",
@@ -1197,7 +1197,7 @@ https://developers.google.com/android/work/play/emm-api/v1/reference/rest/v1/gro
 enterpriseId <> 
 groupLicenseId <> "
   [enterpriseId groupLicenseId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/groupLicenses/{groupLicenseId}/users",
@@ -1212,7 +1212,7 @@ https://developers.google.com/android/work/play/emm-api/v1/reference/rest/v1/sto
 
 enterpriseId <> "
   [enterpriseId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/storeLayout/pages",
@@ -1228,7 +1228,7 @@ enterpriseId <>
 StorePage:
 StorePage"
   [enterpriseId StorePage]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/storeLayout/pages",
@@ -1244,7 +1244,7 @@ https://developers.google.com/android/work/play/emm-api/v1/reference/rest/v1/sto
 enterpriseId <> 
 pageId <> "
   [enterpriseId pageId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/storeLayout/pages/{pageId}",
@@ -1261,7 +1261,7 @@ pageId <>
 StorePage:
 StorePage"
   [enterpriseId pageId StorePage]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/storeLayout/pages/{pageId}",
@@ -1277,7 +1277,7 @@ https://developers.google.com/android/work/play/emm-api/v1/reference/rest/v1/sto
 enterpriseId <> 
 pageId <> "
   [enterpriseId pageId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/storeLayout/pages/{pageId}",
@@ -1292,7 +1292,7 @@ https://developers.google.com/android/work/play/emm-api/v1/reference/rest/v1/man
 enterpriseId <> 
 userId <> "
   [enterpriseId userId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/managedConfigurationsForUser",
@@ -1308,7 +1308,7 @@ enterpriseId <>
 userId <> 
 managedConfigurationForUserId <> "
   [enterpriseId userId managedConfigurationForUserId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/managedConfigurationsForUser/{managedConfigurationForUserId}",
@@ -1332,7 +1332,7 @@ ManagedConfiguration"
    userId
    managedConfigurationForUserId
    ManagedConfiguration]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/managedConfigurationsForUser/{managedConfigurationForUserId}",
@@ -1352,7 +1352,7 @@ enterpriseId <>
 userId <> 
 managedConfigurationForUserId <> "
   [enterpriseId userId managedConfigurationForUserId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://androidenterprise.googleapis.com/androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/managedConfigurationsForUser/{managedConfigurationForUserId}",

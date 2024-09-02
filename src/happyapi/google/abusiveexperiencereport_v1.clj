@@ -10,7 +10,7 @@ https://developers.google.com/abusive-experience-report/v1/reference/rest/v1/sit
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://abusiveexperiencereport.googleapis.com/v1/{+name}",
@@ -22,7 +22,7 @@ name <> "
   "Lists sites that are failing in the Abusive Experience Report.
 https://developers.google.com/abusive-experience-report/v1/reference/rest/v1/violatingSites/list"
   []
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://abusiveexperiencereport.googleapis.com/v1/violatingSites",

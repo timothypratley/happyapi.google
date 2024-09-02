@@ -11,7 +11,7 @@ https://developers.google.com/drive/activity/v2/v2/reference/rest/v2/activity/qu
 QueryDriveActivityRequest:
 QueryDriveActivityRequest"
   [QueryDriveActivityRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://driveactivity.googleapis.com/v2/activity:query",

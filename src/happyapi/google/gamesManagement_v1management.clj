@@ -10,7 +10,7 @@ https://games.withgoogle.com/v1management/reference/rest/v1management/achievemen
 
 achievementId <> "
   [achievementId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gamesmanagement.googleapis.com/games/v1management/achievements/{achievementId}/reset",
@@ -22,7 +22,7 @@ achievementId <> "
   "Resets all achievements for the currently authenticated player for your application. This method is only accessible to whitelisted tester accounts for your application.
 https://games.withgoogle.com/v1management/reference/rest/v1management/achievements/resetAll"
   []
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gamesmanagement.googleapis.com/games/v1management/achievements/reset",
@@ -34,7 +34,7 @@ https://games.withgoogle.com/v1management/reference/rest/v1management/achievemen
   "Resets all draft achievements for all players. This method is only available to user accounts for your developer console.
 https://games.withgoogle.com/v1management/reference/rest/v1management/achievements/resetAllForAllPlayers"
   []
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gamesmanagement.googleapis.com/games/v1management/achievements/resetAllForAllPlayers",
@@ -48,7 +48,7 @@ https://games.withgoogle.com/v1management/reference/rest/v1management/achievemen
 
 achievementId <> "
   [achievementId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gamesmanagement.googleapis.com/games/v1management/achievements/{achievementId}/resetForAllPlayers",
@@ -63,7 +63,7 @@ https://games.withgoogle.com/v1management/reference/rest/v1management/achievemen
 AchievementResetMultipleForAllRequest:
 AchievementResetMultipleForAllRequest"
   [AchievementResetMultipleForAllRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gamesmanagement.googleapis.com/games/v1management/achievements/resetMultipleForAllPlayers",
@@ -78,7 +78,7 @@ https://games.withgoogle.com/v1management/reference/rest/v1management/events/res
 
 eventId <> "
   [eventId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gamesmanagement.googleapis.com/games/v1management/events/{eventId}/reset",
@@ -90,7 +90,7 @@ eventId <> "
   "Resets all player progress on all events for the currently authenticated player. This method is only accessible to whitelisted tester accounts for your application.
 https://games.withgoogle.com/v1management/reference/rest/v1management/events/resetAll"
   []
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gamesmanagement.googleapis.com/games/v1management/events/reset",
@@ -102,7 +102,7 @@ https://games.withgoogle.com/v1management/reference/rest/v1management/events/res
   "Resets all draft events for all players. This method is only available to user accounts for your developer console.
 https://games.withgoogle.com/v1management/reference/rest/v1management/events/resetAllForAllPlayers"
   []
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gamesmanagement.googleapis.com/games/v1management/events/resetAllForAllPlayers",
@@ -116,7 +116,7 @@ https://games.withgoogle.com/v1management/reference/rest/v1management/events/res
 
 eventId <> "
   [eventId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gamesmanagement.googleapis.com/games/v1management/events/{eventId}/resetForAllPlayers",
@@ -131,7 +131,7 @@ https://games.withgoogle.com/v1management/reference/rest/v1management/events/res
 EventsResetMultipleForAllRequest:
 EventsResetMultipleForAllRequest"
   [EventsResetMultipleForAllRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gamesmanagement.googleapis.com/games/v1management/events/resetMultipleForAllPlayers",
@@ -147,7 +147,7 @@ https://games.withgoogle.com/v1management/reference/rest/v1management/players/hi
 applicationId <> 
 playerId <> "
   [applicationId playerId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gamesmanagement.googleapis.com/games/v1management/applications/{applicationId}/players/hidden/{playerId}",
@@ -163,7 +163,7 @@ https://games.withgoogle.com/v1management/reference/rest/v1management/players/un
 applicationId <> 
 playerId <> "
   [applicationId playerId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://gamesmanagement.googleapis.com/games/v1management/applications/{applicationId}/players/hidden/{playerId}",
@@ -182,7 +182,7 @@ optional:
 maxResults <integer> The maximum number of player resources to return in the response, used for paging. For any response, the actual number of player resources returned may be less than the specified `maxResults`."
   ([applicationId] (applications-listHidden applicationId nil))
   ([applicationId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gamesmanagement.googleapis.com/games/v1management/applications/{applicationId}/players/hidden",
@@ -196,7 +196,7 @@ https://games.withgoogle.com/v1management/reference/rest/v1management/scores/res
 
 leaderboardId <> "
   [leaderboardId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gamesmanagement.googleapis.com/games/v1management/leaderboards/{leaderboardId}/scores/reset",
@@ -208,7 +208,7 @@ leaderboardId <> "
   "Resets all scores for all leaderboards for the currently authenticated players. This method is only accessible to whitelisted tester accounts for your application.
 https://games.withgoogle.com/v1management/reference/rest/v1management/scores/resetAll"
   []
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gamesmanagement.googleapis.com/games/v1management/scores/reset",
@@ -220,7 +220,7 @@ https://games.withgoogle.com/v1management/reference/rest/v1management/scores/res
   "Resets scores for all draft leaderboards for all players. This method is only available to user accounts for your developer console.
 https://games.withgoogle.com/v1management/reference/rest/v1management/scores/resetAllForAllPlayers"
   []
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gamesmanagement.googleapis.com/games/v1management/scores/resetAllForAllPlayers",
@@ -234,7 +234,7 @@ https://games.withgoogle.com/v1management/reference/rest/v1management/scores/res
 
 leaderboardId <> "
   [leaderboardId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gamesmanagement.googleapis.com/games/v1management/leaderboards/{leaderboardId}/scores/resetForAllPlayers",
@@ -249,7 +249,7 @@ https://games.withgoogle.com/v1management/reference/rest/v1management/scores/res
 ScoresResetMultipleForAllRequest:
 ScoresResetMultipleForAllRequest"
   [ScoresResetMultipleForAllRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gamesmanagement.googleapis.com/games/v1management/scores/resetMultipleForAllPlayers",

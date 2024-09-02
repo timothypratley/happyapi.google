@@ -10,7 +10,7 @@ https://games.withgoogle.com/v1configuration/reference/rest/v1configuration/achi
 
 achievementId <> "
   [achievementId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://gamesconfiguration.googleapis.com/games/v1configuration/achievements/{achievementId}",
@@ -24,7 +24,7 @@ https://games.withgoogle.com/v1configuration/reference/rest/v1configuration/achi
 
 achievementId <> "
   [achievementId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://gamesconfiguration.googleapis.com/games/v1configuration/achievements/{achievementId}",
@@ -40,7 +40,7 @@ applicationId <>
 AchievementConfiguration:
 AchievementConfiguration"
   [applicationId AchievementConfiguration]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gamesconfiguration.googleapis.com/games/v1configuration/applications/{applicationId}/achievements",
@@ -59,7 +59,7 @@ optional:
 maxResults <integer> The maximum number of resource configurations to return in the response, used for paging. For any response, the actual number of resources returned may be less than the specified `maxResults`."
   ([applicationId] (achievementConfigurations-list applicationId nil))
   ([applicationId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gamesconfiguration.googleapis.com/games/v1configuration/applications/{applicationId}/achievements",
@@ -75,7 +75,7 @@ achievementId <>
 AchievementConfiguration:
 AchievementConfiguration"
   [achievementId AchievementConfiguration]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://gamesconfiguration.googleapis.com/games/v1configuration/achievements/{achievementId}",
@@ -90,7 +90,7 @@ https://games.withgoogle.com/v1configuration/reference/rest/v1configuration/lead
 
 leaderboardId <> "
   [leaderboardId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://gamesconfiguration.googleapis.com/games/v1configuration/leaderboards/{leaderboardId}",
@@ -104,7 +104,7 @@ https://games.withgoogle.com/v1configuration/reference/rest/v1configuration/lead
 
 leaderboardId <> "
   [leaderboardId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://gamesconfiguration.googleapis.com/games/v1configuration/leaderboards/{leaderboardId}",
@@ -120,7 +120,7 @@ applicationId <>
 LeaderboardConfiguration:
 LeaderboardConfiguration"
   [applicationId LeaderboardConfiguration]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://gamesconfiguration.googleapis.com/games/v1configuration/applications/{applicationId}/leaderboards",
@@ -139,7 +139,7 @@ optional:
 maxResults <integer> The maximum number of resource configurations to return in the response, used for paging. For any response, the actual number of resources returned may be less than the specified `maxResults`."
   ([applicationId] (leaderboardConfigurations-list applicationId nil))
   ([applicationId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://gamesconfiguration.googleapis.com/games/v1configuration/applications/{applicationId}/leaderboards",
@@ -155,7 +155,7 @@ leaderboardId <>
 LeaderboardConfiguration:
 LeaderboardConfiguration"
   [leaderboardId LeaderboardConfiguration]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://gamesconfiguration.googleapis.com/games/v1configuration/leaderboards/{leaderboardId}",

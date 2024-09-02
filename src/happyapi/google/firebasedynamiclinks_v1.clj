@@ -11,7 +11,7 @@ https://firebase.google.com/docs/dynamic-links/v1/reference/rest/v1/managedShort
 CreateManagedShortLinkRequest:
 CreateManagedShortLinkRequest"
   [CreateManagedShortLinkRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firebasedynamiclinks.googleapis.com/v1/managedShortLinks:create",
@@ -20,40 +20,21 @@ CreateManagedShortLinkRequest"
      :scopes ["https://www.googleapis.com/auth/firebase"],
      :body CreateManagedShortLinkRequest}))
 
-(defn getLinkStats
-  "Fetches analytics stats of a short Dynamic Link for a given duration. Metrics include number of clicks, redirects, installs, app first opens, and app reopens.
-https://firebase.google.com/docs/dynamic-links/v1/reference/rest/v1/getLinkStats
+(defn shortLinks-create
+  "Creates a short Dynamic Link given either a valid long Dynamic Link or details such as Dynamic Link domain, Android and iOS app information. The created short Dynamic Link will not expire. Repeated calls with the same long Dynamic Link or Dynamic Link information will produce the same short Dynamic Link. The Dynamic Link domain in the request must be owned by requester's Firebase project.
+https://firebase.google.com/docs/dynamic-links/v1/reference/rest/v1/shortLinks/create
 
-dynamicLink <> 
-
-optional:
-durationDays <string> The span of time requested in days.
-sdkVersion <string> Google SDK version. Version takes the form \"$major.$minor.$patch\""
-  ([dynamicLink] (getLinkStats dynamicLink nil))
-  ([dynamicLink optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://firebasedynamiclinks.googleapis.com/v1/{dynamicLink}/linkStats",
-       :uri-template-args {"dynamicLink" dynamicLink},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/firebase"]})))
-
-(defn installAttribution
-  "Get iOS strong/weak-match info for post-install attribution.
-https://firebase.google.com/docs/dynamic-links/v1/reference/rest/v1/installAttribution
-
-GetIosPostInstallAttributionRequest:
-GetIosPostInstallAttributionRequest"
-  [GetIosPostInstallAttributionRequest]
-  (client/api-request
+CreateShortDynamicLinkRequest:
+CreateShortDynamicLinkRequest"
+  [CreateShortDynamicLinkRequest]
+  (client/*api-request*
     {:method :post,
      :uri-template
-     "https://firebasedynamiclinks.googleapis.com/v1/installAttribution",
+     "https://firebasedynamiclinks.googleapis.com/v1/shortLinks",
      :uri-template-args {},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/firebase"],
-     :body GetIosPostInstallAttributionRequest}))
+     :body CreateShortDynamicLinkRequest}))
 
 (defn reopenAttribution
   "Get iOS reopen attribution for app universal link open deeplinking.
@@ -62,7 +43,7 @@ https://firebase.google.com/docs/dynamic-links/v1/reference/rest/v1/reopenAttrib
 GetIosReopenAttributionRequest:
 GetIosReopenAttributionRequest"
   [GetIosReopenAttributionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firebasedynamiclinks.googleapis.com/v1/reopenAttribution",
@@ -71,18 +52,37 @@ GetIosReopenAttributionRequest"
      :scopes ["https://www.googleapis.com/auth/firebase"],
      :body GetIosReopenAttributionRequest}))
 
-(defn shortLinks-create
-  "Creates a short Dynamic Link given either a valid long Dynamic Link or details such as Dynamic Link domain, Android and iOS app information. The created short Dynamic Link will not expire. Repeated calls with the same long Dynamic Link or Dynamic Link information will produce the same short Dynamic Link. The Dynamic Link domain in the request must be owned by requester's Firebase project.
-https://firebase.google.com/docs/dynamic-links/v1/reference/rest/v1/shortLinks/create
+(defn installAttribution
+  "Get iOS strong/weak-match info for post-install attribution.
+https://firebase.google.com/docs/dynamic-links/v1/reference/rest/v1/installAttribution
 
-CreateShortDynamicLinkRequest:
-CreateShortDynamicLinkRequest"
-  [CreateShortDynamicLinkRequest]
-  (client/api-request
+GetIosPostInstallAttributionRequest:
+GetIosPostInstallAttributionRequest"
+  [GetIosPostInstallAttributionRequest]
+  (client/*api-request*
     {:method :post,
      :uri-template
-     "https://firebasedynamiclinks.googleapis.com/v1/shortLinks",
+     "https://firebasedynamiclinks.googleapis.com/v1/installAttribution",
      :uri-template-args {},
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/firebase"],
-     :body CreateShortDynamicLinkRequest}))
+     :body GetIosPostInstallAttributionRequest}))
+
+(defn getLinkStats
+  "Fetches analytics stats of a short Dynamic Link for a given duration. Metrics include number of clicks, redirects, installs, app first opens, and app reopens.
+https://firebase.google.com/docs/dynamic-links/v1/reference/rest/v1/getLinkStats
+
+dynamicLink <> 
+
+optional:
+sdkVersion <string> Google SDK version. Version takes the form \"$major.$minor.$patch\"
+durationDays <string> The span of time requested in days."
+  ([dynamicLink] (getLinkStats dynamicLink nil))
+  ([dynamicLink optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://firebasedynamiclinks.googleapis.com/v1/{dynamicLink}/linkStats",
+       :uri-template-args {"dynamicLink" dynamicLink},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/firebase"]})))

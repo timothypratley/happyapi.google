@@ -10,7 +10,7 @@ https://developers.google.com/admin-sdk/reseller/v1/how-tos/concepts/v1/referenc
 
 customerId <> "
   [customerId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://reseller.googleapis.com/apps/reseller/v1/customers/{customerId}",
@@ -31,7 +31,7 @@ optional:
 customerAuthToken <string> The `customerAuthToken` query string is required when creating a resold account that transfers a direct customer's subscription or transfers another reseller customer's subscription to your reseller management. This is a hexadecimal authentication token needed to complete the subscription transfer. For more information, see the administrator help center."
   ([Customer] (customers-insert Customer nil))
   ([Customer optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://reseller.googleapis.com/apps/reseller/v1/customers",
@@ -48,7 +48,7 @@ customerId <>
 Customer:
 Customer"
   [customerId Customer]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://reseller.googleapis.com/apps/reseller/v1/customers/{customerId}",
@@ -65,7 +65,7 @@ customerId <>
 Customer:
 Customer"
   [customerId Customer]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://reseller.googleapis.com/apps/reseller/v1/customers/{customerId}",
@@ -78,7 +78,7 @@ Customer"
   "Returns all the details of the watch corresponding to the reseller.
 https://developers.google.com/admin-sdk/reseller/v1/how-tos/concepts/v1/reference/rest/v1/resellernotify/getwatchdetails"
   []
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://reseller.googleapis.com/apps/reseller/v1/resellernotify/getwatchdetails",
@@ -96,7 +96,7 @@ optional:
 serviceAccountEmailAddress <string> The service account which will own the created Cloud-PubSub topic."
   ([] (resellernotify-register nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://reseller.googleapis.com/apps/reseller/v1/resellernotify/register",
@@ -112,7 +112,7 @@ optional:
 serviceAccountEmailAddress <string> The service account which owns the Cloud-PubSub topic."
   ([] (resellernotify-unregister nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://reseller.googleapis.com/apps/reseller/v1/resellernotify/unregister",
@@ -131,7 +131,7 @@ customerNamePrefix <string> When retrieving all of your subscriptions and filter
 maxResults <integer> When retrieving a large list, the `maxResults` is the maximum number of results per page. The `nextPageToken` value takes you to the next page. The default is 20."
   ([] (subscriptions-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://reseller.googleapis.com/apps/reseller/v1/subscriptions",
@@ -148,7 +148,7 @@ https://developers.google.com/admin-sdk/reseller/v1/how-tos/concepts/v1/referenc
 customerId <> 
 subscriptionId <> "
   [customerId subscriptionId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://reseller.googleapis.com/apps/reseller/v1/customers/{customerId}/subscriptions/{subscriptionId}/startPaidService",
@@ -165,7 +165,7 @@ customerId <>
 subscriptionId <> 
 deletionType <> "
   [customerId subscriptionId deletionType]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://reseller.googleapis.com/apps/reseller/v1/customers/{customerId}/subscriptions/{subscriptionId}",
@@ -181,7 +181,7 @@ https://developers.google.com/admin-sdk/reseller/v1/how-tos/concepts/v1/referenc
 customerId <> 
 subscriptionId <> "
   [customerId subscriptionId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://reseller.googleapis.com/apps/reseller/v1/customers/{customerId}/subscriptions/{subscriptionId}/activate",
@@ -197,7 +197,7 @@ https://developers.google.com/admin-sdk/reseller/v1/how-tos/concepts/v1/referenc
 customerId <> 
 subscriptionId <> "
   [customerId subscriptionId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://reseller.googleapis.com/apps/reseller/v1/customers/{customerId}/subscriptions/{subscriptionId}/suspend",
@@ -215,7 +215,7 @@ subscriptionId <>
 Seats:
 Seats"
   [customerId subscriptionId Seats]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://reseller.googleapis.com/apps/reseller/v1/customers/{customerId}/subscriptions/{subscriptionId}/changeSeats",
@@ -234,7 +234,7 @@ subscriptionId <>
 ChangePlanRequest:
 ChangePlanRequest"
   [customerId subscriptionId ChangePlanRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://reseller.googleapis.com/apps/reseller/v1/customers/{customerId}/subscriptions/{subscriptionId}/changePlan",
@@ -253,7 +253,7 @@ subscriptionId <>
 RenewalSettings:
 RenewalSettings"
   [customerId subscriptionId RenewalSettings]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://reseller.googleapis.com/apps/reseller/v1/customers/{customerId}/subscriptions/{subscriptionId}/changeRenewalSettings",
@@ -278,7 +278,7 @@ sourceSkuId <string> The sku_id of the existing subscription to be upgraded or d
   ([customerId Subscription]
     (subscriptions-insert customerId Subscription nil))
   ([customerId Subscription optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://reseller.googleapis.com/apps/reseller/v1/customers/{customerId}/subscriptions",
@@ -294,7 +294,7 @@ https://developers.google.com/admin-sdk/reseller/v1/how-tos/concepts/v1/referenc
 customerId <> 
 subscriptionId <> "
   [customerId subscriptionId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://reseller.googleapis.com/apps/reseller/v1/customers/{customerId}/subscriptions/{subscriptionId}",

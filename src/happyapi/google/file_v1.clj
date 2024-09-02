@@ -16,7 +16,7 @@ includeUnrevealedLocations <boolean> If true, the returned list will include loc
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://file.googleapis.com/v1/{+name}/locations",
@@ -30,7 +30,7 @@ https://cloud.google.com/filestore/v1/reference/rest/v1/projects/locations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://file.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -48,7 +48,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://file.googleapis.com/v1/{+name}/operations",
@@ -62,7 +62,7 @@ https://cloud.google.com/filestore/v1/reference/rest/v1/projects/locations/opera
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://file.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -75,7 +75,7 @@ https://cloud.google.com/filestore/v1/reference/rest/v1/projects/locations/opera
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://file.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -90,7 +90,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://file.googleapis.com/v1/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -110,7 +110,7 @@ orderBy <string> Sort results. Supported values are \"name\", \"name desc\" or \
 filter <string> List filter."
   ([parent] (projects-locations-instances-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://file.googleapis.com/v1/{+parent}/instances",
@@ -124,7 +124,7 @@ https://cloud.google.com/filestore/v1/reference/rest/v1/projects/locations/insta
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://file.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -144,7 +144,7 @@ instanceId <string> Required. The name of the instance to create. The name must 
   ([parent Instance]
     (projects-locations-instances-create parent Instance nil))
   ([parent Instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://file.googleapis.com/v1/{+parent}/instances",
@@ -166,7 +166,7 @@ updateMask <string> Mask of fields to update. At least one path must be supplied
   ([name Instance]
     (projects-locations-instances-patch name Instance nil))
   ([name Instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://file.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -182,7 +182,7 @@ name <>
 RestoreInstanceRequest:
 RestoreInstanceRequest"
   [name RestoreInstanceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://file.googleapis.com/v1/{+name}:restore",
      :uri-template-args {"name" name},
@@ -198,7 +198,7 @@ name <>
 RevertInstanceRequest:
 RevertInstanceRequest"
   [name RevertInstanceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://file.googleapis.com/v1/{+name}:revert",
      :uri-template-args {"name" name},
@@ -216,7 +216,7 @@ optional:
 force <boolean> If set to true, all snapshots of the instance will also be deleted. (Otherwise, the request will only work if the instance has no snapshots.)"
   ([name] (projects-locations-instances-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://file.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -231,7 +231,7 @@ name <>
 PromoteReplicaRequest:
 PromoteReplicaRequest"
   [name PromoteReplicaRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://file.googleapis.com/v1/{+name}:promoteReplica",
@@ -252,7 +252,7 @@ orderBy <string> Sort results. Supported values are \"name\", \"name desc\" or \
 filter <string> List filter."
   ([parent] (projects-locations-instances-snapshots-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://file.googleapis.com/v1/{+parent}/snapshots",
@@ -266,7 +266,7 @@ https://cloud.google.com/filestore/v1/reference/rest/v1/projects/locations/insta
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://file.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -289,7 +289,7 @@ snapshotId <string> Required. The ID to use for the snapshot. The ID must be uni
       Snapshot
       nil))
   ([parent Snapshot optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://file.googleapis.com/v1/{+parent}/snapshots",
@@ -304,7 +304,7 @@ https://cloud.google.com/filestore/v1/reference/rest/v1/projects/locations/insta
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://file.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -324,7 +324,7 @@ updateMask <string> Required. Mask of fields to update. At least one path must b
   ([name Snapshot]
     (projects-locations-instances-snapshots-patch name Snapshot nil))
   ([name Snapshot optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://file.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -344,7 +344,7 @@ orderBy <string> Sort results. Supported values are \"name\", \"name desc\" or \
 filter <string> List filter."
   ([parent] (projects-locations-backups-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://file.googleapis.com/v1/{+parent}/backups",
@@ -358,7 +358,7 @@ https://cloud.google.com/filestore/v1/reference/rest/v1/projects/locations/backu
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://file.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -378,7 +378,7 @@ backupId <string> Required. The ID to use for the backup. The ID must be unique 
   ([parent Backup]
     (projects-locations-backups-create parent Backup nil))
   ([parent Backup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://file.googleapis.com/v1/{+parent}/backups",
@@ -393,7 +393,7 @@ https://cloud.google.com/filestore/v1/reference/rest/v1/projects/locations/backu
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://file.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -412,7 +412,7 @@ optional:
 updateMask <string> Required. Mask of fields to update. At least one path must be supplied in this field."
   ([name Backup] (projects-locations-backups-patch name Backup nil))
   ([name Backup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://file.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},

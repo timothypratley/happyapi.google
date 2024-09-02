@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://beyondcorp.googleapis.com/v1/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/v1/reference/rest/v1/projects/locations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://beyondcorp.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -47,7 +47,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://beyondcorp.googleapis.com/v1/{+name}/operations",
@@ -61,7 +61,7 @@ https://cloud.google.com/v1/reference/rest/v1/projects/locations/operations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://beyondcorp.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -74,7 +74,7 @@ https://cloud.google.com/v1/reference/rest/v1/projects/locations/operations/dele
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://beyondcorp.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -89,7 +89,7 @@ name <>
 GoogleLongrunningCancelOperationRequest:
 GoogleLongrunningCancelOperationRequest"
   [name GoogleLongrunningCancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://beyondcorp.googleapis.com/v1/{+name}:cancel",
@@ -110,7 +110,7 @@ filter <string> Optional. A filter specifying constraints of a list operation.
 orderBy <string> Optional. Specifies the ordering of results. See [Sorting order](https://cloud.google.com/apis/design/design_patterns#sorting_order) for more information."
   ([parent] (projects-locations-appConnections-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://beyondcorp.googleapis.com/v1/{+parent}/appConnections",
@@ -126,7 +126,7 @@ resource <>
 GoogleIamV1SetIamPolicyRequest:
 GoogleIamV1SetIamPolicyRequest"
   [resource GoogleIamV1SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://beyondcorp.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -146,7 +146,7 @@ appConnectorId <string> Required. BeyondCorp Connector name of the connector ass
 pageSize <integer> Optional. The maximum number of items to return. If not specified, a default value of 50 will be used by the service. Regardless of the page_size value, the response may include a partial list and a caller should only rely on response's next_page_token to determine if there are more instances left to be queried."
   ([parent] (projects-locations-appConnections-resolve parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://beyondcorp.googleapis.com/v1/{+parent}/appConnections:resolve",
@@ -165,7 +165,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
 validateOnly <boolean> Optional. If set, validates request by executing a dry-run which would not alter the resource in any way."
   ([name] (projects-locations-appConnections-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://beyondcorp.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -191,7 +191,7 @@ allowMissing <boolean> Optional. If set as true, will create the resource if it 
       GoogleCloudBeyondcorpAppconnectionsV1AppConnection
       nil))
   ([name GoogleCloudBeyondcorpAppconnectionsV1AppConnection optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://beyondcorp.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -210,7 +210,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-appConnections-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://beyondcorp.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -236,7 +236,7 @@ validateOnly <boolean> Optional. If set, validates request by executing a dry-ru
       GoogleCloudBeyondcorpAppconnectionsV1AppConnection
       nil))
   ([parent GoogleCloudBeyondcorpAppconnectionsV1AppConnection optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://beyondcorp.googleapis.com/v1/{+parent}/appConnections",
@@ -251,7 +251,7 @@ https://cloud.google.com/v1/reference/rest/v1/projects/locations/appConnections/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://beyondcorp.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -266,7 +266,7 @@ resource <>
 GoogleIamV1TestIamPermissionsRequest:
 GoogleIamV1TestIamPermissionsRequest"
   [resource GoogleIamV1TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://beyondcorp.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -287,7 +287,7 @@ filter <string> Optional. A filter specifying constraints of a list operation.
 orderBy <string> Optional. Specifies the ordering of results. See [Sorting order](https://cloud.google.com/apis/design/design_patterns#sorting_order) for more information."
   ([parent] (projects-locations-appConnectors-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://beyondcorp.googleapis.com/v1/{+parent}/appConnectors",
@@ -303,7 +303,7 @@ resource <>
 GoogleIamV1SetIamPolicyRequest:
 GoogleIamV1SetIamPolicyRequest"
   [resource GoogleIamV1SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://beyondcorp.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -323,7 +323,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
 validateOnly <boolean> Optional. If set, validates request by executing a dry-run which would not alter the resource in any way."
   ([name] (projects-locations-appConnectors-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://beyondcorp.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -339,7 +339,7 @@ GoogleCloudBeyondcorpAppconnectorsV1ReportStatusRequest:
 GoogleCloudBeyondcorpAppconnectorsV1ReportStatusRequest"
   [appConnector
    GoogleCloudBeyondcorpAppconnectorsV1ReportStatusRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://beyondcorp.googleapis.com/v1/{+appConnector}:reportStatus",
@@ -354,7 +354,7 @@ https://cloud.google.com/v1/reference/rest/v1/projects/locations/appConnectors/r
 
 appConnector <> "
   [appConnector]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://beyondcorp.googleapis.com/v1/{+appConnector}:resolveInstanceConfig",
@@ -380,7 +380,7 @@ validateOnly <boolean> Optional. If set, validates request by executing a dry-ru
       GoogleCloudBeyondcorpAppconnectorsV1AppConnector
       nil))
   ([name GoogleCloudBeyondcorpAppconnectorsV1AppConnector optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://beyondcorp.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -399,7 +399,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-appConnectors-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://beyondcorp.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -425,7 +425,7 @@ validateOnly <boolean> Optional. If set, validates request by executing a dry-ru
       GoogleCloudBeyondcorpAppconnectorsV1AppConnector
       nil))
   ([parent GoogleCloudBeyondcorpAppconnectorsV1AppConnector optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://beyondcorp.googleapis.com/v1/{+parent}/appConnectors",
@@ -440,7 +440,7 @@ https://cloud.google.com/v1/reference/rest/v1/projects/locations/appConnectors/g
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://beyondcorp.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -455,7 +455,7 @@ resource <>
 GoogleIamV1TestIamPermissionsRequest:
 GoogleIamV1TestIamPermissionsRequest"
   [resource GoogleIamV1TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://beyondcorp.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -476,11 +476,30 @@ filter <string> Optional. A filter specifying constraints of a list operation.
 orderBy <string> Optional. Specifies the ordering of results. See [Sorting order](https://cloud.google.com/apis/design/design_patterns#sorting_order) for more information."
   ([parent] (projects-locations-appGateways-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://beyondcorp.googleapis.com/v1/{+parent}/appGateways",
        :uri-template-args {"parent" parent},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+
+(defn projects-locations-appGateways-shouldThrottle
+  "Calls the Bouncer method ShouldThrottle to check if a request should be throttled.
+https://cloud.google.com/v1/reference/rest/v1/projects/locations/appGateways/shouldThrottle
+
+name <> 
+
+optional:
+port <integer> Optional. The port that is being throttled
+requestedAmount <string> Optional. The current throughput through the port (mbps)"
+  ([name] (projects-locations-appGateways-shouldThrottle name nil))
+  ([name optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://beyondcorp.googleapis.com/v1/{+name}:shouldThrottle",
+       :uri-template-args {"name" name},
        :query-params (merge {} optional),
        :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
 
@@ -490,7 +509,7 @@ https://cloud.google.com/v1/reference/rest/v1/projects/locations/appGateways/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://beyondcorp.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -512,7 +531,7 @@ validateOnly <boolean> Optional. If set, validates request by executing a dry-ru
   ([parent AppGateway]
     (projects-locations-appGateways-create parent AppGateway nil))
   ([parent AppGateway optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://beyondcorp.googleapis.com/v1/{+parent}/appGateways",
@@ -532,7 +551,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
 validateOnly <boolean> Optional. If set, validates request by executing a dry-run which would not alter the resource in any way."
   ([name] (projects-locations-appGateways-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://beyondcorp.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -547,7 +566,7 @@ resource <>
 GoogleIamV1SetIamPolicyRequest:
 GoogleIamV1SetIamPolicyRequest"
   [resource GoogleIamV1SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://beyondcorp.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -567,7 +586,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-appGateways-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://beyondcorp.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -583,7 +602,7 @@ resource <>
 GoogleIamV1TestIamPermissionsRequest:
 GoogleIamV1TestIamPermissionsRequest"
   [resource GoogleIamV1TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://beyondcorp.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -600,7 +619,7 @@ resource <>
 GoogleIamV1SetIamPolicyRequest:
 GoogleIamV1SetIamPolicyRequest"
   [resource GoogleIamV1SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://beyondcorp.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -622,7 +641,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://beyondcorp.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -638,7 +657,7 @@ resource <>
 GoogleIamV1TestIamPermissionsRequest:
 GoogleIamV1TestIamPermissionsRequest"
   [resource GoogleIamV1TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://beyondcorp.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -655,7 +674,7 @@ resource <>
 GoogleIamV1SetIamPolicyRequest:
 GoogleIamV1SetIamPolicyRequest"
   [resource GoogleIamV1SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://beyondcorp.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -675,7 +694,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-clientGateways-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://beyondcorp.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -691,7 +710,7 @@ resource <>
 GoogleIamV1TestIamPermissionsRequest:
 GoogleIamV1TestIamPermissionsRequest"
   [resource GoogleIamV1TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://beyondcorp.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -711,7 +730,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (organizations-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://beyondcorp.googleapis.com/v1/{+name}/operations",
@@ -725,7 +744,7 @@ https://cloud.google.com/v1/reference/rest/v1/organizations/locations/operations
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://beyondcorp.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -738,7 +757,7 @@ https://cloud.google.com/v1/reference/rest/v1/organizations/locations/operations
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://beyondcorp.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -753,7 +772,7 @@ name <>
 GoogleLongrunningCancelOperationRequest:
 GoogleLongrunningCancelOperationRequest"
   [name GoogleLongrunningCancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://beyondcorp.googleapis.com/v1/{+name}:cancel",
@@ -770,7 +789,7 @@ resource <>
 GoogleIamV1SetIamPolicyRequest:
 GoogleIamV1SetIamPolicyRequest"
   [resource GoogleIamV1SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://beyondcorp.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -792,7 +811,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://beyondcorp.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -808,7 +827,7 @@ resource <>
 GoogleIamV1TestIamPermissionsRequest:
 GoogleIamV1TestIamPermissionsRequest"
   [resource GoogleIamV1TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://beyondcorp.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -825,7 +844,7 @@ resource <>
 GoogleIamV1SetIamPolicyRequest:
 GoogleIamV1SetIamPolicyRequest"
   [resource GoogleIamV1SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://beyondcorp.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -847,7 +866,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://beyondcorp.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -863,7 +882,7 @@ resource <>
 GoogleIamV1TestIamPermissionsRequest:
 GoogleIamV1TestIamPermissionsRequest"
   [resource GoogleIamV1TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://beyondcorp.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -880,7 +899,7 @@ resource <>
 GoogleIamV1SetIamPolicyRequest:
 GoogleIamV1SetIamPolicyRequest"
   [resource GoogleIamV1SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://beyondcorp.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -902,7 +921,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://beyondcorp.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -918,7 +937,7 @@ resource <>
 GoogleIamV1TestIamPermissionsRequest:
 GoogleIamV1TestIamPermissionsRequest"
   [resource GoogleIamV1TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://beyondcorp.googleapis.com/v1/{+resource}:testIamPermissions",

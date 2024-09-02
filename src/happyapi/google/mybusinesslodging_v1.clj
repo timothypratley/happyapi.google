@@ -14,7 +14,7 @@ optional:
 readMask <string> Required. The specific fields to return. Use \"*\" to include all fields. Repeated field items cannot be individually specified."
   ([name] (locations-getLodging name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://mybusinesslodging.googleapis.com/v1/{+name}",
@@ -34,7 +34,7 @@ optional:
 updateMask <string> Required. The specific fields to update. Use \"*\" to update all fields, which may include unsetting empty fields in the request. Repeated field items cannot be individually updated."
   ([name Lodging] (locations-updateLodging name Lodging nil))
   ([name Lodging optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://mybusinesslodging.googleapis.com/v1/{+name}",
@@ -53,7 +53,7 @@ optional:
 readMask <string> Required. The specific fields to return. Use \"*\" to include all fields. Repeated field items cannot be individually specified."
   ([name] (locations-lodging-getGoogleUpdated name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://mybusinesslodging.googleapis.com/v1/{+name}:getGoogleUpdated",

@@ -12,7 +12,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://iap.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -29,7 +29,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://iap.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -46,7 +46,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://iap.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -61,7 +61,7 @@ https://cloud.google.com/security/products/iap/v1/reference/rest/v1/getIapSettin
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://iap.googleapis.com/v1/{+name}:iapSettings",
      :uri-template-args {"name" name},
@@ -80,7 +80,7 @@ optional:
 updateMask <string> The field mask specifying which IAP settings should be updated. If omitted, then all of the settings are updated. See https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask. Note: All IAP reauth settings must always be set together, using the field mask: `iapSettings.accessSettings.reauthSettings`."
   ([name IapSettings] (updateIapSettings name IapSettings nil))
   ([name IapSettings optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://iap.googleapis.com/v1/{+name}:iapSettings",
@@ -99,7 +99,7 @@ optional:
 expression <string> Required. User input string expression. Should be of the form `attributes.saml_attributes.filter(attribute, attribute.name in ['{attribute_name}', '{attribute_name}'])`"
   ([name] (validateAttributeExpression name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://iap.googleapis.com/v1/{+name}:validateAttributeExpression",
@@ -117,7 +117,7 @@ optional:
 pageSize <integer> The maximum number of groups to return. The service might return fewer than this value. If unspecified, at most 100 groups are returned. The maximum value is 1000; values above 1000 are coerced to 1000."
   ([parent] (projects-iap_tunnel-locations-destGroups-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://iap.googleapis.com/v1/{+parent}/destGroups",
@@ -141,7 +141,7 @@ tunnelDestGroupId <string> Required. The ID to use for the TunnelDestGroup, whic
       TunnelDestGroup
       nil))
   ([parent TunnelDestGroup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://iap.googleapis.com/v1/{+parent}/destGroups",
@@ -156,7 +156,7 @@ https://cloud.google.com/security/products/iap/v1/reference/rest/v1/projects/iap
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://iap.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -169,7 +169,7 @@ https://cloud.google.com/security/products/iap/v1/reference/rest/v1/projects/iap
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://iap.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -192,7 +192,7 @@ updateMask <string> A field mask that specifies which IAP settings to update. If
       TunnelDestGroup
       nil))
   ([name TunnelDestGroup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://iap.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -206,7 +206,7 @@ https://cloud.google.com/security/products/iap/v1/reference/rest/v1/projects/bra
 
 parent <> "
   [parent]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://iap.googleapis.com/v1/{+parent}/brands",
      :uri-template-args {"parent" parent},
@@ -221,7 +221,7 @@ parent <>
 Brand:
 Brand"
   [parent Brand]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://iap.googleapis.com/v1/{+parent}/brands",
      :uri-template-args {"parent" parent},
@@ -235,7 +235,7 @@ https://cloud.google.com/security/products/iap/v1/reference/rest/v1/projects/bra
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://iap.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -250,7 +250,7 @@ parent <>
 IdentityAwareProxyClient:
 IdentityAwareProxyClient"
   [parent IdentityAwareProxyClient]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://iap.googleapis.com/v1/{+parent}/identityAwareProxyClients",
@@ -270,7 +270,7 @@ pageSize <integer> The maximum number of clients to return. The service may retu
   ([parent]
     (projects-brands-identityAwareProxyClients-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://iap.googleapis.com/v1/{+parent}/identityAwareProxyClients",
@@ -284,7 +284,7 @@ https://cloud.google.com/security/products/iap/v1/reference/rest/v1/projects/bra
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://iap.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -299,7 +299,7 @@ name <>
 ResetIdentityAwareProxyClientSecretRequest:
 ResetIdentityAwareProxyClientSecretRequest"
   [name ResetIdentityAwareProxyClientSecretRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://iap.googleapis.com/v1/{+name}:resetSecret",
      :uri-template-args {"name" name},
@@ -313,7 +313,7 @@ https://cloud.google.com/security/products/iap/v1/reference/rest/v1/projects/bra
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://iap.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},

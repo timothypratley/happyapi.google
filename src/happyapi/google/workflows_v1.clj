@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://workflows.googleapis.com/v1/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/workflows/v1/reference/rest/v1/projects/locations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://workflows.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -47,7 +47,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://workflows.googleapis.com/v1/{+name}/operations",
@@ -61,7 +61,7 @@ https://cloud.google.com/workflows/v1/reference/rest/v1/projects/locations/opera
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://workflows.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -74,7 +74,7 @@ https://cloud.google.com/workflows/v1/reference/rest/v1/projects/locations/opera
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://workflows.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -93,7 +93,7 @@ filter <string> Filter to restrict results to specific workflows. For details, s
 orderBy <string> Comma-separated list of fields that specify the order of the results. Default sorting order for a field is ascending. To specify descending order for a field, append a \"desc\" suffix. If not specified, the results are returned in an unspecified order."
   ([parent] (projects-locations-workflows-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://workflows.googleapis.com/v1/{+parent}/workflows",
@@ -111,7 +111,7 @@ optional:
 revisionId <string> Optional. The revision of the workflow to retrieve. If the revision_id is empty, the latest revision is retrieved. The format is \"000001-a4d\", where the first six characters define the zero-padded decimal revision number. They are followed by a hyphen and three hexadecimal characters."
   ([name] (projects-locations-workflows-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://workflows.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -131,7 +131,7 @@ workflowId <string> Required. The ID of the workflow to be created. It has to fu
   ([parent Workflow]
     (projects-locations-workflows-create parent Workflow nil))
   ([parent Workflow optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://workflows.googleapis.com/v1/{+parent}/workflows",
@@ -146,7 +146,7 @@ https://cloud.google.com/workflows/v1/reference/rest/v1/projects/locations/workf
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://workflows.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -166,7 +166,7 @@ updateMask <string> List of fields to be updated. If not present, the entire wor
   ([name Workflow]
     (projects-locations-workflows-patch name Workflow nil))
   ([name Workflow optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://workflows.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -184,7 +184,7 @@ optional:
 pageSize <integer> The maximum number of revisions to return per page. If a value is not specified, a default value of 20 is used. The maximum permitted value is 100. Values greater than 100 are coerced down to 100."
   ([name] (projects-locations-workflows-listRevisions name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://workflows.googleapis.com/v1/{+name}:listRevisions",

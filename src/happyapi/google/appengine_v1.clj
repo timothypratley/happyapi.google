@@ -14,7 +14,7 @@ optional:
 includeExtraData <string> Options to include extra data"
   ([appsId] (apps-get appsId nil))
   ([appsId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://appengine.googleapis.com/v1/apps/{appsId}",
@@ -32,7 +32,7 @@ https://cloud.google.com/appengine/docs/admin-api/v1/reference/rest/v1/apps/crea
 Application:
 Application"
   [Application]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://appengine.googleapis.com/v1/apps",
      :uri-template-args {},
@@ -52,7 +52,7 @@ optional:
 updateMask <string> Required. Standard field mask for the set of fields to be updated."
   ([appsId Application] (apps-patch appsId Application nil))
   ([appsId Application optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://appengine.googleapis.com/v1/apps/{appsId}",
@@ -69,7 +69,7 @@ appsId <>
 RepairApplicationRequest:
 RepairApplicationRequest"
   [appsId RepairApplicationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://appengine.googleapis.com/v1/apps/{appsId}:repair",
@@ -88,7 +88,7 @@ optional:
 environment <string> Optional. The environment of the Application."
   ([appsId] (apps-listRuntimes appsId nil))
   ([appsId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://appengine.googleapis.com/v1/apps/{appsId}:listRuntimes",
@@ -110,7 +110,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([appsId] (apps-operations-list appsId nil))
   ([appsId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://appengine.googleapis.com/v1/apps/{appsId}/operations",
@@ -128,7 +128,7 @@ https://cloud.google.com/appengine/docs/admin-api/v1/reference/rest/v1/apps/oper
 appsId <> 
 operationsId <> "
   [appsId operationsId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://appengine.googleapis.com/v1/apps/{appsId}/operations/{operationsId}",
@@ -149,7 +149,7 @@ optional:
 pageSize <integer> Maximum results to return per page."
   ([appsId] (apps-services-list appsId nil))
   ([appsId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://appengine.googleapis.com/v1/apps/{appsId}/services",
@@ -167,7 +167,7 @@ https://cloud.google.com/appengine/docs/admin-api/v1/reference/rest/v1/apps/serv
 appsId <> 
 servicesId <> "
   [appsId servicesId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://appengine.googleapis.com/v1/apps/{appsId}/services/{servicesId}",
@@ -193,7 +193,7 @@ migrateTraffic <boolean> Set to true to gradually shift traffic to one or more v
   ([appsId servicesId Service]
     (apps-services-patch appsId servicesId Service nil))
   ([appsId servicesId Service optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://appengine.googleapis.com/v1/apps/{appsId}/services/{servicesId}",
@@ -209,7 +209,7 @@ https://cloud.google.com/appengine/docs/admin-api/v1/reference/rest/v1/apps/serv
 appsId <> 
 servicesId <> "
   [appsId servicesId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://appengine.googleapis.com/v1/apps/{appsId}/services/{servicesId}",
@@ -230,7 +230,7 @@ pageSize <integer> Maximum results to return per page."
   ([appsId servicesId]
     (apps-services-versions-list appsId servicesId nil))
   ([appsId servicesId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://appengine.googleapis.com/v1/apps/{appsId}/services/{servicesId}/versions",
@@ -254,7 +254,7 @@ view <string> Controls the set of fields returned in the Get response."
   ([appsId servicesId versionsId]
     (apps-services-versions-get appsId servicesId versionsId nil))
   ([appsId servicesId versionsId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://appengine.googleapis.com/v1/apps/{appsId}/services/{servicesId}/versions/{versionsId}",
@@ -277,7 +277,7 @@ servicesId <>
 Version:
 Version"
   [appsId servicesId Version]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://appengine.googleapis.com/v1/apps/{appsId}/services/{servicesId}/versions",
@@ -306,7 +306,7 @@ updateMask <string> Standard field mask for the set of fields to be updated."
       Version
       nil))
   ([appsId servicesId versionsId Version optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://appengine.googleapis.com/v1/apps/{appsId}/services/{servicesId}/versions/{versionsId}",
@@ -326,7 +326,7 @@ appsId <>
 servicesId <> 
 versionsId <> "
   [appsId servicesId versionsId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://appengine.googleapis.com/v1/apps/{appsId}/services/{servicesId}/versions/{versionsId}",
@@ -354,7 +354,7 @@ pageSize <integer> Maximum results to return per page."
       versionsId
       nil))
   ([appsId servicesId versionsId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://appengine.googleapis.com/v1/apps/{appsId}/services/{servicesId}/versions/{versionsId}/instances",
@@ -377,7 +377,7 @@ servicesId <>
 versionsId <> 
 instancesId <> "
   [appsId servicesId versionsId instancesId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://appengine.googleapis.com/v1/apps/{appsId}/services/{servicesId}/versions/{versionsId}/instances/{instancesId}",
@@ -401,7 +401,7 @@ servicesId <>
 versionsId <> 
 instancesId <> "
   [appsId servicesId versionsId instancesId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://appengine.googleapis.com/v1/apps/{appsId}/services/{servicesId}/versions/{versionsId}/instances/{instancesId}",
@@ -424,7 +424,7 @@ instancesId <>
 DebugInstanceRequest:
 DebugInstanceRequest"
   [appsId servicesId versionsId instancesId DebugInstanceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://appengine.googleapis.com/v1/apps/{appsId}/services/{servicesId}/versions/{versionsId}/instances/{instancesId}:debug",
@@ -448,7 +448,7 @@ pageSize <integer> Maximum results to return per page.
 matchingAddress <string> A valid IP Address. If set, only rules matching this address will be returned. The first returned rule will be the rule that fires on requests from this IP."
   ([appsId] (apps-firewall-ingressRules-list appsId nil))
   ([appsId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://appengine.googleapis.com/v1/apps/{appsId}/firewall/ingressRules",
@@ -467,7 +467,7 @@ appsId <>
 BatchUpdateIngressRulesRequest:
 BatchUpdateIngressRulesRequest"
   [appsId BatchUpdateIngressRulesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://appengine.googleapis.com/v1/apps/{appsId}/firewall/ingressRules:batchUpdate",
@@ -484,7 +484,7 @@ appsId <>
 FirewallRule:
 FirewallRule"
   [appsId FirewallRule]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://appengine.googleapis.com/v1/apps/{appsId}/firewall/ingressRules",
@@ -500,7 +500,7 @@ https://cloud.google.com/appengine/docs/admin-api/v1/reference/rest/v1/apps/fire
 appsId <> 
 ingressRulesId <> "
   [appsId ingressRulesId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://appengine.googleapis.com/v1/apps/{appsId}/firewall/ingressRules/{ingressRulesId}",
@@ -530,7 +530,7 @@ updateMask <string> Standard field mask for the set of fields to be updated."
       FirewallRule
       nil))
   ([appsId ingressRulesId FirewallRule optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://appengine.googleapis.com/v1/apps/{appsId}/firewall/ingressRules/{ingressRulesId}",
@@ -547,7 +547,7 @@ https://cloud.google.com/appengine/docs/admin-api/v1/reference/rest/v1/apps/fire
 appsId <> 
 ingressRulesId <> "
   [appsId ingressRulesId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://appengine.googleapis.com/v1/apps/{appsId}/firewall/ingressRules/{ingressRulesId}",
@@ -566,7 +566,7 @@ optional:
 pageSize <integer> Maximum results to return per page."
   ([appsId] (apps-authorizedDomains-list appsId nil))
   ([appsId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://appengine.googleapis.com/v1/apps/{appsId}/authorizedDomains",
@@ -588,7 +588,7 @@ view <string> Controls the set of fields returned in the LIST response.
 pageSize <integer> Maximum results to return per page."
   ([appsId] (apps-authorizedCertificates-list appsId nil))
   ([appsId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://appengine.googleapis.com/v1/apps/{appsId}/authorizedCertificates",
@@ -614,7 +614,7 @@ view <string> Controls the set of fields returned in the GET response."
       authorizedCertificatesId
       nil))
   ([appsId authorizedCertificatesId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://appengine.googleapis.com/v1/apps/{appsId}/authorizedCertificates/{authorizedCertificatesId}",
@@ -635,7 +635,7 @@ appsId <>
 AuthorizedCertificate:
 AuthorizedCertificate"
   [appsId AuthorizedCertificate]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://appengine.googleapis.com/v1/apps/{appsId}/authorizedCertificates",
@@ -662,7 +662,7 @@ updateMask <string> Standard field mask for the set of fields to be updated. Upd
       AuthorizedCertificate
       nil))
   ([appsId authorizedCertificatesId AuthorizedCertificate optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://appengine.googleapis.com/v1/apps/{appsId}/authorizedCertificates/{authorizedCertificatesId}",
@@ -680,7 +680,7 @@ https://cloud.google.com/appengine/docs/admin-api/v1/reference/rest/v1/apps/auth
 appsId <> 
 authorizedCertificatesId <> "
   [appsId authorizedCertificatesId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://appengine.googleapis.com/v1/apps/{appsId}/authorizedCertificates/{authorizedCertificatesId}",
@@ -700,7 +700,7 @@ optional:
 pageSize <integer> Maximum results to return per page."
   ([appsId] (apps-domainMappings-list appsId nil))
   ([appsId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://appengine.googleapis.com/v1/apps/{appsId}/domainMappings",
@@ -718,7 +718,7 @@ https://cloud.google.com/appengine/docs/admin-api/v1/reference/rest/v1/apps/doma
 appsId <> 
 domainMappingsId <> "
   [appsId domainMappingsId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://appengine.googleapis.com/v1/apps/{appsId}/domainMappings/{domainMappingsId}",
@@ -743,7 +743,7 @@ overrideStrategy <string> Whether the domain creation should override any existi
   ([appsId DomainMapping]
     (apps-domainMappings-create appsId DomainMapping nil))
   ([appsId DomainMapping optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://appengine.googleapis.com/v1/apps/{appsId}/domainMappings",
@@ -770,7 +770,7 @@ updateMask <string> Required. Standard field mask for the set of fields to be up
       DomainMapping
       nil))
   ([appsId domainMappingsId DomainMapping optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://appengine.googleapis.com/v1/apps/{appsId}/domainMappings/{domainMappingsId}",
@@ -787,7 +787,7 @@ https://cloud.google.com/appengine/docs/admin-api/v1/reference/rest/v1/apps/doma
 appsId <> 
 domainMappingsId <> "
   [appsId domainMappingsId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://appengine.googleapis.com/v1/apps/{appsId}/domainMappings/{domainMappingsId}",
@@ -807,7 +807,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([appsId] (apps-locations-list appsId nil))
   ([appsId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://appengine.googleapis.com/v1/apps/{appsId}/locations",
@@ -825,7 +825,7 @@ https://cloud.google.com/appengine/docs/admin-api/v1/reference/rest/v1/apps/loca
 appsId <> 
 locationsId <> "
   [appsId locationsId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://appengine.googleapis.com/v1/apps/{appsId}/locations/{locationsId}",
@@ -853,7 +853,7 @@ pageSize <integer> Maximum results to return per page."
       applicationsId
       nil))
   ([projectsId locationsId applicationsId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://appengine.googleapis.com/v1/projects/{projectsId}/locations/{locationsId}/applications/{applicationsId}/authorizedDomains",

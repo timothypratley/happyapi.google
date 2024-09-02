@@ -15,7 +15,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://accesscontextmanager.googleapis.com/v1/{+name}",
@@ -29,7 +29,7 @@ https://cloud.google.com/access-context-manager/docs/reference/rest/v1/reference
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://accesscontextmanager.googleapis.com/v1/{+name}",
@@ -43,7 +43,7 @@ https://cloud.google.com/access-context-manager/docs/reference/rest/v1/reference
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://accesscontextmanager.googleapis.com/v1/{+name}",
@@ -59,7 +59,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://accesscontextmanager.googleapis.com/v1/{+name}:cancel",
@@ -77,7 +77,7 @@ parent <string> Required. Resource name for the container to list AccessPolicy i
 pageSize <integer> Number of AccessPolicy instances to include in the list. Default 100."
   ([] (accessPolicies-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://accesscontextmanager.googleapis.com/v1/accessPolicies",
@@ -91,7 +91,7 @@ https://cloud.google.com/access-context-manager/docs/reference/rest/v1/reference
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://accesscontextmanager.googleapis.com/v1/{+name}",
@@ -106,7 +106,7 @@ https://cloud.google.com/access-context-manager/docs/reference/rest/v1/reference
 AccessPolicy:
 AccessPolicy"
   [AccessPolicy]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://accesscontextmanager.googleapis.com/v1/accessPolicies",
@@ -127,7 +127,7 @@ optional:
 updateMask <string> Required. Mask to control which fields get updated. Must be non-empty."
   ([name AccessPolicy] (accessPolicies-patch name AccessPolicy nil))
   ([name AccessPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://accesscontextmanager.googleapis.com/v1/{+name}",
@@ -142,7 +142,7 @@ https://cloud.google.com/access-context-manager/docs/reference/rest/v1/reference
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://accesscontextmanager.googleapis.com/v1/{+name}",
@@ -158,7 +158,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://accesscontextmanager.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -175,7 +175,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://accesscontextmanager.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -192,7 +192,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://accesscontextmanager.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -212,7 +212,7 @@ pageSize <integer> Number of Access Levels to include in the list. Default 100.
 accessLevelFormat <string> Whether to return `BasicLevels` in the Cloud Common Expression language, as `CustomLevels`, rather than as `BasicLevels`. Defaults to returning `AccessLevels` in the format they were defined."
   ([parent] (accessPolicies-accessLevels-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://accesscontextmanager.googleapis.com/v1/{+parent}/accessLevels",
@@ -230,7 +230,7 @@ optional:
 accessLevelFormat <string> Whether to return `BasicLevels` in the Cloud Common Expression Language rather than as `BasicLevels`. Defaults to AS_DEFINED, where Access Levels are returned as `BasicLevels` or `CustomLevels` based on how they were created. If set to CEL, all Access Levels are returned as `CustomLevels`. In the CEL case, `BasicLevels` are translated to equivalent `CustomLevels`."
   ([name] (accessPolicies-accessLevels-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://accesscontextmanager.googleapis.com/v1/{+name}",
@@ -246,7 +246,7 @@ parent <>
 AccessLevel:
 AccessLevel"
   [parent AccessLevel]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://accesscontextmanager.googleapis.com/v1/{+parent}/accessLevels",
@@ -268,7 +268,7 @@ updateMask <string> Required. Mask to control which fields get updated. Must be 
   ([name AccessLevel]
     (accessPolicies-accessLevels-patch name AccessLevel nil))
   ([name AccessLevel optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://accesscontextmanager.googleapis.com/v1/{+name}",
@@ -283,7 +283,7 @@ https://cloud.google.com/access-context-manager/docs/reference/rest/v1/reference
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://accesscontextmanager.googleapis.com/v1/{+name}",
@@ -299,7 +299,7 @@ parent <>
 ReplaceAccessLevelsRequest:
 ReplaceAccessLevelsRequest"
   [parent ReplaceAccessLevelsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://accesscontextmanager.googleapis.com/v1/{+parent}/accessLevels:replaceAll",
@@ -316,7 +316,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://accesscontextmanager.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -335,7 +335,7 @@ optional:
 pageSize <integer> Number of Service Perimeters to include in the list. Default 100."
   ([parent] (accessPolicies-servicePerimeters-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://accesscontextmanager.googleapis.com/v1/{+parent}/servicePerimeters",
@@ -349,7 +349,7 @@ https://cloud.google.com/access-context-manager/docs/reference/rest/v1/reference
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://accesscontextmanager.googleapis.com/v1/{+name}",
@@ -365,7 +365,7 @@ parent <>
 ServicePerimeter:
 ServicePerimeter"
   [parent ServicePerimeter]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://accesscontextmanager.googleapis.com/v1/{+parent}/servicePerimeters",
@@ -387,7 +387,7 @@ updateMask <string> Required. Mask to control which fields get updated. Must be 
   ([name ServicePerimeter]
     (accessPolicies-servicePerimeters-patch name ServicePerimeter nil))
   ([name ServicePerimeter optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://accesscontextmanager.googleapis.com/v1/{+name}",
@@ -402,7 +402,7 @@ https://cloud.google.com/access-context-manager/docs/reference/rest/v1/reference
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://accesscontextmanager.googleapis.com/v1/{+name}",
@@ -418,7 +418,7 @@ parent <>
 ReplaceServicePerimetersRequest:
 ReplaceServicePerimetersRequest"
   [parent ReplaceServicePerimetersRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://accesscontextmanager.googleapis.com/v1/{+parent}/servicePerimeters:replaceAll",
@@ -435,7 +435,7 @@ parent <>
 CommitServicePerimetersRequest:
 CommitServicePerimetersRequest"
   [parent CommitServicePerimetersRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://accesscontextmanager.googleapis.com/v1/{+parent}/servicePerimeters:commit",
@@ -452,7 +452,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://accesscontextmanager.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -471,7 +471,7 @@ optional:
 pageSize <integer> Number of Authorized Orgs Descs to include in the list. Default 100."
   ([parent] (accessPolicies-authorizedOrgsDescs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://accesscontextmanager.googleapis.com/v1/{+parent}/authorizedOrgsDescs",
@@ -485,7 +485,7 @@ https://cloud.google.com/access-context-manager/docs/reference/rest/v1/reference
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://accesscontextmanager.googleapis.com/v1/{+name}",
@@ -501,7 +501,7 @@ parent <>
 AuthorizedOrgsDesc:
 AuthorizedOrgsDesc"
   [parent AuthorizedOrgsDesc]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://accesscontextmanager.googleapis.com/v1/{+parent}/authorizedOrgsDescs",
@@ -526,7 +526,7 @@ updateMask <string> Required. Mask to control which fields get updated. Must be 
       AuthorizedOrgsDesc
       nil))
   ([name AuthorizedOrgsDesc optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://accesscontextmanager.googleapis.com/v1/{+name}",
@@ -541,7 +541,7 @@ https://cloud.google.com/access-context-manager/docs/reference/rest/v1/reference
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://accesscontextmanager.googleapis.com/v1/{+name}",
@@ -557,7 +557,7 @@ optional:
 pageSize <integer> This flag specifies the maximum number of services to return per page. Default is 100."
   ([] (services-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://accesscontextmanager.googleapis.com/v1/services",
@@ -571,7 +571,7 @@ https://cloud.google.com/access-context-manager/docs/reference/rest/v1/reference
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://accesscontextmanager.googleapis.com/v1/services/{name}",
@@ -589,7 +589,7 @@ optional:
 pageSize <integer> Optional. Maximum number of items to return. The server may return fewer items. If left blank, the server may return any number of items."
   ([parent] (organizations-gcpUserAccessBindings-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://accesscontextmanager.googleapis.com/v1/{+parent}/gcpUserAccessBindings",
@@ -603,7 +603,7 @@ https://cloud.google.com/access-context-manager/docs/reference/rest/v1/reference
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://accesscontextmanager.googleapis.com/v1/{+name}",
@@ -619,7 +619,7 @@ parent <>
 GcpUserAccessBinding:
 GcpUserAccessBinding"
   [parent GcpUserAccessBinding]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://accesscontextmanager.googleapis.com/v1/{+parent}/gcpUserAccessBindings",
@@ -644,7 +644,7 @@ updateMask <string> Required. Only the fields specified in this mask are updated
       GcpUserAccessBinding
       nil))
   ([name GcpUserAccessBinding optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://accesscontextmanager.googleapis.com/v1/{+name}",
@@ -659,7 +659,7 @@ https://cloud.google.com/access-context-manager/docs/reference/rest/v1/reference
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://accesscontextmanager.googleapis.com/v1/{+name}",

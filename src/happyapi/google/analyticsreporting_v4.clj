@@ -11,7 +11,7 @@ https://developers.google.com/analytics/legacy/universal-analytics/v4/reference/
 GetReportsRequest:
 GetReportsRequest"
   [GetReportsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://analyticsreporting.googleapis.com/v4/reports:batchGet",
@@ -29,7 +29,7 @@ https://developers.google.com/analytics/legacy/universal-analytics/v4/reference/
 SearchUserActivityRequest:
 SearchUserActivityRequest"
   [SearchUserActivityRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://analyticsreporting.googleapis.com/v4/userActivity:search",

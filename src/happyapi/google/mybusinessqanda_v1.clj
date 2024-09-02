@@ -17,7 +17,7 @@ filter <string> Optional. A filter constraining the questions to return. The onl
 orderBy <string> Optional. The order to return the questions. Valid options include 'update_time desc' and 'upvote_count desc', which will return the questions sorted descendingly by the requested field. The default sort order is 'update_time desc'."
   ([parent] (locations-questions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://mybusinessqanda.googleapis.com/v1/{+parent}",
@@ -33,7 +33,7 @@ parent <>
 Question:
 Question"
   [parent Question]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://mybusinessqanda.googleapis.com/v1/{+parent}",
@@ -54,7 +54,7 @@ optional:
 updateMask <string> Required. The specific fields to update. Only question text can be updated."
   ([name Question] (locations-questions-patch name Question nil))
   ([name Question optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://mybusinessqanda.googleapis.com/v1/{+name}",
@@ -69,7 +69,7 @@ https://developers.google.com/my-business/v1/reference/rest/v1/locations/questio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://mybusinessqanda.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -87,7 +87,7 @@ pageSize <integer> Optional. How many answers to fetch per page. The default and
 orderBy <string> Optional. The order to return the answers. Valid options include 'update_time desc' and 'upvote_count desc', which will return the answers sorted descendingly by the requested field. The default sort order is 'update_time desc'."
   ([parent] (locations-questions-answers-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://mybusinessqanda.googleapis.com/v1/{+parent}/answers",
@@ -103,7 +103,7 @@ parent <>
 UpsertAnswerRequest:
 UpsertAnswerRequest"
   [parent UpsertAnswerRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://mybusinessqanda.googleapis.com/v1/{+parent}/answers:upsert",
@@ -118,7 +118,7 @@ https://developers.google.com/my-business/v1/reference/rest/v1/locations/questio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://mybusinessqanda.googleapis.com/v1/{+name}/answers:delete",

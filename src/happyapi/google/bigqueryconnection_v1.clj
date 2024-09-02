@@ -17,7 +17,7 @@ connectionId <string> Optional. Connection id that should be assigned to the cre
   ([parent Connection]
     (projects-locations-connections-create parent Connection nil))
   ([parent Connection optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://bigqueryconnection.googleapis.com/v1/{+parent}/connections",
@@ -34,7 +34,7 @@ https://cloud.google.com/bigquery/docs/connections-api-intro/v1/reference/rest/v
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://bigqueryconnection.googleapis.com/v1/{+name}",
@@ -54,7 +54,7 @@ optional:
 pageSize <integer> Required. Page size."
   ([parent] (projects-locations-connections-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://bigqueryconnection.googleapis.com/v1/{+parent}/connections",
@@ -77,7 +77,7 @@ updateMask <string> Required. Update mask for the connection fields to be update
   ([name Connection]
     (projects-locations-connections-patch name Connection nil))
   ([name Connection optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://bigqueryconnection.googleapis.com/v1/{+name}",
@@ -94,7 +94,7 @@ https://cloud.google.com/bigquery/docs/connections-api-intro/v1/reference/rest/v
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://bigqueryconnection.googleapis.com/v1/{+name}",
@@ -112,7 +112,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigqueryconnection.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -131,7 +131,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigqueryconnection.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -150,7 +150,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://bigqueryconnection.googleapis.com/v1/{+resource}:testIamPermissions",

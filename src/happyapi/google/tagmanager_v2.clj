@@ -12,7 +12,7 @@ optional:
 includeGoogleTags <boolean> Also retrieve accounts associated with Google Tag when true."
   ([] (accounts-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/accounts",
@@ -29,7 +29,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -52,7 +52,7 @@ optional:
 fingerprint <string> When provided, this fingerprint must match the fingerprint of the account in storage."
   ([path Account] (accounts-update path Account nil))
   ([path Account optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -70,7 +70,7 @@ parent <>
 UserPermission:
 UserPermission"
   [parent UserPermission]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/user_permissions",
@@ -87,7 +87,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 parent <> "
   ([parent] (accounts-user_permissions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/user_permissions",
@@ -102,7 +102,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -119,7 +119,7 @@ path <>
 UserPermission:
 UserPermission"
   [path UserPermission]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -135,7 +135,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -151,7 +151,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 parent <> "
   ([parent] (accounts-containers-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/containers",
@@ -167,7 +167,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -182,7 +182,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}:snippet",
@@ -201,7 +201,7 @@ destinationId <string> Destination ID linked to a GTM Container, e.g. AW-1234567
 tagId <string> Tag ID for a GTM Container, e.g. GTM-123456789. Example: accounts/containers:lookup?tag_id={tag_id}. Only one of destination_id or tag_id should be set."
   ([] (accounts-containers-lookup nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/accounts/containers:lookup",
@@ -223,7 +223,7 @@ optional:
 fingerprint <string> When provided, this fingerprint must match the fingerprint of the container in storage."
   ([path Container] (accounts-containers-update path Container nil))
   ([path Container optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -241,7 +241,7 @@ parent <>
 Container:
 Container"
   [parent Container]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/containers",
@@ -266,7 +266,7 @@ allowUserPermissionFeatureUpdate <boolean> Must be set to true to allow features
 copyTermsOfService <boolean> Must be set to true to accept all terms of service agreements copied from the current tag to the newly created tag. If this bit is false, the operation will fail."
   ([path] (accounts-containers-move_tag_id path nil))
   ([path optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+path}:move_tag_id",
@@ -287,7 +287,7 @@ allowUserPermissionFeatureUpdate <boolean> Must be set to true to allow features
 settingSource <string> Specify the source of config setting after combine"
   ([path] (accounts-containers-combine path nil))
   ([path optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+path}:combine",
@@ -302,7 +302,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -318,7 +318,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -334,7 +334,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 parent <> "
   [parent]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/destinations",
@@ -355,7 +355,7 @@ destinationId <string> Destination ID to be linked to the current container.
 allowUserPermissionFeatureUpdate <boolean> Must be set to true to allow features.user_permissions to change from false to true. If this operation causes an update but this bit is false, the operation will fail."
   ([parent] (accounts-containers-destinations-link parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/destinations:link",
@@ -371,7 +371,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 parent <> "
   ([parent] (accounts-containers-workspaces-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/workspaces",
@@ -387,7 +387,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -402,7 +402,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}/status",
@@ -425,7 +425,7 @@ fingerprint <string> When provided, this fingerprint must match the fingerprint 
   ([path Workspace]
     (accounts-containers-workspaces-update path Workspace nil))
   ([path Workspace optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -441,7 +441,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}:sync",
@@ -463,7 +463,7 @@ fingerprint <string> When provided, this fingerprint must match the fingerprint 
   ([path Entity]
     (accounts-containers-workspaces-resolve_conflict path Entity nil))
   ([path Entity optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+path}:resolve_conflict",
@@ -481,7 +481,7 @@ parent <>
 Workspace:
 Workspace"
   [parent Workspace]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/workspaces",
@@ -497,7 +497,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}:quick_preview",
@@ -512,7 +512,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -530,7 +530,7 @@ path <>
 CreateContainerVersionRequestVersionOptions:
 CreateContainerVersionRequestVersionOptions"
   [path CreateContainerVersionRequestVersionOptions]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}:create_version",
@@ -548,7 +548,7 @@ parent <>
 Zone:
 Zone"
   [parent Zone]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/zones",
@@ -565,7 +565,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 parent <> "
   ([parent] (accounts-containers-workspaces-zones-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/zones",
@@ -581,7 +581,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -604,7 +604,7 @@ fingerprint <string> When provided, this fingerprint must match the fingerprint 
   ([path Zone]
     (accounts-containers-workspaces-zones-update path Zone nil))
   ([path Zone optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -620,7 +620,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -639,7 +639,7 @@ optional:
 fingerprint <string> When provided, this fingerprint must match the fingerprint of the zone in storage."
   ([path] (accounts-containers-workspaces-zones-revert path nil))
   ([path optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+path}:revert",
@@ -656,7 +656,7 @@ parent <>
 Tag:
 Tag"
   [parent Tag]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/tags",
@@ -673,7 +673,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 parent <> "
   ([parent] (accounts-containers-workspaces-tags-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/tags",
@@ -689,7 +689,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -712,7 +712,7 @@ fingerprint <string> When provided, this fingerprint must match the fingerprint 
   ([path Tag]
     (accounts-containers-workspaces-tags-update path Tag nil))
   ([path Tag optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -728,7 +728,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -747,7 +747,7 @@ optional:
 fingerprint <string> When provided, this fingerprint must match the fingerprint of thetag in storage."
   ([path] (accounts-containers-workspaces-tags-revert path nil))
   ([path optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+path}:revert",
@@ -764,7 +764,7 @@ parent <>
 Client:
 Client"
   [parent Client]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/clients",
@@ -781,7 +781,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 parent <> "
   ([parent] (accounts-containers-workspaces-clients-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/clients",
@@ -797,7 +797,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -820,7 +820,7 @@ fingerprint <string> When provided, this fingerprint must match the fingerprint 
   ([path Client]
     (accounts-containers-workspaces-clients-update path Client nil))
   ([path Client optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -836,7 +836,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -855,7 +855,7 @@ optional:
 fingerprint <string> When provided, this fingerprint must match the fingerprint of the client in storage."
   ([path] (accounts-containers-workspaces-clients-revert path nil))
   ([path optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+path}:revert",
@@ -872,7 +872,7 @@ parent <>
 GtagConfig:
 GtagConfig"
   [parent GtagConfig]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/gtag_config",
@@ -890,7 +890,7 @@ parent <> "
   ([parent]
     (accounts-containers-workspaces-gtag_config-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/gtag_config",
@@ -906,7 +906,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -932,7 +932,7 @@ fingerprint <string> When provided, this fingerprint must match the fingerprint 
       GtagConfig
       nil))
   ([path GtagConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -948,7 +948,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -965,7 +965,7 @@ parent <>
 Variable:
 Variable"
   [parent Variable]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/variables",
@@ -982,7 +982,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 parent <> "
   ([parent] (accounts-containers-workspaces-variables-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/variables",
@@ -998,7 +998,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -1024,7 +1024,7 @@ fingerprint <string> When provided, this fingerprint must match the fingerprint 
       Variable
       nil))
   ([path Variable optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -1040,7 +1040,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -1059,7 +1059,7 @@ optional:
 fingerprint <string> When provided, this fingerprint must match the fingerprint of the variable in storage."
   ([path] (accounts-containers-workspaces-variables-revert path nil))
   ([path optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+path}:revert",
@@ -1081,7 +1081,7 @@ type <string> The types of built-in variables to enable."
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/built_in_variables",
@@ -1103,7 +1103,7 @@ type <string> The types of built-in variables to delete."
       path
       nil))
   ([path optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -1122,7 +1122,7 @@ parent <> "
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/built_in_variables",
@@ -1145,7 +1145,7 @@ type <string> The type of built-in variable to revert."
       path
       nil))
   ([path optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+path}/built_in_variables:revert",
@@ -1162,7 +1162,7 @@ parent <>
 Folder:
 Folder"
   [parent Folder]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/folders",
@@ -1179,7 +1179,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 parent <> "
   ([parent] (accounts-containers-workspaces-folders-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/folders",
@@ -1195,7 +1195,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -1212,7 +1212,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 path <> "
   ([path] (accounts-containers-workspaces-folders-entities path nil))
   ([path optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+path}:entities",
@@ -1235,7 +1235,7 @@ fingerprint <string> When provided, this fingerprint must match the fingerprint 
   ([path Folder]
     (accounts-containers-workspaces-folders-update path Folder nil))
   ([path Folder optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -1251,7 +1251,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -1278,7 +1278,7 @@ triggerId <string> The triggers to be moved to the folder."
       Folder
       nil))
   ([path Folder optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+path}:move_entities_to_folder",
@@ -1298,7 +1298,7 @@ optional:
 fingerprint <string> When provided, this fingerprint must match the fingerprint of the tag in storage."
   ([path] (accounts-containers-workspaces-folders-revert path nil))
   ([path optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+path}:revert",
@@ -1315,7 +1315,7 @@ parent <>
 CustomTemplate:
 CustomTemplate"
   [parent CustomTemplate]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/templates",
@@ -1332,7 +1332,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 parent <> "
   ([parent] (accounts-containers-workspaces-templates-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/templates",
@@ -1348,7 +1348,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -1374,7 +1374,7 @@ fingerprint <string> When provided, this fingerprint must match the fingerprint 
       CustomTemplate
       nil))
   ([path CustomTemplate optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -1390,7 +1390,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -1409,7 +1409,7 @@ optional:
 fingerprint <string> When provided, this fingerprint must match the fingerprint of the template in storage."
   ([path] (accounts-containers-workspaces-templates-revert path nil))
   ([path optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+path}:revert",
@@ -1426,7 +1426,7 @@ parent <>
 Trigger:
 Trigger"
   [parent Trigger]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/triggers",
@@ -1443,7 +1443,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 parent <> "
   ([parent] (accounts-containers-workspaces-triggers-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/triggers",
@@ -1459,7 +1459,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -1482,7 +1482,7 @@ fingerprint <string> When provided, this fingerprint must match the fingerprint 
   ([path Trigger]
     (accounts-containers-workspaces-triggers-update path Trigger nil))
   ([path Trigger optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -1498,7 +1498,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -1517,7 +1517,7 @@ optional:
 fingerprint <string> When provided, this fingerprint must match the fingerprint of the trigger in storage."
   ([path] (accounts-containers-workspaces-triggers-revert path nil))
   ([path optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+path}:revert",
@@ -1534,7 +1534,7 @@ parent <>
 Transformation:
 Transformation"
   [parent Transformation]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/transformations",
@@ -1552,7 +1552,7 @@ parent <> "
   ([parent]
     (accounts-containers-workspaces-transformations-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/transformations",
@@ -1568,7 +1568,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -1594,7 +1594,7 @@ fingerprint <string> When provided, this fingerprint must match the fingerprint 
       Transformation
       nil))
   ([path Transformation optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -1610,7 +1610,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -1630,7 +1630,7 @@ fingerprint <string> When provided, this fingerprint must match the fingerprint 
   ([path]
     (accounts-containers-workspaces-transformations-revert path nil))
   ([path optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+path}:revert",
@@ -1649,7 +1649,7 @@ optional:
 containerVersionId <string> The GTM ContainerVersion ID. Specify published to retrieve the currently published version."
   ([path] (accounts-containers-versions-get path nil))
   ([path optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -1673,7 +1673,7 @@ fingerprint <string> When provided, this fingerprint must match the fingerprint 
   ([path ContainerVersion]
     (accounts-containers-versions-update path ContainerVersion nil))
   ([path ContainerVersion optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -1689,7 +1689,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -1704,7 +1704,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}:undelete",
@@ -1723,7 +1723,7 @@ optional:
 fingerprint <string> When provided, this fingerprint must match the fingerprint of the container version in storage."
   ([path] (accounts-containers-versions-publish path nil))
   ([path optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+path}:publish",
@@ -1738,7 +1738,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}:set_latest",
@@ -1753,7 +1753,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 parent <> "
   [parent]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/versions:live",
@@ -1773,7 +1773,7 @@ optional:
 includeDeleted <boolean> Also retrieve deleted (archived) versions when true."
   ([parent] (accounts-containers-version_headers-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/version_headers",
@@ -1790,7 +1790,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 parent <> "
   [parent]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/version_headers:latest",
@@ -1808,7 +1808,7 @@ parent <>
 Environment:
 Environment"
   [parent Environment]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/environments",
@@ -1825,7 +1825,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 parent <> "
   ([parent] (accounts-containers-environments-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+parent}/environments",
@@ -1841,7 +1841,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -1864,7 +1864,7 @@ fingerprint <string> When provided, this fingerprint must match the fingerprint 
   ([path Environment]
     (accounts-containers-environments-update path Environment nil))
   ([path Environment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -1880,7 +1880,7 @@ https://developers.google.com/tag-platform/tag-manager/v2/reference/rest/v2/acco
 
 path <> "
   [path]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}",
@@ -1897,7 +1897,7 @@ path <>
 Environment:
 Environment"
   [path Environment]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://tagmanager.googleapis.com/tagmanager/v2/{+path}:reauthorize",

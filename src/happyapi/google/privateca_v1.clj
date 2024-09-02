@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://privateca.googleapis.com/v1/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/v1/reference/rest/v1/projects/locations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://privateca.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -47,7 +47,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://privateca.googleapis.com/v1/{+name}/operations",
@@ -61,7 +61,7 @@ https://cloud.google.com/v1/reference/rest/v1/projects/locations/operations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://privateca.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -74,7 +74,7 @@ https://cloud.google.com/v1/reference/rest/v1/projects/locations/operations/dele
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://privateca.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -89,7 +89,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://privateca.googleapis.com/v1/{+name}:cancel",
@@ -110,7 +110,7 @@ filter <string> Optional. Only include resources that match the filter in the re
 orderBy <string> Optional. Specify how the results should be sorted."
   ([parent] (projects-locations-caPools-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://privateca.googleapis.com/v1/{+parent}/caPools",
@@ -126,7 +126,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://privateca.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -146,7 +146,7 @@ requestId <string> Optional. An ID to identify requests. Specify a unique reques
 ignoreDependentResources <boolean> Optional. This field allows this pool to be deleted even if it's being depended on by another resource. However, doing so may result in unintended and unrecoverable effects on any dependent resources since the pool will no longer be able to issue certificates."
   ([name] (projects-locations-caPools-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://privateca.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -161,7 +161,7 @@ caPool <>
 FetchCaCertsRequest:
 FetchCaCertsRequest"
   [caPool FetchCaCertsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://privateca.googleapis.com/v1/{+caPool}:fetchCaCerts",
@@ -183,7 +183,7 @@ updateMask <string> Required. A list of fields to be updated in this request.
 requestId <string> Optional. An ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name CaPool] (projects-locations-caPools-patch name CaPool nil))
   ([name CaPool optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://privateca.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -201,7 +201,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-locations-caPools-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://privateca.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -223,7 +223,7 @@ requestId <string> Optional. An ID to identify requests. Specify a unique reques
   ([parent CaPool]
     (projects-locations-caPools-create parent CaPool nil))
   ([parent CaPool optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://privateca.googleapis.com/v1/{+parent}/caPools",
@@ -238,7 +238,7 @@ https://cloud.google.com/v1/reference/rest/v1/projects/locations/caPools/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://privateca.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -253,7 +253,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://privateca.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -281,7 +281,7 @@ issuingCertificateAuthorityId <string> Optional. The resource ID of the Certific
       Certificate
       nil))
   ([parent Certificate optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://privateca.googleapis.com/v1/{+parent}/certificates",
@@ -296,7 +296,7 @@ https://cloud.google.com/v1/reference/rest/v1/projects/locations/caPools/certifi
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://privateca.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -315,7 +315,7 @@ filter <string> Optional. Only include resources that match the filter in the re
 orderBy <string> Optional. Specify how the results should be sorted. For details on supported fields and syntax, see [Certificates Sorting documentation](https://cloud.google.com/certificate-authority-service/docs/sorting-filtering-certificates#sorting_support)."
   ([parent] (projects-locations-caPools-certificates-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://privateca.googleapis.com/v1/{+parent}/certificates",
@@ -331,7 +331,7 @@ name <>
 RevokeCertificateRequest:
 RevokeCertificateRequest"
   [name RevokeCertificateRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://privateca.googleapis.com/v1/{+name}:revoke",
@@ -357,7 +357,7 @@ requestId <string> Optional. An ID to identify requests. Specify a unique reques
       Certificate
       nil))
   ([name Certificate optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://privateca.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -371,7 +371,7 @@ https://cloud.google.com/v1/reference/rest/v1/projects/locations/caPools/certifi
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://privateca.googleapis.com/v1/{+name}:fetch",
      :uri-template-args {"name" name},
@@ -393,7 +393,7 @@ orderBy <string> Optional. Specify how the results should be sorted."
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://privateca.googleapis.com/v1/{+parent}/certificateAuthorities",
@@ -417,7 +417,7 @@ ignoreDependentResources <boolean> Optional. This field allows this CA to be del
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://privateca.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -432,7 +432,7 @@ name <>
 ActivateCertificateAuthorityRequest:
 ActivateCertificateAuthorityRequest"
   [name ActivateCertificateAuthorityRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://privateca.googleapis.com/v1/{+name}:activate",
@@ -449,7 +449,7 @@ name <>
 UndeleteCertificateAuthorityRequest:
 UndeleteCertificateAuthorityRequest"
   [name UndeleteCertificateAuthorityRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://privateca.googleapis.com/v1/{+name}:undelete",
@@ -466,7 +466,7 @@ name <>
 EnableCertificateAuthorityRequest:
 EnableCertificateAuthorityRequest"
   [name EnableCertificateAuthorityRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://privateca.googleapis.com/v1/{+name}:enable",
@@ -483,7 +483,7 @@ name <>
 DisableCertificateAuthorityRequest:
 DisableCertificateAuthorityRequest"
   [name DisableCertificateAuthorityRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://privateca.googleapis.com/v1/{+name}:disable",
@@ -509,7 +509,7 @@ requestId <string> Optional. An ID to identify requests. Specify a unique reques
       CertificateAuthority
       nil))
   ([name CertificateAuthority optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://privateca.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -534,7 +534,7 @@ requestId <string> Optional. An ID to identify requests. Specify a unique reques
       CertificateAuthority
       nil))
   ([parent CertificateAuthority optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://privateca.googleapis.com/v1/{+parent}/certificateAuthorities",
@@ -549,7 +549,7 @@ https://cloud.google.com/v1/reference/rest/v1/projects/locations/caPools/certifi
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://privateca.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -562,7 +562,7 @@ https://cloud.google.com/v1/reference/rest/v1/projects/locations/caPools/certifi
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://privateca.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -584,7 +584,7 @@ orderBy <string> Optional. Specify how the results should be sorted."
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://privateca.googleapis.com/v1/{+parent}/certificateRevocationLists",
@@ -609,7 +609,7 @@ requestId <string> Optional. An ID to identify requests. Specify a unique reques
       CertificateRevocationList
       nil))
   ([name CertificateRevocationList optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://privateca.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -625,7 +625,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://privateca.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -647,7 +647,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://privateca.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -663,7 +663,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://privateca.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -689,7 +689,7 @@ requestId <string> Optional. An ID to identify requests. Specify a unique reques
       CertificateTemplate
       nil))
   ([parent CertificateTemplate optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://privateca.googleapis.com/v1/{+parent}/certificateTemplates",
@@ -708,7 +708,7 @@ optional:
 requestId <string> Optional. An ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-certificateTemplates-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://privateca.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -721,7 +721,7 @@ https://cloud.google.com/v1/reference/rest/v1/projects/locations/certificateTemp
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://privateca.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -740,7 +740,7 @@ filter <string> Optional. Only include resources that match the filter in the re
 orderBy <string> Optional. Specify how the results should be sorted."
   ([parent] (projects-locations-certificateTemplates-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://privateca.googleapis.com/v1/{+parent}/certificateTemplates",
@@ -765,7 +765,7 @@ requestId <string> Optional. An ID to identify requests. Specify a unique reques
       CertificateTemplate
       nil))
   ([name CertificateTemplate optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://privateca.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -781,7 +781,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://privateca.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -803,7 +803,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://privateca.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -819,7 +819,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://privateca.googleapis.com/v1/{+resource}:testIamPermissions",

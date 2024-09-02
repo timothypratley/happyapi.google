@@ -4,70 +4,6 @@ Manages the service consumers of a Service Infrastructure service.
 See: https://cloud.google.com/service-infrastructure/docs/overview"
   (:require [happyapi.providers.google :as client]))
 
-(defn operations-list
-  "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
-https://cloud.google.com/service-infrastructure/docs/overview/v1/reference/rest/v1/operations/list
-
-name <> 
-
-optional:
-pageSize <integer> The standard list page size.
-filter <string> The standard list filter."
-  ([name] (operations-list name nil))
-  ([name optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://serviceconsumermanagement.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
-
-(defn operations-cancel
-  "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
-https://cloud.google.com/service-infrastructure/docs/overview/v1/reference/rest/v1/operations/cancel
-
-name <> 
-CancelOperationRequest:
-CancelOperationRequest"
-  [name CancelOperationRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://serviceconsumermanagement.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body CancelOperationRequest}))
-
-(defn operations-delete
-  "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-https://cloud.google.com/service-infrastructure/docs/overview/v1/reference/rest/v1/operations/delete
-
-name <> "
-  [name]
-  (client/api-request
-    {:method :delete,
-     :uri-template
-     "https://serviceconsumermanagement.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
-
-(defn operations-get
-  "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
-https://cloud.google.com/service-infrastructure/docs/overview/v1/reference/rest/v1/operations/get
-
-name <> "
-  [name]
-  (client/api-request
-    {:method :get,
-     :uri-template
-     "https://serviceconsumermanagement.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
-
 (defn services-search
   "Search tenancy units for a managed service.
 https://cloud.google.com/service-infrastructure/docs/overview/v1/reference/rest/v1/services/search
@@ -75,11 +11,11 @@ https://cloud.google.com/service-infrastructure/docs/overview/v1/reference/rest/
 parent <> 
 
 optional:
-query <string> Optional. Set a query `{expression}` for querying tenancy units. Your `{expression}` must be in the format: `field_name=literal_string`. The `field_name` is the name of the field you want to compare. Supported fields are `tenant_resources.tag` and `tenant_resources.resource`. For example, to search tenancy units that contain at least one tenant resource with a given tag 'xyz', use the query `tenant_resources.tag=xyz`. To search tenancy units that contain at least one tenant resource with a given resource name 'projects/123456', use the query `tenant_resources.resource=projects/123456`. Multiple expressions can be joined with `AND`s. Tenancy units must match all expressions to be included in the result set. For example, `tenant_resources.tag=xyz AND tenant_resources.resource=projects/123456`
-pageSize <integer> Optional. The maximum number of results returned by this request. Currently, the default maximum is set to 1000. If `page_size` isn't provided or the size provided is a number larger than 1000, it's automatically set to 1000."
+pageSize <integer> Optional. The maximum number of results returned by this request. Currently, the default maximum is set to 1000. If `page_size` isn't provided or the size provided is a number larger than 1000, it's automatically set to 1000.
+query <string> Optional. Set a query `{expression}` for querying tenancy units. Your `{expression}` must be in the format: `field_name=literal_string`. The `field_name` is the name of the field you want to compare. Supported fields are `tenant_resources.tag` and `tenant_resources.resource`. For example, to search tenancy units that contain at least one tenant resource with a given tag 'xyz', use the query `tenant_resources.tag=xyz`. To search tenancy units that contain at least one tenant resource with a given resource name 'projects/123456', use the query `tenant_resources.resource=projects/123456`. Multiple expressions can be joined with `AND`s. Tenancy units must match all expressions to be included in the result set. For example, `tenant_resources.tag=xyz AND tenant_resources.resource=projects/123456`"
   ([parent] (services-search parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://serviceconsumermanagement.googleapis.com/v1/{+parent}:search",
@@ -95,7 +31,7 @@ name <>
 AttachTenantProjectRequest:
 AttachTenantProjectRequest"
   [name AttachTenantProjectRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://serviceconsumermanagement.googleapis.com/v1/{+name}:attachProject",
@@ -112,7 +48,7 @@ name <>
 UndeleteTenantProjectRequest:
 UndeleteTenantProjectRequest"
   [name UndeleteTenantProjectRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://serviceconsumermanagement.googleapis.com/v1/{+name}:undeleteProject",
@@ -132,7 +68,7 @@ pageSize <integer> Optional. The maximum number of results returned by this requ
 filter <string> Optional. Filter expression over tenancy resources field. Optional."
   ([parent] (services-tenancyUnits-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://serviceconsumermanagement.googleapis.com/v1/{+parent}/tenancyUnits",
@@ -146,7 +82,7 @@ https://cloud.google.com/service-infrastructure/docs/overview/v1/reference/rest/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://serviceconsumermanagement.googleapis.com/v1/{+name}",
@@ -162,7 +98,7 @@ name <>
 RemoveTenantProjectRequest:
 RemoveTenantProjectRequest"
   [name RemoveTenantProjectRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://serviceconsumermanagement.googleapis.com/v1/{+name}:removeProject",
@@ -179,7 +115,7 @@ parent <>
 CreateTenancyUnitRequest:
 CreateTenancyUnitRequest"
   [parent CreateTenancyUnitRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://serviceconsumermanagement.googleapis.com/v1/{+parent}/tenancyUnits",
@@ -196,7 +132,7 @@ parent <>
 AddTenantProjectRequest:
 AddTenantProjectRequest"
   [parent AddTenantProjectRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://serviceconsumermanagement.googleapis.com/v1/{+parent}:addProject",
@@ -213,7 +149,7 @@ name <>
 DeleteTenantProjectRequest:
 DeleteTenantProjectRequest"
   [name DeleteTenantProjectRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://serviceconsumermanagement.googleapis.com/v1/{+name}:deleteProject",
@@ -230,7 +166,7 @@ name <>
 ApplyTenantProjectConfigRequest:
 ApplyTenantProjectConfigRequest"
   [name ApplyTenantProjectConfigRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://serviceconsumermanagement.googleapis.com/v1/{+name}:applyProjectConfig",
@@ -238,3 +174,67 @@ ApplyTenantProjectConfigRequest"
      :query-params {},
      :scopes ["https://www.googleapis.com/auth/cloud-platform"],
      :body ApplyTenantProjectConfigRequest}))
+
+(defn operations-list
+  "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
+https://cloud.google.com/service-infrastructure/docs/overview/v1/reference/rest/v1/operations/list
+
+name <> 
+
+optional:
+filter <string> The standard list filter.
+pageSize <integer> The standard list page size."
+  ([name] (operations-list name nil))
+  ([name optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://serviceconsumermanagement.googleapis.com/v1/{+name}",
+       :uri-template-args {"name" name},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+
+(defn operations-get
+  "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
+https://cloud.google.com/service-infrastructure/docs/overview/v1/reference/rest/v1/operations/get
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :get,
+     :uri-template
+     "https://serviceconsumermanagement.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+
+(defn operations-cancel
+  "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+https://cloud.google.com/service-infrastructure/docs/overview/v1/reference/rest/v1/operations/cancel
+
+name <> 
+CancelOperationRequest:
+CancelOperationRequest"
+  [name CancelOperationRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://serviceconsumermanagement.googleapis.com/v1/{+name}:cancel",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body CancelOperationRequest}))
+
+(defn operations-delete
+  "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
+https://cloud.google.com/service-infrastructure/docs/overview/v1/reference/rest/v1/operations/delete
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :delete,
+     :uri-template
+     "https://serviceconsumermanagement.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))

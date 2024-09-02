@@ -11,7 +11,7 @@ https://developer.chrome.com/docs/crux/api/v1/reference/rest/v1/records/queryRec
 QueryRequest:
 QueryRequest"
   [QueryRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://chromeuxreport.googleapis.com/v1/records:queryRecord",
@@ -27,7 +27,7 @@ https://developer.chrome.com/docs/crux/api/v1/reference/rest/v1/records/queryHis
 QueryHistoryRequest:
 QueryHistoryRequest"
   [QueryHistoryRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://chromeuxreport.googleapis.com/v1/records:queryHistoryRecord",

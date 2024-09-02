@@ -4,62 +4,21 @@ An API for managing Drive Labels
 See: https://developers.google.com/drive/labels/guides/overview"
   (:require [happyapi.providers.google :as client]))
 
-(defn limits-getLabel
-  "Get the constraints on the structure of a Label; such as, the maximum number of Fields allowed and maximum length of the label title.
-https://developers.google.com/drive/labels/guides/overview/v2/reference/rest/v2/limits/getLabel
-
-optional:
-name <string> Required. Label revision resource name Must be: \"limits/label\""
-  ([] (limits-getLabel nil))
-  ([optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://drivelabels.googleapis.com/v2/limits/label",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/drive.admin.labels"
-        "https://www.googleapis.com/auth/drive.admin.labels.readonly"
-        "https://www.googleapis.com/auth/drive.labels"
-        "https://www.googleapis.com/auth/drive.labels.readonly"]})))
-
-(defn users-getCapabilities
-  "Gets the user capabilities.
-https://developers.google.com/drive/labels/guides/overview/v2/reference/rest/v2/users/getCapabilities
-
-name <> 
-
-optional:
-customer <string> The customer to scope this request to. For example: \"customers/abcd1234\". If unset, will return settings within the current customer."
-  ([name] (users-getCapabilities name nil))
-  ([name optional]
-    (client/api-request
-      {:method :get,
-       :uri-template "https://drivelabels.googleapis.com/v2/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/drive.admin.labels"
-        "https://www.googleapis.com/auth/drive.admin.labels.readonly"
-        "https://www.googleapis.com/auth/drive.labels"
-        "https://www.googleapis.com/auth/drive.labels.readonly"]})))
-
 (defn labels-list
   "List labels.
 https://developers.google.com/drive/labels/guides/overview/v2/reference/rest/v2/labels/list
 
 optional:
-publishedOnly <boolean> Whether to include only published labels in the results. * When `true`, only the current published label revisions are returned. Disabled labels are included. Returned label resource names reference the published revision (`labels/{id}/{revision_id}`). * When `false`, the current label revisions are returned, which might not be published. Returned label resource names don't reference a specific revision (`labels/{id}`).
 view <string> When specified, only certain fields belonging to the indicated view are returned.
+publishedOnly <boolean> Whether to include only published labels in the results. * When `true`, only the current published label revisions are returned. Disabled labels are included. Returned label resource names reference the published revision (`labels/{id}/{revision_id}`). * When `false`, the current label revisions are returned, which might not be published. Returned label resource names don't reference a specific revision (`labels/{id}`).
+languageCode <string> The BCP-47 language code to use for evaluating localized field labels. When not specified, values in the default configured language are used.
 useAdminAccess <boolean> Set to `true` in order to use the user's admin credentials. This will return all Labels within the customer.
-pageSize <integer> Maximum number of labels to return per page. Default: 50. Max: 200.
-minimumRole <string> Specifies the level of access the user must have on the returned Labels. The minimum role a user must have on a label. Defaults to `READER`.
 customer <string> The customer to scope this list request to. For example: \"customers/abcd1234\". If unset, will return all labels within the current customer.
-languageCode <string> The BCP-47 language code to use for evaluating localized field labels. When not specified, values in the default configured language are used."
+minimumRole <string> Specifies the level of access the user must have on the returned Labels. The minimum role a user must have on a label. Defaults to `READER`.
+pageSize <integer> Maximum number of labels to return per page. Default: 50. Max: 200."
   ([] (labels-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://drivelabels.googleapis.com/v2/labels",
        :uri-template-args {},
@@ -81,7 +40,7 @@ useAdminAccess <boolean> Set to `true` in order to use the user's admin credenti
 writeControl.requiredRevisionId <string> The revision_id of the label that the write request will be applied to. If this is not the latest revision of the label, the request will not be processed and will return a 400 Bad Request error."
   ([name] (labels-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://drivelabels.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -98,7 +57,7 @@ name <>
 GoogleAppsDriveLabelsV2DeltaUpdateLabelRequest:
 GoogleAppsDriveLabelsV2DeltaUpdateLabelRequest"
   [name GoogleAppsDriveLabelsV2DeltaUpdateLabelRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://drivelabels.googleapis.com/v2/{+name}:delta",
@@ -117,7 +76,7 @@ name <>
 GoogleAppsDriveLabelsV2EnableLabelRequest:
 GoogleAppsDriveLabelsV2EnableLabelRequest"
   [name GoogleAppsDriveLabelsV2EnableLabelRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://drivelabels.googleapis.com/v2/{+name}:enable",
@@ -136,7 +95,7 @@ name <>
 GoogleAppsDriveLabelsV2UpdateLabelCopyModeRequest:
 GoogleAppsDriveLabelsV2UpdateLabelCopyModeRequest"
   [name GoogleAppsDriveLabelsV2UpdateLabelCopyModeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://drivelabels.googleapis.com/v2/{+name}:updateLabelCopyMode",
@@ -155,7 +114,7 @@ name <>
 GoogleAppsDriveLabelsV2DisableLabelRequest:
 GoogleAppsDriveLabelsV2DisableLabelRequest"
   [name GoogleAppsDriveLabelsV2DisableLabelRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://drivelabels.googleapis.com/v2/{+name}:disable",
@@ -174,7 +133,7 @@ name <>
 GoogleAppsDriveLabelsV2PublishLabelRequest:
 GoogleAppsDriveLabelsV2PublishLabelRequest"
   [name GoogleAppsDriveLabelsV2PublishLabelRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://drivelabels.googleapis.com/v2/{+name}:publish",
@@ -198,7 +157,7 @@ languageCode <string> The BCP-47 language code to use for evaluating localized F
   ([GoogleAppsDriveLabelsV2Label]
     (labels-create GoogleAppsDriveLabelsV2Label nil))
   ([GoogleAppsDriveLabelsV2Label optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template "https://drivelabels.googleapis.com/v2/labels",
        :uri-template-args {},
@@ -215,12 +174,12 @@ https://developers.google.com/drive/labels/guides/overview/v2/reference/rest/v2/
 name <> 
 
 optional:
-view <string> When specified, only certain fields belonging to the indicated view are returned.
 useAdminAccess <boolean> Set to `true` in order to use the user's admin credentials. The server verifies that the user is an admin for the label before allowing access.
-languageCode <string> The BCP-47 language code to use for evaluating localized field labels. When not specified, values in the default configured language are used."
+languageCode <string> The BCP-47 language code to use for evaluating localized field labels. When not specified, values in the default configured language are used.
+view <string> When specified, only certain fields belonging to the indicated view are returned."
   ([name] (labels-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://drivelabels.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -247,7 +206,7 @@ useAdminAccess <boolean> Set to `true` in order to use the user's admin credenti
       GoogleAppsDriveLabelsV2LabelPermission
       nil))
   ([parent GoogleAppsDriveLabelsV2LabelPermission optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://drivelabels.googleapis.com/v2/{+parent}/permissions",
@@ -258,6 +217,70 @@ useAdminAccess <boolean> Set to `true` in order to use the user's admin credenti
         "https://www.googleapis.com/auth/drive.labels"],
        :body GoogleAppsDriveLabelsV2LabelPermission})))
 
+(defn labels-locks-list
+  "Lists the LabelLocks on a Label.
+https://developers.google.com/drive/labels/guides/overview/v2/reference/rest/v2/labels/locks/list
+
+parent <> 
+
+optional:
+pageSize <integer> Maximum number of Locks to return per page. Default: 100. Max: 200."
+  ([parent] (labels-locks-list parent nil))
+  ([parent optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://drivelabels.googleapis.com/v2/{+parent}/locks",
+       :uri-template-args {"parent" parent},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/drive.admin.labels"
+        "https://www.googleapis.com/auth/drive.admin.labels.readonly"
+        "https://www.googleapis.com/auth/drive.labels"
+        "https://www.googleapis.com/auth/drive.labels.readonly"]})))
+
+(defn labels-permissions-list
+  "Lists a Label's permissions.
+https://developers.google.com/drive/labels/guides/overview/v2/reference/rest/v2/labels/permissions/list
+
+parent <> 
+
+optional:
+useAdminAccess <boolean> Set to `true` in order to use the user's admin credentials. The server will verify the user is an admin for the Label before allowing access.
+pageSize <integer> Maximum number of permissions to return per page. Default: 50. Max: 200."
+  ([parent] (labels-permissions-list parent nil))
+  ([parent optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://drivelabels.googleapis.com/v2/{+parent}/permissions",
+       :uri-template-args {"parent" parent},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/drive.admin.labels"
+        "https://www.googleapis.com/auth/drive.admin.labels.readonly"
+        "https://www.googleapis.com/auth/drive.labels"
+        "https://www.googleapis.com/auth/drive.labels.readonly"]})))
+
+(defn labels-permissions-delete
+  "Deletes a Label's permission. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing.
+https://developers.google.com/drive/labels/guides/overview/v2/reference/rest/v2/labels/permissions/delete
+
+name <> 
+
+optional:
+useAdminAccess <boolean> Set to `true` in order to use the user's admin credentials. The server will verify the user is an admin for the Label before allowing access."
+  ([name] (labels-permissions-delete name nil))
+  ([name optional]
+    (client/*api-request*
+      {:method :delete,
+       :uri-template "https://drivelabels.googleapis.com/v2/{+name}",
+       :uri-template-args {"name" name},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/drive.admin.labels"
+        "https://www.googleapis.com/auth/drive.labels"]})))
+
 (defn labels-permissions-batchDelete
   "Deletes Label permissions. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing.
 https://developers.google.com/drive/labels/guides/overview/v2/reference/rest/v2/labels/permissions/batchDelete
@@ -266,7 +289,7 @@ parent <>
 GoogleAppsDriveLabelsV2BatchDeleteLabelPermissionsRequest:
 GoogleAppsDriveLabelsV2BatchDeleteLabelPermissionsRequest"
   [parent GoogleAppsDriveLabelsV2BatchDeleteLabelPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://drivelabels.googleapis.com/v2/{+parent}/permissions:batchDelete",
@@ -293,7 +316,7 @@ useAdminAccess <boolean> Set to `true` in order to use the user's admin credenti
       GoogleAppsDriveLabelsV2LabelPermission
       nil))
   ([parent GoogleAppsDriveLabelsV2LabelPermission optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://drivelabels.googleapis.com/v2/{+parent}/permissions",
@@ -312,7 +335,7 @@ parent <>
 GoogleAppsDriveLabelsV2BatchUpdateLabelPermissionsRequest:
 GoogleAppsDriveLabelsV2BatchUpdateLabelPermissionsRequest"
   [parent GoogleAppsDriveLabelsV2BatchUpdateLabelPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://drivelabels.googleapis.com/v2/{+parent}/permissions:batchUpdate",
@@ -322,70 +345,6 @@ GoogleAppsDriveLabelsV2BatchUpdateLabelPermissionsRequest"
      ["https://www.googleapis.com/auth/drive.admin.labels"
       "https://www.googleapis.com/auth/drive.labels"],
      :body GoogleAppsDriveLabelsV2BatchUpdateLabelPermissionsRequest}))
-
-(defn labels-permissions-list
-  "Lists a Label's permissions.
-https://developers.google.com/drive/labels/guides/overview/v2/reference/rest/v2/labels/permissions/list
-
-parent <> 
-
-optional:
-pageSize <integer> Maximum number of permissions to return per page. Default: 50. Max: 200.
-useAdminAccess <boolean> Set to `true` in order to use the user's admin credentials. The server will verify the user is an admin for the Label before allowing access."
-  ([parent] (labels-permissions-list parent nil))
-  ([parent optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://drivelabels.googleapis.com/v2/{+parent}/permissions",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/drive.admin.labels"
-        "https://www.googleapis.com/auth/drive.admin.labels.readonly"
-        "https://www.googleapis.com/auth/drive.labels"
-        "https://www.googleapis.com/auth/drive.labels.readonly"]})))
-
-(defn labels-permissions-delete
-  "Deletes a Label's permission. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing.
-https://developers.google.com/drive/labels/guides/overview/v2/reference/rest/v2/labels/permissions/delete
-
-name <> 
-
-optional:
-useAdminAccess <boolean> Set to `true` in order to use the user's admin credentials. The server will verify the user is an admin for the Label before allowing access."
-  ([name] (labels-permissions-delete name nil))
-  ([name optional]
-    (client/api-request
-      {:method :delete,
-       :uri-template "https://drivelabels.googleapis.com/v2/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/drive.admin.labels"
-        "https://www.googleapis.com/auth/drive.labels"]})))
-
-(defn labels-locks-list
-  "Lists the LabelLocks on a Label.
-https://developers.google.com/drive/labels/guides/overview/v2/reference/rest/v2/labels/locks/list
-
-parent <> 
-
-optional:
-pageSize <integer> Maximum number of Locks to return per page. Default: 100. Max: 200."
-  ([parent] (labels-locks-list parent nil))
-  ([parent optional]
-    (client/api-request
-      {:method :get,
-       :uri-template
-       "https://drivelabels.googleapis.com/v2/{+parent}/locks",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/drive.admin.labels"
-        "https://www.googleapis.com/auth/drive.admin.labels.readonly"
-        "https://www.googleapis.com/auth/drive.labels"
-        "https://www.googleapis.com/auth/drive.labels.readonly"]})))
 
 (defn labels-revisions-updatePermissions
   "Updates a Label's permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing.
@@ -403,7 +362,7 @@ useAdminAccess <boolean> Set to `true` in order to use the user's admin credenti
       GoogleAppsDriveLabelsV2LabelPermission
       nil))
   ([parent GoogleAppsDriveLabelsV2LabelPermission optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://drivelabels.googleapis.com/v2/{+parent}/permissions",
@@ -413,6 +372,85 @@ useAdminAccess <boolean> Set to `true` in order to use the user's admin credenti
        ["https://www.googleapis.com/auth/drive.admin.labels"
         "https://www.googleapis.com/auth/drive.labels"],
        :body GoogleAppsDriveLabelsV2LabelPermission})))
+
+(defn labels-revisions-locks-list
+  "Lists the LabelLocks on a Label.
+https://developers.google.com/drive/labels/guides/overview/v2/reference/rest/v2/labels/revisions/locks/list
+
+parent <> 
+
+optional:
+pageSize <integer> Maximum number of Locks to return per page. Default: 100. Max: 200."
+  ([parent] (labels-revisions-locks-list parent nil))
+  ([parent optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://drivelabels.googleapis.com/v2/{+parent}/locks",
+       :uri-template-args {"parent" parent},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/drive.admin.labels"
+        "https://www.googleapis.com/auth/drive.admin.labels.readonly"
+        "https://www.googleapis.com/auth/drive.labels"
+        "https://www.googleapis.com/auth/drive.labels.readonly"]})))
+
+(defn labels-revisions-permissions-batchDelete
+  "Deletes Label permissions. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing.
+https://developers.google.com/drive/labels/guides/overview/v2/reference/rest/v2/labels/revisions/permissions/batchDelete
+
+parent <> 
+GoogleAppsDriveLabelsV2BatchDeleteLabelPermissionsRequest:
+GoogleAppsDriveLabelsV2BatchDeleteLabelPermissionsRequest"
+  [parent GoogleAppsDriveLabelsV2BatchDeleteLabelPermissionsRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://drivelabels.googleapis.com/v2/{+parent}/permissions:batchDelete",
+     :uri-template-args {"parent" parent},
+     :query-params {},
+     :scopes
+     ["https://www.googleapis.com/auth/drive.admin.labels"
+      "https://www.googleapis.com/auth/drive.labels"],
+     :body GoogleAppsDriveLabelsV2BatchDeleteLabelPermissionsRequest}))
+
+(defn labels-revisions-permissions-batchUpdate
+  "Updates Label permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing.
+https://developers.google.com/drive/labels/guides/overview/v2/reference/rest/v2/labels/revisions/permissions/batchUpdate
+
+parent <> 
+GoogleAppsDriveLabelsV2BatchUpdateLabelPermissionsRequest:
+GoogleAppsDriveLabelsV2BatchUpdateLabelPermissionsRequest"
+  [parent GoogleAppsDriveLabelsV2BatchUpdateLabelPermissionsRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://drivelabels.googleapis.com/v2/{+parent}/permissions:batchUpdate",
+     :uri-template-args {"parent" parent},
+     :query-params {},
+     :scopes
+     ["https://www.googleapis.com/auth/drive.admin.labels"
+      "https://www.googleapis.com/auth/drive.labels"],
+     :body GoogleAppsDriveLabelsV2BatchUpdateLabelPermissionsRequest}))
+
+(defn labels-revisions-permissions-delete
+  "Deletes a Label's permission. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing.
+https://developers.google.com/drive/labels/guides/overview/v2/reference/rest/v2/labels/revisions/permissions/delete
+
+name <> 
+
+optional:
+useAdminAccess <boolean> Set to `true` in order to use the user's admin credentials. The server will verify the user is an admin for the Label before allowing access."
+  ([name] (labels-revisions-permissions-delete name nil))
+  ([name optional]
+    (client/*api-request*
+      {:method :delete,
+       :uri-template "https://drivelabels.googleapis.com/v2/{+name}",
+       :uri-template-args {"name" name},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/drive.admin.labels"
+        "https://www.googleapis.com/auth/drive.labels"]})))
 
 (defn labels-revisions-permissions-create
   "Updates a Label's permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing.
@@ -430,7 +468,7 @@ useAdminAccess <boolean> Set to `true` in order to use the user's admin credenti
       GoogleAppsDriveLabelsV2LabelPermission
       nil))
   ([parent GoogleAppsDriveLabelsV2LabelPermission optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://drivelabels.googleapis.com/v2/{+parent}/permissions",
@@ -441,63 +479,6 @@ useAdminAccess <boolean> Set to `true` in order to use the user's admin credenti
         "https://www.googleapis.com/auth/drive.labels"],
        :body GoogleAppsDriveLabelsV2LabelPermission})))
 
-(defn labels-revisions-permissions-batchDelete
-  "Deletes Label permissions. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing.
-https://developers.google.com/drive/labels/guides/overview/v2/reference/rest/v2/labels/revisions/permissions/batchDelete
-
-parent <> 
-GoogleAppsDriveLabelsV2BatchDeleteLabelPermissionsRequest:
-GoogleAppsDriveLabelsV2BatchDeleteLabelPermissionsRequest"
-  [parent GoogleAppsDriveLabelsV2BatchDeleteLabelPermissionsRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://drivelabels.googleapis.com/v2/{+parent}/permissions:batchDelete",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/drive.admin.labels"
-      "https://www.googleapis.com/auth/drive.labels"],
-     :body GoogleAppsDriveLabelsV2BatchDeleteLabelPermissionsRequest}))
-
-(defn labels-revisions-permissions-delete
-  "Deletes a Label's permission. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing.
-https://developers.google.com/drive/labels/guides/overview/v2/reference/rest/v2/labels/revisions/permissions/delete
-
-name <> 
-
-optional:
-useAdminAccess <boolean> Set to `true` in order to use the user's admin credentials. The server will verify the user is an admin for the Label before allowing access."
-  ([name] (labels-revisions-permissions-delete name nil))
-  ([name optional]
-    (client/api-request
-      {:method :delete,
-       :uri-template "https://drivelabels.googleapis.com/v2/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/drive.admin.labels"
-        "https://www.googleapis.com/auth/drive.labels"]})))
-
-(defn labels-revisions-permissions-batchUpdate
-  "Updates Label permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing.
-https://developers.google.com/drive/labels/guides/overview/v2/reference/rest/v2/labels/revisions/permissions/batchUpdate
-
-parent <> 
-GoogleAppsDriveLabelsV2BatchUpdateLabelPermissionsRequest:
-GoogleAppsDriveLabelsV2BatchUpdateLabelPermissionsRequest"
-  [parent GoogleAppsDriveLabelsV2BatchUpdateLabelPermissionsRequest]
-  (client/api-request
-    {:method :post,
-     :uri-template
-     "https://drivelabels.googleapis.com/v2/{+parent}/permissions:batchUpdate",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/drive.admin.labels"
-      "https://www.googleapis.com/auth/drive.labels"],
-     :body GoogleAppsDriveLabelsV2BatchUpdateLabelPermissionsRequest}))
-
 (defn labels-revisions-permissions-list
   "Lists a Label's permissions.
 https://developers.google.com/drive/labels/guides/overview/v2/reference/rest/v2/labels/revisions/permissions/list
@@ -505,11 +486,11 @@ https://developers.google.com/drive/labels/guides/overview/v2/reference/rest/v2/
 parent <> 
 
 optional:
-useAdminAccess <boolean> Set to `true` in order to use the user's admin credentials. The server will verify the user is an admin for the Label before allowing access.
-pageSize <integer> Maximum number of permissions to return per page. Default: 50. Max: 200."
+pageSize <integer> Maximum number of permissions to return per page. Default: 50. Max: 200.
+useAdminAccess <boolean> Set to `true` in order to use the user's admin credentials. The server will verify the user is an admin for the Label before allowing access."
   ([parent] (labels-revisions-permissions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://drivelabels.googleapis.com/v2/{+parent}/permissions",
@@ -521,21 +502,40 @@ pageSize <integer> Maximum number of permissions to return per page. Default: 50
         "https://www.googleapis.com/auth/drive.labels"
         "https://www.googleapis.com/auth/drive.labels.readonly"]})))
 
-(defn labels-revisions-locks-list
-  "Lists the LabelLocks on a Label.
-https://developers.google.com/drive/labels/guides/overview/v2/reference/rest/v2/labels/revisions/locks/list
+(defn users-getCapabilities
+  "Gets the user capabilities.
+https://developers.google.com/drive/labels/guides/overview/v2/reference/rest/v2/users/getCapabilities
 
-parent <> 
+name <> 
 
 optional:
-pageSize <integer> Maximum number of Locks to return per page. Default: 100. Max: 200."
-  ([parent] (labels-revisions-locks-list parent nil))
-  ([parent optional]
-    (client/api-request
+customer <string> The customer to scope this request to. For example: \"customers/abcd1234\". If unset, will return settings within the current customer."
+  ([name] (users-getCapabilities name nil))
+  ([name optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template "https://drivelabels.googleapis.com/v2/{+name}",
+       :uri-template-args {"name" name},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/drive.admin.labels"
+        "https://www.googleapis.com/auth/drive.admin.labels.readonly"
+        "https://www.googleapis.com/auth/drive.labels"
+        "https://www.googleapis.com/auth/drive.labels.readonly"]})))
+
+(defn limits-getLabel
+  "Get the constraints on the structure of a Label; such as, the maximum number of Fields allowed and maximum length of the label title.
+https://developers.google.com/drive/labels/guides/overview/v2/reference/rest/v2/limits/getLabel
+
+optional:
+name <string> Required. Label revision resource name Must be: \"limits/label\""
+  ([] (limits-getLabel nil))
+  ([optional]
+    (client/*api-request*
       {:method :get,
        :uri-template
-       "https://drivelabels.googleapis.com/v2/{+parent}/locks",
-       :uri-template-args {"parent" parent},
+       "https://drivelabels.googleapis.com/v2/limits/label",
+       :uri-template-args {},
        :query-params (merge {} optional),
        :scopes
        ["https://www.googleapis.com/auth/drive.admin.labels"

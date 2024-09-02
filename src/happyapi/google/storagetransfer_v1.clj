@@ -15,7 +15,7 @@ optional:
 pageSize <integer> The list page size. The max allowed value is 256."
   ([name filter] (transferOperations-list name filter nil))
   ([name filter optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://storagetransfer.googleapis.com/v1/{+name}",
@@ -29,7 +29,7 @@ https://cloud.google.com/storage-transfer/docs/overview/v1/reference/rest/v1/tra
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://storagetransfer.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -44,7 +44,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://storagetransfer.googleapis.com/v1/{+name}:cancel",
@@ -61,7 +61,7 @@ name <>
 PauseTransferOperationRequest:
 PauseTransferOperationRequest"
   [name PauseTransferOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://storagetransfer.googleapis.com/v1/{+name}:pause",
@@ -78,7 +78,7 @@ name <>
 ResumeTransferOperationRequest:
 ResumeTransferOperationRequest"
   [name ResumeTransferOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://storagetransfer.googleapis.com/v1/{+name}:resume",
@@ -93,7 +93,7 @@ https://cloud.google.com/storage-transfer/docs/overview/v1/reference/rest/v1/goo
 
 projectId <> "
   [projectId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://storagetransfer.googleapis.com/v1/googleServiceAccounts/{projectId}",
@@ -108,7 +108,7 @@ https://cloud.google.com/storage-transfer/docs/overview/v1/reference/rest/v1/tra
 TransferJob:
 TransferJob"
   [TransferJob]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://storagetransfer.googleapis.com/v1/transferJobs",
@@ -125,7 +125,7 @@ jobName <>
 UpdateTransferJobRequest:
 UpdateTransferJobRequest"
   [jobName UpdateTransferJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://storagetransfer.googleapis.com/v1/{+jobName}",
@@ -141,7 +141,7 @@ https://cloud.google.com/storage-transfer/docs/overview/v1/reference/rest/v1/tra
 jobName <> 
 projectId <> "
   [jobName projectId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://storagetransfer.googleapis.com/v1/{+jobName}",
@@ -159,7 +159,7 @@ optional:
 pageSize <integer> The list page size. The max allowed value is 256."
   ([filter] (transferJobs-list filter nil))
   ([filter optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://storagetransfer.googleapis.com/v1/transferJobs",
@@ -175,7 +175,7 @@ jobName <>
 RunTransferJobRequest:
 RunTransferJobRequest"
   [jobName RunTransferJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://storagetransfer.googleapis.com/v1/{+jobName}:run",
@@ -191,7 +191,7 @@ https://cloud.google.com/storage-transfer/docs/overview/v1/reference/rest/v1/tra
 jobName <> 
 projectId <> "
   [jobName projectId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://storagetransfer.googleapis.com/v1/{+jobName}",
@@ -212,7 +212,7 @@ agentPoolId <string> Required. The ID of the agent pool to create. The `agent_po
   ([projectId AgentPool]
     (projects-agentPools-create projectId AgentPool nil))
   ([projectId AgentPool optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://storagetransfer.googleapis.com/v1/projects/{+projectId}/agentPools",
@@ -233,7 +233,7 @@ optional:
 updateMask <string> The [field mask] (https://developers.google.com/protocol-buffers/docs/reference/google.protobuf) of the fields in `agentPool` to update in this request. The following `agentPool` fields can be updated: * display_name * bandwidth_limit"
   ([name AgentPool] (projects-agentPools-patch name AgentPool nil))
   ([name AgentPool optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://storagetransfer.googleapis.com/v1/{+name}",
@@ -248,7 +248,7 @@ https://cloud.google.com/storage-transfer/docs/overview/v1/reference/rest/v1/pro
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://storagetransfer.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -266,7 +266,7 @@ filter <string> An optional list of query parameters specified as JSON text in t
 pageSize <integer> The list page size. The max allowed value is `256`."
   ([projectId] (projects-agentPools-list projectId nil))
   ([projectId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://storagetransfer.googleapis.com/v1/projects/{+projectId}/agentPools",
@@ -280,7 +280,7 @@ https://cloud.google.com/storage-transfer/docs/overview/v1/reference/rest/v1/pro
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://storagetransfer.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},

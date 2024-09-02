@@ -15,7 +15,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://firebaseml.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -28,7 +28,7 @@ https://firebase.google.com/v1/reference/rest/v1/operations/delete
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://firebaseml.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -43,7 +43,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://firebaseml.googleapis.com/v1/{+name}:cancel",

@@ -10,7 +10,7 @@ https://cloud.google.com/binary-authorization/v1/reference/rest/v1/projects/getP
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://binaryauthorization.googleapis.com/v1/{+name}",
@@ -26,7 +26,7 @@ name <>
 Policy:
 Policy"
   [name Policy]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://binaryauthorization.googleapis.com/v1/{+name}",
@@ -43,7 +43,7 @@ name <>
 EvaluateGkePolicyRequest:
 EvaluateGkePolicyRequest"
   [name EvaluateGkePolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://binaryauthorization.googleapis.com/v1/{+name}:evaluate",
@@ -65,7 +65,7 @@ policyId <string> Required. The platform policy ID."
   ([parent PlatformPolicy]
     (projects-platforms-policies-create parent PlatformPolicy nil))
   ([parent PlatformPolicy optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://binaryauthorization.googleapis.com/v1/{+parent}/policies",
@@ -80,7 +80,7 @@ https://cloud.google.com/binary-authorization/v1/reference/rest/v1/projects/plat
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://binaryauthorization.googleapis.com/v1/{+name}",
@@ -96,7 +96,7 @@ name <>
 PlatformPolicy:
 PlatformPolicy"
   [name PlatformPolicy]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://binaryauthorization.googleapis.com/v1/{+name}",
@@ -115,7 +115,7 @@ optional:
 pageSize <integer> Requested page size. The server may return fewer results than requested. If unspecified, the server picks an appropriate default."
   ([parent] (projects-platforms-policies-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://binaryauthorization.googleapis.com/v1/{+parent}/policies",
@@ -133,7 +133,7 @@ optional:
 etag <string> Optional. Used to prevent deleting the policy when another request has updated it since it was retrieved."
   ([name] (projects-platforms-policies-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://binaryauthorization.googleapis.com/v1/{+name}",
@@ -149,7 +149,7 @@ attestor <>
 ValidateAttestationOccurrenceRequest:
 ValidateAttestationOccurrenceRequest"
   [attestor ValidateAttestationOccurrenceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://binaryauthorization.googleapis.com/v1/{+attestor}:validateAttestationOccurrence",
@@ -168,7 +168,7 @@ optional:
 pageSize <integer> Requested page size. The server may return fewer results than requested. If unspecified, the server will pick an appropriate default."
   ([parent] (projects-attestors-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://binaryauthorization.googleapis.com/v1/{+parent}/attestors",
@@ -184,7 +184,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://binaryauthorization.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -199,7 +199,7 @@ https://cloud.google.com/binary-authorization/v1/reference/rest/v1/projects/atte
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://binaryauthorization.googleapis.com/v1/{+name}",
@@ -215,7 +215,7 @@ name <>
 Attestor:
 Attestor"
   [name Attestor]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://binaryauthorization.googleapis.com/v1/{+name}",
@@ -234,7 +234,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-attestors-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://binaryauthorization.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -254,7 +254,7 @@ optional:
 attestorId <string> Required. The attestors ID."
   ([parent Attestor] (projects-attestors-create parent Attestor nil))
   ([parent Attestor optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://binaryauthorization.googleapis.com/v1/{+parent}/attestors",
@@ -269,7 +269,7 @@ https://cloud.google.com/binary-authorization/v1/reference/rest/v1/projects/atte
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://binaryauthorization.googleapis.com/v1/{+name}",
@@ -285,7 +285,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://binaryauthorization.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -302,7 +302,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://binaryauthorization.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -321,7 +321,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-policy-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://binaryauthorization.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -337,7 +337,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://binaryauthorization.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -352,7 +352,7 @@ https://cloud.google.com/binary-authorization/v1/reference/rest/v1/systempolicy/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://binaryauthorization.googleapis.com/v1/{+name}",

@@ -15,7 +15,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://ondemandscanning.googleapis.com/v1/{+name}/operations",
@@ -29,7 +29,7 @@ https://cloud.google.com/artifact-analysis/docs/container-scanning-overview/v1/r
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://ondemandscanning.googleapis.com/v1/{+name}",
@@ -43,7 +43,7 @@ https://cloud.google.com/artifact-analysis/docs/container-scanning-overview/v1/r
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://ondemandscanning.googleapis.com/v1/{+name}",
@@ -57,7 +57,7 @@ https://cloud.google.com/artifact-analysis/docs/container-scanning-overview/v1/r
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://ondemandscanning.googleapis.com/v1/{+name}:cancel",
@@ -75,7 +75,7 @@ optional:
 timeout <string> The maximum duration to wait before timing out. If left blank, the wait will be at most the time permitted by the underlying HTTP/RPC protocol. If RPC context deadline is also specified, the shorter one will be used."
   ([name] (projects-locations-operations-wait name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://ondemandscanning.googleapis.com/v1/{+name}:wait",
@@ -91,7 +91,7 @@ parent <>
 AnalyzePackagesRequestV1:
 AnalyzePackagesRequestV1"
   [parent AnalyzePackagesRequestV1]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://ondemandscanning.googleapis.com/v1/{+parent}/scans:analyzePackages",
@@ -110,7 +110,7 @@ optional:
 pageSize <integer> The number of vulnerabilities to retrieve."
   ([parent] (projects-locations-scans-vulnerabilities-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://ondemandscanning.googleapis.com/v1/{+parent}/vulnerabilities",

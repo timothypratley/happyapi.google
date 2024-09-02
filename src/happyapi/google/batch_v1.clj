@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://batch.googleapis.com/v1/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/batch/v1/reference/rest/v1/projects/locations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://batch.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -47,7 +47,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://batch.googleapis.com/v1/{+name}/operations",
@@ -61,7 +61,7 @@ https://cloud.google.com/batch/v1/reference/rest/v1/projects/locations/operation
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://batch.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -74,7 +74,7 @@ https://cloud.google.com/batch/v1/reference/rest/v1/projects/locations/operation
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://batch.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -89,7 +89,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://batch.googleapis.com/v1/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -110,7 +110,7 @@ jobId <string> ID used to uniquely identify the Job within its parent scope. Thi
 requestId <string> Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([parent Job] (projects-locations-jobs-create parent Job nil))
   ([parent Job optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template "https://batch.googleapis.com/v1/{+parent}/jobs",
        :uri-template-args {"parent" parent},
@@ -124,7 +124,7 @@ https://cloud.google.com/batch/v1/reference/rest/v1/projects/locations/jobs/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://batch.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -142,7 +142,7 @@ reason <string> Optional. Reason for this deletion.
 requestId <string> Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-jobs-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://batch.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -161,7 +161,7 @@ orderBy <string> Optional. Sort results. Supported are \"name\", \"name desc\", 
 pageSize <integer> Page size."
   ([parent] (projects-locations-jobs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://batch.googleapis.com/v1/{+parent}/jobs",
        :uri-template-args {"parent" parent},
@@ -174,7 +174,7 @@ https://cloud.google.com/batch/v1/reference/rest/v1/projects/locations/jobs/task
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://batch.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -192,7 +192,7 @@ filter <string> Task filter, null filter matches all Tasks. Filter string should
 pageSize <integer> Page size."
   ([parent] (projects-locations-jobs-taskGroups-tasks-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://batch.googleapis.com/v1/{+parent}/tasks",
        :uri-template-args {"parent" parent},
@@ -207,7 +207,7 @@ parent <>
 ReportAgentStateRequest:
 ReportAgentStateRequest"
   [parent ReportAgentStateRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://batch.googleapis.com/v1/{+parent}/state:report",

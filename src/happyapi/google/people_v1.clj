@@ -15,7 +15,7 @@ readMask <string> Required. A field mask to restrict which fields on each person
 sources <string> Optional. A mask of what source types to return. Defaults to READ_SOURCE_TYPE_CONTACT if not set."
   ([] (people-searchContacts nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://people.googleapis.com/v1/people:searchContacts",
@@ -38,7 +38,7 @@ requestSyncToken <boolean> Optional. Whether the response should return `next_sy
 syncToken <string> Optional. A sync token, received from a previous response `next_sync_token` Provide this to retrieve only the resources changed since the last request. When syncing, all other parameters provided to `people.listDirectoryPeople` must match the first call that provided the sync token. More details about sync behavior at `people.listDirectoryPeople`."
   ([] (people-listDirectoryPeople nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://people.googleapis.com/v1/people:listDirectoryPeople",
@@ -55,7 +55,7 @@ resourceName <>
 UpdateContactPhotoRequest:
 UpdateContactPhotoRequest"
   [resourceName UpdateContactPhotoRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://people.googleapis.com/v1/{+resourceName}:updateContactPhoto",
@@ -71,7 +71,7 @@ https://developers.google.com/people/v1/reference/rest/v1/people/batchUpdateCont
 BatchUpdateContactsRequest:
 BatchUpdateContactsRequest"
   [BatchUpdateContactsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://people.googleapis.com/v1/people:batchUpdateContacts",
@@ -92,7 +92,7 @@ mergeSources <string> Optional. Additional data to merge into the directory sour
 pageSize <integer> Optional. The number of people to include in the response. Valid values are between 1 and 500, inclusive. Defaults to 100 if not set or set to 0."
   ([] (people-searchDirectoryPeople nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://people.googleapis.com/v1/people:searchDirectoryPeople",
@@ -113,7 +113,7 @@ personFields <string> Required. A field mask to restrict which fields on each pe
 sources <string> Optional. A mask of what source types to return. Defaults to READ_SOURCE_TYPE_CONTACT and READ_SOURCE_TYPE_PROFILE if not set."
   ([Person] (people-createContact Person nil))
   ([Person optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://people.googleapis.com/v1/people:createContact",
@@ -129,7 +129,7 @@ https://developers.google.com/people/v1/reference/rest/v1/people/batchDeleteCont
 BatchDeleteContactsRequest:
 BatchDeleteContactsRequest"
   [BatchDeleteContactsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://people.googleapis.com/v1/people:batchDeleteContacts",
@@ -149,7 +149,7 @@ personFields <string> Required. A field mask to restrict which fields on each pe
 sources <string> Optional. A mask of what source types to return. Defaults to READ_SOURCE_TYPE_CONTACT and READ_SOURCE_TYPE_PROFILE if not set."
   ([] (people-getBatchGet nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://people.googleapis.com/v1/people:batchGet",
@@ -176,7 +176,7 @@ https://developers.google.com/people/v1/reference/rest/v1/people/batchCreateCont
 BatchCreateContactsRequest:
 BatchCreateContactsRequest"
   [BatchCreateContactsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://people.googleapis.com/v1/people:batchCreateContacts",
@@ -191,7 +191,7 @@ https://developers.google.com/people/v1/reference/rest/v1/people/deleteContact
 
 resourceName <> "
   [resourceName]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://people.googleapis.com/v1/{+resourceName}:deleteContact",
@@ -211,7 +211,7 @@ personFields <string> Required. A field mask to restrict which fields on the per
 sources <string> Optional. A mask of what source types to return. Defaults to READ_SOURCE_TYPE_PROFILE and READ_SOURCE_TYPE_CONTACT if not set."
   ([resourceName] (people-get resourceName nil))
   ([resourceName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://people.googleapis.com/v1/{+resourceName}",
@@ -242,7 +242,7 @@ personFields <string> Optional. A field mask to restrict which fields on the per
 sources <string> Optional. A mask of what source types to return. Defaults to READ_SOURCE_TYPE_CONTACT and READ_SOURCE_TYPE_PROFILE if not set."
   ([resourceName] (people-deleteContactPhoto resourceName nil))
   ([resourceName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://people.googleapis.com/v1/{+resourceName}:deleteContactPhoto",
@@ -265,7 +265,7 @@ sources <string> Optional. A mask of what source types to return. Defaults to RE
   ([resourceName Person]
     (people-updateContact resourceName Person nil))
   ([resourceName Person optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://people.googleapis.com/v1/{+resourceName}:updateContact",
@@ -290,7 +290,7 @@ syncToken <string> Optional. A sync token, received from a previous response `ne
 sortOrder <string> Optional. The order in which the connections should be sorted. Defaults to `LAST_MODIFIED_ASCENDING`."
   ([resourceName] (people-connections-list resourceName nil))
   ([resourceName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://people.googleapis.com/v1/{+resourceName}/connections",
@@ -312,7 +312,7 @@ readMask <string> Required. A field mask to restrict which fields on each person
 sources <string> Optional. A mask of what source types to return. Defaults to READ_SOURCE_TYPE_CONTACT if not set. Possible values for this field are: * READ_SOURCE_TYPE_CONTACT * READ_SOURCE_TYPE_CONTACT,READ_SOURCE_TYPE_PROFILE Specifying READ_SOURCE_TYPE_PROFILE without specifying READ_SOURCE_TYPE_CONTACT is not permitted."
   ([] (otherContacts-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://people.googleapis.com/v1/otherContacts",
        :uri-template-args {},
@@ -328,7 +328,7 @@ resourceName <>
 CopyOtherContactToMyContactsGroupRequest:
 CopyOtherContactToMyContactsGroupRequest"
   [resourceName CopyOtherContactToMyContactsGroupRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://people.googleapis.com/v1/{+resourceName}:copyOtherContactToMyContactsGroup",
@@ -349,7 +349,7 @@ pageSize <integer> Optional. The number of results to return. Defaults to 10 if 
 readMask <string> Required. A field mask to restrict which fields on each person are returned. Multiple fields can be specified by separating them with commas. Valid values are: * emailAddresses * metadata * names * phoneNumbers"
   ([] (otherContacts-search nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://people.googleapis.com/v1/otherContacts:search",
@@ -368,7 +368,7 @@ maxMembers <integer> Optional. Specifies the maximum number of members to return
 groupFields <string> Optional. A field mask to restrict which fields on the group are returned. Defaults to `metadata`, `groupType`, `memberCount`, and `name` if not set or set to empty. Valid fields are: * clientData * groupType * memberCount * metadata * name"
   ([] (contactGroups-batchGet nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://people.googleapis.com/v1/contactGroups:batchGet",
@@ -385,7 +385,7 @@ https://developers.google.com/people/v1/reference/rest/v1/contactGroups/create
 CreateContactGroupRequest:
 CreateContactGroupRequest"
   [CreateContactGroupRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://people.googleapis.com/v1/contactGroups",
      :uri-template-args {},
@@ -403,7 +403,7 @@ optional:
 deleteContacts <boolean> Optional. Set to true to also delete the contacts in the specified group."
   ([resourceName] (contactGroups-delete resourceName nil))
   ([resourceName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://people.googleapis.com/v1/{+resourceName}",
@@ -422,7 +422,7 @@ maxMembers <integer> Optional. Specifies the maximum number of members to return
 groupFields <string> Optional. A field mask to restrict which fields on the group are returned. Defaults to `metadata`, `groupType`, `memberCount`, and `name` if not set or set to empty. Valid fields are: * clientData * groupType * memberCount * metadata * name"
   ([resourceName] (contactGroups-get resourceName nil))
   ([resourceName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://people.googleapis.com/v1/{+resourceName}",
@@ -442,7 +442,7 @@ syncToken <string> Optional. A sync token, returned by a previous call to `conta
 groupFields <string> Optional. A field mask to restrict which fields on the group are returned. Defaults to `metadata`, `groupType`, `memberCount`, and `name` if not set or set to empty. Valid fields are: * clientData * groupType * memberCount * metadata * name"
   ([] (contactGroups-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://people.googleapis.com/v1/contactGroups",
        :uri-template-args {},
@@ -459,7 +459,7 @@ resourceName <>
 UpdateContactGroupRequest:
 UpdateContactGroupRequest"
   [resourceName UpdateContactGroupRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template "https://people.googleapis.com/v1/{+resourceName}",
      :uri-template-args {"resourceName" resourceName},
@@ -475,7 +475,7 @@ resourceName <>
 ModifyContactGroupMembersRequest:
 ModifyContactGroupMembersRequest"
   [resourceName ModifyContactGroupMembersRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://people.googleapis.com/v1/{+resourceName}/members:modify",

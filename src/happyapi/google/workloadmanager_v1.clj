@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://workloadmanager.googleapis.com/v1/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/workload-manager/docs/v1/reference/rest/v1/projects/loc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://workloadmanager.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -47,7 +47,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://workloadmanager.googleapis.com/v1/{+name}/operations",
@@ -61,7 +61,7 @@ https://cloud.google.com/workload-manager/docs/v1/reference/rest/v1/projects/loc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://workloadmanager.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -74,7 +74,7 @@ https://cloud.google.com/workload-manager/docs/v1/reference/rest/v1/projects/loc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://workloadmanager.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -89,7 +89,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://workloadmanager.googleapis.com/v1/{+name}:cancel",
@@ -110,7 +110,7 @@ filter <string> Filter to be applied when listing the evaluation results.
 orderBy <string> Hint for how to order the results"
   ([parent] (projects-locations-evaluations-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://workloadmanager.googleapis.com/v1/{+parent}/evaluations",
@@ -124,7 +124,7 @@ https://cloud.google.com/workload-manager/docs/v1/reference/rest/v1/projects/loc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://workloadmanager.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -145,7 +145,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
   ([parent Evaluation]
     (projects-locations-evaluations-create parent Evaluation nil))
   ([parent Evaluation optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://workloadmanager.googleapis.com/v1/{+parent}/evaluations",
@@ -165,7 +165,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
 force <boolean> Optional. Followed the best practice from https://aip.dev/135#cascading-delete"
   ([name] (projects-locations-evaluations-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://workloadmanager.googleapis.com/v1/{+name}",
@@ -186,7 +186,7 @@ orderBy <string> Field to sort by. See https://google.aip.dev/132#ordering for m
   ([parent]
     (projects-locations-evaluations-executions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://workloadmanager.googleapis.com/v1/{+parent}/executions",
@@ -200,7 +200,7 @@ https://cloud.google.com/workload-manager/docs/v1/reference/rest/v1/projects/loc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://workloadmanager.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -215,7 +215,7 @@ name <>
 RunEvaluationRequest:
 RunEvaluationRequest"
   [name RunEvaluationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://workloadmanager.googleapis.com/v1/{+name}/executions:run",
@@ -234,7 +234,7 @@ optional:
 requestId <string> Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-evaluations-executions-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://workloadmanager.googleapis.com/v1/{+name}",
@@ -256,7 +256,7 @@ filter <string> Filtering results"
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://workloadmanager.googleapis.com/v1/{+parent}/results",
@@ -280,7 +280,7 @@ orderBy <string> Field to sort by. See https://google.aip.dev/132#ordering for m
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://workloadmanager.googleapis.com/v1/{+parent}/scannedResources",
@@ -300,7 +300,7 @@ filter <string> Filter based on primary_category, secondary_category
 customRulesBucket <string> The Cloud Storage bucket name for custom rules."
   ([parent] (projects-locations-rules-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://workloadmanager.googleapis.com/v1/{+parent}/rules",
@@ -316,7 +316,7 @@ location <>
 WriteInsightRequest:
 WriteInsightRequest"
   [location WriteInsightRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://workloadmanager.googleapis.com/v1/{+location}/insights:writeInsight",

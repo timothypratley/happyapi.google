@@ -15,7 +15,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://vault.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -30,7 +30,7 @@ https://developers.google.com/vault/v1/reference/rest/v1/operations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://vault.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -45,7 +45,7 @@ https://developers.google.com/vault/v1/reference/rest/v1/operations/delete
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://vault.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -60,7 +60,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://vault.googleapis.com/v1/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -76,7 +76,7 @@ matterId <>
 ReopenMatterRequest:
 ReopenMatterRequest"
   [matterId ReopenMatterRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vault.googleapis.com/v1/matters/{matterId}:reopen",
@@ -93,7 +93,7 @@ matterId <>
 RemoveMatterPermissionsRequest:
 RemoveMatterPermissionsRequest"
   [matterId RemoveMatterPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vault.googleapis.com/v1/matters/{matterId}:removePermissions",
@@ -112,7 +112,7 @@ view <string> Specifies how much information about the matter to return in respo
 state <string> If set, lists only matters with the specified state. The default lists matters of all states."
   ([] (matters-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://vault.googleapis.com/v1/matters",
        :uri-template-args {},
@@ -127,7 +127,7 @@ https://developers.google.com/vault/v1/reference/rest/v1/matters/delete
 
 matterId <> "
   [matterId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://vault.googleapis.com/v1/matters/{matterId}",
@@ -143,7 +143,7 @@ matterId <>
 UndeleteMatterRequest:
 UndeleteMatterRequest"
   [matterId UndeleteMatterRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vault.googleapis.com/v1/matters/{matterId}:undelete",
@@ -160,7 +160,7 @@ matterId <>
 AddMatterPermissionsRequest:
 AddMatterPermissionsRequest"
   [matterId AddMatterPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vault.googleapis.com/v1/matters/{matterId}:addPermissions",
@@ -177,7 +177,7 @@ matterId <>
 CountArtifactsRequest:
 CountArtifactsRequest"
   [matterId CountArtifactsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vault.googleapis.com/v1/matters/{matterId}:count",
@@ -194,7 +194,7 @@ matterId <>
 Matter:
 Matter"
   [matterId Matter]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://vault.googleapis.com/v1/matters/{matterId}",
@@ -211,7 +211,7 @@ matterId <>
 CloseMatterRequest:
 CloseMatterRequest"
   [matterId CloseMatterRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vault.googleapis.com/v1/matters/{matterId}:close",
@@ -227,7 +227,7 @@ https://developers.google.com/vault/v1/reference/rest/v1/matters/create
 Matter:
 Matter"
   [Matter]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://vault.googleapis.com/v1/matters",
      :uri-template-args {},
@@ -245,7 +245,7 @@ optional:
 view <string> Specifies how much information about the matter to return in the response."
   ([matterId] (matters-get matterId nil))
   ([matterId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vault.googleapis.com/v1/matters/{matterId}",
@@ -263,7 +263,7 @@ matterId <>
 Export:
 Export"
   [matterId Export]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vault.googleapis.com/v1/matters/{matterId}/exports",
@@ -279,7 +279,7 @@ https://developers.google.com/vault/v1/reference/rest/v1/matters/exports/delete
 matterId <> 
 exportId <> "
   [matterId exportId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://vault.googleapis.com/v1/matters/{matterId}/exports/{exportId}",
@@ -294,7 +294,7 @@ https://developers.google.com/vault/v1/reference/rest/v1/matters/exports/get
 matterId <> 
 exportId <> "
   [matterId exportId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://vault.googleapis.com/v1/matters/{matterId}/exports/{exportId}",
@@ -314,7 +314,7 @@ optional:
 pageSize <integer> The number of exports to return in the response."
   ([matterId] (matters-exports-list matterId nil))
   ([matterId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vault.googleapis.com/v1/matters/{matterId}/exports",
@@ -332,7 +332,7 @@ matterId <>
 Hold:
 Hold"
   [matterId Hold]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vault.googleapis.com/v1/matters/{matterId}/holds",
@@ -350,7 +350,7 @@ holdId <>
 Hold:
 Hold"
   [matterId holdId Hold]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://vault.googleapis.com/v1/matters/{matterId}/holds/{holdId}",
@@ -366,7 +366,7 @@ https://developers.google.com/vault/v1/reference/rest/v1/matters/holds/delete
 matterId <> 
 holdId <> "
   [matterId holdId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://vault.googleapis.com/v1/matters/{matterId}/holds/{holdId}",
@@ -385,7 +385,7 @@ optional:
 view <string> The amount of detail to return for a hold."
   ([matterId holdId] (matters-holds-get matterId holdId nil))
   ([matterId holdId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vault.googleapis.com/v1/matters/{matterId}/holds/{holdId}",
@@ -406,7 +406,7 @@ pageSize <integer> The number of holds to return in the response, between 0 and 
 view <string> The amount of detail to return for a hold."
   ([matterId] (matters-holds-list matterId nil))
   ([matterId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vault.googleapis.com/v1/matters/{matterId}/holds",
@@ -425,7 +425,7 @@ holdId <>
 AddHeldAccountsRequest:
 AddHeldAccountsRequest"
   [matterId holdId AddHeldAccountsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vault.googleapis.com/v1/matters/{matterId}/holds/{holdId}:addHeldAccounts",
@@ -443,7 +443,7 @@ holdId <>
 RemoveHeldAccountsRequest:
 RemoveHeldAccountsRequest"
   [matterId holdId RemoveHeldAccountsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vault.googleapis.com/v1/matters/{matterId}/holds/{holdId}:removeHeldAccounts",
@@ -461,7 +461,7 @@ holdId <>
 HeldAccount:
 HeldAccount"
   [matterId holdId HeldAccount]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vault.googleapis.com/v1/matters/{matterId}/holds/{holdId}/accounts",
@@ -478,7 +478,7 @@ matterId <>
 holdId <> 
 accountId <> "
   [matterId holdId accountId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://vault.googleapis.com/v1/matters/{matterId}/holds/{holdId}/accounts/{accountId}",
@@ -494,7 +494,7 @@ https://developers.google.com/vault/v1/reference/rest/v1/matters/holds/accounts/
 matterId <> 
 holdId <> "
   [matterId holdId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://vault.googleapis.com/v1/matters/{matterId}/holds/{holdId}/accounts",
@@ -512,7 +512,7 @@ matterId <>
 SavedQuery:
 SavedQuery"
   [matterId SavedQuery]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://vault.googleapis.com/v1/matters/{matterId}/savedQueries",
@@ -528,7 +528,7 @@ https://developers.google.com/vault/v1/reference/rest/v1/matters/savedQueries/de
 matterId <> 
 savedQueryId <> "
   [matterId savedQueryId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://vault.googleapis.com/v1/matters/{matterId}/savedQueries/{savedQueryId}",
@@ -544,7 +544,7 @@ https://developers.google.com/vault/v1/reference/rest/v1/matters/savedQueries/ge
 matterId <> 
 savedQueryId <> "
   [matterId savedQueryId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://vault.googleapis.com/v1/matters/{matterId}/savedQueries/{savedQueryId}",
@@ -565,7 +565,7 @@ optional:
 pageSize <integer> The maximum number of saved queries to return."
   ([matterId] (matters-savedQueries-list matterId nil))
   ([matterId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://vault.googleapis.com/v1/matters/{matterId}/savedQueries",

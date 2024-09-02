@@ -12,7 +12,7 @@ optional:
 pageSize <integer> Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results might be available."
   ([] (monitoredResourceDescriptors-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/monitoredResourceDescriptors",
@@ -35,7 +35,7 @@ pageSize <integer> Optional. The maximum number of results to return from this r
 filter <string> Optional. A filter expression to constrain the sinks returned. Today, this only supports the following strings: '' 'in_scope(\"ALL\")', 'in_scope(\"ANCESTOR\")', 'in_scope(\"DEFAULT\")'.Description of scopes below. ALL: Includes all of the sinks which can be returned in any other scope. ANCESTOR: Includes intercepting sinks owned by ancestor resources. DEFAULT: Includes sinks owned by parent.When the empty string is provided, then the filter 'in_scope(\"DEFAULT\")' is applied."
   ([parent] (sinks-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/sinks",
@@ -53,7 +53,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/sinks/get
 
 sinkName <> "
   [sinkName]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+sinkName}",
      :uri-template-args {"sinkName" sinkName},
@@ -77,7 +77,7 @@ uniqueWriterIdentity <boolean> Optional. Determines the kind of IAM identity ret
 customWriterIdentity <string> Optional. The service account provided by the caller that will be used to write the log entries. The format must be serviceAccount:some@email. This field can only be specified when you are routing logs to a log bucket that is in a different project than the sink. When not specified, a Logging service account will automatically be generated."
   ([parent LogSink] (sinks-create parent LogSink nil))
   ([parent LogSink optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/sinks",
@@ -102,7 +102,7 @@ customWriterIdentity <string> Optional. The service account provided by the call
 updateMask <string> Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask. name and output only fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility purposes:destination,filter,includeChildrenAt some point in the future, behavior will be removed and specifying an empty updateMask will be an error.For a detailed FieldMask definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskFor example: updateMask=filter"
   ([sinkName LogSink] (sinks-update sinkName LogSink nil))
   ([sinkName LogSink optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template "https://logging.googleapis.com/v2/{+sinkName}",
        :uri-template-args {"sinkName" sinkName},
@@ -118,7 +118,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/sinks/delete
 
 sinkName <> "
   [sinkName]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+sinkName}",
      :uri-template-args {"sinkName" sinkName},
@@ -138,7 +138,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+name}/locations",
@@ -156,7 +156,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/locations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -178,7 +178,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+name}/operations",
@@ -196,7 +196,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/locations/operations/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -215,7 +215,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://logging.googleapis.com/v2/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -235,7 +235,7 @@ optional:
 pageSize <integer> Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results might be available."
   ([parent] (locations-buckets-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/buckets",
@@ -253,7 +253,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/locations/buckets/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -277,7 +277,7 @@ bucketId <string> Required. A client-assigned identifier such as \"my-bucket\". 
   ([parent LogBucket]
     (locations-buckets-createAsync parent LogBucket nil))
   ([parent LogBucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/buckets:createAsync",
@@ -300,7 +300,7 @@ optional:
 updateMask <string> Required. Field mask that specifies the fields in bucket that need an update. A bucket field will be overwritten if, and only if, it is in the update mask. name and output only fields cannot be updated.For a detailed FieldMask definition, see: https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskFor example: updateMask=retention_days"
   ([name LogBucket] (locations-buckets-updateAsync name LogBucket nil))
   ([name LogBucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+name}:updateAsync",
@@ -323,7 +323,7 @@ optional:
 bucketId <string> Required. A client-assigned identifier such as \"my-bucket\". Identifiers are limited to 100 characters and can include only letters, digits, underscores, hyphens, and periods. Bucket identifiers must start with an alphanumeric character."
   ([parent LogBucket] (locations-buckets-create parent LogBucket nil))
   ([parent LogBucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/buckets",
@@ -346,7 +346,7 @@ optional:
 updateMask <string> Required. Field mask that specifies the fields in bucket that need an update. A bucket field will be overwritten if, and only if, it is in the update mask. name and output only fields cannot be updated.For a detailed FieldMask definition, see: https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskFor example: updateMask=retention_days"
   ([name LogBucket] (locations-buckets-patch name LogBucket nil))
   ([name LogBucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://logging.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -362,7 +362,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/locations/buckets/del
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -379,7 +379,7 @@ name <>
 UndeleteBucketRequest:
 UndeleteBucketRequest"
   [name UndeleteBucketRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://logging.googleapis.com/v2/{+name}:undelete",
@@ -398,7 +398,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://logging.googleapis.com/v2/{+resource}:setIamPolicy",
@@ -417,7 +417,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://logging.googleapis.com/v2/{+resource}:getIamPolicy",
@@ -438,7 +438,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://logging.googleapis.com/v2/{+resource}:testIamPermissions",
@@ -461,7 +461,7 @@ optional:
 pageSize <integer> Optional. The maximum number of results to return from this request.Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results might be available."
   ([parent] (locations-buckets-views-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/views",
@@ -479,7 +479,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/locations/buckets/vie
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -503,7 +503,7 @@ viewId <string> Required. A client-assigned identifier such as \"my-view\". Iden
   ([parent LogView]
     (locations-buckets-views-create parent LogView nil))
   ([parent LogView optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/views",
@@ -526,7 +526,7 @@ optional:
 updateMask <string> Optional. Field mask that specifies the fields in view that need an update. A field will be overwritten if, and only if, it is in the update mask. name and output only fields cannot be updated.For a detailed FieldMask definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskFor example: updateMask=filter"
   ([name LogView] (locations-buckets-views-patch name LogView nil))
   ([name LogView optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://logging.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -542,7 +542,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/locations/buckets/vie
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -561,7 +561,7 @@ optional:
 pageSize <integer> Optional. The maximum number of results to return from this request."
   ([parent] (locations-buckets-links-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/links",
@@ -579,7 +579,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/locations/buckets/lin
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -602,7 +602,7 @@ optional:
 linkId <string> Required. The ID to use for the link. The link_id can have up to 100 characters. A valid link_id must only have alphanumeric characters and underscores within it."
   ([parent Link] (locations-buckets-links-create parent Link nil))
   ([parent Link optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/links",
@@ -619,7 +619,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/locations/buckets/lin
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -634,7 +634,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/logs/delete
 
 logName <> "
   [logName]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+logName}",
      :uri-template-args {"logName" logName},
@@ -654,7 +654,7 @@ resourceNames <string> Optional. List of resource names to list logs for: projec
 pageSize <integer> Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results might be available."
   ([parent] (logs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/logs",
@@ -676,7 +676,7 @@ optional:
 pageSize <integer> Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results might be available."
   ([parent] (exclusions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/exclusions",
@@ -694,7 +694,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/exclusions/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -713,7 +713,7 @@ parent <>
 LogExclusion:
 LogExclusion"
   [parent LogExclusion]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://logging.googleapis.com/v2/{+parent}/exclusions",
@@ -736,7 +736,7 @@ optional:
 updateMask <string> Required. A non-empty list of fields to change in the existing exclusion. New values for the fields are taken from the corresponding fields in the LogExclusion included in this request. Fields not mentioned in update_mask are not changed and are ignored in the request.For example, to change the filter and description of an exclusion, specify an update_mask of \"filter,description\"."
   ([name LogExclusion] (exclusions-patch name LogExclusion nil))
   ([name LogExclusion optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://logging.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -752,7 +752,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/exclusions/delete
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -767,7 +767,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/folders/getCmekSettin
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://logging.googleapis.com/v2/{+name}/cmekSettings",
@@ -785,7 +785,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/folders/getSettings
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://logging.googleapis.com/v2/{+name}/settings",
@@ -809,7 +809,7 @@ optional:
 updateMask <string> Optional. Field mask identifying which fields from settings should be updated. A field will be overwritten if and only if it is in the update mask. Output only fields cannot be updated.See FieldMask for more information.For example: \"updateMask=kmsKeyName\""
   ([name Settings] (folders-updateSettings name Settings nil))
   ([name Settings optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://logging.googleapis.com/v2/{+name}/settings",
@@ -831,7 +831,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (folders-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+name}/locations",
@@ -849,7 +849,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/folders/locations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -871,7 +871,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (folders-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+name}/operations",
@@ -889,7 +889,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/folders/locations/ope
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -908,7 +908,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://logging.googleapis.com/v2/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -928,7 +928,7 @@ optional:
 pageSize <integer> Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results might be available."
   ([parent] (folders-locations-buckets-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/buckets",
@@ -946,7 +946,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/folders/locations/buc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -970,7 +970,7 @@ bucketId <string> Required. A client-assigned identifier such as \"my-bucket\". 
   ([parent LogBucket]
     (folders-locations-buckets-createAsync parent LogBucket nil))
   ([parent LogBucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/buckets:createAsync",
@@ -994,7 +994,7 @@ updateMask <string> Required. Field mask that specifies the fields in bucket tha
   ([name LogBucket]
     (folders-locations-buckets-updateAsync name LogBucket nil))
   ([name LogBucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+name}:updateAsync",
@@ -1018,7 +1018,7 @@ bucketId <string> Required. A client-assigned identifier such as \"my-bucket\". 
   ([parent LogBucket]
     (folders-locations-buckets-create parent LogBucket nil))
   ([parent LogBucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/buckets",
@@ -1042,7 +1042,7 @@ updateMask <string> Required. Field mask that specifies the fields in bucket tha
   ([name LogBucket]
     (folders-locations-buckets-patch name LogBucket nil))
   ([name LogBucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://logging.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -1058,7 +1058,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/folders/locations/buc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -1075,7 +1075,7 @@ name <>
 UndeleteBucketRequest:
 UndeleteBucketRequest"
   [name UndeleteBucketRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://logging.googleapis.com/v2/{+name}:undelete",
@@ -1094,7 +1094,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://logging.googleapis.com/v2/{+resource}:setIamPolicy",
@@ -1113,7 +1113,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://logging.googleapis.com/v2/{+resource}:getIamPolicy",
@@ -1134,7 +1134,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://logging.googleapis.com/v2/{+resource}:testIamPermissions",
@@ -1157,7 +1157,7 @@ optional:
 pageSize <integer> Optional. The maximum number of results to return from this request.Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results might be available."
   ([parent] (folders-locations-buckets-views-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/views",
@@ -1175,7 +1175,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/folders/locations/buc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -1199,7 +1199,7 @@ viewId <string> Required. A client-assigned identifier such as \"my-view\". Iden
   ([parent LogView]
     (folders-locations-buckets-views-create parent LogView nil))
   ([parent LogView optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/views",
@@ -1223,7 +1223,7 @@ updateMask <string> Optional. Field mask that specifies the fields in view that 
   ([name LogView]
     (folders-locations-buckets-views-patch name LogView nil))
   ([name LogView optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://logging.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -1239,7 +1239,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/folders/locations/buc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -1259,7 +1259,7 @@ resourceNames <string> Optional. List of resource names to list logs for: projec
 pageSize <integer> Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results might be available."
   ([parent] (folders-locations-buckets-views-logs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/logs",
@@ -1281,7 +1281,7 @@ optional:
 pageSize <integer> Optional. The maximum number of results to return from this request."
   ([parent] (folders-locations-buckets-links-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/links",
@@ -1299,7 +1299,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/folders/locations/buc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -1323,7 +1323,7 @@ linkId <string> Required. The ID to use for the link. The link_id can have up to
   ([parent Link]
     (folders-locations-buckets-links-create parent Link nil))
   ([parent Link optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/links",
@@ -1340,7 +1340,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/folders/locations/buc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -1360,7 +1360,7 @@ pageSize <integer> Optional. The maximum number of results to return from this r
 filter <string> Optional. Specifies the type (\"Logging\" or \"OpsAnalytics\") and the visibility (PRIVATE or SHARED) of the saved queries to list. If provided, the filter must contain either the type function or a visibility token, or both. If both are chosen, they can be placed in any order, but they must be joined by the AND operator or the empty character.The two supported type function calls are: type(\"Logging\") type(\"OpsAnalytics\")The two supported visibility tokens are: visibility = PRIVATE visibility = SHAREDFor example:type(\"Logging\") AND visibility = PRIVATE visibility=SHARED type(\"OpsAnalytics\") type(\"OpsAnalytics)\" visibility = PRIVATE visibility = SHARED"
   ([parent] (folders-locations-savedQueries-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/savedQueries",
@@ -1378,7 +1378,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/folders/locations/sav
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -1402,7 +1402,7 @@ savedQueryId <string> Optional. The ID to use for the saved query, which will be
   ([parent SavedQuery]
     (folders-locations-savedQueries-create parent SavedQuery nil))
   ([parent SavedQuery optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/savedQueries",
@@ -1426,7 +1426,7 @@ updateMask <string> Required. A non-empty list of fields to change in the existi
   ([name SavedQuery]
     (folders-locations-savedQueries-patch name SavedQuery nil))
   ([name SavedQuery optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://logging.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -1442,7 +1442,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/folders/locations/sav
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -1462,7 +1462,7 @@ pageSize <integer> Optional. The maximum number of results to return from this r
 filter <string> Optional. Specifies the type (\"Logging\" or \"OpsAnalytics\") of the recent queries to list. The only valid value for this field is one of the two allowable type function calls, which are the following: type(\"Logging\") type(\"OpsAnalytics\")"
   ([parent] (folders-locations-recentQueries-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/recentQueries",
@@ -1484,7 +1484,7 @@ optional:
 pageSize <integer> Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results might be available."
   ([parent] (folders-exclusions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/exclusions",
@@ -1502,7 +1502,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/folders/exclusions/ge
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -1521,7 +1521,7 @@ parent <>
 LogExclusion:
 LogExclusion"
   [parent LogExclusion]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://logging.googleapis.com/v2/{+parent}/exclusions",
@@ -1545,7 +1545,7 @@ updateMask <string> Required. A non-empty list of fields to change in the existi
   ([name LogExclusion]
     (folders-exclusions-patch name LogExclusion nil))
   ([name LogExclusion optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://logging.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -1561,7 +1561,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/folders/exclusions/de
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -1581,7 +1581,7 @@ pageSize <integer> Optional. The maximum number of results to return from this r
 filter <string> Optional. A filter expression to constrain the sinks returned. Today, this only supports the following strings: '' 'in_scope(\"ALL\")', 'in_scope(\"ANCESTOR\")', 'in_scope(\"DEFAULT\")'.Description of scopes below. ALL: Includes all of the sinks which can be returned in any other scope. ANCESTOR: Includes intercepting sinks owned by ancestor resources. DEFAULT: Includes sinks owned by parent.When the empty string is provided, then the filter 'in_scope(\"DEFAULT\")' is applied."
   ([parent] (folders-sinks-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/sinks",
@@ -1599,7 +1599,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/folders/sinks/get
 
 sinkName <> "
   [sinkName]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+sinkName}",
      :uri-template-args {"sinkName" sinkName},
@@ -1623,7 +1623,7 @@ uniqueWriterIdentity <boolean> Optional. Determines the kind of IAM identity ret
 customWriterIdentity <string> Optional. The service account provided by the caller that will be used to write the log entries. The format must be serviceAccount:some@email. This field can only be specified when you are routing logs to a log bucket that is in a different project than the sink. When not specified, a Logging service account will automatically be generated."
   ([parent LogSink] (folders-sinks-create parent LogSink nil))
   ([parent LogSink optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/sinks",
@@ -1648,7 +1648,7 @@ customWriterIdentity <string> Optional. The service account provided by the call
 updateMask <string> Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask. name and output only fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility purposes:destination,filter,includeChildrenAt some point in the future, behavior will be removed and specifying an empty updateMask will be an error.For a detailed FieldMask definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskFor example: updateMask=filter"
   ([sinkName LogSink] (folders-sinks-update sinkName LogSink nil))
   ([sinkName LogSink optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template "https://logging.googleapis.com/v2/{+sinkName}",
        :uri-template-args {"sinkName" sinkName},
@@ -1672,7 +1672,7 @@ customWriterIdentity <string> Optional. The service account provided by the call
 updateMask <string> Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask. name and output only fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility purposes:destination,filter,includeChildrenAt some point in the future, behavior will be removed and specifying an empty updateMask will be an error.For a detailed FieldMask definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskFor example: updateMask=filter"
   ([sinkName LogSink] (folders-sinks-patch sinkName LogSink nil))
   ([sinkName LogSink optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://logging.googleapis.com/v2/{+sinkName}",
        :uri-template-args {"sinkName" sinkName},
@@ -1688,7 +1688,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/folders/sinks/delete
 
 sinkName <> "
   [sinkName]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+sinkName}",
      :uri-template-args {"sinkName" sinkName},
@@ -1703,7 +1703,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/folders/logs/delete
 
 logName <> "
   [logName]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+logName}",
      :uri-template-args {"logName" logName},
@@ -1723,7 +1723,7 @@ resourceNames <string> Optional. List of resource names to list logs for: projec
 pageSize <integer> Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results might be available."
   ([parent] (folders-logs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/logs",
@@ -1742,7 +1742,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/entries/copy
 CopyLogEntriesRequest:
 CopyLogEntriesRequest"
   [CopyLogEntriesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://logging.googleapis.com/v2/entries:copy",
      :uri-template-args {},
@@ -1759,7 +1759,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/entries/write
 WriteLogEntriesRequest:
 WriteLogEntriesRequest"
   [WriteLogEntriesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://logging.googleapis.com/v2/entries:write",
      :uri-template-args {},
@@ -1777,7 +1777,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/entries/list
 ListLogEntriesRequest:
 ListLogEntriesRequest"
   [ListLogEntriesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://logging.googleapis.com/v2/entries:list",
      :uri-template-args {},
@@ -1796,7 +1796,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/entries/tail
 TailLogEntriesRequest:
 TailLogEntriesRequest"
   [TailLogEntriesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://logging.googleapis.com/v2/entries:tail",
      :uri-template-args {},
@@ -1814,7 +1814,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/organizations/getCmek
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://logging.googleapis.com/v2/{+name}/cmekSettings",
@@ -1839,7 +1839,7 @@ updateMask <string> Optional. Field mask identifying which fields from cmek_sett
   ([name CmekSettings]
     (organizations-updateCmekSettings name CmekSettings nil))
   ([name CmekSettings optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://logging.googleapis.com/v2/{+name}/cmekSettings",
@@ -1856,7 +1856,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/organizations/getSett
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://logging.googleapis.com/v2/{+name}/settings",
@@ -1880,7 +1880,7 @@ optional:
 updateMask <string> Optional. Field mask identifying which fields from settings should be updated. A field will be overwritten if and only if it is in the update mask. Output only fields cannot be updated.See FieldMask for more information.For example: \"updateMask=kmsKeyName\""
   ([name Settings] (organizations-updateSettings name Settings nil))
   ([name Settings optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://logging.googleapis.com/v2/{+name}/settings",
@@ -1902,7 +1902,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (organizations-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+name}/locations",
@@ -1920,7 +1920,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/organizations/locatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -1942,7 +1942,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (organizations-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+name}/operations",
@@ -1960,7 +1960,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/organizations/locatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -1979,7 +1979,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://logging.googleapis.com/v2/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -1999,7 +1999,7 @@ optional:
 pageSize <integer> Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results might be available."
   ([parent] (organizations-locations-buckets-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/buckets",
@@ -2017,7 +2017,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/organizations/locatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -2041,7 +2041,7 @@ bucketId <string> Required. A client-assigned identifier such as \"my-bucket\". 
   ([parent LogBucket]
     (organizations-locations-buckets-createAsync parent LogBucket nil))
   ([parent LogBucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/buckets:createAsync",
@@ -2065,7 +2065,7 @@ updateMask <string> Required. Field mask that specifies the fields in bucket tha
   ([name LogBucket]
     (organizations-locations-buckets-updateAsync name LogBucket nil))
   ([name LogBucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+name}:updateAsync",
@@ -2089,7 +2089,7 @@ bucketId <string> Required. A client-assigned identifier such as \"my-bucket\". 
   ([parent LogBucket]
     (organizations-locations-buckets-create parent LogBucket nil))
   ([parent LogBucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/buckets",
@@ -2113,7 +2113,7 @@ updateMask <string> Required. Field mask that specifies the fields in bucket tha
   ([name LogBucket]
     (organizations-locations-buckets-patch name LogBucket nil))
   ([name LogBucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://logging.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -2129,7 +2129,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/organizations/locatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -2146,7 +2146,7 @@ name <>
 UndeleteBucketRequest:
 UndeleteBucketRequest"
   [name UndeleteBucketRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://logging.googleapis.com/v2/{+name}:undelete",
@@ -2165,7 +2165,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://logging.googleapis.com/v2/{+resource}:setIamPolicy",
@@ -2184,7 +2184,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://logging.googleapis.com/v2/{+resource}:getIamPolicy",
@@ -2205,7 +2205,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://logging.googleapis.com/v2/{+resource}:testIamPermissions",
@@ -2228,7 +2228,7 @@ optional:
 pageSize <integer> Optional. The maximum number of results to return from this request.Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results might be available."
   ([parent] (organizations-locations-buckets-views-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/views",
@@ -2246,7 +2246,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/organizations/locatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -2270,7 +2270,7 @@ viewId <string> Required. A client-assigned identifier such as \"my-view\". Iden
   ([parent LogView]
     (organizations-locations-buckets-views-create parent LogView nil))
   ([parent LogView optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/views",
@@ -2294,7 +2294,7 @@ updateMask <string> Optional. Field mask that specifies the fields in view that 
   ([name LogView]
     (organizations-locations-buckets-views-patch name LogView nil))
   ([name LogView optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://logging.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -2310,7 +2310,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/organizations/locatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -2331,7 +2331,7 @@ pageSize <integer> Optional. The maximum number of results to return from this r
   ([parent]
     (organizations-locations-buckets-views-logs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/logs",
@@ -2353,7 +2353,7 @@ optional:
 pageSize <integer> Optional. The maximum number of results to return from this request."
   ([parent] (organizations-locations-buckets-links-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/links",
@@ -2371,7 +2371,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/organizations/locatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -2395,7 +2395,7 @@ linkId <string> Required. The ID to use for the link. The link_id can have up to
   ([parent Link]
     (organizations-locations-buckets-links-create parent Link nil))
   ([parent Link optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/links",
@@ -2412,7 +2412,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/organizations/locatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -2432,7 +2432,7 @@ pageSize <integer> Optional. The maximum number of results to return from this r
 filter <string> Optional. Specifies the type (\"Logging\" or \"OpsAnalytics\") and the visibility (PRIVATE or SHARED) of the saved queries to list. If provided, the filter must contain either the type function or a visibility token, or both. If both are chosen, they can be placed in any order, but they must be joined by the AND operator or the empty character.The two supported type function calls are: type(\"Logging\") type(\"OpsAnalytics\")The two supported visibility tokens are: visibility = PRIVATE visibility = SHAREDFor example:type(\"Logging\") AND visibility = PRIVATE visibility=SHARED type(\"OpsAnalytics\") type(\"OpsAnalytics)\" visibility = PRIVATE visibility = SHARED"
   ([parent] (organizations-locations-savedQueries-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/savedQueries",
@@ -2450,7 +2450,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/organizations/locatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -2477,7 +2477,7 @@ savedQueryId <string> Optional. The ID to use for the saved query, which will be
       SavedQuery
       nil))
   ([parent SavedQuery optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/savedQueries",
@@ -2501,7 +2501,7 @@ updateMask <string> Required. A non-empty list of fields to change in the existi
   ([name SavedQuery]
     (organizations-locations-savedQueries-patch name SavedQuery nil))
   ([name SavedQuery optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://logging.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -2517,7 +2517,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/organizations/locatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -2537,7 +2537,7 @@ pageSize <integer> Optional. The maximum number of results to return from this r
 filter <string> Optional. Specifies the type (\"Logging\" or \"OpsAnalytics\") of the recent queries to list. The only valid value for this field is one of the two allowable type function calls, which are the following: type(\"Logging\") type(\"OpsAnalytics\")"
   ([parent] (organizations-locations-recentQueries-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/recentQueries",
@@ -2559,7 +2559,7 @@ optional:
 pageSize <integer> Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results might be available."
   ([parent] (organizations-exclusions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/exclusions",
@@ -2577,7 +2577,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/organizations/exclusi
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -2596,7 +2596,7 @@ parent <>
 LogExclusion:
 LogExclusion"
   [parent LogExclusion]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://logging.googleapis.com/v2/{+parent}/exclusions",
@@ -2620,7 +2620,7 @@ updateMask <string> Required. A non-empty list of fields to change in the existi
   ([name LogExclusion]
     (organizations-exclusions-patch name LogExclusion nil))
   ([name LogExclusion optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://logging.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -2636,7 +2636,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/organizations/exclusi
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -2656,7 +2656,7 @@ pageSize <integer> Optional. The maximum number of results to return from this r
 filter <string> Optional. A filter expression to constrain the sinks returned. Today, this only supports the following strings: '' 'in_scope(\"ALL\")', 'in_scope(\"ANCESTOR\")', 'in_scope(\"DEFAULT\")'.Description of scopes below. ALL: Includes all of the sinks which can be returned in any other scope. ANCESTOR: Includes intercepting sinks owned by ancestor resources. DEFAULT: Includes sinks owned by parent.When the empty string is provided, then the filter 'in_scope(\"DEFAULT\")' is applied."
   ([parent] (organizations-sinks-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/sinks",
@@ -2674,7 +2674,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/organizations/sinks/g
 
 sinkName <> "
   [sinkName]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+sinkName}",
      :uri-template-args {"sinkName" sinkName},
@@ -2698,7 +2698,7 @@ uniqueWriterIdentity <boolean> Optional. Determines the kind of IAM identity ret
 customWriterIdentity <string> Optional. The service account provided by the caller that will be used to write the log entries. The format must be serviceAccount:some@email. This field can only be specified when you are routing logs to a log bucket that is in a different project than the sink. When not specified, a Logging service account will automatically be generated."
   ([parent LogSink] (organizations-sinks-create parent LogSink nil))
   ([parent LogSink optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/sinks",
@@ -2724,7 +2724,7 @@ updateMask <string> Optional. Field mask that specifies the fields in sink that 
   ([sinkName LogSink]
     (organizations-sinks-update sinkName LogSink nil))
   ([sinkName LogSink optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template "https://logging.googleapis.com/v2/{+sinkName}",
        :uri-template-args {"sinkName" sinkName},
@@ -2748,7 +2748,7 @@ customWriterIdentity <string> Optional. The service account provided by the call
 updateMask <string> Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask. name and output only fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility purposes:destination,filter,includeChildrenAt some point in the future, behavior will be removed and specifying an empty updateMask will be an error.For a detailed FieldMask definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskFor example: updateMask=filter"
   ([sinkName LogSink] (organizations-sinks-patch sinkName LogSink nil))
   ([sinkName LogSink optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://logging.googleapis.com/v2/{+sinkName}",
        :uri-template-args {"sinkName" sinkName},
@@ -2764,7 +2764,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/organizations/sinks/d
 
 sinkName <> "
   [sinkName]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+sinkName}",
      :uri-template-args {"sinkName" sinkName},
@@ -2779,7 +2779,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/organizations/logs/de
 
 logName <> "
   [logName]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+logName}",
      :uri-template-args {"logName" logName},
@@ -2799,7 +2799,7 @@ resourceNames <string> Optional. List of resource names to list logs for: projec
 pageSize <integer> Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results might be available."
   ([parent] (organizations-logs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/logs",
@@ -2817,7 +2817,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/projects/getCmekSetti
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://logging.googleapis.com/v2/{+name}/cmekSettings",
@@ -2835,7 +2835,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/projects/getSettings
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://logging.googleapis.com/v2/{+name}/settings",
@@ -2858,7 +2858,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+name}/locations",
@@ -2876,7 +2876,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/projects/locations/ge
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -2898,7 +2898,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+name}/operations",
@@ -2916,7 +2916,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/projects/locations/op
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -2935,7 +2935,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://logging.googleapis.com/v2/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -2955,7 +2955,7 @@ optional:
 pageSize <integer> Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results might be available."
   ([parent] (projects-locations-buckets-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/buckets",
@@ -2973,7 +2973,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/projects/locations/bu
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -2997,7 +2997,7 @@ bucketId <string> Required. A client-assigned identifier such as \"my-bucket\". 
   ([parent LogBucket]
     (projects-locations-buckets-createAsync parent LogBucket nil))
   ([parent LogBucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/buckets:createAsync",
@@ -3021,7 +3021,7 @@ updateMask <string> Required. Field mask that specifies the fields in bucket tha
   ([name LogBucket]
     (projects-locations-buckets-updateAsync name LogBucket nil))
   ([name LogBucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+name}:updateAsync",
@@ -3045,7 +3045,7 @@ bucketId <string> Required. A client-assigned identifier such as \"my-bucket\". 
   ([parent LogBucket]
     (projects-locations-buckets-create parent LogBucket nil))
   ([parent LogBucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/buckets",
@@ -3069,7 +3069,7 @@ updateMask <string> Required. Field mask that specifies the fields in bucket tha
   ([name LogBucket]
     (projects-locations-buckets-patch name LogBucket nil))
   ([name LogBucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://logging.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -3085,7 +3085,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/projects/locations/bu
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -3102,7 +3102,7 @@ name <>
 UndeleteBucketRequest:
 UndeleteBucketRequest"
   [name UndeleteBucketRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://logging.googleapis.com/v2/{+name}:undelete",
@@ -3121,7 +3121,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://logging.googleapis.com/v2/{+resource}:setIamPolicy",
@@ -3140,7 +3140,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://logging.googleapis.com/v2/{+resource}:getIamPolicy",
@@ -3161,7 +3161,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://logging.googleapis.com/v2/{+resource}:testIamPermissions",
@@ -3184,7 +3184,7 @@ optional:
 pageSize <integer> Optional. The maximum number of results to return from this request.Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results might be available."
   ([parent] (projects-locations-buckets-views-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/views",
@@ -3202,7 +3202,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/projects/locations/bu
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -3226,7 +3226,7 @@ viewId <string> Required. A client-assigned identifier such as \"my-view\". Iden
   ([parent LogView]
     (projects-locations-buckets-views-create parent LogView nil))
   ([parent LogView optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/views",
@@ -3250,7 +3250,7 @@ updateMask <string> Optional. Field mask that specifies the fields in view that 
   ([name LogView]
     (projects-locations-buckets-views-patch name LogView nil))
   ([name LogView optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://logging.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -3266,7 +3266,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/projects/locations/bu
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -3286,7 +3286,7 @@ resourceNames <string> Optional. List of resource names to list logs for: projec
 pageSize <integer> Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results might be available."
   ([parent] (projects-locations-buckets-views-logs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/logs",
@@ -3308,7 +3308,7 @@ optional:
 pageSize <integer> Optional. The maximum number of results to return from this request."
   ([parent] (projects-locations-buckets-links-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/links",
@@ -3326,7 +3326,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/projects/locations/bu
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -3350,7 +3350,7 @@ linkId <string> Required. The ID to use for the link. The link_id can have up to
   ([parent Link]
     (projects-locations-buckets-links-create parent Link nil))
   ([parent Link optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/links",
@@ -3367,7 +3367,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/projects/locations/bu
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -3387,7 +3387,7 @@ pageSize <integer> Optional. The maximum number of results to return from this r
 filter <string> Optional. Specifies the type (\"Logging\" or \"OpsAnalytics\") and the visibility (PRIVATE or SHARED) of the saved queries to list. If provided, the filter must contain either the type function or a visibility token, or both. If both are chosen, they can be placed in any order, but they must be joined by the AND operator or the empty character.The two supported type function calls are: type(\"Logging\") type(\"OpsAnalytics\")The two supported visibility tokens are: visibility = PRIVATE visibility = SHAREDFor example:type(\"Logging\") AND visibility = PRIVATE visibility=SHARED type(\"OpsAnalytics\") type(\"OpsAnalytics)\" visibility = PRIVATE visibility = SHARED"
   ([parent] (projects-locations-savedQueries-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/savedQueries",
@@ -3405,7 +3405,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/projects/locations/sa
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -3429,7 +3429,7 @@ savedQueryId <string> Optional. The ID to use for the saved query, which will be
   ([parent SavedQuery]
     (projects-locations-savedQueries-create parent SavedQuery nil))
   ([parent SavedQuery optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/savedQueries",
@@ -3453,7 +3453,7 @@ updateMask <string> Required. A non-empty list of fields to change in the existi
   ([name SavedQuery]
     (projects-locations-savedQueries-patch name SavedQuery nil))
   ([name SavedQuery optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://logging.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -3469,7 +3469,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/projects/locations/sa
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -3489,7 +3489,7 @@ pageSize <integer> Optional. The maximum number of results to return from this r
 filter <string> Optional. Specifies the type (\"Logging\" or \"OpsAnalytics\") of the recent queries to list. The only valid value for this field is one of the two allowable type function calls, which are the following: type(\"Logging\") type(\"OpsAnalytics\")"
   ([parent] (projects-locations-recentQueries-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/recentQueries",
@@ -3511,7 +3511,7 @@ optional:
 pageSize <integer> Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results might be available."
   ([parent] (projects-exclusions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/exclusions",
@@ -3529,7 +3529,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/projects/exclusions/g
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -3548,7 +3548,7 @@ parent <>
 LogExclusion:
 LogExclusion"
   [parent LogExclusion]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://logging.googleapis.com/v2/{+parent}/exclusions",
@@ -3572,7 +3572,7 @@ updateMask <string> Required. A non-empty list of fields to change in the existi
   ([name LogExclusion]
     (projects-exclusions-patch name LogExclusion nil))
   ([name LogExclusion optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://logging.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -3588,7 +3588,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/projects/exclusions/d
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -3608,7 +3608,7 @@ pageSize <integer> Optional. The maximum number of results to return from this r
 filter <string> Optional. A filter expression to constrain the sinks returned. Today, this only supports the following strings: '' 'in_scope(\"ALL\")', 'in_scope(\"ANCESTOR\")', 'in_scope(\"DEFAULT\")'.Description of scopes below. ALL: Includes all of the sinks which can be returned in any other scope. ANCESTOR: Includes intercepting sinks owned by ancestor resources. DEFAULT: Includes sinks owned by parent.When the empty string is provided, then the filter 'in_scope(\"DEFAULT\")' is applied."
   ([parent] (projects-sinks-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/sinks",
@@ -3626,7 +3626,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/projects/sinks/get
 
 sinkName <> "
   [sinkName]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+sinkName}",
      :uri-template-args {"sinkName" sinkName},
@@ -3650,7 +3650,7 @@ uniqueWriterIdentity <boolean> Optional. Determines the kind of IAM identity ret
 customWriterIdentity <string> Optional. The service account provided by the caller that will be used to write the log entries. The format must be serviceAccount:some@email. This field can only be specified when you are routing logs to a log bucket that is in a different project than the sink. When not specified, a Logging service account will automatically be generated."
   ([parent LogSink] (projects-sinks-create parent LogSink nil))
   ([parent LogSink optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/sinks",
@@ -3675,7 +3675,7 @@ customWriterIdentity <string> Optional. The service account provided by the call
 updateMask <string> Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask. name and output only fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility purposes:destination,filter,includeChildrenAt some point in the future, behavior will be removed and specifying an empty updateMask will be an error.For a detailed FieldMask definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskFor example: updateMask=filter"
   ([sinkName LogSink] (projects-sinks-update sinkName LogSink nil))
   ([sinkName LogSink optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template "https://logging.googleapis.com/v2/{+sinkName}",
        :uri-template-args {"sinkName" sinkName},
@@ -3699,7 +3699,7 @@ customWriterIdentity <string> Optional. The service account provided by the call
 updateMask <string> Optional. Field mask that specifies the fields in sink that need an update. A sink field will be overwritten if, and only if, it is in the update mask. name and output only fields cannot be updated.An empty updateMask is temporarily treated as using the following mask for backwards compatibility purposes:destination,filter,includeChildrenAt some point in the future, behavior will be removed and specifying an empty updateMask will be an error.For a detailed FieldMask definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskFor example: updateMask=filter"
   ([sinkName LogSink] (projects-sinks-patch sinkName LogSink nil))
   ([sinkName LogSink optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://logging.googleapis.com/v2/{+sinkName}",
        :uri-template-args {"sinkName" sinkName},
@@ -3715,7 +3715,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/projects/sinks/delete
 
 sinkName <> "
   [sinkName]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+sinkName}",
      :uri-template-args {"sinkName" sinkName},
@@ -3730,7 +3730,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/projects/logs/delete
 
 logName <> "
   [logName]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+logName}",
      :uri-template-args {"logName" logName},
@@ -3750,7 +3750,7 @@ resourceNames <string> Optional. List of resource names to list logs for: projec
 pageSize <integer> Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results might be available."
   ([parent] (projects-logs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/logs",
@@ -3772,7 +3772,7 @@ optional:
 pageSize <integer> Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results might be available."
   ([parent] (projects-metrics-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/metrics",
@@ -3790,7 +3790,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/projects/metrics/get
 
 metricName <> "
   [metricName]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+metricName}",
      :uri-template-args {"metricName" metricName},
@@ -3809,7 +3809,7 @@ parent <>
 LogMetric:
 LogMetric"
   [parent LogMetric]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://logging.googleapis.com/v2/{+parent}/metrics",
@@ -3829,7 +3829,7 @@ metricName <>
 LogMetric:
 LogMetric"
   [metricName LogMetric]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template "https://logging.googleapis.com/v2/{+metricName}",
      :uri-template-args {"metricName" metricName},
@@ -3846,7 +3846,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/projects/metrics/dele
 
 metricName <> "
   [metricName]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+metricName}",
      :uri-template-args {"metricName" metricName},
@@ -3862,7 +3862,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/billingAccounts/getCm
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://logging.googleapis.com/v2/{+name}/cmekSettings",
@@ -3880,7 +3880,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/billingAccounts/getSe
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://logging.googleapis.com/v2/{+name}/settings",
@@ -3903,7 +3903,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (billingAccounts-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+name}/locations",
@@ -3921,7 +3921,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/billingAccounts/locat
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -3943,7 +3943,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (billingAccounts-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+name}/operations",
@@ -3961,7 +3961,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/billingAccounts/locat
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -3980,7 +3980,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://logging.googleapis.com/v2/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -4000,7 +4000,7 @@ optional:
 pageSize <integer> Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results might be available."
   ([parent] (billingAccounts-locations-buckets-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/buckets",
@@ -4018,7 +4018,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/billingAccounts/locat
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -4045,7 +4045,7 @@ bucketId <string> Required. A client-assigned identifier such as \"my-bucket\". 
       LogBucket
       nil))
   ([parent LogBucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/buckets:createAsync",
@@ -4069,7 +4069,7 @@ updateMask <string> Required. Field mask that specifies the fields in bucket tha
   ([name LogBucket]
     (billingAccounts-locations-buckets-updateAsync name LogBucket nil))
   ([name LogBucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+name}:updateAsync",
@@ -4093,7 +4093,7 @@ bucketId <string> Required. A client-assigned identifier such as \"my-bucket\". 
   ([parent LogBucket]
     (billingAccounts-locations-buckets-create parent LogBucket nil))
   ([parent LogBucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/buckets",
@@ -4117,7 +4117,7 @@ updateMask <string> Required. Field mask that specifies the fields in bucket tha
   ([name LogBucket]
     (billingAccounts-locations-buckets-patch name LogBucket nil))
   ([name LogBucket optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://logging.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -4133,7 +4133,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/billingAccounts/locat
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -4150,7 +4150,7 @@ name <>
 UndeleteBucketRequest:
 UndeleteBucketRequest"
   [name UndeleteBucketRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://logging.googleapis.com/v2/{+name}:undelete",
@@ -4171,7 +4171,7 @@ optional:
 pageSize <integer> Optional. The maximum number of results to return from this request.Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results might be available."
   ([parent] (billingAccounts-locations-buckets-views-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/views",
@@ -4189,7 +4189,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/billingAccounts/locat
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -4216,7 +4216,7 @@ viewId <string> Required. A client-assigned identifier such as \"my-view\". Iden
       LogView
       nil))
   ([parent LogView optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/views",
@@ -4240,7 +4240,7 @@ updateMask <string> Optional. Field mask that specifies the fields in view that 
   ([name LogView]
     (billingAccounts-locations-buckets-views-patch name LogView nil))
   ([name LogView optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://logging.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -4256,7 +4256,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/billingAccounts/locat
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -4277,7 +4277,7 @@ pageSize <integer> Optional. The maximum number of results to return from this r
   ([parent]
     (billingAccounts-locations-buckets-views-logs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/logs",
@@ -4299,7 +4299,7 @@ optional:
 pageSize <integer> Optional. The maximum number of results to return from this request."
   ([parent] (billingAccounts-locations-buckets-links-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/links",
@@ -4317,7 +4317,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/billingAccounts/locat
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -4341,7 +4341,7 @@ linkId <string> Required. The ID to use for the link. The link_id can have up to
   ([parent Link]
     (billingAccounts-locations-buckets-links-create parent Link nil))
   ([parent Link optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/links",
@@ -4358,7 +4358,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/billingAccounts/locat
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -4378,7 +4378,7 @@ pageSize <integer> Optional. The maximum number of results to return from this r
 filter <string> Optional. Specifies the type (\"Logging\" or \"OpsAnalytics\") and the visibility (PRIVATE or SHARED) of the saved queries to list. If provided, the filter must contain either the type function or a visibility token, or both. If both are chosen, they can be placed in any order, but they must be joined by the AND operator or the empty character.The two supported type function calls are: type(\"Logging\") type(\"OpsAnalytics\")The two supported visibility tokens are: visibility = PRIVATE visibility = SHAREDFor example:type(\"Logging\") AND visibility = PRIVATE visibility=SHARED type(\"OpsAnalytics\") type(\"OpsAnalytics)\" visibility = PRIVATE visibility = SHARED"
   ([parent] (billingAccounts-locations-savedQueries-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/savedQueries",
@@ -4396,7 +4396,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/billingAccounts/locat
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -4423,7 +4423,7 @@ savedQueryId <string> Optional. The ID to use for the saved query, which will be
       SavedQuery
       nil))
   ([parent SavedQuery optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/savedQueries",
@@ -4447,7 +4447,7 @@ updateMask <string> Required. A non-empty list of fields to change in the existi
   ([name SavedQuery]
     (billingAccounts-locations-savedQueries-patch name SavedQuery nil))
   ([name SavedQuery optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://logging.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -4463,7 +4463,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/billingAccounts/locat
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -4483,7 +4483,7 @@ pageSize <integer> Optional. The maximum number of results to return from this r
 filter <string> Optional. Specifies the type (\"Logging\" or \"OpsAnalytics\") of the recent queries to list. The only valid value for this field is one of the two allowable type function calls, which are the following: type(\"Logging\") type(\"OpsAnalytics\")"
   ([parent] (billingAccounts-locations-recentQueries-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/recentQueries",
@@ -4505,7 +4505,7 @@ optional:
 pageSize <integer> Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results might be available."
   ([parent] (billingAccounts-exclusions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/exclusions",
@@ -4523,7 +4523,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/billingAccounts/exclu
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -4542,7 +4542,7 @@ parent <>
 LogExclusion:
 LogExclusion"
   [parent LogExclusion]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://logging.googleapis.com/v2/{+parent}/exclusions",
@@ -4566,7 +4566,7 @@ updateMask <string> Required. A non-empty list of fields to change in the existi
   ([name LogExclusion]
     (billingAccounts-exclusions-patch name LogExclusion nil))
   ([name LogExclusion optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://logging.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -4582,7 +4582,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/billingAccounts/exclu
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -4602,7 +4602,7 @@ pageSize <integer> Optional. The maximum number of results to return from this r
 filter <string> Optional. A filter expression to constrain the sinks returned. Today, this only supports the following strings: '' 'in_scope(\"ALL\")', 'in_scope(\"ANCESTOR\")', 'in_scope(\"DEFAULT\")'.Description of scopes below. ALL: Includes all of the sinks which can be returned in any other scope. ANCESTOR: Includes intercepting sinks owned by ancestor resources. DEFAULT: Includes sinks owned by parent.When the empty string is provided, then the filter 'in_scope(\"DEFAULT\")' is applied."
   ([parent] (billingAccounts-sinks-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/sinks",
@@ -4620,7 +4620,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/billingAccounts/sinks
 
 sinkName <> "
   [sinkName]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://logging.googleapis.com/v2/{+sinkName}",
      :uri-template-args {"sinkName" sinkName},
@@ -4644,7 +4644,7 @@ uniqueWriterIdentity <boolean> Optional. Determines the kind of IAM identity ret
 customWriterIdentity <string> Optional. The service account provided by the caller that will be used to write the log entries. The format must be serviceAccount:some@email. This field can only be specified when you are routing logs to a log bucket that is in a different project than the sink. When not specified, a Logging service account will automatically be generated."
   ([parent LogSink] (billingAccounts-sinks-create parent LogSink nil))
   ([parent LogSink optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/sinks",
@@ -4670,7 +4670,7 @@ updateMask <string> Optional. Field mask that specifies the fields in sink that 
   ([sinkName LogSink]
     (billingAccounts-sinks-update sinkName LogSink nil))
   ([sinkName LogSink optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template "https://logging.googleapis.com/v2/{+sinkName}",
        :uri-template-args {"sinkName" sinkName},
@@ -4695,7 +4695,7 @@ updateMask <string> Optional. Field mask that specifies the fields in sink that 
   ([sinkName LogSink]
     (billingAccounts-sinks-patch sinkName LogSink nil))
   ([sinkName LogSink optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://logging.googleapis.com/v2/{+sinkName}",
        :uri-template-args {"sinkName" sinkName},
@@ -4711,7 +4711,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/billingAccounts/sinks
 
 sinkName <> "
   [sinkName]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+sinkName}",
      :uri-template-args {"sinkName" sinkName},
@@ -4726,7 +4726,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/billingAccounts/logs/
 
 logName <> "
   [logName]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://logging.googleapis.com/v2/{+logName}",
      :uri-template-args {"logName" logName},
@@ -4746,7 +4746,7 @@ resourceNames <string> Optional. List of resource names to list logs for: projec
 pageSize <integer> Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results might be available."
   ([parent] (billingAccounts-logs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://logging.googleapis.com/v2/{+parent}/logs",
@@ -4764,7 +4764,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/getCmekSettings
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://logging.googleapis.com/v2/{+name}/cmekSettings",
@@ -4788,7 +4788,7 @@ optional:
 updateMask <string> Optional. Field mask identifying which fields from cmek_settings should be updated. A field will be overwritten if and only if it is in the update mask. Output only fields cannot be updated.See FieldMask for more information.For example: \"updateMask=kmsKeyName\""
   ([name CmekSettings] (updateCmekSettings name CmekSettings nil))
   ([name CmekSettings optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://logging.googleapis.com/v2/{+name}/cmekSettings",
@@ -4805,7 +4805,7 @@ https://cloud.google.com/logging/docs/v2/reference/rest/v2/getSettings
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://logging.googleapis.com/v2/{+name}/settings",
@@ -4829,7 +4829,7 @@ optional:
 updateMask <string> Optional. Field mask identifying which fields from settings should be updated. A field will be overwritten if and only if it is in the update mask. Output only fields cannot be updated.See FieldMask for more information.For example: \"updateMask=kmsKeyName\""
   ([name Settings] (updateSettings name Settings nil))
   ([name Settings optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://logging.googleapis.com/v2/{+name}/settings",

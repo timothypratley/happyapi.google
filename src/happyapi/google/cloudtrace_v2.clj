@@ -12,7 +12,7 @@ name <>
 BatchWriteSpansRequest:
 BatchWriteSpansRequest"
   [name BatchWriteSpansRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudtrace.googleapis.com/v2/{+name}/traces:batchWrite",
@@ -31,7 +31,7 @@ name <>
 Span:
 Span"
   [name Span]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://cloudtrace.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},

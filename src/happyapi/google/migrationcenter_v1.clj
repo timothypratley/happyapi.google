@@ -10,7 +10,7 @@ https://cloud.google.com/migration-center/docs/v1/reference/rest/v1/projects/loc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://migrationcenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -31,7 +31,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
   ([name Settings]
     (projects-locations-updateSettings name Settings nil))
   ([name Settings optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+name}",
@@ -51,7 +51,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+name}/locations",
@@ -65,7 +65,7 @@ https://cloud.google.com/migration-center/docs/v1/reference/rest/v1/projects/loc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://migrationcenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -83,7 +83,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+name}/operations",
@@ -97,7 +97,7 @@ https://cloud.google.com/migration-center/docs/v1/reference/rest/v1/projects/loc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://migrationcenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -110,7 +110,7 @@ https://cloud.google.com/migration-center/docs/v1/reference/rest/v1/projects/loc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://migrationcenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -125,7 +125,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://migrationcenter.googleapis.com/v1/{+name}:cancel",
@@ -147,7 +147,7 @@ orderBy <string> Field to sort by. See https://google.aip.dev/132#ordering for m
 view <string> View of the assets. Defaults to BASIC."
   ([parent] (projects-locations-assets-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+parent}/assets",
@@ -165,7 +165,7 @@ optional:
 view <string> View of the assets. Defaults to BASIC."
   ([name] (projects-locations-assets-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+name}",
@@ -186,7 +186,7 @@ updateMask <string> Required. Field mask is used to specify the fields to be ove
 requestId <string> Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name Asset] (projects-locations-assets-patch name Asset nil))
   ([name Asset optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+name}",
@@ -203,7 +203,7 @@ parent <>
 BatchUpdateAssetsRequest:
 BatchUpdateAssetsRequest"
   [parent BatchUpdateAssetsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://migrationcenter.googleapis.com/v1/{+parent}/assets:batchUpdate",
@@ -222,7 +222,7 @@ optional:
 requestId <string> Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-assets-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+name}",
@@ -238,7 +238,7 @@ parent <>
 BatchDeleteAssetsRequest:
 BatchDeleteAssetsRequest"
   [parent BatchDeleteAssetsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://migrationcenter.googleapis.com/v1/{+parent}/assets:batchDelete",
@@ -260,7 +260,7 @@ source <string> Required. Reference to a source."
   ([parent Frames]
     (projects-locations-assets-reportAssetFrames parent Frames nil))
   ([parent Frames optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+parent}/assets:reportAssetFrames",
@@ -277,7 +277,7 @@ parent <>
 AggregateAssetsValuesRequest:
 AggregateAssetsValuesRequest"
   [parent AggregateAssetsValuesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://migrationcenter.googleapis.com/v1/{+parent}/assets:aggregateValues",
@@ -300,7 +300,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
   ([parent ImportJob]
     (projects-locations-importJobs-create parent ImportJob nil))
   ([parent ImportJob optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+parent}/importJobs",
@@ -322,7 +322,7 @@ orderBy <string> Field to sort by. See https://google.aip.dev/132#ordering for m
 view <string> Optional. The level of details of each import job. Default value is BASIC."
   ([parent] (projects-locations-importJobs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+parent}/importJobs",
@@ -340,7 +340,7 @@ optional:
 view <string> Optional. The level of details of the import job. Default value is FULL."
   ([name] (projects-locations-importJobs-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+name}",
@@ -359,7 +359,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
 force <boolean> Optional. If set to `true`, any `ImportDataFiles` of this job will also be deleted If set to `false`, the request only works if the job has no data files."
   ([name] (projects-locations-importJobs-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+name}",
@@ -381,7 +381,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
   ([name ImportJob]
     (projects-locations-importJobs-patch name ImportJob nil))
   ([name ImportJob optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+name}",
@@ -398,7 +398,7 @@ name <>
 ValidateImportJobRequest:
 ValidateImportJobRequest"
   [name ValidateImportJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://migrationcenter.googleapis.com/v1/{+name}:validate",
@@ -415,7 +415,7 @@ name <>
 RunImportJobRequest:
 RunImportJobRequest"
   [name RunImportJobRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://migrationcenter.googleapis.com/v1/{+name}:run",
@@ -430,7 +430,7 @@ https://cloud.google.com/migration-center/docs/v1/reference/rest/v1/projects/loc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://migrationcenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -450,7 +450,7 @@ orderBy <string> Field to sort by. See https://google.aip.dev/132#ordering for m
   ([parent]
     (projects-locations-importJobs-importDataFiles-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+parent}/importDataFiles",
@@ -475,7 +475,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
       ImportDataFile
       nil))
   ([parent ImportDataFile optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+parent}/importDataFiles",
@@ -495,7 +495,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
   ([name]
     (projects-locations-importJobs-importDataFiles-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+name}",
@@ -515,7 +515,7 @@ filter <string> Filtering results.
 orderBy <string> Field to sort by. See https://google.aip.dev/132#ordering for more details."
   ([parent] (projects-locations-groups-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+parent}/groups",
@@ -529,7 +529,7 @@ https://cloud.google.com/migration-center/docs/v1/reference/rest/v1/projects/loc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://migrationcenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -549,7 +549,7 @@ groupId <string> Required. User specified ID for the group. It will become the l
 requestId <string> Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([parent Group] (projects-locations-groups-create parent Group nil))
   ([parent Group optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+parent}/groups",
@@ -571,7 +571,7 @@ updateMask <string> Required. Field mask is used to specify the fields to be ove
 requestId <string> Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name Group] (projects-locations-groups-patch name Group nil))
   ([name Group optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+name}",
@@ -590,7 +590,7 @@ optional:
 requestId <string> Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-groups-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+name}",
@@ -606,7 +606,7 @@ group <>
 AddAssetsToGroupRequest:
 AddAssetsToGroupRequest"
   [group AddAssetsToGroupRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://migrationcenter.googleapis.com/v1/{+group}:addAssets",
@@ -623,7 +623,7 @@ group <>
 RemoveAssetsFromGroupRequest:
 RemoveAssetsFromGroupRequest"
   [group RemoveAssetsFromGroupRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://migrationcenter.googleapis.com/v1/{+group}:removeAssets",
@@ -644,7 +644,7 @@ filter <string> Filtering results.
 orderBy <string> Field to sort by. See https://google.aip.dev/132#ordering for more details."
   ([parent] (projects-locations-sources-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+parent}/sources",
@@ -658,7 +658,7 @@ https://cloud.google.com/migration-center/docs/v1/reference/rest/v1/projects/loc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://migrationcenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -679,7 +679,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
   ([parent Source]
     (projects-locations-sources-create parent Source nil))
   ([parent Source optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+parent}/sources",
@@ -701,7 +701,7 @@ updateMask <string> Required. Field mask is used to specify the fields to be ove
 requestId <string> Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name Source] (projects-locations-sources-patch name Source nil))
   ([name Source optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+name}",
@@ -720,7 +720,7 @@ optional:
 requestId <string> Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-sources-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+name}",
@@ -739,7 +739,7 @@ pageSize <integer> Requested page size. Server may return fewer items than reque
 view <string> Optional. An optional view mode to control the level of details of each error frame. The default is a BASIC frame view."
   ([parent] (projects-locations-sources-errorFrames-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+parent}/errorFrames",
@@ -757,7 +757,7 @@ optional:
 view <string> Optional. An optional view mode to control the level of details for the frame. The default is a basic frame view."
   ([name] (projects-locations-sources-errorFrames-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+name}",
@@ -776,7 +776,7 @@ pageSize <integer> Requested page size. Server may return fewer items than reque
 orderBy <string> Field to sort by. See https://google.aip.dev/132#ordering for more details."
   ([parent] (projects-locations-preferenceSets-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+parent}/preferenceSets",
@@ -790,7 +790,7 @@ https://cloud.google.com/migration-center/docs/v1/reference/rest/v1/projects/loc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://migrationcenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -814,7 +814,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
       PreferenceSet
       nil))
   ([parent PreferenceSet optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+parent}/preferenceSets",
@@ -837,7 +837,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
   ([name PreferenceSet]
     (projects-locations-preferenceSets-patch name PreferenceSet nil))
   ([name PreferenceSet optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+name}",
@@ -856,7 +856,7 @@ optional:
 requestId <string> Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-preferenceSets-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+name}",
@@ -878,7 +878,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
   ([parent ReportConfig]
     (projects-locations-reportConfigs-create parent ReportConfig nil))
   ([parent ReportConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+parent}/reportConfigs",
@@ -893,7 +893,7 @@ https://cloud.google.com/migration-center/docs/v1/reference/rest/v1/projects/loc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://migrationcenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -912,7 +912,7 @@ filter <string> Filtering results.
 orderBy <string> Field to sort by. See https://google.aip.dev/132#ordering for more details."
   ([parent] (projects-locations-reportConfigs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+parent}/reportConfigs",
@@ -931,7 +931,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
 force <boolean> Optional. If set to `true`, any child `Reports` of this entity will also be deleted. If set to `false`, the request only works if the resource has no children."
   ([name] (projects-locations-reportConfigs-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+name}",
@@ -956,7 +956,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
       Report
       nil))
   ([parent Report optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+parent}/reports",
@@ -975,7 +975,7 @@ optional:
 view <string> Determines what information to retrieve for the Report."
   ([name] (projects-locations-reportConfigs-reports-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+name}",
@@ -996,7 +996,7 @@ orderBy <string> Field to sort by. See https://google.aip.dev/132#ordering for m
 view <string> Determines what information to retrieve for each Report."
   ([parent] (projects-locations-reportConfigs-reports-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+parent}/reports",
@@ -1014,7 +1014,7 @@ optional:
 requestId <string> Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-reportConfigs-reports-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+name}",
@@ -1039,7 +1039,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
       DiscoveryClient
       nil))
   ([parent DiscoveryClient optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+parent}/discoveryClients",
@@ -1054,7 +1054,7 @@ https://cloud.google.com/migration-center/docs/v1/reference/rest/v1/projects/loc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://migrationcenter.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1073,7 +1073,7 @@ filter <string> Optional. Filter expression to filter results by.
 orderBy <string> Optional. Field to sort by."
   ([parent] (projects-locations-discoveryClients-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+parent}/discoveryClients",
@@ -1098,7 +1098,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
       DiscoveryClient
       nil))
   ([name DiscoveryClient optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+name}",
@@ -1115,7 +1115,7 @@ name <>
 SendDiscoveryClientHeartbeatRequest:
 SendDiscoveryClientHeartbeatRequest"
   [name SendDiscoveryClientHeartbeatRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://migrationcenter.googleapis.com/v1/{+name}:sendHeartbeat",
@@ -1134,7 +1134,7 @@ optional:
 requestId <string> Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-discoveryClients-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://migrationcenter.googleapis.com/v1/{+name}",

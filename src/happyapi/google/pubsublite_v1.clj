@@ -15,7 +15,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (admin-projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://pubsublite.googleapis.com/v1/admin/{+name}/operations",
@@ -29,7 +29,7 @@ https://cloud.google.com/pubsub/lite/docs/v1/reference/rest/v1/admin/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://pubsublite.googleapis.com/v1/admin/{+name}",
@@ -43,7 +43,7 @@ https://cloud.google.com/pubsub/lite/docs/v1/reference/rest/v1/admin/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://pubsublite.googleapis.com/v1/admin/{+name}",
@@ -59,7 +59,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://pubsublite.googleapis.com/v1/admin/{+name}:cancel",
@@ -81,7 +81,7 @@ topicId <string> Required. The ID to use for the topic, which will become the fi
   ([parent Topic]
     (admin-projects-locations-topics-create parent Topic nil))
   ([parent Topic optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://pubsublite.googleapis.com/v1/admin/{+parent}/topics",
@@ -96,7 +96,7 @@ https://cloud.google.com/pubsub/lite/docs/v1/reference/rest/v1/admin/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://pubsublite.googleapis.com/v1/admin/{+name}",
@@ -110,7 +110,7 @@ https://cloud.google.com/pubsub/lite/docs/v1/reference/rest/v1/admin/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://pubsublite.googleapis.com/v1/admin/{+name}/partitions",
@@ -128,7 +128,7 @@ optional:
 pageSize <integer> The maximum number of topics to return. The service may return fewer than this value. If unset or zero, all topics for the parent will be returned."
   ([parent] (admin-projects-locations-topics-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://pubsublite.googleapis.com/v1/admin/{+parent}/topics",
@@ -148,7 +148,7 @@ optional:
 updateMask <string> Required. A mask specifying the topic fields to change."
   ([name Topic] (admin-projects-locations-topics-patch name Topic nil))
   ([name Topic optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://pubsublite.googleapis.com/v1/admin/{+name}",
@@ -163,7 +163,7 @@ https://cloud.google.com/pubsub/lite/docs/v1/reference/rest/v1/admin/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://pubsublite.googleapis.com/v1/admin/{+name}",
@@ -182,7 +182,7 @@ pageSize <integer> The maximum number of subscriptions to return. The service ma
   ([name]
     (admin-projects-locations-topics-subscriptions-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://pubsublite.googleapis.com/v1/admin/{+name}/subscriptions",
@@ -207,7 +207,7 @@ skipBacklog <boolean> If true, the newly created subscription will only receive 
       Subscription
       nil))
   ([parent Subscription optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://pubsublite.googleapis.com/v1/admin/{+parent}/subscriptions",
@@ -222,7 +222,7 @@ https://cloud.google.com/pubsub/lite/docs/v1/reference/rest/v1/admin/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://pubsublite.googleapis.com/v1/admin/{+name}",
@@ -240,7 +240,7 @@ optional:
 pageSize <integer> The maximum number of subscriptions to return. The service may return fewer than this value. If unset or zero, all subscriptions for the parent will be returned."
   ([parent] (admin-projects-locations-subscriptions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://pubsublite.googleapis.com/v1/admin/{+parent}/subscriptions",
@@ -264,7 +264,7 @@ updateMask <string> Required. A mask specifying the subscription fields to chang
       Subscription
       nil))
   ([name Subscription optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://pubsublite.googleapis.com/v1/admin/{+name}",
@@ -279,7 +279,7 @@ https://cloud.google.com/pubsub/lite/docs/v1/reference/rest/v1/admin/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://pubsublite.googleapis.com/v1/admin/{+name}",
@@ -295,7 +295,7 @@ name <>
 SeekSubscriptionRequest:
 SeekSubscriptionRequest"
   [name SeekSubscriptionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://pubsublite.googleapis.com/v1/admin/{+name}:seek",
@@ -320,7 +320,7 @@ reservationId <string> Required. The ID to use for the reservation, which will b
       Reservation
       nil))
   ([parent Reservation optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://pubsublite.googleapis.com/v1/admin/{+parent}/reservations",
@@ -335,7 +335,7 @@ https://cloud.google.com/pubsub/lite/docs/v1/reference/rest/v1/admin/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://pubsublite.googleapis.com/v1/admin/{+name}",
@@ -353,7 +353,7 @@ optional:
 pageSize <integer> The maximum number of reservations to return. The service may return fewer than this value. If unset or zero, all reservations for the parent will be returned."
   ([parent] (admin-projects-locations-reservations-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://pubsublite.googleapis.com/v1/admin/{+parent}/reservations",
@@ -374,7 +374,7 @@ updateMask <string> Required. A mask specifying the reservation fields to change
   ([name Reservation]
     (admin-projects-locations-reservations-patch name Reservation nil))
   ([name Reservation optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://pubsublite.googleapis.com/v1/admin/{+name}",
@@ -389,7 +389,7 @@ https://cloud.google.com/pubsub/lite/docs/v1/reference/rest/v1/admin/projects/lo
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://pubsublite.googleapis.com/v1/admin/{+name}",
@@ -407,7 +407,7 @@ optional:
 pageSize <integer> The maximum number of topics to return. The service may return fewer than this value. If unset or zero, all topics for the given reservation will be returned."
   ([name] (admin-projects-locations-reservations-topics-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://pubsublite.googleapis.com/v1/admin/{+name}/topics",
@@ -423,7 +423,7 @@ subscription <>
 CommitCursorRequest:
 CommitCursorRequest"
   [subscription CommitCursorRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://pubsublite.googleapis.com/v1/cursor/{+subscription}:commitCursor",
@@ -443,7 +443,7 @@ pageSize <integer> The maximum number of cursors to return. The service may retu
   ([parent]
     (cursor-projects-locations-subscriptions-cursors-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://pubsublite.googleapis.com/v1/cursor/{+parent}/cursors",
@@ -459,7 +459,7 @@ topic <>
 ComputeMessageStatsRequest:
 ComputeMessageStatsRequest"
   [topic ComputeMessageStatsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://pubsublite.googleapis.com/v1/topicStats/{+topic}:computeMessageStats",
@@ -476,7 +476,7 @@ topic <>
 ComputeHeadCursorRequest:
 ComputeHeadCursorRequest"
   [topic ComputeHeadCursorRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://pubsublite.googleapis.com/v1/topicStats/{+topic}:computeHeadCursor",
@@ -493,7 +493,7 @@ topic <>
 ComputeTimeCursorRequest:
 ComputeTimeCursorRequest"
   [topic ComputeTimeCursorRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://pubsublite.googleapis.com/v1/topicStats/{+topic}:computeTimeCursor",

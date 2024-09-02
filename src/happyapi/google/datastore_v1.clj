@@ -12,7 +12,7 @@ projectId <>
 RunAggregationQueryRequest:
 RunAggregationQueryRequest"
   [projectId RunAggregationQueryRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datastore.googleapis.com/v1/projects/{projectId}:runAggregationQuery",
@@ -31,7 +31,7 @@ projectId <>
 ReserveIdsRequest:
 ReserveIdsRequest"
   [projectId ReserveIdsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datastore.googleapis.com/v1/projects/{projectId}:reserveIds",
@@ -50,7 +50,7 @@ projectId <>
 GoogleDatastoreAdminV1ExportEntitiesRequest:
 GoogleDatastoreAdminV1ExportEntitiesRequest"
   [projectId GoogleDatastoreAdminV1ExportEntitiesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datastore.googleapis.com/v1/projects/{projectId}:export",
@@ -69,7 +69,7 @@ projectId <>
 AllocateIdsRequest:
 AllocateIdsRequest"
   [projectId AllocateIdsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datastore.googleapis.com/v1/projects/{projectId}:allocateIds",
@@ -88,7 +88,7 @@ projectId <>
 LookupRequest:
 LookupRequest"
   [projectId LookupRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datastore.googleapis.com/v1/projects/{projectId}:lookup",
@@ -107,7 +107,7 @@ projectId <>
 CommitRequest:
 CommitRequest"
   [projectId CommitRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datastore.googleapis.com/v1/projects/{projectId}:commit",
@@ -126,7 +126,7 @@ projectId <>
 GoogleDatastoreAdminV1ImportEntitiesRequest:
 GoogleDatastoreAdminV1ImportEntitiesRequest"
   [projectId GoogleDatastoreAdminV1ImportEntitiesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datastore.googleapis.com/v1/projects/{projectId}:import",
@@ -145,7 +145,7 @@ projectId <>
 RollbackRequest:
 RollbackRequest"
   [projectId RollbackRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datastore.googleapis.com/v1/projects/{projectId}:rollback",
@@ -164,7 +164,7 @@ projectId <>
 BeginTransactionRequest:
 BeginTransactionRequest"
   [projectId BeginTransactionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datastore.googleapis.com/v1/projects/{projectId}:beginTransaction",
@@ -183,7 +183,7 @@ projectId <>
 RunQueryRequest:
 RunQueryRequest"
   [projectId RunQueryRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datastore.googleapis.com/v1/projects/{projectId}:runQuery",
@@ -205,7 +205,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datastore.googleapis.com/v1/{+name}/operations",
@@ -221,7 +221,7 @@ https://cloud.google.com/products/datastore/v1/reference/rest/v1/projects/operat
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://datastore.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -236,7 +236,7 @@ https://cloud.google.com/products/datastore/v1/reference/rest/v1/projects/operat
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://datastore.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -251,7 +251,7 @@ https://cloud.google.com/products/datastore/v1/reference/rest/v1/projects/operat
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datastore.googleapis.com/v1/{+name}:cancel",
@@ -269,7 +269,7 @@ projectId <>
 GoogleDatastoreAdminV1Index:
 GoogleDatastoreAdminV1Index"
   [projectId GoogleDatastoreAdminV1Index]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://datastore.googleapis.com/v1/projects/{projectId}/indexes",
@@ -287,7 +287,7 @@ https://cloud.google.com/products/datastore/v1/reference/rest/v1/projects/indexe
 projectId <> 
 indexId <> "
   [projectId indexId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://datastore.googleapis.com/v1/projects/{projectId}/indexes/{indexId}",
@@ -304,7 +304,7 @@ https://cloud.google.com/products/datastore/v1/reference/rest/v1/projects/indexe
 projectId <> 
 indexId <> "
   [projectId indexId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://datastore.googleapis.com/v1/projects/{projectId}/indexes/{indexId}",
@@ -325,7 +325,7 @@ filter <string>
 pageSize <integer> The maximum number of items to return. If zero, then all results will be returned."
   ([projectId] (projects-indexes-list projectId nil))
   ([projectId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://datastore.googleapis.com/v1/projects/{projectId}/indexes",

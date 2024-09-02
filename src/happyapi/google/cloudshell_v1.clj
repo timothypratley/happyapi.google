@@ -15,7 +15,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://cloudshell.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -28,7 +28,7 @@ https://cloud.google.com/shell/docs/v1/reference/rest/v1/operations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudshell.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -41,7 +41,7 @@ https://cloud.google.com/shell/docs/v1/reference/rest/v1/operations/delete
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://cloudshell.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -56,7 +56,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudshell.googleapis.com/v1/{+name}:cancel",
@@ -71,7 +71,7 @@ https://cloud.google.com/shell/docs/v1/reference/rest/v1/users/environments/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://cloudshell.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -86,7 +86,7 @@ name <>
 StartEnvironmentRequest:
 StartEnvironmentRequest"
   [name StartEnvironmentRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudshell.googleapis.com/v1/{+name}:start",
@@ -103,7 +103,7 @@ name <>
 AuthorizeEnvironmentRequest:
 AuthorizeEnvironmentRequest"
   [name AuthorizeEnvironmentRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudshell.googleapis.com/v1/{+name}:authorize",
@@ -120,7 +120,7 @@ environment <>
 AddPublicKeyRequest:
 AddPublicKeyRequest"
   [environment AddPublicKeyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudshell.googleapis.com/v1/{+environment}:addPublicKey",
@@ -137,7 +137,7 @@ environment <>
 RemovePublicKeyRequest:
 RemovePublicKeyRequest"
   [environment RemovePublicKeyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://cloudshell.googleapis.com/v1/{+environment}:removePublicKey",

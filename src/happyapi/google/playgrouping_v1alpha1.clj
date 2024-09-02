@@ -13,7 +13,7 @@ token <>
 VerifyTokenRequest:
 VerifyTokenRequest"
   [appPackage token VerifyTokenRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://playgrouping.googleapis.com/v1alpha1/{+appPackage}/{+token}:verify",
@@ -31,7 +31,7 @@ token <>
 CreateOrUpdateTagsRequest:
 CreateOrUpdateTagsRequest"
   [appPackage token CreateOrUpdateTagsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://playgrouping.googleapis.com/v1alpha1/{+appPackage}/{+token}/tags:createOrUpdate",

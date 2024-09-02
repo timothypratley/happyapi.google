@@ -11,7 +11,7 @@ https://cloud.google.com/products/service-mesh/v3/reference/rest/v3/discovery/cl
 ClientStatusRequest:
 ClientStatusRequest"
   [ClientStatusRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://trafficdirector.googleapis.com/v3/discovery:client_status",

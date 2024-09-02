@@ -26,7 +26,7 @@ start-index <integer> An index of the first entity to retrieve. Use this paramet
   ([ids start-date end-date metrics]
     (data-ga-get ids start-date end-date metrics nil))
   ([ids start-date end-date metrics optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://www.googleapis.com/analytics/v3/data/ga",
        :uri-template-args {},
@@ -60,7 +60,7 @@ start-index <integer> An index of the first entity to retrieve. Use this paramet
   ([ids start-date end-date metrics]
     (data-mcf-get ids start-date end-date metrics nil))
   ([ids start-date end-date metrics optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/analytics/v3/data/mcf",
@@ -90,7 +90,7 @@ max-results <integer> The maximum number of entries to include in this feed.
 sort <string> A comma-separated list of dimensions or metrics that determine the sort order for real time data."
   ([ids metrics] (data-realtime-get ids metrics nil))
   ([ids metrics optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/analytics/v3/data/realtime",
@@ -107,7 +107,7 @@ https://developers.google.com/analytics/v3/reference/rest/v3/management/accountU
 accountId <> 
 linkId <> "
   [accountId linkId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/entityUserLinks/{linkId}",
@@ -124,7 +124,7 @@ accountId <>
 EntityUserLink:
 EntityUserLink"
   [accountId EntityUserLink]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/entityUserLinks",
@@ -145,7 +145,7 @@ max-results <integer> The maximum number of account-user links to include in thi
 start-index <integer> An index of the first account-user link to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter."
   ([accountId] (management-accountUserLinks-list accountId nil))
   ([accountId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/entityUserLinks",
@@ -164,7 +164,7 @@ linkId <>
 EntityUserLink:
 EntityUserLink"
   [accountId linkId EntityUserLink]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/entityUserLinks/{linkId}",
@@ -183,7 +183,7 @@ webPropertyId <>
 profileId <> 
 unsampledReportId <> "
   [accountId webPropertyId profileId unsampledReportId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/unsampledReports/{unsampledReportId}",
@@ -204,7 +204,7 @@ webPropertyId <>
 profileId <> 
 unsampledReportId <> "
   [accountId webPropertyId profileId unsampledReportId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/unsampledReports/{unsampledReportId}",
@@ -229,7 +229,7 @@ profileId <>
 UnsampledReport:
 UnsampledReport"
   [accountId webPropertyId profileId UnsampledReport]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/unsampledReports",
@@ -261,7 +261,7 @@ start-index <integer> An index of the first unsampled report to retrieve. Use th
       profileId
       nil))
   ([accountId webPropertyId profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/unsampledReports",
@@ -284,7 +284,7 @@ webPropertyId <>
 profileId <> 
 goalId <> "
   [accountId webPropertyId profileId goalId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/goals/{goalId}",
@@ -308,7 +308,7 @@ profileId <>
 Goal:
 Goal"
   [accountId webPropertyId profileId Goal]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/goals",
@@ -334,7 +334,7 @@ start-index <integer> An index of the first goal to retrieve. Use this parameter
   ([accountId webPropertyId profileId]
     (management-goals-list accountId webPropertyId profileId nil))
   ([accountId webPropertyId profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/goals",
@@ -359,7 +359,7 @@ goalId <>
 Goal:
 Goal"
   [accountId webPropertyId profileId goalId Goal]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/goals/{goalId}",
@@ -383,7 +383,7 @@ goalId <>
 Goal:
 Goal"
   [accountId webPropertyId profileId goalId Goal]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/goals/{goalId}",
@@ -405,7 +405,7 @@ webPropertyId <>
 profileId <> 
 linkId <> "
   [accountId webPropertyId profileId linkId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/profileFilterLinks/{linkId}",
@@ -426,7 +426,7 @@ webPropertyId <>
 profileId <> 
 linkId <> "
   [accountId webPropertyId profileId linkId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/profileFilterLinks/{linkId}",
@@ -450,7 +450,7 @@ profileId <>
 ProfileFilterLink:
 ProfileFilterLink"
   [accountId webPropertyId profileId ProfileFilterLink]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/profileFilterLinks",
@@ -480,7 +480,7 @@ start-index <integer> An index of the first entity to retrieve. Use this paramet
       profileId
       nil))
   ([accountId webPropertyId profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/profileFilterLinks",
@@ -504,7 +504,7 @@ linkId <>
 ProfileFilterLink:
 ProfileFilterLink"
   [accountId webPropertyId profileId linkId ProfileFilterLink]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/profileFilterLinks/{linkId}",
@@ -528,7 +528,7 @@ linkId <>
 ProfileFilterLink:
 ProfileFilterLink"
   [accountId webPropertyId profileId linkId ProfileFilterLink]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/profileFilterLinks/{linkId}",
@@ -550,7 +550,7 @@ webPropertyId <>
 profileId <> 
 experimentId <> "
   [accountId webPropertyId profileId experimentId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/experiments/{experimentId}",
@@ -573,7 +573,7 @@ webPropertyId <>
 profileId <> 
 experimentId <> "
   [accountId webPropertyId profileId experimentId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/experiments/{experimentId}",
@@ -598,7 +598,7 @@ profileId <>
 Experiment:
 Experiment"
   [accountId webPropertyId profileId Experiment]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/experiments",
@@ -630,7 +630,7 @@ start-index <integer> An index of the first experiment to retrieve. Use this par
       profileId
       nil))
   ([accountId webPropertyId profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/experiments",
@@ -655,7 +655,7 @@ experimentId <>
 Experiment:
 Experiment"
   [accountId webPropertyId profileId experimentId Experiment]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/experiments/{experimentId}",
@@ -681,7 +681,7 @@ experimentId <>
 Experiment:
 Experiment"
   [accountId webPropertyId profileId experimentId Experiment]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/experiments/{experimentId}",
@@ -703,7 +703,7 @@ https://developers.google.com/analytics/v3/reference/rest/v3/management/webprope
 accountId <> 
 webPropertyId <> "
   [accountId webPropertyId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}",
@@ -722,7 +722,7 @@ accountId <>
 Webproperty:
 Webproperty"
   [accountId Webproperty]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties",
@@ -742,7 +742,7 @@ max-results <integer> The maximum number of web properties to include in this re
 start-index <integer> An index of the first entity to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter."
   ([accountId] (management-webproperties-list accountId nil))
   ([accountId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties",
@@ -762,7 +762,7 @@ webPropertyId <>
 Webproperty:
 Webproperty"
   [accountId webPropertyId Webproperty]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}",
@@ -781,7 +781,7 @@ webPropertyId <>
 Webproperty:
 Webproperty"
   [accountId webPropertyId Webproperty]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}",
@@ -800,7 +800,7 @@ max-results <integer> The maximum number of account summaries to include in this
 start-index <integer> An index of the first entity to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter."
   ([] (management-accountSummaries-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/analytics/v3/management/accountSummaries",
@@ -819,7 +819,7 @@ webPropertyId <>
 profileId <> 
 linkId <> "
   [accountId webPropertyId profileId linkId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/entityUserLinks/{linkId}",
@@ -842,7 +842,7 @@ profileId <>
 EntityUserLink:
 EntityUserLink"
   [accountId webPropertyId profileId EntityUserLink]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/entityUserLinks",
@@ -873,7 +873,7 @@ start-index <integer> An index of the first profile-user link to retrieve. Use t
       profileId
       nil))
   ([accountId webPropertyId profileId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/entityUserLinks",
@@ -897,7 +897,7 @@ linkId <>
 EntityUserLink:
 EntityUserLink"
   [accountId webPropertyId profileId linkId EntityUserLink]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/entityUserLinks/{linkId}",
@@ -918,7 +918,7 @@ https://developers.google.com/analytics/v3/reference/rest/v3/management/filters/
 accountId <> 
 filterId <> "
   [accountId filterId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/filters/{filterId}",
@@ -933,7 +933,7 @@ https://developers.google.com/analytics/v3/reference/rest/v3/management/filters/
 accountId <> 
 filterId <> "
   [accountId filterId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/filters/{filterId}",
@@ -951,7 +951,7 @@ accountId <>
 Filter:
 Filter"
   [accountId Filter]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/filters",
@@ -971,7 +971,7 @@ max-results <integer> The maximum number of filters to include in this response.
 start-index <integer> An index of the first entity to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter."
   ([accountId] (management-filters-list accountId nil))
   ([accountId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/filters",
@@ -990,7 +990,7 @@ filterId <>
 Filter:
 Filter"
   [accountId filterId Filter]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/filters/{filterId}",
@@ -1008,7 +1008,7 @@ filterId <>
 Filter:
 Filter"
   [accountId filterId Filter]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/filters/{filterId}",
@@ -1025,7 +1025,7 @@ accountId <>
 webPropertyId <> 
 webPropertyAdWordsLinkId <> "
   [accountId webPropertyId webPropertyAdWordsLinkId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/entityAdWordsLinks/{webPropertyAdWordsLinkId}",
@@ -1044,7 +1044,7 @@ accountId <>
 webPropertyId <> 
 webPropertyAdWordsLinkId <> "
   [accountId webPropertyId webPropertyAdWordsLinkId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/entityAdWordsLinks/{webPropertyAdWordsLinkId}",
@@ -1066,7 +1066,7 @@ webPropertyId <>
 EntityAdWordsLink:
 EntityAdWordsLink"
   [accountId webPropertyId EntityAdWordsLink]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/entityAdWordsLinks",
@@ -1092,7 +1092,7 @@ start-index <integer> An index of the first webProperty-Google Ads link to retri
       webPropertyId
       nil))
   ([accountId webPropertyId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/entityAdWordsLinks",
@@ -1113,7 +1113,7 @@ webPropertyAdWordsLinkId <>
 EntityAdWordsLink:
 EntityAdWordsLink"
   [accountId webPropertyId webPropertyAdWordsLinkId EntityAdWordsLink]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/entityAdWordsLinks/{webPropertyAdWordsLinkId}",
@@ -1135,7 +1135,7 @@ webPropertyAdWordsLinkId <>
 EntityAdWordsLink:
 EntityAdWordsLink"
   [accountId webPropertyId webPropertyAdWordsLinkId EntityAdWordsLink]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/entityAdWordsLinks/{webPropertyAdWordsLinkId}",
@@ -1160,7 +1160,7 @@ AnalyticsDataimportDeleteUploadDataRequest"
    webPropertyId
    customDataSourceId
    AnalyticsDataimportDeleteUploadDataRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/customDataSources/{customDataSourceId}/deleteUploadData",
@@ -1183,7 +1183,7 @@ webPropertyId <>
 customDataSourceId <> 
 uploadId <> "
   [accountId webPropertyId customDataSourceId uploadId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/customDataSources/{customDataSourceId}/uploads/{uploadId}",
@@ -1216,7 +1216,7 @@ start-index <integer> A 1-based index of the first upload to retrieve. Use this 
       customDataSourceId
       nil))
   ([accountId webPropertyId customDataSourceId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/customDataSources/{customDataSourceId}/uploads",
@@ -1238,7 +1238,7 @@ accountId <>
 webPropertyId <> 
 customDataSourceId <> "
   [accountId webPropertyId customDataSourceId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/customDataSources/{customDataSourceId}/uploads",
@@ -1259,7 +1259,7 @@ accountId <>
 webPropertyId <> 
 profileId <> "
   [accountId webPropertyId profileId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}",
@@ -1278,7 +1278,7 @@ accountId <>
 webPropertyId <> 
 profileId <> "
   [accountId webPropertyId profileId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}",
@@ -1300,7 +1300,7 @@ webPropertyId <>
 Profile:
 Profile"
   [accountId webPropertyId Profile]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles",
@@ -1323,7 +1323,7 @@ start-index <integer> An index of the first entity to retrieve. Use this paramet
   ([accountId webPropertyId]
     (management-profiles-list accountId webPropertyId nil))
   ([accountId webPropertyId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles",
@@ -1345,7 +1345,7 @@ profileId <>
 Profile:
 Profile"
   [accountId webPropertyId profileId Profile]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}",
@@ -1367,7 +1367,7 @@ profileId <>
 Profile:
 Profile"
   [accountId webPropertyId profileId Profile]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}",
@@ -1387,7 +1387,7 @@ accountId <>
 webPropertyId <> 
 remarketingAudienceId <> "
   [accountId webPropertyId remarketingAudienceId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/remarketingAudiences/{remarketingAudienceId}",
@@ -1406,7 +1406,7 @@ accountId <>
 webPropertyId <> 
 remarketingAudienceId <> "
   [accountId webPropertyId remarketingAudienceId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/remarketingAudiences/{remarketingAudienceId}",
@@ -1428,7 +1428,7 @@ webPropertyId <>
 RemarketingAudience:
 RemarketingAudience"
   [accountId webPropertyId RemarketingAudience]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/remarketingAudiences",
@@ -1452,7 +1452,7 @@ type <string> "
   ([accountId webPropertyId]
     (management-remarketingAudience-list accountId webPropertyId nil))
   ([accountId webPropertyId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/remarketingAudiences",
@@ -1473,7 +1473,7 @@ remarketingAudienceId <>
 RemarketingAudience:
 RemarketingAudience"
   [accountId webPropertyId remarketingAudienceId RemarketingAudience]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/remarketingAudiences/{remarketingAudienceId}",
@@ -1495,7 +1495,7 @@ remarketingAudienceId <>
 RemarketingAudience:
 RemarketingAudience"
   [accountId webPropertyId remarketingAudienceId RemarketingAudience]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/remarketingAudiences/{remarketingAudienceId}",
@@ -1515,7 +1515,7 @@ accountId <>
 webPropertyId <> 
 customMetricId <> "
   [accountId webPropertyId customMetricId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/customMetrics/{customMetricId}",
@@ -1537,7 +1537,7 @@ webPropertyId <>
 CustomMetric:
 CustomMetric"
   [accountId webPropertyId CustomMetric]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/customMetrics",
@@ -1560,7 +1560,7 @@ start-index <integer> An index of the first entity to retrieve. Use this paramet
   ([accountId webPropertyId]
     (management-customMetrics-list accountId webPropertyId nil))
   ([accountId webPropertyId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/customMetrics",
@@ -1591,7 +1591,7 @@ ignoreCustomDataSourceLinks <boolean> Force the update and ignore any warnings r
       CustomMetric
       nil))
   ([accountId webPropertyId customMetricId CustomMetric optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/customMetrics/{customMetricId}",
@@ -1623,7 +1623,7 @@ ignoreCustomDataSourceLinks <boolean> Force the update and ignore any warnings r
       CustomMetric
       nil))
   ([accountId webPropertyId customMetricId CustomMetric optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/customMetrics/{customMetricId}",
@@ -1644,7 +1644,7 @@ max-results <integer> The maximum number of accounts to include in this response
 start-index <integer> An index of the first account to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter."
   ([] (management-accounts-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/analytics/v3/management/accounts",
@@ -1662,7 +1662,7 @@ https://developers.google.com/analytics/v3/reference/rest/v3/management/clientId
 HashClientIdRequest:
 HashClientIdRequest"
   [HashClientIdRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/clientId:hashClientId",
@@ -1682,7 +1682,7 @@ max-results <integer> The maximum number of segments to include in this response
 start-index <integer> An index of the first segment to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter."
   ([] (management-segments-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/analytics/v3/management/segments",
@@ -1701,7 +1701,7 @@ accountId <>
 webPropertyId <> 
 linkId <> "
   [accountId webPropertyId linkId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/entityUserLinks/{linkId}",
@@ -1722,7 +1722,7 @@ webPropertyId <>
 EntityUserLink:
 EntityUserLink"
   [accountId webPropertyId EntityUserLink]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/entityUserLinks",
@@ -1746,7 +1746,7 @@ start-index <integer> An index of the first webProperty-user link to retrieve. U
   ([accountId webPropertyId]
     (management-webpropertyUserLinks-list accountId webPropertyId nil))
   ([accountId webPropertyId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/entityUserLinks",
@@ -1767,7 +1767,7 @@ linkId <>
 EntityUserLink:
 EntityUserLink"
   [accountId webPropertyId linkId EntityUserLink]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/entityUserLinks/{linkId}",
@@ -1788,7 +1788,7 @@ accountId <>
 webPropertyId <> 
 customDimensionId <> "
   [accountId webPropertyId customDimensionId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/customDimensions/{customDimensionId}",
@@ -1810,7 +1810,7 @@ webPropertyId <>
 CustomDimension:
 CustomDimension"
   [accountId webPropertyId CustomDimension]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/customDimensions",
@@ -1833,7 +1833,7 @@ start-index <integer> An index of the first entity to retrieve. Use this paramet
   ([accountId webPropertyId]
     (management-customDimensions-list accountId webPropertyId nil))
   ([accountId webPropertyId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/customDimensions",
@@ -1864,7 +1864,7 @@ ignoreCustomDataSourceLinks <boolean> Force the update and ignore any warnings r
       CustomDimension
       nil))
   ([accountId webPropertyId customDimensionId CustomDimension optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/customDimensions/{customDimensionId}",
@@ -1896,7 +1896,7 @@ ignoreCustomDataSourceLinks <boolean> Force the update and ignore any warnings r
       CustomDimension
       nil))
   ([accountId webPropertyId customDimensionId CustomDimension optional]
-    (client/api-request
+    (client/*api-request*
       {:method :put,
        :uri-template
        "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/customDimensions/{customDimensionId}",
@@ -1921,7 +1921,7 @@ start-index <integer> A 1-based index of the first custom data source to retriev
   ([accountId webPropertyId]
     (management-customDataSources-list accountId webPropertyId nil))
   ([accountId webPropertyId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/analytics/v3/management/accounts/{accountId}/webproperties/{webPropertyId}/customDataSources",
@@ -1939,7 +1939,7 @@ https://developers.google.com/analytics/v3/reference/rest/v3/metadata/columns/li
 
 reportType <> "
   [reportType]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://www.googleapis.com/analytics/v3/metadata/{reportType}/columns",
@@ -1957,7 +1957,7 @@ https://developers.google.com/analytics/v3/reference/rest/v3/provisioning/create
 AccountTicket:
 AccountTicket"
   [AccountTicket]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/analytics/v3/provisioning/createAccountTicket",
@@ -1973,7 +1973,7 @@ https://developers.google.com/analytics/v3/reference/rest/v3/provisioning/create
 AccountTreeRequest:
 AccountTreeRequest"
   [AccountTreeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/analytics/v3/provisioning/createAccountTree",
@@ -1989,7 +1989,7 @@ https://developers.google.com/analytics/v3/reference/rest/v3/userDeletion/userDe
 UserDeletionRequest:
 UserDeletionRequest"
   [UserDeletionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/analytics/v3/userDeletion/userDeletionRequests:upsert",

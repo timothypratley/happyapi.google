@@ -10,7 +10,7 @@ https://developers.google.com/authorized-buyers/apis/realtimebidding/reference/r
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://realtimebidding.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -25,7 +25,7 @@ optional:
 pageSize <integer> The maximum number of bidders to return. If unspecified, at most 100 bidders will be returned. The maximum value is 500; values above 500 will be coerced to 500."
   ([] (bidders-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://realtimebidding.googleapis.com/v1/bidders",
@@ -39,7 +39,7 @@ https://developers.google.com/authorized-buyers/apis/realtimebidding/reference/r
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://realtimebidding.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -56,7 +56,7 @@ optional:
 pageSize <integer> The maximum number of endpoints to return. If unspecified, at most 100 endpoints will be returned. The maximum value is 500; values above 500 will be coerced to 500."
   ([parent] (bidders-endpoints-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://realtimebidding.googleapis.com/v1/{+parent}/endpoints",
@@ -76,7 +76,7 @@ optional:
 updateMask <string> Field mask to use for partial in-place updates."
   ([name Endpoint] (bidders-endpoints-patch name Endpoint nil))
   ([name Endpoint optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://realtimebidding.googleapis.com/v1/{+name}",
@@ -97,7 +97,7 @@ filter <string> Query string to filter creatives. If no filter is specified, all
 view <string> Controls the amount of information included in the response. By default only creativeServingDecision is included. To retrieve the entire creative resource (including the declared fields and the creative content) specify the view as \"FULL\"."
   ([parent] (bidders-creatives-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://realtimebidding.googleapis.com/v1/{+parent}/creatives",
@@ -113,7 +113,7 @@ parent <>
 WatchCreativesRequest:
 WatchCreativesRequest"
   [parent WatchCreativesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://realtimebidding.googleapis.com/v1/{+parent}/creatives:watch",
@@ -130,7 +130,7 @@ pretargetingConfig <>
 RemoveTargetedPublishersRequest:
 RemoveTargetedPublishersRequest"
   [pretargetingConfig RemoveTargetedPublishersRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://realtimebidding.googleapis.com/v1/{+pretargetingConfig}:removeTargetedPublishers",
@@ -149,7 +149,7 @@ optional:
 pageSize <integer> The maximum number of pretargeting configurations to return. If unspecified, at most 10 pretargeting configurations will be returned. The maximum value is 100; values above 100 will be coerced to 100."
   ([parent] (bidders-pretargetingConfigs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://realtimebidding.googleapis.com/v1/{+parent}/pretargetingConfigs",
@@ -163,7 +163,7 @@ https://developers.google.com/authorized-buyers/apis/realtimebidding/reference/r
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://realtimebidding.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -178,7 +178,7 @@ pretargetingConfig <>
 AddTargetedSitesRequest:
 AddTargetedSitesRequest"
   [pretargetingConfig AddTargetedSitesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://realtimebidding.googleapis.com/v1/{+pretargetingConfig}:addTargetedSites",
@@ -195,7 +195,7 @@ name <>
 ActivatePretargetingConfigRequest:
 ActivatePretargetingConfigRequest"
   [name ActivatePretargetingConfigRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://realtimebidding.googleapis.com/v1/{+name}:activate",
@@ -212,7 +212,7 @@ name <>
 SuspendPretargetingConfigRequest:
 SuspendPretargetingConfigRequest"
   [name SuspendPretargetingConfigRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://realtimebidding.googleapis.com/v1/{+name}:suspend",
@@ -229,7 +229,7 @@ pretargetingConfig <>
 RemoveTargetedAppsRequest:
 RemoveTargetedAppsRequest"
   [pretargetingConfig RemoveTargetedAppsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://realtimebidding.googleapis.com/v1/{+pretargetingConfig}:removeTargetedApps",
@@ -246,7 +246,7 @@ pretargetingConfig <>
 AddTargetedPublishersRequest:
 AddTargetedPublishersRequest"
   [pretargetingConfig AddTargetedPublishersRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://realtimebidding.googleapis.com/v1/{+pretargetingConfig}:addTargetedPublishers",
@@ -263,7 +263,7 @@ pretargetingConfig <>
 RemoveTargetedSitesRequest:
 RemoveTargetedSitesRequest"
   [pretargetingConfig RemoveTargetedSitesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://realtimebidding.googleapis.com/v1/{+pretargetingConfig}:removeTargetedSites",
@@ -285,7 +285,7 @@ updateMask <string> Field mask to use for partial in-place updates."
   ([name PretargetingConfig]
     (bidders-pretargetingConfigs-patch name PretargetingConfig nil))
   ([name PretargetingConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://realtimebidding.googleapis.com/v1/{+name}",
@@ -302,7 +302,7 @@ parent <>
 PretargetingConfig:
 PretargetingConfig"
   [parent PretargetingConfig]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://realtimebidding.googleapis.com/v1/{+parent}/pretargetingConfigs",
@@ -319,7 +319,7 @@ pretargetingConfig <>
 AddTargetedAppsRequest:
 AddTargetedAppsRequest"
   [pretargetingConfig AddTargetedAppsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://realtimebidding.googleapis.com/v1/{+pretargetingConfig}:addTargetedApps",
@@ -334,7 +334,7 @@ https://developers.google.com/authorized-buyers/apis/realtimebidding/reference/r
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://realtimebidding.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -353,7 +353,7 @@ filter <string> Query string to filter publisher connections. Connections can be
 orderBy <string> Order specification by which results should be sorted. If no sort order is specified, the results will be returned in alphabetic order based on the publisher's publisher code. Results can be sorted by `createTime`. Example: 'createTime DESC'."
   ([parent] (bidders-publisherConnections-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://realtimebidding.googleapis.com/v1/{+parent}/publisherConnections",
@@ -367,7 +367,7 @@ https://developers.google.com/authorized-buyers/apis/realtimebidding/reference/r
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://realtimebidding.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -382,7 +382,7 @@ parent <>
 BatchApprovePublisherConnectionsRequest:
 BatchApprovePublisherConnectionsRequest"
   [parent BatchApprovePublisherConnectionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://realtimebidding.googleapis.com/v1/{+parent}/publisherConnections:batchApprove",
@@ -399,7 +399,7 @@ parent <>
 BatchRejectPublisherConnectionsRequest:
 BatchRejectPublisherConnectionsRequest"
   [parent BatchRejectPublisherConnectionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://realtimebidding.googleapis.com/v1/{+parent}/publisherConnections:batchReject",
@@ -414,7 +414,7 @@ https://developers.google.com/authorized-buyers/apis/realtimebidding/reference/r
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://realtimebidding.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -429,7 +429,7 @@ optional:
 pageSize <integer> The maximum number of buyers to return. If unspecified, at most 100 buyers will be returned. The maximum value is 500; values above 500 will be coerced to 500."
   ([] (buyers-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://realtimebidding.googleapis.com/v1/buyers",
@@ -443,7 +443,7 @@ https://developers.google.com/authorized-buyers/apis/realtimebidding/reference/r
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://realtimebidding.googleapis.com/v1/{+name}:getRemarketingTag",
@@ -463,7 +463,7 @@ filter <string> Query string to filter creatives. If no filter is specified, all
 view <string> Controls the amount of information included in the response. By default only creativeServingDecision is included. To retrieve the entire creative resource (including the declared fields and the creative content) specify the view as \"FULL\"."
   ([parent] (buyers-creatives-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://realtimebidding.googleapis.com/v1/{+parent}/creatives",
@@ -481,7 +481,7 @@ optional:
 view <string> Controls the amount of information included in the response. By default only creativeServingDecision is included. To retrieve the entire creative resource (including the declared fields and the creative content) specify the view as \"FULL\"."
   ([name] (buyers-creatives-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://realtimebidding.googleapis.com/v1/{+name}",
@@ -497,7 +497,7 @@ parent <>
 Creative:
 Creative"
   [parent Creative]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://realtimebidding.googleapis.com/v1/{+parent}/creatives",
@@ -518,7 +518,7 @@ optional:
 updateMask <string> Field mask to use for partial in-place updates."
   ([name Creative] (buyers-creatives-patch name Creative nil))
   ([name Creative optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://realtimebidding.googleapis.com/v1/{+name}",
@@ -533,7 +533,7 @@ https://developers.google.com/authorized-buyers/apis/realtimebidding/reference/r
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://realtimebidding.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -550,7 +550,7 @@ optional:
 pageSize <integer> The number of results to return per page."
   ([parent] (buyers-userLists-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://realtimebidding.googleapis.com/v1/{+parent}/userLists",
@@ -566,7 +566,7 @@ parent <>
 UserList:
 UserList"
   [parent UserList]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://realtimebidding.googleapis.com/v1/{+parent}/userLists",
@@ -583,7 +583,7 @@ name <>
 UserList:
 UserList"
   [name UserList]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template "https://realtimebidding.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -599,7 +599,7 @@ name <>
 OpenUserListRequest:
 OpenUserListRequest"
   [name OpenUserListRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://realtimebidding.googleapis.com/v1/{+name}:open",
@@ -616,7 +616,7 @@ name <>
 CloseUserListRequest:
 CloseUserListRequest"
   [name CloseUserListRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://realtimebidding.googleapis.com/v1/{+name}:close",
@@ -631,7 +631,7 @@ https://developers.google.com/authorized-buyers/apis/realtimebidding/reference/r
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://realtimebidding.googleapis.com/v1/{+name}:getRemarketingTag",

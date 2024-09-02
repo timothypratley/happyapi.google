@@ -14,7 +14,7 @@ optional:
 language <string> The preferred language to use for strings returned by this method."
   ([leaderboardId] (leaderboards-get leaderboardId nil))
   ([leaderboardId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://games.googleapis.com/games/v1/leaderboards/{leaderboardId}",
@@ -31,7 +31,7 @@ language <string> The preferred language to use for strings returned by this met
 maxResults <integer> The maximum number of leaderboards to return in the response. For any response, the actual number of leaderboards returned may be less than the specified `maxResults`."
   ([] (leaderboards-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://games.googleapis.com/games/v1/leaderboards",
@@ -46,7 +46,7 @@ https://games.withgoogle.com/v1/reference/rest/v1/recall/linkPersona
 LinkPersonaRequest:
 LinkPersonaRequest"
   [LinkPersonaRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://games.googleapis.com/games/v1/recall:linkPersona",
@@ -61,7 +61,7 @@ https://games.withgoogle.com/v1/reference/rest/v1/recall/retrieveTokens
 
 sessionId <> "
   [sessionId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://games.googleapis.com/games/v1/recall/tokens/{sessionId}",
@@ -75,7 +75,7 @@ https://games.withgoogle.com/v1/reference/rest/v1/recall/lastTokenFromAllDevelop
 
 sessionId <> "
   [sessionId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://games.googleapis.com/games/v1/recall/developerGamesLastPlayerToken/{sessionId}",
@@ -93,7 +93,7 @@ optional:
 applicationIds <string> Required. The application IDs from the Google Play developer console for the games to return scoped ids for."
   ([sessionId] (recall-gamesPlayerTokens sessionId nil))
   ([sessionId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://games.googleapis.com/games/v1/recall/gamesPlayerTokens/{sessionId}",
@@ -108,7 +108,7 @@ https://games.withgoogle.com/v1/reference/rest/v1/recall/unlinkPersona
 UnlinkPersonaRequest:
 UnlinkPersonaRequest"
   [UnlinkPersonaRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://games.googleapis.com/games/v1/recall:unlinkPersona",
@@ -124,7 +124,7 @@ https://games.withgoogle.com/v1/reference/rest/v1/recall/resetPersona
 ResetPersonaRequest:
 ResetPersonaRequest"
   [ResetPersonaRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://games.googleapis.com/games/v1/recall:resetPersona",
@@ -144,7 +144,7 @@ language <string> The preferred language to use for strings returned by this met
 platformType <string> Restrict application details returned to the specific platform."
   ([applicationId] (applications-get applicationId nil))
   ([applicationId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://games.googleapis.com/games/v1/applications/{applicationId}",
@@ -156,7 +156,7 @@ platformType <string> Restrict application details returned to the specific plat
   "Indicate that the currently authenticated user is playing your application.
 https://games.withgoogle.com/v1/reference/rest/v1/applications/played"
   []
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://games.googleapis.com/games/v1/applications/played",
@@ -170,7 +170,7 @@ https://games.withgoogle.com/v1/reference/rest/v1/applications/verify
 
 applicationId <> "
   [applicationId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://games.googleapis.com/games/v1/applications/{applicationId}/verify",
@@ -187,7 +187,7 @@ applicationId <string> The application ID from the Google Play developer console
 endPointType <string> Type of endpoint being requested."
   ([] (applications-getEndPoint nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://games.googleapis.com/games/v1/applications/getEndPoint",
@@ -206,7 +206,7 @@ language <string> The preferred language to use for strings returned by this met
 playerIdConsistencyToken <string> Consistency token of the player id. The call returns a 'not found' result when the token is present and invalid. Empty value is ignored. See also GlobalPlayerIdConsistencyTokenProto"
   ([playerId] (players-get playerId nil))
   ([playerId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://games.googleapis.com/games/v1/players/{playerId}",
@@ -218,7 +218,7 @@ playerIdConsistencyToken <string> Consistency token of the player id. The call r
   "Retrieves scoped player identifiers for currently authenticated user.
 https://games.withgoogle.com/v1/reference/rest/v1/players/getScopedPlayerIds"
   []
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://games.googleapis.com/games/v1/players/me/scopedIds",
@@ -234,7 +234,7 @@ optional:
 applicationIds <string> Required. The application IDs from the Google Play developer console for the games to return scoped ids for."
   ([] (players-getMultipleApplicationPlayerIds nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://games.googleapis.com/games/v1/players/me/multipleApplicationPlayerIds",
@@ -253,7 +253,7 @@ language <string> The preferred language to use for strings returned by this met
 maxResults <integer> The maximum number of player resources to return in the response, used for paging. For any response, the actual number of player resources returned may be less than the specified `maxResults`."
   ([collection] (players-list collection nil))
   ([collection optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://games.googleapis.com/games/v1/players/me/players/{collection}",
@@ -273,7 +273,7 @@ requestId <string> A randomly generated numeric ID for each request specified by
   ([achievementId stepsToIncrement]
     (achievements-increment achievementId stepsToIncrement nil))
   ([achievementId stepsToIncrement optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://games.googleapis.com/games/v1/achievements/{achievementId}/increment",
@@ -294,7 +294,7 @@ maxResults <integer> The maximum number of achievement resources to return in th
 state <string> Tells the server to return only achievements with the specified state. If this parameter isn't specified, all achievements are returned."
   ([playerId] (achievements-list playerId nil))
   ([playerId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://games.googleapis.com/games/v1/players/{playerId}/achievements",
@@ -308,7 +308,7 @@ https://games.withgoogle.com/v1/reference/rest/v1/achievements/reveal
 
 achievementId <> "
   [achievementId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://games.googleapis.com/games/v1/achievements/{achievementId}/reveal",
@@ -323,7 +323,7 @@ https://games.withgoogle.com/v1/reference/rest/v1/achievements/setStepsAtLeast
 achievementId <> 
 steps <> "
   [achievementId steps]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://games.googleapis.com/games/v1/achievements/{achievementId}/setStepsAtLeast",
@@ -337,7 +337,7 @@ https://games.withgoogle.com/v1/reference/rest/v1/achievements/unlock
 
 achievementId <> "
   [achievementId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://games.googleapis.com/games/v1/achievements/{achievementId}/unlock",
@@ -352,7 +352,7 @@ https://games.withgoogle.com/v1/reference/rest/v1/achievements/updateMultiple
 AchievementUpdateMultipleRequest:
 AchievementUpdateMultipleRequest"
   [AchievementUpdateMultipleRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://games.googleapis.com/games/v1/achievements/updateMultiple",
@@ -370,7 +370,7 @@ language <string> The preferred language to use for strings returned by this met
 maxResults <integer> The maximum number of events to return in the response, used for paging. For any response, the actual number of events to return may be less than the specified maxResults."
   ([] (events-listByPlayer nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://games.googleapis.com/games/v1/events",
        :uri-template-args {},
@@ -386,7 +386,7 @@ language <string> The preferred language to use for strings returned by this met
 maxResults <integer> The maximum number of event definitions to return in the response, used for paging. For any response, the actual number of event definitions to return may be less than the specified `maxResults`."
   ([] (events-listDefinitions nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://games.googleapis.com/games/v1/eventDefinitions",
@@ -405,7 +405,7 @@ optional:
 language <string> The preferred language to use for strings returned by this method."
   ([EventRecordRequest] (events-record EventRecordRequest nil))
   ([EventRecordRequest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template "https://games.googleapis.com/games/v1/events",
        :uri-template-args {},
@@ -417,7 +417,7 @@ language <string> The preferred language to use for strings returned by this met
   "Return the metagame configuration data for the calling application.
 https://games.withgoogle.com/v1/reference/rest/v1/metagame/getMetagameConfig"
   []
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://games.googleapis.com/games/v1/metagameConfig",
@@ -438,7 +438,7 @@ maxResults <integer> The maximum number of category resources to return in the r
   ([playerId collection]
     (metagame-listCategoriesByPlayer playerId collection nil))
   ([playerId collection optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://games.googleapis.com/games/v1/players/{playerId}/categories/{collection}",
@@ -456,7 +456,7 @@ language <string> The preferred language to use for strings returned by this met
 maxResults <integer> The maximum number of achievement resources to return in the response, used for paging. For any response, the actual number of achievement resources returned may be less than the specified `maxResults`."
   ([] (achievementDefinitions-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://games.googleapis.com/games/v1/achievements",
@@ -470,7 +470,7 @@ https://games.withgoogle.com/v1/reference/rest/v1/revisions/check
 
 clientRevision <> "
   [clientRevision]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://games.googleapis.com/games/v1/revisions/check",
@@ -488,7 +488,7 @@ optional:
 language <string> The preferred language to use for strings returned by this method."
   ([snapshotId] (snapshots-get snapshotId nil))
   ([snapshotId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://games.googleapis.com/games/v1/snapshots/{snapshotId}",
@@ -509,7 +509,7 @@ language <string> The preferred language to use for strings returned by this met
 maxResults <integer> The maximum number of snapshot resources to return in the response, used for paging. For any response, the actual number of snapshot resources returned may be less than the specified `maxResults`."
   ([playerId] (snapshots-list playerId nil))
   ([playerId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://games.googleapis.com/games/v1/players/{playerId}/snapshots",
@@ -528,7 +528,7 @@ packageName <string> Required. App package name to generate the token for (e.g. 
 persona <string> Required. Persona to associate with the token. Persona is a developer-provided stable identifier of the user. Must be deterministically generated (e.g. as a one-way hash) from the user account ID and user profile ID (if the app has the concept), according to the developer's own user identity system."
   ([] (accesstokens-generatePlayGroupingApiToken nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://games.googleapis.com/games/v1/accesstokens/generatePlayGroupingApiToken",
@@ -546,7 +546,7 @@ persona <string> Required. Persona to associate with the token. Persona is a dev
 recallSessionId <string> Required. Opaque server-generated string that encodes all the necessary information to identify the PGS player / Google user and application. See https://developer.android.com/games/pgs/recall/recall-setup on how to integrate with Recall and get session ID."
   ([] (accesstokens-generateRecallPlayGroupingApiToken nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://games.googleapis.com/games/v1/accesstokens/generateRecallPlayGroupingApiToken",
@@ -558,7 +558,7 @@ recallSessionId <string> Required. Opaque server-generated string that encodes a
   "Returns engagement and spend statistics in this application for the currently authenticated user.
 https://games.withgoogle.com/v1/reference/rest/v1/stats/get"
   []
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://games.googleapis.com/games/v1/stats",
      :uri-template-args {},
@@ -580,7 +580,7 @@ maxResults <integer> The maximum number of leaderboard scores to return in the r
   ([playerId leaderboardId timeSpan]
     (scores-get playerId leaderboardId timeSpan nil))
   ([playerId leaderboardId timeSpan optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://games.googleapis.com/games/v1/players/{playerId}/leaderboards/{leaderboardId}/scores/{timeSpan}",
@@ -605,7 +605,7 @@ maxResults <integer> The maximum number of leaderboard scores to return in the r
   ([leaderboardId collection timeSpan]
     (scores-list leaderboardId collection timeSpan nil))
   ([leaderboardId collection timeSpan optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://games.googleapis.com/games/v1/leaderboards/{leaderboardId}/scores/{collection}",
@@ -630,7 +630,7 @@ returnTopIfAbsent <boolean> True if the top scores should be returned when the p
   ([leaderboardId collection timeSpan]
     (scores-listWindow leaderboardId collection timeSpan nil))
   ([leaderboardId collection timeSpan optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://games.googleapis.com/games/v1/leaderboards/{leaderboardId}/window/{collection}",
@@ -651,7 +651,7 @@ language <string> The preferred language to use for strings returned by this met
 scoreTag <string> Additional information about the score you're submitting. Values must contain no more than 64 URI-safe characters as defined by section 2.3 of RFC 3986."
   ([leaderboardId score] (scores-submit leaderboardId score nil))
   ([leaderboardId score optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://games.googleapis.com/games/v1/leaderboards/{leaderboardId}/scores",
@@ -671,7 +671,7 @@ language <string> The preferred language to use for strings returned by this met
   ([PlayerScoreSubmissionList]
     (scores-submitMultiple PlayerScoreSubmissionList nil))
   ([PlayerScoreSubmissionList optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://games.googleapis.com/games/v1/leaderboards/scores",

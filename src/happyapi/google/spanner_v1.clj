@@ -16,7 +16,7 @@ filter <string> A filter expression to restrict the results based on information
 pageSize <integer> The maximum number of items to return."
   ([parent] (scans-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://spanner.googleapis.com/v1/{+parent}",
        :uri-template-args {"parent" parent},
@@ -35,7 +35,7 @@ optional:
 pageSize <integer> Number of instance configurations to be returned in the response. If 0 or less, defaults to the server's maximum allowed page size."
   ([parent] (projects-instanceConfigs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://spanner.googleapis.com/v1/{+parent}/instanceConfigs",
@@ -51,7 +51,7 @@ https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instanceConfigs/g
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://spanner.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -61,14 +61,14 @@ name <> "
       "https://www.googleapis.com/auth/spanner.admin"]}))
 
 (defn projects-instanceConfigs-create
-  "Creates an instance configuration and begins preparing it to be used. The returned long-running operation can be used to track the progress of preparing the new instance config. The instance configuration name is assigned by the caller. If the named instance configuration already exists, `CreateInstanceConfig` returns `ALREADY_EXISTS`. Immediately after the request returns: * The instance configuration is readable via the API, with all requested attributes. The instance config's reconciling field is set to true. Its state is `CREATING`. While the operation is pending: * Cancelling the operation renders the instance configuration immediately unreadable via the API. * Except for deleting the creating resource, all other attempts to modify the instance configuration are rejected. Upon completion of the returned operation: * Instances can be created using the instance configuration. * The instance config's reconciling field becomes false. Its state becomes `READY`. The returned long-running operation will have a name of the format `/operations/` and can be used to track creation of the instance config. The metadata field type is CreateInstanceConfigMetadata. The response field type is InstanceConfig, if successful. Authorization requires `spanner.instanceConfigs.create` permission on the resource parent.
+  "Creates an instance configuration and begins preparing it to be used. The returned long-running operation can be used to track the progress of preparing the new instance configuration. The instance configuration name is assigned by the caller. If the named instance configuration already exists, `CreateInstanceConfig` returns `ALREADY_EXISTS`. Immediately after the request returns: * The instance configuration is readable via the API, with all requested attributes. The instance configuration's reconciling field is set to true. Its state is `CREATING`. While the operation is pending: * Cancelling the operation renders the instance configuration immediately unreadable via the API. * Except for deleting the creating resource, all other attempts to modify the instance configuration are rejected. Upon completion of the returned operation: * Instances can be created using the instance configuration. * The instance configuration's reconciling field becomes false. Its state becomes `READY`. The returned long-running operation will have a name of the format `/operations/` and can be used to track creation of the instance configuration. The metadata field type is CreateInstanceConfigMetadata. The response field type is InstanceConfig, if successful. Authorization requires `spanner.instanceConfigs.create` permission on the resource parent.
 https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instanceConfigs/create
 
 parent <> 
 CreateInstanceConfigRequest:
 CreateInstanceConfigRequest"
   [parent CreateInstanceConfigRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://spanner.googleapis.com/v1/{+parent}/instanceConfigs",
@@ -80,14 +80,14 @@ CreateInstanceConfigRequest"
      :body CreateInstanceConfigRequest}))
 
 (defn projects-instanceConfigs-patch
-  "Updates an instance config. The returned long-running operation can be used to track the progress of updating the instance. If the named instance configuration does not exist, returns `NOT_FOUND`. Only user-managed configurations can be updated. Immediately after the request returns: * The instance config's reconciling field is set to true. While the operation is pending: * Cancelling the operation sets its metadata's cancel_time. The operation is guaranteed to succeed at undoing all changes, after which point it terminates with a `CANCELLED` status. * All other attempts to modify the instance configuration are rejected. * Reading the instance configuration via the API continues to give the pre-request values. Upon completion of the returned operation: * Creating instances using the instance configuration uses the new values. * The instance config's new values are readable via the API. * The instance config's reconciling field becomes false. The returned long-running operation will have a name of the format `/operations/` and can be used to track the instance configuration modification. The metadata field type is UpdateInstanceConfigMetadata. The response field type is InstanceConfig, if successful. Authorization requires `spanner.instanceConfigs.update` permission on the resource name.
+  "Updates an instance configuration. The returned long-running operation can be used to track the progress of updating the instance. If the named instance configuration does not exist, returns `NOT_FOUND`. Only user-managed configurations can be updated. Immediately after the request returns: * The instance configuration's reconciling field is set to true. While the operation is pending: * Cancelling the operation sets its metadata's cancel_time. The operation is guaranteed to succeed at undoing all changes, after which point it terminates with a `CANCELLED` status. * All other attempts to modify the instance configuration are rejected. * Reading the instance configuration via the API continues to give the pre-request values. Upon completion of the returned operation: * Creating instances using the instance configuration uses the new values. * The new values of the instance configuration are readable via the API. * The instance configuration's reconciling field becomes false. The returned long-running operation will have a name of the format `/operations/` and can be used to track the instance configuration modification. The metadata field type is UpdateInstanceConfigMetadata. The response field type is InstanceConfig, if successful. Authorization requires `spanner.instanceConfigs.update` permission on the resource name.
 https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instanceConfigs/patch
 
 name <> 
 UpdateInstanceConfigRequest:
 UpdateInstanceConfigRequest"
   [name UpdateInstanceConfigRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template "https://spanner.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -98,17 +98,17 @@ UpdateInstanceConfigRequest"
      :body UpdateInstanceConfigRequest}))
 
 (defn projects-instanceConfigs-delete
-  "Deletes the instance config. Deletion is only allowed when no instances are using the configuration. If any instances are using the config, returns `FAILED_PRECONDITION`. Only user-managed configurations can be deleted. Authorization requires `spanner.instanceConfigs.delete` permission on the resource name.
+  "Deletes the instance configuration. Deletion is only allowed when no instances are using the configuration. If any instances are using the configuration, returns `FAILED_PRECONDITION`. Only user-managed configurations can be deleted. Authorization requires `spanner.instanceConfigs.delete` permission on the resource name.
 https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instanceConfigs/delete
 
 name <> 
 
 optional:
-etag <string> Used for optimistic concurrency control as a way to help prevent simultaneous deletes of an instance configuration from overwriting each other. If not empty, the API only deletes the instance configuration when the etag provided matches the current status of the requested instance config. Otherwise, deletes the instance configuration without checking the current status of the requested instance config.
+etag <string> Used for optimistic concurrency control as a way to help prevent simultaneous deletes of an instance configuration from overwriting each other. If not empty, the API only deletes the instance configuration when the etag provided matches the current status of the requested instance configuration. Otherwise, deletes the instance configuration without checking the current status of the requested instance configuration.
 validateOnly <boolean> An option to validate, but not actually execute, a request, and provide the same response."
   ([name] (projects-instanceConfigs-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://spanner.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -128,7 +128,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-instanceConfigs-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://spanner.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -143,7 +143,7 @@ https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instanceConfigs/o
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://spanner.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -158,7 +158,7 @@ https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instanceConfigs/o
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://spanner.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -173,7 +173,7 @@ https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instanceConfigs/o
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://spanner.googleapis.com/v1/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -194,7 +194,7 @@ pageSize <integer> The standard list page size."
   ([name]
     (projects-instanceConfigs-ssdCaches-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://spanner.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -209,7 +209,7 @@ https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instanceConfigs/s
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://spanner.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -224,7 +224,7 @@ https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instanceConfigs/s
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://spanner.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -239,7 +239,7 @@ https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instanceConfigs/s
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://spanner.googleapis.com/v1/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -259,7 +259,7 @@ filter <string> An expression that filters the list of returned operations. A fi
 pageSize <integer> Number of operations to be returned in the response. If 0 or less, defaults to the server's maximum allowed page size."
   ([parent] (projects-instanceConfigOperations-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://spanner.googleapis.com/v1/{+parent}/instanceConfigOperations",
@@ -281,7 +281,7 @@ filter <string> An expression for filtering the results of the request. Filter r
 instanceDeadline <string> Deadline used while retrieving metadata for instances. Instances whose metadata cannot be retrieved within this deadline will be added to unreachable in ListInstancesResponse."
   ([parent] (projects-instances-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://spanner.googleapis.com/v1/{+parent}/instances",
@@ -299,7 +299,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://spanner.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -316,7 +316,7 @@ https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instances/delete
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://spanner.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -333,7 +333,7 @@ name <>
 UpdateInstanceRequest:
 UpdateInstanceRequest"
   [name UpdateInstanceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template "https://spanner.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -351,7 +351,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://spanner.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -363,14 +363,14 @@ GetIamPolicyRequest"
      :body GetIamPolicyRequest}))
 
 (defn projects-instances-move
-  "Moves the instance to the target instance config. The returned long-running operation can be used to track the progress of moving the instance. `MoveInstance` returns `FAILED_PRECONDITION` if the instance meets any of the following criteria: * Has an ongoing move to a different instance config * Has backups * Has an ongoing update * Is under free trial * Contains any CMEK-enabled databases While the operation is pending: * All other attempts to modify the instance, including changes to its compute capacity, are rejected. * The following database and backup admin operations are rejected: * DatabaseAdmin.CreateDatabase, * DatabaseAdmin.UpdateDatabaseDdl (Disabled if default_leader is specified in the request.) * DatabaseAdmin.RestoreDatabase * DatabaseAdmin.CreateBackup * DatabaseAdmin.CopyBackup * Both the source and target instance configurations are subject to hourly compute and storage charges. * The instance may experience higher read-write latencies and a higher transaction abort rate. However, moving an instance does not cause any downtime. The returned long-running operation will have a name of the format `/operations/` and can be used to track the move instance operation. The metadata field type is MoveInstanceMetadata. The response field type is Instance, if successful. Cancelling the operation sets its metadata's cancel_time. Cancellation is not immediate since it involves moving any data previously moved to target instance configuration back to the original instance config. The same operation can be used to track the progress of the cancellation. Upon successful completion of the cancellation, the operation terminates with `CANCELLED` status. Upon completion(if not cancelled) of the returned operation: * Instance would be successfully moved to the target instance config. * You are billed for compute and storage in target instance config. Authorization requires `spanner.instances.update` permission on the resource instance. For more details, please see [documentation](https://cloud.google.com/spanner/docs/move-instance).
+  "Moves an instance to the target instance configuration. You can use the returned long-running operation to track the progress of moving the instance. `MoveInstance` returns `FAILED_PRECONDITION` if the instance meets any of the following criteria: * Is undergoing a move to a different instance configuration * Has backups * Has an ongoing update * Contains any CMEK-enabled databases * Is a free trial instance While the operation is pending: * All other attempts to modify the instance, including changes to its compute capacity, are rejected. * The following database and backup admin operations are rejected: * `DatabaseAdmin.CreateDatabase` * `DatabaseAdmin.UpdateDatabaseDdl` (disabled if default_leader is specified in the request.) * `DatabaseAdmin.RestoreDatabase` * `DatabaseAdmin.CreateBackup` * `DatabaseAdmin.CopyBackup` * Both the source and target instance configurations are subject to hourly compute and storage charges. * The instance might experience higher read-write latencies and a higher transaction abort rate. However, moving an instance doesn't cause any downtime. The returned long-running operation has a name of the format `/operations/` and can be used to track the move instance operation. The metadata field type is MoveInstanceMetadata. The response field type is Instance, if successful. Cancelling the operation sets its metadata's cancel_time. Cancellation is not immediate because it involves moving any data previously moved to the target instance configuration back to the original instance configuration. You can use this operation to track the progress of the cancellation. Upon successful completion of the cancellation, the operation terminates with `CANCELLED` status. If not cancelled, upon completion of the returned operation: * The instance successfully moves to the target instance configuration. * You are billed for compute and storage in target instance configuration. Authorization requires the `spanner.instances.update` permission on the resource instance. For more details, see [Move an instance](https://cloud.google.com/spanner/docs/move-instance).
 https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instances/move
 
 name <> 
 MoveInstanceRequest:
 MoveInstanceRequest"
   [name MoveInstanceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://spanner.googleapis.com/v1/{+name}:move",
      :uri-template-args {"name" name},
@@ -388,7 +388,7 @@ parent <>
 CreateInstanceRequest:
 CreateInstanceRequest"
   [parent CreateInstanceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://spanner.googleapis.com/v1/{+parent}/instances",
@@ -409,7 +409,7 @@ optional:
 fieldMask <string> If field_mask is present, specifies the subset of Instance fields that should be returned. If absent, all Instance fields are returned."
   ([name] (projects-instances-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://spanner.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -426,7 +426,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://spanner.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -447,7 +447,7 @@ optional:
 pageSize <integer> Number of databases to be returned in the response. If 0 or less, defaults to the server's maximum allowed page size."
   ([parent] (projects-instances-databases-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://spanner.googleapis.com/v1/{+parent}/databases",
@@ -465,7 +465,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://spanner.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -477,14 +477,14 @@ SetIamPolicyRequest"
      :body SetIamPolicyRequest}))
 
 (defn projects-instances-databases-changequorum
-  "ChangeQuorum is strictly restricted to databases that use dual region instance configurations. Initiates a background operation to change quorum a database from dual-region mode to single-region mode and vice versa. The returned long-running operation will have a name of the format `projects//instances//databases//operations/` and can be used to track execution of the ChangeQuorum. The metadata field type is ChangeQuorumMetadata. Authorization requires `spanner.databases.changequorum` permission on the resource database.
+  "`ChangeQuorum` is strictly restricted to databases that use dual-region instance configurations. Initiates a background operation to change the quorum of a database from dual-region mode to single-region mode or vice versa. The returned long-running operation has a name of the format `projects//instances//databases//operations/` and can be used to track execution of the `ChangeQuorum`. The metadata field type is ChangeQuorumMetadata. Authorization requires `spanner.databases.changequorum` permission on the resource database.
 https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instances/databases/changequorum
 
 name <> 
 ChangeQuorumRequest:
 ChangeQuorumRequest"
   [name ChangeQuorumRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://spanner.googleapis.com/v1/{+name}:changequorum",
@@ -508,7 +508,7 @@ updateMask <string> Required. The list of fields to update. Currently, only `ena
   ([name Database]
     (projects-instances-databases-patch name Database nil))
   ([name Database optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://spanner.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -526,7 +526,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://spanner.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -545,7 +545,7 @@ database <>
 UpdateDatabaseDdlRequest:
 UpdateDatabaseDdlRequest"
   [database UpdateDatabaseDdlRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template "https://spanner.googleapis.com/v1/{+database}/ddl",
      :uri-template-args {"database" database},
@@ -563,7 +563,7 @@ parent <>
 CreateDatabaseRequest:
 CreateDatabaseRequest"
   [parent CreateDatabaseRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://spanner.googleapis.com/v1/{+parent}/databases",
@@ -580,7 +580,7 @@ https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instances/databas
 
 database <> "
   [database]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://spanner.googleapis.com/v1/{+database}/ddl",
      :uri-template-args {"database" database},
@@ -597,7 +597,7 @@ parent <>
 RestoreDatabaseRequest:
 RestoreDatabaseRequest"
   [parent RestoreDatabaseRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://spanner.googleapis.com/v1/{+parent}/databases:restore",
@@ -614,7 +614,7 @@ https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instances/databas
 
 database <> "
   [database]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://spanner.googleapis.com/v1/{+database}",
      :uri-template-args {"database" database},
@@ -629,7 +629,7 @@ https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instances/databas
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://spanner.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -650,7 +650,7 @@ startTime <string> These fields restrict the Database-specific information retur
 endTime <string> The upper bound for the time range to retrieve Scan data for."
   ([name] (projects-instances-databases-getScans name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://spanner.googleapis.com/v1/{+name}/scans",
        :uri-template-args {"name" name},
@@ -667,7 +667,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://spanner.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -689,7 +689,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-instances-databases-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://spanner.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -704,7 +704,7 @@ https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instances/databas
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://spanner.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -719,7 +719,7 @@ https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instances/databas
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://spanner.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -734,7 +734,7 @@ https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instances/databas
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://spanner.googleapis.com/v1/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -751,7 +751,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://spanner.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -770,7 +770,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://spanner.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -789,7 +789,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://spanner.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -800,6 +800,110 @@ TestIamPermissionsRequest"
       "https://www.googleapis.com/auth/spanner.admin"],
      :body TestIamPermissionsRequest}))
 
+(defn projects-instances-databases-backupSchedules-create
+  "Creates a new backup schedule.
+https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instances/databases/backupSchedules/create
+
+parent <> 
+BackupSchedule:
+BackupSchedule
+
+optional:
+backupScheduleId <string> Required. The Id to use for the backup schedule. The `backup_schedule_id` appended to `parent` forms the full backup schedule name of the form `projects//instances//databases//backupSchedules/`."
+  ([parent BackupSchedule]
+    (projects-instances-databases-backupSchedules-create
+      parent
+      BackupSchedule
+      nil))
+  ([parent BackupSchedule optional]
+    (client/*api-request*
+      {:method :post,
+       :uri-template
+       "https://spanner.googleapis.com/v1/{+parent}/backupSchedules",
+       :uri-template-args {"parent" parent},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/cloud-platform"
+        "https://www.googleapis.com/auth/spanner.admin"],
+       :body BackupSchedule})))
+
+(defn projects-instances-databases-backupSchedules-get
+  "Gets backup schedule for the input schedule name.
+https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instances/databases/backupSchedules/get
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :get,
+     :uri-template "https://spanner.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/spanner.admin"]}))
+
+(defn projects-instances-databases-backupSchedules-patch
+  "Updates a backup schedule.
+https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instances/databases/backupSchedules/patch
+
+name <> 
+BackupSchedule:
+BackupSchedule
+
+optional:
+updateMask <string> Required. A mask specifying which fields in the BackupSchedule resource should be updated. This mask is relative to the BackupSchedule resource, not to the request message. The field mask must always be specified; this prevents any future fields from being erased accidentally."
+  ([name BackupSchedule]
+    (projects-instances-databases-backupSchedules-patch
+      name
+      BackupSchedule
+      nil))
+  ([name BackupSchedule optional]
+    (client/*api-request*
+      {:method :patch,
+       :uri-template "https://spanner.googleapis.com/v1/{+name}",
+       :uri-template-args {"name" name},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/cloud-platform"
+        "https://www.googleapis.com/auth/spanner.admin"],
+       :body BackupSchedule})))
+
+(defn projects-instances-databases-backupSchedules-delete
+  "Deletes a backup schedule.
+https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instances/databases/backupSchedules/delete
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :delete,
+     :uri-template "https://spanner.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/spanner.admin"]}))
+
+(defn projects-instances-databases-backupSchedules-list
+  "Lists all the backup schedules for the database.
+https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instances/databases/backupSchedules/list
+
+parent <> 
+
+optional:
+pageSize <integer> Optional. Number of backup schedules to be returned in the response. If 0 or less, defaults to the server's maximum allowed page size."
+  ([parent]
+    (projects-instances-databases-backupSchedules-list parent nil))
+  ([parent optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://spanner.googleapis.com/v1/{+parent}/backupSchedules",
+       :uri-template-args {"parent" parent},
+       :query-params (merge {} optional),
+       :scopes
+       ["https://www.googleapis.com/auth/cloud-platform"
+        "https://www.googleapis.com/auth/spanner.admin"]})))
+
 (defn projects-instances-databases-databaseRoles-testIamPermissions
   "Returns permissions that the caller has on the specified database or backup resource. Attempting this RPC on a non-existent Cloud Spanner database will result in a NOT_FOUND error if the user has `spanner.databases.list` permission on the containing Cloud Spanner instance. Otherwise returns an empty set of permissions. Calling this method on a backup that does not exist will result in a NOT_FOUND error if the user has `spanner.backups.list` permission on the containing instance.
 https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instances/databases/databaseRoles/testIamPermissions
@@ -808,7 +912,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://spanner.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -830,7 +934,7 @@ pageSize <integer> Number of database roles to be returned in the response. If 0
   ([parent]
     (projects-instances-databases-databaseRoles-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://spanner.googleapis.com/v1/{+parent}/databaseRoles",
@@ -848,7 +952,7 @@ database <>
 BatchCreateSessionsRequest:
 BatchCreateSessionsRequest"
   [database BatchCreateSessionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://spanner.googleapis.com/v1/{+database}/sessions:batchCreate",
@@ -871,7 +975,7 @@ filter <string> An expression for filtering the results of the request. Filter r
   ([database]
     (projects-instances-databases-sessions-list database nil))
   ([database optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://spanner.googleapis.com/v1/{+database}/sessions",
@@ -887,7 +991,7 @@ https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instances/databas
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://spanner.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -904,7 +1008,7 @@ session <>
 ReadRequest:
 ReadRequest"
   [session ReadRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://spanner.googleapis.com/v1/{+session}:read",
      :uri-template-args {"session" session},
@@ -922,7 +1026,7 @@ session <>
 ExecuteBatchDmlRequest:
 ExecuteBatchDmlRequest"
   [session ExecuteBatchDmlRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://spanner.googleapis.com/v1/{+session}:executeBatchDml",
@@ -941,7 +1045,7 @@ session <>
 CommitRequest:
 CommitRequest"
   [session CommitRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://spanner.googleapis.com/v1/{+session}:commit",
@@ -960,7 +1064,7 @@ session <>
 BatchWriteRequest:
 BatchWriteRequest"
   [session BatchWriteRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://spanner.googleapis.com/v1/{+session}:batchWrite",
@@ -979,7 +1083,7 @@ session <>
 PartitionQueryRequest:
 PartitionQueryRequest"
   [session PartitionQueryRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://spanner.googleapis.com/v1/{+session}:partitionQuery",
@@ -998,7 +1102,7 @@ session <>
 ExecuteSqlRequest:
 ExecuteSqlRequest"
   [session ExecuteSqlRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://spanner.googleapis.com/v1/{+session}:executeSql",
@@ -1017,7 +1121,7 @@ session <>
 ReadRequest:
 ReadRequest"
   [session ReadRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://spanner.googleapis.com/v1/{+session}:streamingRead",
@@ -1036,7 +1140,7 @@ session <>
 PartitionReadRequest:
 PartitionReadRequest"
   [session PartitionReadRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://spanner.googleapis.com/v1/{+session}:partitionRead",
@@ -1055,7 +1159,7 @@ database <>
 CreateSessionRequest:
 CreateSessionRequest"
   [database CreateSessionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://spanner.googleapis.com/v1/{+database}/sessions",
@@ -1074,7 +1178,7 @@ session <>
 RollbackRequest:
 RollbackRequest"
   [session RollbackRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://spanner.googleapis.com/v1/{+session}:rollback",
@@ -1093,7 +1197,7 @@ session <>
 BeginTransactionRequest:
 BeginTransactionRequest"
   [session BeginTransactionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://spanner.googleapis.com/v1/{+session}:beginTransaction",
@@ -1110,7 +1214,7 @@ https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instances/databas
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://spanner.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1127,7 +1231,7 @@ session <>
 ExecuteSqlRequest:
 ExecuteSqlRequest"
   [session ExecuteSqlRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://spanner.googleapis.com/v1/{+session}:executeStreamingSql",
@@ -1149,7 +1253,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-instances-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://spanner.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1164,7 +1268,7 @@ https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instances/operati
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://spanner.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1179,7 +1283,7 @@ https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instances/operati
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://spanner.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1194,7 +1298,7 @@ https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instances/operati
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://spanner.googleapis.com/v1/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -1210,11 +1314,11 @@ https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instances/backups
 parent <> 
 
 optional:
-filter <string> An expression that filters the list of returned backups. A filter expression consists of a field name, a comparison operator, and a value for filtering. The value must be a string, a number, or a boolean. The comparison operator must be one of: `<`, `>`, `<=`, `>=`, `!=`, `=`, or `:`. Colon `:` is the contains operator. Filter rules are not case sensitive. The following fields in the Backup are eligible for filtering: * `name` * `database` * `state` * `create_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ) * `expire_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ) * `version_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ) * `size_bytes` You can combine multiple expressions by enclosing each expression in parentheses. By default, expressions are combined with AND logic, but you can specify AND, OR, and NOT logic explicitly. Here are a few examples: * `name:Howl` - The backup's name contains the string \"howl\". * `database:prod` - The database's name contains the string \"prod\". * `state:CREATING` - The backup is pending creation. * `state:READY` - The backup is fully created and ready for use. * `(name:howl) AND (create_time < \\\"2018-03-28T14:50:00Z\\\")` - The backup name contains the string \"howl\" and `create_time` of the backup is before 2018-03-28T14:50:00Z. * `expire_time < \\\"2018-03-28T14:50:00Z\\\"` - The backup `expire_time` is before 2018-03-28T14:50:00Z. * `size_bytes > 10000000000` - The backup's size is greater than 10GB
+filter <string> An expression that filters the list of returned backups. A filter expression consists of a field name, a comparison operator, and a value for filtering. The value must be a string, a number, or a boolean. The comparison operator must be one of: `<`, `>`, `<=`, `>=`, `!=`, `=`, or `:`. Colon `:` is the contains operator. Filter rules are not case sensitive. The following fields in the Backup are eligible for filtering: * `name` * `database` * `state` * `create_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ) * `expire_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ) * `version_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ) * `size_bytes` * `backup_schedules` You can combine multiple expressions by enclosing each expression in parentheses. By default, expressions are combined with AND logic, but you can specify AND, OR, and NOT logic explicitly. Here are a few examples: * `name:Howl` - The backup's name contains the string \"howl\". * `database:prod` - The database's name contains the string \"prod\". * `state:CREATING` - The backup is pending creation. * `state:READY` - The backup is fully created and ready for use. * `(name:howl) AND (create_time < \\\"2018-03-28T14:50:00Z\\\")` - The backup name contains the string \"howl\" and `create_time` of the backup is before 2018-03-28T14:50:00Z. * `expire_time < \\\"2018-03-28T14:50:00Z\\\"` - The backup `expire_time` is before 2018-03-28T14:50:00Z. * `size_bytes > 10000000000` - The backup's size is greater than 10GB * `backup_schedules:daily` - The backup is created from a schedule with \"daily\" in its name.
 pageSize <integer> Number of backups to be returned in the response. If 0 or less, defaults to the server's maximum allowed page size."
   ([parent] (projects-instances-backups-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://spanner.googleapis.com/v1/{+parent}/backups",
@@ -1232,7 +1336,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://spanner.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -1251,7 +1355,7 @@ parent <>
 CopyBackupRequest:
 CopyBackupRequest"
   [parent CopyBackupRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://spanner.googleapis.com/v1/{+parent}/backups:copy",
@@ -1268,7 +1372,7 @@ https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instances/backups
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://spanner.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1289,7 +1393,7 @@ optional:
 updateMask <string> Required. A mask specifying which fields (e.g. `expire_time`) in the Backup resource should be updated. This mask is relative to the Backup resource, not to the request message. The field mask must always be specified; this prevents any future fields from being erased accidentally by clients that do not know about them."
   ([name Backup] (projects-instances-backups-patch name Backup nil))
   ([name Backup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://spanner.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1307,7 +1411,7 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://spanner.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -1334,7 +1438,7 @@ encryptionConfig.kmsKeyNames <string> Optional. Specifies the KMS configuration 
   ([parent Backup]
     (projects-instances-backups-create parent Backup nil))
   ([parent Backup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://spanner.googleapis.com/v1/{+parent}/backups",
@@ -1351,7 +1455,7 @@ https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instances/backups
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://spanner.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1368,7 +1472,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://spanner.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -1390,7 +1494,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-instances-backups-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://spanner.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1405,7 +1509,7 @@ https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instances/backups
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://spanner.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1420,7 +1524,7 @@ https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instances/backups
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://spanner.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1435,7 +1539,7 @@ https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instances/backups
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://spanner.googleapis.com/v1/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -1455,7 +1559,7 @@ filter <string> An expression that filters the list of returned operations. A fi
 pageSize <integer> Number of operations to be returned in the response. If 0 or less, defaults to the server's maximum allowed page size."
   ([parent] (projects-instances-databaseOperations-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://spanner.googleapis.com/v1/{+parent}/databaseOperations",
@@ -1476,7 +1580,7 @@ filter <string> An expression that filters the list of returned backup operation
 pageSize <integer> Number of operations to be returned in the response. If 0 or less, defaults to the server's maximum allowed page size."
   ([parent] (projects-instances-backupOperations-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://spanner.googleapis.com/v1/{+parent}/backupOperations",
@@ -1497,7 +1601,7 @@ pageSize <integer> Number of instance partitions to be returned in the response.
 instancePartitionDeadline <string> Optional. Deadline used while retrieving metadata for instance partitions. Instance partitions whose metadata cannot be retrieved within this deadline will be added to unreachable in ListInstancePartitionsResponse."
   ([parent] (projects-instances-instancePartitions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://spanner.googleapis.com/v1/{+parent}/instancePartitions",
@@ -1513,7 +1617,7 @@ https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instances/instanc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://spanner.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1530,7 +1634,7 @@ parent <>
 CreateInstancePartitionRequest:
 CreateInstancePartitionRequest"
   [parent CreateInstancePartitionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://spanner.googleapis.com/v1/{+parent}/instancePartitions",
@@ -1551,7 +1655,7 @@ optional:
 etag <string> Optional. If not empty, the API only deletes the instance partition when the etag provided matches the current status of the requested instance partition. Otherwise, deletes the instance partition without checking the current status of the requested instance partition."
   ([name] (projects-instances-instancePartitions-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://spanner.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1568,7 +1672,7 @@ name <>
 UpdateInstancePartitionRequest:
 UpdateInstancePartitionRequest"
   [name UpdateInstancePartitionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template "https://spanner.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1590,7 +1694,7 @@ pageSize <integer> The standard list page size."
   ([name]
     (projects-instances-instancePartitions-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://spanner.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -1605,7 +1709,7 @@ https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instances/instanc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://spanner.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1620,7 +1724,7 @@ https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instances/instanc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://spanner.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -1635,7 +1739,7 @@ https://cloud.google.com/spanner/v1/reference/rest/v1/projects/instances/instanc
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://spanner.googleapis.com/v1/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -1657,7 +1761,7 @@ instancePartitionDeadline <string> Optional. Deadline used while retrieving meta
   ([parent]
     (projects-instances-instancePartitionOperations-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://spanner.googleapis.com/v1/{+parent}/instancePartitionOperations",

@@ -15,7 +15,7 @@ projectId <string> The project ID of the Google Cloud Platform project.
 systemId <string> A system ID for filtering the results of the request."
   ([name] (users-getLoginProfile name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://oslogin.googleapis.com/v1/{+name}/loginProfile",
@@ -41,7 +41,7 @@ regions <string> Optional. The regions to which to assert that the key was writt
   ([parent SshPublicKey]
     (users-importSshPublicKey parent SshPublicKey nil))
   ([parent SshPublicKey optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://oslogin.googleapis.com/v1/{+parent}:importSshPublicKey",
@@ -60,7 +60,7 @@ parent <>
 SshPublicKey:
 SshPublicKey"
   [parent SshPublicKey]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://oslogin.googleapis.com/v1/{+parent}/sshPublicKeys",
@@ -77,7 +77,7 @@ https://cloud.google.com/compute/docs/oslogin/v1/reference/rest/v1/users/sshPubl
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://oslogin.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -92,7 +92,7 @@ https://cloud.google.com/compute/docs/oslogin/v1/reference/rest/v1/users/sshPubl
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://oslogin.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -114,7 +114,7 @@ updateMask <string> Mask to control which fields get updated. Updates all if not
   ([name SshPublicKey]
     (users-sshPublicKeys-patch name SshPublicKey nil))
   ([name SshPublicKey optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://oslogin.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -130,7 +130,7 @@ https://cloud.google.com/compute/docs/oslogin/v1/reference/rest/v1/users/project
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://oslogin.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},

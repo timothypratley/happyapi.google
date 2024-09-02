@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://backupdr.googleapis.com/v1/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/backup-disaster-recovery/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://backupdr.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -44,7 +44,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://backupdr.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -64,7 +64,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-managementServers-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://backupdr.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -80,7 +80,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://backupdr.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -101,7 +101,7 @@ filter <string> Optional. Filtering results.
 orderBy <string> Optional. Hint for how to order the results."
   ([parent] (projects-locations-managementServers-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://backupdr.googleapis.com/v1/{+parent}/managementServers",
@@ -115,7 +115,7 @@ https://cloud.google.com/backup-disaster-recovery/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://backupdr.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -139,7 +139,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
       ManagementServer
       nil))
   ([parent ManagementServer optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://backupdr.googleapis.com/v1/{+parent}/managementServers",
@@ -158,7 +158,7 @@ optional:
 requestId <string> Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-managementServers-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://backupdr.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -176,7 +176,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://backupdr.googleapis.com/v1/{+name}/operations",
@@ -190,7 +190,7 @@ https://cloud.google.com/backup-disaster-recovery/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://backupdr.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -203,7 +203,7 @@ https://cloud.google.com/backup-disaster-recovery/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://backupdr.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -218,7 +218,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://backupdr.googleapis.com/v1/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -241,7 +241,7 @@ validateOnly <boolean> Optional. Only validate the request, but do not perform m
   ([parent BackupVault]
     (projects-locations-backupVaults-create parent BackupVault nil))
   ([parent BackupVault optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://backupdr.googleapis.com/v1/{+parent}/backupVaults",
@@ -262,7 +262,7 @@ filter <string> Optional. Filtering results.
 orderBy <string> Optional. Hint for how to order the results."
   ([parent] (projects-locations-backupVaults-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://backupdr.googleapis.com/v1/{+parent}/backupVaults",
@@ -282,7 +282,7 @@ filter <string> Optional. Filtering results.
 orderBy <string> Optional. Hint for how to order the results."
   ([parent] (projects-locations-backupVaults-fetchUsable parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://backupdr.googleapis.com/v1/{+parent}/backupVaults:fetchUsable",
@@ -296,7 +296,7 @@ https://cloud.google.com/backup-disaster-recovery/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://backupdr.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -314,11 +314,12 @@ BackupVault
 optional:
 updateMask <string> Required. Field mask is used to specify the fields to be overwritten in the BackupVault resource by the update. The fields specified in the update_mask are relative to the resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then the request will fail.
 requestId <string> Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
-validateOnly <boolean> Optional. Only validate the request, but do not perform mutations. The default is 'false'."
+validateOnly <boolean> Optional. Only validate the request, but do not perform mutations. The default is 'false'.
+force <boolean> Optional. If set to true, will not check plan duration against backup vault enforcement duration."
   ([name BackupVault]
     (projects-locations-backupVaults-patch name BackupVault nil))
   ([name BackupVault optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://backupdr.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -340,7 +341,7 @@ validateOnly <boolean> Optional. Only validate the request, but do not perform m
 allowMissing <boolean> Optional. If true and the BackupVault is not found, the request will succeed but no action will be taken."
   ([name] (projects-locations-backupVaults-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://backupdr.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -355,7 +356,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://backupdr.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -372,7 +373,7 @@ dataSource <>
 AbandonBackupRequest:
 AbandonBackupRequest"
   [dataSource AbandonBackupRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://backupdr.googleapis.com/v1/{+dataSource}:abandonBackup",
@@ -394,7 +395,7 @@ orderBy <string> Optional. Hint for how to order the results."
   ([parent]
     (projects-locations-backupVaults-dataSources-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://backupdr.googleapis.com/v1/{+parent}/dataSources",
@@ -410,7 +411,7 @@ name <>
 FetchAccessTokenRequest:
 FetchAccessTokenRequest"
   [name FetchAccessTokenRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://backupdr.googleapis.com/v1/{+name}:fetchAccessToken",
@@ -427,7 +428,7 @@ dataSource <>
 SetInternalStatusRequest:
 SetInternalStatusRequest"
   [dataSource SetInternalStatusRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://backupdr.googleapis.com/v1/{+dataSource}:setInternalStatus",
@@ -444,7 +445,7 @@ dataSource <>
 InitiateBackupRequest:
 InitiateBackupRequest"
   [dataSource InitiateBackupRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://backupdr.googleapis.com/v1/{+dataSource}:initiateBackup",
@@ -461,7 +462,7 @@ dataSource <>
 FinalizeBackupRequest:
 FinalizeBackupRequest"
   [dataSource FinalizeBackupRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://backupdr.googleapis.com/v1/{+dataSource}:finalizeBackup",
@@ -478,7 +479,7 @@ name <>
 RemoveDataSourceRequest:
 RemoveDataSourceRequest"
   [name RemoveDataSourceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://backupdr.googleapis.com/v1/{+name}:remove",
      :uri-template-args {"name" name},
@@ -504,7 +505,7 @@ allowMissing <boolean> Optional. Enable upsert."
       DataSource
       nil))
   ([name DataSource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://backupdr.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -518,7 +519,7 @@ https://cloud.google.com/backup-disaster-recovery/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://backupdr.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -540,7 +541,7 @@ orderBy <string> Optional. Hint for how to order the results."
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://backupdr.googleapis.com/v1/{+parent}/backups",
@@ -554,7 +555,7 @@ https://cloud.google.com/backup-disaster-recovery/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://backupdr.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -578,7 +579,7 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
       Backup
       nil))
   ([name Backup optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://backupdr.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -599,9 +600,192 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
       name
       nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://backupdr.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
        :query-params (merge {} optional),
        :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+
+(defn projects-locations-backupVaults-dataSources-backups-restore
+  "Restore from a Backup
+https://cloud.google.com/backup-disaster-recovery/v1/reference/rest/v1/projects/locations/backupVaults/dataSources/backups/restore
+
+name <> 
+RestoreBackupRequest:
+RestoreBackupRequest"
+  [name RestoreBackupRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://backupdr.googleapis.com/v1/{+name}:restore",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body RestoreBackupRequest}))
+
+(defn projects-locations-backupPlans-create
+  "Create a BackupPlan
+https://cloud.google.com/backup-disaster-recovery/v1/reference/rest/v1/projects/locations/backupPlans/create
+
+parent <> 
+BackupPlan:
+BackupPlan
+
+optional:
+backupPlanId <string> Required. The name of the `BackupPlan` to create. The name must be unique for the specified project and location.The name must start with a lowercase letter followed by up to 62 lowercase letters, numbers, or hyphens. Pattern, /a-z{,62}/.
+requestId <string> Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and t he request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
+  ([parent BackupPlan]
+    (projects-locations-backupPlans-create parent BackupPlan nil))
+  ([parent BackupPlan optional]
+    (client/*api-request*
+      {:method :post,
+       :uri-template
+       "https://backupdr.googleapis.com/v1/{+parent}/backupPlans",
+       :uri-template-args {"parent" parent},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+       :body BackupPlan})))
+
+(defn projects-locations-backupPlans-get
+  "Gets details of a single BackupPlan.
+https://cloud.google.com/backup-disaster-recovery/v1/reference/rest/v1/projects/locations/backupPlans/get
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :get,
+     :uri-template "https://backupdr.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+
+(defn projects-locations-backupPlans-list
+  "Lists BackupPlans in a given project and location.
+https://cloud.google.com/backup-disaster-recovery/v1/reference/rest/v1/projects/locations/backupPlans/list
+
+parent <> 
+
+optional:
+pageSize <integer> Optional. The maximum number of `BackupPlans` to return in a single response. If not specified, a default value will be chosen by the service. Note that the response may include a partial list and a caller should only rely on the response's next_page_token to determine if there are more instances left to be queried.
+filter <string> Optional. Field match expression used to filter the results.
+orderBy <string> Optional. Field by which to sort the results."
+  ([parent] (projects-locations-backupPlans-list parent nil))
+  ([parent optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://backupdr.googleapis.com/v1/{+parent}/backupPlans",
+       :uri-template-args {"parent" parent},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+
+(defn projects-locations-backupPlans-delete
+  "Deletes a single BackupPlan.
+https://cloud.google.com/backup-disaster-recovery/v1/reference/rest/v1/projects/locations/backupPlans/delete
+
+name <> 
+
+optional:
+requestId <string> Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
+  ([name] (projects-locations-backupPlans-delete name nil))
+  ([name optional]
+    (client/*api-request*
+      {:method :delete,
+       :uri-template "https://backupdr.googleapis.com/v1/{+name}",
+       :uri-template-args {"name" name},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+
+(defn projects-locations-backupPlanAssociations-create
+  "Create a BackupPlanAssociation
+https://cloud.google.com/backup-disaster-recovery/v1/reference/rest/v1/projects/locations/backupPlanAssociations/create
+
+parent <> 
+BackupPlanAssociation:
+BackupPlanAssociation
+
+optional:
+backupPlanAssociationId <string> Required. The name of the backup plan association to create. The name must be unique for the specified project and location.
+requestId <string> Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and t he request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
+  ([parent BackupPlanAssociation]
+    (projects-locations-backupPlanAssociations-create
+      parent
+      BackupPlanAssociation
+      nil))
+  ([parent BackupPlanAssociation optional]
+    (client/*api-request*
+      {:method :post,
+       :uri-template
+       "https://backupdr.googleapis.com/v1/{+parent}/backupPlanAssociations",
+       :uri-template-args {"parent" parent},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+       :body BackupPlanAssociation})))
+
+(defn projects-locations-backupPlanAssociations-get
+  "Gets details of a single BackupPlanAssociation.
+https://cloud.google.com/backup-disaster-recovery/v1/reference/rest/v1/projects/locations/backupPlanAssociations/get
+
+name <> "
+  [name]
+  (client/*api-request*
+    {:method :get,
+     :uri-template "https://backupdr.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+
+(defn projects-locations-backupPlanAssociations-list
+  "Lists BackupPlanAssociations in a given project and location.
+https://cloud.google.com/backup-disaster-recovery/v1/reference/rest/v1/projects/locations/backupPlanAssociations/list
+
+parent <> 
+
+optional:
+pageSize <integer> Optional. Requested page size. Server may return fewer items than requested. If unspecified, server will pick an appropriate default.
+filter <string> Optional. Filtering results"
+  ([parent]
+    (projects-locations-backupPlanAssociations-list parent nil))
+  ([parent optional]
+    (client/*api-request*
+      {:method :get,
+       :uri-template
+       "https://backupdr.googleapis.com/v1/{+parent}/backupPlanAssociations",
+       :uri-template-args {"parent" parent},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+
+(defn projects-locations-backupPlanAssociations-delete
+  "Deletes a single BackupPlanAssociation.
+https://cloud.google.com/backup-disaster-recovery/v1/reference/rest/v1/projects/locations/backupPlanAssociations/delete
+
+name <> 
+
+optional:
+requestId <string> Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
+  ([name] (projects-locations-backupPlanAssociations-delete name nil))
+  ([name optional]
+    (client/*api-request*
+      {:method :delete,
+       :uri-template "https://backupdr.googleapis.com/v1/{+name}",
+       :uri-template-args {"name" name},
+       :query-params (merge {} optional),
+       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+
+(defn projects-locations-backupPlanAssociations-triggerBackup
+  "Triggers a new Backup.
+https://cloud.google.com/backup-disaster-recovery/v1/reference/rest/v1/projects/locations/backupPlanAssociations/triggerBackup
+
+name <> 
+TriggerBackupRequest:
+TriggerBackupRequest"
+  [name TriggerBackupRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://backupdr.googleapis.com/v1/{+name}:triggerBackup",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body TriggerBackupRequest}))

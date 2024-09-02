@@ -24,7 +24,7 @@ groupIdFilter <string> Comma separated group ids (obfuscated) on which user acti
   ([userKey applicationName]
     (activities-list userKey applicationName nil))
   ([userKey applicationName optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://admin.googleapis.com/admin/reports/v1/activity/users/{userKey}/applications/{applicationName}",
@@ -56,7 +56,7 @@ groupIdFilter <string> Comma separated group ids (obfuscated) on which user acti
   ([userKey applicationName Channel]
     (activities-watch userKey applicationName Channel nil))
   ([userKey applicationName Channel optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://admin.googleapis.com/admin/reports/v1/activity/users/{userKey}/applications/{applicationName}/watch",
@@ -74,7 +74,7 @@ https://developers.google.com/admin-sdk/reports_v1/reference/rest/reports_v1/cha
 Channel:
 Channel"
   [Channel]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://admin.googleapis.com/admin/reports_v1/channels/stop",
@@ -95,7 +95,7 @@ customerId <string> The unique ID of the customer to retrieve data for.
 parameters <string> The `parameters` query string is a comma-separated list of event parameters that refine a report's results. The parameter is associated with a specific application. The application values for the Customers usage report include `accounts`, `app_maker`, `apps_scripts`, `calendar`, `classroom`, `cros`, `docs`, `gmail`, `gplus`, `device_management`, `meet`, and `sites`. A `parameters` query string is in the CSV form of `app_name1:param_name1, app_name2:param_name2`. *Note:* The API doesn't accept multiple values of a parameter. If a particular parameter is supplied more than once in the API request, the API only accepts the last value of that request parameter. In addition, if an invalid request parameter is supplied in the API request, the API ignores that request parameter and returns the response corresponding to the remaining valid request parameters. An example of an invalid request parameter is one that does not belong to the application. If no parameters are requested, all parameters are returned. "
   ([date] (customerUsageReports-get date nil))
   ([date optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://admin.googleapis.com/admin/reports/v1/usage/dates/{date}",
@@ -120,7 +120,7 @@ parameters <string> The `parameters` query string is a comma-separated list of e
   ([entityType entityKey date]
     (entityUsageReports-get entityType entityKey date nil))
   ([entityType entityKey date optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://admin.googleapis.com/admin/reports/v1/usage/{entityType}/{entityKey}/dates/{date}",
@@ -146,7 +146,7 @@ parameters <string> The `parameters` query string is a comma-separated list of e
 groupIdFilter <string> Comma separated group ids (obfuscated) on which user activities are filtered, i.e. the response will contain activities for only those users that are a part of at least one of the group ids mentioned here. Format: \"id:abc123,id:xyz456\""
   ([userKey date] (userUsageReport-get userKey date nil))
   ([userKey date optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://admin.googleapis.com/admin/reports/v1/usage/users/{userKey}/dates/{date}",

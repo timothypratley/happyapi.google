@@ -1,4 +1,4 @@
-(ns happyapi.google.adsensehost-v4.1
+(ns happyapi.google.adsensehost-v4-1
   "AdSense Host API
 Generates performance reports, generates ad codes, and provides publisher management capabilities for AdSense Hosts.
 See: https://developers.google.com/adsense/host/"
@@ -10,7 +10,7 @@ https://developers.google.com/adsense/host/v4.1/reference/rest/v4.1/accounts/get
 
 accountId <> "
   [accountId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://www.googleapis.com/adsensehost/v4.1/accounts/{accountId}",
@@ -24,7 +24,7 @@ https://developers.google.com/adsense/host/v4.1/reference/rest/v4.1/accounts/lis
 
 filterAdClientId <> "
   [filterAdClientId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://www.googleapis.com/adsensehost/v4.1/accounts",
@@ -39,7 +39,7 @@ https://developers.google.com/adsense/host/v4.1/reference/rest/v4.1/accounts/adc
 accountId <> 
 adClientId <> "
   [accountId adClientId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://www.googleapis.com/adsensehost/v4.1/accounts/{accountId}/adclients/{adClientId}",
@@ -58,7 +58,7 @@ optional:
 maxResults <integer> The maximum number of ad clients to include in the response, used for paging."
   ([accountId] (accounts-adclients-list accountId nil))
   ([accountId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/adsensehost/v4.1/accounts/{accountId}/adclients",
@@ -74,7 +74,7 @@ accountId <>
 adClientId <> 
 adUnitId <> "
   [accountId adClientId adUnitId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://www.googleapis.com/adsensehost/v4.1/accounts/{accountId}/adclients/{adClientId}/adunits/{adUnitId}",
@@ -93,7 +93,7 @@ accountId <>
 adClientId <> 
 adUnitId <> "
   [accountId adClientId adUnitId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://www.googleapis.com/adsensehost/v4.1/accounts/{accountId}/adclients/{adClientId}/adunits/{adUnitId}",
@@ -117,7 +117,7 @@ hostCustomChannelId <string> Host custom channel to attach to the ad code."
   ([accountId adClientId adUnitId]
     (accounts-adunits-getAdCode accountId adClientId adUnitId nil))
   ([accountId adClientId adUnitId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/adsensehost/v4.1/accounts/{accountId}/adclients/{adClientId}/adunits/{adUnitId}/adcode",
@@ -137,7 +137,7 @@ adClientId <>
 AdUnit:
 AdUnit"
   [accountId adClientId AdUnit]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/adsensehost/v4.1/accounts/{accountId}/adclients/{adClientId}/adunits",
@@ -160,7 +160,7 @@ maxResults <integer> The maximum number of ad units to include in the response, 
   ([accountId adClientId]
     (accounts-adunits-list accountId adClientId nil))
   ([accountId adClientId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/adsensehost/v4.1/accounts/{accountId}/adclients/{adClientId}/adunits",
@@ -179,7 +179,7 @@ adUnitId <>
 AdUnit:
 AdUnit"
   [accountId adClientId adUnitId AdUnit]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://www.googleapis.com/adsensehost/v4.1/accounts/{accountId}/adclients/{adClientId}/adunits",
@@ -198,7 +198,7 @@ adClientId <>
 AdUnit:
 AdUnit"
   [accountId adClientId AdUnit]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://www.googleapis.com/adsensehost/v4.1/accounts/{accountId}/adclients/{adClientId}/adunits",
@@ -227,7 +227,7 @@ dimension <string> Dimensions to base the report on."
   ([accountId startDate endDate]
     (accounts-reports-generate accountId startDate endDate nil))
   ([accountId startDate endDate optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/adsensehost/v4.1/accounts/{accountId}/reports",
@@ -242,7 +242,7 @@ https://developers.google.com/adsense/host/v4.1/reference/rest/v4.1/adclients/ge
 
 adClientId <> "
   [adClientId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://www.googleapis.com/adsensehost/v4.1/adclients/{adClientId}",
@@ -258,7 +258,7 @@ optional:
 maxResults <integer> The maximum number of ad clients to include in the response, used for paging."
   ([] (adclients-list nil))
   ([optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/adsensehost/v4.1/adclients",
@@ -280,7 +280,7 @@ websiteLocale <string> The locale of the user's hosted website."
   ([productCode websiteUrl]
     (associationsessions-start productCode websiteUrl nil))
   ([productCode websiteUrl optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/adsensehost/v4.1/associationsessions/start",
@@ -297,7 +297,7 @@ https://developers.google.com/adsense/host/v4.1/reference/rest/v4.1/associations
 
 token <> "
   [token]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://www.googleapis.com/adsensehost/v4.1/associationsessions/verify",
@@ -312,7 +312,7 @@ https://developers.google.com/adsense/host/v4.1/reference/rest/v4.1/customchanne
 adClientId <> 
 customChannelId <> "
   [adClientId customChannelId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://www.googleapis.com/adsensehost/v4.1/adclients/{adClientId}/customchannels/{customChannelId}",
@@ -328,7 +328,7 @@ https://developers.google.com/adsense/host/v4.1/reference/rest/v4.1/customchanne
 adClientId <> 
 customChannelId <> "
   [adClientId customChannelId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://www.googleapis.com/adsensehost/v4.1/adclients/{adClientId}/customchannels/{customChannelId}",
@@ -345,7 +345,7 @@ adClientId <>
 CustomChannel:
 CustomChannel"
   [adClientId CustomChannel]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/adsensehost/v4.1/adclients/{adClientId}/customchannels",
@@ -364,7 +364,7 @@ optional:
 maxResults <integer> The maximum number of custom channels to include in the response, used for paging."
   ([adClientId] (customchannels-list adClientId nil))
   ([adClientId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/adsensehost/v4.1/adclients/{adClientId}/customchannels",
@@ -381,7 +381,7 @@ customChannelId <>
 CustomChannel:
 CustomChannel"
   [adClientId customChannelId CustomChannel]
-  (client/api-request
+  (client/*api-request*
     {:method :patch,
      :uri-template
      "https://www.googleapis.com/adsensehost/v4.1/adclients/{adClientId}/customchannels",
@@ -398,7 +398,7 @@ adClientId <>
 CustomChannel:
 CustomChannel"
   [adClientId CustomChannel]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://www.googleapis.com/adsensehost/v4.1/adclients/{adClientId}/customchannels",
@@ -424,7 +424,7 @@ metric <string> Numeric columns to include in the report.
 dimension <string> Dimensions to base the report on."
   ([startDate endDate] (reports-generate startDate endDate nil))
   ([startDate endDate optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/adsensehost/v4.1/reports",
@@ -440,7 +440,7 @@ https://developers.google.com/adsense/host/v4.1/reference/rest/v4.1/urlchannels/
 adClientId <> 
 urlChannelId <> "
   [adClientId urlChannelId]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://www.googleapis.com/adsensehost/v4.1/adclients/{adClientId}/urlchannels/{urlChannelId}",
@@ -457,7 +457,7 @@ adClientId <>
 UrlChannel:
 UrlChannel"
   [adClientId UrlChannel]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://www.googleapis.com/adsensehost/v4.1/adclients/{adClientId}/urlchannels",
@@ -476,7 +476,7 @@ optional:
 maxResults <integer> The maximum number of URL channels to include in the response, used for paging."
   ([adClientId] (urlchannels-list adClientId nil))
   ([adClientId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://www.googleapis.com/adsensehost/v4.1/adclients/{adClientId}/urlchannels",

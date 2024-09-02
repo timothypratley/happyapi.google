@@ -11,7 +11,7 @@ https://developers.google.com/amp/cache/v1/reference/rest/v1/ampUrls/batchGet
 BatchGetAmpUrlsRequest:
 BatchGetAmpUrlsRequest"
   [BatchGetAmpUrlsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://acceleratedmobilepageurl.googleapis.com/v1/ampUrls:batchGet",

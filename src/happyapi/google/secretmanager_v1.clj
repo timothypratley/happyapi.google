@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://secretmanager.googleapis.com/v1/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/security/products/secret-manager/v1/reference/rest/v1/p
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://secretmanager.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -47,7 +47,7 @@ pageSize <integer> Optional. The maximum number of results to be returned in a s
 filter <string> Optional. Filter string, adhering to the rules in [List-operation filtering](https://cloud.google.com/secret-manager/docs/filtering). List only secrets matching the filter. If filter is empty, all secrets are listed."
   ([parent] (projects-locations-secrets-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://secretmanager.googleapis.com/v1/{+parent}/secrets",
@@ -63,7 +63,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://secretmanager.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -82,7 +82,7 @@ optional:
 etag <string> Optional. Etag of the Secret. The request succeeds if it matches the etag of the currently stored secret object. If the etag is omitted, the request succeeds."
   ([name] (projects-locations-secrets-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://secretmanager.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -97,7 +97,7 @@ parent <>
 AddSecretVersionRequest:
 AddSecretVersionRequest"
   [parent AddSecretVersionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://secretmanager.googleapis.com/v1/{+parent}:addVersion",
@@ -118,7 +118,7 @@ optional:
 updateMask <string> Required. Specifies the fields to be updated."
   ([name Secret] (projects-locations-secrets-patch name Secret nil))
   ([name Secret optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://secretmanager.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -136,7 +136,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-locations-secrets-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://secretmanager.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -157,7 +157,7 @@ secretId <string> Required. This must be unique within the project. A secret ID 
   ([parent Secret]
     (projects-locations-secrets-create parent Secret nil))
   ([parent Secret optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://secretmanager.googleapis.com/v1/{+parent}/secrets",
@@ -172,7 +172,7 @@ https://cloud.google.com/security/products/secret-manager/v1/reference/rest/v1/p
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://secretmanager.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -187,7 +187,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://secretmanager.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -207,7 +207,7 @@ pageSize <integer> Optional. The maximum number of results to be returned in a s
 filter <string> Optional. Filter string, adhering to the rules in [List-operation filtering](https://cloud.google.com/secret-manager/docs/filtering). List only secret versions matching the filter. If filter is empty, all secret versions are listed."
   ([parent] (projects-locations-secrets-versions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://secretmanager.googleapis.com/v1/{+parent}/versions",
@@ -221,7 +221,7 @@ https://cloud.google.com/security/products/secret-manager/v1/reference/rest/v1/p
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://secretmanager.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -234,7 +234,7 @@ https://cloud.google.com/security/products/secret-manager/v1/reference/rest/v1/p
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://secretmanager.googleapis.com/v1/{+name}:access",
@@ -250,7 +250,7 @@ name <>
 DisableSecretVersionRequest:
 DisableSecretVersionRequest"
   [name DisableSecretVersionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://secretmanager.googleapis.com/v1/{+name}:disable",
@@ -267,7 +267,7 @@ name <>
 EnableSecretVersionRequest:
 EnableSecretVersionRequest"
   [name EnableSecretVersionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://secretmanager.googleapis.com/v1/{+name}:enable",
@@ -284,7 +284,7 @@ name <>
 DestroySecretVersionRequest:
 DestroySecretVersionRequest"
   [name DestroySecretVersionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://secretmanager.googleapis.com/v1/{+name}:destroy",
@@ -304,7 +304,7 @@ pageSize <integer> Optional. The maximum number of results to be returned in a s
 filter <string> Optional. Filter string, adhering to the rules in [List-operation filtering](https://cloud.google.com/secret-manager/docs/filtering). List only secrets matching the filter. If filter is empty, all secrets are listed."
   ([parent] (projects-secrets-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://secretmanager.googleapis.com/v1/{+parent}/secrets",
@@ -320,7 +320,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://secretmanager.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -339,7 +339,7 @@ optional:
 etag <string> Optional. Etag of the Secret. The request succeeds if it matches the etag of the currently stored secret object. If the etag is omitted, the request succeeds."
   ([name] (projects-secrets-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://secretmanager.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -354,7 +354,7 @@ parent <>
 AddSecretVersionRequest:
 AddSecretVersionRequest"
   [parent AddSecretVersionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://secretmanager.googleapis.com/v1/{+parent}:addVersion",
@@ -375,7 +375,7 @@ optional:
 updateMask <string> Required. Specifies the fields to be updated."
   ([name Secret] (projects-secrets-patch name Secret nil))
   ([name Secret optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://secretmanager.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -393,7 +393,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-secrets-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://secretmanager.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -413,7 +413,7 @@ optional:
 secretId <string> Required. This must be unique within the project. A secret ID is a string with a maximum length of 255 characters and can contain uppercase and lowercase letters, numerals, and the hyphen (`-`) and underscore (`_`) characters."
   ([parent Secret] (projects-secrets-create parent Secret nil))
   ([parent Secret optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://secretmanager.googleapis.com/v1/{+parent}/secrets",
@@ -428,7 +428,7 @@ https://cloud.google.com/security/products/secret-manager/v1/reference/rest/v1/p
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://secretmanager.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -443,7 +443,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://secretmanager.googleapis.com/v1/{+resource}:testIamPermissions",
@@ -463,7 +463,7 @@ pageSize <integer> Optional. The maximum number of results to be returned in a s
 filter <string> Optional. Filter string, adhering to the rules in [List-operation filtering](https://cloud.google.com/secret-manager/docs/filtering). List only secret versions matching the filter. If filter is empty, all secret versions are listed."
   ([parent] (projects-secrets-versions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://secretmanager.googleapis.com/v1/{+parent}/versions",
@@ -477,7 +477,7 @@ https://cloud.google.com/security/products/secret-manager/v1/reference/rest/v1/p
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://secretmanager.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -490,7 +490,7 @@ https://cloud.google.com/security/products/secret-manager/v1/reference/rest/v1/p
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://secretmanager.googleapis.com/v1/{+name}:access",
@@ -506,7 +506,7 @@ name <>
 DisableSecretVersionRequest:
 DisableSecretVersionRequest"
   [name DisableSecretVersionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://secretmanager.googleapis.com/v1/{+name}:disable",
@@ -523,7 +523,7 @@ name <>
 EnableSecretVersionRequest:
 EnableSecretVersionRequest"
   [name EnableSecretVersionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://secretmanager.googleapis.com/v1/{+name}:enable",
@@ -540,7 +540,7 @@ name <>
 DestroySecretVersionRequest:
 DestroySecretVersionRequest"
   [name DestroySecretVersionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://secretmanager.googleapis.com/v1/{+name}:destroy",

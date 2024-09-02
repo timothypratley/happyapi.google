@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkmanagement.googleapis.com/v1/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/v1/reference/rest/v1/projects/locations/get
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://networkmanagement.googleapis.com/v1/{+name}",
@@ -48,7 +48,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-global-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkmanagement.googleapis.com/v1/{+name}/operations",
@@ -62,7 +62,7 @@ https://cloud.google.com/v1/reference/rest/v1/projects/locations/global/operatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://networkmanagement.googleapis.com/v1/{+name}",
@@ -76,7 +76,7 @@ https://cloud.google.com/v1/reference/rest/v1/projects/locations/global/operatio
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://networkmanagement.googleapis.com/v1/{+name}",
@@ -92,7 +92,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://networkmanagement.googleapis.com/v1/{+name}:cancel",
@@ -114,7 +114,7 @@ orderBy <string> Field to use to sort the list."
   ([parent]
     (projects-locations-global-connectivityTests-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkmanagement.googleapis.com/v1/{+parent}/connectivityTests",
@@ -130,7 +130,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://networkmanagement.googleapis.com/v1/{+resource}:setIamPolicy",
@@ -145,7 +145,7 @@ https://cloud.google.com/v1/reference/rest/v1/projects/locations/global/connecti
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template
      "https://networkmanagement.googleapis.com/v1/{+name}",
@@ -169,7 +169,7 @@ updateMask <string> Required. Mask of fields to update. At least one path must b
       ConnectivityTest
       nil))
   ([name ConnectivityTest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template
        "https://networkmanagement.googleapis.com/v1/{+name}",
@@ -191,7 +191,7 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://networkmanagement.googleapis.com/v1/{+resource}:getIamPolicy",
@@ -215,7 +215,7 @@ testId <string> Required. The logical name of the Connectivity Test in your proj
       ConnectivityTest
       nil))
   ([parent ConnectivityTest optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://networkmanagement.googleapis.com/v1/{+parent}/connectivityTests",
@@ -230,7 +230,7 @@ https://cloud.google.com/v1/reference/rest/v1/projects/locations/global/connecti
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://networkmanagement.googleapis.com/v1/{+name}",
@@ -246,7 +246,7 @@ name <>
 RerunConnectivityTestRequest:
 RerunConnectivityTestRequest"
   [name RerunConnectivityTestRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://networkmanagement.googleapis.com/v1/{+name}:rerun",
@@ -263,7 +263,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://networkmanagement.googleapis.com/v1/{+resource}:testIamPermissions",

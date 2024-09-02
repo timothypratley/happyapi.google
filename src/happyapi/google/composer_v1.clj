@@ -15,7 +15,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://composer.googleapis.com/v1/{+name}/operations",
@@ -29,7 +29,7 @@ https://cloud.google.com/composer/v1/reference/rest/v1/projects/locations/operat
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://composer.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -42,7 +42,7 @@ https://cloud.google.com/composer/v1/reference/rest/v1/projects/locations/operat
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://composer.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -57,7 +57,7 @@ environment <>
 StopAirflowCommandRequest:
 StopAirflowCommandRequest"
   [environment StopAirflowCommandRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://composer.googleapis.com/v1/{+environment}:stopAirflowCommand",
@@ -72,7 +72,7 @@ https://cloud.google.com/composer/v1/reference/rest/v1/projects/locations/enviro
 
 environment <> "
   [environment]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://composer.googleapis.com/v1/{+environment}:fetchDatabaseProperties",
@@ -88,7 +88,7 @@ environment <>
 SaveSnapshotRequest:
 SaveSnapshotRequest"
   [environment SaveSnapshotRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://composer.googleapis.com/v1/{+environment}:saveSnapshot",
@@ -107,7 +107,7 @@ optional:
 pageSize <integer> The maximum number of environments to return."
   ([parent] (projects-locations-environments-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://composer.googleapis.com/v1/{+parent}/environments",
@@ -121,7 +121,7 @@ https://cloud.google.com/composer/v1/reference/rest/v1/projects/locations/enviro
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://composer.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -136,7 +136,7 @@ environment <>
 CheckUpgradeRequest:
 CheckUpgradeRequest"
   [environment CheckUpgradeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://composer.googleapis.com/v1/{+environment}:checkUpgrade",
@@ -158,7 +158,7 @@ updateMask <string> Required. A comma-separated list of paths, relative to `Envi
   ([name Environment]
     (projects-locations-environments-patch name Environment nil))
   ([name Environment optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://composer.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -174,7 +174,7 @@ environment <>
 PollAirflowCommandRequest:
 PollAirflowCommandRequest"
   [environment PollAirflowCommandRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://composer.googleapis.com/v1/{+environment}:pollAirflowCommand",
@@ -191,7 +191,7 @@ environment <>
 LoadSnapshotRequest:
 LoadSnapshotRequest"
   [environment LoadSnapshotRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://composer.googleapis.com/v1/{+environment}:loadSnapshot",
@@ -208,7 +208,7 @@ environment <>
 DatabaseFailoverRequest:
 DatabaseFailoverRequest"
   [environment DatabaseFailoverRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://composer.googleapis.com/v1/{+environment}:databaseFailover",
@@ -225,7 +225,7 @@ parent <>
 Environment:
 Environment"
   [parent Environment]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://composer.googleapis.com/v1/{+parent}/environments",
@@ -242,7 +242,7 @@ environment <>
 ExecuteAirflowCommandRequest:
 ExecuteAirflowCommandRequest"
   [environment ExecuteAirflowCommandRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://composer.googleapis.com/v1/{+environment}:executeAirflowCommand",
@@ -257,7 +257,7 @@ https://cloud.google.com/composer/v1/reference/rest/v1/projects/locations/enviro
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://composer.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -276,7 +276,7 @@ filter <string> Optional. The list filter. Currently only supports equality on t
   ([parent]
     (projects-locations-environments-workloads-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://composer.googleapis.com/v1/{+parent}/workloads",
@@ -292,7 +292,7 @@ parent <>
 UserWorkloadsSecret:
 UserWorkloadsSecret"
   [parent UserWorkloadsSecret]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://composer.googleapis.com/v1/{+parent}/userWorkloadsSecrets",
@@ -307,7 +307,7 @@ https://cloud.google.com/composer/v1/reference/rest/v1/projects/locations/enviro
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://composer.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -327,7 +327,7 @@ pageSize <integer> Optional. The maximum number of Secrets to return."
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://composer.googleapis.com/v1/{+parent}/userWorkloadsSecrets",
@@ -343,7 +343,7 @@ name <>
 UserWorkloadsSecret:
 UserWorkloadsSecret"
   [name UserWorkloadsSecret]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template "https://composer.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -357,7 +357,7 @@ https://cloud.google.com/composer/v1/reference/rest/v1/projects/locations/enviro
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://composer.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -372,7 +372,7 @@ parent <>
 UserWorkloadsConfigMap:
 UserWorkloadsConfigMap"
   [parent UserWorkloadsConfigMap]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://composer.googleapis.com/v1/{+parent}/userWorkloadsConfigMaps",
@@ -387,7 +387,7 @@ https://cloud.google.com/composer/v1/reference/rest/v1/projects/locations/enviro
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://composer.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -407,7 +407,7 @@ pageSize <integer> Optional. The maximum number of ConfigMaps to return."
       parent
       nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://composer.googleapis.com/v1/{+parent}/userWorkloadsConfigMaps",
@@ -423,7 +423,7 @@ name <>
 UserWorkloadsConfigMap:
 UserWorkloadsConfigMap"
   [name UserWorkloadsConfigMap]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template "https://composer.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -437,7 +437,7 @@ https://cloud.google.com/composer/v1/reference/rest/v1/projects/locations/enviro
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://composer.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -455,7 +455,7 @@ pageSize <integer> The maximum number of image_versions to return.
 includePastReleases <boolean> Whether or not image versions from old releases should be included."
   ([parent] (projects-locations-imageVersions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://composer.googleapis.com/v1/{+parent}/imageVersions",

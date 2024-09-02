@@ -19,7 +19,7 @@ utm_source <string> Campaign source for analytics.
 captchaToken <string> The captcha token passed when filling out a captcha."
   ([url] (pagespeedapi-runpagespeed url nil))
   ([url optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed",

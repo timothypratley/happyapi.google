@@ -1,12 +1,12 @@
 (ns happyapi.google.container-v1
   "Kubernetes Engine API
 Builds and manages container-based applications, powered by the open source Kubernetes technology.
-See: https://cloud.google.com/container-engine/"
+See: https://cloud.google.com/kubernetes-engine"
   (:require [happyapi.providers.google :as client]))
 
 (defn projects-locations-getServerConfig
   "Returns configuration info about the Google Kubernetes Engine service.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/getServerConfig
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/getServerConfig
 
 name <> 
 
@@ -15,7 +15,7 @@ projectId <string> Deprecated. The Google Developers Console [project ID or proj
 zone <string> Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) to return operations for. This field has been deprecated and replaced by the name field."
   ([name] (projects-locations-getServerConfig name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://container.googleapis.com/v1/{+name}/serverConfig",
@@ -25,11 +25,11 @@ zone <string> Deprecated. The name of the Google Compute Engine [zone](https://c
 
 (defn projects-locations-clusters-checkAutopilotCompatibility
   "Checks the cluster compatibility with Autopilot mode, and returns a list of compatibility issues.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/clusters/checkAutopilotCompatibility
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/clusters/checkAutopilotCompatibility
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://container.googleapis.com/v1/{+name}:checkAutopilotCompatibility",
@@ -39,13 +39,13 @@ name <> "
 
 (defn projects-locations-clusters-setLegacyAbac
   "Enables or disables the ABAC authorization mechanism on a cluster.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/clusters/setLegacyAbac
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/clusters/setLegacyAbac
 
 name <> 
 SetLegacyAbacRequest:
 SetLegacyAbacRequest"
   [name SetLegacyAbacRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/{+name}:setLegacyAbac",
@@ -56,7 +56,7 @@ SetLegacyAbacRequest"
 
 (defn projects-locations-clusters-list
   "Lists all clusters owned by a project in either the specified zone or all zones.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/clusters/list
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/clusters/list
 
 parent <> 
 
@@ -65,7 +65,7 @@ projectId <string> Deprecated. The Google Developers Console [project ID or proj
 zone <string> Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) in which the cluster resides, or \"-\" for all zones. This field has been deprecated and replaced by the parent field."
   ([parent] (projects-locations-clusters-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://container.googleapis.com/v1/{+parent}/clusters",
@@ -75,13 +75,13 @@ zone <string> Deprecated. The name of the Google Compute Engine [zone](https://c
 
 (defn projects-locations-clusters-setMaintenancePolicy
   "Sets the maintenance policy for a cluster.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/clusters/setMaintenancePolicy
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/clusters/setMaintenancePolicy
 
 name <> 
 SetMaintenancePolicyRequest:
 SetMaintenancePolicyRequest"
   [name SetMaintenancePolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/{+name}:setMaintenancePolicy",
@@ -92,7 +92,7 @@ SetMaintenancePolicyRequest"
 
 (defn projects-locations-clusters-delete
   "Deletes the cluster, including the Kubernetes endpoint and all worker nodes. Firewalls and routes that were configured during cluster creation are also deleted. Other Google Compute Engine resources that might be in use by the cluster, such as load balancer resources, are not deleted if they weren't present when the cluster was initially created.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/clusters/delete
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/clusters/delete
 
 name <> 
 
@@ -102,7 +102,7 @@ zone <string> Deprecated. The name of the Google Compute Engine [zone](https://c
 clusterId <string> Deprecated. The name of the cluster to delete. This field has been deprecated and replaced by the name field."
   ([name] (projects-locations-clusters-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://container.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -111,13 +111,13 @@ clusterId <string> Deprecated. The name of the cluster to delete. This field has
 
 (defn projects-locations-clusters-setResourceLabels
   "Sets labels on a cluster.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/clusters/setResourceLabels
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/clusters/setResourceLabels
 
 name <> 
 SetLabelsRequest:
 SetLabelsRequest"
   [name SetLabelsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/{+name}:setResourceLabels",
@@ -128,13 +128,13 @@ SetLabelsRequest"
 
 (defn projects-locations-clusters-startIpRotation
   "Starts master IP rotation.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/clusters/startIpRotation
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/clusters/startIpRotation
 
 name <> 
 StartIPRotationRequest:
 StartIPRotationRequest"
   [name StartIPRotationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/{+name}:startIpRotation",
@@ -145,13 +145,13 @@ StartIPRotationRequest"
 
 (defn projects-locations-clusters-setLocations
   "Sets the locations for a specific cluster. Deprecated. Use [projects.locations.clusters.update](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters/update) instead.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/clusters/setLocations
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/clusters/setLocations
 
 name <> 
 SetLocationsRequest:
 SetLocationsRequest"
   [name SetLocationsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/{+name}:setLocations",
@@ -162,13 +162,13 @@ SetLocationsRequest"
 
 (defn projects-locations-clusters-setAddons
   "Sets the addons for a specific cluster.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/clusters/setAddons
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/clusters/setAddons
 
 name <> 
 SetAddonsConfigRequest:
 SetAddonsConfigRequest"
   [name SetAddonsConfigRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/{+name}:setAddons",
@@ -179,13 +179,13 @@ SetAddonsConfigRequest"
 
 (defn projects-locations-clusters-update
   "Updates the settings of a specific cluster.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/clusters/update
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/clusters/update
 
 name <> 
 UpdateClusterRequest:
 UpdateClusterRequest"
   [name UpdateClusterRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template "https://container.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -195,13 +195,13 @@ UpdateClusterRequest"
 
 (defn projects-locations-clusters-setMasterAuth
   "Sets master auth materials. Currently supports changing the admin password or a specific cluster, either via password generation or explicitly setting the password.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/clusters/setMasterAuth
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/clusters/setMasterAuth
 
 name <> 
 SetMasterAuthRequest:
 SetMasterAuthRequest"
   [name SetMasterAuthRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/{+name}:setMasterAuth",
@@ -212,13 +212,13 @@ SetMasterAuthRequest"
 
 (defn projects-locations-clusters-setMonitoring
   "Sets the monitoring service for a specific cluster.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/clusters/setMonitoring
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/clusters/setMonitoring
 
 name <> 
 SetMonitoringServiceRequest:
 SetMonitoringServiceRequest"
   [name SetMonitoringServiceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/{+name}:setMonitoring",
@@ -229,11 +229,11 @@ SetMonitoringServiceRequest"
 
 (defn projects-locations-clusters-getJwks
   "Gets the public component of the cluster signing keys in JSON Web Key format.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/clusters/getJwks
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/clusters/getJwks
 
 parent <> "
   [parent]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://container.googleapis.com/v1/{+parent}/jwks",
@@ -243,13 +243,13 @@ parent <> "
 
 (defn projects-locations-clusters-create
   "Creates a cluster, consisting of the specified number and type of Google Compute Engine instances. By default, the cluster is created in the project's [default network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks). One firewall is added for the cluster. After cluster creation, the Kubelet creates routes for each node to allow the containers on that node to communicate with all other instances in the cluster. Finally, an entry is added to the project's global metadata indicating which CIDR range the cluster is using.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/clusters/create
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/clusters/create
 
 parent <> 
 CreateClusterRequest:
 CreateClusterRequest"
   [parent CreateClusterRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/{+parent}/clusters",
@@ -260,13 +260,13 @@ CreateClusterRequest"
 
 (defn projects-locations-clusters-completeIpRotation
   "Completes master IP rotation.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/clusters/completeIpRotation
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/clusters/completeIpRotation
 
 name <> 
 CompleteIPRotationRequest:
 CompleteIPRotationRequest"
   [name CompleteIPRotationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/{+name}:completeIpRotation",
@@ -277,7 +277,7 @@ CompleteIPRotationRequest"
 
 (defn projects-locations-clusters-get
   "Gets the details of a specific cluster.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/clusters/get
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/clusters/get
 
 name <> 
 
@@ -287,7 +287,7 @@ zone <string> Deprecated. The name of the Google Compute Engine [zone](https://c
 clusterId <string> Deprecated. The name of the cluster to retrieve. This field has been deprecated and replaced by the name field."
   ([name] (projects-locations-clusters-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://container.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -296,13 +296,13 @@ clusterId <string> Deprecated. The name of the cluster to retrieve. This field h
 
 (defn projects-locations-clusters-setLogging
   "Sets the logging service for a specific cluster.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/clusters/setLogging
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/clusters/setLogging
 
 name <> 
 SetLoggingServiceRequest:
 SetLoggingServiceRequest"
   [name SetLoggingServiceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/{+name}:setLogging",
@@ -313,13 +313,13 @@ SetLoggingServiceRequest"
 
 (defn projects-locations-clusters-updateMaster
   "Updates the master for a specific cluster.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/clusters/updateMaster
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/clusters/updateMaster
 
 name <> 
 UpdateMasterRequest:
 UpdateMasterRequest"
   [name UpdateMasterRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/{+name}:updateMaster",
@@ -330,13 +330,13 @@ UpdateMasterRequest"
 
 (defn projects-locations-clusters-setNetworkPolicy
   "Enables or disables Network Policy for a cluster.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/clusters/setNetworkPolicy
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/clusters/setNetworkPolicy
 
 name <> 
 SetNetworkPolicyRequest:
 SetNetworkPolicyRequest"
   [name SetNetworkPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/{+name}:setNetworkPolicy",
@@ -347,7 +347,7 @@ SetNetworkPolicyRequest"
 
 (defn projects-locations-clusters-nodePools-list
   "Lists the node pools for a cluster.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/clusters/nodePools/list
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/clusters/nodePools/list
 
 parent <> 
 
@@ -357,7 +357,7 @@ zone <string> Deprecated. The name of the Google Compute Engine [zone](https://c
 clusterId <string> Deprecated. The name of the cluster. This field has been deprecated and replaced by the parent field."
   ([parent] (projects-locations-clusters-nodePools-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://container.googleapis.com/v1/{+parent}/nodePools",
@@ -367,7 +367,7 @@ clusterId <string> Deprecated. The name of the cluster. This field has been depr
 
 (defn projects-locations-clusters-nodePools-delete
   "Deletes a node pool from a cluster.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/clusters/nodePools/delete
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/clusters/nodePools/delete
 
 name <> 
 
@@ -378,7 +378,7 @@ clusterId <string> Deprecated. The name of the cluster. This field has been depr
 nodePoolId <string> Deprecated. The name of the node pool to delete. This field has been deprecated and replaced by the name field."
   ([name] (projects-locations-clusters-nodePools-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://container.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -387,13 +387,13 @@ nodePoolId <string> Deprecated. The name of the node pool to delete. This field 
 
 (defn projects-locations-clusters-nodePools-update
   "Updates the version and/or image type for the specified node pool.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/clusters/nodePools/update
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/clusters/nodePools/update
 
 name <> 
 UpdateNodePoolRequest:
 UpdateNodePoolRequest"
   [name UpdateNodePoolRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template "https://container.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -403,13 +403,13 @@ UpdateNodePoolRequest"
 
 (defn projects-locations-clusters-nodePools-setManagement
   "Sets the NodeManagement options for a node pool.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/clusters/nodePools/setManagement
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/clusters/nodePools/setManagement
 
 name <> 
 SetNodePoolManagementRequest:
 SetNodePoolManagementRequest"
   [name SetNodePoolManagementRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/{+name}:setManagement",
@@ -420,13 +420,13 @@ SetNodePoolManagementRequest"
 
 (defn projects-locations-clusters-nodePools-completeUpgrade
   "CompleteNodePoolUpgrade will signal an on-going node pool upgrade to complete.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/clusters/nodePools/completeUpgrade
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/clusters/nodePools/completeUpgrade
 
 name <> 
 CompleteNodePoolUpgradeRequest:
 CompleteNodePoolUpgradeRequest"
   [name CompleteNodePoolUpgradeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/{+name}:completeUpgrade",
@@ -437,13 +437,13 @@ CompleteNodePoolUpgradeRequest"
 
 (defn projects-locations-clusters-nodePools-setAutoscaling
   "Sets the autoscaling settings for the specified node pool.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/clusters/nodePools/setAutoscaling
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/clusters/nodePools/setAutoscaling
 
 name <> 
 SetNodePoolAutoscalingRequest:
 SetNodePoolAutoscalingRequest"
   [name SetNodePoolAutoscalingRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/{+name}:setAutoscaling",
@@ -454,13 +454,13 @@ SetNodePoolAutoscalingRequest"
 
 (defn projects-locations-clusters-nodePools-setSize
   "Sets the size for a specific node pool. The new size will be used for all replicas, including future replicas created by modifying NodePool.locations.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/clusters/nodePools/setSize
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/clusters/nodePools/setSize
 
 name <> 
 SetNodePoolSizeRequest:
 SetNodePoolSizeRequest"
   [name SetNodePoolSizeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/{+name}:setSize",
@@ -471,13 +471,13 @@ SetNodePoolSizeRequest"
 
 (defn projects-locations-clusters-nodePools-create
   "Creates a node pool for a cluster.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/clusters/nodePools/create
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/clusters/nodePools/create
 
 parent <> 
 CreateNodePoolRequest:
 CreateNodePoolRequest"
   [parent CreateNodePoolRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/{+parent}/nodePools",
@@ -488,13 +488,13 @@ CreateNodePoolRequest"
 
 (defn projects-locations-clusters-nodePools-rollback
   "Rolls back a previously Aborted or Failed NodePool upgrade. This makes no changes if the last upgrade successfully completed.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/clusters/nodePools/rollback
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/clusters/nodePools/rollback
 
 name <> 
 RollbackNodePoolUpgradeRequest:
 RollbackNodePoolUpgradeRequest"
   [name RollbackNodePoolUpgradeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/{+name}:rollback",
@@ -505,7 +505,7 @@ RollbackNodePoolUpgradeRequest"
 
 (defn projects-locations-clusters-nodePools-get
   "Retrieves the requested node pool.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/clusters/nodePools/get
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/clusters/nodePools/get
 
 name <> 
 
@@ -516,7 +516,7 @@ clusterId <string> Deprecated. The name of the cluster. This field has been depr
 nodePoolId <string> Deprecated. The name of the node pool. This field has been deprecated and replaced by the name field."
   ([name] (projects-locations-clusters-nodePools-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://container.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -525,11 +525,11 @@ nodePoolId <string> Deprecated. The name of the node pool. This field has been d
 
 (defn projects-locations-clusters-well-known-getOpenid-configuration
   "Gets the OIDC discovery document for the cluster. See the [OpenID Connect Discovery 1.0 specification](https://openid.net/specs/openid-connect-discovery-1_0.html) for details.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/clusters/well-known/getOpenid-configuration
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/clusters/well-known/getOpenid-configuration
 
 parent <> "
   [parent]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://container.googleapis.com/v1/{+parent}/.well-known/openid-configuration",
@@ -539,7 +539,7 @@ parent <> "
 
 (defn projects-locations-operations-list
   "Lists all operations in a project in a specific zone or all zones.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/operations/list
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/operations/list
 
 parent <> 
 
@@ -548,7 +548,7 @@ projectId <string> Deprecated. The Google Developers Console [project ID or proj
 zone <string> Deprecated. The name of the Google Compute Engine [zone](https://cloud.google.com/compute/docs/zones#available) to return operations for, or `-` for all zones. This field has been deprecated and replaced by the parent field."
   ([parent] (projects-locations-operations-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://container.googleapis.com/v1/{+parent}/operations",
@@ -558,7 +558,7 @@ zone <string> Deprecated. The name of the Google Compute Engine [zone](https://c
 
 (defn projects-locations-operations-get
   "Gets the specified operation.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/operations/get
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/operations/get
 
 name <> 
 
@@ -568,7 +568,7 @@ zone <string> Deprecated. The name of the Google Compute Engine [zone](https://c
 operationId <string> Deprecated. The server-assigned `name` of the operation. This field has been deprecated and replaced by the name field."
   ([name] (projects-locations-operations-get name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template "https://container.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -577,13 +577,13 @@ operationId <string> Deprecated. The server-assigned `name` of the operation. Th
 
 (defn projects-locations-operations-cancel
   "Cancels the specified operation.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/locations/operations/cancel
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/locations/operations/cancel
 
 name <> 
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/{+name}:cancel",
@@ -594,7 +594,7 @@ CancelOperationRequest"
 
 (defn projects-zones-getServerconfig
   "Returns configuration info about the Google Kubernetes Engine service.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/zones/getServerconfig
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/zones/getServerconfig
 
 projectId <> 
 zone <> 
@@ -604,7 +604,7 @@ name <string> The name (project and location) of the server config to get, speci
   ([projectId zone]
     (projects-zones-getServerconfig projectId zone nil))
   ([projectId zone optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://container.googleapis.com/v1/projects/{projectId}/zones/{zone}/serverconfig",
@@ -614,7 +614,7 @@ name <string> The name (project and location) of the server config to get, speci
 
 (defn projects-zones-clusters-logging
   "Sets the logging service for a specific cluster.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/zones/clusters/logging
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/zones/clusters/logging
 
 projectId <> 
 zone <> 
@@ -622,7 +622,7 @@ clusterId <>
 SetLoggingServiceRequest:
 SetLoggingServiceRequest"
   [projectId zone clusterId SetLoggingServiceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/logging",
@@ -634,7 +634,7 @@ SetLoggingServiceRequest"
 
 (defn projects-zones-clusters-list
   "Lists all clusters owned by a project in either the specified zone or all zones.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/zones/clusters/list
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/zones/clusters/list
 
 projectId <> 
 zone <> 
@@ -643,7 +643,7 @@ optional:
 parent <string> The parent (project and location) where the clusters will be listed. Specified in the format `projects/*/locations/*`. Location \"-\" matches all zones and all regions."
   ([projectId zone] (projects-zones-clusters-list projectId zone nil))
   ([projectId zone optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://container.googleapis.com/v1/projects/{projectId}/zones/{zone}/clusters",
@@ -653,7 +653,7 @@ parent <string> The parent (project and location) where the clusters will be lis
 
 (defn projects-zones-clusters-addons
   "Sets the addons for a specific cluster.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/zones/clusters/addons
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/zones/clusters/addons
 
 projectId <> 
 zone <> 
@@ -661,7 +661,7 @@ clusterId <>
 SetAddonsConfigRequest:
 SetAddonsConfigRequest"
   [projectId zone clusterId SetAddonsConfigRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/addons",
@@ -673,7 +673,7 @@ SetAddonsConfigRequest"
 
 (defn projects-zones-clusters-setMaintenancePolicy
   "Sets the maintenance policy for a cluster.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/zones/clusters/setMaintenancePolicy
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/zones/clusters/setMaintenancePolicy
 
 projectId <> 
 zone <> 
@@ -681,7 +681,7 @@ clusterId <>
 SetMaintenancePolicyRequest:
 SetMaintenancePolicyRequest"
   [projectId zone clusterId SetMaintenancePolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}:setMaintenancePolicy",
@@ -693,7 +693,7 @@ SetMaintenancePolicyRequest"
 
 (defn projects-zones-clusters-delete
   "Deletes the cluster, including the Kubernetes endpoint and all worker nodes. Firewalls and routes that were configured during cluster creation are also deleted. Other Google Compute Engine resources that might be in use by the cluster, such as load balancer resources, are not deleted if they weren't present when the cluster was initially created.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/zones/clusters/delete
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/zones/clusters/delete
 
 projectId <> 
 zone <> 
@@ -704,7 +704,7 @@ name <string> The name (project, location, cluster) of the cluster to delete. Sp
   ([projectId zone clusterId]
     (projects-zones-clusters-delete projectId zone clusterId nil))
   ([projectId zone clusterId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://container.googleapis.com/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}",
@@ -715,7 +715,7 @@ name <string> The name (project, location, cluster) of the cluster to delete. Sp
 
 (defn projects-zones-clusters-startIpRotation
   "Starts master IP rotation.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/zones/clusters/startIpRotation
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/zones/clusters/startIpRotation
 
 projectId <> 
 zone <> 
@@ -723,7 +723,7 @@ clusterId <>
 StartIPRotationRequest:
 StartIPRotationRequest"
   [projectId zone clusterId StartIPRotationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}:startIpRotation",
@@ -735,7 +735,7 @@ StartIPRotationRequest"
 
 (defn projects-zones-clusters-update
   "Updates the settings of a specific cluster.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/zones/clusters/update
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/zones/clusters/update
 
 projectId <> 
 zone <> 
@@ -743,7 +743,7 @@ clusterId <>
 UpdateClusterRequest:
 UpdateClusterRequest"
   [projectId zone clusterId UpdateClusterRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :put,
      :uri-template
      "https://container.googleapis.com/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}",
@@ -755,7 +755,7 @@ UpdateClusterRequest"
 
 (defn projects-zones-clusters-monitoring
   "Sets the monitoring service for a specific cluster.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/zones/clusters/monitoring
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/zones/clusters/monitoring
 
 projectId <> 
 zone <> 
@@ -763,7 +763,7 @@ clusterId <>
 SetMonitoringServiceRequest:
 SetMonitoringServiceRequest"
   [projectId zone clusterId SetMonitoringServiceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/monitoring",
@@ -775,7 +775,7 @@ SetMonitoringServiceRequest"
 
 (defn projects-zones-clusters-locations
   "Sets the locations for a specific cluster. Deprecated. Use [projects.locations.clusters.update](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters/update) instead.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/zones/clusters/locations
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/zones/clusters/locations
 
 projectId <> 
 zone <> 
@@ -783,7 +783,7 @@ clusterId <>
 SetLocationsRequest:
 SetLocationsRequest"
   [projectId zone clusterId SetLocationsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/locations",
@@ -795,7 +795,7 @@ SetLocationsRequest"
 
 (defn projects-zones-clusters-setMasterAuth
   "Sets master auth materials. Currently supports changing the admin password or a specific cluster, either via password generation or explicitly setting the password.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/zones/clusters/setMasterAuth
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/zones/clusters/setMasterAuth
 
 projectId <> 
 zone <> 
@@ -803,7 +803,7 @@ clusterId <>
 SetMasterAuthRequest:
 SetMasterAuthRequest"
   [projectId zone clusterId SetMasterAuthRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}:setMasterAuth",
@@ -815,7 +815,7 @@ SetMasterAuthRequest"
 
 (defn projects-zones-clusters-legacyAbac
   "Enables or disables the ABAC authorization mechanism on a cluster.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/zones/clusters/legacyAbac
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/zones/clusters/legacyAbac
 
 projectId <> 
 zone <> 
@@ -823,7 +823,7 @@ clusterId <>
 SetLegacyAbacRequest:
 SetLegacyAbacRequest"
   [projectId zone clusterId SetLegacyAbacRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/legacyAbac",
@@ -835,14 +835,14 @@ SetLegacyAbacRequest"
 
 (defn projects-zones-clusters-create
   "Creates a cluster, consisting of the specified number and type of Google Compute Engine instances. By default, the cluster is created in the project's [default network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks). One firewall is added for the cluster. After cluster creation, the Kubelet creates routes for each node to allow the containers on that node to communicate with all other instances in the cluster. Finally, an entry is added to the project's global metadata indicating which CIDR range the cluster is using.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/zones/clusters/create
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/zones/clusters/create
 
 projectId <> 
 zone <> 
 CreateClusterRequest:
 CreateClusterRequest"
   [projectId zone CreateClusterRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/projects/{projectId}/zones/{zone}/clusters",
@@ -853,7 +853,7 @@ CreateClusterRequest"
 
 (defn projects-zones-clusters-resourceLabels
   "Sets labels on a cluster.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/zones/clusters/resourceLabels
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/zones/clusters/resourceLabels
 
 projectId <> 
 zone <> 
@@ -861,7 +861,7 @@ clusterId <>
 SetLabelsRequest:
 SetLabelsRequest"
   [projectId zone clusterId SetLabelsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/resourceLabels",
@@ -873,7 +873,7 @@ SetLabelsRequest"
 
 (defn projects-zones-clusters-master
   "Updates the master for a specific cluster.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/zones/clusters/master
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/zones/clusters/master
 
 projectId <> 
 zone <> 
@@ -881,7 +881,7 @@ clusterId <>
 UpdateMasterRequest:
 UpdateMasterRequest"
   [projectId zone clusterId UpdateMasterRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/master",
@@ -893,7 +893,7 @@ UpdateMasterRequest"
 
 (defn projects-zones-clusters-completeIpRotation
   "Completes master IP rotation.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/zones/clusters/completeIpRotation
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/zones/clusters/completeIpRotation
 
 projectId <> 
 zone <> 
@@ -901,7 +901,7 @@ clusterId <>
 CompleteIPRotationRequest:
 CompleteIPRotationRequest"
   [projectId zone clusterId CompleteIPRotationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}:completeIpRotation",
@@ -913,7 +913,7 @@ CompleteIPRotationRequest"
 
 (defn projects-zones-clusters-get
   "Gets the details of a specific cluster.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/zones/clusters/get
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/zones/clusters/get
 
 projectId <> 
 zone <> 
@@ -924,7 +924,7 @@ name <string> The name (project, location, cluster) of the cluster to retrieve. 
   ([projectId zone clusterId]
     (projects-zones-clusters-get projectId zone clusterId nil))
   ([projectId zone clusterId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://container.googleapis.com/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}",
@@ -935,7 +935,7 @@ name <string> The name (project, location, cluster) of the cluster to retrieve. 
 
 (defn projects-zones-clusters-setNetworkPolicy
   "Enables or disables Network Policy for a cluster.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/zones/clusters/setNetworkPolicy
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/zones/clusters/setNetworkPolicy
 
 projectId <> 
 zone <> 
@@ -943,7 +943,7 @@ clusterId <>
 SetNetworkPolicyRequest:
 SetNetworkPolicyRequest"
   [projectId zone clusterId SetNetworkPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}:setNetworkPolicy",
@@ -955,7 +955,7 @@ SetNetworkPolicyRequest"
 
 (defn projects-zones-clusters-nodePools-list
   "Lists the node pools for a cluster.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/zones/clusters/nodePools/list
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/zones/clusters/nodePools/list
 
 projectId <> 
 zone <> 
@@ -970,7 +970,7 @@ parent <string> The parent (project, location, cluster name) where the node pool
       clusterId
       nil))
   ([projectId zone clusterId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://container.googleapis.com/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools",
@@ -981,7 +981,7 @@ parent <string> The parent (project, location, cluster name) where the node pool
 
 (defn projects-zones-clusters-nodePools-delete
   "Deletes a node pool from a cluster.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/zones/clusters/nodePools/delete
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/zones/clusters/nodePools/delete
 
 projectId <> 
 zone <> 
@@ -998,7 +998,7 @@ name <string> The name (project, location, cluster, node pool id) of the node po
       nodePoolId
       nil))
   ([projectId zone clusterId nodePoolId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template
        "https://container.googleapis.com/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools/{nodePoolId}",
@@ -1012,7 +1012,7 @@ name <string> The name (project, location, cluster, node pool id) of the node po
 
 (defn projects-zones-clusters-nodePools-update
   "Updates the version and/or image type for the specified node pool.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/zones/clusters/nodePools/update
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/zones/clusters/nodePools/update
 
 projectId <> 
 zone <> 
@@ -1021,7 +1021,7 @@ nodePoolId <>
 UpdateNodePoolRequest:
 UpdateNodePoolRequest"
   [projectId zone clusterId nodePoolId UpdateNodePoolRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools/{nodePoolId}/update",
@@ -1036,7 +1036,7 @@ UpdateNodePoolRequest"
 
 (defn projects-zones-clusters-nodePools-setManagement
   "Sets the NodeManagement options for a node pool.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/zones/clusters/nodePools/setManagement
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/zones/clusters/nodePools/setManagement
 
 projectId <> 
 zone <> 
@@ -1045,7 +1045,7 @@ nodePoolId <>
 SetNodePoolManagementRequest:
 SetNodePoolManagementRequest"
   [projectId zone clusterId nodePoolId SetNodePoolManagementRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools/{nodePoolId}/setManagement",
@@ -1060,7 +1060,7 @@ SetNodePoolManagementRequest"
 
 (defn projects-zones-clusters-nodePools-setSize
   "Sets the size for a specific node pool. The new size will be used for all replicas, including future replicas created by modifying NodePool.locations.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/zones/clusters/nodePools/setSize
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/zones/clusters/nodePools/setSize
 
 projectId <> 
 zone <> 
@@ -1069,7 +1069,7 @@ nodePoolId <>
 SetNodePoolSizeRequest:
 SetNodePoolSizeRequest"
   [projectId zone clusterId nodePoolId SetNodePoolSizeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools/{nodePoolId}/setSize",
@@ -1084,7 +1084,7 @@ SetNodePoolSizeRequest"
 
 (defn projects-zones-clusters-nodePools-create
   "Creates a node pool for a cluster.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/zones/clusters/nodePools/create
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/zones/clusters/nodePools/create
 
 projectId <> 
 zone <> 
@@ -1092,7 +1092,7 @@ clusterId <>
 CreateNodePoolRequest:
 CreateNodePoolRequest"
   [projectId zone clusterId CreateNodePoolRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools",
@@ -1104,7 +1104,7 @@ CreateNodePoolRequest"
 
 (defn projects-zones-clusters-nodePools-rollback
   "Rolls back a previously Aborted or Failed NodePool upgrade. This makes no changes if the last upgrade successfully completed.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/zones/clusters/nodePools/rollback
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/zones/clusters/nodePools/rollback
 
 projectId <> 
 zone <> 
@@ -1113,7 +1113,7 @@ nodePoolId <>
 RollbackNodePoolUpgradeRequest:
 RollbackNodePoolUpgradeRequest"
   [projectId zone clusterId nodePoolId RollbackNodePoolUpgradeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools/{nodePoolId}:rollback",
@@ -1128,7 +1128,7 @@ RollbackNodePoolUpgradeRequest"
 
 (defn projects-zones-clusters-nodePools-get
   "Retrieves the requested node pool.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/zones/clusters/nodePools/get
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/zones/clusters/nodePools/get
 
 projectId <> 
 zone <> 
@@ -1145,7 +1145,7 @@ name <string> The name (project, location, cluster, node pool id) of the node po
       nodePoolId
       nil))
   ([projectId zone clusterId nodePoolId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://container.googleapis.com/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools/{nodePoolId}",
@@ -1159,7 +1159,7 @@ name <string> The name (project, location, cluster, node pool id) of the node po
 
 (defn projects-zones-clusters-nodePools-autoscaling
   "Sets the autoscaling settings for the specified node pool.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/zones/clusters/nodePools/autoscaling
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/zones/clusters/nodePools/autoscaling
 
 projectId <> 
 zone <> 
@@ -1168,7 +1168,7 @@ nodePoolId <>
 SetNodePoolAutoscalingRequest:
 SetNodePoolAutoscalingRequest"
   [projectId zone clusterId nodePoolId SetNodePoolAutoscalingRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/projects/{projectId}/zones/{zone}/clusters/{clusterId}/nodePools/{nodePoolId}/autoscaling",
@@ -1183,7 +1183,7 @@ SetNodePoolAutoscalingRequest"
 
 (defn projects-zones-operations-list
   "Lists all operations in a project in a specific zone or all zones.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/zones/operations/list
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/zones/operations/list
 
 projectId <> 
 zone <> 
@@ -1193,7 +1193,7 @@ parent <string> The parent (project and location) where the operations will be l
   ([projectId zone]
     (projects-zones-operations-list projectId zone nil))
   ([projectId zone optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://container.googleapis.com/v1/projects/{projectId}/zones/{zone}/operations",
@@ -1203,7 +1203,7 @@ parent <string> The parent (project and location) where the operations will be l
 
 (defn projects-zones-operations-get
   "Gets the specified operation.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/zones/operations/get
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/zones/operations/get
 
 projectId <> 
 zone <> 
@@ -1214,7 +1214,7 @@ name <string> The name (project, location, operation id) of the operation to get
   ([projectId zone operationId]
     (projects-zones-operations-get projectId zone operationId nil))
   ([projectId zone operationId optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://container.googleapis.com/v1/projects/{projectId}/zones/{zone}/operations/{operationId}",
@@ -1225,7 +1225,7 @@ name <string> The name (project, location, operation id) of the operation to get
 
 (defn projects-zones-operations-cancel
   "Cancels the specified operation.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/zones/operations/cancel
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/zones/operations/cancel
 
 projectId <> 
 zone <> 
@@ -1233,7 +1233,7 @@ operationId <>
 CancelOperationRequest:
 CancelOperationRequest"
   [projectId zone operationId CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://container.googleapis.com/v1/projects/{projectId}/zones/{zone}/operations/{operationId}:cancel",
@@ -1245,7 +1245,7 @@ CancelOperationRequest"
 
 (defn projects-aggregated-usableSubnetworks-list
   "Lists subnetworks that are usable for creating clusters in a project.
-https://cloud.google.com/container-engine/v1/reference/rest/v1/projects/aggregated/usableSubnetworks/list
+https://cloud.google.com/kubernetes-engine/v1/reference/rest/v1/projects/aggregated/usableSubnetworks/list
 
 parent <> 
 
@@ -1254,7 +1254,7 @@ filter <string> Filtering currently only supports equality on the networkProject
 pageSize <integer> The max number of results per page that should be returned. If the number of available results is larger than `page_size`, a `next_page_token` is returned which can be used to get the next page of results in subsequent requests. Acceptable values are 0 to 500, inclusive. (Default: 500)"
   ([parent] (projects-aggregated-usableSubnetworks-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://container.googleapis.com/v1/{+parent}/aggregated/usableSubnetworks",

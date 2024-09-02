@@ -15,7 +15,7 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://notebooks.googleapis.com/v2/{+name}/locations",
@@ -29,7 +29,7 @@ https://cloud.google.com/vertex-ai/docs/workbench/user-managed/v2/reference/rest
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://notebooks.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -47,7 +47,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://notebooks.googleapis.com/v2/{+name}/operations",
@@ -61,7 +61,7 @@ https://cloud.google.com/vertex-ai/docs/workbench/user-managed/v2/reference/rest
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://notebooks.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -74,7 +74,7 @@ https://cloud.google.com/vertex-ai/docs/workbench/user-managed/v2/reference/rest
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://notebooks.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -89,7 +89,7 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://notebooks.googleapis.com/v2/{+name}:cancel",
@@ -106,7 +106,7 @@ name <>
 StopInstanceRequest:
 StopInstanceRequest"
   [name StopInstanceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://notebooks.googleapis.com/v2/{+name}:stop",
      :uri-template-args {"name" name},
@@ -126,7 +126,7 @@ orderBy <string> Optional. Sort results. Supported values are \"name\", \"name d
 filter <string> Optional. List filter."
   ([parent] (projects-locations-instances-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://notebooks.googleapis.com/v2/{+parent}/instances",
@@ -142,7 +142,7 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://notebooks.googleapis.com/v2/{+resource}:setIamPolicy",
@@ -161,7 +161,7 @@ optional:
 requestId <string> Optional. Idempotent request UUID."
   ([name] (projects-locations-instances-delete name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :delete,
        :uri-template "https://notebooks.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -176,7 +176,7 @@ name <>
 UpgradeInstanceRequest:
 UpgradeInstanceRequest"
   [name UpgradeInstanceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://notebooks.googleapis.com/v2/{+name}:upgrade",
@@ -193,7 +193,7 @@ name <>
 ResetInstanceRequest:
 ResetInstanceRequest"
   [name ResetInstanceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://notebooks.googleapis.com/v2/{+name}:reset",
      :uri-template-args {"name" name},
@@ -209,7 +209,7 @@ name <>
 StartInstanceRequest:
 StartInstanceRequest"
   [name StartInstanceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://notebooks.googleapis.com/v2/{+name}:start",
      :uri-template-args {"name" name},
@@ -223,7 +223,7 @@ https://cloud.google.com/vertex-ai/docs/workbench/user-managed/v2/reference/rest
 
 notebookInstance <> "
   [notebookInstance]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://notebooks.googleapis.com/v2/{+notebookInstance}:checkUpgradability",
@@ -245,7 +245,7 @@ requestId <string> Optional. Idempotent request UUID."
   ([name Instance]
     (projects-locations-instances-patch name Instance nil))
   ([name Instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://notebooks.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -261,7 +261,7 @@ name <>
 ReportInstanceInfoSystemRequest:
 ReportInstanceInfoSystemRequest"
   [name ReportInstanceInfoSystemRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://notebooks.googleapis.com/v2/{+name}:reportInfoSystem",
@@ -280,7 +280,7 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-locations-instances-getIamPolicy resource nil))
   ([resource optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://notebooks.googleapis.com/v2/{+resource}:getIamPolicy",
@@ -296,7 +296,7 @@ name <>
 DiagnoseInstanceRequest:
 DiagnoseInstanceRequest"
   [name DiagnoseInstanceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://notebooks.googleapis.com/v2/{+name}:diagnose",
@@ -313,7 +313,7 @@ name <>
 UpgradeInstanceSystemRequest:
 UpgradeInstanceSystemRequest"
   [name UpgradeInstanceSystemRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://notebooks.googleapis.com/v2/{+name}:upgradeSystem",
@@ -336,7 +336,7 @@ requestId <string> Optional. Idempotent request UUID."
   ([parent Instance]
     (projects-locations-instances-create parent Instance nil))
   ([parent Instance optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://notebooks.googleapis.com/v2/{+parent}/instances",
@@ -353,7 +353,7 @@ name <>
 RollbackInstanceRequest:
 RollbackInstanceRequest"
   [name RollbackInstanceRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://notebooks.googleapis.com/v2/{+name}:rollback",
@@ -370,7 +370,7 @@ notebookInstance <>
 ResizeDiskRequest:
 ResizeDiskRequest"
   [notebookInstance ResizeDiskRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://notebooks.googleapis.com/v2/{+notebookInstance}:resizeDisk",
@@ -379,13 +379,30 @@ ResizeDiskRequest"
      :scopes ["https://www.googleapis.com/auth/cloud-platform"],
      :body ResizeDiskRequest}))
 
+(defn projects-locations-instances-restore
+  "RestoreInstance restores an Instance from a BackupSource.
+https://cloud.google.com/vertex-ai/docs/workbench/user-managed/v2/reference/rest/v2/projects/locations/instances/restore
+
+name <> 
+RestoreInstanceRequest:
+RestoreInstanceRequest"
+  [name RestoreInstanceRequest]
+  (client/*api-request*
+    {:method :post,
+     :uri-template
+     "https://notebooks.googleapis.com/v2/{+name}:restore",
+     :uri-template-args {"name" name},
+     :query-params {},
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body RestoreInstanceRequest}))
+
 (defn projects-locations-instances-getConfig
   "Gets general backend configurations that might also affect the frontend. Location is required by CCFE. Although we could bypass it to send location- less request directly to the backend job, we would need CPE (go/cloud-cpe). Having the location might also be useful depending on the query.
 https://cloud.google.com/vertex-ai/docs/workbench/user-managed/v2/reference/rest/v2/projects/locations/instances/getConfig
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://notebooks.googleapis.com/v2/{+name}/instances:getConfig",
@@ -399,7 +416,7 @@ https://cloud.google.com/vertex-ai/docs/workbench/user-managed/v2/reference/rest
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://notebooks.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -414,7 +431,7 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://notebooks.googleapis.com/v2/{+resource}:testIamPermissions",

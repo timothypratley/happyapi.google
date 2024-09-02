@@ -15,7 +15,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://retail.googleapis.com/v2/{+name}/operations",
@@ -29,7 +29,7 @@ https://cloud.google.com/recommendations/v2/reference/rest/v2/projects/locations
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://retail.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -46,7 +46,7 @@ optional:
 pageSize <integer> Maximum number of Catalogs to return. If unspecified, defaults to 50. The maximum allowed value is 1000. Values above 1000 will be coerced to 1000. If this field is negative, an INVALID_ARGUMENT is returned."
   ([parent] (projects-locations-catalogs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://retail.googleapis.com/v2/{+parent}/catalogs",
@@ -60,7 +60,7 @@ https://cloud.google.com/recommendations/v2/reference/rest/v2/projects/locations
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://retail.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -83,7 +83,7 @@ updateMask <string> Indicates which fields in the provided AttributesConfig to u
       GoogleCloudRetailV2AttributesConfig
       nil))
   ([name GoogleCloudRetailV2AttributesConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://retail.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -97,7 +97,7 @@ https://cloud.google.com/recommendations/v2/reference/rest/v2/projects/locations
 
 catalog <> "
   [catalog]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://retail.googleapis.com/v2/{+catalog}:getDefaultBranch",
@@ -122,7 +122,7 @@ enableAttributeSuggestions <boolean> If true, attribute suggestions are enabled 
 entity <string> The entity for customers who run multiple entities, domains, sites, or regions, for example, `Google US`, `Google Ads`, `Waymo`, `google.com`, `youtube.com`, etc. If this is set, it must be an exact match with UserEvent.entity to get per-entity autocomplete results."
   ([catalog] (projects-locations-catalogs-completeQuery catalog nil))
   ([catalog optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://retail.googleapis.com/v2/{+catalog}:completeQuery",
@@ -146,7 +146,7 @@ updateMask <string> Indicates which fields in the provided CompletionConfig to u
       GoogleCloudRetailV2CompletionConfig
       nil))
   ([name GoogleCloudRetailV2CompletionConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://retail.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -170,7 +170,7 @@ updateMask <string> Indicates which fields in the provided Catalog to update. If
       GoogleCloudRetailV2Catalog
       nil))
   ([name GoogleCloudRetailV2Catalog optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://retail.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -184,7 +184,7 @@ https://cloud.google.com/recommendations/v2/reference/rest/v2/projects/locations
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://retail.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -199,7 +199,7 @@ catalog <>
 GoogleCloudRetailV2ExportAnalyticsMetricsRequest:
 GoogleCloudRetailV2ExportAnalyticsMetricsRequest"
   [catalog GoogleCloudRetailV2ExportAnalyticsMetricsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://retail.googleapis.com/v2/{+catalog}:exportAnalyticsMetrics",
@@ -216,7 +216,7 @@ catalog <>
 GoogleCloudRetailV2SetDefaultBranchRequest:
 GoogleCloudRetailV2SetDefaultBranchRequest"
   [catalog GoogleCloudRetailV2SetDefaultBranchRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://retail.googleapis.com/v2/{+catalog}:setDefaultBranch",
@@ -231,7 +231,7 @@ https://cloud.google.com/recommendations/v2/reference/rest/v2/projects/locations
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://retail.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -246,7 +246,7 @@ product <>
 GoogleCloudRetailV2AddFulfillmentPlacesRequest:
 GoogleCloudRetailV2AddFulfillmentPlacesRequest"
   [product GoogleCloudRetailV2AddFulfillmentPlacesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://retail.googleapis.com/v2/{+product}:addFulfillmentPlaces",
@@ -263,7 +263,7 @@ product <>
 GoogleCloudRetailV2AddLocalInventoriesRequest:
 GoogleCloudRetailV2AddLocalInventoriesRequest"
   [product GoogleCloudRetailV2AddLocalInventoriesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://retail.googleapis.com/v2/{+product}:addLocalInventories",
@@ -285,7 +285,7 @@ readMask <string> The fields of Product to return in the responses. If not set o
   ([parent]
     (projects-locations-catalogs-branches-products-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://retail.googleapis.com/v2/{+parent}/products",
@@ -299,7 +299,7 @@ https://cloud.google.com/recommendations/v2/reference/rest/v2/projects/locations
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://retail.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -314,7 +314,7 @@ parent <>
 GoogleCloudRetailV2PurgeProductsRequest:
 GoogleCloudRetailV2PurgeProductsRequest"
   [parent GoogleCloudRetailV2PurgeProductsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://retail.googleapis.com/v2/{+parent}/products:purge",
@@ -331,7 +331,7 @@ parent <>
 GoogleCloudRetailV2ImportProductsRequest:
 GoogleCloudRetailV2ImportProductsRequest"
   [parent GoogleCloudRetailV2ImportProductsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://retail.googleapis.com/v2/{+parent}/products:import",
@@ -348,7 +348,7 @@ product <>
 GoogleCloudRetailV2RemoveFulfillmentPlacesRequest:
 GoogleCloudRetailV2RemoveFulfillmentPlacesRequest"
   [product GoogleCloudRetailV2RemoveFulfillmentPlacesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://retail.googleapis.com/v2/{+product}:removeFulfillmentPlaces",
@@ -374,7 +374,7 @@ allowMissing <boolean> If set to true, and the Product is not found, a new Produ
       GoogleCloudRetailV2Product
       nil))
   ([name GoogleCloudRetailV2Product optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://retail.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -390,7 +390,7 @@ product <>
 GoogleCloudRetailV2RemoveLocalInventoriesRequest:
 GoogleCloudRetailV2RemoveLocalInventoriesRequest"
   [product GoogleCloudRetailV2RemoveLocalInventoriesRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://retail.googleapis.com/v2/{+product}:removeLocalInventories",
@@ -415,7 +415,7 @@ productId <string> Required. The ID to use for the Product, which will become th
       GoogleCloudRetailV2Product
       nil))
   ([parent GoogleCloudRetailV2Product optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://retail.googleapis.com/v2/{+parent}/products",
@@ -432,7 +432,7 @@ name <>
 GoogleCloudRetailV2SetInventoryRequest:
 GoogleCloudRetailV2SetInventoryRequest"
   [name GoogleCloudRetailV2SetInventoryRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://retail.googleapis.com/v2/{+name}:setInventory",
@@ -447,7 +447,7 @@ https://cloud.google.com/recommendations/v2/reference/rest/v2/projects/locations
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://retail.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -462,7 +462,7 @@ placement <>
 GoogleCloudRetailV2SearchRequest:
 GoogleCloudRetailV2SearchRequest"
   [placement GoogleCloudRetailV2SearchRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://retail.googleapis.com/v2/{+placement}:search",
@@ -479,7 +479,7 @@ placement <>
 GoogleCloudRetailV2PredictRequest:
 GoogleCloudRetailV2PredictRequest"
   [placement GoogleCloudRetailV2PredictRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://retail.googleapis.com/v2/{+placement}:predict",
@@ -496,7 +496,7 @@ parent <>
 GoogleCloudRetailV2ImportCompletionDataRequest:
 GoogleCloudRetailV2ImportCompletionDataRequest"
   [parent GoogleCloudRetailV2ImportCompletionDataRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://retail.googleapis.com/v2/{+parent}/completionData:import",
@@ -513,7 +513,7 @@ attributesConfig <>
 GoogleCloudRetailV2AddCatalogAttributeRequest:
 GoogleCloudRetailV2AddCatalogAttributeRequest"
   [attributesConfig GoogleCloudRetailV2AddCatalogAttributeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://retail.googleapis.com/v2/{+attributesConfig}:addCatalogAttribute",
@@ -530,7 +530,7 @@ attributesConfig <>
 GoogleCloudRetailV2RemoveCatalogAttributeRequest:
 GoogleCloudRetailV2RemoveCatalogAttributeRequest"
   [attributesConfig GoogleCloudRetailV2RemoveCatalogAttributeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://retail.googleapis.com/v2/{+attributesConfig}:removeCatalogAttribute",
@@ -547,7 +547,7 @@ attributesConfig <>
 GoogleCloudRetailV2ReplaceCatalogAttributeRequest:
 GoogleCloudRetailV2ReplaceCatalogAttributeRequest"
   [attributesConfig GoogleCloudRetailV2ReplaceCatalogAttributeRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://retail.googleapis.com/v2/{+attributesConfig}:replaceCatalogAttribute",
@@ -564,7 +564,7 @@ servingConfig <>
 GoogleCloudRetailV2AddControlRequest:
 GoogleCloudRetailV2AddControlRequest"
   [servingConfig GoogleCloudRetailV2AddControlRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://retail.googleapis.com/v2/{+servingConfig}:addControl",
@@ -581,7 +581,7 @@ placement <>
 GoogleCloudRetailV2PredictRequest:
 GoogleCloudRetailV2PredictRequest"
   [placement GoogleCloudRetailV2PredictRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://retail.googleapis.com/v2/{+placement}:predict",
@@ -601,7 +601,7 @@ pageSize <integer> Optional. Maximum number of results to return. If unspecified
   ([parent]
     (projects-locations-catalogs-servingConfigs-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://retail.googleapis.com/v2/{+parent}/servingConfigs",
@@ -615,7 +615,7 @@ https://cloud.google.com/recommendations/v2/reference/rest/v2/projects/locations
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://retail.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -630,7 +630,7 @@ servingConfig <>
 GoogleCloudRetailV2RemoveControlRequest:
 GoogleCloudRetailV2RemoveControlRequest"
   [servingConfig GoogleCloudRetailV2RemoveControlRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://retail.googleapis.com/v2/{+servingConfig}:removeControl",
@@ -655,7 +655,7 @@ updateMask <string> Indicates which fields in the provided ServingConfig to upda
       GoogleCloudRetailV2ServingConfig
       nil))
   ([name GoogleCloudRetailV2ServingConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://retail.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -679,7 +679,7 @@ servingConfigId <string> Required. The ID to use for the ServingConfig, which wi
       GoogleCloudRetailV2ServingConfig
       nil))
   ([parent GoogleCloudRetailV2ServingConfig optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://retail.googleapis.com/v2/{+parent}/servingConfigs",
@@ -696,7 +696,7 @@ placement <>
 GoogleCloudRetailV2SearchRequest:
 GoogleCloudRetailV2SearchRequest"
   [placement GoogleCloudRetailV2SearchRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://retail.googleapis.com/v2/{+placement}:search",
@@ -711,7 +711,7 @@ https://cloud.google.com/recommendations/v2/reference/rest/v2/projects/locations
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://retail.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -734,7 +734,7 @@ writeAsync <boolean> If set to true, the user event will be written asynchronous
       GoogleCloudRetailV2UserEvent
       nil))
   ([parent GoogleCloudRetailV2UserEvent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://retail.googleapis.com/v2/{+parent}/userEvents:write",
@@ -758,7 +758,7 @@ rawJson <string> An arbitrary serialized JSON string that contains necessary inf
   ([parent]
     (projects-locations-catalogs-userEvents-collect parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://retail.googleapis.com/v2/{+parent}/userEvents:collect",
@@ -774,7 +774,7 @@ parent <>
 GoogleCloudRetailV2PurgeUserEventsRequest:
 GoogleCloudRetailV2PurgeUserEventsRequest"
   [parent GoogleCloudRetailV2PurgeUserEventsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://retail.googleapis.com/v2/{+parent}/userEvents:purge",
@@ -791,7 +791,7 @@ parent <>
 GoogleCloudRetailV2ImportUserEventsRequest:
 GoogleCloudRetailV2ImportUserEventsRequest"
   [parent GoogleCloudRetailV2ImportUserEventsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://retail.googleapis.com/v2/{+parent}/userEvents:import",
@@ -808,7 +808,7 @@ parent <>
 GoogleCloudRetailV2RejoinUserEventsRequest:
 GoogleCloudRetailV2RejoinUserEventsRequest"
   [parent GoogleCloudRetailV2RejoinUserEventsRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://retail.googleapis.com/v2/{+parent}/userEvents:rejoin",
@@ -833,7 +833,7 @@ controlId <string> Required. The ID to use for the Control, which will become th
       GoogleCloudRetailV2Control
       nil))
   ([parent GoogleCloudRetailV2Control optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://retail.googleapis.com/v2/{+parent}/controls",
@@ -848,7 +848,7 @@ https://cloud.google.com/recommendations/v2/reference/rest/v2/projects/locations
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://retail.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -871,7 +871,7 @@ updateMask <string> Indicates which fields in the provided Control to update. Th
       GoogleCloudRetailV2Control
       nil))
   ([name GoogleCloudRetailV2Control optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://retail.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -885,7 +885,7 @@ https://cloud.google.com/recommendations/v2/reference/rest/v2/projects/locations
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://retail.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -903,7 +903,7 @@ pageSize <integer> Optional. Maximum number of results to return. If unspecified
 filter <string> Optional. A filter to apply on the list results. Supported features: * List all the products under the parent branch if filter is unset. * List controls that are used in a single ServingConfig: 'serving_config = \"boosted_home_page_cvr\"'"
   ([parent] (projects-locations-catalogs-controls-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://retail.googleapis.com/v2/{+parent}/controls",
@@ -927,7 +927,7 @@ dryRun <boolean> Optional. Whether to run a dry run to validate the request (wit
       GoogleCloudRetailV2Model
       nil))
   ([parent GoogleCloudRetailV2Model optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://retail.googleapis.com/v2/{+parent}/models",
@@ -942,7 +942,7 @@ https://cloud.google.com/recommendations/v2/reference/rest/v2/projects/locations
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://retail.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -957,7 +957,7 @@ name <>
 GoogleCloudRetailV2PauseModelRequest:
 GoogleCloudRetailV2PauseModelRequest"
   [name GoogleCloudRetailV2PauseModelRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://retail.googleapis.com/v2/{+name}:pause",
      :uri-template-args {"name" name},
@@ -973,7 +973,7 @@ name <>
 GoogleCloudRetailV2ResumeModelRequest:
 GoogleCloudRetailV2ResumeModelRequest"
   [name GoogleCloudRetailV2ResumeModelRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://retail.googleapis.com/v2/{+name}:resume",
      :uri-template-args {"name" name},
@@ -987,7 +987,7 @@ https://cloud.google.com/recommendations/v2/reference/rest/v2/projects/locations
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :delete,
      :uri-template "https://retail.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -1004,7 +1004,7 @@ optional:
 pageSize <integer> Optional. Maximum number of results to return. If unspecified, defaults to 50. Max allowed value is 1000."
   ([parent] (projects-locations-catalogs-models-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://retail.googleapis.com/v2/{+parent}/models",
@@ -1028,7 +1028,7 @@ updateMask <string> Optional. Indicates which fields in the provided 'model' to 
       GoogleCloudRetailV2Model
       nil))
   ([name GoogleCloudRetailV2Model optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://retail.googleapis.com/v2/{+name}",
        :uri-template-args {"name" name},
@@ -1044,7 +1044,7 @@ name <>
 GoogleCloudRetailV2TuneModelRequest:
 GoogleCloudRetailV2TuneModelRequest"
   [name GoogleCloudRetailV2TuneModelRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://retail.googleapis.com/v2/{+name}:tune",
      :uri-template-args {"name" name},
@@ -1063,7 +1063,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-catalogs-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://retail.googleapis.com/v2/{+name}/operations",
@@ -1077,7 +1077,7 @@ https://cloud.google.com/recommendations/v2/reference/rest/v2/projects/locations
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://retail.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},
@@ -1095,7 +1095,7 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-operations-list name nil))
   ([name optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://retail.googleapis.com/v2/{+name}/operations",
@@ -1109,7 +1109,7 @@ https://cloud.google.com/recommendations/v2/reference/rest/v2/projects/operation
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://retail.googleapis.com/v2/{+name}",
      :uri-template-args {"name" name},

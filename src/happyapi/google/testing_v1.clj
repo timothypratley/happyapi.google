@@ -17,7 +17,7 @@ requestId <string> A string id used to detect duplicated requests. Ids are autom
   ([projectId TestMatrix]
     (projects-testMatrices-create projectId TestMatrix nil))
   ([projectId TestMatrix optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://testing.googleapis.com/v1/projects/{projectId}/testMatrices",
@@ -33,7 +33,7 @@ https://firebase.google.com/docs/test-lab/v1/reference/rest/v1/projects/testMatr
 projectId <> 
 testMatrixId <> "
   [projectId testMatrixId]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template
      "https://testing.googleapis.com/v1/projects/{projectId}/testMatrices/{testMatrixId}",
@@ -51,7 +51,7 @@ https://firebase.google.com/docs/test-lab/v1/reference/rest/v1/projects/testMatr
 projectId <> 
 testMatrixId <> "
   [projectId testMatrixId]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://testing.googleapis.com/v1/projects/{projectId}/testMatrices/{testMatrixId}:cancel",
@@ -68,7 +68,7 @@ parent <>
 DeviceSession:
 DeviceSession"
   [parent DeviceSession]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template
      "https://testing.googleapis.com/v1/{+parent}/deviceSessions",
@@ -88,7 +88,7 @@ pageSize <integer> Optional. The maximum number of DeviceSessions to return.
 filter <string> Optional. If specified, responses will be filtered by the given filter. Allowed fields are: session_state."
   ([parent] (projects-deviceSessions-list parent nil))
   ([parent optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://testing.googleapis.com/v1/{+parent}/deviceSessions",
@@ -102,7 +102,7 @@ https://firebase.google.com/docs/test-lab/v1/reference/rest/v1/projects/deviceSe
 
 name <> "
   [name]
-  (client/api-request
+  (client/*api-request*
     {:method :get,
      :uri-template "https://testing.googleapis.com/v1/{+name}",
      :uri-template-args {"name" name},
@@ -117,7 +117,7 @@ name <>
 CancelDeviceSessionRequest:
 CancelDeviceSessionRequest"
   [name CancelDeviceSessionRequest]
-  (client/api-request
+  (client/*api-request*
     {:method :post,
      :uri-template "https://testing.googleapis.com/v1/{+name}:cancel",
      :uri-template-args {"name" name},
@@ -138,7 +138,7 @@ updateMask <string> Required. The list of fields to update."
   ([name DeviceSession]
     (projects-deviceSessions-patch name DeviceSession nil))
   ([name DeviceSession optional]
-    (client/api-request
+    (client/*api-request*
       {:method :patch,
        :uri-template "https://testing.googleapis.com/v1/{+name}",
        :uri-template-args {"name" name},
@@ -158,7 +158,7 @@ bundleLocation.gcsPath <string> A path to a file in Google Cloud Storage. Exampl
   ([FileReference]
     (applicationDetailService-getApkDetails FileReference nil))
   ([FileReference optional]
-    (client/api-request
+    (client/*api-request*
       {:method :post,
        :uri-template
        "https://testing.googleapis.com/v1/applicationDetailService/getApkDetails",
@@ -177,7 +177,7 @@ optional:
 projectId <string> For authorization, the cloud project requesting the TestEnvironmentCatalog."
   ([environmentType] (testEnvironmentCatalog-get environmentType nil))
   ([environmentType optional]
-    (client/api-request
+    (client/*api-request*
       {:method :get,
        :uri-template
        "https://testing.googleapis.com/v1/testEnvironmentCatalog/{environmentType}",
