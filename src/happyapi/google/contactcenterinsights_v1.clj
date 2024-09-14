@@ -1,8 +1,7 @@
 (ns happyapi.google.contactcenterinsights-v1
   "Contact Center AI Insights API
 
-See: https://cloud.google.com/contact-center/insights/docs"
-  (:require [happyapi.providers.google :as client]))
+See: https://cloud.google.com/contact-center/insights/docs")
 
 (defn projects-locations-getEncryptionSpec
   "Gets location-level encryption key specification.
@@ -10,13 +9,12 @@ https://cloud.google.com/contact-center/insights/docs/v1/reference/rest/v1/proje
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://contactcenterinsights.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template
+   "https://contactcenterinsights.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-updateSettings
   "Updates project-level settings.
@@ -34,14 +32,13 @@ updateMask <string> Required. The list of fields to be updated."
       GoogleCloudContactcenterinsightsV1Settings
       nil))
   ([name GoogleCloudContactcenterinsightsV1Settings optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://contactcenterinsights.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudContactcenterinsightsV1Settings})))
+    {:method :patch,
+     :uri-template
+     "https://contactcenterinsights.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudContactcenterinsightsV1Settings}))
 
 (defn projects-locations-getSettings
   "Gets project-level settings.
@@ -49,13 +46,12 @@ https://cloud.google.com/contact-center/insights/docs/v1/reference/rest/v1/proje
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://contactcenterinsights.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template
+   "https://contactcenterinsights.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -63,13 +59,12 @@ https://cloud.google.com/contact-center/insights/docs/v1/reference/rest/v1/proje
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://contactcenterinsights.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template
+   "https://contactcenterinsights.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -82,13 +77,12 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://contactcenterinsights.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://contactcenterinsights.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -96,13 +90,12 @@ https://cloud.google.com/contact-center/insights/docs/v1/reference/rest/v1/proje
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://contactcenterinsights.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template
+   "https://contactcenterinsights.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-views-delete
   "Deletes a view.
@@ -110,13 +103,12 @@ https://cloud.google.com/contact-center/insights/docs/v1/reference/rest/v1/proje
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://contactcenterinsights.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template
+   "https://contactcenterinsights.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-views-get
   "Gets a view.
@@ -124,13 +116,12 @@ https://cloud.google.com/contact-center/insights/docs/v1/reference/rest/v1/proje
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://contactcenterinsights.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template
+   "https://contactcenterinsights.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-views-create
   "Creates a view.
@@ -140,14 +131,13 @@ parent <>
 GoogleCloudContactcenterinsightsV1View:
 GoogleCloudContactcenterinsightsV1View"
   [parent GoogleCloudContactcenterinsightsV1View]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://contactcenterinsights.googleapis.com/v1/{+parent}/views",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudContactcenterinsightsV1View}))
+  {:method :post,
+   :uri-template
+   "https://contactcenterinsights.googleapis.com/v1/{+parent}/views",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudContactcenterinsightsV1View})
 
 (defn projects-locations-views-list
   "Lists views.
@@ -159,13 +149,12 @@ optional:
 pageSize <integer> The maximum number of views to return in the response. If this value is zero, the service will select a default size. A call may return fewer objects than requested. A non-empty `next_page_token` in the response indicates that more data is available."
   ([parent] (projects-locations-views-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://contactcenterinsights.googleapis.com/v1/{+parent}/views",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://contactcenterinsights.googleapis.com/v1/{+parent}/views",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-views-patch
   "Updates a view.
@@ -183,14 +172,13 @@ updateMask <string> The list of fields to be updated."
       GoogleCloudContactcenterinsightsV1View
       nil))
   ([name GoogleCloudContactcenterinsightsV1View optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://contactcenterinsights.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudContactcenterinsightsV1View})))
+    {:method :patch,
+     :uri-template
+     "https://contactcenterinsights.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudContactcenterinsightsV1View}))
 
 (defn projects-locations-issueModels-deploy
   "Deploys an issue model. Returns an error if a model is already deployed. An issue model can only be used in analysis after it has been deployed.
@@ -200,14 +188,13 @@ name <>
 GoogleCloudContactcenterinsightsV1DeployIssueModelRequest:
 GoogleCloudContactcenterinsightsV1DeployIssueModelRequest"
   [name GoogleCloudContactcenterinsightsV1DeployIssueModelRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://contactcenterinsights.googleapis.com/v1/{+name}:deploy",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudContactcenterinsightsV1DeployIssueModelRequest}))
+  {:method :post,
+   :uri-template
+   "https://contactcenterinsights.googleapis.com/v1/{+name}:deploy",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudContactcenterinsightsV1DeployIssueModelRequest})
 
 (defn projects-locations-issueModels-undeploy
   "Undeploys an issue model. An issue model can not be used in analysis after it has been undeployed.
@@ -217,15 +204,13 @@ name <>
 GoogleCloudContactcenterinsightsV1UndeployIssueModelRequest:
 GoogleCloudContactcenterinsightsV1UndeployIssueModelRequest"
   [name GoogleCloudContactcenterinsightsV1UndeployIssueModelRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://contactcenterinsights.googleapis.com/v1/{+name}:undeploy",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body
-     GoogleCloudContactcenterinsightsV1UndeployIssueModelRequest}))
+  {:method :post,
+   :uri-template
+   "https://contactcenterinsights.googleapis.com/v1/{+name}:undeploy",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudContactcenterinsightsV1UndeployIssueModelRequest})
 
 (defn projects-locations-issueModels-list
   "Lists issue models.
@@ -233,13 +218,12 @@ https://cloud.google.com/contact-center/insights/docs/v1/reference/rest/v1/proje
 
 parent <> "
   [parent]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://contactcenterinsights.googleapis.com/v1/{+parent}/issueModels",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template
+   "https://contactcenterinsights.googleapis.com/v1/{+parent}/issueModels",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-issueModels-calculateIssueModelStats
   "Gets an issue model's statistics.
@@ -247,13 +231,12 @@ https://cloud.google.com/contact-center/insights/docs/v1/reference/rest/v1/proje
 
 issueModel <> "
   [issueModel]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://contactcenterinsights.googleapis.com/v1/{+issueModel}:calculateIssueModelStats",
-     :uri-template-args {"issueModel" issueModel},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template
+   "https://contactcenterinsights.googleapis.com/v1/{+issueModel}:calculateIssueModelStats",
+   :uri-template-args {"issueModel" issueModel},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-issueModels-delete
   "Deletes an issue model.
@@ -261,13 +244,12 @@ https://cloud.google.com/contact-center/insights/docs/v1/reference/rest/v1/proje
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://contactcenterinsights.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template
+   "https://contactcenterinsights.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-issueModels-export
   "Exports an issue model to the provided destination.
@@ -277,14 +259,13 @@ name <>
 GoogleCloudContactcenterinsightsV1ExportIssueModelRequest:
 GoogleCloudContactcenterinsightsV1ExportIssueModelRequest"
   [name GoogleCloudContactcenterinsightsV1ExportIssueModelRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://contactcenterinsights.googleapis.com/v1/{+name}:export",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudContactcenterinsightsV1ExportIssueModelRequest}))
+  {:method :post,
+   :uri-template
+   "https://contactcenterinsights.googleapis.com/v1/{+name}:export",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudContactcenterinsightsV1ExportIssueModelRequest})
 
 (defn projects-locations-issueModels-import
   "Imports an issue model from a Cloud Storage bucket.
@@ -294,14 +275,13 @@ parent <>
 GoogleCloudContactcenterinsightsV1ImportIssueModelRequest:
 GoogleCloudContactcenterinsightsV1ImportIssueModelRequest"
   [parent GoogleCloudContactcenterinsightsV1ImportIssueModelRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://contactcenterinsights.googleapis.com/v1/{+parent}/issueModels:import",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudContactcenterinsightsV1ImportIssueModelRequest}))
+  {:method :post,
+   :uri-template
+   "https://contactcenterinsights.googleapis.com/v1/{+parent}/issueModels:import",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudContactcenterinsightsV1ImportIssueModelRequest})
 
 (defn projects-locations-issueModels-patch
   "Updates an issue model.
@@ -319,14 +299,13 @@ updateMask <string> The list of fields to be updated."
       GoogleCloudContactcenterinsightsV1IssueModel
       nil))
   ([name GoogleCloudContactcenterinsightsV1IssueModel optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://contactcenterinsights.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudContactcenterinsightsV1IssueModel})))
+    {:method :patch,
+     :uri-template
+     "https://contactcenterinsights.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudContactcenterinsightsV1IssueModel}))
 
 (defn projects-locations-issueModels-create
   "Creates an issue model.
@@ -336,14 +315,13 @@ parent <>
 GoogleCloudContactcenterinsightsV1IssueModel:
 GoogleCloudContactcenterinsightsV1IssueModel"
   [parent GoogleCloudContactcenterinsightsV1IssueModel]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://contactcenterinsights.googleapis.com/v1/{+parent}/issueModels",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudContactcenterinsightsV1IssueModel}))
+  {:method :post,
+   :uri-template
+   "https://contactcenterinsights.googleapis.com/v1/{+parent}/issueModels",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudContactcenterinsightsV1IssueModel})
 
 (defn projects-locations-issueModels-get
   "Gets an issue model.
@@ -351,13 +329,12 @@ https://cloud.google.com/contact-center/insights/docs/v1/reference/rest/v1/proje
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://contactcenterinsights.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template
+   "https://contactcenterinsights.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-issueModels-issues-list
   "Lists issues.
@@ -365,13 +342,12 @@ https://cloud.google.com/contact-center/insights/docs/v1/reference/rest/v1/proje
 
 parent <> "
   [parent]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://contactcenterinsights.googleapis.com/v1/{+parent}/issues",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template
+   "https://contactcenterinsights.googleapis.com/v1/{+parent}/issues",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-issueModels-issues-delete
   "Deletes an issue.
@@ -379,13 +355,12 @@ https://cloud.google.com/contact-center/insights/docs/v1/reference/rest/v1/proje
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://contactcenterinsights.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template
+   "https://contactcenterinsights.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-issueModels-issues-get
   "Gets an issue.
@@ -393,13 +368,12 @@ https://cloud.google.com/contact-center/insights/docs/v1/reference/rest/v1/proje
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://contactcenterinsights.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template
+   "https://contactcenterinsights.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-issueModels-issues-patch
   "Updates an issue.
@@ -417,14 +391,13 @@ updateMask <string> The list of fields to be updated."
       GoogleCloudContactcenterinsightsV1Issue
       nil))
   ([name GoogleCloudContactcenterinsightsV1Issue optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://contactcenterinsights.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudContactcenterinsightsV1Issue})))
+    {:method :patch,
+     :uri-template
+     "https://contactcenterinsights.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudContactcenterinsightsV1Issue}))
 
 (defn projects-locations-phraseMatchers-list
   "Lists phrase matchers.
@@ -437,13 +410,12 @@ filter <string> A filter to reduce results to a specific subset. Useful for quer
 pageSize <integer> The maximum number of phrase matchers to return in the response. If this value is zero, the service will select a default size. A call might return fewer objects than requested. A non-empty `next_page_token` in the response indicates that more data is available."
   ([parent] (projects-locations-phraseMatchers-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://contactcenterinsights.googleapis.com/v1/{+parent}/phraseMatchers",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://contactcenterinsights.googleapis.com/v1/{+parent}/phraseMatchers",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-phraseMatchers-get
   "Gets a phrase matcher.
@@ -451,13 +423,12 @@ https://cloud.google.com/contact-center/insights/docs/v1/reference/rest/v1/proje
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://contactcenterinsights.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template
+   "https://contactcenterinsights.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-phraseMatchers-create
   "Creates a phrase matcher.
@@ -467,14 +438,13 @@ parent <>
 GoogleCloudContactcenterinsightsV1PhraseMatcher:
 GoogleCloudContactcenterinsightsV1PhraseMatcher"
   [parent GoogleCloudContactcenterinsightsV1PhraseMatcher]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://contactcenterinsights.googleapis.com/v1/{+parent}/phraseMatchers",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudContactcenterinsightsV1PhraseMatcher}))
+  {:method :post,
+   :uri-template
+   "https://contactcenterinsights.googleapis.com/v1/{+parent}/phraseMatchers",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudContactcenterinsightsV1PhraseMatcher})
 
 (defn projects-locations-phraseMatchers-delete
   "Deletes a phrase matcher.
@@ -482,13 +452,12 @@ https://cloud.google.com/contact-center/insights/docs/v1/reference/rest/v1/proje
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://contactcenterinsights.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template
+   "https://contactcenterinsights.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-phraseMatchers-patch
   "Updates a phrase matcher.
@@ -506,14 +475,13 @@ updateMask <string> The list of fields to be updated."
       GoogleCloudContactcenterinsightsV1PhraseMatcher
       nil))
   ([name GoogleCloudContactcenterinsightsV1PhraseMatcher optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://contactcenterinsights.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudContactcenterinsightsV1PhraseMatcher})))
+    {:method :patch,
+     :uri-template
+     "https://contactcenterinsights.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudContactcenterinsightsV1PhraseMatcher}))
 
 (defn projects-locations-encryptionSpec-initialize
   "Initializes a location-level encryption key specification. An error will be thrown if the location has resources already created before the initialization. Once the encryption specification is initialized at a location, it is immutable and all newly created resources under the location will be encrypted with the existing specification.
@@ -524,15 +492,14 @@ GoogleCloudContactcenterinsightsV1InitializeEncryptionSpecRequest:
 GoogleCloudContactcenterinsightsV1InitializeEncryptionSpecRequest"
   [name
    GoogleCloudContactcenterinsightsV1InitializeEncryptionSpecRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://contactcenterinsights.googleapis.com/v1/{+name}:initialize",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body
-     GoogleCloudContactcenterinsightsV1InitializeEncryptionSpecRequest}))
+  {:method :post,
+   :uri-template
+   "https://contactcenterinsights.googleapis.com/v1/{+name}:initialize",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body
+   GoogleCloudContactcenterinsightsV1InitializeEncryptionSpecRequest})
 
 (defn projects-locations-insightsdata-export
   "Export insights data to a destination defined in the request body.
@@ -542,15 +509,13 @@ parent <>
 GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest:
 GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest"
   [parent GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://contactcenterinsights.googleapis.com/v1/{+parent}/insightsdata:export",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body
-     GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest}))
+  {:method :post,
+   :uri-template
+   "https://contactcenterinsights.googleapis.com/v1/{+parent}/insightsdata:export",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest})
 
 (defn projects-locations-conversations-list
   "Lists conversations.
@@ -565,13 +530,12 @@ view <string> The level of details of the conversation. Default is `BASIC`.
 filter <string> A filter to reduce results to a specific subset. Useful for querying conversations with specific properties."
   ([parent] (projects-locations-conversations-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://contactcenterinsights.googleapis.com/v1/{+parent}/conversations",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://contactcenterinsights.googleapis.com/v1/{+parent}/conversations",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-conversations-delete
   "Deletes a conversation.
@@ -583,13 +547,12 @@ optional:
 force <boolean> If set to true, all of this conversation's analyses will also be deleted. Otherwise, the request will only succeed if the conversation has no analyses."
   ([name] (projects-locations-conversations-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://contactcenterinsights.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template
+     "https://contactcenterinsights.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-conversations-bulkDelete
   "Deletes multiple conversations in a single request.
@@ -600,15 +563,14 @@ GoogleCloudContactcenterinsightsV1BulkDeleteConversationsRequest:
 GoogleCloudContactcenterinsightsV1BulkDeleteConversationsRequest"
   [parent
    GoogleCloudContactcenterinsightsV1BulkDeleteConversationsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://contactcenterinsights.googleapis.com/v1/{+parent}/conversations:bulkDelete",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body
-     GoogleCloudContactcenterinsightsV1BulkDeleteConversationsRequest}))
+  {:method :post,
+   :uri-template
+   "https://contactcenterinsights.googleapis.com/v1/{+parent}/conversations:bulkDelete",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body
+   GoogleCloudContactcenterinsightsV1BulkDeleteConversationsRequest})
 
 (defn projects-locations-conversations-upload
   "Create a long-running conversation upload operation. This method differs from `CreateConversation` by allowing audio transcription and optional DLP redaction.
@@ -618,15 +580,13 @@ parent <>
 GoogleCloudContactcenterinsightsV1UploadConversationRequest:
 GoogleCloudContactcenterinsightsV1UploadConversationRequest"
   [parent GoogleCloudContactcenterinsightsV1UploadConversationRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://contactcenterinsights.googleapis.com/v1/{+parent}/conversations:upload",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body
-     GoogleCloudContactcenterinsightsV1UploadConversationRequest}))
+  {:method :post,
+   :uri-template
+   "https://contactcenterinsights.googleapis.com/v1/{+parent}/conversations:upload",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudContactcenterinsightsV1UploadConversationRequest})
 
 (defn projects-locations-conversations-bulkAnalyze
   "Analyzes multiple conversations in a single request.
@@ -637,15 +597,14 @@ GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest:
 GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest"
   [parent
    GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://contactcenterinsights.googleapis.com/v1/{+parent}/conversations:bulkAnalyze",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body
-     GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest}))
+  {:method :post,
+   :uri-template
+   "https://contactcenterinsights.googleapis.com/v1/{+parent}/conversations:bulkAnalyze",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body
+   GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest})
 
 (defn projects-locations-conversations-calculateStats
   "Gets conversation statistics.
@@ -658,13 +617,12 @@ filter <string> A filter to reduce results to a specific subset. This field is u
   ([location]
     (projects-locations-conversations-calculateStats location nil))
   ([location optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://contactcenterinsights.googleapis.com/v1/{+location}/conversations:calculateStats",
-       :uri-template-args {"location" location},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://contactcenterinsights.googleapis.com/v1/{+location}/conversations:calculateStats",
+     :uri-template-args {"location" location},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-conversations-patch
   "Updates a conversation.
@@ -682,14 +640,13 @@ updateMask <string> The list of fields to be updated. All possible fields can be
       GoogleCloudContactcenterinsightsV1Conversation
       nil))
   ([name GoogleCloudContactcenterinsightsV1Conversation optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://contactcenterinsights.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudContactcenterinsightsV1Conversation})))
+    {:method :patch,
+     :uri-template
+     "https://contactcenterinsights.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudContactcenterinsightsV1Conversation}))
 
 (defn projects-locations-conversations-ingest
   "Imports conversations and processes them according to the user's configuration.
@@ -699,15 +656,13 @@ parent <>
 GoogleCloudContactcenterinsightsV1IngestConversationsRequest:
 GoogleCloudContactcenterinsightsV1IngestConversationsRequest"
   [parent GoogleCloudContactcenterinsightsV1IngestConversationsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://contactcenterinsights.googleapis.com/v1/{+parent}/conversations:ingest",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body
-     GoogleCloudContactcenterinsightsV1IngestConversationsRequest}))
+  {:method :post,
+   :uri-template
+   "https://contactcenterinsights.googleapis.com/v1/{+parent}/conversations:ingest",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudContactcenterinsightsV1IngestConversationsRequest})
 
 (defn projects-locations-conversations-create
   "Creates a conversation. Does not support audio transcription or DLP redaction. Use `conversations.upload` instead.
@@ -725,14 +680,13 @@ conversationId <string> A unique ID for the new conversation. This ID will becom
       GoogleCloudContactcenterinsightsV1Conversation
       nil))
   ([parent GoogleCloudContactcenterinsightsV1Conversation optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://contactcenterinsights.googleapis.com/v1/{+parent}/conversations",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudContactcenterinsightsV1Conversation})))
+    {:method :post,
+     :uri-template
+     "https://contactcenterinsights.googleapis.com/v1/{+parent}/conversations",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudContactcenterinsightsV1Conversation}))
 
 (defn projects-locations-conversations-get
   "Gets a conversation.
@@ -744,13 +698,12 @@ optional:
 view <string> The level of details of the conversation. Default is `FULL`."
   ([name] (projects-locations-conversations-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://contactcenterinsights.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://contactcenterinsights.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-conversations-analyses-delete
   "Deletes an analysis.
@@ -758,13 +711,12 @@ https://cloud.google.com/contact-center/insights/docs/v1/reference/rest/v1/proje
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://contactcenterinsights.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template
+   "https://contactcenterinsights.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-conversations-analyses-create
   "Creates an analysis. The long running operation is done when the analysis has completed.
@@ -774,14 +726,13 @@ parent <>
 GoogleCloudContactcenterinsightsV1Analysis:
 GoogleCloudContactcenterinsightsV1Analysis"
   [parent GoogleCloudContactcenterinsightsV1Analysis]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://contactcenterinsights.googleapis.com/v1/{+parent}/analyses",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudContactcenterinsightsV1Analysis}))
+  {:method :post,
+   :uri-template
+   "https://contactcenterinsights.googleapis.com/v1/{+parent}/analyses",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudContactcenterinsightsV1Analysis})
 
 (defn projects-locations-conversations-analyses-list
   "Lists analyses.
@@ -795,13 +746,12 @@ pageSize <integer> The maximum number of analyses to return in the response. If 
   ([parent]
     (projects-locations-conversations-analyses-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://contactcenterinsights.googleapis.com/v1/{+parent}/analyses",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://contactcenterinsights.googleapis.com/v1/{+parent}/analyses",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-conversations-analyses-get
   "Gets an analysis.
@@ -809,10 +759,9 @@ https://cloud.google.com/contact-center/insights/docs/v1/reference/rest/v1/proje
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://contactcenterinsights.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template
+   "https://contactcenterinsights.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})

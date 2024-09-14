@@ -1,8 +1,7 @@
 (ns happyapi.google.dlp-v2
   "Sensitive Data Protection (DLP)
 Discover and protect your sensitive data. A fully managed service designed to help you discover, classify, and protect your valuable data assets with ease.
-See: https://cloud.google.com/sensitive-data-protection/docs/"
-  (:require [happyapi.providers.google :as client]))
+See: https://cloud.google.com/sensitive-data-protection/docs/")
 
 (defn projects-inspectTemplates-patch
   "Updates the InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more.
@@ -12,13 +11,12 @@ name <>
 GooglePrivacyDlpV2UpdateInspectTemplateRequest:
 GooglePrivacyDlpV2UpdateInspectTemplateRequest"
   [name GooglePrivacyDlpV2UpdateInspectTemplateRequest]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2UpdateInspectTemplateRequest}))
+  {:method :patch,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2UpdateInspectTemplateRequest})
 
 (defn projects-inspectTemplates-create
   "Creates an InspectTemplate for reusing frequently used configuration for inspecting content, images, and storage. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more.
@@ -28,14 +26,13 @@ parent <>
 GooglePrivacyDlpV2CreateInspectTemplateRequest:
 GooglePrivacyDlpV2CreateInspectTemplateRequest"
   [parent GooglePrivacyDlpV2CreateInspectTemplateRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dlp.googleapis.com/v2/{+parent}/inspectTemplates",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2CreateInspectTemplateRequest}))
+  {:method :post,
+   :uri-template
+   "https://dlp.googleapis.com/v2/{+parent}/inspectTemplates",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2CreateInspectTemplateRequest})
 
 (defn projects-inspectTemplates-delete
   "Deletes an InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more.
@@ -43,12 +40,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/pro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-inspectTemplates-list
   "Lists InspectTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more.
@@ -62,13 +58,12 @@ pageSize <integer> Size of the page. This value can be limited by the server. If
 orderBy <string> Comma-separated list of fields to order by, followed by `asc` or `desc` postfix. This list is case insensitive. The default sorting order is ascending. Redundant space characters are insignificant. Example: `name asc,update_time, create_time desc` Supported fields are: - `create_time`: corresponds to the time the template was created. - `update_time`: corresponds to the time the template was last updated. - `name`: corresponds to the template's name. - `display_name`: corresponds to the template's display name."
   ([parent] (projects-inspectTemplates-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dlp.googleapis.com/v2/{+parent}/inspectTemplates",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dlp.googleapis.com/v2/{+parent}/inspectTemplates",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-inspectTemplates-get
   "Gets an InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more.
@@ -76,12 +71,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/pro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-tableDataProfiles-delete
   "Delete a TableDataProfile. Will not prevent the profile from being regenerated if the table is still included in a discovery configuration.
@@ -89,12 +83,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/pro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-tableDataProfiles-get
   "Gets a table data profile.
@@ -102,12 +95,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/pro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-tableDataProfiles-list
   "Lists table data profiles for an organization.
@@ -121,13 +113,12 @@ pageSize <integer> Size of the page. This value can be limited by the server. If
 filter <string> Allows filtering. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by `AND` or `OR` logical operators. A sequence of restrictions implicitly uses `AND`. * A restriction has the form of `{field} {operator} {value}`. * Supported fields/values: - `project_id` - The Google Cloud project ID. - `dataset_id` - The BigQuery dataset ID. - `table_id` - The ID of the BigQuery table. - `sensitivity_level` - HIGH|MODERATE|LOW - `data_risk_level` - HIGH|MODERATE|LOW - `resource_visibility`: PUBLIC|RESTRICTED - `status_code` - an RPC status code as defined in https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto * The operator must be `=` or `!=`. Examples: * `project_id = 12345 AND status_code = 1` * `project_id = 12345 AND sensitivity_level = HIGH` * `project_id = 12345 AND resource_visibility = PUBLIC` The length of this field should be no more than 500 characters."
   ([parent] (projects-locations-tableDataProfiles-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dlp.googleapis.com/v2/{+parent}/tableDataProfiles",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dlp.googleapis.com/v2/{+parent}/tableDataProfiles",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-storedInfoTypes-delete
   "Deletes a stored infoType. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more.
@@ -135,12 +126,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/pro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-storedInfoTypes-list
   "Lists stored infoTypes. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more.
@@ -154,13 +144,12 @@ orderBy <string> Comma-separated list of fields to order by, followed by `asc` o
 pageSize <integer> Size of the page. This value can be limited by the server. If zero server returns a page of max size 100."
   ([parent] (projects-locations-storedInfoTypes-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dlp.googleapis.com/v2/{+parent}/storedInfoTypes",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dlp.googleapis.com/v2/{+parent}/storedInfoTypes",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-storedInfoTypes-patch
   "Updates the stored infoType by creating a new version. The existing version will continue to be used until the new version is ready. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more.
@@ -170,13 +159,12 @@ name <>
 GooglePrivacyDlpV2UpdateStoredInfoTypeRequest:
 GooglePrivacyDlpV2UpdateStoredInfoTypeRequest"
   [name GooglePrivacyDlpV2UpdateStoredInfoTypeRequest]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2UpdateStoredInfoTypeRequest}))
+  {:method :patch,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2UpdateStoredInfoTypeRequest})
 
 (defn projects-locations-storedInfoTypes-get
   "Gets a stored infoType. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more.
@@ -184,12 +172,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/pro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-storedInfoTypes-create
   "Creates a pre-built stored infoType to be used for inspection. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more.
@@ -199,14 +186,13 @@ parent <>
 GooglePrivacyDlpV2CreateStoredInfoTypeRequest:
 GooglePrivacyDlpV2CreateStoredInfoTypeRequest"
   [parent GooglePrivacyDlpV2CreateStoredInfoTypeRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dlp.googleapis.com/v2/{+parent}/storedInfoTypes",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2CreateStoredInfoTypeRequest}))
+  {:method :post,
+   :uri-template
+   "https://dlp.googleapis.com/v2/{+parent}/storedInfoTypes",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2CreateStoredInfoTypeRequest})
 
 (defn projects-locations-image-redact
   "Redacts potentially sensitive info from an image. This method has limits on input size, processing time, and output size. See https://cloud.google.com/sensitive-data-protection/docs/redacting-sensitive-data-images to learn more. When no InfoTypes or CustomInfoTypes are specified in this request, the system will automatically choose what detectors to run. By default this may be all types, but may change over time as detectors are updated.
@@ -216,14 +202,13 @@ parent <>
 GooglePrivacyDlpV2RedactImageRequest:
 GooglePrivacyDlpV2RedactImageRequest"
   [parent GooglePrivacyDlpV2RedactImageRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dlp.googleapis.com/v2/{+parent}/image:redact",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2RedactImageRequest}))
+  {:method :post,
+   :uri-template
+   "https://dlp.googleapis.com/v2/{+parent}/image:redact",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2RedactImageRequest})
 
 (defn projects-locations-projectDataProfiles-list
   "Lists project data profiles for an organization.
@@ -237,13 +222,12 @@ pageSize <integer> Size of the page. This value can be limited by the server. If
 filter <string> Allows filtering. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by `AND` or `OR` logical operators. A sequence of restrictions implicitly uses `AND`. * A restriction has the form of `{field} {operator} {value}`. * Supported fields/values: - `sensitivity_level` - HIGH|MODERATE|LOW - `data_risk_level` - HIGH|MODERATE|LOW - `status_code` - an RPC status code as defined in https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto * The operator must be `=` or `!=`. Examples: * `project_id = 12345 AND status_code = 1` * `project_id = 12345 AND sensitivity_level = HIGH` The length of this field should be no more than 500 characters."
   ([parent] (projects-locations-projectDataProfiles-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dlp.googleapis.com/v2/{+parent}/projectDataProfiles",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dlp.googleapis.com/v2/{+parent}/projectDataProfiles",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-projectDataProfiles-get
   "Gets a project data profile.
@@ -251,12 +235,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/pro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-deidentifyTemplates-delete
   "Deletes a DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more.
@@ -264,12 +247,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/pro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-deidentifyTemplates-get
   "Gets a DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more.
@@ -277,12 +259,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/pro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-deidentifyTemplates-list
   "Lists DeidentifyTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more.
@@ -296,13 +277,12 @@ pageSize <integer> Size of the page. This value can be limited by the server. If
 locationId <string> Deprecated. This field has no effect."
   ([parent] (projects-locations-deidentifyTemplates-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dlp.googleapis.com/v2/{+parent}/deidentifyTemplates",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dlp.googleapis.com/v2/{+parent}/deidentifyTemplates",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-deidentifyTemplates-patch
   "Updates the DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more.
@@ -312,13 +292,12 @@ name <>
 GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest:
 GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest"
   [name GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest}))
+  {:method :patch,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest})
 
 (defn projects-locations-deidentifyTemplates-create
   "Creates a DeidentifyTemplate for reusing frequently used configuration for de-identifying content, images, and storage. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more.
@@ -328,14 +307,13 @@ parent <>
 GooglePrivacyDlpV2CreateDeidentifyTemplateRequest:
 GooglePrivacyDlpV2CreateDeidentifyTemplateRequest"
   [parent GooglePrivacyDlpV2CreateDeidentifyTemplateRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dlp.googleapis.com/v2/{+parent}/deidentifyTemplates",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2CreateDeidentifyTemplateRequest}))
+  {:method :post,
+   :uri-template
+   "https://dlp.googleapis.com/v2/{+parent}/deidentifyTemplates",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2CreateDeidentifyTemplateRequest})
 
 (defn projects-locations-dlpJobs-cancel
   "Starts asynchronous cancellation on a long-running DlpJob. The server makes a best effort to cancel the DlpJob, but success is not guaranteed. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more.
@@ -345,13 +323,12 @@ name <>
 GooglePrivacyDlpV2CancelDlpJobRequest:
 GooglePrivacyDlpV2CancelDlpJobRequest"
   [name GooglePrivacyDlpV2CancelDlpJobRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2CancelDlpJobRequest}))
+  {:method :post,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2CancelDlpJobRequest})
 
 (defn projects-locations-dlpJobs-finish
   "Finish a running hybrid DlpJob. Triggers the finalization steps and running of any enabled actions that have not yet run.
@@ -361,13 +338,12 @@ name <>
 GooglePrivacyDlpV2FinishDlpJobRequest:
 GooglePrivacyDlpV2FinishDlpJobRequest"
   [name GooglePrivacyDlpV2FinishDlpJobRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}:finish",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2FinishDlpJobRequest}))
+  {:method :post,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}:finish",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2FinishDlpJobRequest})
 
 (defn projects-locations-dlpJobs-create
   "Creates a new job to inspect storage or calculate risk metrics. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more. When no InfoTypes or CustomInfoTypes are specified in inspect jobs, the system will automatically choose what detectors to run. By default this may be all types, but may change over time as detectors are updated.
@@ -377,13 +353,12 @@ parent <>
 GooglePrivacyDlpV2CreateDlpJobRequest:
 GooglePrivacyDlpV2CreateDlpJobRequest"
   [parent GooglePrivacyDlpV2CreateDlpJobRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template "https://dlp.googleapis.com/v2/{+parent}/dlpJobs",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2CreateDlpJobRequest}))
+  {:method :post,
+   :uri-template "https://dlp.googleapis.com/v2/{+parent}/dlpJobs",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2CreateDlpJobRequest})
 
 (defn projects-locations-dlpJobs-get
   "Gets the latest state of a long-running DlpJob. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more.
@@ -391,12 +366,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/pro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-dlpJobs-delete
   "Deletes a long-running DlpJob. This method indicates that the client is no longer interested in the DlpJob result. The job will be canceled if possible. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more.
@@ -404,12 +378,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/pro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-dlpJobs-list
   "Lists DlpJobs that match the specified filter in the request. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more.
@@ -425,12 +398,11 @@ pageSize <integer> The standard list page size.
 locationId <string> Deprecated. This field has no effect."
   ([parent] (projects-locations-dlpJobs-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template "https://dlp.googleapis.com/v2/{+parent}/dlpJobs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://dlp.googleapis.com/v2/{+parent}/dlpJobs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-dlpJobs-hybridInspect
   "Inspect hybrid content and store findings to a job. To review the findings, inspect the job. Inspection will occur asynchronously.
@@ -440,14 +412,12 @@ name <>
 GooglePrivacyDlpV2HybridInspectDlpJobRequest:
 GooglePrivacyDlpV2HybridInspectDlpJobRequest"
   [name GooglePrivacyDlpV2HybridInspectDlpJobRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dlp.googleapis.com/v2/{+name}:hybridInspect",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2HybridInspectDlpJobRequest}))
+  {:method :post,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}:hybridInspect",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2HybridInspectDlpJobRequest})
 
 (defn projects-locations-columnDataProfiles-get
   "Gets a column data profile.
@@ -455,12 +425,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/pro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-columnDataProfiles-list
   "Lists column data profiles for an organization.
@@ -474,13 +443,12 @@ filter <string> Allows filtering. Supported syntax: * Filter expressions are mad
 pageSize <integer> Size of the page. This value can be limited by the server. If zero, server returns a page of max size 100."
   ([parent] (projects-locations-columnDataProfiles-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dlp.googleapis.com/v2/{+parent}/columnDataProfiles",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dlp.googleapis.com/v2/{+parent}/columnDataProfiles",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-content-reidentify
   "Re-identifies content that has been de-identified. See https://cloud.google.com/sensitive-data-protection/docs/pseudonymization#re-identification_in_free_text_code_example to learn more.
@@ -490,14 +458,13 @@ parent <>
 GooglePrivacyDlpV2ReidentifyContentRequest:
 GooglePrivacyDlpV2ReidentifyContentRequest"
   [parent GooglePrivacyDlpV2ReidentifyContentRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dlp.googleapis.com/v2/{+parent}/content:reidentify",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2ReidentifyContentRequest}))
+  {:method :post,
+   :uri-template
+   "https://dlp.googleapis.com/v2/{+parent}/content:reidentify",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2ReidentifyContentRequest})
 
 (defn projects-locations-content-deidentify
   "De-identifies potentially sensitive info from a ContentItem. This method has limits on input size and output size. See https://cloud.google.com/sensitive-data-protection/docs/deidentify-sensitive-data to learn more. When no InfoTypes or CustomInfoTypes are specified in this request, the system will automatically choose what detectors to run. By default this may be all types, but may change over time as detectors are updated.
@@ -507,14 +474,13 @@ parent <>
 GooglePrivacyDlpV2DeidentifyContentRequest:
 GooglePrivacyDlpV2DeidentifyContentRequest"
   [parent GooglePrivacyDlpV2DeidentifyContentRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dlp.googleapis.com/v2/{+parent}/content:deidentify",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2DeidentifyContentRequest}))
+  {:method :post,
+   :uri-template
+   "https://dlp.googleapis.com/v2/{+parent}/content:deidentify",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2DeidentifyContentRequest})
 
 (defn projects-locations-content-inspect
   "Finds potentially sensitive info in content. This method has limits on input size, processing time, and output size. When no InfoTypes or CustomInfoTypes are specified in this request, the system will automatically choose what detectors to run. By default this may be all types, but may change over time as detectors are updated. For how to guides, see https://cloud.google.com/sensitive-data-protection/docs/inspecting-images and https://cloud.google.com/sensitive-data-protection/docs/inspecting-text,
@@ -524,14 +490,13 @@ parent <>
 GooglePrivacyDlpV2InspectContentRequest:
 GooglePrivacyDlpV2InspectContentRequest"
   [parent GooglePrivacyDlpV2InspectContentRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dlp.googleapis.com/v2/{+parent}/content:inspect",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2InspectContentRequest}))
+  {:method :post,
+   :uri-template
+   "https://dlp.googleapis.com/v2/{+parent}/content:inspect",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2InspectContentRequest})
 
 (defn projects-locations-fileStoreDataProfiles-get
   "Gets a file store data profile.
@@ -539,12 +504,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/pro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-fileStoreDataProfiles-delete
   "Delete a FileStoreDataProfile. Will not prevent the profile from being regenerated if the resource is still included in a discovery configuration.
@@ -552,12 +516,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/pro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-fileStoreDataProfiles-list
   "Lists file store data profiles for an organization.
@@ -571,13 +534,12 @@ filter <string> Optional. Allows filtering. Supported syntax: * Filter expressio
 pageSize <integer> Optional. Size of the page. This value can be limited by the server. If zero, server returns a page of max size 100."
   ([parent] (projects-locations-fileStoreDataProfiles-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dlp.googleapis.com/v2/{+parent}/fileStoreDataProfiles",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dlp.googleapis.com/v2/{+parent}/fileStoreDataProfiles",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-jobTriggers-delete
   "Deletes a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more.
@@ -585,12 +547,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/pro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-jobTriggers-hybridInspect
   "Inspect hybrid content and store findings to a trigger. The inspection will be processed asynchronously. To review the findings monitor the jobs within the trigger.
@@ -600,14 +561,12 @@ name <>
 GooglePrivacyDlpV2HybridInspectJobTriggerRequest:
 GooglePrivacyDlpV2HybridInspectJobTriggerRequest"
   [name GooglePrivacyDlpV2HybridInspectJobTriggerRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dlp.googleapis.com/v2/{+name}:hybridInspect",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2HybridInspectJobTriggerRequest}))
+  {:method :post,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}:hybridInspect",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2HybridInspectJobTriggerRequest})
 
 (defn projects-locations-jobTriggers-get
   "Gets a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more.
@@ -615,12 +574,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/pro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-jobTriggers-list
   "Lists job triggers. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more.
@@ -636,13 +594,12 @@ orderBy <string> Comma-separated list of triggeredJob fields to order by, follow
 pageSize <integer> Size of the page. This value can be limited by a server."
   ([parent] (projects-locations-jobTriggers-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dlp.googleapis.com/v2/{+parent}/jobTriggers",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dlp.googleapis.com/v2/{+parent}/jobTriggers",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-jobTriggers-create
   "Creates a job trigger to run DLP actions such as scanning storage for sensitive information on a set schedule. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more.
@@ -652,14 +609,12 @@ parent <>
 GooglePrivacyDlpV2CreateJobTriggerRequest:
 GooglePrivacyDlpV2CreateJobTriggerRequest"
   [parent GooglePrivacyDlpV2CreateJobTriggerRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dlp.googleapis.com/v2/{+parent}/jobTriggers",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2CreateJobTriggerRequest}))
+  {:method :post,
+   :uri-template "https://dlp.googleapis.com/v2/{+parent}/jobTriggers",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2CreateJobTriggerRequest})
 
 (defn projects-locations-jobTriggers-activate
   "Activate a job trigger. Causes the immediate execute of a trigger instead of waiting on the trigger event to occur.
@@ -669,13 +624,12 @@ name <>
 GooglePrivacyDlpV2ActivateJobTriggerRequest:
 GooglePrivacyDlpV2ActivateJobTriggerRequest"
   [name GooglePrivacyDlpV2ActivateJobTriggerRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}:activate",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2ActivateJobTriggerRequest}))
+  {:method :post,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}:activate",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2ActivateJobTriggerRequest})
 
 (defn projects-locations-jobTriggers-patch
   "Updates a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more.
@@ -685,13 +639,12 @@ name <>
 GooglePrivacyDlpV2UpdateJobTriggerRequest:
 GooglePrivacyDlpV2UpdateJobTriggerRequest"
   [name GooglePrivacyDlpV2UpdateJobTriggerRequest]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2UpdateJobTriggerRequest}))
+  {:method :patch,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2UpdateJobTriggerRequest})
 
 (defn projects-locations-inspectTemplates-list
   "Lists InspectTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more.
@@ -705,13 +658,12 @@ locationId <string> Deprecated. This field has no effect.
 orderBy <string> Comma-separated list of fields to order by, followed by `asc` or `desc` postfix. This list is case insensitive. The default sorting order is ascending. Redundant space characters are insignificant. Example: `name asc,update_time, create_time desc` Supported fields are: - `create_time`: corresponds to the time the template was created. - `update_time`: corresponds to the time the template was last updated. - `name`: corresponds to the template's name. - `display_name`: corresponds to the template's display name."
   ([parent] (projects-locations-inspectTemplates-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dlp.googleapis.com/v2/{+parent}/inspectTemplates",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dlp.googleapis.com/v2/{+parent}/inspectTemplates",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-inspectTemplates-patch
   "Updates the InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more.
@@ -721,13 +673,12 @@ name <>
 GooglePrivacyDlpV2UpdateInspectTemplateRequest:
 GooglePrivacyDlpV2UpdateInspectTemplateRequest"
   [name GooglePrivacyDlpV2UpdateInspectTemplateRequest]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2UpdateInspectTemplateRequest}))
+  {:method :patch,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2UpdateInspectTemplateRequest})
 
 (defn projects-locations-inspectTemplates-create
   "Creates an InspectTemplate for reusing frequently used configuration for inspecting content, images, and storage. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more.
@@ -737,14 +688,13 @@ parent <>
 GooglePrivacyDlpV2CreateInspectTemplateRequest:
 GooglePrivacyDlpV2CreateInspectTemplateRequest"
   [parent GooglePrivacyDlpV2CreateInspectTemplateRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dlp.googleapis.com/v2/{+parent}/inspectTemplates",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2CreateInspectTemplateRequest}))
+  {:method :post,
+   :uri-template
+   "https://dlp.googleapis.com/v2/{+parent}/inspectTemplates",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2CreateInspectTemplateRequest})
 
 (defn projects-locations-inspectTemplates-get
   "Gets an InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more.
@@ -752,12 +702,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/pro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-inspectTemplates-delete
   "Deletes an InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more.
@@ -765,12 +714,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/pro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-discoveryConfigs-list
   "Lists discovery configurations.
@@ -783,13 +731,12 @@ orderBy <string> Comma-separated list of config fields to order by, followed by 
 pageSize <integer> Size of the page. This value can be limited by a server."
   ([parent] (projects-locations-discoveryConfigs-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dlp.googleapis.com/v2/{+parent}/discoveryConfigs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dlp.googleapis.com/v2/{+parent}/discoveryConfigs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-discoveryConfigs-delete
   "Deletes a discovery configuration.
@@ -797,12 +744,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/pro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-discoveryConfigs-create
   "Creates a config for discovery to scan and profile storage.
@@ -812,14 +758,13 @@ parent <>
 GooglePrivacyDlpV2CreateDiscoveryConfigRequest:
 GooglePrivacyDlpV2CreateDiscoveryConfigRequest"
   [parent GooglePrivacyDlpV2CreateDiscoveryConfigRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dlp.googleapis.com/v2/{+parent}/discoveryConfigs",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2CreateDiscoveryConfigRequest}))
+  {:method :post,
+   :uri-template
+   "https://dlp.googleapis.com/v2/{+parent}/discoveryConfigs",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2CreateDiscoveryConfigRequest})
 
 (defn projects-locations-discoveryConfigs-get
   "Gets a discovery configuration.
@@ -827,12 +772,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/pro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-discoveryConfigs-patch
   "Updates a discovery configuration.
@@ -842,13 +786,12 @@ name <>
 GooglePrivacyDlpV2UpdateDiscoveryConfigRequest:
 GooglePrivacyDlpV2UpdateDiscoveryConfigRequest"
   [name GooglePrivacyDlpV2UpdateDiscoveryConfigRequest]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2UpdateDiscoveryConfigRequest}))
+  {:method :patch,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2UpdateDiscoveryConfigRequest})
 
 (defn projects-locations-connections-list
   "Lists Connections in a parent. Use SearchConnections to see all connections within an organization.
@@ -861,13 +804,12 @@ filter <string> Optional. Supported field/value: `state` - MISSING|AVAILABLE|ERR
 pageSize <integer> Optional. Number of results per page, max 1000."
   ([parent] (projects-locations-connections-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dlp.googleapis.com/v2/{+parent}/connections",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dlp.googleapis.com/v2/{+parent}/connections",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-connections-delete
   "Delete a Connection.
@@ -875,12 +817,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/pro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-connections-patch
   "Update a Connection.
@@ -890,13 +831,12 @@ name <>
 GooglePrivacyDlpV2UpdateConnectionRequest:
 GooglePrivacyDlpV2UpdateConnectionRequest"
   [name GooglePrivacyDlpV2UpdateConnectionRequest]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2UpdateConnectionRequest}))
+  {:method :patch,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2UpdateConnectionRequest})
 
 (defn projects-locations-connections-get
   "Get a Connection by name.
@@ -904,12 +844,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/pro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-connections-create
   "Create a Connection to an external data source.
@@ -919,14 +858,12 @@ parent <>
 GooglePrivacyDlpV2CreateConnectionRequest:
 GooglePrivacyDlpV2CreateConnectionRequest"
   [parent GooglePrivacyDlpV2CreateConnectionRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dlp.googleapis.com/v2/{+parent}/connections",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2CreateConnectionRequest}))
+  {:method :post,
+   :uri-template "https://dlp.googleapis.com/v2/{+parent}/connections",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2CreateConnectionRequest})
 
 (defn projects-locations-connections-search
   "Searches for Connections in a parent.
@@ -939,13 +876,12 @@ pageSize <integer> Optional. Number of results per page, max 1000.
 filter <string> Optional. Supported field/value: - `state` - MISSING|AVAILABLE|ERROR"
   ([parent] (projects-locations-connections-search parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dlp.googleapis.com/v2/{+parent}/connections:search",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dlp.googleapis.com/v2/{+parent}/connections:search",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-dlpJobs-cancel
   "Starts asynchronous cancellation on a long-running DlpJob. The server makes a best effort to cancel the DlpJob, but success is not guaranteed. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more.
@@ -955,13 +891,12 @@ name <>
 GooglePrivacyDlpV2CancelDlpJobRequest:
 GooglePrivacyDlpV2CancelDlpJobRequest"
   [name GooglePrivacyDlpV2CancelDlpJobRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2CancelDlpJobRequest}))
+  {:method :post,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2CancelDlpJobRequest})
 
 (defn projects-dlpJobs-get
   "Gets the latest state of a long-running DlpJob. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more.
@@ -969,12 +904,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/pro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-dlpJobs-delete
   "Deletes a long-running DlpJob. This method indicates that the client is no longer interested in the DlpJob result. The job will be canceled if possible. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more.
@@ -982,12 +916,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/pro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-dlpJobs-list
   "Lists DlpJobs that match the specified filter in the request. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more.
@@ -1003,12 +936,11 @@ locationId <string> Deprecated. This field has no effect.
 filter <string> Allows filtering. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by `AND` or `OR` logical operators. A sequence of restrictions implicitly uses `AND`. * A restriction has the form of `{field} {operator} {value}`. * Supported fields/values for inspect jobs: - `state` - PENDING|RUNNING|CANCELED|FINISHED|FAILED - `inspected_storage` - DATASTORE|CLOUD_STORAGE|BIGQUERY - `trigger_name` - The name of the trigger that created the job. - 'end_time` - Corresponds to the time the job finished. - 'start_time` - Corresponds to the time the job finished. * Supported fields for risk analysis jobs: - `state` - RUNNING|CANCELED|FINISHED|FAILED - 'end_time` - Corresponds to the time the job finished. - 'start_time` - Corresponds to the time the job finished. * The operator must be `=` or `!=`. Examples: * inspected_storage = cloud_storage AND state = done * inspected_storage = cloud_storage OR inspected_storage = bigquery * inspected_storage = cloud_storage AND (state = done OR state = canceled) * end_time > \\\"2017-12-12T00:00:00+00:00\\\" The length of this field should be no more than 500 characters."
   ([parent] (projects-dlpJobs-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template "https://dlp.googleapis.com/v2/{+parent}/dlpJobs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://dlp.googleapis.com/v2/{+parent}/dlpJobs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-dlpJobs-create
   "Creates a new job to inspect storage or calculate risk metrics. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more. When no InfoTypes or CustomInfoTypes are specified in inspect jobs, the system will automatically choose what detectors to run. By default this may be all types, but may change over time as detectors are updated.
@@ -1018,13 +950,12 @@ parent <>
 GooglePrivacyDlpV2CreateDlpJobRequest:
 GooglePrivacyDlpV2CreateDlpJobRequest"
   [parent GooglePrivacyDlpV2CreateDlpJobRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template "https://dlp.googleapis.com/v2/{+parent}/dlpJobs",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2CreateDlpJobRequest}))
+  {:method :post,
+   :uri-template "https://dlp.googleapis.com/v2/{+parent}/dlpJobs",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2CreateDlpJobRequest})
 
 (defn projects-deidentifyTemplates-list
   "Lists DeidentifyTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more.
@@ -1038,13 +969,12 @@ locationId <string> Deprecated. This field has no effect.
 pageSize <integer> Size of the page. This value can be limited by the server. If zero server returns a page of max size 100."
   ([parent] (projects-deidentifyTemplates-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dlp.googleapis.com/v2/{+parent}/deidentifyTemplates",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dlp.googleapis.com/v2/{+parent}/deidentifyTemplates",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-deidentifyTemplates-create
   "Creates a DeidentifyTemplate for reusing frequently used configuration for de-identifying content, images, and storage. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more.
@@ -1054,14 +984,13 @@ parent <>
 GooglePrivacyDlpV2CreateDeidentifyTemplateRequest:
 GooglePrivacyDlpV2CreateDeidentifyTemplateRequest"
   [parent GooglePrivacyDlpV2CreateDeidentifyTemplateRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dlp.googleapis.com/v2/{+parent}/deidentifyTemplates",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2CreateDeidentifyTemplateRequest}))
+  {:method :post,
+   :uri-template
+   "https://dlp.googleapis.com/v2/{+parent}/deidentifyTemplates",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2CreateDeidentifyTemplateRequest})
 
 (defn projects-deidentifyTemplates-get
   "Gets a DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more.
@@ -1069,12 +998,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/pro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-deidentifyTemplates-patch
   "Updates the DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more.
@@ -1084,13 +1012,12 @@ name <>
 GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest:
 GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest"
   [name GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest}))
+  {:method :patch,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest})
 
 (defn projects-deidentifyTemplates-delete
   "Deletes a DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more.
@@ -1098,12 +1025,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/pro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-content-inspect
   "Finds potentially sensitive info in content. This method has limits on input size, processing time, and output size. When no InfoTypes or CustomInfoTypes are specified in this request, the system will automatically choose what detectors to run. By default this may be all types, but may change over time as detectors are updated. For how to guides, see https://cloud.google.com/sensitive-data-protection/docs/inspecting-images and https://cloud.google.com/sensitive-data-protection/docs/inspecting-text,
@@ -1113,14 +1039,13 @@ parent <>
 GooglePrivacyDlpV2InspectContentRequest:
 GooglePrivacyDlpV2InspectContentRequest"
   [parent GooglePrivacyDlpV2InspectContentRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dlp.googleapis.com/v2/{+parent}/content:inspect",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2InspectContentRequest}))
+  {:method :post,
+   :uri-template
+   "https://dlp.googleapis.com/v2/{+parent}/content:inspect",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2InspectContentRequest})
 
 (defn projects-content-reidentify
   "Re-identifies content that has been de-identified. See https://cloud.google.com/sensitive-data-protection/docs/pseudonymization#re-identification_in_free_text_code_example to learn more.
@@ -1130,14 +1055,13 @@ parent <>
 GooglePrivacyDlpV2ReidentifyContentRequest:
 GooglePrivacyDlpV2ReidentifyContentRequest"
   [parent GooglePrivacyDlpV2ReidentifyContentRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dlp.googleapis.com/v2/{+parent}/content:reidentify",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2ReidentifyContentRequest}))
+  {:method :post,
+   :uri-template
+   "https://dlp.googleapis.com/v2/{+parent}/content:reidentify",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2ReidentifyContentRequest})
 
 (defn projects-content-deidentify
   "De-identifies potentially sensitive info from a ContentItem. This method has limits on input size and output size. See https://cloud.google.com/sensitive-data-protection/docs/deidentify-sensitive-data to learn more. When no InfoTypes or CustomInfoTypes are specified in this request, the system will automatically choose what detectors to run. By default this may be all types, but may change over time as detectors are updated.
@@ -1147,14 +1071,13 @@ parent <>
 GooglePrivacyDlpV2DeidentifyContentRequest:
 GooglePrivacyDlpV2DeidentifyContentRequest"
   [parent GooglePrivacyDlpV2DeidentifyContentRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dlp.googleapis.com/v2/{+parent}/content:deidentify",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2DeidentifyContentRequest}))
+  {:method :post,
+   :uri-template
+   "https://dlp.googleapis.com/v2/{+parent}/content:deidentify",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2DeidentifyContentRequest})
 
 (defn projects-image-redact
   "Redacts potentially sensitive info from an image. This method has limits on input size, processing time, and output size. See https://cloud.google.com/sensitive-data-protection/docs/redacting-sensitive-data-images to learn more. When no InfoTypes or CustomInfoTypes are specified in this request, the system will automatically choose what detectors to run. By default this may be all types, but may change over time as detectors are updated.
@@ -1164,14 +1087,13 @@ parent <>
 GooglePrivacyDlpV2RedactImageRequest:
 GooglePrivacyDlpV2RedactImageRequest"
   [parent GooglePrivacyDlpV2RedactImageRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dlp.googleapis.com/v2/{+parent}/image:redact",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2RedactImageRequest}))
+  {:method :post,
+   :uri-template
+   "https://dlp.googleapis.com/v2/{+parent}/image:redact",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2RedactImageRequest})
 
 (defn projects-jobTriggers-patch
   "Updates a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more.
@@ -1181,13 +1103,12 @@ name <>
 GooglePrivacyDlpV2UpdateJobTriggerRequest:
 GooglePrivacyDlpV2UpdateJobTriggerRequest"
   [name GooglePrivacyDlpV2UpdateJobTriggerRequest]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2UpdateJobTriggerRequest}))
+  {:method :patch,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2UpdateJobTriggerRequest})
 
 (defn projects-jobTriggers-create
   "Creates a job trigger to run DLP actions such as scanning storage for sensitive information on a set schedule. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more.
@@ -1197,14 +1118,12 @@ parent <>
 GooglePrivacyDlpV2CreateJobTriggerRequest:
 GooglePrivacyDlpV2CreateJobTriggerRequest"
   [parent GooglePrivacyDlpV2CreateJobTriggerRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dlp.googleapis.com/v2/{+parent}/jobTriggers",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2CreateJobTriggerRequest}))
+  {:method :post,
+   :uri-template "https://dlp.googleapis.com/v2/{+parent}/jobTriggers",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2CreateJobTriggerRequest})
 
 (defn projects-jobTriggers-activate
   "Activate a job trigger. Causes the immediate execute of a trigger instead of waiting on the trigger event to occur.
@@ -1214,13 +1133,12 @@ name <>
 GooglePrivacyDlpV2ActivateJobTriggerRequest:
 GooglePrivacyDlpV2ActivateJobTriggerRequest"
   [name GooglePrivacyDlpV2ActivateJobTriggerRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}:activate",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2ActivateJobTriggerRequest}))
+  {:method :post,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}:activate",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2ActivateJobTriggerRequest})
 
 (defn projects-jobTriggers-list
   "Lists job triggers. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more.
@@ -1236,13 +1154,12 @@ pageSize <integer> Size of the page. This value can be limited by a server.
 orderBy <string> Comma-separated list of triggeredJob fields to order by, followed by `asc` or `desc` postfix. This list is case insensitive. The default sorting order is ascending. Redundant space characters are insignificant. Example: `name asc,update_time, create_time desc` Supported fields are: - `create_time`: corresponds to the time the JobTrigger was created. - `update_time`: corresponds to the time the JobTrigger was last updated. - `last_run_time`: corresponds to the last time the JobTrigger ran. - `name`: corresponds to the JobTrigger's name. - `display_name`: corresponds to the JobTrigger's display name. - `status`: corresponds to JobTrigger's status."
   ([parent] (projects-jobTriggers-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dlp.googleapis.com/v2/{+parent}/jobTriggers",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dlp.googleapis.com/v2/{+parent}/jobTriggers",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-jobTriggers-get
   "Gets a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more.
@@ -1250,12 +1167,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/pro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-jobTriggers-delete
   "Deletes a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more.
@@ -1263,12 +1179,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/pro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-storedInfoTypes-list
   "Lists stored infoTypes. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more.
@@ -1282,13 +1197,12 @@ orderBy <string> Comma-separated list of fields to order by, followed by `asc` o
 locationId <string> Deprecated. This field has no effect."
   ([parent] (projects-storedInfoTypes-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dlp.googleapis.com/v2/{+parent}/storedInfoTypes",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dlp.googleapis.com/v2/{+parent}/storedInfoTypes",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-storedInfoTypes-create
   "Creates a pre-built stored infoType to be used for inspection. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more.
@@ -1298,14 +1212,13 @@ parent <>
 GooglePrivacyDlpV2CreateStoredInfoTypeRequest:
 GooglePrivacyDlpV2CreateStoredInfoTypeRequest"
   [parent GooglePrivacyDlpV2CreateStoredInfoTypeRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dlp.googleapis.com/v2/{+parent}/storedInfoTypes",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2CreateStoredInfoTypeRequest}))
+  {:method :post,
+   :uri-template
+   "https://dlp.googleapis.com/v2/{+parent}/storedInfoTypes",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2CreateStoredInfoTypeRequest})
 
 (defn projects-storedInfoTypes-delete
   "Deletes a stored infoType. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more.
@@ -1313,12 +1226,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/pro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-storedInfoTypes-patch
   "Updates the stored infoType by creating a new version. The existing version will continue to be used until the new version is ready. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more.
@@ -1328,13 +1240,12 @@ name <>
 GooglePrivacyDlpV2UpdateStoredInfoTypeRequest:
 GooglePrivacyDlpV2UpdateStoredInfoTypeRequest"
   [name GooglePrivacyDlpV2UpdateStoredInfoTypeRequest]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2UpdateStoredInfoTypeRequest}))
+  {:method :patch,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2UpdateStoredInfoTypeRequest})
 
 (defn projects-storedInfoTypes-get
   "Gets a stored infoType. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more.
@@ -1342,12 +1253,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/pro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn infoTypes-list
   "Returns a list of the sensitive information types that DLP API supports. See https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference to learn more.
@@ -1360,12 +1270,11 @@ locationId <string> Deprecated. This field has no effect.
 languageCode <string> BCP-47 language code for localized infoType friendly names. If omitted, or if localized strings are not available, en-US strings will be returned."
   ([] (infoTypes-list nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template "https://dlp.googleapis.com/v2/infoTypes",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://dlp.googleapis.com/v2/infoTypes",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-locations-tableDataProfiles-get
   "Gets a table data profile.
@@ -1373,12 +1282,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/org
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-locations-tableDataProfiles-list
   "Lists table data profiles for an organization.
@@ -1393,13 +1301,12 @@ pageSize <integer> Size of the page. This value can be limited by the server. If
   ([parent]
     (organizations-locations-tableDataProfiles-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dlp.googleapis.com/v2/{+parent}/tableDataProfiles",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dlp.googleapis.com/v2/{+parent}/tableDataProfiles",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-locations-tableDataProfiles-delete
   "Delete a TableDataProfile. Will not prevent the profile from being regenerated if the table is still included in a discovery configuration.
@@ -1407,12 +1314,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/org
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-locations-storedInfoTypes-create
   "Creates a pre-built stored infoType to be used for inspection. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more.
@@ -1422,14 +1328,13 @@ parent <>
 GooglePrivacyDlpV2CreateStoredInfoTypeRequest:
 GooglePrivacyDlpV2CreateStoredInfoTypeRequest"
   [parent GooglePrivacyDlpV2CreateStoredInfoTypeRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dlp.googleapis.com/v2/{+parent}/storedInfoTypes",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2CreateStoredInfoTypeRequest}))
+  {:method :post,
+   :uri-template
+   "https://dlp.googleapis.com/v2/{+parent}/storedInfoTypes",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2CreateStoredInfoTypeRequest})
 
 (defn organizations-locations-storedInfoTypes-patch
   "Updates the stored infoType by creating a new version. The existing version will continue to be used until the new version is ready. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more.
@@ -1439,13 +1344,12 @@ name <>
 GooglePrivacyDlpV2UpdateStoredInfoTypeRequest:
 GooglePrivacyDlpV2UpdateStoredInfoTypeRequest"
   [name GooglePrivacyDlpV2UpdateStoredInfoTypeRequest]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2UpdateStoredInfoTypeRequest}))
+  {:method :patch,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2UpdateStoredInfoTypeRequest})
 
 (defn organizations-locations-storedInfoTypes-get
   "Gets a stored infoType. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more.
@@ -1453,12 +1357,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/org
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-locations-storedInfoTypes-list
   "Lists stored infoTypes. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more.
@@ -1472,13 +1375,12 @@ locationId <string> Deprecated. This field has no effect.
 orderBy <string> Comma-separated list of fields to order by, followed by `asc` or `desc` postfix. This list is case insensitive. The default sorting order is ascending. Redundant space characters are insignificant. Example: `name asc, display_name, create_time desc` Supported fields are: - `create_time`: corresponds to the time the most recent version of the resource was created. - `state`: corresponds to the state of the resource. - `name`: corresponds to resource name. - `display_name`: corresponds to info type's display name."
   ([parent] (organizations-locations-storedInfoTypes-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dlp.googleapis.com/v2/{+parent}/storedInfoTypes",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dlp.googleapis.com/v2/{+parent}/storedInfoTypes",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-locations-storedInfoTypes-delete
   "Deletes a stored infoType. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more.
@@ -1486,12 +1388,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/org
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-locations-projectDataProfiles-list
   "Lists project data profiles for an organization.
@@ -1506,13 +1407,12 @@ filter <string> Allows filtering. Supported syntax: * Filter expressions are mad
   ([parent]
     (organizations-locations-projectDataProfiles-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dlp.googleapis.com/v2/{+parent}/projectDataProfiles",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dlp.googleapis.com/v2/{+parent}/projectDataProfiles",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-locations-projectDataProfiles-get
   "Gets a project data profile.
@@ -1520,12 +1420,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/org
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-locations-deidentifyTemplates-delete
   "Deletes a DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more.
@@ -1533,12 +1432,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/org
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-locations-deidentifyTemplates-list
   "Lists DeidentifyTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more.
@@ -1553,13 +1451,12 @@ orderBy <string> Comma-separated list of fields to order by, followed by `asc` o
   ([parent]
     (organizations-locations-deidentifyTemplates-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dlp.googleapis.com/v2/{+parent}/deidentifyTemplates",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dlp.googleapis.com/v2/{+parent}/deidentifyTemplates",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-locations-deidentifyTemplates-create
   "Creates a DeidentifyTemplate for reusing frequently used configuration for de-identifying content, images, and storage. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more.
@@ -1569,14 +1466,13 @@ parent <>
 GooglePrivacyDlpV2CreateDeidentifyTemplateRequest:
 GooglePrivacyDlpV2CreateDeidentifyTemplateRequest"
   [parent GooglePrivacyDlpV2CreateDeidentifyTemplateRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dlp.googleapis.com/v2/{+parent}/deidentifyTemplates",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2CreateDeidentifyTemplateRequest}))
+  {:method :post,
+   :uri-template
+   "https://dlp.googleapis.com/v2/{+parent}/deidentifyTemplates",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2CreateDeidentifyTemplateRequest})
 
 (defn organizations-locations-deidentifyTemplates-get
   "Gets a DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more.
@@ -1584,12 +1480,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/org
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-locations-deidentifyTemplates-patch
   "Updates the DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more.
@@ -1599,13 +1494,12 @@ name <>
 GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest:
 GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest"
   [name GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest}))
+  {:method :patch,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest})
 
 (defn organizations-locations-dlpJobs-list
   "Lists DlpJobs that match the specified filter in the request. See https://cloud.google.com/sensitive-data-protection/docs/inspecting-storage and https://cloud.google.com/sensitive-data-protection/docs/compute-risk-analysis to learn more.
@@ -1621,12 +1515,11 @@ orderBy <string> Comma-separated list of fields to order by, followed by `asc` o
 filter <string> Allows filtering. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by `AND` or `OR` logical operators. A sequence of restrictions implicitly uses `AND`. * A restriction has the form of `{field} {operator} {value}`. * Supported fields/values for inspect jobs: - `state` - PENDING|RUNNING|CANCELED|FINISHED|FAILED - `inspected_storage` - DATASTORE|CLOUD_STORAGE|BIGQUERY - `trigger_name` - The name of the trigger that created the job. - 'end_time` - Corresponds to the time the job finished. - 'start_time` - Corresponds to the time the job finished. * Supported fields for risk analysis jobs: - `state` - RUNNING|CANCELED|FINISHED|FAILED - 'end_time` - Corresponds to the time the job finished. - 'start_time` - Corresponds to the time the job finished. * The operator must be `=` or `!=`. Examples: * inspected_storage = cloud_storage AND state = done * inspected_storage = cloud_storage OR inspected_storage = bigquery * inspected_storage = cloud_storage AND (state = done OR state = canceled) * end_time > \\\"2017-12-12T00:00:00+00:00\\\" The length of this field should be no more than 500 characters."
   ([parent] (organizations-locations-dlpJobs-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template "https://dlp.googleapis.com/v2/{+parent}/dlpJobs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://dlp.googleapis.com/v2/{+parent}/dlpJobs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-locations-columnDataProfiles-get
   "Gets a column data profile.
@@ -1634,12 +1527,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/org
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-locations-columnDataProfiles-list
   "Lists column data profiles for an organization.
@@ -1654,13 +1546,12 @@ filter <string> Allows filtering. Supported syntax: * Filter expressions are mad
   ([parent]
     (organizations-locations-columnDataProfiles-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dlp.googleapis.com/v2/{+parent}/columnDataProfiles",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dlp.googleapis.com/v2/{+parent}/columnDataProfiles",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-locations-fileStoreDataProfiles-get
   "Gets a file store data profile.
@@ -1668,12 +1559,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/org
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-locations-fileStoreDataProfiles-delete
   "Delete a FileStoreDataProfile. Will not prevent the profile from being regenerated if the resource is still included in a discovery configuration.
@@ -1681,12 +1571,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/org
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-locations-fileStoreDataProfiles-list
   "Lists file store data profiles for an organization.
@@ -1701,13 +1590,12 @@ orderBy <string> Optional. Comma-separated list of fields to order by, followed 
   ([parent]
     (organizations-locations-fileStoreDataProfiles-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dlp.googleapis.com/v2/{+parent}/fileStoreDataProfiles",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dlp.googleapis.com/v2/{+parent}/fileStoreDataProfiles",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-locations-jobTriggers-delete
   "Deletes a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more.
@@ -1715,12 +1603,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/org
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-locations-jobTriggers-get
   "Gets a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more.
@@ -1728,12 +1615,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/org
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-locations-jobTriggers-patch
   "Updates a job trigger. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more.
@@ -1743,13 +1629,12 @@ name <>
 GooglePrivacyDlpV2UpdateJobTriggerRequest:
 GooglePrivacyDlpV2UpdateJobTriggerRequest"
   [name GooglePrivacyDlpV2UpdateJobTriggerRequest]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2UpdateJobTriggerRequest}))
+  {:method :patch,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2UpdateJobTriggerRequest})
 
 (defn organizations-locations-jobTriggers-list
   "Lists job triggers. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more.
@@ -1765,13 +1650,12 @@ locationId <string> Deprecated. This field has no effect.
 filter <string> Allows filtering. Supported syntax: * Filter expressions are made up of one or more restrictions. * Restrictions can be combined by `AND` or `OR` logical operators. A sequence of restrictions implicitly uses `AND`. * A restriction has the form of `{field} {operator} {value}`. * Supported fields/values for inspect triggers: - `status` - HEALTHY|PAUSED|CANCELLED - `inspected_storage` - DATASTORE|CLOUD_STORAGE|BIGQUERY - 'last_run_time` - RFC 3339 formatted timestamp, surrounded by quotation marks. Nanoseconds are ignored. - 'error_count' - Number of errors that have occurred while running. * The operator must be `=` or `!=` for status and inspected_storage. Examples: * inspected_storage = cloud_storage AND status = HEALTHY * inspected_storage = cloud_storage OR inspected_storage = bigquery * inspected_storage = cloud_storage AND (state = PAUSED OR state = HEALTHY) * last_run_time > \\\"2017-12-12T00:00:00+00:00\\\" The length of this field should be no more than 500 characters."
   ([parent] (organizations-locations-jobTriggers-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dlp.googleapis.com/v2/{+parent}/jobTriggers",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dlp.googleapis.com/v2/{+parent}/jobTriggers",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-locations-jobTriggers-create
   "Creates a job trigger to run DLP actions such as scanning storage for sensitive information on a set schedule. See https://cloud.google.com/sensitive-data-protection/docs/creating-job-triggers to learn more.
@@ -1781,14 +1665,12 @@ parent <>
 GooglePrivacyDlpV2CreateJobTriggerRequest:
 GooglePrivacyDlpV2CreateJobTriggerRequest"
   [parent GooglePrivacyDlpV2CreateJobTriggerRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dlp.googleapis.com/v2/{+parent}/jobTriggers",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2CreateJobTriggerRequest}))
+  {:method :post,
+   :uri-template "https://dlp.googleapis.com/v2/{+parent}/jobTriggers",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2CreateJobTriggerRequest})
 
 (defn organizations-locations-inspectTemplates-get
   "Gets an InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more.
@@ -1796,12 +1678,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/org
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-locations-inspectTemplates-delete
   "Deletes an InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more.
@@ -1809,12 +1690,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/org
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-locations-inspectTemplates-list
   "Lists InspectTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more.
@@ -1828,13 +1708,12 @@ orderBy <string> Comma-separated list of fields to order by, followed by `asc` o
 pageSize <integer> Size of the page. This value can be limited by the server. If zero server returns a page of max size 100."
   ([parent] (organizations-locations-inspectTemplates-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dlp.googleapis.com/v2/{+parent}/inspectTemplates",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dlp.googleapis.com/v2/{+parent}/inspectTemplates",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-locations-inspectTemplates-patch
   "Updates the InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more.
@@ -1844,13 +1723,12 @@ name <>
 GooglePrivacyDlpV2UpdateInspectTemplateRequest:
 GooglePrivacyDlpV2UpdateInspectTemplateRequest"
   [name GooglePrivacyDlpV2UpdateInspectTemplateRequest]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2UpdateInspectTemplateRequest}))
+  {:method :patch,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2UpdateInspectTemplateRequest})
 
 (defn organizations-locations-inspectTemplates-create
   "Creates an InspectTemplate for reusing frequently used configuration for inspecting content, images, and storage. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more.
@@ -1860,14 +1738,13 @@ parent <>
 GooglePrivacyDlpV2CreateInspectTemplateRequest:
 GooglePrivacyDlpV2CreateInspectTemplateRequest"
   [parent GooglePrivacyDlpV2CreateInspectTemplateRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dlp.googleapis.com/v2/{+parent}/inspectTemplates",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2CreateInspectTemplateRequest}))
+  {:method :post,
+   :uri-template
+   "https://dlp.googleapis.com/v2/{+parent}/inspectTemplates",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2CreateInspectTemplateRequest})
 
 (defn organizations-locations-discoveryConfigs-delete
   "Deletes a discovery configuration.
@@ -1875,12 +1752,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/org
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-locations-discoveryConfigs-list
   "Lists discovery configurations.
@@ -1893,13 +1769,12 @@ pageSize <integer> Size of the page. This value can be limited by a server.
 orderBy <string> Comma-separated list of config fields to order by, followed by `asc` or `desc` postfix. This list is case insensitive. The default sorting order is ascending. Redundant space characters are insignificant. Example: `name asc,update_time, create_time desc` Supported fields are: - `last_run_time`: corresponds to the last time the DiscoveryConfig ran. - `name`: corresponds to the DiscoveryConfig's name. - `status`: corresponds to DiscoveryConfig's status."
   ([parent] (organizations-locations-discoveryConfigs-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dlp.googleapis.com/v2/{+parent}/discoveryConfigs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dlp.googleapis.com/v2/{+parent}/discoveryConfigs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-locations-discoveryConfigs-create
   "Creates a config for discovery to scan and profile storage.
@@ -1909,14 +1784,13 @@ parent <>
 GooglePrivacyDlpV2CreateDiscoveryConfigRequest:
 GooglePrivacyDlpV2CreateDiscoveryConfigRequest"
   [parent GooglePrivacyDlpV2CreateDiscoveryConfigRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dlp.googleapis.com/v2/{+parent}/discoveryConfigs",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2CreateDiscoveryConfigRequest}))
+  {:method :post,
+   :uri-template
+   "https://dlp.googleapis.com/v2/{+parent}/discoveryConfigs",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2CreateDiscoveryConfigRequest})
 
 (defn organizations-locations-discoveryConfigs-patch
   "Updates a discovery configuration.
@@ -1926,13 +1800,12 @@ name <>
 GooglePrivacyDlpV2UpdateDiscoveryConfigRequest:
 GooglePrivacyDlpV2UpdateDiscoveryConfigRequest"
   [name GooglePrivacyDlpV2UpdateDiscoveryConfigRequest]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2UpdateDiscoveryConfigRequest}))
+  {:method :patch,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2UpdateDiscoveryConfigRequest})
 
 (defn organizations-locations-discoveryConfigs-get
   "Gets a discovery configuration.
@@ -1940,12 +1813,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/org
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-locations-connections-get
   "Get a Connection by name.
@@ -1953,12 +1825,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/org
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-locations-connections-patch
   "Update a Connection.
@@ -1968,13 +1839,12 @@ name <>
 GooglePrivacyDlpV2UpdateConnectionRequest:
 GooglePrivacyDlpV2UpdateConnectionRequest"
   [name GooglePrivacyDlpV2UpdateConnectionRequest]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2UpdateConnectionRequest}))
+  {:method :patch,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2UpdateConnectionRequest})
 
 (defn organizations-locations-connections-list
   "Lists Connections in a parent. Use SearchConnections to see all connections within an organization.
@@ -1987,13 +1857,12 @@ pageSize <integer> Optional. Number of results per page, max 1000.
 filter <string> Optional. Supported field/value: `state` - MISSING|AVAILABLE|ERROR"
   ([parent] (organizations-locations-connections-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dlp.googleapis.com/v2/{+parent}/connections",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dlp.googleapis.com/v2/{+parent}/connections",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-locations-connections-create
   "Create a Connection to an external data source.
@@ -2003,14 +1872,12 @@ parent <>
 GooglePrivacyDlpV2CreateConnectionRequest:
 GooglePrivacyDlpV2CreateConnectionRequest"
   [parent GooglePrivacyDlpV2CreateConnectionRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dlp.googleapis.com/v2/{+parent}/connections",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2CreateConnectionRequest}))
+  {:method :post,
+   :uri-template "https://dlp.googleapis.com/v2/{+parent}/connections",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2CreateConnectionRequest})
 
 (defn organizations-locations-connections-search
   "Searches for Connections in a parent.
@@ -2023,13 +1890,12 @@ pageSize <integer> Optional. Number of results per page, max 1000.
 filter <string> Optional. Supported field/value: - `state` - MISSING|AVAILABLE|ERROR"
   ([parent] (organizations-locations-connections-search parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dlp.googleapis.com/v2/{+parent}/connections:search",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dlp.googleapis.com/v2/{+parent}/connections:search",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-locations-connections-delete
   "Delete a Connection.
@@ -2037,12 +1903,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/org
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-storedInfoTypes-get
   "Gets a stored infoType. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more.
@@ -2050,12 +1915,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/org
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-storedInfoTypes-patch
   "Updates the stored infoType by creating a new version. The existing version will continue to be used until the new version is ready. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more.
@@ -2065,13 +1929,12 @@ name <>
 GooglePrivacyDlpV2UpdateStoredInfoTypeRequest:
 GooglePrivacyDlpV2UpdateStoredInfoTypeRequest"
   [name GooglePrivacyDlpV2UpdateStoredInfoTypeRequest]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2UpdateStoredInfoTypeRequest}))
+  {:method :patch,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2UpdateStoredInfoTypeRequest})
 
 (defn organizations-storedInfoTypes-create
   "Creates a pre-built stored infoType to be used for inspection. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more.
@@ -2081,14 +1944,13 @@ parent <>
 GooglePrivacyDlpV2CreateStoredInfoTypeRequest:
 GooglePrivacyDlpV2CreateStoredInfoTypeRequest"
   [parent GooglePrivacyDlpV2CreateStoredInfoTypeRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dlp.googleapis.com/v2/{+parent}/storedInfoTypes",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2CreateStoredInfoTypeRequest}))
+  {:method :post,
+   :uri-template
+   "https://dlp.googleapis.com/v2/{+parent}/storedInfoTypes",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2CreateStoredInfoTypeRequest})
 
 (defn organizations-storedInfoTypes-delete
   "Deletes a stored infoType. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more.
@@ -2096,12 +1958,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/org
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-storedInfoTypes-list
   "Lists stored infoTypes. See https://cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes to learn more.
@@ -2115,13 +1976,12 @@ locationId <string> Deprecated. This field has no effect.
 pageSize <integer> Size of the page. This value can be limited by the server. If zero server returns a page of max size 100."
   ([parent] (organizations-storedInfoTypes-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dlp.googleapis.com/v2/{+parent}/storedInfoTypes",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dlp.googleapis.com/v2/{+parent}/storedInfoTypes",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-inspectTemplates-get
   "Gets an InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more.
@@ -2129,12 +1989,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/org
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-inspectTemplates-delete
   "Deletes an InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more.
@@ -2142,12 +2001,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/org
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-inspectTemplates-create
   "Creates an InspectTemplate for reusing frequently used configuration for inspecting content, images, and storage. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more.
@@ -2157,14 +2015,13 @@ parent <>
 GooglePrivacyDlpV2CreateInspectTemplateRequest:
 GooglePrivacyDlpV2CreateInspectTemplateRequest"
   [parent GooglePrivacyDlpV2CreateInspectTemplateRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dlp.googleapis.com/v2/{+parent}/inspectTemplates",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2CreateInspectTemplateRequest}))
+  {:method :post,
+   :uri-template
+   "https://dlp.googleapis.com/v2/{+parent}/inspectTemplates",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2CreateInspectTemplateRequest})
 
 (defn organizations-inspectTemplates-patch
   "Updates the InspectTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more.
@@ -2174,13 +2031,12 @@ name <>
 GooglePrivacyDlpV2UpdateInspectTemplateRequest:
 GooglePrivacyDlpV2UpdateInspectTemplateRequest"
   [name GooglePrivacyDlpV2UpdateInspectTemplateRequest]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2UpdateInspectTemplateRequest}))
+  {:method :patch,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2UpdateInspectTemplateRequest})
 
 (defn organizations-inspectTemplates-list
   "Lists InspectTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates to learn more.
@@ -2194,13 +2050,12 @@ pageSize <integer> Size of the page. This value can be limited by the server. If
 locationId <string> Deprecated. This field has no effect."
   ([parent] (organizations-inspectTemplates-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dlp.googleapis.com/v2/{+parent}/inspectTemplates",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dlp.googleapis.com/v2/{+parent}/inspectTemplates",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-deidentifyTemplates-delete
   "Deletes a DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more.
@@ -2208,12 +2063,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/org
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-deidentifyTemplates-create
   "Creates a DeidentifyTemplate for reusing frequently used configuration for de-identifying content, images, and storage. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more.
@@ -2223,14 +2077,13 @@ parent <>
 GooglePrivacyDlpV2CreateDeidentifyTemplateRequest:
 GooglePrivacyDlpV2CreateDeidentifyTemplateRequest"
   [parent GooglePrivacyDlpV2CreateDeidentifyTemplateRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dlp.googleapis.com/v2/{+parent}/deidentifyTemplates",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2CreateDeidentifyTemplateRequest}))
+  {:method :post,
+   :uri-template
+   "https://dlp.googleapis.com/v2/{+parent}/deidentifyTemplates",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2CreateDeidentifyTemplateRequest})
 
 (defn organizations-deidentifyTemplates-patch
   "Updates the DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more.
@@ -2240,13 +2093,12 @@ name <>
 GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest:
 GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest"
   [name GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest}))
+  {:method :patch,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest})
 
 (defn organizations-deidentifyTemplates-list
   "Lists DeidentifyTemplates. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more.
@@ -2260,13 +2112,12 @@ locationId <string> Deprecated. This field has no effect.
 pageSize <integer> Size of the page. This value can be limited by the server. If zero server returns a page of max size 100."
   ([parent] (organizations-deidentifyTemplates-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dlp.googleapis.com/v2/{+parent}/deidentifyTemplates",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dlp.googleapis.com/v2/{+parent}/deidentifyTemplates",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-deidentifyTemplates-get
   "Gets a DeidentifyTemplate. See https://cloud.google.com/sensitive-data-protection/docs/creating-templates-deid to learn more.
@@ -2274,12 +2125,11 @@ https://cloud.google.com/sensitive-data-protection/docs/v2/reference/rest/v2/org
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dlp.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dlp.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn locations-infoTypes-list
   "Returns a list of the sensitive information types that DLP API supports. See https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference to learn more.
@@ -2293,10 +2143,8 @@ filter <string> filter to only return infoTypes supported by certain parts of th
 locationId <string> Deprecated. This field has no effect."
   ([parent] (locations-infoTypes-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dlp.googleapis.com/v2/{+parent}/infoTypes",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://dlp.googleapis.com/v2/{+parent}/infoTypes",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))

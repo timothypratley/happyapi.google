@@ -1,8 +1,7 @@
 (ns happyapi.google.alloydb-v1
   "AlloyDB API
 AlloyDB for PostgreSQL is an open source-compatible database service that provides a powerful option for migrating, modernizing, or building commercial-grade applications. It offers full compatibility with standard PostgreSQL, and is more than 4x faster for transactional workloads and up to 100x faster for analytical queries than standard PostgreSQL in our performance tests. AlloyDB for PostgreSQL offers a 99.99 percent availability SLA inclusive of maintenance. AlloyDB is optimized for the most demanding use cases, allowing you to build new applications that require high transaction throughput, large database sizes, or multiple read resources; scale existing PostgreSQL workloads with no application changes; and modernize legacy proprietary databases. 
-See: https://cloud.google.com/alloydb/"
-  (:require [happyapi.providers.google :as client]))
+See: https://cloud.google.com/alloydb/")
 
 (defn projects-locations-list
   "Lists information about the supported locations for this service.
@@ -15,13 +14,12 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://alloydb.googleapis.com/v1/{+name}/locations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://alloydb.googleapis.com/v1/{+name}/locations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-get
   "Gets information about a location.
@@ -29,12 +27,11 @@ https://cloud.google.com/alloydb/v1/reference/rest/v1/projects/locations/get
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://alloydb.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://alloydb.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -47,13 +44,12 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://alloydb.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://alloydb.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -61,12 +57,11 @@ https://cloud.google.com/alloydb/v1/reference/rest/v1/projects/locations/operati
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://alloydb.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://alloydb.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -74,12 +69,11 @@ https://cloud.google.com/alloydb/v1/reference/rest/v1/projects/locations/operati
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://alloydb.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://alloydb.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -89,13 +83,12 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template "https://alloydb.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body CancelOperationRequest}))
+  {:method :post,
+   :uri-template "https://alloydb.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body CancelOperationRequest})
 
 (defn projects-locations-clusters-list
   "Lists Clusters in a given project and location.
@@ -109,13 +102,12 @@ filter <string> Optional. Filtering results
 orderBy <string> Optional. Hint for how to order the results"
   ([parent] (projects-locations-clusters-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://alloydb.googleapis.com/v1/{+parent}/clusters",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://alloydb.googleapis.com/v1/{+parent}/clusters",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-clusters-delete
   "Deletes a single Cluster.
@@ -130,12 +122,11 @@ validateOnly <boolean> Optional. If set, performs request validation (e.g. permi
 force <boolean> Optional. Whether to cascade delete child instances for given cluster."
   ([name] (projects-locations-clusters-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://alloydb.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://alloydb.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-clusters-promote
   "Promotes a SECONDARY cluster. This turns down replication from the PRIMARY cluster and promotes a secondary cluster into its own standalone cluster. Imperative only.
@@ -145,13 +136,12 @@ name <>
 PromoteClusterRequest:
 PromoteClusterRequest"
   [name PromoteClusterRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template "https://alloydb.googleapis.com/v1/{+name}:promote",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body PromoteClusterRequest}))
+  {:method :post,
+   :uri-template "https://alloydb.googleapis.com/v1/{+name}:promote",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body PromoteClusterRequest})
 
 (defn projects-locations-clusters-switchover
   "Switches the role of PRIMARY and SECONDARY cluster without any data loss. This promotes the SECONDARY cluster to PRIMARY and sets up original PRIMARY cluster to replicate from this newly promoted cluster.
@@ -161,14 +151,13 @@ name <>
 SwitchoverClusterRequest:
 SwitchoverClusterRequest"
   [name SwitchoverClusterRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://alloydb.googleapis.com/v1/{+name}:switchover",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SwitchoverClusterRequest}))
+  {:method :post,
+   :uri-template
+   "https://alloydb.googleapis.com/v1/{+name}:switchover",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SwitchoverClusterRequest})
 
 (defn projects-locations-clusters-patch
   "Updates the parameters of a single Cluster.
@@ -185,13 +174,12 @@ validateOnly <boolean> Optional. If set, performs request validation (e.g. permi
 allowMissing <boolean> Optional. If set to true, update succeeds even if cluster is not found. In that case, a new cluster is created and `update_mask` is ignored."
   ([name Cluster] (projects-locations-clusters-patch name Cluster nil))
   ([name Cluster optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://alloydb.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Cluster})))
+    {:method :patch,
+     :uri-template "https://alloydb.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Cluster}))
 
 (defn projects-locations-clusters-createsecondary
   "Creates a cluster of type SECONDARY in the given location using the primary cluster as the source.
@@ -208,14 +196,13 @@ validateOnly <boolean> Optional. If set, performs request validation (e.g. permi
   ([parent Cluster]
     (projects-locations-clusters-createsecondary parent Cluster nil))
   ([parent Cluster optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://alloydb.googleapis.com/v1/{+parent}/clusters:createsecondary",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Cluster})))
+    {:method :post,
+     :uri-template
+     "https://alloydb.googleapis.com/v1/{+parent}/clusters:createsecondary",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Cluster}))
 
 (defn projects-locations-clusters-create
   "Creates a new Cluster in a given project and location.
@@ -232,14 +219,13 @@ validateOnly <boolean> Optional. If set, performs request validation (e.g. permi
   ([parent Cluster]
     (projects-locations-clusters-create parent Cluster nil))
   ([parent Cluster optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://alloydb.googleapis.com/v1/{+parent}/clusters",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Cluster})))
+    {:method :post,
+     :uri-template
+     "https://alloydb.googleapis.com/v1/{+parent}/clusters",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Cluster}))
 
 (defn projects-locations-clusters-restore
   "Creates a new Cluster in a given project and location, with a volume restored from the provided source, either a backup ID or a point-in-time and a source cluster.
@@ -249,14 +235,13 @@ parent <>
 RestoreClusterRequest:
 RestoreClusterRequest"
   [parent RestoreClusterRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://alloydb.googleapis.com/v1/{+parent}/clusters:restore",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body RestoreClusterRequest}))
+  {:method :post,
+   :uri-template
+   "https://alloydb.googleapis.com/v1/{+parent}/clusters:restore",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body RestoreClusterRequest})
 
 (defn projects-locations-clusters-get
   "Gets details of a single Cluster.
@@ -268,12 +253,11 @@ optional:
 view <string> Optional. The view of the cluster to return. Returns all default fields if not set."
   ([name] (projects-locations-clusters-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template "https://alloydb.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://alloydb.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-clusters-instances-list
   "Lists Instances in a given project and location.
@@ -287,13 +271,12 @@ filter <string> Optional. Filtering results
 orderBy <string> Optional. Hint for how to order the results"
   ([parent] (projects-locations-clusters-instances-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://alloydb.googleapis.com/v1/{+parent}/instances",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://alloydb.googleapis.com/v1/{+parent}/instances",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-clusters-instances-injectFault
   "Injects fault in an instance. Imperative only.
@@ -303,14 +286,13 @@ name <>
 InjectFaultRequest:
 InjectFaultRequest"
   [name InjectFaultRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://alloydb.googleapis.com/v1/{+name}:injectFault",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body InjectFaultRequest}))
+  {:method :post,
+   :uri-template
+   "https://alloydb.googleapis.com/v1/{+name}:injectFault",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body InjectFaultRequest})
 
 (defn projects-locations-clusters-instances-failover
   "Forces a Failover for a highly available instance. Failover promotes the HA standby instance as the new primary. Imperative only.
@@ -320,14 +302,12 @@ name <>
 FailoverInstanceRequest:
 FailoverInstanceRequest"
   [name FailoverInstanceRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://alloydb.googleapis.com/v1/{+name}:failover",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body FailoverInstanceRequest}))
+  {:method :post,
+   :uri-template "https://alloydb.googleapis.com/v1/{+name}:failover",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body FailoverInstanceRequest})
 
 (defn projects-locations-clusters-instances-delete
   "Deletes a single Instance.
@@ -341,12 +321,11 @@ etag <string> Optional. The current etag of the Instance. If an etag is provided
 validateOnly <boolean> Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the delete."
   ([name] (projects-locations-clusters-instances-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://alloydb.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://alloydb.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-clusters-instances-getConnectionInfo
   "Get instance metadata used for a connection.
@@ -361,13 +340,12 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://alloydb.googleapis.com/v1/{+parent}/connectionInfo",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://alloydb.googleapis.com/v1/{+parent}/connectionInfo",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-clusters-instances-patch
   "Updates the parameters of a single Instance.
@@ -385,13 +363,12 @@ allowMissing <boolean> Optional. If set to true, update succeeds even if instanc
   ([name Instance]
     (projects-locations-clusters-instances-patch name Instance nil))
   ([name Instance optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://alloydb.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Instance})))
+    {:method :patch,
+     :uri-template "https://alloydb.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Instance}))
 
 (defn projects-locations-clusters-instances-restart
   "Restart an Instance in a cluster. Imperative only.
@@ -401,13 +378,12 @@ name <>
 RestartInstanceRequest:
 RestartInstanceRequest"
   [name RestartInstanceRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template "https://alloydb.googleapis.com/v1/{+name}:restart",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body RestartInstanceRequest}))
+  {:method :post,
+   :uri-template "https://alloydb.googleapis.com/v1/{+name}:restart",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body RestartInstanceRequest})
 
 (defn projects-locations-clusters-instances-createsecondary
   "Creates a new SECONDARY Instance in a given project and location.
@@ -427,14 +403,13 @@ validateOnly <boolean> Optional. If set, performs request validation (e.g. permi
       Instance
       nil))
   ([parent Instance optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://alloydb.googleapis.com/v1/{+parent}/instances:createsecondary",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Instance})))
+    {:method :post,
+     :uri-template
+     "https://alloydb.googleapis.com/v1/{+parent}/instances:createsecondary",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Instance}))
 
 (defn projects-locations-clusters-instances-create
   "Creates a new Instance in a given project and location.
@@ -451,14 +426,13 @@ validateOnly <boolean> Optional. If set, performs request validation (e.g. permi
   ([parent Instance]
     (projects-locations-clusters-instances-create parent Instance nil))
   ([parent Instance optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://alloydb.googleapis.com/v1/{+parent}/instances",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Instance})))
+    {:method :post,
+     :uri-template
+     "https://alloydb.googleapis.com/v1/{+parent}/instances",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Instance}))
 
 (defn projects-locations-clusters-instances-get
   "Gets details of a single Instance.
@@ -470,12 +444,11 @@ optional:
 view <string> The view of the instance to return."
   ([name] (projects-locations-clusters-instances-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template "https://alloydb.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://alloydb.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-clusters-users-list
   "Lists Users in a given project and location.
@@ -489,13 +462,11 @@ filter <string> Optional. Filtering results
 orderBy <string> Optional. Hint for how to order the results"
   ([parent] (projects-locations-clusters-users-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://alloydb.googleapis.com/v1/{+parent}/users",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://alloydb.googleapis.com/v1/{+parent}/users",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-clusters-users-get
   "Gets details of a single User.
@@ -503,12 +474,11 @@ https://cloud.google.com/alloydb/v1/reference/rest/v1/projects/locations/cluster
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://alloydb.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://alloydb.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-clusters-users-create
   "Creates a new User in a given project, location, and cluster.
@@ -525,14 +495,12 @@ validateOnly <boolean> Optional. If set, the backend validates the request, but 
   ([parent User]
     (projects-locations-clusters-users-create parent User nil))
   ([parent User optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://alloydb.googleapis.com/v1/{+parent}/users",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body User})))
+    {:method :post,
+     :uri-template "https://alloydb.googleapis.com/v1/{+parent}/users",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body User}))
 
 (defn projects-locations-clusters-users-patch
   "Updates the parameters of a single User.
@@ -549,13 +517,12 @@ validateOnly <boolean> Optional. If set, the backend validates the request, but 
 allowMissing <boolean> Optional. Allow missing fields in the update mask."
   ([name User] (projects-locations-clusters-users-patch name User nil))
   ([name User optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://alloydb.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body User})))
+    {:method :patch,
+     :uri-template "https://alloydb.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body User}))
 
 (defn projects-locations-clusters-users-delete
   "Deletes a single User.
@@ -568,12 +535,11 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
 validateOnly <boolean> Optional. If set, the backend validates the request, but doesn't actually execute it."
   ([name] (projects-locations-clusters-users-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://alloydb.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://alloydb.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-backups-list
   "Lists Backups in a given project and location.
@@ -587,13 +553,12 @@ filter <string> Filtering results
 orderBy <string> Hint for how to order the results"
   ([parent] (projects-locations-backups-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://alloydb.googleapis.com/v1/{+parent}/backups",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://alloydb.googleapis.com/v1/{+parent}/backups",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-backups-get
   "Gets details of a single Backup.
@@ -601,12 +566,11 @@ https://cloud.google.com/alloydb/v1/reference/rest/v1/projects/locations/backups
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://alloydb.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://alloydb.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-backups-create
   "Creates a new Backup in a given project and location.
@@ -623,14 +587,13 @@ validateOnly <boolean> Optional. If set, the backend validates the request, but 
   ([parent Backup]
     (projects-locations-backups-create parent Backup nil))
   ([parent Backup optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://alloydb.googleapis.com/v1/{+parent}/backups",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Backup})))
+    {:method :post,
+     :uri-template
+     "https://alloydb.googleapis.com/v1/{+parent}/backups",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Backup}))
 
 (defn projects-locations-backups-patch
   "Updates the parameters of a single Backup.
@@ -647,13 +610,12 @@ validateOnly <boolean> Optional. If set, the backend validates the request, but 
 allowMissing <boolean> Optional. If set to true, update succeeds even if instance is not found. In that case, a new backup is created and `update_mask` is ignored."
   ([name Backup] (projects-locations-backups-patch name Backup nil))
   ([name Backup optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://alloydb.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Backup})))
+    {:method :patch,
+     :uri-template "https://alloydb.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Backup}))
 
 (defn projects-locations-backups-delete
   "Deletes a single Backup.
@@ -667,12 +629,11 @@ validateOnly <boolean> Optional. If set, the backend validates the request, but 
 etag <string> Optional. The current etag of the Backup. If an etag is provided and does not match the current etag of the Backup, deletion will be blocked and an ABORTED error will be returned."
   ([name] (projects-locations-backups-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://alloydb.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://alloydb.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-supportedDatabaseFlags-list
   "Lists SupportedDatabaseFlags for a given project and location.
@@ -685,10 +646,9 @@ pageSize <integer> Requested page size. Server may return fewer items than reque
   ([parent]
     (projects-locations-supportedDatabaseFlags-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://alloydb.googleapis.com/v1/{+parent}/supportedDatabaseFlags",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://alloydb.googleapis.com/v1/{+parent}/supportedDatabaseFlags",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))

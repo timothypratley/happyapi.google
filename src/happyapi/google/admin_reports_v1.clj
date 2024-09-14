@@ -1,8 +1,7 @@
 (ns happyapi.google.admin-reports_v1
   "Admin SDK API
 Admin SDK lets administrators of enterprise domains to view and manage resources like user, groups etc. It also provides audit and usage reports of domain.
-See: https://developers.google.com/admin-sdk/"
-  (:require [happyapi.providers.google :as client]))
+See: https://developers.google.com/admin-sdk/")
 
 (defn activities-list
   "Retrieves a list of activities for a specific customer's account and application such as the Admin console application or the Google Drive application. For more information, see the guides for administrator and Google Drive activity reports. For more information about the activity report's parameters, see the activity parameters reference guides. 
@@ -24,15 +23,14 @@ groupIdFilter <string> Comma separated group ids (obfuscated) on which user acti
   ([userKey applicationName]
     (activities-list userKey applicationName nil))
   ([userKey applicationName optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://admin.googleapis.com/admin/reports/v1/activity/users/{userKey}/applications/{applicationName}",
-       :uri-template-args
-       {"applicationName" applicationName, "userKey" userKey},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/admin.reports.audit.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://admin.googleapis.com/admin/reports/v1/activity/users/{userKey}/applications/{applicationName}",
+     :uri-template-args
+     {"applicationName" applicationName, "userKey" userKey},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/admin.reports.audit.readonly"]}))
 
 (defn activities-watch
   "Start receiving notifications for account activities. For more information, see Receiving Push Notifications.
@@ -56,16 +54,15 @@ groupIdFilter <string> Comma separated group ids (obfuscated) on which user acti
   ([userKey applicationName Channel]
     (activities-watch userKey applicationName Channel nil))
   ([userKey applicationName Channel optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://admin.googleapis.com/admin/reports/v1/activity/users/{userKey}/applications/{applicationName}/watch",
-       :uri-template-args
-       {"applicationName" applicationName, "userKey" userKey},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/admin.reports.audit.readonly"],
-       :body Channel})))
+    {:method :post,
+     :uri-template
+     "https://admin.googleapis.com/admin/reports/v1/activity/users/{userKey}/applications/{applicationName}/watch",
+     :uri-template-args
+     {"applicationName" applicationName, "userKey" userKey},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/admin.reports.audit.readonly"],
+     :body Channel}))
 
 (defn channels-stop
   "Stop watching resources through this channel.
@@ -74,15 +71,14 @@ https://developers.google.com/admin-sdk/reports_v1/reference/rest/reports_v1/cha
 Channel:
 Channel"
   [Channel]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://admin.googleapis.com/admin/reports_v1/channels/stop",
-     :uri-template-args {},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/admin.reports.audit.readonly"],
-     :body Channel}))
+  {:method :post,
+   :uri-template
+   "https://admin.googleapis.com/admin/reports_v1/channels/stop",
+   :uri-template-args {},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/admin.reports.audit.readonly"],
+   :body Channel})
 
 (defn customerUsageReports-get
   "Retrieves a report which is a collection of properties and statistics for a specific customer's account. For more information, see the Customers Usage Report guide. For more information about the customer report's parameters, see the Customers Usage parameters reference guides. 
@@ -95,14 +91,13 @@ customerId <string> The unique ID of the customer to retrieve data for.
 parameters <string> The `parameters` query string is a comma-separated list of event parameters that refine a report's results. The parameter is associated with a specific application. The application values for the Customers usage report include `accounts`, `app_maker`, `apps_scripts`, `calendar`, `classroom`, `cros`, `docs`, `gmail`, `gplus`, `device_management`, `meet`, and `sites`. A `parameters` query string is in the CSV form of `app_name1:param_name1, app_name2:param_name2`. *Note:* The API doesn't accept multiple values of a parameter. If a particular parameter is supplied more than once in the API request, the API only accepts the last value of that request parameter. In addition, if an invalid request parameter is supplied in the API request, the API ignores that request parameter and returns the response corresponding to the remaining valid request parameters. An example of an invalid request parameter is one that does not belong to the application. If no parameters are requested, all parameters are returned. "
   ([date] (customerUsageReports-get date nil))
   ([date optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://admin.googleapis.com/admin/reports/v1/usage/dates/{date}",
-       :uri-template-args {"date" date},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/admin.reports.usage.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://admin.googleapis.com/admin/reports/v1/usage/dates/{date}",
+     :uri-template-args {"date" date},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/admin.reports.usage.readonly"]}))
 
 (defn entityUsageReports-get
   "Retrieves a report which is a collection of properties and statistics for entities used by users within the account. For more information, see the Entities Usage Report guide. For more information about the entities report's parameters, see the Entities Usage parameters reference guides.
@@ -120,15 +115,14 @@ parameters <string> The `parameters` query string is a comma-separated list of e
   ([entityType entityKey date]
     (entityUsageReports-get entityType entityKey date nil))
   ([entityType entityKey date optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://admin.googleapis.com/admin/reports/v1/usage/{entityType}/{entityKey}/dates/{date}",
-       :uri-template-args
-       {"entityType" entityType, "entityKey" entityKey, "date" date},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/admin.reports.usage.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://admin.googleapis.com/admin/reports/v1/usage/{entityType}/{entityKey}/dates/{date}",
+     :uri-template-args
+     {"entityType" entityType, "entityKey" entityKey, "date" date},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/admin.reports.usage.readonly"]}))
 
 (defn userUsageReport-get
   "Retrieves a report which is a collection of properties and statistics for a set of users with the account. For more information, see the User Usage Report guide. For more information about the user report's parameters, see the Users Usage parameters reference guides.
@@ -146,11 +140,10 @@ parameters <string> The `parameters` query string is a comma-separated list of e
 groupIdFilter <string> Comma separated group ids (obfuscated) on which user activities are filtered, i.e. the response will contain activities for only those users that are a part of at least one of the group ids mentioned here. Format: \"id:abc123,id:xyz456\""
   ([userKey date] (userUsageReport-get userKey date nil))
   ([userKey date optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://admin.googleapis.com/admin/reports/v1/usage/users/{userKey}/dates/{date}",
-       :uri-template-args {"userKey" userKey, "date" date},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/admin.reports.usage.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://admin.googleapis.com/admin/reports/v1/usage/users/{userKey}/dates/{date}",
+     :uri-template-args {"userKey" userKey, "date" date},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/admin.reports.usage.readonly"]}))

@@ -1,8 +1,7 @@
 (ns happyapi.google.billingbudgets-v1
   "Cloud Billing Budget API
 The Cloud Billing Budget API stores Cloud Billing budgets, which define a budget plan and the rules to execute as spend is tracked against that plan.
-See: https://cloud.google.com/billing/docs/how-to/budget-api-overview"
-  (:require [happyapi.providers.google :as client]))
+See: https://cloud.google.com/billing/docs/how-to/budget-api-overview")
 
 (defn billingAccounts-budgets-delete
   "Deletes a budget. Returns successfully if already deleted.
@@ -10,14 +9,13 @@ https://cloud.google.com/billing/docs/how-to/budget-api-overview/v1/reference/re
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://billingbudgets.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-billing"
-      "https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://billingbudgets.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-billing"
+    "https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn billingAccounts-budgets-list
   "Returns a list of budgets for a billing account. WARNING: There are some fields exposed on the Google Cloud Console that aren't available on this API. When reading from the API, you will not see these fields in the return value, though they may have been set in the Cloud Console.
@@ -30,15 +28,14 @@ scope <string> Optional. Set the scope of the budgets to be returned, in the for
 pageSize <integer> Optional. The maximum number of budgets to return per page. The default and maximum value are 100."
   ([parent] (billingAccounts-budgets-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://billingbudgets.googleapis.com/v1/{+parent}/budgets",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-billing"
-        "https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://billingbudgets.googleapis.com/v1/{+parent}/budgets",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-billing"
+      "https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn billingAccounts-budgets-patch
   "Updates a budget and returns the updated budget. WARNING: There are some fields exposed on the Google Cloud Console that aren't available on this API. Budget fields that are not exposed in this API will not be changed by this method.
@@ -56,16 +53,14 @@ updateMask <string> Optional. Indicates which fields in the provided budget to u
       GoogleCloudBillingBudgetsV1Budget
       nil))
   ([name GoogleCloudBillingBudgetsV1Budget optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://billingbudgets.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-billing"
-        "https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudBillingBudgetsV1Budget})))
+    {:method :patch,
+     :uri-template "https://billingbudgets.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-billing"
+      "https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudBillingBudgetsV1Budget}))
 
 (defn billingAccounts-budgets-get
   "Returns a budget. WARNING: There are some fields exposed on the Google Cloud Console that aren't available on this API. When reading from the API, you will not see these fields in the return value, though they may have been set in the Cloud Console.
@@ -73,14 +68,13 @@ https://cloud.google.com/billing/docs/how-to/budget-api-overview/v1/reference/re
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://billingbudgets.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-billing"
-      "https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://billingbudgets.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-billing"
+    "https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn billingAccounts-budgets-create
   "Creates a new budget. See [Quotas and limits](https://cloud.google.com/billing/quotas) for more information on the limits of the number of budgets you can create.
@@ -90,13 +84,12 @@ parent <>
 GoogleCloudBillingBudgetsV1Budget:
 GoogleCloudBillingBudgetsV1Budget"
   [parent GoogleCloudBillingBudgetsV1Budget]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://billingbudgets.googleapis.com/v1/{+parent}/budgets",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-billing"
-      "https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudBillingBudgetsV1Budget}))
+  {:method :post,
+   :uri-template
+   "https://billingbudgets.googleapis.com/v1/{+parent}/budgets",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-billing"
+    "https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudBillingBudgetsV1Budget})

@@ -1,8 +1,7 @@
 (ns happyapi.google.businessprofileperformance-v1
   "Business Profile Performance API
 The Business Profile Performance API allows merchants to fetch performance reports about their business profile on Google. Note - If you have a quota of 0 after enabling the API, please request for GBP API access.
-See: https://developers.google.com/my-business/"
-  (:require [happyapi.providers.google :as client]))
+See: https://developers.google.com/my-business/")
 
 (defn locations-getDailyMetricsTimeSeries
   " Returns the values for each date from a given time range that are associated with the specific daily metric. Example request: `GET https://businessprofileperformance.googleapis.com/v1/locations/12345:getDailyMetricsTimeSeries?dailyMetric=WEBSITE_CLICKS&daily_range.start_date.year=2022&daily_range.start_date.month=1&daily_range.start_date.day=1&daily_range.end_date.year=2022&daily_range.end_date.month=3&daily_range.end_date.day=31`
@@ -25,13 +24,12 @@ dailyRange.endDate.month <integer> Month of a year. Must be from 1 to 12, or 0 t
 dailyRange.startDate.month <integer> Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day."
   ([name] (locations-getDailyMetricsTimeSeries name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://businessprofileperformance.googleapis.com/v1/{+name}:getDailyMetricsTimeSeries",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes nil})))
+    {:method :get,
+     :uri-template
+     "https://businessprofileperformance.googleapis.com/v1/{+name}:getDailyMetricsTimeSeries",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes nil}))
 
 (defn locations-fetchMultiDailyMetricsTimeSeries
   " Returns the values for each date from a given time range and optionally the sub entity type, where applicable, that are associated with the specific daily metrics. Example request: `GET https://businessprofileperformance.googleapis.com/v1/locations/12345:fetchMultiDailyMetricsTimeSeries?dailyMetrics=WEBSITE_CLICKS&dailyMetrics=CALL_CLICKS&daily_range.start_date.year=2022&daily_range.start_date.month=1&daily_range.start_date.day=1&daily_range.end_date.year=2022&daily_range.end_date.month=3&daily_range.end_date.day=31`
@@ -50,13 +48,12 @@ dailyRange.endDate.day <integer> Day of a month. Must be from 1 to 31 and valid 
   ([location]
     (locations-fetchMultiDailyMetricsTimeSeries location nil))
   ([location optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://businessprofileperformance.googleapis.com/v1/{+location}:fetchMultiDailyMetricsTimeSeries",
-       :uri-template-args {"location" location},
-       :query-params (merge {} optional),
-       :scopes nil})))
+    {:method :get,
+     :uri-template
+     "https://businessprofileperformance.googleapis.com/v1/{+location}:fetchMultiDailyMetricsTimeSeries",
+     :uri-template-args {"location" location},
+     :query-params (merge {} optional),
+     :scopes nil}))
 
 (defn locations-searchkeywords-impressions-monthly-list
   "Returns the search keywords used to find a business in search or maps. Each search keyword is accompanied by impressions which are aggregated on a monthly basis. Example request: `GET https://businessprofileperformance.googleapis.com/v1/locations/12345/searchkeywords/impressions/monthly?monthly_range.start_month.year=2022&monthly_range.start_month.month=1&monthly_range.end_month.year=2022&monthly_range.end_month.month=3`
@@ -75,10 +72,9 @@ monthlyRange.startMonth.month <integer> Month of a year. Must be from 1 to 12, o
   ([parent]
     (locations-searchkeywords-impressions-monthly-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://businessprofileperformance.googleapis.com/v1/{+parent}/searchkeywords/impressions/monthly",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes nil})))
+    {:method :get,
+     :uri-template
+     "https://businessprofileperformance.googleapis.com/v1/{+parent}/searchkeywords/impressions/monthly",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes nil}))

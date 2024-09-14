@@ -1,8 +1,7 @@
 (ns happyapi.google.deploymentmanager-v2
   "Cloud Deployment Manager V2 API
 The Google Cloud Deployment Manager v2 API provides services for configuring, deploying, and viewing Google Cloud services and APIs via templates which specify deployments of Cloud resources.
-See: https://cloud.google.com/deployment-manager/docs"
-  (:require [happyapi.providers.google :as client]))
+See: https://cloud.google.com/deployment-manager/docs")
 
 (defn deployments-stop
   "Stops an ongoing operation. This does not roll back any work that has already been completed, but prevents any new work from being started.
@@ -13,16 +12,15 @@ deployment <>
 DeploymentsStopRequest:
 DeploymentsStopRequest"
   [project deployment DeploymentsStopRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{deployment}/stop",
-     :uri-template-args {"project" project, "deployment" deployment},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/ndev.cloudman"],
-     :body DeploymentsStopRequest}))
+  {:method :post,
+   :uri-template
+   "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{deployment}/stop",
+   :uri-template-args {"project" project, "deployment" deployment},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/ndev.cloudman"],
+   :body DeploymentsStopRequest})
 
 (defn deployments-list
   "Lists all deployments for a given project.
@@ -36,17 +34,16 @@ filter <string> A filter expression that filters resources listed in the respons
 orderBy <string> Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name. You can also sort results in descending order based on the creation timestamp using `orderBy=\"creationTimestamp desc\"`. This sorts results based on the `creationTimestamp` field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation is returned first. Currently, only sorting by `name` or `creationTimestamp desc` is supported."
   ([project] (deployments-list project nil))
   ([project optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments",
-       :uri-template-args {"project" project},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"
-        "https://www.googleapis.com/auth/ndev.cloudman"
-        "https://www.googleapis.com/auth/ndev.cloudman.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments",
+     :uri-template-args {"project" project},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"
+      "https://www.googleapis.com/auth/ndev.cloudman"
+      "https://www.googleapis.com/auth/ndev.cloudman.readonly"]}))
 
 (defn deployments-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy.
@@ -57,16 +54,15 @@ resource <>
 GlobalSetPolicyRequest:
 GlobalSetPolicyRequest"
   [project resource GlobalSetPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{resource}/setIamPolicy",
-     :uri-template-args {"project" project, "resource" resource},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/ndev.cloudman"],
-     :body GlobalSetPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{resource}/setIamPolicy",
+   :uri-template-args {"project" project, "resource" resource},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/ndev.cloudman"],
+   :body GlobalSetPolicyRequest})
 
 (defn deployments-delete
   "Deletes a deployment and all of the resources in the deployment.
@@ -79,15 +75,14 @@ optional:
 deletePolicy <string> Sets the policy to use for deleting resources."
   ([project deployment] (deployments-delete project deployment nil))
   ([project deployment optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{deployment}",
-       :uri-template-args {"project" project, "deployment" deployment},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/ndev.cloudman"]})))
+    {:method :delete,
+     :uri-template
+     "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{deployment}",
+     :uri-template-args {"project" project, "deployment" deployment},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/ndev.cloudman"]}))
 
 (defn deployments-update
   "Updates a deployment and all of the resources described by the deployment manifest.
@@ -105,16 +100,15 @@ preview <boolean> If set to true, updates the deployment and creates and updates
   ([project deployment Deployment]
     (deployments-update project deployment Deployment nil))
   ([project deployment Deployment optional]
-    (client/*api-request*
-      {:method :put,
-       :uri-template
-       "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{deployment}",
-       :uri-template-args {"project" project, "deployment" deployment},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/ndev.cloudman"],
-       :body Deployment})))
+    {:method :put,
+     :uri-template
+     "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{deployment}",
+     :uri-template-args {"project" project, "deployment" deployment},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/ndev.cloudman"],
+     :body Deployment}))
 
 (defn deployments-cancelPreview
   "Cancels and removes the preview currently associated with the deployment.
@@ -125,16 +119,15 @@ deployment <>
 DeploymentsCancelPreviewRequest:
 DeploymentsCancelPreviewRequest"
   [project deployment DeploymentsCancelPreviewRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{deployment}/cancelPreview",
-     :uri-template-args {"project" project, "deployment" deployment},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/ndev.cloudman"],
-     :body DeploymentsCancelPreviewRequest}))
+  {:method :post,
+   :uri-template
+   "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{deployment}/cancelPreview",
+   :uri-template-args {"project" project, "deployment" deployment},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/ndev.cloudman"],
+   :body DeploymentsCancelPreviewRequest})
 
 (defn deployments-patch
   "Patches a deployment and all of the resources described by the deployment manifest.
@@ -152,16 +145,15 @@ preview <boolean> If set to true, updates the deployment and creates and updates
   ([project deployment Deployment]
     (deployments-patch project deployment Deployment nil))
   ([project deployment Deployment optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{deployment}",
-       :uri-template-args {"project" project, "deployment" deployment},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/ndev.cloudman"],
-       :body Deployment})))
+    {:method :patch,
+     :uri-template
+     "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{deployment}",
+     :uri-template-args {"project" project, "deployment" deployment},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/ndev.cloudman"],
+     :body Deployment}))
 
 (defn deployments-getIamPolicy
   "Gets the access control policy for a resource. May be empty if no such policy or resource exists.
@@ -174,15 +166,14 @@ optional:
 optionsRequestedPolicyVersion <integer> Requested IAM Policy version."
   ([project resource] (deployments-getIamPolicy project resource nil))
   ([project resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{resource}/getIamPolicy",
-       :uri-template-args {"project" project, "resource" resource},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/ndev.cloudman"]})))
+    {:method :get,
+     :uri-template
+     "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{resource}/getIamPolicy",
+     :uri-template-args {"project" project, "resource" resource},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/ndev.cloudman"]}))
 
 (defn deployments-insert
   "Creates a deployment and all of the resources described by the deployment manifest.
@@ -197,16 +188,15 @@ preview <boolean> If set to true, creates a deployment and creates \"shell\" res
 createPolicy <string> Sets the policy to use for creating new resources."
   ([project Deployment] (deployments-insert project Deployment nil))
   ([project Deployment optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments",
-       :uri-template-args {"project" project},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/ndev.cloudman"],
-       :body Deployment})))
+    {:method :post,
+     :uri-template
+     "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments",
+     :uri-template-args {"project" project},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/ndev.cloudman"],
+     :body Deployment}))
 
 (defn deployments-get
   "Gets information about a specific deployment.
@@ -215,17 +205,16 @@ https://cloud.google.com/deployment-manager/docs/v2/reference/rest/v2/deployment
 project <> 
 deployment <> "
   [project deployment]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{deployment}",
-     :uri-template-args {"project" project, "deployment" deployment},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"
-      "https://www.googleapis.com/auth/ndev.cloudman"
-      "https://www.googleapis.com/auth/ndev.cloudman.readonly"]}))
+  {:method :get,
+   :uri-template
+   "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{deployment}",
+   :uri-template-args {"project" project, "deployment" deployment},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"
+    "https://www.googleapis.com/auth/ndev.cloudman"
+    "https://www.googleapis.com/auth/ndev.cloudman.readonly"]})
 
 (defn deployments-testIamPermissions
   "Returns permissions that a caller has on the specified resource.
@@ -236,16 +225,15 @@ resource <>
 TestPermissionsRequest:
 TestPermissionsRequest"
   [project resource TestPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{resource}/testIamPermissions",
-     :uri-template-args {"project" project, "resource" resource},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/ndev.cloudman"],
-     :body TestPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{resource}/testIamPermissions",
+   :uri-template-args {"project" project, "resource" resource},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/ndev.cloudman"],
+   :body TestPermissionsRequest})
 
 (defn manifests-get
   "Gets information about a specific manifest.
@@ -255,18 +243,17 @@ project <>
 deployment <> 
 manifest <> "
   [project deployment manifest]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{deployment}/manifests/{manifest}",
-     :uri-template-args
-     {"project" project, "deployment" deployment, "manifest" manifest},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"
-      "https://www.googleapis.com/auth/ndev.cloudman"
-      "https://www.googleapis.com/auth/ndev.cloudman.readonly"]}))
+  {:method :get,
+   :uri-template
+   "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{deployment}/manifests/{manifest}",
+   :uri-template-args
+   {"project" project, "deployment" deployment, "manifest" manifest},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"
+    "https://www.googleapis.com/auth/ndev.cloudman"
+    "https://www.googleapis.com/auth/ndev.cloudman.readonly"]})
 
 (defn manifests-list
   "Lists all manifests for a given deployment.
@@ -281,17 +268,16 @@ filter <string> A filter expression that filters resources listed in the respons
 orderBy <string> Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name. You can also sort results in descending order based on the creation timestamp using `orderBy=\"creationTimestamp desc\"`. This sorts results based on the `creationTimestamp` field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation is returned first. Currently, only sorting by `name` or `creationTimestamp desc` is supported."
   ([project deployment] (manifests-list project deployment nil))
   ([project deployment optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{deployment}/manifests",
-       :uri-template-args {"project" project, "deployment" deployment},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"
-        "https://www.googleapis.com/auth/ndev.cloudman"
-        "https://www.googleapis.com/auth/ndev.cloudman.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{deployment}/manifests",
+     :uri-template-args {"project" project, "deployment" deployment},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"
+      "https://www.googleapis.com/auth/ndev.cloudman"
+      "https://www.googleapis.com/auth/ndev.cloudman.readonly"]}))
 
 (defn operations-get
   "Gets information about a specific operation.
@@ -300,17 +286,16 @@ https://cloud.google.com/deployment-manager/docs/v2/reference/rest/v2/operations
 project <> 
 operation <> "
   [project operation]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/operations/{operation}",
-     :uri-template-args {"project" project, "operation" operation},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"
-      "https://www.googleapis.com/auth/ndev.cloudman"
-      "https://www.googleapis.com/auth/ndev.cloudman.readonly"]}))
+  {:method :get,
+   :uri-template
+   "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/operations/{operation}",
+   :uri-template-args {"project" project, "operation" operation},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"
+    "https://www.googleapis.com/auth/ndev.cloudman"
+    "https://www.googleapis.com/auth/ndev.cloudman.readonly"]})
 
 (defn operations-list
   "Lists all operations for a project.
@@ -324,17 +309,16 @@ filter <string> A filter expression that filters resources listed in the respons
 orderBy <string> Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name. You can also sort results in descending order based on the creation timestamp using `orderBy=\"creationTimestamp desc\"`. This sorts results based on the `creationTimestamp` field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation is returned first. Currently, only sorting by `name` or `creationTimestamp desc` is supported."
   ([project] (operations-list project nil))
   ([project optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/operations",
-       :uri-template-args {"project" project},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"
-        "https://www.googleapis.com/auth/ndev.cloudman"
-        "https://www.googleapis.com/auth/ndev.cloudman.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/operations",
+     :uri-template-args {"project" project},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"
+      "https://www.googleapis.com/auth/ndev.cloudman"
+      "https://www.googleapis.com/auth/ndev.cloudman.readonly"]}))
 
 (defn resources-get
   "Gets information about a single resource.
@@ -344,18 +328,17 @@ project <>
 deployment <> 
 resource <> "
   [project deployment resource]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{deployment}/resources/{resource}",
-     :uri-template-args
-     {"project" project, "deployment" deployment, "resource" resource},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"
-      "https://www.googleapis.com/auth/ndev.cloudman"
-      "https://www.googleapis.com/auth/ndev.cloudman.readonly"]}))
+  {:method :get,
+   :uri-template
+   "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{deployment}/resources/{resource}",
+   :uri-template-args
+   {"project" project, "deployment" deployment, "resource" resource},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"
+    "https://www.googleapis.com/auth/ndev.cloudman"
+    "https://www.googleapis.com/auth/ndev.cloudman.readonly"]})
 
 (defn resources-list
   "Lists all resources in a given deployment.
@@ -370,17 +353,16 @@ filter <string> A filter expression that filters resources listed in the respons
 orderBy <string> Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name. You can also sort results in descending order based on the creation timestamp using `orderBy=\"creationTimestamp desc\"`. This sorts results based on the `creationTimestamp` field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation is returned first. Currently, only sorting by `name` or `creationTimestamp desc` is supported."
   ([project deployment] (resources-list project deployment nil))
   ([project deployment optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{deployment}/resources",
-       :uri-template-args {"project" project, "deployment" deployment},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"
-        "https://www.googleapis.com/auth/ndev.cloudman"
-        "https://www.googleapis.com/auth/ndev.cloudman.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/deployments/{deployment}/resources",
+     :uri-template-args {"project" project, "deployment" deployment},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"
+      "https://www.googleapis.com/auth/ndev.cloudman"
+      "https://www.googleapis.com/auth/ndev.cloudman.readonly"]}))
 
 (defn types-list
   "Lists all resource types for Deployment Manager.
@@ -394,14 +376,13 @@ filter <string> A filter expression that filters resources listed in the respons
 orderBy <string> Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name. You can also sort results in descending order based on the creation timestamp using `orderBy=\"creationTimestamp desc\"`. This sorts results based on the `creationTimestamp` field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation is returned first. Currently, only sorting by `name` or `creationTimestamp desc` is supported."
   ([project] (types-list project nil))
   ([project optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/types",
-       :uri-template-args {"project" project},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"
-        "https://www.googleapis.com/auth/ndev.cloudman"
-        "https://www.googleapis.com/auth/ndev.cloudman.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://deploymentmanager.googleapis.com/deploymentmanager/v2/projects/{project}/global/types",
+     :uri-template-args {"project" project},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"
+      "https://www.googleapis.com/auth/ndev.cloudman"
+      "https://www.googleapis.com/auth/ndev.cloudman.readonly"]}))

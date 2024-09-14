@@ -1,8 +1,7 @@
 (ns happyapi.google.books-v1
   "Books API
 The Google Books API allows clients to access the Google Books repository.
-See: https://developers.google.com/books/docs/v1/getting_started?csw=1"
-  (:require [happyapi.providers.google :as client]))
+See: https://developers.google.com/books/docs/v1/getting_started?csw=1")
 
 (defn onboarding-listCategories
   "List categories for onboarding experience.
@@ -12,13 +11,12 @@ optional:
 locale <string> ISO-639-1 language and ISO-3166-1 country code. Default is en-US if unset."
   ([] (onboarding-listCategories nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://books.googleapis.com/books/v1/onboarding/listCategories",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :get,
+     :uri-template
+     "https://books.googleapis.com/books/v1/onboarding/listCategories",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn onboarding-listCategoryVolumes
   "List available volumes under categories for onboarding experience.
@@ -31,13 +29,12 @@ maxAllowedMaturityRating <string> The maximum allowed maturity rating of returne
 pageSize <integer> Number of maximum results per page to be included in the response."
   ([] (onboarding-listCategoryVolumes nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://books.googleapis.com/books/v1/onboarding/listCategoryVolumes",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :get,
+     :uri-template
+     "https://books.googleapis.com/books/v1/onboarding/listCategoryVolumes",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn promooffer-accept
   "Accepts the promo offer.
@@ -54,13 +51,12 @@ serial <string> device serial
 volumeId <string> Volume id to exercise the offer"
   ([] (promooffer-accept nil))
   ([optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://books.googleapis.com/books/v1/promooffer/accept",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :post,
+     :uri-template
+     "https://books.googleapis.com/books/v1/promooffer/accept",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn promooffer-dismiss
   "Marks the promo offer as dismissed.
@@ -76,13 +72,12 @@ product <string> device product
 serial <string> device serial"
   ([] (promooffer-dismiss nil))
   ([optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://books.googleapis.com/books/v1/promooffer/dismiss",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :post,
+     :uri-template
+     "https://books.googleapis.com/books/v1/promooffer/dismiss",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn promooffer-get
   "Returns a list of promo offers available to the user
@@ -97,13 +92,12 @@ product <string> device product
 serial <string> device serial"
   ([] (promooffer-get nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://books.googleapis.com/books/v1/promooffer/get",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :get,
+     :uri-template
+     "https://books.googleapis.com/books/v1/promooffer/get",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn myconfig-getUserSettings
   "Gets the current settings for the user.
@@ -113,13 +107,12 @@ optional:
 country <string> Unused. Added only to workaround TEX mandatory request template requirement"
   ([] (myconfig-getUserSettings nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://books.googleapis.com/books/v1/myconfig/getUserSettings",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :get,
+     :uri-template
+     "https://books.googleapis.com/books/v1/myconfig/getUserSettings",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn myconfig-releaseDownloadAccess
   "Release downloaded content access restriction.
@@ -134,14 +127,13 @@ source <string> String to identify the originator of this request."
   ([cpksver volumeIds]
     (myconfig-releaseDownloadAccess cpksver volumeIds nil))
   ([cpksver volumeIds optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://books.googleapis.com/books/v1/myconfig/releaseDownloadAccess",
-       :uri-template-args {},
-       :query-params
-       (merge {"cpksver" cpksver, "volumeIds" volumeIds} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :post,
+     :uri-template
+     "https://books.googleapis.com/books/v1/myconfig/releaseDownloadAccess",
+     :uri-template-args {},
+     :query-params
+     (merge {"cpksver" cpksver, "volumeIds" volumeIds} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn myconfig-requestAccess
   "Request concurrent and download access restrictions.
@@ -158,19 +150,18 @@ locale <string> ISO-639-1, ISO-3166-1 codes for message localization, i.e. en_US
   ([cpksver nonce source volumeId]
     (myconfig-requestAccess cpksver nonce source volumeId nil))
   ([cpksver nonce source volumeId optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://books.googleapis.com/books/v1/myconfig/requestAccess",
-       :uri-template-args {},
-       :query-params
-       (merge
-         {"cpksver" cpksver,
-          "nonce" nonce,
-          "source" source,
-          "volumeId" volumeId}
-         optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :post,
+     :uri-template
+     "https://books.googleapis.com/books/v1/myconfig/requestAccess",
+     :uri-template-args {},
+     :query-params
+     (merge
+       {"cpksver" cpksver,
+        "nonce" nonce,
+        "source" source,
+        "volumeId" volumeId}
+       optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn myconfig-syncVolumeLicenses
   "Request downloaded content access for specified volumes on the My eBooks shelf.
@@ -189,16 +180,15 @@ volumeIds <string> The volume(s) to request download restrictions for."
   ([cpksver nonce source]
     (myconfig-syncVolumeLicenses cpksver nonce source nil))
   ([cpksver nonce source optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://books.googleapis.com/books/v1/myconfig/syncVolumeLicenses",
-       :uri-template-args {},
-       :query-params
-       (merge
-         {"cpksver" cpksver, "nonce" nonce, "source" source}
-         optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :post,
+     :uri-template
+     "https://books.googleapis.com/books/v1/myconfig/syncVolumeLicenses",
+     :uri-template-args {},
+     :query-params
+     (merge
+       {"cpksver" cpksver, "nonce" nonce, "source" source}
+       optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn myconfig-updateUserSettings
   "Sets the settings for the user. If a sub-object is specified, it will overwrite the existing sub-object stored in the server. Unspecified sub-objects will retain the existing value.
@@ -207,14 +197,13 @@ https://developers.google.com/books/docs/v1/getting_started?csw=1/v1/reference/r
 Usersettings:
 Usersettings"
   [Usersettings]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://books.googleapis.com/books/v1/myconfig/updateUserSettings",
-     :uri-template-args {},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/books"],
-     :body Usersettings}))
+  {:method :post,
+   :uri-template
+   "https://books.googleapis.com/books/v1/myconfig/updateUserSettings",
+   :uri-template-args {},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/books"],
+   :body Usersettings})
 
 (defn cloudloading-addBook
   "Add a user-upload volume and triggers processing.
@@ -227,13 +216,12 @@ name <string> The document name. It can be set only if the drive_document_id is 
 upload_client_token <string> Scotty upload token."
   ([] (cloudloading-addBook nil))
   ([optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://books.googleapis.com/books/v1/cloudloading/addBook",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :post,
+     :uri-template
+     "https://books.googleapis.com/books/v1/cloudloading/addBook",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn cloudloading-deleteBook
   "Remove the book and its contents
@@ -241,13 +229,12 @@ https://developers.google.com/books/docs/v1/getting_started?csw=1/v1/reference/r
 
 volumeId <> "
   [volumeId]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://books.googleapis.com/books/v1/cloudloading/deleteBook",
-     :uri-template-args {},
-     :query-params {"volumeId" volumeId},
-     :scopes ["https://www.googleapis.com/auth/books"]}))
+  {:method :post,
+   :uri-template
+   "https://books.googleapis.com/books/v1/cloudloading/deleteBook",
+   :uri-template-args {},
+   :query-params {"volumeId" volumeId},
+   :scopes ["https://www.googleapis.com/auth/books"]})
 
 (defn cloudloading-updateBook
   "Updates a user-upload volume.
@@ -256,14 +243,13 @@ https://developers.google.com/books/docs/v1/getting_started?csw=1/v1/reference/r
 BooksCloudloadingResource:
 BooksCloudloadingResource"
   [BooksCloudloadingResource]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://books.googleapis.com/books/v1/cloudloading/updateBook",
-     :uri-template-args {},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/books"],
-     :body BooksCloudloadingResource}))
+  {:method :post,
+   :uri-template
+   "https://books.googleapis.com/books/v1/cloudloading/updateBook",
+   :uri-template-args {},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/books"],
+   :body BooksCloudloadingResource})
 
 (defn bookshelves-get
   "Retrieves metadata for a specific bookshelf for the specified user.
@@ -276,13 +262,12 @@ optional:
 source <string> String to identify the originator of this request."
   ([userId shelf] (bookshelves-get userId shelf nil))
   ([userId shelf optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://books.googleapis.com/books/v1/users/{userId}/bookshelves/{shelf}",
-       :uri-template-args {"userId" userId, "shelf" shelf},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :get,
+     :uri-template
+     "https://books.googleapis.com/books/v1/users/{userId}/bookshelves/{shelf}",
+     :uri-template-args {"userId" userId, "shelf" shelf},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn bookshelves-list
   "Retrieves a list of public bookshelves for the specified user.
@@ -294,13 +279,12 @@ optional:
 source <string> String to identify the originator of this request."
   ([userId] (bookshelves-list userId nil))
   ([userId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://books.googleapis.com/books/v1/users/{userId}/bookshelves",
-       :uri-template-args {"userId" userId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :get,
+     :uri-template
+     "https://books.googleapis.com/books/v1/users/{userId}/bookshelves",
+     :uri-template-args {"userId" userId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn bookshelves-volumes-list
   "Retrieves volumes in a specific bookshelf for the specified user.
@@ -316,13 +300,12 @@ source <string> String to identify the originator of this request.
 startIndex <integer> Index of the first element to return (starts at 0)"
   ([userId shelf] (bookshelves-volumes-list userId shelf nil))
   ([userId shelf optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://books.googleapis.com/books/v1/users/{userId}/bookshelves/{shelf}/volumes",
-       :uri-template-args {"userId" userId, "shelf" shelf},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :get,
+     :uri-template
+     "https://books.googleapis.com/books/v1/users/{userId}/bookshelves/{shelf}/volumes",
+     :uri-template-args {"userId" userId, "shelf" shelf},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn volumes-get
   "Gets volume information for a single volume.
@@ -339,13 +322,12 @@ source <string> string to identify the originator of this request.
 user_library_consistent_read <boolean> "
   ([volumeId] (volumes-get volumeId nil))
   ([volumeId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://books.googleapis.com/books/v1/volumes/{volumeId}",
-       :uri-template-args {"volumeId" volumeId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :get,
+     :uri-template
+     "https://books.googleapis.com/books/v1/volumes/{volumeId}",
+     :uri-template-args {"volumeId" volumeId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn volumes-list
   "Performs a book search.
@@ -369,12 +351,11 @@ partner <string> Restrict and brand results for partner ID.
 showPreorders <boolean> Set to true to show books available for preorder. Defaults to false."
   ([q] (volumes-list q nil))
   ([q optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template "https://books.googleapis.com/books/v1/volumes",
-       :uri-template-args {},
-       :query-params (merge {"q" q} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :get,
+     :uri-template "https://books.googleapis.com/books/v1/volumes",
+     :uri-template-args {},
+     :query-params (merge {"q" q} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn volumes-associated-list
   "Return a list of associated books.
@@ -389,13 +370,12 @@ maxAllowedMaturityRating <string> The maximum allowed maturity rating of returne
 source <string> String to identify the originator of this request."
   ([volumeId] (volumes-associated-list volumeId nil))
   ([volumeId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://books.googleapis.com/books/v1/volumes/{volumeId}/associated",
-       :uri-template-args {"volumeId" volumeId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :get,
+     :uri-template
+     "https://books.googleapis.com/books/v1/volumes/{volumeId}/associated",
+     :uri-template-args {"volumeId" volumeId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn volumes-mybooks-list
   "Return a list of books in My Library.
@@ -411,13 +391,12 @@ source <string> String to identify the originator of this request.
 startIndex <integer> Index of the first result to return (starts at 0)"
   ([] (volumes-mybooks-list nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://books.googleapis.com/books/v1/volumes/mybooks",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :get,
+     :uri-template
+     "https://books.googleapis.com/books/v1/volumes/mybooks",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn volumes-recommended-list
   "Return a list of recommended books for the current user.
@@ -429,13 +408,12 @@ maxAllowedMaturityRating <string> The maximum allowed maturity rating of returne
 source <string> String to identify the originator of this request."
   ([] (volumes-recommended-list nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://books.googleapis.com/books/v1/volumes/recommended",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :get,
+     :uri-template
+     "https://books.googleapis.com/books/v1/volumes/recommended",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn volumes-recommended-rate
   "Rate a recommended book for the current user.
@@ -449,14 +427,13 @@ locale <string> ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Use
 source <string> String to identify the originator of this request."
   ([rating volumeId] (volumes-recommended-rate rating volumeId nil))
   ([rating volumeId optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://books.googleapis.com/books/v1/volumes/recommended/rate",
-       :uri-template-args {},
-       :query-params
-       (merge {"rating" rating, "volumeId" volumeId} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :post,
+     :uri-template
+     "https://books.googleapis.com/books/v1/volumes/recommended/rate",
+     :uri-template-args {},
+     :query-params
+     (merge {"rating" rating, "volumeId" volumeId} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn volumes-useruploaded-list
   "Return a list of books uploaded by the current user.
@@ -471,13 +448,12 @@ startIndex <integer> Index of the first result to return (starts at 0)
 volumeId <string> The ids of the volumes to be returned. If not specified all that match the processingState are returned."
   ([] (volumes-useruploaded-list nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://books.googleapis.com/books/v1/volumes/useruploaded",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :get,
+     :uri-template
+     "https://books.googleapis.com/books/v1/volumes/useruploaded",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn personalizedstream-get
   "Returns a stream of personalized book clusters
@@ -489,13 +465,12 @@ maxAllowedMaturityRating <string> The maximum allowed maturity rating of returne
 source <string> String to identify the originator of this request."
   ([] (personalizedstream-get nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://books.googleapis.com/books/v1/personalizedstream/get",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :get,
+     :uri-template
+     "https://books.googleapis.com/books/v1/personalizedstream/get",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn mylibrary-annotations-delete
   "Deletes an annotation.
@@ -507,13 +482,12 @@ optional:
 source <string> String to identify the originator of this request."
   ([annotationId] (mylibrary-annotations-delete annotationId nil))
   ([annotationId optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://books.googleapis.com/books/v1/mylibrary/annotations/{annotationId}",
-       :uri-template-args {"annotationId" annotationId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :delete,
+     :uri-template
+     "https://books.googleapis.com/books/v1/mylibrary/annotations/{annotationId}",
+     :uri-template-args {"annotationId" annotationId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn mylibrary-annotations-insert
   "Inserts a new annotation.
@@ -529,14 +503,13 @@ showOnlySummaryInResponse <boolean> Requests that only the summary of the specif
 source <string> String to identify the originator of this request."
   ([Annotation] (mylibrary-annotations-insert Annotation nil))
   ([Annotation optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://books.googleapis.com/books/v1/mylibrary/annotations",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/books"],
-       :body Annotation})))
+    {:method :post,
+     :uri-template
+     "https://books.googleapis.com/books/v1/mylibrary/annotations",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/books"],
+     :body Annotation}))
 
 (defn mylibrary-annotations-list
   "Retrieves a list of annotations, possibly filtered.
@@ -554,13 +527,12 @@ source <string> String to identify the originator of this request.
 layerIds <string> The layer ID(s) to limit annotation by."
   ([] (mylibrary-annotations-list nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://books.googleapis.com/books/v1/mylibrary/annotations",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :get,
+     :uri-template
+     "https://books.googleapis.com/books/v1/mylibrary/annotations",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn mylibrary-annotations-summary
   "Gets the summary of specified layers.
@@ -574,14 +546,13 @@ source <string> Optional. String to identify the originator of this request."
   ([layerIds volumeId]
     (mylibrary-annotations-summary layerIds volumeId nil))
   ([layerIds volumeId optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://books.googleapis.com/books/v1/mylibrary/annotations/summary",
-       :uri-template-args {},
-       :query-params
-       (merge {"layerIds" layerIds, "volumeId" volumeId} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :post,
+     :uri-template
+     "https://books.googleapis.com/books/v1/mylibrary/annotations/summary",
+     :uri-template-args {},
+     :query-params
+     (merge {"layerIds" layerIds, "volumeId" volumeId} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn mylibrary-annotations-update
   "Updates an existing annotation.
@@ -596,14 +567,13 @@ source <string> String to identify the originator of this request."
   ([annotationId Annotation]
     (mylibrary-annotations-update annotationId Annotation nil))
   ([annotationId Annotation optional]
-    (client/*api-request*
-      {:method :put,
-       :uri-template
-       "https://books.googleapis.com/books/v1/mylibrary/annotations/{annotationId}",
-       :uri-template-args {"annotationId" annotationId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/books"],
-       :body Annotation})))
+    {:method :put,
+     :uri-template
+     "https://books.googleapis.com/books/v1/mylibrary/annotations/{annotationId}",
+     :uri-template-args {"annotationId" annotationId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/books"],
+     :body Annotation}))
 
 (defn mylibrary-bookshelves-addVolume
   "Adds a volume to a bookshelf.
@@ -618,13 +588,12 @@ source <string> String to identify the originator of this request."
   ([shelf volumeId]
     (mylibrary-bookshelves-addVolume shelf volumeId nil))
   ([shelf volumeId optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://books.googleapis.com/books/v1/mylibrary/bookshelves/{shelf}/addVolume",
-       :uri-template-args {"shelf" shelf},
-       :query-params (merge {"volumeId" volumeId} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :post,
+     :uri-template
+     "https://books.googleapis.com/books/v1/mylibrary/bookshelves/{shelf}/addVolume",
+     :uri-template-args {"shelf" shelf},
+     :query-params (merge {"volumeId" volumeId} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn mylibrary-bookshelves-clearVolumes
   "Clears all volumes from a bookshelf.
@@ -636,13 +605,12 @@ optional:
 source <string> String to identify the originator of this request."
   ([shelf] (mylibrary-bookshelves-clearVolumes shelf nil))
   ([shelf optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://books.googleapis.com/books/v1/mylibrary/bookshelves/{shelf}/clearVolumes",
-       :uri-template-args {"shelf" shelf},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :post,
+     :uri-template
+     "https://books.googleapis.com/books/v1/mylibrary/bookshelves/{shelf}/clearVolumes",
+     :uri-template-args {"shelf" shelf},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn mylibrary-bookshelves-get
   "Retrieves metadata for a specific bookshelf belonging to the authenticated user.
@@ -654,13 +622,12 @@ optional:
 source <string> String to identify the originator of this request."
   ([shelf] (mylibrary-bookshelves-get shelf nil))
   ([shelf optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://books.googleapis.com/books/v1/mylibrary/bookshelves/{shelf}",
-       :uri-template-args {"shelf" shelf},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :get,
+     :uri-template
+     "https://books.googleapis.com/books/v1/mylibrary/bookshelves/{shelf}",
+     :uri-template-args {"shelf" shelf},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn mylibrary-bookshelves-list
   "Retrieves a list of bookshelves belonging to the authenticated user.
@@ -670,13 +637,12 @@ optional:
 source <string> String to identify the originator of this request."
   ([] (mylibrary-bookshelves-list nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://books.googleapis.com/books/v1/mylibrary/bookshelves",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :get,
+     :uri-template
+     "https://books.googleapis.com/books/v1/mylibrary/bookshelves",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn mylibrary-bookshelves-moveVolume
   "Moves a volume within a bookshelf.
@@ -695,16 +661,15 @@ source <string> String to identify the originator of this request."
       volumePosition
       nil))
   ([shelf volumeId volumePosition optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://books.googleapis.com/books/v1/mylibrary/bookshelves/{shelf}/moveVolume",
-       :uri-template-args {"shelf" shelf},
-       :query-params
-       (merge
-         {"volumeId" volumeId, "volumePosition" volumePosition}
-         optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :post,
+     :uri-template
+     "https://books.googleapis.com/books/v1/mylibrary/bookshelves/{shelf}/moveVolume",
+     :uri-template-args {"shelf" shelf},
+     :query-params
+     (merge
+       {"volumeId" volumeId, "volumePosition" volumePosition}
+       optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn mylibrary-bookshelves-removeVolume
   "Removes a volume from a bookshelf.
@@ -719,13 +684,12 @@ source <string> String to identify the originator of this request."
   ([shelf volumeId]
     (mylibrary-bookshelves-removeVolume shelf volumeId nil))
   ([shelf volumeId optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://books.googleapis.com/books/v1/mylibrary/bookshelves/{shelf}/removeVolume",
-       :uri-template-args {"shelf" shelf},
-       :query-params (merge {"volumeId" volumeId} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :post,
+     :uri-template
+     "https://books.googleapis.com/books/v1/mylibrary/bookshelves/{shelf}/removeVolume",
+     :uri-template-args {"shelf" shelf},
+     :query-params (merge {"volumeId" volumeId} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn mylibrary-bookshelves-volumes-list
   "Gets volume information for volumes on a bookshelf.
@@ -743,13 +707,12 @@ source <string> String to identify the originator of this request.
 startIndex <integer> Index of the first element to return (starts at 0)"
   ([shelf] (mylibrary-bookshelves-volumes-list shelf nil))
   ([shelf optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://books.googleapis.com/books/v1/mylibrary/bookshelves/{shelf}/volumes",
-       :uri-template-args {"shelf" shelf},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :get,
+     :uri-template
+     "https://books.googleapis.com/books/v1/mylibrary/bookshelves/{shelf}/volumes",
+     :uri-template-args {"shelf" shelf},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn mylibrary-readingpositions-get
   "Retrieves my reading position information for a volume.
@@ -762,13 +725,12 @@ contentVersion <string> Volume content version for which this reading position i
 source <string> String to identify the originator of this request."
   ([volumeId] (mylibrary-readingpositions-get volumeId nil))
   ([volumeId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://books.googleapis.com/books/v1/mylibrary/readingpositions/{volumeId}",
-       :uri-template-args {"volumeId" volumeId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :get,
+     :uri-template
+     "https://books.googleapis.com/books/v1/mylibrary/readingpositions/{volumeId}",
+     :uri-template-args {"volumeId" volumeId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn mylibrary-readingpositions-setPosition
   "Sets my reading position information for a volume.
@@ -790,14 +752,13 @@ source <string> String to identify the originator of this request."
       timestamp
       nil))
   ([volumeId position timestamp optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://books.googleapis.com/books/v1/mylibrary/readingpositions/{volumeId}/setPosition",
-       :uri-template-args {"volumeId" volumeId},
-       :query-params
-       (merge {"position" position, "timestamp" timestamp} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :post,
+     :uri-template
+     "https://books.googleapis.com/books/v1/mylibrary/readingpositions/{volumeId}/setPosition",
+     :uri-template-args {"volumeId" volumeId},
+     :query-params
+     (merge {"position" position, "timestamp" timestamp} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn layers-get
   "Gets the layer summary for a volume.
@@ -811,13 +772,12 @@ contentVersion <string> The content version for the requested volume.
 source <string> String to identify the originator of this request."
   ([volumeId summaryId] (layers-get volumeId summaryId nil))
   ([volumeId summaryId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://books.googleapis.com/books/v1/volumes/{volumeId}/layersummary/{summaryId}",
-       :uri-template-args {"volumeId" volumeId, "summaryId" summaryId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :get,
+     :uri-template
+     "https://books.googleapis.com/books/v1/volumes/{volumeId}/layersummary/{summaryId}",
+     :uri-template-args {"volumeId" volumeId, "summaryId" summaryId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn layers-list
   "List the layer summaries for a volume.
@@ -831,13 +791,12 @@ maxResults <integer> Maximum number of results to return
 source <string> String to identify the originator of this request."
   ([volumeId] (layers-list volumeId nil))
   ([volumeId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://books.googleapis.com/books/v1/volumes/{volumeId}/layersummary",
-       :uri-template-args {"volumeId" volumeId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :get,
+     :uri-template
+     "https://books.googleapis.com/books/v1/volumes/{volumeId}/layersummary",
+     :uri-template-args {"volumeId" volumeId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn layers-annotationData-get
   "Gets the annotation data.
@@ -863,17 +822,15 @@ h <integer> The requested pixel height for any images. If height is provided wid
       contentVersion
       nil))
   ([volumeId layerId annotationDataId contentVersion optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://books.googleapis.com/books/v1/volumes/{volumeId}/layers/{layerId}/data/{annotationDataId}",
-       :uri-template-args
-       {"layerId" layerId,
-        "volumeId" volumeId,
-        "annotationDataId" annotationDataId},
-       :query-params
-       (merge {"contentVersion" contentVersion} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :get,
+     :uri-template
+     "https://books.googleapis.com/books/v1/volumes/{volumeId}/layers/{layerId}/data/{annotationDataId}",
+     :uri-template-args
+     {"layerId" layerId,
+      "volumeId" volumeId,
+      "annotationDataId" annotationDataId},
+     :query-params (merge {"contentVersion" contentVersion} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn layers-annotationData-list
   "Gets the annotation data for a volume and layer.
@@ -896,14 +853,12 @@ annotationDataId <string> The list of Annotation Data Ids to retrieve. Paginatio
   ([volumeId layerId contentVersion]
     (layers-annotationData-list volumeId layerId contentVersion nil))
   ([volumeId layerId contentVersion optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://books.googleapis.com/books/v1/volumes/{volumeId}/layers/{layerId}/data",
-       :uri-template-args {"layerId" layerId, "volumeId" volumeId},
-       :query-params
-       (merge {"contentVersion" contentVersion} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :get,
+     :uri-template
+     "https://books.googleapis.com/books/v1/volumes/{volumeId}/layers/{layerId}/data",
+     :uri-template-args {"layerId" layerId, "volumeId" volumeId},
+     :query-params (merge {"contentVersion" contentVersion} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn layers-volumeAnnotations-get
   "Gets the volume annotation.
@@ -919,16 +874,15 @@ source <string> String to identify the originator of this request."
   ([volumeId layerId annotationId]
     (layers-volumeAnnotations-get volumeId layerId annotationId nil))
   ([volumeId layerId annotationId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://books.googleapis.com/books/v1/volumes/{volumeId}/layers/{layerId}/annotations/{annotationId}",
-       :uri-template-args
-       {"volumeId" volumeId,
-        "layerId" layerId,
-        "annotationId" annotationId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :get,
+     :uri-template
+     "https://books.googleapis.com/books/v1/volumes/{volumeId}/layers/{layerId}/annotations/{annotationId}",
+     :uri-template-args
+     {"volumeId" volumeId,
+      "layerId" layerId,
+      "annotationId" annotationId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn layers-volumeAnnotations-list
   "Gets the volume annotations for a volume and layer.
@@ -957,14 +911,12 @@ source <string> String to identify the originator of this request."
       contentVersion
       nil))
   ([volumeId layerId contentVersion optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://books.googleapis.com/books/v1/volumes/{volumeId}/layers/{layerId}",
-       :uri-template-args {"layerId" layerId, "volumeId" volumeId},
-       :query-params
-       (merge {"contentVersion" contentVersion} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :get,
+     :uri-template
+     "https://books.googleapis.com/books/v1/volumes/{volumeId}/layers/{layerId}",
+     :uri-template-args {"layerId" layerId, "volumeId" volumeId},
+     :query-params (merge {"contentVersion" contentVersion} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn series-get
   "Returns Series metadata for the given series ids.
@@ -972,12 +924,11 @@ https://developers.google.com/books/docs/v1/getting_started?csw=1/v1/reference/r
 
 series_id <> "
   [series_id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://books.googleapis.com/books/v1/series/get",
-     :uri-template-args {},
-     :query-params {"series_id" series_id},
-     :scopes ["https://www.googleapis.com/auth/books"]}))
+  {:method :get,
+   :uri-template "https://books.googleapis.com/books/v1/series/get",
+   :uri-template-args {},
+   :query-params {"series_id" series_id},
+   :scopes ["https://www.googleapis.com/auth/books"]})
 
 (defn series-membership-get
   "Returns Series membership data given the series id.
@@ -990,13 +941,12 @@ page_size <integer> Number of maximum results per page to be included in the res
 page_token <string> The value of the nextToken from the previous page."
   ([series_id] (series-membership-get series_id nil))
   ([series_id optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://books.googleapis.com/books/v1/series/membership/get",
-       :uri-template-args {},
-       :query-params (merge {"series_id" series_id} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :get,
+     :uri-template
+     "https://books.googleapis.com/books/v1/series/membership/get",
+     :uri-template-args {},
+     :query-params (merge {"series_id" series_id} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn notification-get
   "Returns notification details for a given notification id.
@@ -1009,14 +959,13 @@ locale <string> ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Use
 source <string> String to identify the originator of this request."
   ([notification_id] (notification-get notification_id nil))
   ([notification_id optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://books.googleapis.com/books/v1/notification/get",
-       :uri-template-args {},
-       :query-params
-       (merge {"notification_id" notification_id} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :get,
+     :uri-template
+     "https://books.googleapis.com/books/v1/notification/get",
+     :uri-template-args {},
+     :query-params
+     (merge {"notification_id" notification_id} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn familysharing-getFamilyInfo
   "Gets information regarding the family that the user is part of.
@@ -1026,13 +975,12 @@ optional:
 source <string> String to identify the originator of this request."
   ([] (familysharing-getFamilyInfo nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://books.googleapis.com/books/v1/familysharing/getFamilyInfo",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :get,
+     :uri-template
+     "https://books.googleapis.com/books/v1/familysharing/getFamilyInfo",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn familysharing-share
   "Initiates sharing of the content with the user's family. Empty response indicates success.
@@ -1044,13 +992,12 @@ source <string> String to identify the originator of this request.
 volumeId <string> The volume to share."
   ([] (familysharing-share nil))
   ([optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://books.googleapis.com/books/v1/familysharing/share",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :post,
+     :uri-template
+     "https://books.googleapis.com/books/v1/familysharing/share",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn familysharing-unshare
   "Initiates revoking content that has already been shared with the user's family. Empty response indicates success.
@@ -1062,13 +1009,12 @@ source <string> String to identify the originator of this request.
 volumeId <string> The volume to unshare."
   ([] (familysharing-unshare nil))
   ([optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://books.googleapis.com/books/v1/familysharing/unshare",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/books"]})))
+    {:method :post,
+     :uri-template
+     "https://books.googleapis.com/books/v1/familysharing/unshare",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/books"]}))
 
 (defn dictionary-listOfflineMetadata
   "Returns a list of offline dictionary metadata available
@@ -1076,10 +1022,9 @@ https://developers.google.com/books/docs/v1/getting_started?csw=1/v1/reference/r
 
 cpksver <> "
   [cpksver]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://books.googleapis.com/books/v1/dictionary/listOfflineMetadata",
-     :uri-template-args {},
-     :query-params {"cpksver" cpksver},
-     :scopes ["https://www.googleapis.com/auth/books"]}))
+  {:method :get,
+   :uri-template
+   "https://books.googleapis.com/books/v1/dictionary/listOfflineMetadata",
+   :uri-template-args {},
+   :query-params {"cpksver" cpksver},
+   :scopes ["https://www.googleapis.com/auth/books"]})

@@ -1,8 +1,7 @@
 (ns happyapi.google.securitycenter-v1
   "Security Command Center API
 Security Command Center API provides access to temporal views of assets and findings within an organization.
-See: https://cloud.google.com/security/products/security-command-center"
-  (:require [happyapi.providers.google :as client]))
+See: https://cloud.google.com/security/products/security-command-center")
 
 (defn folders-sources-list
   "Lists all sources belonging to an organization.
@@ -14,13 +13,12 @@ optional:
 pageSize <integer> The maximum number of results to return in a single response. Default is 10, minimum is 1, maximum is 1000."
   ([parent] (folders-sources-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/sources",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/sources",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn folders-sources-findings-group
   "Filters an organization or source's findings and groups them by their specified properties. To group across all sources provide a `-` as the source id. Example: /v1/organizations/{organization_id}/sources/-/findings, /v1/folders/{folder_id}/sources/-/findings, /v1/projects/{project_id}/sources/-/findings
@@ -30,14 +28,13 @@ parent <>
 GroupFindingsRequest:
 GroupFindingsRequest"
   [parent GroupFindingsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+parent}/findings:group",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GroupFindingsRequest}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+parent}/findings:group",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GroupFindingsRequest})
 
 (defn folders-sources-findings-list
   "Lists an organization or source's findings. To list across all sources provide a `-` as the source id. Example: /v1/organizations/{organization_id}/sources/-/findings
@@ -54,13 +51,12 @@ fieldMask <string> A field mask to specify the Finding fields to be listed in th
 pageSize <integer> The maximum number of results to return in a single response. Default is 10, minimum is 1, maximum is 1000."
   ([parent] (folders-sources-findings-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/findings",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/findings",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn folders-sources-findings-setState
   "Updates the state of a finding.
@@ -70,14 +66,13 @@ name <>
 SetFindingStateRequest:
 SetFindingStateRequest"
   [name SetFindingStateRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+name}:setState",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetFindingStateRequest}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+name}:setState",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetFindingStateRequest})
 
 (defn folders-sources-findings-setMute
   "Updates the mute state of a finding.
@@ -87,14 +82,13 @@ name <>
 SetMuteRequest:
 SetMuteRequest"
   [name SetMuteRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+name}:setMute",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetMuteRequest}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+name}:setMute",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetMuteRequest})
 
 (defn folders-sources-findings-patch
   "Creates or updates a finding. The corresponding source must exist for a finding creation to succeed.
@@ -108,14 +102,12 @@ optional:
 updateMask <string> The FieldMask to use when updating the finding resource. This field should not be specified when creating a finding. When updating a finding, an empty mask is treated as updating all mutable fields and replacing source_properties. Individual source_properties can be added/updated by using \"source_properties.\" in the field mask."
   ([name Finding] (folders-sources-findings-patch name Finding nil))
   ([name Finding optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Finding})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Finding}))
 
 (defn folders-sources-findings-updateSecurityMarks
   "Updates security marks.
@@ -134,14 +126,12 @@ startTime <string> The time at which the updated SecurityMarks take effect. If n
       SecurityMarks
       nil))
   ([name SecurityMarks optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body SecurityMarks})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body SecurityMarks}))
 
 (defn folders-sources-findings-externalSystems-patch
   "Updates external system. This is for a given finding.
@@ -159,14 +149,12 @@ updateMask <string> The FieldMask to use when updating the external system resou
       GoogleCloudSecuritycenterV1ExternalSystem
       nil))
   ([name GoogleCloudSecuritycenterV1ExternalSystem optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudSecuritycenterV1ExternalSystem})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudSecuritycenterV1ExternalSystem}))
 
 (defn folders-muteConfigs-create
   "Creates a mute config.
@@ -184,14 +172,13 @@ muteConfigId <string> Required. Unique identifier provided by the client within 
       GoogleCloudSecuritycenterV1MuteConfig
       nil))
   ([parent GoogleCloudSecuritycenterV1MuteConfig optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/muteConfigs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudSecuritycenterV1MuteConfig})))
+    {:method :post,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/muteConfigs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudSecuritycenterV1MuteConfig}))
 
 (defn folders-muteConfigs-delete
   "Deletes an existing mute config.
@@ -199,12 +186,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn folders-muteConfigs-get
   "Gets a mute config.
@@ -212,12 +198,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn folders-muteConfigs-list
   "Lists mute configs.
@@ -229,13 +214,12 @@ optional:
 pageSize <integer> The maximum number of configs to return. The service may return fewer than this value. If unspecified, at most 10 configs will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (folders-muteConfigs-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/muteConfigs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/muteConfigs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn folders-muteConfigs-patch
   "Updates a mute config.
@@ -253,14 +237,12 @@ updateMask <string> The list of fields to be updated. If empty all mutable field
       GoogleCloudSecuritycenterV1MuteConfig
       nil))
   ([name GoogleCloudSecuritycenterV1MuteConfig optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudSecuritycenterV1MuteConfig})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudSecuritycenterV1MuteConfig}))
 
 (defn folders-notificationConfigs-create
   "Creates a notification config.
@@ -275,14 +257,13 @@ configId <string> Required. Unique identifier provided by the client within the 
   ([parent NotificationConfig]
     (folders-notificationConfigs-create parent NotificationConfig nil))
   ([parent NotificationConfig optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/notificationConfigs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body NotificationConfig})))
+    {:method :post,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/notificationConfigs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body NotificationConfig}))
 
 (defn folders-notificationConfigs-delete
   "Deletes a notification config.
@@ -290,12 +271,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn folders-notificationConfigs-get
   "Gets a notification config.
@@ -303,12 +283,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn folders-notificationConfigs-list
   "Lists notification configs.
@@ -320,13 +299,12 @@ optional:
 pageSize <integer> The maximum number of results to return in a single response. Default is 10, minimum is 1, maximum is 1000."
   ([parent] (folders-notificationConfigs-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/notificationConfigs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/notificationConfigs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn folders-notificationConfigs-patch
   " Updates a notification config. The following update fields are allowed: description, pubsub_topic, streaming_config.filter
@@ -341,14 +319,12 @@ updateMask <string> The FieldMask to use when updating the notification config. 
   ([name NotificationConfig]
     (folders-notificationConfigs-patch name NotificationConfig nil))
   ([name NotificationConfig optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body NotificationConfig})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body NotificationConfig}))
 
 (defn folders-findings-bulkMute
   "Kicks off an LRO to bulk mute findings for a parent based on a filter. The parent can be either an organization, folder or project. The findings matched by the filter will be muted after the LRO is done.
@@ -358,14 +334,13 @@ parent <>
 BulkMuteFindingsRequest:
 BulkMuteFindingsRequest"
   [parent BulkMuteFindingsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+parent}/findings:bulkMute",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body BulkMuteFindingsRequest}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+parent}/findings:bulkMute",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body BulkMuteFindingsRequest})
 
 (defn folders-locations-muteConfigs-create
   "Creates a mute config.
@@ -383,14 +358,13 @@ muteConfigId <string> Required. Unique identifier provided by the client within 
       GoogleCloudSecuritycenterV1MuteConfig
       nil))
   ([parent GoogleCloudSecuritycenterV1MuteConfig optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/muteConfigs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudSecuritycenterV1MuteConfig})))
+    {:method :post,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/muteConfigs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudSecuritycenterV1MuteConfig}))
 
 (defn folders-locations-muteConfigs-delete
   "Deletes an existing mute config.
@@ -398,12 +372,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn folders-locations-muteConfigs-get
   "Gets a mute config.
@@ -411,12 +384,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn folders-locations-muteConfigs-list
   "Lists mute configs.
@@ -428,13 +400,12 @@ optional:
 pageSize <integer> The maximum number of configs to return. The service may return fewer than this value. If unspecified, at most 10 configs will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (folders-locations-muteConfigs-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn folders-locations-muteConfigs-patch
   "Updates a mute config.
@@ -452,14 +423,12 @@ updateMask <string> The list of fields to be updated. If empty all mutable field
       GoogleCloudSecuritycenterV1MuteConfig
       nil))
   ([name GoogleCloudSecuritycenterV1MuteConfig optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudSecuritycenterV1MuteConfig})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudSecuritycenterV1MuteConfig}))
 
 (defn folders-eventThreatDetectionSettings-validateCustomModule
   "Validates the given Event Threat Detection custom module.
@@ -469,14 +438,13 @@ parent <>
 ValidateEventThreatDetectionCustomModuleRequest:
 ValidateEventThreatDetectionCustomModuleRequest"
   [parent ValidateEventThreatDetectionCustomModuleRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+parent}:validateCustomModule",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body ValidateEventThreatDetectionCustomModuleRequest}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+parent}:validateCustomModule",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body ValidateEventThreatDetectionCustomModuleRequest})
 
 (defn folders-eventThreatDetectionSettings-customModules-create
   "Creates a resident Event Threat Detection custom module at the scope of the given Resource Manager parent, and also creates inherited custom modules for all descendants of the given parent. These modules are enabled by default.
@@ -486,14 +454,13 @@ parent <>
 EventThreatDetectionCustomModule:
 EventThreatDetectionCustomModule"
   [parent EventThreatDetectionCustomModule]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body EventThreatDetectionCustomModule}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body EventThreatDetectionCustomModule})
 
 (defn folders-eventThreatDetectionSettings-customModules-delete
   "Deletes the specified Event Threat Detection custom module and all of its descendants in the Resource Manager hierarchy. This method is only supported for resident custom modules.
@@ -501,12 +468,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn folders-eventThreatDetectionSettings-customModules-get
   "Gets an Event Threat Detection custom module.
@@ -514,12 +480,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn folders-eventThreatDetectionSettings-customModules-listDescendant
   "Lists all resident Event Threat Detection custom modules under the given Resource Manager parent and its descendants.
@@ -534,13 +499,12 @@ pageSize <integer> The maximum number of modules to return. The service may retu
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/customModules:listDescendant",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/customModules:listDescendant",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn folders-eventThreatDetectionSettings-customModules-list
   "Lists all Event Threat Detection custom modules for the given Resource Manager parent. This includes resident modules defined at the scope of the parent along with modules inherited from ancestors.
@@ -555,13 +519,12 @@ pageSize <integer> The maximum number of modules to return. The service may retu
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn folders-eventThreatDetectionSettings-customModules-patch
   "Updates the Event Threat Detection custom module with the given name based on the given update mask. Updating the enablement state is supported for both resident and inherited modules (though resident modules cannot have an enablement state of \"inherited\"). Updating the display name or configuration of a module is supported for resident modules only. The type of a module cannot be changed.
@@ -579,14 +542,12 @@ updateMask <string> The list of fields to be updated. If empty all mutable field
       EventThreatDetectionCustomModule
       nil))
   ([name EventThreatDetectionCustomModule optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body EventThreatDetectionCustomModule})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body EventThreatDetectionCustomModule}))
 
 (defn folders-eventThreatDetectionSettings-effectiveCustomModules-get
   "Gets an effective Event Threat Detection custom module at the given level.
@@ -594,12 +555,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn folders-eventThreatDetectionSettings-effectiveCustomModules-list
   "Lists all effective Event Threat Detection custom modules for the given parent. This includes resident modules defined at the scope of the parent along with modules inherited from its ancestors.
@@ -614,13 +574,12 @@ pageSize <integer> The maximum number of modules to return. The service may retu
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/effectiveCustomModules",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/effectiveCustomModules",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn folders-securityHealthAnalyticsSettings-customModules-create
   "Creates a resident SecurityHealthAnalyticsCustomModule at the scope of the given CRM parent, and also creates inherited SecurityHealthAnalyticsCustomModules for all CRM descendants of the given parent. These modules are enabled by default.
@@ -631,15 +590,14 @@ GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule:
 GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule"
   [parent
    GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body
-     GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body
+   GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule})
 
 (defn folders-securityHealthAnalyticsSettings-customModules-delete
   "Deletes the specified SecurityHealthAnalyticsCustomModule and all of its descendants in the CRM hierarchy. This method is only supported for resident custom modules.
@@ -647,12 +605,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn folders-securityHealthAnalyticsSettings-customModules-get
   "Retrieves a SecurityHealthAnalyticsCustomModule.
@@ -660,12 +617,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn folders-securityHealthAnalyticsSettings-customModules-listDescendant
   "Returns a list of all resident SecurityHealthAnalyticsCustomModules under the given CRM parent and all of the parent’s CRM descendants.
@@ -680,13 +636,12 @@ pageSize <integer> The maximum number of results to return in a single response.
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/customModules:listDescendant",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/customModules:listDescendant",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn folders-securityHealthAnalyticsSettings-customModules-list
   "Returns a list of all SecurityHealthAnalyticsCustomModules for the given parent. This includes resident modules defined at the scope of the parent, and inherited modules, inherited from CRM ancestors.
@@ -701,13 +656,12 @@ pageSize <integer> The maximum number of results to return in a single response.
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn folders-securityHealthAnalyticsSettings-customModules-simulate
   "Simulates a given SecurityHealthAnalyticsCustomModule and Resource.
@@ -717,14 +671,13 @@ parent <>
 SimulateSecurityHealthAnalyticsCustomModuleRequest:
 SimulateSecurityHealthAnalyticsCustomModuleRequest"
   [parent SimulateSecurityHealthAnalyticsCustomModuleRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+parent}/customModules:simulate",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SimulateSecurityHealthAnalyticsCustomModuleRequest}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+parent}/customModules:simulate",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SimulateSecurityHealthAnalyticsCustomModuleRequest})
 
 (defn folders-securityHealthAnalyticsSettings-customModules-patch
   "Updates the SecurityHealthAnalyticsCustomModule under the given name based on the given update mask. Updating the enablement state is supported on both resident and inherited modules (though resident modules cannot have an enablement state of \"inherited\"). Updating the display name and custom config of a module is supported on resident modules only.
@@ -745,15 +698,13 @@ updateMask <string> The list of fields to be updated. The only fields that can b
   ([name
     GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule
     optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body
-       GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body
+     GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule}))
 
 (defn folders-securityHealthAnalyticsSettings-effectiveCustomModules-get
   "Retrieves an EffectiveSecurityHealthAnalyticsCustomModule.
@@ -761,12 +712,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn folders-securityHealthAnalyticsSettings-effectiveCustomModules-list
   "Returns a list of all EffectiveSecurityHealthAnalyticsCustomModules for the given parent. This includes resident modules defined at the scope of the parent, and inherited modules, inherited from CRM ancestors.
@@ -781,13 +731,12 @@ pageSize <integer> The maximum number of results to return in a single response.
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/effectiveCustomModules",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/effectiveCustomModules",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn folders-bigQueryExports-get
   "Gets a BigQuery export.
@@ -795,12 +744,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn folders-bigQueryExports-create
   "Creates a BigQuery export.
@@ -818,14 +766,13 @@ bigQueryExportId <string> Required. Unique identifier provided by the client wit
       GoogleCloudSecuritycenterV1BigQueryExport
       nil))
   ([parent GoogleCloudSecuritycenterV1BigQueryExport optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/bigQueryExports",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudSecuritycenterV1BigQueryExport})))
+    {:method :post,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/bigQueryExports",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudSecuritycenterV1BigQueryExport}))
 
 (defn folders-bigQueryExports-delete
   "Deletes an existing BigQuery export.
@@ -833,12 +780,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn folders-bigQueryExports-patch
   "Updates a BigQuery export.
@@ -856,14 +802,12 @@ updateMask <string> The list of fields to be updated. If empty all mutable field
       GoogleCloudSecuritycenterV1BigQueryExport
       nil))
   ([name GoogleCloudSecuritycenterV1BigQueryExport optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudSecuritycenterV1BigQueryExport})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudSecuritycenterV1BigQueryExport}))
 
 (defn folders-bigQueryExports-list
   "Lists BigQuery exports. Note that when requesting BigQuery exports at a given level all exports under that level are also returned e.g. if requesting BigQuery exports under a folder, then all BigQuery exports immediately under the folder plus the ones created under the projects within the folder are returned.
@@ -875,13 +819,12 @@ optional:
 pageSize <integer> The maximum number of configs to return. The service may return fewer than this value. If unspecified, at most 10 configs will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (folders-bigQueryExports-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/bigQueryExports",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/bigQueryExports",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn folders-assets-group
   "Filters an organization's assets and groups them by their specified properties.
@@ -891,14 +834,13 @@ parent <>
 GroupAssetsRequest:
 GroupAssetsRequest"
   [parent GroupAssetsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+parent}/assets:group",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GroupAssetsRequest}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+parent}/assets:group",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GroupAssetsRequest})
 
 (defn folders-assets-list
   "Lists an organization's assets.
@@ -915,13 +857,12 @@ fieldMask <string> A field mask to specify the ListAssetsResult fields to be lis
 pageSize <integer> The maximum number of results to return in a single response. Default is 10, minimum is 1, maximum is 1000."
   ([parent] (folders-assets-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/assets",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/assets",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn folders-assets-updateSecurityMarks
   "Updates security marks.
@@ -937,14 +878,12 @@ startTime <string> The time at which the updated SecurityMarks take effect. If n
   ([name SecurityMarks]
     (folders-assets-updateSecurityMarks name SecurityMarks nil))
   ([name SecurityMarks optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body SecurityMarks})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body SecurityMarks}))
 
 (defn projects-sources-list
   "Lists all sources belonging to an organization.
@@ -956,13 +895,12 @@ optional:
 pageSize <integer> The maximum number of results to return in a single response. Default is 10, minimum is 1, maximum is 1000."
   ([parent] (projects-sources-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/sources",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/sources",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-sources-findings-group
   "Filters an organization or source's findings and groups them by their specified properties. To group across all sources provide a `-` as the source id. Example: /v1/organizations/{organization_id}/sources/-/findings, /v1/folders/{folder_id}/sources/-/findings, /v1/projects/{project_id}/sources/-/findings
@@ -972,14 +910,13 @@ parent <>
 GroupFindingsRequest:
 GroupFindingsRequest"
   [parent GroupFindingsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+parent}/findings:group",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GroupFindingsRequest}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+parent}/findings:group",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GroupFindingsRequest})
 
 (defn projects-sources-findings-list
   "Lists an organization or source's findings. To list across all sources provide a `-` as the source id. Example: /v1/organizations/{organization_id}/sources/-/findings
@@ -996,13 +933,12 @@ fieldMask <string> A field mask to specify the Finding fields to be listed in th
 pageSize <integer> The maximum number of results to return in a single response. Default is 10, minimum is 1, maximum is 1000."
   ([parent] (projects-sources-findings-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/findings",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/findings",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-sources-findings-setState
   "Updates the state of a finding.
@@ -1012,14 +948,13 @@ name <>
 SetFindingStateRequest:
 SetFindingStateRequest"
   [name SetFindingStateRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+name}:setState",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetFindingStateRequest}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+name}:setState",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetFindingStateRequest})
 
 (defn projects-sources-findings-setMute
   "Updates the mute state of a finding.
@@ -1029,14 +964,13 @@ name <>
 SetMuteRequest:
 SetMuteRequest"
   [name SetMuteRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+name}:setMute",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetMuteRequest}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+name}:setMute",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetMuteRequest})
 
 (defn projects-sources-findings-patch
   "Creates or updates a finding. The corresponding source must exist for a finding creation to succeed.
@@ -1050,14 +984,12 @@ optional:
 updateMask <string> The FieldMask to use when updating the finding resource. This field should not be specified when creating a finding. When updating a finding, an empty mask is treated as updating all mutable fields and replacing source_properties. Individual source_properties can be added/updated by using \"source_properties.\" in the field mask."
   ([name Finding] (projects-sources-findings-patch name Finding nil))
   ([name Finding optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Finding})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Finding}))
 
 (defn projects-sources-findings-updateSecurityMarks
   "Updates security marks.
@@ -1076,14 +1008,12 @@ startTime <string> The time at which the updated SecurityMarks take effect. If n
       SecurityMarks
       nil))
   ([name SecurityMarks optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body SecurityMarks})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body SecurityMarks}))
 
 (defn projects-sources-findings-externalSystems-patch
   "Updates external system. This is for a given finding.
@@ -1101,14 +1031,12 @@ updateMask <string> The FieldMask to use when updating the external system resou
       GoogleCloudSecuritycenterV1ExternalSystem
       nil))
   ([name GoogleCloudSecuritycenterV1ExternalSystem optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudSecuritycenterV1ExternalSystem})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudSecuritycenterV1ExternalSystem}))
 
 (defn projects-muteConfigs-create
   "Creates a mute config.
@@ -1126,14 +1054,13 @@ muteConfigId <string> Required. Unique identifier provided by the client within 
       GoogleCloudSecuritycenterV1MuteConfig
       nil))
   ([parent GoogleCloudSecuritycenterV1MuteConfig optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/muteConfigs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudSecuritycenterV1MuteConfig})))
+    {:method :post,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/muteConfigs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudSecuritycenterV1MuteConfig}))
 
 (defn projects-muteConfigs-delete
   "Deletes an existing mute config.
@@ -1141,12 +1068,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-muteConfigs-get
   "Gets a mute config.
@@ -1154,12 +1080,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-muteConfigs-list
   "Lists mute configs.
@@ -1171,13 +1096,12 @@ optional:
 pageSize <integer> The maximum number of configs to return. The service may return fewer than this value. If unspecified, at most 10 configs will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (projects-muteConfigs-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/muteConfigs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/muteConfigs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-muteConfigs-patch
   "Updates a mute config.
@@ -1195,14 +1119,12 @@ updateMask <string> The list of fields to be updated. If empty all mutable field
       GoogleCloudSecuritycenterV1MuteConfig
       nil))
   ([name GoogleCloudSecuritycenterV1MuteConfig optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudSecuritycenterV1MuteConfig})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudSecuritycenterV1MuteConfig}))
 
 (defn projects-notificationConfigs-create
   "Creates a notification config.
@@ -1220,14 +1142,13 @@ configId <string> Required. Unique identifier provided by the client within the 
       NotificationConfig
       nil))
   ([parent NotificationConfig optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/notificationConfigs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body NotificationConfig})))
+    {:method :post,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/notificationConfigs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body NotificationConfig}))
 
 (defn projects-notificationConfigs-delete
   "Deletes a notification config.
@@ -1235,12 +1156,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-notificationConfigs-get
   "Gets a notification config.
@@ -1248,12 +1168,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-notificationConfigs-list
   "Lists notification configs.
@@ -1265,13 +1184,12 @@ optional:
 pageSize <integer> The maximum number of results to return in a single response. Default is 10, minimum is 1, maximum is 1000."
   ([parent] (projects-notificationConfigs-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/notificationConfigs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/notificationConfigs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-notificationConfigs-patch
   " Updates a notification config. The following update fields are allowed: description, pubsub_topic, streaming_config.filter
@@ -1286,14 +1204,12 @@ updateMask <string> The FieldMask to use when updating the notification config. 
   ([name NotificationConfig]
     (projects-notificationConfigs-patch name NotificationConfig nil))
   ([name NotificationConfig optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body NotificationConfig})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body NotificationConfig}))
 
 (defn projects-findings-bulkMute
   "Kicks off an LRO to bulk mute findings for a parent based on a filter. The parent can be either an organization, folder or project. The findings matched by the filter will be muted after the LRO is done.
@@ -1303,14 +1219,13 @@ parent <>
 BulkMuteFindingsRequest:
 BulkMuteFindingsRequest"
   [parent BulkMuteFindingsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+parent}/findings:bulkMute",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body BulkMuteFindingsRequest}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+parent}/findings:bulkMute",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body BulkMuteFindingsRequest})
 
 (defn projects-locations-muteConfigs-create
   "Creates a mute config.
@@ -1328,14 +1243,13 @@ muteConfigId <string> Required. Unique identifier provided by the client within 
       GoogleCloudSecuritycenterV1MuteConfig
       nil))
   ([parent GoogleCloudSecuritycenterV1MuteConfig optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/muteConfigs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudSecuritycenterV1MuteConfig})))
+    {:method :post,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/muteConfigs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudSecuritycenterV1MuteConfig}))
 
 (defn projects-locations-muteConfigs-delete
   "Deletes an existing mute config.
@@ -1343,12 +1257,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-muteConfigs-get
   "Gets a mute config.
@@ -1356,12 +1269,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-muteConfigs-list
   "Lists mute configs.
@@ -1373,13 +1285,12 @@ optional:
 pageSize <integer> The maximum number of configs to return. The service may return fewer than this value. If unspecified, at most 10 configs will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (projects-locations-muteConfigs-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-muteConfigs-patch
   "Updates a mute config.
@@ -1397,14 +1308,12 @@ updateMask <string> The list of fields to be updated. If empty all mutable field
       GoogleCloudSecuritycenterV1MuteConfig
       nil))
   ([name GoogleCloudSecuritycenterV1MuteConfig optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudSecuritycenterV1MuteConfig})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudSecuritycenterV1MuteConfig}))
 
 (defn projects-eventThreatDetectionSettings-validateCustomModule
   "Validates the given Event Threat Detection custom module.
@@ -1414,14 +1323,13 @@ parent <>
 ValidateEventThreatDetectionCustomModuleRequest:
 ValidateEventThreatDetectionCustomModuleRequest"
   [parent ValidateEventThreatDetectionCustomModuleRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+parent}:validateCustomModule",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body ValidateEventThreatDetectionCustomModuleRequest}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+parent}:validateCustomModule",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body ValidateEventThreatDetectionCustomModuleRequest})
 
 (defn projects-eventThreatDetectionSettings-customModules-create
   "Creates a resident Event Threat Detection custom module at the scope of the given Resource Manager parent, and also creates inherited custom modules for all descendants of the given parent. These modules are enabled by default.
@@ -1431,14 +1339,13 @@ parent <>
 EventThreatDetectionCustomModule:
 EventThreatDetectionCustomModule"
   [parent EventThreatDetectionCustomModule]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body EventThreatDetectionCustomModule}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body EventThreatDetectionCustomModule})
 
 (defn projects-eventThreatDetectionSettings-customModules-delete
   "Deletes the specified Event Threat Detection custom module and all of its descendants in the Resource Manager hierarchy. This method is only supported for resident custom modules.
@@ -1446,12 +1353,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-eventThreatDetectionSettings-customModules-get
   "Gets an Event Threat Detection custom module.
@@ -1459,12 +1365,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-eventThreatDetectionSettings-customModules-listDescendant
   "Lists all resident Event Threat Detection custom modules under the given Resource Manager parent and its descendants.
@@ -1479,13 +1384,12 @@ pageSize <integer> The maximum number of modules to return. The service may retu
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/customModules:listDescendant",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/customModules:listDescendant",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-eventThreatDetectionSettings-customModules-list
   "Lists all Event Threat Detection custom modules for the given Resource Manager parent. This includes resident modules defined at the scope of the parent along with modules inherited from ancestors.
@@ -1500,13 +1404,12 @@ pageSize <integer> The maximum number of modules to return. The service may retu
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-eventThreatDetectionSettings-customModules-patch
   "Updates the Event Threat Detection custom module with the given name based on the given update mask. Updating the enablement state is supported for both resident and inherited modules (though resident modules cannot have an enablement state of \"inherited\"). Updating the display name or configuration of a module is supported for resident modules only. The type of a module cannot be changed.
@@ -1524,14 +1427,12 @@ updateMask <string> The list of fields to be updated. If empty all mutable field
       EventThreatDetectionCustomModule
       nil))
   ([name EventThreatDetectionCustomModule optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body EventThreatDetectionCustomModule})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body EventThreatDetectionCustomModule}))
 
 (defn projects-eventThreatDetectionSettings-effectiveCustomModules-get
   "Gets an effective Event Threat Detection custom module at the given level.
@@ -1539,12 +1440,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-eventThreatDetectionSettings-effectiveCustomModules-list
   "Lists all effective Event Threat Detection custom modules for the given parent. This includes resident modules defined at the scope of the parent along with modules inherited from its ancestors.
@@ -1559,13 +1459,12 @@ pageSize <integer> The maximum number of modules to return. The service may retu
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/effectiveCustomModules",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/effectiveCustomModules",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-securityHealthAnalyticsSettings-customModules-create
   "Creates a resident SecurityHealthAnalyticsCustomModule at the scope of the given CRM parent, and also creates inherited SecurityHealthAnalyticsCustomModules for all CRM descendants of the given parent. These modules are enabled by default.
@@ -1576,15 +1475,14 @@ GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule:
 GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule"
   [parent
    GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body
-     GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body
+   GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule})
 
 (defn projects-securityHealthAnalyticsSettings-customModules-delete
   "Deletes the specified SecurityHealthAnalyticsCustomModule and all of its descendants in the CRM hierarchy. This method is only supported for resident custom modules.
@@ -1592,12 +1490,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-securityHealthAnalyticsSettings-customModules-get
   "Retrieves a SecurityHealthAnalyticsCustomModule.
@@ -1605,12 +1502,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-securityHealthAnalyticsSettings-customModules-listDescendant
   "Returns a list of all resident SecurityHealthAnalyticsCustomModules under the given CRM parent and all of the parent’s CRM descendants.
@@ -1625,13 +1521,12 @@ pageSize <integer> The maximum number of results to return in a single response.
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/customModules:listDescendant",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/customModules:listDescendant",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-securityHealthAnalyticsSettings-customModules-list
   "Returns a list of all SecurityHealthAnalyticsCustomModules for the given parent. This includes resident modules defined at the scope of the parent, and inherited modules, inherited from CRM ancestors.
@@ -1646,13 +1541,12 @@ pageSize <integer> The maximum number of results to return in a single response.
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-securityHealthAnalyticsSettings-customModules-simulate
   "Simulates a given SecurityHealthAnalyticsCustomModule and Resource.
@@ -1662,14 +1556,13 @@ parent <>
 SimulateSecurityHealthAnalyticsCustomModuleRequest:
 SimulateSecurityHealthAnalyticsCustomModuleRequest"
   [parent SimulateSecurityHealthAnalyticsCustomModuleRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+parent}/customModules:simulate",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SimulateSecurityHealthAnalyticsCustomModuleRequest}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+parent}/customModules:simulate",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SimulateSecurityHealthAnalyticsCustomModuleRequest})
 
 (defn projects-securityHealthAnalyticsSettings-customModules-patch
   "Updates the SecurityHealthAnalyticsCustomModule under the given name based on the given update mask. Updating the enablement state is supported on both resident and inherited modules (though resident modules cannot have an enablement state of \"inherited\"). Updating the display name and custom config of a module is supported on resident modules only.
@@ -1690,15 +1583,13 @@ updateMask <string> The list of fields to be updated. The only fields that can b
   ([name
     GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule
     optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body
-       GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body
+     GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule}))
 
 (defn projects-securityHealthAnalyticsSettings-effectiveCustomModules-get
   "Retrieves an EffectiveSecurityHealthAnalyticsCustomModule.
@@ -1706,12 +1597,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-securityHealthAnalyticsSettings-effectiveCustomModules-list
   "Returns a list of all EffectiveSecurityHealthAnalyticsCustomModules for the given parent. This includes resident modules defined at the scope of the parent, and inherited modules, inherited from CRM ancestors.
@@ -1726,13 +1616,12 @@ pageSize <integer> The maximum number of results to return in a single response.
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/effectiveCustomModules",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/effectiveCustomModules",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-bigQueryExports-get
   "Gets a BigQuery export.
@@ -1740,12 +1629,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-bigQueryExports-create
   "Creates a BigQuery export.
@@ -1763,14 +1651,13 @@ bigQueryExportId <string> Required. Unique identifier provided by the client wit
       GoogleCloudSecuritycenterV1BigQueryExport
       nil))
   ([parent GoogleCloudSecuritycenterV1BigQueryExport optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/bigQueryExports",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudSecuritycenterV1BigQueryExport})))
+    {:method :post,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/bigQueryExports",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudSecuritycenterV1BigQueryExport}))
 
 (defn projects-bigQueryExports-delete
   "Deletes an existing BigQuery export.
@@ -1778,12 +1665,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-bigQueryExports-patch
   "Updates a BigQuery export.
@@ -1801,14 +1687,12 @@ updateMask <string> The list of fields to be updated. If empty all mutable field
       GoogleCloudSecuritycenterV1BigQueryExport
       nil))
   ([name GoogleCloudSecuritycenterV1BigQueryExport optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudSecuritycenterV1BigQueryExport})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudSecuritycenterV1BigQueryExport}))
 
 (defn projects-bigQueryExports-list
   "Lists BigQuery exports. Note that when requesting BigQuery exports at a given level all exports under that level are also returned e.g. if requesting BigQuery exports under a folder, then all BigQuery exports immediately under the folder plus the ones created under the projects within the folder are returned.
@@ -1820,13 +1704,12 @@ optional:
 pageSize <integer> The maximum number of configs to return. The service may return fewer than this value. If unspecified, at most 10 configs will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (projects-bigQueryExports-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/bigQueryExports",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/bigQueryExports",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-assets-group
   "Filters an organization's assets and groups them by their specified properties.
@@ -1836,14 +1719,13 @@ parent <>
 GroupAssetsRequest:
 GroupAssetsRequest"
   [parent GroupAssetsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+parent}/assets:group",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GroupAssetsRequest}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+parent}/assets:group",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GroupAssetsRequest})
 
 (defn projects-assets-list
   "Lists an organization's assets.
@@ -1860,13 +1742,12 @@ fieldMask <string> A field mask to specify the ListAssetsResult fields to be lis
 pageSize <integer> The maximum number of results to return in a single response. Default is 10, minimum is 1, maximum is 1000."
   ([parent] (projects-assets-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/assets",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/assets",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-assets-updateSecurityMarks
   "Updates security marks.
@@ -1882,14 +1763,12 @@ startTime <string> The time at which the updated SecurityMarks take effect. If n
   ([name SecurityMarks]
     (projects-assets-updateSecurityMarks name SecurityMarks nil))
   ([name SecurityMarks optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body SecurityMarks})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body SecurityMarks}))
 
 (defn organizations-getOrganizationSettings
   "Gets the settings for an organization.
@@ -1897,12 +1776,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-updateOrganizationSettings
   "Updates an organization's settings.
@@ -1920,14 +1798,12 @@ updateMask <string> The FieldMask to use when updating the settings resource. If
       OrganizationSettings
       nil))
   ([name OrganizationSettings optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body OrganizationSettings})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body OrganizationSettings}))
 
 (defn organizations-sources-create
   "Creates a source.
@@ -1937,14 +1813,13 @@ parent <>
 Source:
 Source"
   [parent Source]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+parent}/sources",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body Source}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+parent}/sources",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body Source})
 
 (defn organizations-sources-getIamPolicy
   "Gets the access control policy on the specified Source.
@@ -1954,14 +1829,13 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+resource}:getIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+resource}:getIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GetIamPolicyRequest})
 
 (defn organizations-sources-get
   "Gets a source.
@@ -1969,12 +1843,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-sources-list
   "Lists all sources belonging to an organization.
@@ -1986,13 +1859,12 @@ optional:
 pageSize <integer> The maximum number of results to return in a single response. Default is 10, minimum is 1, maximum is 1000."
   ([parent] (organizations-sources-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/sources",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/sources",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-sources-setIamPolicy
   "Sets the access control policy on the specified Source.
@@ -2002,14 +1874,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn organizations-sources-testIamPermissions
   "Returns the permissions that a caller has on the specified source.
@@ -2019,14 +1890,13 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})
 
 (defn organizations-sources-patch
   "Updates a source.
@@ -2040,14 +1910,12 @@ optional:
 updateMask <string> The FieldMask to use when updating the source resource. If empty all mutable fields will be updated."
   ([name Source] (organizations-sources-patch name Source nil))
   ([name Source optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Source})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Source}))
 
 (defn organizations-sources-findings-create
   "Creates a finding. The corresponding source must exist for finding creation to succeed.
@@ -2062,14 +1930,13 @@ findingId <string> Required. Unique identifier provided by the client within the
   ([parent Finding]
     (organizations-sources-findings-create parent Finding nil))
   ([parent Finding optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/findings",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Finding})))
+    {:method :post,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/findings",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Finding}))
 
 (defn organizations-sources-findings-group
   "Filters an organization or source's findings and groups them by their specified properties. To group across all sources provide a `-` as the source id. Example: /v1/organizations/{organization_id}/sources/-/findings, /v1/folders/{folder_id}/sources/-/findings, /v1/projects/{project_id}/sources/-/findings
@@ -2079,14 +1946,13 @@ parent <>
 GroupFindingsRequest:
 GroupFindingsRequest"
   [parent GroupFindingsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+parent}/findings:group",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GroupFindingsRequest}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+parent}/findings:group",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GroupFindingsRequest})
 
 (defn organizations-sources-findings-list
   "Lists an organization or source's findings. To list across all sources provide a `-` as the source id. Example: /v1/organizations/{organization_id}/sources/-/findings
@@ -2103,13 +1969,12 @@ fieldMask <string> A field mask to specify the Finding fields to be listed in th
 pageSize <integer> The maximum number of results to return in a single response. Default is 10, minimum is 1, maximum is 1000."
   ([parent] (organizations-sources-findings-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/findings",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/findings",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-sources-findings-setState
   "Updates the state of a finding.
@@ -2119,14 +1984,13 @@ name <>
 SetFindingStateRequest:
 SetFindingStateRequest"
   [name SetFindingStateRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+name}:setState",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetFindingStateRequest}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+name}:setState",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetFindingStateRequest})
 
 (defn organizations-sources-findings-setMute
   "Updates the mute state of a finding.
@@ -2136,14 +2000,13 @@ name <>
 SetMuteRequest:
 SetMuteRequest"
   [name SetMuteRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+name}:setMute",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetMuteRequest}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+name}:setMute",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetMuteRequest})
 
 (defn organizations-sources-findings-patch
   "Creates or updates a finding. The corresponding source must exist for a finding creation to succeed.
@@ -2158,14 +2021,12 @@ updateMask <string> The FieldMask to use when updating the finding resource. Thi
   ([name Finding]
     (organizations-sources-findings-patch name Finding nil))
   ([name Finding optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Finding})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Finding}))
 
 (defn organizations-sources-findings-updateSecurityMarks
   "Updates security marks.
@@ -2184,14 +2045,12 @@ startTime <string> The time at which the updated SecurityMarks take effect. If n
       SecurityMarks
       nil))
   ([name SecurityMarks optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body SecurityMarks})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body SecurityMarks}))
 
 (defn organizations-sources-findings-externalSystems-patch
   "Updates external system. This is for a given finding.
@@ -2209,14 +2068,12 @@ updateMask <string> The FieldMask to use when updating the external system resou
       GoogleCloudSecuritycenterV1ExternalSystem
       nil))
   ([name GoogleCloudSecuritycenterV1ExternalSystem optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudSecuritycenterV1ExternalSystem})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudSecuritycenterV1ExternalSystem}))
 
 (defn organizations-resourceValueConfigs-batchCreate
   "Creates a ResourceValueConfig for an organization. Maps user's tags to difference resource values for use by the attack path simulation.
@@ -2226,14 +2083,13 @@ parent <>
 BatchCreateResourceValueConfigsRequest:
 BatchCreateResourceValueConfigsRequest"
   [parent BatchCreateResourceValueConfigsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+parent}/resourceValueConfigs:batchCreate",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body BatchCreateResourceValueConfigsRequest}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+parent}/resourceValueConfigs:batchCreate",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body BatchCreateResourceValueConfigsRequest})
 
 (defn organizations-resourceValueConfigs-delete
   "Deletes a ResourceValueConfig.
@@ -2241,12 +2097,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-resourceValueConfigs-get
   "Gets a ResourceValueConfig.
@@ -2254,12 +2109,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-resourceValueConfigs-list
   "Lists all ResourceValueConfigs.
@@ -2271,13 +2125,12 @@ optional:
 pageSize <integer> The number of results to return. The service may return fewer than this value. If unspecified, at most 10 configs will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (organizations-resourceValueConfigs-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/resourceValueConfigs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/resourceValueConfigs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-resourceValueConfigs-patch
   "Updates an existing ResourceValueConfigs with new rules.
@@ -2295,14 +2148,12 @@ updateMask <string> The list of fields to be updated. If empty all mutable field
       GoogleCloudSecuritycenterV1ResourceValueConfig
       nil))
   ([name GoogleCloudSecuritycenterV1ResourceValueConfig optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudSecuritycenterV1ResourceValueConfig})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudSecuritycenterV1ResourceValueConfig}))
 
 (defn organizations-muteConfigs-create
   "Creates a mute config.
@@ -2320,14 +2171,13 @@ muteConfigId <string> Required. Unique identifier provided by the client within 
       GoogleCloudSecuritycenterV1MuteConfig
       nil))
   ([parent GoogleCloudSecuritycenterV1MuteConfig optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/muteConfigs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudSecuritycenterV1MuteConfig})))
+    {:method :post,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/muteConfigs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudSecuritycenterV1MuteConfig}))
 
 (defn organizations-muteConfigs-delete
   "Deletes an existing mute config.
@@ -2335,12 +2185,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-muteConfigs-get
   "Gets a mute config.
@@ -2348,12 +2197,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-muteConfigs-list
   "Lists mute configs.
@@ -2365,13 +2213,12 @@ optional:
 pageSize <integer> The maximum number of configs to return. The service may return fewer than this value. If unspecified, at most 10 configs will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (organizations-muteConfigs-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/muteConfigs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/muteConfigs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-muteConfigs-patch
   "Updates a mute config.
@@ -2389,14 +2236,12 @@ updateMask <string> The list of fields to be updated. If empty all mutable field
       GoogleCloudSecuritycenterV1MuteConfig
       nil))
   ([name GoogleCloudSecuritycenterV1MuteConfig optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudSecuritycenterV1MuteConfig})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudSecuritycenterV1MuteConfig}))
 
 (defn organizations-notificationConfigs-create
   "Creates a notification config.
@@ -2414,14 +2259,13 @@ configId <string> Required. Unique identifier provided by the client within the 
       NotificationConfig
       nil))
   ([parent NotificationConfig optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/notificationConfigs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body NotificationConfig})))
+    {:method :post,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/notificationConfigs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body NotificationConfig}))
 
 (defn organizations-notificationConfigs-delete
   "Deletes a notification config.
@@ -2429,12 +2273,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-notificationConfigs-get
   "Gets a notification config.
@@ -2442,12 +2285,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-notificationConfigs-list
   "Lists notification configs.
@@ -2459,13 +2301,12 @@ optional:
 pageSize <integer> The maximum number of results to return in a single response. Default is 10, minimum is 1, maximum is 1000."
   ([parent] (organizations-notificationConfigs-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/notificationConfigs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/notificationConfigs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-notificationConfigs-patch
   " Updates a notification config. The following update fields are allowed: description, pubsub_topic, streaming_config.filter
@@ -2483,14 +2324,12 @@ updateMask <string> The FieldMask to use when updating the notification config. 
       NotificationConfig
       nil))
   ([name NotificationConfig optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body NotificationConfig})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body NotificationConfig}))
 
 (defn organizations-findings-bulkMute
   "Kicks off an LRO to bulk mute findings for a parent based on a filter. The parent can be either an organization, folder or project. The findings matched by the filter will be muted after the LRO is done.
@@ -2500,14 +2339,13 @@ parent <>
 BulkMuteFindingsRequest:
 BulkMuteFindingsRequest"
   [parent BulkMuteFindingsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+parent}/findings:bulkMute",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body BulkMuteFindingsRequest}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+parent}/findings:bulkMute",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body BulkMuteFindingsRequest})
 
 (defn organizations-locations-muteConfigs-create
   "Creates a mute config.
@@ -2525,14 +2363,13 @@ muteConfigId <string> Required. Unique identifier provided by the client within 
       GoogleCloudSecuritycenterV1MuteConfig
       nil))
   ([parent GoogleCloudSecuritycenterV1MuteConfig optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/muteConfigs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudSecuritycenterV1MuteConfig})))
+    {:method :post,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/muteConfigs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudSecuritycenterV1MuteConfig}))
 
 (defn organizations-locations-muteConfigs-delete
   "Deletes an existing mute config.
@@ -2540,12 +2377,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-locations-muteConfigs-get
   "Gets a mute config.
@@ -2553,12 +2389,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-locations-muteConfigs-list
   "Lists mute configs.
@@ -2570,13 +2405,12 @@ optional:
 pageSize <integer> The maximum number of configs to return. The service may return fewer than this value. If unspecified, at most 10 configs will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (organizations-locations-muteConfigs-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-locations-muteConfigs-patch
   "Updates a mute config.
@@ -2594,14 +2428,12 @@ updateMask <string> The list of fields to be updated. If empty all mutable field
       GoogleCloudSecuritycenterV1MuteConfig
       nil))
   ([name GoogleCloudSecuritycenterV1MuteConfig optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudSecuritycenterV1MuteConfig})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudSecuritycenterV1MuteConfig}))
 
 (defn organizations-simulations-get
   "Get the simulation by name or the latest simulation for the given organization.
@@ -2609,12 +2441,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-simulations-valuedResources-get
   "Get the valued resource by name
@@ -2622,12 +2453,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-simulations-valuedResources-list
   "Lists the valued resources for a set of simulation results and filter.
@@ -2642,13 +2472,12 @@ orderBy <string> Optional. The fields by which to order the valued resources res
   ([parent]
     (organizations-simulations-valuedResources-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/valuedResources",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/valuedResources",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-simulations-valuedResources-attackPaths-list
   "Lists the attack paths for a set of simulation results or valued resources and filter.
@@ -2664,13 +2493,12 @@ pageSize <integer> The maximum number of results to return in a single response.
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/attackPaths",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/attackPaths",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-simulations-attackExposureResults-valuedResources-list
   "Lists the valued resources for a set of simulation results and filter.
@@ -2687,13 +2515,12 @@ orderBy <string> Optional. The fields by which to order the valued resources res
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/valuedResources",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/valuedResources",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-simulations-attackExposureResults-attackPaths-list
   "Lists the attack paths for a set of simulation results or valued resources and filter.
@@ -2709,13 +2536,12 @@ pageSize <integer> The maximum number of results to return in a single response.
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/attackPaths",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/attackPaths",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-simulations-attackPaths-list
   "Lists the attack paths for a set of simulation results or valued resources and filter.
@@ -2728,13 +2554,12 @@ filter <string> The filter expression that filters the attack path in the respon
 pageSize <integer> The maximum number of results to return in a single response. Default is 10, minimum is 1, maximum is 1000."
   ([parent] (organizations-simulations-attackPaths-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/attackPaths",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/attackPaths",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-eventThreatDetectionSettings-validateCustomModule
   "Validates the given Event Threat Detection custom module.
@@ -2744,14 +2569,13 @@ parent <>
 ValidateEventThreatDetectionCustomModuleRequest:
 ValidateEventThreatDetectionCustomModuleRequest"
   [parent ValidateEventThreatDetectionCustomModuleRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+parent}:validateCustomModule",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body ValidateEventThreatDetectionCustomModuleRequest}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+parent}:validateCustomModule",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body ValidateEventThreatDetectionCustomModuleRequest})
 
 (defn organizations-eventThreatDetectionSettings-customModules-create
   "Creates a resident Event Threat Detection custom module at the scope of the given Resource Manager parent, and also creates inherited custom modules for all descendants of the given parent. These modules are enabled by default.
@@ -2761,14 +2585,13 @@ parent <>
 EventThreatDetectionCustomModule:
 EventThreatDetectionCustomModule"
   [parent EventThreatDetectionCustomModule]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body EventThreatDetectionCustomModule}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body EventThreatDetectionCustomModule})
 
 (defn organizations-eventThreatDetectionSettings-customModules-delete
   "Deletes the specified Event Threat Detection custom module and all of its descendants in the Resource Manager hierarchy. This method is only supported for resident custom modules.
@@ -2776,12 +2599,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-eventThreatDetectionSettings-customModules-get
   "Gets an Event Threat Detection custom module.
@@ -2789,12 +2611,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-eventThreatDetectionSettings-customModules-listDescendant
   "Lists all resident Event Threat Detection custom modules under the given Resource Manager parent and its descendants.
@@ -2809,13 +2630,12 @@ pageSize <integer> The maximum number of modules to return. The service may retu
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/customModules:listDescendant",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/customModules:listDescendant",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-eventThreatDetectionSettings-customModules-list
   "Lists all Event Threat Detection custom modules for the given Resource Manager parent. This includes resident modules defined at the scope of the parent along with modules inherited from ancestors.
@@ -2830,13 +2650,12 @@ pageSize <integer> The maximum number of modules to return. The service may retu
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-eventThreatDetectionSettings-customModules-patch
   "Updates the Event Threat Detection custom module with the given name based on the given update mask. Updating the enablement state is supported for both resident and inherited modules (though resident modules cannot have an enablement state of \"inherited\"). Updating the display name or configuration of a module is supported for resident modules only. The type of a module cannot be changed.
@@ -2854,14 +2673,12 @@ updateMask <string> The list of fields to be updated. If empty all mutable field
       EventThreatDetectionCustomModule
       nil))
   ([name EventThreatDetectionCustomModule optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body EventThreatDetectionCustomModule})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body EventThreatDetectionCustomModule}))
 
 (defn organizations-eventThreatDetectionSettings-effectiveCustomModules-get
   "Gets an effective Event Threat Detection custom module at the given level.
@@ -2869,12 +2686,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-eventThreatDetectionSettings-effectiveCustomModules-list
   "Lists all effective Event Threat Detection custom modules for the given parent. This includes resident modules defined at the scope of the parent along with modules inherited from its ancestors.
@@ -2889,13 +2705,12 @@ pageSize <integer> The maximum number of modules to return. The service may retu
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/effectiveCustomModules",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/effectiveCustomModules",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-securityHealthAnalyticsSettings-customModules-create
   "Creates a resident SecurityHealthAnalyticsCustomModule at the scope of the given CRM parent, and also creates inherited SecurityHealthAnalyticsCustomModules for all CRM descendants of the given parent. These modules are enabled by default.
@@ -2906,15 +2721,14 @@ GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule:
 GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule"
   [parent
    GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body
-     GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body
+   GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule})
 
 (defn organizations-securityHealthAnalyticsSettings-customModules-delete
   "Deletes the specified SecurityHealthAnalyticsCustomModule and all of its descendants in the CRM hierarchy. This method is only supported for resident custom modules.
@@ -2922,12 +2736,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-securityHealthAnalyticsSettings-customModules-get
   "Retrieves a SecurityHealthAnalyticsCustomModule.
@@ -2935,12 +2748,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-securityHealthAnalyticsSettings-customModules-listDescendant
   "Returns a list of all resident SecurityHealthAnalyticsCustomModules under the given CRM parent and all of the parent’s CRM descendants.
@@ -2955,13 +2767,12 @@ pageSize <integer> The maximum number of results to return in a single response.
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/customModules:listDescendant",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/customModules:listDescendant",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-securityHealthAnalyticsSettings-customModules-list
   "Returns a list of all SecurityHealthAnalyticsCustomModules for the given parent. This includes resident modules defined at the scope of the parent, and inherited modules, inherited from CRM ancestors.
@@ -2976,13 +2787,12 @@ pageSize <integer> The maximum number of results to return in a single response.
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/customModules",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-securityHealthAnalyticsSettings-customModules-simulate
   "Simulates a given SecurityHealthAnalyticsCustomModule and Resource.
@@ -2992,14 +2802,13 @@ parent <>
 SimulateSecurityHealthAnalyticsCustomModuleRequest:
 SimulateSecurityHealthAnalyticsCustomModuleRequest"
   [parent SimulateSecurityHealthAnalyticsCustomModuleRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+parent}/customModules:simulate",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SimulateSecurityHealthAnalyticsCustomModuleRequest}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+parent}/customModules:simulate",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SimulateSecurityHealthAnalyticsCustomModuleRequest})
 
 (defn organizations-securityHealthAnalyticsSettings-customModules-patch
   "Updates the SecurityHealthAnalyticsCustomModule under the given name based on the given update mask. Updating the enablement state is supported on both resident and inherited modules (though resident modules cannot have an enablement state of \"inherited\"). Updating the display name and custom config of a module is supported on resident modules only.
@@ -3020,15 +2829,13 @@ updateMask <string> The list of fields to be updated. The only fields that can b
   ([name
     GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule
     optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body
-       GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body
+     GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule}))
 
 (defn organizations-securityHealthAnalyticsSettings-effectiveCustomModules-get
   "Retrieves an EffectiveSecurityHealthAnalyticsCustomModule.
@@ -3036,12 +2843,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-securityHealthAnalyticsSettings-effectiveCustomModules-list
   "Returns a list of all EffectiveSecurityHealthAnalyticsCustomModules for the given parent. This includes resident modules defined at the scope of the parent, and inherited modules, inherited from CRM ancestors.
@@ -3056,13 +2862,12 @@ pageSize <integer> The maximum number of results to return in a single response.
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/effectiveCustomModules",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/effectiveCustomModules",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-bigQueryExports-get
   "Gets a BigQuery export.
@@ -3070,12 +2875,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-bigQueryExports-create
   "Creates a BigQuery export.
@@ -3093,14 +2897,13 @@ bigQueryExportId <string> Required. Unique identifier provided by the client wit
       GoogleCloudSecuritycenterV1BigQueryExport
       nil))
   ([parent GoogleCloudSecuritycenterV1BigQueryExport optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/bigQueryExports",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudSecuritycenterV1BigQueryExport})))
+    {:method :post,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/bigQueryExports",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudSecuritycenterV1BigQueryExport}))
 
 (defn organizations-bigQueryExports-delete
   "Deletes an existing BigQuery export.
@@ -3108,12 +2911,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-bigQueryExports-patch
   "Updates a BigQuery export.
@@ -3131,14 +2933,12 @@ updateMask <string> The list of fields to be updated. If empty all mutable field
       GoogleCloudSecuritycenterV1BigQueryExport
       nil))
   ([name GoogleCloudSecuritycenterV1BigQueryExport optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudSecuritycenterV1BigQueryExport})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudSecuritycenterV1BigQueryExport}))
 
 (defn organizations-bigQueryExports-list
   "Lists BigQuery exports. Note that when requesting BigQuery exports at a given level all exports under that level are also returned e.g. if requesting BigQuery exports under a folder, then all BigQuery exports immediately under the folder plus the ones created under the projects within the folder are returned.
@@ -3150,13 +2950,12 @@ optional:
 pageSize <integer> The maximum number of configs to return. The service may return fewer than this value. If unspecified, at most 10 configs will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (organizations-bigQueryExports-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/bigQueryExports",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/bigQueryExports",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-assets-group
   "Filters an organization's assets and groups them by their specified properties.
@@ -3166,14 +2965,13 @@ parent <>
 GroupAssetsRequest:
 GroupAssetsRequest"
   [parent GroupAssetsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+parent}/assets:group",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GroupAssetsRequest}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+parent}/assets:group",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GroupAssetsRequest})
 
 (defn organizations-assets-list
   "Lists an organization's assets.
@@ -3190,13 +2988,12 @@ fieldMask <string> A field mask to specify the ListAssetsResult fields to be lis
 pageSize <integer> The maximum number of results to return in a single response. Default is 10, minimum is 1, maximum is 1000."
   ([parent] (organizations-assets-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/assets",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/assets",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-assets-runDiscovery
   "Runs asset discovery. The discovery is tracked with a long-running operation. This API can only be called with limited frequency for an organization. If it is called too frequently the caller will receive a TOO_MANY_REQUESTS error.
@@ -3206,14 +3003,13 @@ parent <>
 RunAssetDiscoveryRequest:
 RunAssetDiscoveryRequest"
   [parent RunAssetDiscoveryRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+parent}/assets:runDiscovery",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body RunAssetDiscoveryRequest}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+parent}/assets:runDiscovery",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body RunAssetDiscoveryRequest})
 
 (defn organizations-assets-updateSecurityMarks
   "Updates security marks.
@@ -3229,14 +3025,12 @@ startTime <string> The time at which the updated SecurityMarks take effect. If n
   ([name SecurityMarks]
     (organizations-assets-updateSecurityMarks name SecurityMarks nil))
   ([name SecurityMarks optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body SecurityMarks})))
+    {:method :patch,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body SecurityMarks}))
 
 (defn organizations-valuedResources-list
   "Lists the valued resources for a set of simulation results and filter.
@@ -3250,13 +3044,12 @@ pageSize <integer> The maximum number of results to return in a single response.
 orderBy <string> Optional. The fields by which to order the valued resources response. Supported fields: * `exposed_score` * `resource_value` * `resource_type` * `resource` * `display_name` Values should be a comma separated list of fields. For example: `exposed_score,resource_value`. The default sorting order is descending. To specify ascending or descending order for a field, append a ` ASC` or a ` DESC` suffix, respectively; for example: `exposed_score DESC`."
   ([parent] (organizations-valuedResources-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+parent}/valuedResources",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://securitycenter.googleapis.com/v1/{+parent}/valuedResources",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -3269,13 +3062,11 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (organizations-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://securitycenter.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -3283,12 +3074,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -3296,12 +3086,11 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://securitycenter.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -3309,10 +3098,9 @@ https://cloud.google.com/security/products/security-command-center/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://securitycenter.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template
+   "https://securitycenter.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})

@@ -1,8 +1,7 @@
 (ns happyapi.google.chromemanagement-v1
   "Chrome Management API
 The Chrome Management API is a suite of services that allows Chrome administrators to view, manage and gain insights on their Chrome OS and Chrome Browser devices.
-See: https://developers.google.com/chrome/management/"
-  (:require [happyapi.providers.google :as client]))
+See: https://developers.google.com/chrome/management/")
 
 (defn customers-reports-countInstalledApps
   "Generate report of app installations.
@@ -17,14 +16,13 @@ pageSize <integer> Maximum number of results to return. Maximum and default are 
 filter <string> Query string to filter results, AND-separated fields in EBNF syntax. Note: OR operations are not supported in this filter. Supported filter fields: * app_name * app_type * install_type * number_of_permissions * total_install_count * latest_profile_active_date * permission_name * app_id * manifest_versions"
   ([customer] (customers-reports-countInstalledApps customer nil))
   ([customer optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://chromemanagement.googleapis.com/v1/{+customer}/reports:countInstalledApps",
-       :uri-template-args {"customer" customer},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/chrome.management.reports.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://chromemanagement.googleapis.com/v1/{+customer}/reports:countInstalledApps",
+     :uri-template-args {"customer" customer},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/chrome.management.reports.readonly"]}))
 
 (defn customers-reports-countPrintJobsByUser
   "Get a summary of printing done by each user.
@@ -39,14 +37,13 @@ printerOrgUnitId <string> The ID of the organizational unit for printers. If spe
 pageSize <integer> Maximum number of results to return. Maximum and default are 100."
   ([customer] (customers-reports-countPrintJobsByUser customer nil))
   ([customer optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://chromemanagement.googleapis.com/v1/{+customer}/reports:countPrintJobsByUser",
-       :uri-template-args {"customer" customer},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/chrome.management.reports.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://chromemanagement.googleapis.com/v1/{+customer}/reports:countPrintJobsByUser",
+     :uri-template-args {"customer" customer},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/chrome.management.reports.readonly"]}))
 
 (defn customers-reports-countChromeDevicesThatNeedAttention
   "Counts of ChromeOS devices that have not synced policies or have lacked user activity in the past 28 days, are out of date, or are not complaint. Further information can be found here https://support.google.com/chrome/a/answer/10564947
@@ -62,14 +59,13 @@ readMask <string> Required. Mask of the fields that should be populated in the r
       customer
       nil))
   ([customer optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://chromemanagement.googleapis.com/v1/{+customer}/reports:countChromeDevicesThatNeedAttention",
-       :uri-template-args {"customer" customer},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/chrome.management.reports.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://chromemanagement.googleapis.com/v1/{+customer}/reports:countChromeDevicesThatNeedAttention",
+     :uri-template-args {"customer" customer},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/chrome.management.reports.readonly"]}))
 
 (defn customers-reports-findInstalledAppDevices
   "Generate report of managed Chrome browser devices that have a specified app installed.
@@ -86,14 +82,13 @@ orderBy <string> Field used to order results. Supported order by fields: * machi
 appType <string> Type of the app."
   ([customer] (customers-reports-findInstalledAppDevices customer nil))
   ([customer optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://chromemanagement.googleapis.com/v1/{+customer}/reports:findInstalledAppDevices",
-       :uri-template-args {"customer" customer},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/chrome.management.reports.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://chromemanagement.googleapis.com/v1/{+customer}/reports:findInstalledAppDevices",
+     :uri-template-args {"customer" customer},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/chrome.management.reports.readonly"]}))
 
 (defn customers-reports-countChromeHardwareFleetDevices
   "Counts of devices with a specific hardware specification from the requested hardware type (for example model name, processor type). Further information can be found here https://support.google.com/chrome/a/answer/10564947
@@ -107,14 +102,13 @@ orgUnitId <string> Optional. The ID of the organizational unit. If omitted, all 
   ([customer]
     (customers-reports-countChromeHardwareFleetDevices customer nil))
   ([customer optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://chromemanagement.googleapis.com/v1/{+customer}/reports:countChromeHardwareFleetDevices",
-       :uri-template-args {"customer" customer},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/chrome.management.reports.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://chromemanagement.googleapis.com/v1/{+customer}/reports:countChromeHardwareFleetDevices",
+     :uri-template-args {"customer" customer},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/chrome.management.reports.readonly"]}))
 
 (defn customers-reports-countPrintJobsByPrinter
   "Get a summary of printing done by each printer.
@@ -129,14 +123,13 @@ pageSize <integer> Maximum number of results to return. Maximum and default are 
 filter <string> Query string to filter results, AND-separated fields in EBNF syntax. Note: OR operations are not supported in this filter. Note: Only >= and <= comparators are supported in this filter. Supported filter fields: * complete_time"
   ([customer] (customers-reports-countPrintJobsByPrinter customer nil))
   ([customer optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://chromemanagement.googleapis.com/v1/{+customer}/reports:countPrintJobsByPrinter",
-       :uri-template-args {"customer" customer},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/chrome.management.reports.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://chromemanagement.googleapis.com/v1/{+customer}/reports:countPrintJobsByPrinter",
+     :uri-template-args {"customer" customer},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/chrome.management.reports.readonly"]}))
 
 (defn customers-reports-countChromeBrowsersNeedingAttention
   "Count of Chrome Browsers that have been recently enrolled, have new policy to be synced, or have no recent activity.
@@ -151,14 +144,13 @@ orgUnitId <string> Optional. The ID of the organizational unit. If omitted, all 
       customer
       nil))
   ([customer optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://chromemanagement.googleapis.com/v1/{+customer}/reports:countChromeBrowsersNeedingAttention",
-       :uri-template-args {"customer" customer},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/chrome.management.reports.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://chromemanagement.googleapis.com/v1/{+customer}/reports:countChromeBrowsersNeedingAttention",
+     :uri-template-args {"customer" customer},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/chrome.management.reports.readonly"]}))
 
 (defn customers-reports-countChromeDevicesReachingAutoExpirationDate
   "Generate report of the number of devices expiring in each month of the selected time frame. Devices are grouped by auto update expiration date and model. Further information can be found [here](https://support.google.com/chrome/a/answer/10564947).
@@ -175,14 +167,13 @@ maxAueDate <string> Optional. Maximum expiration date in format yyyy-mm-dd in UT
       customer
       nil))
   ([customer optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://chromemanagement.googleapis.com/v1/{+customer}/reports:countChromeDevicesReachingAutoExpirationDate",
-       :uri-template-args {"customer" customer},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/chrome.management.reports.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://chromemanagement.googleapis.com/v1/{+customer}/reports:countChromeDevicesReachingAutoExpirationDate",
+     :uri-template-args {"customer" customer},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/chrome.management.reports.readonly"]}))
 
 (defn customers-reports-enumeratePrintJobs
   "Get a list of print jobs.
@@ -197,14 +188,13 @@ filter <string> Query string to filter results, AND-separated fields in EBNF syn
 printerOrgUnitId <string> The ID of the organizational unit for printers. If specified, only print jobs submitted to printers from the specified organizational unit will be returned."
   ([customer] (customers-reports-enumeratePrintJobs customer nil))
   ([customer optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://chromemanagement.googleapis.com/v1/{+customer}/reports:enumeratePrintJobs",
-       :uri-template-args {"customer" customer},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/chrome.management.reports.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://chromemanagement.googleapis.com/v1/{+customer}/reports:enumeratePrintJobs",
+     :uri-template-args {"customer" customer},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/chrome.management.reports.readonly"]}))
 
 (defn customers-reports-countChromeVersions
   "Generate report of installed Chrome versions.
@@ -218,14 +208,13 @@ orgUnitId <string> The ID of the organizational unit.
 pageSize <integer> Maximum number of results to return. Maximum and default are 100."
   ([customer] (customers-reports-countChromeVersions customer nil))
   ([customer optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://chromemanagement.googleapis.com/v1/{+customer}/reports:countChromeVersions",
-       :uri-template-args {"customer" customer},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/chrome.management.reports.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://chromemanagement.googleapis.com/v1/{+customer}/reports:countChromeVersions",
+     :uri-template-args {"customer" customer},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/chrome.management.reports.readonly"]}))
 
 (defn customers-reports-countChromeCrashEvents
   "Get a count of Chrome crash events.
@@ -239,14 +228,13 @@ filter <string> Query string to filter results, AND-separated fields in EBNF syn
 orgUnitId <string> If specified, only count the number of crash events of the devices in this organizational unit."
   ([customer] (customers-reports-countChromeCrashEvents customer nil))
   ([customer optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://chromemanagement.googleapis.com/v1/{+customer}/reports:countChromeCrashEvents",
-       :uri-template-args {"customer" customer},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/chrome.management.reports.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://chromemanagement.googleapis.com/v1/{+customer}/reports:countChromeCrashEvents",
+     :uri-template-args {"customer" customer},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/chrome.management.reports.readonly"]}))
 
 (defn customers-telemetry-users-list
   "List all telemetry users.
@@ -260,14 +248,13 @@ filter <string> Only include resources that match the filter. Supported filter f
 pageSize <integer> Maximum number of results to return. Default value is 100. Maximum value is 1000."
   ([parent] (customers-telemetry-users-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://chromemanagement.googleapis.com/v1/{+parent}/telemetry/users",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/chrome.management.telemetry.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://chromemanagement.googleapis.com/v1/{+parent}/telemetry/users",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/chrome.management.telemetry.readonly"]}))
 
 (defn customers-telemetry-users-get
   "Get telemetry user.
@@ -279,14 +266,13 @@ optional:
 readMask <string> Read mask to specify which fields to return. Supported read_mask paths are: - name - org_unit_id - user_id - user_email - user_device.device_id - user_device.audio_status_report - user_device.device_activity_report - user_device.network_bandwidth_report - user_device.peripherals_report - user_device.app_report "
   ([name] (customers-telemetry-users-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://chromemanagement.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/chrome.management.telemetry.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://chromemanagement.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/chrome.management.telemetry.readonly"]}))
 
 (defn customers-telemetry-events-list
   "List telemetry events.
@@ -300,14 +286,13 @@ pageSize <integer> Optional. Maximum number of results to return. Default value 
 filter <string> Optional. Only include resources that match the filter. Although this parameter is currently optional, this parameter will be required- please specify at least 1 event type. Supported filter fields: - device_id - user_id - device_org_unit_id - user_org_unit_id - timestamp - event_type The \"timestamp\" filter accepts either the Unix Epoch milliseconds format or the RFC3339 UTC \"Zulu\" format with nanosecond resolution and up to nine fractional digits. Both formats should be surrounded by simple double quotes. Examples: \"2014-10-02T15:01:23Z\", \"2014-10-02T15:01:23.045123456Z\", \"1679283943823\"."
   ([parent] (customers-telemetry-events-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://chromemanagement.googleapis.com/v1/{+parent}/telemetry/events",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/chrome.management.telemetry.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://chromemanagement.googleapis.com/v1/{+parent}/telemetry/events",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/chrome.management.telemetry.readonly"]}))
 
 (defn customers-telemetry-notificationConfigs-create
   "Create a telemetry notification config.
@@ -317,15 +302,14 @@ parent <>
 GoogleChromeManagementV1TelemetryNotificationConfig:
 GoogleChromeManagementV1TelemetryNotificationConfig"
   [parent GoogleChromeManagementV1TelemetryNotificationConfig]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://chromemanagement.googleapis.com/v1/{+parent}/telemetry/notificationConfigs",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/chrome.management.telemetry.readonly"],
-     :body GoogleChromeManagementV1TelemetryNotificationConfig}))
+  {:method :post,
+   :uri-template
+   "https://chromemanagement.googleapis.com/v1/{+parent}/telemetry/notificationConfigs",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/chrome.management.telemetry.readonly"],
+   :body GoogleChromeManagementV1TelemetryNotificationConfig})
 
 (defn customers-telemetry-notificationConfigs-list
   "List all telemetry notification configs.
@@ -337,14 +321,13 @@ optional:
 pageSize <integer> The maximum number of notification configs to return. The service may return fewer than this value. If unspecified, at most 100 notification configs will be returned. The maximum value is 100; values above 100 will be coerced to 100."
   ([parent] (customers-telemetry-notificationConfigs-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://chromemanagement.googleapis.com/v1/{+parent}/telemetry/notificationConfigs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/chrome.management.telemetry.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://chromemanagement.googleapis.com/v1/{+parent}/telemetry/notificationConfigs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/chrome.management.telemetry.readonly"]}))
 
 (defn customers-telemetry-notificationConfigs-delete
   "Delete a telemetry notification config.
@@ -352,14 +335,12 @@ https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/t
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://chromemanagement.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/chrome.management.telemetry.readonly"]}))
+  {:method :delete,
+   :uri-template "https://chromemanagement.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/chrome.management.telemetry.readonly"]})
 
 (defn customers-telemetry-devices-get
   "Get telemetry device.
@@ -371,14 +352,13 @@ optional:
 readMask <string> Required. Read mask to specify which fields to return. Supported read_mask paths are: - name - org_unit_id - device_id - serial_number - cpu_info - cpu_status_report - memory_info - memory_status_report - network_info - network_diagnostics_report - network_status_report - os_update_status - graphics_info - graphics_status_report - battery_info - battery_status_report - storage_info - storage_status_report - thunderbolt_info - audio_status_report - boot_performance_report - heartbeat_status_report - network_bandwidth_report - peripherals_report - kiosk_app_status_report - app_report - runtime_counters_report "
   ([name] (customers-telemetry-devices-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://chromemanagement.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/chrome.management.telemetry.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://chromemanagement.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/chrome.management.telemetry.readonly"]}))
 
 (defn customers-telemetry-devices-list
   "List all telemetry devices.
@@ -392,14 +372,13 @@ filter <string> Optional. Only include resources that match the filter. Requests
 pageSize <integer> Maximum number of results to return. Default value is 100. Maximum value is 1000."
   ([parent] (customers-telemetry-devices-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://chromemanagement.googleapis.com/v1/{+parent}/telemetry/devices",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/chrome.management.telemetry.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://chromemanagement.googleapis.com/v1/{+parent}/telemetry/devices",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/chrome.management.telemetry.readonly"]}))
 
 (defn customers-apps-fetchDevicesRequestingExtension
   "Get a list of devices that have requested to install an extension.
@@ -414,14 +393,13 @@ extensionId <string> Required. The extension for which we want to find requestin
   ([customer]
     (customers-apps-fetchDevicesRequestingExtension customer nil))
   ([customer optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://chromemanagement.googleapis.com/v1/{+customer}/apps:fetchDevicesRequestingExtension",
-       :uri-template-args {"customer" customer},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/chrome.management.appdetails.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://chromemanagement.googleapis.com/v1/{+customer}/apps:fetchDevicesRequestingExtension",
+     :uri-template-args {"customer" customer},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/chrome.management.appdetails.readonly"]}))
 
 (defn customers-apps-countChromeAppRequests
   "Generate summary of app installation requests.
@@ -435,14 +413,13 @@ orgUnitId <string> The ID of the organizational unit.
 pageSize <integer> Maximum number of results to return. Maximum and default are 50, anything above will be coerced to 50."
   ([customer] (customers-apps-countChromeAppRequests customer nil))
   ([customer optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://chromemanagement.googleapis.com/v1/{+customer}/apps:countChromeAppRequests",
-       :uri-template-args {"customer" customer},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/chrome.management.appdetails.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://chromemanagement.googleapis.com/v1/{+customer}/apps:countChromeAppRequests",
+     :uri-template-args {"customer" customer},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/chrome.management.appdetails.readonly"]}))
 
 (defn customers-apps-fetchUsersRequestingExtension
   "Get a list of users that have requested to install an extension.
@@ -457,14 +434,13 @@ pageSize <integer> Optional. Maximum number of results to return. Maximum and de
   ([customer]
     (customers-apps-fetchUsersRequestingExtension customer nil))
   ([customer optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://chromemanagement.googleapis.com/v1/{+customer}/apps:fetchUsersRequestingExtension",
-       :uri-template-args {"customer" customer},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/chrome.management.appdetails.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://chromemanagement.googleapis.com/v1/{+customer}/apps:fetchUsersRequestingExtension",
+     :uri-template-args {"customer" customer},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/chrome.management.appdetails.readonly"]}))
 
 (defn customers-apps-chrome-get
   "Get a specific app for a customer by its resource name.
@@ -472,14 +448,12 @@ https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/a
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://chromemanagement.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/chrome.management.appdetails.readonly"]}))
+  {:method :get,
+   :uri-template "https://chromemanagement.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/chrome.management.appdetails.readonly"]})
 
 (defn customers-apps-android-get
   "Get a specific app for a customer by its resource name.
@@ -487,14 +461,12 @@ https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/a
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://chromemanagement.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/chrome.management.appdetails.readonly"]}))
+  {:method :get,
+   :uri-template "https://chromemanagement.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/chrome.management.appdetails.readonly"]})
 
 (defn customers-apps-web-get
   "Get a specific app for a customer by its resource name.
@@ -502,11 +474,9 @@ https://developers.google.com/chrome/management/v1/reference/rest/v1/customers/a
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://chromemanagement.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/chrome.management.appdetails.readonly"]}))
+  {:method :get,
+   :uri-template "https://chromemanagement.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/chrome.management.appdetails.readonly"]})

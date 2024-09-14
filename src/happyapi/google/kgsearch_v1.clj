@@ -1,8 +1,7 @@
 (ns happyapi.google.kgsearch-v1
   "Knowledge Graph Search API
 Searches the Google Knowledge Graph for entities.
-See: https://developers.google.com/knowledge-graph/"
-  (:require [happyapi.providers.google :as client]))
+See: https://developers.google.com/knowledge-graph/")
 
 (defn entities-search
   "Searches Knowledge Graph for entities that match the constraints. A list of matched entities will be returned in response, which will be in JSON-LD format and compatible with http://schema.org
@@ -18,10 +17,9 @@ ids <string> The list of entity id to be used for search instead of query string
 indent <boolean> Enables indenting of json results."
   ([] (entities-search nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://kgsearch.googleapis.com/v1/entities:search",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes nil})))
+    {:method :get,
+     :uri-template
+     "https://kgsearch.googleapis.com/v1/entities:search",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes nil}))

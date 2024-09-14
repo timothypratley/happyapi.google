@@ -1,8 +1,7 @@
 (ns happyapi.google.backupdr-v1
   "Backup and DR Service API
 
-See: https://cloud.google.com/backup-disaster-recovery"
-  (:require [happyapi.providers.google :as client]))
+See: https://cloud.google.com/backup-disaster-recovery")
 
 (defn projects-locations-list
   "Lists information about the supported locations for this service.
@@ -15,13 +14,12 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://backupdr.googleapis.com/v1/{+name}/locations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://backupdr.googleapis.com/v1/{+name}/locations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-get
   "Gets information about a location.
@@ -29,12 +27,11 @@ https://cloud.google.com/backup-disaster-recovery/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://backupdr.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://backupdr.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-managementServers-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -44,14 +41,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://backupdr.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://backupdr.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-managementServers-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -64,13 +60,12 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-managementServers-getIamPolicy resource nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://backupdr.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://backupdr.googleapis.com/v1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-managementServers-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -80,14 +75,13 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://backupdr.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://backupdr.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-locations-managementServers-list
   "Lists ManagementServers in a given project and location.
@@ -101,13 +95,12 @@ filter <string> Optional. Filtering results.
 orderBy <string> Optional. Hint for how to order the results."
   ([parent] (projects-locations-managementServers-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://backupdr.googleapis.com/v1/{+parent}/managementServers",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://backupdr.googleapis.com/v1/{+parent}/managementServers",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-managementServers-get
   "Gets details of a single ManagementServer.
@@ -115,12 +108,11 @@ https://cloud.google.com/backup-disaster-recovery/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://backupdr.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://backupdr.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-managementServers-create
   "Creates a new ManagementServer in a given project and location.
@@ -139,14 +131,13 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
       ManagementServer
       nil))
   ([parent ManagementServer optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://backupdr.googleapis.com/v1/{+parent}/managementServers",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body ManagementServer})))
+    {:method :post,
+     :uri-template
+     "https://backupdr.googleapis.com/v1/{+parent}/managementServers",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body ManagementServer}))
 
 (defn projects-locations-managementServers-delete
   "Deletes a single ManagementServer.
@@ -158,12 +149,11 @@ optional:
 requestId <string> Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-managementServers-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://backupdr.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://backupdr.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -176,13 +166,12 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://backupdr.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://backupdr.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -190,12 +179,11 @@ https://cloud.google.com/backup-disaster-recovery/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://backupdr.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://backupdr.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -203,12 +191,11 @@ https://cloud.google.com/backup-disaster-recovery/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://backupdr.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://backupdr.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -218,13 +205,12 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template "https://backupdr.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body CancelOperationRequest}))
+  {:method :post,
+   :uri-template "https://backupdr.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body CancelOperationRequest})
 
 (defn projects-locations-backupVaults-create
   "
@@ -241,14 +227,13 @@ validateOnly <boolean> Optional. Only validate the request, but do not perform m
   ([parent BackupVault]
     (projects-locations-backupVaults-create parent BackupVault nil))
   ([parent BackupVault optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://backupdr.googleapis.com/v1/{+parent}/backupVaults",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body BackupVault})))
+    {:method :post,
+     :uri-template
+     "https://backupdr.googleapis.com/v1/{+parent}/backupVaults",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body BackupVault}))
 
 (defn projects-locations-backupVaults-list
   "Lists BackupVaults in a given project and location.
@@ -262,13 +247,12 @@ filter <string> Optional. Filtering results.
 orderBy <string> Optional. Hint for how to order the results."
   ([parent] (projects-locations-backupVaults-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://backupdr.googleapis.com/v1/{+parent}/backupVaults",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://backupdr.googleapis.com/v1/{+parent}/backupVaults",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-backupVaults-fetchUsable
   "FetchUsableBackupVaults lists usable BackupVaults in a given project and location. Usable BackupVault are the ones that user has backupdr.backupVaults.get permission.
@@ -282,13 +266,12 @@ filter <string> Optional. Filtering results.
 orderBy <string> Optional. Hint for how to order the results."
   ([parent] (projects-locations-backupVaults-fetchUsable parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://backupdr.googleapis.com/v1/{+parent}/backupVaults:fetchUsable",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://backupdr.googleapis.com/v1/{+parent}/backupVaults:fetchUsable",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-backupVaults-get
   "Gets details of a BackupVault.
@@ -296,12 +279,11 @@ https://cloud.google.com/backup-disaster-recovery/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://backupdr.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://backupdr.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-backupVaults-patch
   "Updates the settings of a BackupVault.
@@ -319,13 +301,12 @@ force <boolean> Optional. If set to true, will not check plan duration against b
   ([name BackupVault]
     (projects-locations-backupVaults-patch name BackupVault nil))
   ([name BackupVault optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://backupdr.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body BackupVault})))
+    {:method :patch,
+     :uri-template "https://backupdr.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body BackupVault}))
 
 (defn projects-locations-backupVaults-delete
   "Deletes a BackupVault.
@@ -341,12 +322,11 @@ validateOnly <boolean> Optional. Only validate the request, but do not perform m
 allowMissing <boolean> Optional. If true and the BackupVault is not found, the request will succeed but no action will be taken."
   ([name] (projects-locations-backupVaults-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://backupdr.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://backupdr.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-backupVaults-testIamPermissions
   "Returns the caller's permissions on a BackupVault resource. A caller is not required to have Google IAM permission to make this request.
@@ -356,14 +336,13 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://backupdr.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://backupdr.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-locations-backupVaults-dataSources-abandonBackup
   "Internal only. Abandons a backup.
@@ -373,14 +352,13 @@ dataSource <>
 AbandonBackupRequest:
 AbandonBackupRequest"
   [dataSource AbandonBackupRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://backupdr.googleapis.com/v1/{+dataSource}:abandonBackup",
-     :uri-template-args {"dataSource" dataSource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body AbandonBackupRequest}))
+  {:method :post,
+   :uri-template
+   "https://backupdr.googleapis.com/v1/{+dataSource}:abandonBackup",
+   :uri-template-args {"dataSource" dataSource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body AbandonBackupRequest})
 
 (defn projects-locations-backupVaults-dataSources-list
   "Lists DataSources in a given project and location.
@@ -395,13 +373,12 @@ orderBy <string> Optional. Hint for how to order the results."
   ([parent]
     (projects-locations-backupVaults-dataSources-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://backupdr.googleapis.com/v1/{+parent}/dataSources",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://backupdr.googleapis.com/v1/{+parent}/dataSources",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-backupVaults-dataSources-fetchAccessToken
   "Internal only. Fetch access token for a given data source.
@@ -411,14 +388,13 @@ name <>
 FetchAccessTokenRequest:
 FetchAccessTokenRequest"
   [name FetchAccessTokenRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://backupdr.googleapis.com/v1/{+name}:fetchAccessToken",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body FetchAccessTokenRequest}))
+  {:method :post,
+   :uri-template
+   "https://backupdr.googleapis.com/v1/{+name}:fetchAccessToken",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body FetchAccessTokenRequest})
 
 (defn projects-locations-backupVaults-dataSources-setInternalStatus
   "Sets the internal status of a DataSource.
@@ -428,14 +404,13 @@ dataSource <>
 SetInternalStatusRequest:
 SetInternalStatusRequest"
   [dataSource SetInternalStatusRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://backupdr.googleapis.com/v1/{+dataSource}:setInternalStatus",
-     :uri-template-args {"dataSource" dataSource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetInternalStatusRequest}))
+  {:method :post,
+   :uri-template
+   "https://backupdr.googleapis.com/v1/{+dataSource}:setInternalStatus",
+   :uri-template-args {"dataSource" dataSource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetInternalStatusRequest})
 
 (defn projects-locations-backupVaults-dataSources-initiateBackup
   "Internal only. Initiates a backup.
@@ -445,14 +420,13 @@ dataSource <>
 InitiateBackupRequest:
 InitiateBackupRequest"
   [dataSource InitiateBackupRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://backupdr.googleapis.com/v1/{+dataSource}:initiateBackup",
-     :uri-template-args {"dataSource" dataSource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body InitiateBackupRequest}))
+  {:method :post,
+   :uri-template
+   "https://backupdr.googleapis.com/v1/{+dataSource}:initiateBackup",
+   :uri-template-args {"dataSource" dataSource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body InitiateBackupRequest})
 
 (defn projects-locations-backupVaults-dataSources-finalizeBackup
   "Internal only. Finalize a backup that was started by a call to InitiateBackup.
@@ -462,14 +436,13 @@ dataSource <>
 FinalizeBackupRequest:
 FinalizeBackupRequest"
   [dataSource FinalizeBackupRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://backupdr.googleapis.com/v1/{+dataSource}:finalizeBackup",
-     :uri-template-args {"dataSource" dataSource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body FinalizeBackupRequest}))
+  {:method :post,
+   :uri-template
+   "https://backupdr.googleapis.com/v1/{+dataSource}:finalizeBackup",
+   :uri-template-args {"dataSource" dataSource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body FinalizeBackupRequest})
 
 (defn projects-locations-backupVaults-dataSources-remove
   "Deletes a DataSource. This is a custom method instead of a standard delete method because external clients will not delete DataSources except for BackupDR backup appliances.
@@ -479,13 +452,12 @@ name <>
 RemoveDataSourceRequest:
 RemoveDataSourceRequest"
   [name RemoveDataSourceRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template "https://backupdr.googleapis.com/v1/{+name}:remove",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body RemoveDataSourceRequest}))
+  {:method :post,
+   :uri-template "https://backupdr.googleapis.com/v1/{+name}:remove",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body RemoveDataSourceRequest})
 
 (defn projects-locations-backupVaults-dataSources-patch
   "Updates the settings of a DataSource.
@@ -505,13 +477,12 @@ allowMissing <boolean> Optional. Enable upsert."
       DataSource
       nil))
   ([name DataSource optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://backupdr.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body DataSource})))
+    {:method :patch,
+     :uri-template "https://backupdr.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body DataSource}))
 
 (defn projects-locations-backupVaults-dataSources-get
   "Gets details of a DataSource.
@@ -519,12 +490,11 @@ https://cloud.google.com/backup-disaster-recovery/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://backupdr.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://backupdr.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-backupVaults-dataSources-backups-list
   "Lists Backups in a given project and location.
@@ -541,13 +511,12 @@ orderBy <string> Optional. Hint for how to order the results."
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://backupdr.googleapis.com/v1/{+parent}/backups",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://backupdr.googleapis.com/v1/{+parent}/backups",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-backupVaults-dataSources-backups-get
   "Gets details of a Backup.
@@ -555,12 +524,11 @@ https://cloud.google.com/backup-disaster-recovery/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://backupdr.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://backupdr.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-backupVaults-dataSources-backups-patch
   "Updates the settings of a Backup.
@@ -579,13 +547,12 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
       Backup
       nil))
   ([name Backup optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://backupdr.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Backup})))
+    {:method :patch,
+     :uri-template "https://backupdr.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Backup}))
 
 (defn projects-locations-backupVaults-dataSources-backups-delete
   "Deletes a Backup.
@@ -600,12 +567,11 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://backupdr.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://backupdr.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-backupVaults-dataSources-backups-restore
   "Restore from a Backup
@@ -615,14 +581,12 @@ name <>
 RestoreBackupRequest:
 RestoreBackupRequest"
   [name RestoreBackupRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://backupdr.googleapis.com/v1/{+name}:restore",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body RestoreBackupRequest}))
+  {:method :post,
+   :uri-template "https://backupdr.googleapis.com/v1/{+name}:restore",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body RestoreBackupRequest})
 
 (defn projects-locations-backupPlans-create
   "Create a BackupPlan
@@ -638,14 +602,13 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
   ([parent BackupPlan]
     (projects-locations-backupPlans-create parent BackupPlan nil))
   ([parent BackupPlan optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://backupdr.googleapis.com/v1/{+parent}/backupPlans",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body BackupPlan})))
+    {:method :post,
+     :uri-template
+     "https://backupdr.googleapis.com/v1/{+parent}/backupPlans",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body BackupPlan}))
 
 (defn projects-locations-backupPlans-get
   "Gets details of a single BackupPlan.
@@ -653,12 +616,11 @@ https://cloud.google.com/backup-disaster-recovery/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://backupdr.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://backupdr.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-backupPlans-list
   "Lists BackupPlans in a given project and location.
@@ -672,13 +634,12 @@ filter <string> Optional. Field match expression used to filter the results.
 orderBy <string> Optional. Field by which to sort the results."
   ([parent] (projects-locations-backupPlans-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://backupdr.googleapis.com/v1/{+parent}/backupPlans",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://backupdr.googleapis.com/v1/{+parent}/backupPlans",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-backupPlans-delete
   "Deletes a single BackupPlan.
@@ -690,12 +651,11 @@ optional:
 requestId <string> Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-backupPlans-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://backupdr.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://backupdr.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-backupPlanAssociations-create
   "Create a BackupPlanAssociation
@@ -714,14 +674,13 @@ requestId <string> Optional. An optional request ID to identify requests. Specif
       BackupPlanAssociation
       nil))
   ([parent BackupPlanAssociation optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://backupdr.googleapis.com/v1/{+parent}/backupPlanAssociations",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body BackupPlanAssociation})))
+    {:method :post,
+     :uri-template
+     "https://backupdr.googleapis.com/v1/{+parent}/backupPlanAssociations",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body BackupPlanAssociation}))
 
 (defn projects-locations-backupPlanAssociations-get
   "Gets details of a single BackupPlanAssociation.
@@ -729,12 +688,11 @@ https://cloud.google.com/backup-disaster-recovery/v1/reference/rest/v1/projects/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://backupdr.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://backupdr.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-backupPlanAssociations-list
   "Lists BackupPlanAssociations in a given project and location.
@@ -748,13 +706,12 @@ filter <string> Optional. Filtering results"
   ([parent]
     (projects-locations-backupPlanAssociations-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://backupdr.googleapis.com/v1/{+parent}/backupPlanAssociations",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://backupdr.googleapis.com/v1/{+parent}/backupPlanAssociations",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-backupPlanAssociations-delete
   "Deletes a single BackupPlanAssociation.
@@ -766,12 +723,11 @@ optional:
 requestId <string> Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-backupPlanAssociations-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://backupdr.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://backupdr.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-backupPlanAssociations-triggerBackup
   "Triggers a new Backup.
@@ -781,11 +737,10 @@ name <>
 TriggerBackupRequest:
 TriggerBackupRequest"
   [name TriggerBackupRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://backupdr.googleapis.com/v1/{+name}:triggerBackup",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TriggerBackupRequest}))
+  {:method :post,
+   :uri-template
+   "https://backupdr.googleapis.com/v1/{+name}:triggerBackup",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TriggerBackupRequest})

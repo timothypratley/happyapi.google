@@ -1,8 +1,7 @@
 (ns happyapi.google.datastream-v1
   "Datastream API
 
-See: https://cloud.google.com/datastream/"
-  (:require [happyapi.providers.google :as client]))
+See: https://cloud.google.com/datastream/")
 
 (defn projects-locations-fetchStaticIps
   "The FetchStaticIps API call exposes the static IP addresses used by Datastream.
@@ -14,13 +13,12 @@ optional:
 pageSize <integer> Maximum number of Ips to return, will likely not be specified."
   ([name] (projects-locations-fetchStaticIps name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://datastream.googleapis.com/v1/{+name}:fetchStaticIps",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://datastream.googleapis.com/v1/{+name}:fetchStaticIps",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-list
   "Lists information about the supported locations for this service.
@@ -33,13 +31,12 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://datastream.googleapis.com/v1/{+name}/locations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://datastream.googleapis.com/v1/{+name}/locations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-get
   "Gets information about a location.
@@ -47,12 +44,11 @@ https://cloud.google.com/datastream/v1/reference/rest/v1/projects/locations/get
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://datastream.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://datastream.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -65,13 +61,12 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://datastream.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://datastream.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -79,12 +74,11 @@ https://cloud.google.com/datastream/v1/reference/rest/v1/projects/locations/oper
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://datastream.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://datastream.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -92,12 +86,11 @@ https://cloud.google.com/datastream/v1/reference/rest/v1/projects/locations/oper
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://datastream.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://datastream.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -107,14 +100,12 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://datastream.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body CancelOperationRequest}))
+  {:method :post,
+   :uri-template "https://datastream.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body CancelOperationRequest})
 
 (defn projects-locations-connectionProfiles-list
   "Use this method to list connection profiles created in a project and location.
@@ -128,13 +119,12 @@ filter <string> Filter request.
 orderBy <string> Order by fields for the result."
   ([parent] (projects-locations-connectionProfiles-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://datastream.googleapis.com/v1/{+parent}/connectionProfiles",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://datastream.googleapis.com/v1/{+parent}/connectionProfiles",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-connectionProfiles-get
   "Use this method to get details about a connection profile.
@@ -142,12 +132,11 @@ https://cloud.google.com/datastream/v1/reference/rest/v1/projects/locations/conn
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://datastream.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://datastream.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-connectionProfiles-create
   "Use this method to create a connection profile in a project and location.
@@ -168,14 +157,13 @@ force <boolean> Optional. Create the connection profile without validating it."
       ConnectionProfile
       nil))
   ([parent ConnectionProfile optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://datastream.googleapis.com/v1/{+parent}/connectionProfiles",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body ConnectionProfile})))
+    {:method :post,
+     :uri-template
+     "https://datastream.googleapis.com/v1/{+parent}/connectionProfiles",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body ConnectionProfile}))
 
 (defn projects-locations-connectionProfiles-patch
   "Use this method to update the parameters of a connection profile.
@@ -196,13 +184,12 @@ force <boolean> Optional. Update the connection profile without validating it."
       ConnectionProfile
       nil))
   ([name ConnectionProfile optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://datastream.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body ConnectionProfile})))
+    {:method :patch,
+     :uri-template "https://datastream.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body ConnectionProfile}))
 
 (defn projects-locations-connectionProfiles-delete
   "Use this method to delete a connection profile.
@@ -214,12 +201,11 @@ optional:
 requestId <string> Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-connectionProfiles-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://datastream.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://datastream.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-connectionProfiles-discover
   "Use this method to discover a connection profile. The discover API call exposes the data objects and metadata belonging to the profile. Typically, a request returns children data objects of a parent data object that's optionally supplied in the request.
@@ -229,14 +215,13 @@ parent <>
 DiscoverConnectionProfileRequest:
 DiscoverConnectionProfileRequest"
   [parent DiscoverConnectionProfileRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://datastream.googleapis.com/v1/{+parent}/connectionProfiles:discover",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body DiscoverConnectionProfileRequest}))
+  {:method :post,
+   :uri-template
+   "https://datastream.googleapis.com/v1/{+parent}/connectionProfiles:discover",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body DiscoverConnectionProfileRequest})
 
 (defn projects-locations-streams-list
   "Use this method to list streams in a project and location.
@@ -250,13 +235,12 @@ filter <string> Filter request.
 orderBy <string> Order by fields for the result."
   ([parent] (projects-locations-streams-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://datastream.googleapis.com/v1/{+parent}/streams",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://datastream.googleapis.com/v1/{+parent}/streams",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-streams-get
   "Use this method to get details about a stream.
@@ -264,12 +248,11 @@ https://cloud.google.com/datastream/v1/reference/rest/v1/projects/locations/stre
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://datastream.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://datastream.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-streams-create
   "Use this method to create a stream.
@@ -287,14 +270,13 @@ force <boolean> Optional. Create the stream without validating it."
   ([parent Stream]
     (projects-locations-streams-create parent Stream nil))
   ([parent Stream optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://datastream.googleapis.com/v1/{+parent}/streams",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Stream})))
+    {:method :post,
+     :uri-template
+     "https://datastream.googleapis.com/v1/{+parent}/streams",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Stream}))
 
 (defn projects-locations-streams-patch
   "Use this method to update the configuration of a stream.
@@ -311,13 +293,12 @@ validateOnly <boolean> Optional. Only validate the stream with the changes, with
 force <boolean> Optional. Update the stream without validating it."
   ([name Stream] (projects-locations-streams-patch name Stream nil))
   ([name Stream optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://datastream.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Stream})))
+    {:method :patch,
+     :uri-template "https://datastream.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Stream}))
 
 (defn projects-locations-streams-delete
   "Use this method to delete a stream.
@@ -329,12 +310,11 @@ optional:
 requestId <string> Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-streams-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://datastream.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://datastream.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-streams-run
   "Use this method to start, resume or recover a stream with a non default CDC strategy.
@@ -344,13 +324,12 @@ name <>
 RunStreamRequest:
 RunStreamRequest"
   [name RunStreamRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template "https://datastream.googleapis.com/v1/{+name}:run",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body RunStreamRequest}))
+  {:method :post,
+   :uri-template "https://datastream.googleapis.com/v1/{+name}:run",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body RunStreamRequest})
 
 (defn projects-locations-streams-objects-get
   "Use this method to get details about a stream object.
@@ -358,12 +337,11 @@ https://cloud.google.com/datastream/v1/reference/rest/v1/projects/locations/stre
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://datastream.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://datastream.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-streams-objects-lookup
   "Use this method to look up a stream object by its source object identifier.
@@ -373,14 +351,13 @@ parent <>
 LookupStreamObjectRequest:
 LookupStreamObjectRequest"
   [parent LookupStreamObjectRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://datastream.googleapis.com/v1/{+parent}/objects:lookup",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body LookupStreamObjectRequest}))
+  {:method :post,
+   :uri-template
+   "https://datastream.googleapis.com/v1/{+parent}/objects:lookup",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body LookupStreamObjectRequest})
 
 (defn projects-locations-streams-objects-list
   "Use this method to list the objects of a specific stream.
@@ -392,13 +369,12 @@ optional:
 pageSize <integer> Maximum number of objects to return. Default is 50. The maximum value is 1000; values above 1000 will be coerced to 1000."
   ([parent] (projects-locations-streams-objects-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://datastream.googleapis.com/v1/{+parent}/objects",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://datastream.googleapis.com/v1/{+parent}/objects",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-streams-objects-startBackfillJob
   "Use this method to start a backfill job for the specified stream object.
@@ -408,14 +384,13 @@ object <>
 StartBackfillJobRequest:
 StartBackfillJobRequest"
   [object StartBackfillJobRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://datastream.googleapis.com/v1/{+object}:startBackfillJob",
-     :uri-template-args {"object" object},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body StartBackfillJobRequest}))
+  {:method :post,
+   :uri-template
+   "https://datastream.googleapis.com/v1/{+object}:startBackfillJob",
+   :uri-template-args {"object" object},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body StartBackfillJobRequest})
 
 (defn projects-locations-streams-objects-stopBackfillJob
   "Use this method to stop a backfill job for the specified stream object.
@@ -425,14 +400,13 @@ object <>
 StopBackfillJobRequest:
 StopBackfillJobRequest"
   [object StopBackfillJobRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://datastream.googleapis.com/v1/{+object}:stopBackfillJob",
-     :uri-template-args {"object" object},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body StopBackfillJobRequest}))
+  {:method :post,
+   :uri-template
+   "https://datastream.googleapis.com/v1/{+object}:stopBackfillJob",
+   :uri-template-args {"object" object},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body StopBackfillJobRequest})
 
 (defn projects-locations-privateConnections-create
   "Use this method to create a private connectivity configuration.
@@ -452,14 +426,13 @@ force <boolean> Optional. If set to true, will skip validations."
       PrivateConnection
       nil))
   ([parent PrivateConnection optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://datastream.googleapis.com/v1/{+parent}/privateConnections",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body PrivateConnection})))
+    {:method :post,
+     :uri-template
+     "https://datastream.googleapis.com/v1/{+parent}/privateConnections",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body PrivateConnection}))
 
 (defn projects-locations-privateConnections-get
   "Use this method to get details about a private connectivity configuration.
@@ -467,12 +440,11 @@ https://cloud.google.com/datastream/v1/reference/rest/v1/projects/locations/priv
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://datastream.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://datastream.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-privateConnections-list
   "Use this method to list private connectivity configurations in a project and location.
@@ -486,13 +458,12 @@ filter <string> Filter request.
 orderBy <string> Order by fields for the result."
   ([parent] (projects-locations-privateConnections-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://datastream.googleapis.com/v1/{+parent}/privateConnections",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://datastream.googleapis.com/v1/{+parent}/privateConnections",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-privateConnections-delete
   "Use this method to delete a private connectivity configuration.
@@ -505,12 +476,11 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
 force <boolean> Optional. If set to true, any child routes that belong to this PrivateConnection will also be deleted."
   ([name] (projects-locations-privateConnections-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://datastream.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://datastream.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-privateConnections-routes-create
   "Use this method to create a route for a private connectivity configuration in a project and location.
@@ -529,14 +499,13 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       Route
       nil))
   ([parent Route optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://datastream.googleapis.com/v1/{+parent}/routes",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Route})))
+    {:method :post,
+     :uri-template
+     "https://datastream.googleapis.com/v1/{+parent}/routes",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Route}))
 
 (defn projects-locations-privateConnections-routes-get
   "Use this method to get details about a route.
@@ -544,12 +513,11 @@ https://cloud.google.com/datastream/v1/reference/rest/v1/projects/locations/priv
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://datastream.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://datastream.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-privateConnections-routes-list
   "Use this method to list routes created for a private connectivity configuration in a project and location.
@@ -564,13 +532,12 @@ orderBy <string> Order by fields for the result."
   ([parent]
     (projects-locations-privateConnections-routes-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://datastream.googleapis.com/v1/{+parent}/routes",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://datastream.googleapis.com/v1/{+parent}/routes",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-privateConnections-routes-delete
   "Use this method to delete a route.
@@ -583,9 +550,8 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
   ([name]
     (projects-locations-privateConnections-routes-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://datastream.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://datastream.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))

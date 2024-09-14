@@ -1,8 +1,7 @@
 (ns happyapi.google.dataform-v1beta1
   "Dataform API
 Service to develop, version control, and operationalize SQL pipelines in BigQuery.
-See: https://cloud.google.com/dataform/docs"
-  (:require [happyapi.providers.google :as client]))
+See: https://cloud.google.com/dataform/docs")
 
 (defn projects-locations-getConfig
   "Get default config for a given project and location.
@@ -10,12 +9,11 @@ https://cloud.google.com/dataform/docs/v1beta1/reference/rest/v1beta1/projects/l
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-updateConfig
   "Update default config for a given project and location.
@@ -29,13 +27,12 @@ optional:
 updateMask <string> Optional. Specifies the fields to be updated in the config."
   ([name Config] (projects-locations-updateConfig name Config nil))
   ([name Config optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Config})))
+    {:method :patch,
+     :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Config}))
 
 (defn projects-locations-list
   "Lists information about the supported locations for this service.
@@ -48,13 +45,12 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dataform.googleapis.com/v1beta1/{+name}/locations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dataform.googleapis.com/v1beta1/{+name}/locations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-get
   "Gets information about a location.
@@ -62,12 +58,11 @@ https://cloud.google.com/dataform/docs/v1beta1/reference/rest/v1beta1/projects/l
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-repositories-readFile
   "Returns the contents of a file (inside a Repository). The Repository must not have a value for `git_remote_settings.url`.
@@ -80,13 +75,12 @@ commitSha <string> Optional. The commit SHA for the commit to read from. If unse
 path <string> Required. Full file path to read including filename, from repository root."
   ([name] (projects-locations-repositories-readFile name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dataform.googleapis.com/v1beta1/{+name}:readFile",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dataform.googleapis.com/v1beta1/{+name}:readFile",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-repositories-list
   "Lists Repositories in a given project and location.
@@ -100,13 +94,12 @@ orderBy <string> Optional. This field only supports ordering by `name`. If unspe
 filter <string> Optional. Filter for the returned list."
   ([parent] (projects-locations-repositories-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dataform.googleapis.com/v1beta1/{+parent}/repositories",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dataform.googleapis.com/v1beta1/{+parent}/repositories",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-repositories-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -116,14 +109,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataform.googleapis.com/v1beta1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataform.googleapis.com/v1beta1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-repositories-fetchRemoteBranches
   "Fetches a Repository's remote branches.
@@ -131,13 +123,12 @@ https://cloud.google.com/dataform/docs/v1beta1/reference/rest/v1beta1/projects/l
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dataform.googleapis.com/v1beta1/{+name}:fetchRemoteBranches",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template
+   "https://dataform.googleapis.com/v1beta1/{+name}:fetchRemoteBranches",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-repositories-delete
   "Deletes a single Repository.
@@ -149,12 +140,11 @@ optional:
 force <boolean> If set to true, any child resources of this repository will also be deleted. (Otherwise, the request will only succeed if the repository has no child resources.)"
   ([name] (projects-locations-repositories-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-repositories-commit
   "Applies a Git commit to a Repository. The Repository must not have a value for `git_remote_settings.url`.
@@ -164,14 +154,13 @@ name <>
 CommitRepositoryChangesRequest:
 CommitRepositoryChangesRequest"
   [name CommitRepositoryChangesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataform.googleapis.com/v1beta1/{+name}:commit",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body CommitRepositoryChangesRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataform.googleapis.com/v1beta1/{+name}:commit",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body CommitRepositoryChangesRequest})
 
 (defn projects-locations-repositories-queryDirectoryContents
   "Returns the contents of a given Repository directory. The Repository must not have a value for `git_remote_settings.url`.
@@ -186,13 +175,12 @@ pageSize <integer> Optional. Maximum number of paths to return. The server may r
   ([name]
     (projects-locations-repositories-queryDirectoryContents name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dataform.googleapis.com/v1beta1/{+name}:queryDirectoryContents",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dataform.googleapis.com/v1beta1/{+name}:queryDirectoryContents",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-repositories-patch
   "Updates a single Repository.
@@ -207,13 +195,12 @@ updateMask <string> Optional. Specifies the fields to be updated in the reposito
   ([name Repository]
     (projects-locations-repositories-patch name Repository nil))
   ([name Repository optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Repository})))
+    {:method :patch,
+     :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Repository}))
 
 (defn projects-locations-repositories-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -226,13 +213,12 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-repositories-getIamPolicy resource nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dataform.googleapis.com/v1beta1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dataform.googleapis.com/v1beta1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-repositories-fetchHistory
   "Fetches a Repository's history of commits. The Repository must not have a value for `git_remote_settings.url`.
@@ -244,13 +230,12 @@ optional:
 pageSize <integer> Optional. Maximum number of commits to return. The server may return fewer items than requested. If unspecified, the server will pick an appropriate default."
   ([name] (projects-locations-repositories-fetchHistory name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dataform.googleapis.com/v1beta1/{+name}:fetchHistory",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dataform.googleapis.com/v1beta1/{+name}:fetchHistory",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-repositories-create
   "Creates a new Repository in a given project and location.
@@ -265,14 +250,13 @@ repositoryId <string> Required. The ID to use for the repository, which will bec
   ([parent Repository]
     (projects-locations-repositories-create parent Repository nil))
   ([parent Repository optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://dataform.googleapis.com/v1beta1/{+parent}/repositories",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Repository})))
+    {:method :post,
+     :uri-template
+     "https://dataform.googleapis.com/v1beta1/{+parent}/repositories",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Repository}))
 
 (defn projects-locations-repositories-computeAccessTokenStatus
   "Computes a Repository's Git access token status.
@@ -280,13 +264,12 @@ https://cloud.google.com/dataform/docs/v1beta1/reference/rest/v1beta1/projects/l
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dataform.googleapis.com/v1beta1/{+name}:computeAccessTokenStatus",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template
+   "https://dataform.googleapis.com/v1beta1/{+name}:computeAccessTokenStatus",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-repositories-get
   "Fetches a single Repository.
@@ -294,12 +277,11 @@ https://cloud.google.com/dataform/docs/v1beta1/reference/rest/v1beta1/projects/l
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-repositories-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -309,14 +291,13 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataform.googleapis.com/v1beta1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataform.googleapis.com/v1beta1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-locations-repositories-workspaces-readFile
   "Returns the contents of a file (inside a Workspace).
@@ -332,13 +313,12 @@ revision <string> Optional. The Git revision of the file to return. If left empt
       workspace
       nil))
   ([workspace optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dataform.googleapis.com/v1beta1/{+workspace}:readFile",
-       :uri-template-args {"workspace" workspace},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dataform.googleapis.com/v1beta1/{+workspace}:readFile",
+     :uri-template-args {"workspace" workspace},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-repositories-workspaces-list
   "Lists Workspaces in a given Repository.
@@ -353,13 +333,12 @@ filter <string> Optional. Filter for the returned list."
   ([parent]
     (projects-locations-repositories-workspaces-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dataform.googleapis.com/v1beta1/{+parent}/workspaces",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dataform.googleapis.com/v1beta1/{+parent}/workspaces",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-repositories-workspaces-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -369,14 +348,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataform.googleapis.com/v1beta1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataform.googleapis.com/v1beta1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-repositories-workspaces-moveDirectory
   "Moves a directory (inside a Workspace), and all of its contents, to a new location.
@@ -386,14 +364,13 @@ workspace <>
 MoveDirectoryRequest:
 MoveDirectoryRequest"
   [workspace MoveDirectoryRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataform.googleapis.com/v1beta1/{+workspace}:moveDirectory",
-     :uri-template-args {"workspace" workspace},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body MoveDirectoryRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataform.googleapis.com/v1beta1/{+workspace}:moveDirectory",
+   :uri-template-args {"workspace" workspace},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body MoveDirectoryRequest})
 
 (defn projects-locations-repositories-workspaces-moveFile
   "Moves a file (inside a Workspace) to a new location.
@@ -403,14 +380,13 @@ workspace <>
 MoveFileRequest:
 MoveFileRequest"
   [workspace MoveFileRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataform.googleapis.com/v1beta1/{+workspace}:moveFile",
-     :uri-template-args {"workspace" workspace},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body MoveFileRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataform.googleapis.com/v1beta1/{+workspace}:moveFile",
+   :uri-template-args {"workspace" workspace},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body MoveFileRequest})
 
 (defn projects-locations-repositories-workspaces-fetchGitAheadBehind
   "Fetches Git ahead/behind against a remote branch.
@@ -425,13 +401,12 @@ remoteBranch <string> Optional. The name of the branch in the Git remote against
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dataform.googleapis.com/v1beta1/{+name}:fetchGitAheadBehind",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dataform.googleapis.com/v1beta1/{+name}:fetchGitAheadBehind",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-repositories-workspaces-delete
   "Deletes a single Workspace.
@@ -439,12 +414,11 @@ https://cloud.google.com/dataform/docs/v1beta1/reference/rest/v1beta1/projects/l
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-repositories-workspaces-removeFile
   "Deletes a file (inside a Workspace).
@@ -454,14 +428,13 @@ workspace <>
 RemoveFileRequest:
 RemoveFileRequest"
   [workspace RemoveFileRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataform.googleapis.com/v1beta1/{+workspace}:removeFile",
-     :uri-template-args {"workspace" workspace},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body RemoveFileRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataform.googleapis.com/v1beta1/{+workspace}:removeFile",
+   :uri-template-args {"workspace" workspace},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body RemoveFileRequest})
 
 (defn projects-locations-repositories-workspaces-installNpmPackages
   "Installs dependency NPM packages (inside a Workspace).
@@ -471,14 +444,13 @@ workspace <>
 InstallNpmPackagesRequest:
 InstallNpmPackagesRequest"
   [workspace InstallNpmPackagesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataform.googleapis.com/v1beta1/{+workspace}:installNpmPackages",
-     :uri-template-args {"workspace" workspace},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body InstallNpmPackagesRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataform.googleapis.com/v1beta1/{+workspace}:installNpmPackages",
+   :uri-template-args {"workspace" workspace},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body InstallNpmPackagesRequest})
 
 (defn projects-locations-repositories-workspaces-reset
   "Performs a Git reset for uncommitted files in a Workspace.
@@ -488,14 +460,13 @@ name <>
 ResetWorkspaceChangesRequest:
 ResetWorkspaceChangesRequest"
   [name ResetWorkspaceChangesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataform.googleapis.com/v1beta1/{+name}:reset",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body ResetWorkspaceChangesRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataform.googleapis.com/v1beta1/{+name}:reset",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body ResetWorkspaceChangesRequest})
 
 (defn projects-locations-repositories-workspaces-push
   "Pushes Git commits from a Workspace to the Repository's remote.
@@ -505,14 +476,13 @@ name <>
 PushGitCommitsRequest:
 PushGitCommitsRequest"
   [name PushGitCommitsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataform.googleapis.com/v1beta1/{+name}:push",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body PushGitCommitsRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataform.googleapis.com/v1beta1/{+name}:push",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body PushGitCommitsRequest})
 
 (defn projects-locations-repositories-workspaces-fetchFileGitStatuses
   "Fetches Git statuses for the files in a Workspace.
@@ -520,13 +490,12 @@ https://cloud.google.com/dataform/docs/v1beta1/reference/rest/v1beta1/projects/l
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dataform.googleapis.com/v1beta1/{+name}:fetchFileGitStatuses",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template
+   "https://dataform.googleapis.com/v1beta1/{+name}:fetchFileGitStatuses",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-repositories-workspaces-commit
   "Applies a Git commit for uncommitted files in a Workspace.
@@ -536,14 +505,13 @@ name <>
 CommitWorkspaceChangesRequest:
 CommitWorkspaceChangesRequest"
   [name CommitWorkspaceChangesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataform.googleapis.com/v1beta1/{+name}:commit",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body CommitWorkspaceChangesRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataform.googleapis.com/v1beta1/{+name}:commit",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body CommitWorkspaceChangesRequest})
 
 (defn projects-locations-repositories-workspaces-queryDirectoryContents
   "Returns the contents of a given Workspace directory.
@@ -559,13 +527,12 @@ pageSize <integer> Optional. Maximum number of paths to return. The server may r
       workspace
       nil))
   ([workspace optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dataform.googleapis.com/v1beta1/{+workspace}:queryDirectoryContents",
-       :uri-template-args {"workspace" workspace},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dataform.googleapis.com/v1beta1/{+workspace}:queryDirectoryContents",
+     :uri-template-args {"workspace" workspace},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-repositories-workspaces-makeDirectory
   "Creates a directory inside a Workspace.
@@ -575,14 +542,13 @@ workspace <>
 MakeDirectoryRequest:
 MakeDirectoryRequest"
   [workspace MakeDirectoryRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataform.googleapis.com/v1beta1/{+workspace}:makeDirectory",
-     :uri-template-args {"workspace" workspace},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body MakeDirectoryRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataform.googleapis.com/v1beta1/{+workspace}:makeDirectory",
+   :uri-template-args {"workspace" workspace},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body MakeDirectoryRequest})
 
 (defn projects-locations-repositories-workspaces-pull
   "Pulls Git commits from the Repository's remote into a Workspace.
@@ -592,14 +558,13 @@ name <>
 PullGitCommitsRequest:
 PullGitCommitsRequest"
   [name PullGitCommitsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataform.googleapis.com/v1beta1/{+name}:pull",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body PullGitCommitsRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataform.googleapis.com/v1beta1/{+name}:pull",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body PullGitCommitsRequest})
 
 (defn projects-locations-repositories-workspaces-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -614,13 +579,12 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dataform.googleapis.com/v1beta1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dataform.googleapis.com/v1beta1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-repositories-workspaces-writeFile
   "Writes to a file (inside a Workspace).
@@ -630,14 +594,13 @@ workspace <>
 WriteFileRequest:
 WriteFileRequest"
   [workspace WriteFileRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataform.googleapis.com/v1beta1/{+workspace}:writeFile",
-     :uri-template-args {"workspace" workspace},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body WriteFileRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataform.googleapis.com/v1beta1/{+workspace}:writeFile",
+   :uri-template-args {"workspace" workspace},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body WriteFileRequest})
 
 (defn projects-locations-repositories-workspaces-removeDirectory
   "Deletes a directory (inside a Workspace) and all of its contents.
@@ -647,14 +610,13 @@ workspace <>
 RemoveDirectoryRequest:
 RemoveDirectoryRequest"
   [workspace RemoveDirectoryRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataform.googleapis.com/v1beta1/{+workspace}:removeDirectory",
-     :uri-template-args {"workspace" workspace},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body RemoveDirectoryRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataform.googleapis.com/v1beta1/{+workspace}:removeDirectory",
+   :uri-template-args {"workspace" workspace},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body RemoveDirectoryRequest})
 
 (defn projects-locations-repositories-workspaces-fetchFileDiff
   "Fetches Git diff for an uncommitted file in a Workspace.
@@ -669,13 +631,12 @@ path <string> Required. The file's full path including filename, relative to the
       workspace
       nil))
   ([workspace optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dataform.googleapis.com/v1beta1/{+workspace}:fetchFileDiff",
-       :uri-template-args {"workspace" workspace},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dataform.googleapis.com/v1beta1/{+workspace}:fetchFileDiff",
+     :uri-template-args {"workspace" workspace},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-repositories-workspaces-create
   "Creates a new Workspace in a given Repository.
@@ -693,14 +654,13 @@ workspaceId <string> Required. The ID to use for the workspace, which will becom
       Workspace
       nil))
   ([parent Workspace optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://dataform.googleapis.com/v1beta1/{+parent}/workspaces",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Workspace})))
+    {:method :post,
+     :uri-template
+     "https://dataform.googleapis.com/v1beta1/{+parent}/workspaces",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Workspace}))
 
 (defn projects-locations-repositories-workspaces-searchFiles
   "Finds the contents of a given Workspace directory by filter.
@@ -716,13 +676,12 @@ filter <string> Optional. Optional filter for the returned list in filtering for
       workspace
       nil))
   ([workspace optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dataform.googleapis.com/v1beta1/{+workspace}:searchFiles",
-       :uri-template-args {"workspace" workspace},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dataform.googleapis.com/v1beta1/{+workspace}:searchFiles",
+     :uri-template-args {"workspace" workspace},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-repositories-workspaces-get
   "Fetches a single Workspace.
@@ -730,12 +689,11 @@ https://cloud.google.com/dataform/docs/v1beta1/reference/rest/v1beta1/projects/l
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-repositories-workspaces-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -745,14 +703,13 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataform.googleapis.com/v1beta1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataform.googleapis.com/v1beta1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-locations-repositories-releaseConfigs-list
   "Lists ReleaseConfigs in a given Repository.
@@ -765,13 +722,12 @@ pageSize <integer> Optional. Maximum number of release configs to return. The se
   ([parent]
     (projects-locations-repositories-releaseConfigs-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dataform.googleapis.com/v1beta1/{+parent}/releaseConfigs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dataform.googleapis.com/v1beta1/{+parent}/releaseConfigs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-repositories-releaseConfigs-get
   "Fetches a single ReleaseConfig.
@@ -779,12 +735,11 @@ https://cloud.google.com/dataform/docs/v1beta1/reference/rest/v1beta1/projects/l
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-repositories-releaseConfigs-create
   "Creates a new ReleaseConfig in a given Repository.
@@ -802,14 +757,13 @@ releaseConfigId <string> Required. The ID to use for the release config, which w
       ReleaseConfig
       nil))
   ([parent ReleaseConfig optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://dataform.googleapis.com/v1beta1/{+parent}/releaseConfigs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body ReleaseConfig})))
+    {:method :post,
+     :uri-template
+     "https://dataform.googleapis.com/v1beta1/{+parent}/releaseConfigs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body ReleaseConfig}))
 
 (defn projects-locations-repositories-releaseConfigs-patch
   "Updates a single ReleaseConfig.
@@ -827,13 +781,12 @@ updateMask <string> Optional. Specifies the fields to be updated in the release 
       ReleaseConfig
       nil))
   ([name ReleaseConfig optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body ReleaseConfig})))
+    {:method :patch,
+     :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body ReleaseConfig}))
 
 (defn projects-locations-repositories-releaseConfigs-delete
   "Deletes a single ReleaseConfig.
@@ -841,12 +794,11 @@ https://cloud.google.com/dataform/docs/v1beta1/reference/rest/v1beta1/projects/l
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-repositories-compilationResults-list
   "Lists CompilationResults in a given Repository.
@@ -863,13 +815,12 @@ filter <string> Optional. Filter for the returned list."
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dataform.googleapis.com/v1beta1/{+parent}/compilationResults",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dataform.googleapis.com/v1beta1/{+parent}/compilationResults",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-repositories-compilationResults-get
   "Fetches a single CompilationResult.
@@ -877,12 +828,11 @@ https://cloud.google.com/dataform/docs/v1beta1/reference/rest/v1beta1/projects/l
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-repositories-compilationResults-create
   "Creates a new CompilationResult in a given project and location.
@@ -892,14 +842,13 @@ parent <>
 CompilationResult:
 CompilationResult"
   [parent CompilationResult]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataform.googleapis.com/v1beta1/{+parent}/compilationResults",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body CompilationResult}))
+  {:method :post,
+   :uri-template
+   "https://dataform.googleapis.com/v1beta1/{+parent}/compilationResults",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body CompilationResult})
 
 (defn projects-locations-repositories-compilationResults-query
   "Returns CompilationResultActions in a given CompilationResult.
@@ -915,13 +864,12 @@ filter <string> Optional. Optional filter for the returned list. Filtering is on
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dataform.googleapis.com/v1beta1/{+name}:query",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dataform.googleapis.com/v1beta1/{+name}:query",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-repositories-workflowConfigs-list
   "Lists WorkflowConfigs in a given Repository.
@@ -934,13 +882,12 @@ pageSize <integer> Optional. Maximum number of workflow configs to return. The s
   ([parent]
     (projects-locations-repositories-workflowConfigs-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dataform.googleapis.com/v1beta1/{+parent}/workflowConfigs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dataform.googleapis.com/v1beta1/{+parent}/workflowConfigs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-repositories-workflowConfigs-get
   "Fetches a single WorkflowConfig.
@@ -948,12 +895,11 @@ https://cloud.google.com/dataform/docs/v1beta1/reference/rest/v1beta1/projects/l
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-repositories-workflowConfigs-create
   "Creates a new WorkflowConfig in a given Repository.
@@ -971,14 +917,13 @@ workflowConfigId <string> Required. The ID to use for the workflow config, which
       WorkflowConfig
       nil))
   ([parent WorkflowConfig optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://dataform.googleapis.com/v1beta1/{+parent}/workflowConfigs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body WorkflowConfig})))
+    {:method :post,
+     :uri-template
+     "https://dataform.googleapis.com/v1beta1/{+parent}/workflowConfigs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body WorkflowConfig}))
 
 (defn projects-locations-repositories-workflowConfigs-patch
   "Updates a single WorkflowConfig.
@@ -996,13 +941,12 @@ updateMask <string> Optional. Specifies the fields to be updated in the workflow
       WorkflowConfig
       nil))
   ([name WorkflowConfig optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body WorkflowConfig})))
+    {:method :patch,
+     :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body WorkflowConfig}))
 
 (defn projects-locations-repositories-workflowConfigs-delete
   "Deletes a single WorkflowConfig.
@@ -1010,12 +954,11 @@ https://cloud.google.com/dataform/docs/v1beta1/reference/rest/v1beta1/projects/l
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-repositories-workflowInvocations-list
   "Lists WorkflowInvocations in a given Repository.
@@ -1032,13 +975,12 @@ filter <string> Optional. Filter for the returned list."
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dataform.googleapis.com/v1beta1/{+parent}/workflowInvocations",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dataform.googleapis.com/v1beta1/{+parent}/workflowInvocations",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-repositories-workflowInvocations-get
   "Fetches a single WorkflowInvocation.
@@ -1046,12 +988,11 @@ https://cloud.google.com/dataform/docs/v1beta1/reference/rest/v1beta1/projects/l
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-repositories-workflowInvocations-create
   "Creates a new WorkflowInvocation in a given Repository.
@@ -1061,14 +1002,13 @@ parent <>
 WorkflowInvocation:
 WorkflowInvocation"
   [parent WorkflowInvocation]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataform.googleapis.com/v1beta1/{+parent}/workflowInvocations",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body WorkflowInvocation}))
+  {:method :post,
+   :uri-template
+   "https://dataform.googleapis.com/v1beta1/{+parent}/workflowInvocations",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body WorkflowInvocation})
 
 (defn projects-locations-repositories-workflowInvocations-delete
   "Deletes a single WorkflowInvocation.
@@ -1076,12 +1016,11 @@ https://cloud.google.com/dataform/docs/v1beta1/reference/rest/v1beta1/projects/l
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dataform.googleapis.com/v1beta1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-repositories-workflowInvocations-cancel
   "Requests cancellation of a running WorkflowInvocation.
@@ -1091,14 +1030,13 @@ name <>
 CancelWorkflowInvocationRequest:
 CancelWorkflowInvocationRequest"
   [name CancelWorkflowInvocationRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataform.googleapis.com/v1beta1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body CancelWorkflowInvocationRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataform.googleapis.com/v1beta1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body CancelWorkflowInvocationRequest})
 
 (defn projects-locations-repositories-workflowInvocations-query
   "Returns WorkflowInvocationActions in a given WorkflowInvocation.
@@ -1113,13 +1051,12 @@ pageSize <integer> Optional. Maximum number of workflow invocations to return. T
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dataform.googleapis.com/v1beta1/{+name}:query",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dataform.googleapis.com/v1beta1/{+name}:query",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-repositories-commentThreads-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -1129,14 +1066,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataform.googleapis.com/v1beta1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataform.googleapis.com/v1beta1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-repositories-commentThreads-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -1151,13 +1087,12 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dataform.googleapis.com/v1beta1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dataform.googleapis.com/v1beta1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-repositories-commentThreads-comments-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -1167,14 +1102,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataform.googleapis.com/v1beta1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataform.googleapis.com/v1beta1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-repositories-commentThreads-comments-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -1189,13 +1123,12 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dataform.googleapis.com/v1beta1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dataform.googleapis.com/v1beta1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-collections-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -1205,14 +1138,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataform.googleapis.com/v1beta1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataform.googleapis.com/v1beta1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-collections-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -1225,13 +1157,12 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-collections-getIamPolicy resource nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dataform.googleapis.com/v1beta1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dataform.googleapis.com/v1beta1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-collections-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -1241,11 +1172,10 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataform.googleapis.com/v1beta1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataform.googleapis.com/v1beta1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})

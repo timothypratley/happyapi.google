@@ -1,8 +1,7 @@
 (ns happyapi.google.dataproc-v1
   "Cloud Dataproc API
 Manages Hadoop-based clusters and jobs on Google Cloud Platform.
-See: https://cloud.google.com/dataproc/"
-  (:require [happyapi.providers.google :as client]))
+See: https://cloud.google.com/dataproc/")
 
 (defn projects-regions-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns UNIMPLEMENTED.
@@ -15,12 +14,11 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-regions-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template "https://dataproc.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://dataproc.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-regions-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -28,12 +26,11 @@ https://cloud.google.com/dataproc/v1/reference/rest/v1/projects/regions/operatio
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dataproc.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dataproc.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-regions-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED.
@@ -41,12 +38,11 @@ https://cloud.google.com/dataproc/v1/reference/rest/v1/projects/regions/operatio
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dataproc.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dataproc.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-regions-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
@@ -54,12 +50,11 @@ https://cloud.google.com/dataproc/v1/reference/rest/v1/projects/regions/operatio
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template "https://dataproc.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://dataproc.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-regions-operations-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors.
@@ -69,14 +64,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-regions-operations-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -86,14 +80,13 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/{+resource}:getIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/{+resource}:getIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GetIamPolicyRequest})
 
 (defn projects-regions-operations-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -103,14 +96,13 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-regions-autoscalingPolicies-create
   "Creates new autoscaling policy.
@@ -120,14 +112,13 @@ parent <>
 AutoscalingPolicy:
 AutoscalingPolicy"
   [parent AutoscalingPolicy]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/{+parent}/autoscalingPolicies",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body AutoscalingPolicy}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/{+parent}/autoscalingPolicies",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body AutoscalingPolicy})
 
 (defn projects-regions-autoscalingPolicies-update
   "Updates (replaces) autoscaling policy.Disabled check for update_mask, because all updates will be full replacements.
@@ -137,13 +128,12 @@ name <>
 AutoscalingPolicy:
 AutoscalingPolicy"
   [name AutoscalingPolicy]
-  (client/*api-request*
-    {:method :put,
-     :uri-template "https://dataproc.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body AutoscalingPolicy}))
+  {:method :put,
+   :uri-template "https://dataproc.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body AutoscalingPolicy})
 
 (defn projects-regions-autoscalingPolicies-get
   "Retrieves autoscaling policy.
@@ -151,12 +141,11 @@ https://cloud.google.com/dataproc/v1/reference/rest/v1/projects/regions/autoscal
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dataproc.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dataproc.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-regions-autoscalingPolicies-list
   "Lists autoscaling policies in the project.
@@ -168,13 +157,12 @@ optional:
 pageSize <integer> Optional. The maximum number of results to return in each response. Must be less than or equal to 1000. Defaults to 100."
   ([parent] (projects-regions-autoscalingPolicies-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dataproc.googleapis.com/v1/{+parent}/autoscalingPolicies",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dataproc.googleapis.com/v1/{+parent}/autoscalingPolicies",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-regions-autoscalingPolicies-delete
   "Deletes an autoscaling policy. It is an error to delete an autoscaling policy that is in use by one or more clusters.
@@ -182,12 +170,11 @@ https://cloud.google.com/dataproc/v1/reference/rest/v1/projects/regions/autoscal
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dataproc.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dataproc.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-regions-autoscalingPolicies-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors.
@@ -197,14 +184,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-regions-autoscalingPolicies-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -214,14 +200,13 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/{+resource}:getIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/{+resource}:getIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GetIamPolicyRequest})
 
 (defn projects-regions-autoscalingPolicies-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -231,14 +216,13 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-regions-clusters-stop
   "Stops a cluster in a project.
@@ -250,17 +234,14 @@ clusterName <>
 StopClusterRequest:
 StopClusterRequest"
   [projectId region clusterName StopClusterRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/clusters/{clusterName}:stop",
-     :uri-template-args
-     {"projectId" projectId,
-      "region" region,
-      "clusterName" clusterName},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body StopClusterRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/clusters/{clusterName}:stop",
+   :uri-template-args
+   {"projectId" projectId, "region" region, "clusterName" clusterName},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body StopClusterRequest})
 
 (defn projects-regions-clusters-list
   "Lists all regions/{region}/clusters in a project alphabetically.
@@ -275,13 +256,12 @@ pageSize <integer> Optional. The standard List page size."
   ([projectId region]
     (projects-regions-clusters-list projectId region nil))
   ([projectId region optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/clusters",
-       :uri-template-args {"projectId" projectId, "region" region},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/clusters",
+     :uri-template-args {"projectId" projectId, "region" region},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-regions-clusters-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors.
@@ -291,14 +271,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-regions-clusters-delete
   "Deletes a cluster in a project. The returned Operation.metadata will be ClusterOperationMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata).
@@ -319,16 +298,15 @@ gracefulTerminationTimeout <string> Optional. The graceful termination timeout f
       clusterName
       nil))
   ([projectId region clusterName optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/clusters/{clusterName}",
-       :uri-template-args
-       {"projectId" projectId,
-        "region" region,
-        "clusterName" clusterName},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template
+     "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/clusters/{clusterName}",
+     :uri-template-args
+     {"projectId" projectId,
+      "region" region,
+      "clusterName" clusterName},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-regions-clusters-injectCredentials
   "Inject encrypted credentials into all of the VMs in a cluster.The target cluster must be a personal auth cluster assigned to the user who is issuing the RPC.
@@ -340,15 +318,14 @@ cluster <>
 InjectCredentialsRequest:
 InjectCredentialsRequest"
   [project region cluster InjectCredentialsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/{+project}/{+region}/{+cluster}:injectCredentials",
-     :uri-template-args
-     {"project" project, "region" region, "cluster" cluster},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body InjectCredentialsRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/{+project}/{+region}/{+cluster}:injectCredentials",
+   :uri-template-args
+   {"project" project, "region" region, "cluster" cluster},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body InjectCredentialsRequest})
 
 (defn projects-regions-clusters-start
   "Starts a cluster in a project.
@@ -360,17 +337,14 @@ clusterName <>
 StartClusterRequest:
 StartClusterRequest"
   [projectId region clusterName StartClusterRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/clusters/{clusterName}:start",
-     :uri-template-args
-     {"projectId" projectId,
-      "region" region,
-      "clusterName" clusterName},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body StartClusterRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/clusters/{clusterName}:start",
+   :uri-template-args
+   {"projectId" projectId, "region" region, "clusterName" clusterName},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body StartClusterRequest})
 
 (defn projects-regions-clusters-patch
   "Updates a cluster in a project. The returned Operation.metadata will be ClusterOperationMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata). The cluster must be in a RUNNING state or an error is returned.
@@ -394,17 +368,16 @@ requestId <string> Optional. A unique ID used to identify the request. If the se
       Cluster
       nil))
   ([projectId region clusterName Cluster optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/clusters/{clusterName}",
-       :uri-template-args
-       {"projectId" projectId,
-        "region" region,
-        "clusterName" clusterName},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Cluster})))
+    {:method :patch,
+     :uri-template
+     "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/clusters/{clusterName}",
+     :uri-template-args
+     {"projectId" projectId,
+      "region" region,
+      "clusterName" clusterName},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Cluster}))
 
 (defn projects-regions-clusters-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -414,14 +387,13 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/{+resource}:getIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/{+resource}:getIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GetIamPolicyRequest})
 
 (defn projects-regions-clusters-diagnose
   "Gets cluster diagnostic information. The returned Operation.metadata will be ClusterOperationMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata). After the operation completes, Operation.response contains DiagnoseClusterResults (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#diagnoseclusterresults).
@@ -433,17 +405,14 @@ clusterName <>
 DiagnoseClusterRequest:
 DiagnoseClusterRequest"
   [projectId region clusterName DiagnoseClusterRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/clusters/{clusterName}:diagnose",
-     :uri-template-args
-     {"projectId" projectId,
-      "region" region,
-      "clusterName" clusterName},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body DiagnoseClusterRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/clusters/{clusterName}:diagnose",
+   :uri-template-args
+   {"projectId" projectId, "region" region, "clusterName" clusterName},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body DiagnoseClusterRequest})
 
 (defn projects-regions-clusters-create
   "Creates a cluster in a project. The returned Operation.metadata will be ClusterOperationMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata).
@@ -460,14 +429,13 @@ actionOnFailedPrimaryWorkers <string> Optional. Failure action when primary work
   ([projectId region Cluster]
     (projects-regions-clusters-create projectId region Cluster nil))
   ([projectId region Cluster optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/clusters",
-       :uri-template-args {"projectId" projectId, "region" region},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Cluster})))
+    {:method :post,
+     :uri-template
+     "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/clusters",
+     :uri-template-args {"projectId" projectId, "region" region},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Cluster}))
 
 (defn projects-regions-clusters-repair
   "Repairs a cluster.
@@ -479,17 +447,14 @@ clusterName <>
 RepairClusterRequest:
 RepairClusterRequest"
   [projectId region clusterName RepairClusterRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/clusters/{clusterName}:repair",
-     :uri-template-args
-     {"projectId" projectId,
-      "region" region,
-      "clusterName" clusterName},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body RepairClusterRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/clusters/{clusterName}:repair",
+   :uri-template-args
+   {"projectId" projectId, "region" region, "clusterName" clusterName},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body RepairClusterRequest})
 
 (defn projects-regions-clusters-get
   "Gets the resource representation for a cluster in a project.
@@ -499,16 +464,13 @@ projectId <>
 region <> 
 clusterName <> "
   [projectId region clusterName]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/clusters/{clusterName}",
-     :uri-template-args
-     {"projectId" projectId,
-      "region" region,
-      "clusterName" clusterName},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/clusters/{clusterName}",
+   :uri-template-args
+   {"projectId" projectId, "region" region, "clusterName" clusterName},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-regions-clusters-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -518,14 +480,13 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-regions-clusters-nodeGroups-create
   "Creates a node group in a cluster. The returned Operation.metadata is NodeGroupOperationMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#nodegroupoperationmetadata).
@@ -542,14 +503,13 @@ parentOperationId <string> Optional. operation id of the parent operation sendin
   ([parent NodeGroup]
     (projects-regions-clusters-nodeGroups-create parent NodeGroup nil))
   ([parent NodeGroup optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://dataproc.googleapis.com/v1/{+parent}/nodeGroups",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body NodeGroup})))
+    {:method :post,
+     :uri-template
+     "https://dataproc.googleapis.com/v1/{+parent}/nodeGroups",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body NodeGroup}))
 
 (defn projects-regions-clusters-nodeGroups-resize
   "Resizes a node group in a cluster. The returned Operation.metadata is NodeGroupOperationMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#nodegroupoperationmetadata).
@@ -559,13 +519,12 @@ name <>
 ResizeNodeGroupRequest:
 ResizeNodeGroupRequest"
   [name ResizeNodeGroupRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template "https://dataproc.googleapis.com/v1/{+name}:resize",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body ResizeNodeGroupRequest}))
+  {:method :post,
+   :uri-template "https://dataproc.googleapis.com/v1/{+name}:resize",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body ResizeNodeGroupRequest})
 
 (defn projects-regions-clusters-nodeGroups-repair
   "Repair nodes in a node group.
@@ -575,13 +534,12 @@ name <>
 RepairNodeGroupRequest:
 RepairNodeGroupRequest"
   [name RepairNodeGroupRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template "https://dataproc.googleapis.com/v1/{+name}:repair",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body RepairNodeGroupRequest}))
+  {:method :post,
+   :uri-template "https://dataproc.googleapis.com/v1/{+name}:repair",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body RepairNodeGroupRequest})
 
 (defn projects-regions-clusters-nodeGroups-get
   "Gets the resource representation for a node group in a cluster.
@@ -589,12 +547,11 @@ https://cloud.google.com/dataproc/v1/reference/rest/v1/projects/regions/clusters
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dataproc.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dataproc.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-regions-jobs-list
   "Lists regions/{region}/jobs in a project.
@@ -611,13 +568,12 @@ filter <string> Optional. A filter constraining the jobs to list. Filters are ca
   ([projectId region]
     (projects-regions-jobs-list projectId region nil))
   ([projectId region optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/jobs",
-       :uri-template-args {"projectId" projectId, "region" region},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/jobs",
+     :uri-template-args {"projectId" projectId, "region" region},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-regions-jobs-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors.
@@ -627,14 +583,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-regions-jobs-cancel
   "Starts a job cancellation request. To access the job resource after cancellation, call regions/{region}/jobs.list (https://cloud.google.com/dataproc/docs/reference/rest/v1/projects.regions.jobs/list) or regions/{region}/jobs.get (https://cloud.google.com/dataproc/docs/reference/rest/v1/projects.regions.jobs/get).
@@ -646,15 +601,14 @@ jobId <>
 CancelJobRequest:
 CancelJobRequest"
   [projectId region jobId CancelJobRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/jobs/{jobId}:cancel",
-     :uri-template-args
-     {"projectId" projectId, "region" region, "jobId" jobId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body CancelJobRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/jobs/{jobId}:cancel",
+   :uri-template-args
+   {"projectId" projectId, "region" region, "jobId" jobId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body CancelJobRequest})
 
 (defn projects-regions-jobs-delete
   "Deletes the job from the project. If the job is active, the delete fails, and the response returns FAILED_PRECONDITION.
@@ -664,14 +618,13 @@ projectId <>
 region <> 
 jobId <> "
   [projectId region jobId]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/jobs/{jobId}",
-     :uri-template-args
-     {"projectId" projectId, "region" region, "jobId" jobId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/jobs/{jobId}",
+   :uri-template-args
+   {"projectId" projectId, "region" region, "jobId" jobId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-regions-jobs-patch
   "Updates a job in a project.
@@ -688,15 +641,14 @@ updateMask <string> Required. Specifies the path, relative to Job, of the field 
   ([projectId region jobId Job]
     (projects-regions-jobs-patch projectId region jobId Job nil))
   ([projectId region jobId Job optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/jobs/{jobId}",
-       :uri-template-args
-       {"projectId" projectId, "region" region, "jobId" jobId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Job})))
+    {:method :patch,
+     :uri-template
+     "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/jobs/{jobId}",
+     :uri-template-args
+     {"projectId" projectId, "region" region, "jobId" jobId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Job}))
 
 (defn projects-regions-jobs-submit
   "Submits a job to a cluster.
@@ -707,14 +659,13 @@ region <>
 SubmitJobRequest:
 SubmitJobRequest"
   [projectId region SubmitJobRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/jobs:submit",
-     :uri-template-args {"projectId" projectId, "region" region},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SubmitJobRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/jobs:submit",
+   :uri-template-args {"projectId" projectId, "region" region},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SubmitJobRequest})
 
 (defn projects-regions-jobs-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -724,14 +675,13 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/{+resource}:getIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/{+resource}:getIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GetIamPolicyRequest})
 
 (defn projects-regions-jobs-submitAsOperation
   "Submits job to a cluster.
@@ -742,14 +692,13 @@ region <>
 SubmitJobRequest:
 SubmitJobRequest"
   [projectId region SubmitJobRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/jobs:submitAsOperation",
-     :uri-template-args {"projectId" projectId, "region" region},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SubmitJobRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/jobs:submitAsOperation",
+   :uri-template-args {"projectId" projectId, "region" region},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SubmitJobRequest})
 
 (defn projects-regions-jobs-get
   "Gets the resource representation for a job in a project.
@@ -759,14 +708,13 @@ projectId <>
 region <> 
 jobId <> "
   [projectId region jobId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/jobs/{jobId}",
-     :uri-template-args
-     {"projectId" projectId, "region" region, "jobId" jobId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/projects/{projectId}/regions/{region}/jobs/{jobId}",
+   :uri-template-args
+   {"projectId" projectId, "region" region, "jobId" jobId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-regions-jobs-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -776,14 +724,13 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-regions-workflowTemplates-list
   "Lists workflows that match the specified filter in the request.
@@ -795,13 +742,12 @@ optional:
 pageSize <integer> Optional. The maximum number of results to return in each response."
   ([parent] (projects-regions-workflowTemplates-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dataproc.googleapis.com/v1/{+parent}/workflowTemplates",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dataproc.googleapis.com/v1/{+parent}/workflowTemplates",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-regions-workflowTemplates-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors.
@@ -811,14 +757,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-regions-workflowTemplates-delete
   "Deletes a workflow template. It does not cancel in-progress workflows.
@@ -830,12 +775,11 @@ optional:
 version <integer> Optional. The version of workflow template to delete. If specified, will only delete the template if the current server version matches specified version."
   ([name] (projects-regions-workflowTemplates-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://dataproc.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://dataproc.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-regions-workflowTemplates-instantiateInline
   "Instantiates a template and begins execution.This method is equivalent to executing the sequence CreateWorkflowTemplate, InstantiateWorkflowTemplate, DeleteWorkflowTemplate.The returned Operation can be used to track execution of workflow by polling operations.get. The Operation will complete when entire workflow is finished.The running workflow can be aborted via operations.cancel. This will cause any inflight jobs to be cancelled and workflow-owned clusters to be deleted.The Operation.metadata will be WorkflowMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata). Also see Using WorkflowMetadata (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On successful completion, Operation.response will be Empty.
@@ -853,14 +797,13 @@ requestId <string> Optional. A tag that prevents multiple concurrent workflow in
       WorkflowTemplate
       nil))
   ([parent WorkflowTemplate optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://dataproc.googleapis.com/v1/{+parent}/workflowTemplates:instantiateInline",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body WorkflowTemplate})))
+    {:method :post,
+     :uri-template
+     "https://dataproc.googleapis.com/v1/{+parent}/workflowTemplates:instantiateInline",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body WorkflowTemplate}))
 
 (defn projects-regions-workflowTemplates-update
   "Updates (replaces) workflow template. The updated template must contain version that matches the current server version.
@@ -870,13 +813,12 @@ name <>
 WorkflowTemplate:
 WorkflowTemplate"
   [name WorkflowTemplate]
-  (client/*api-request*
-    {:method :put,
-     :uri-template "https://dataproc.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body WorkflowTemplate}))
+  {:method :put,
+   :uri-template "https://dataproc.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body WorkflowTemplate})
 
 (defn projects-regions-workflowTemplates-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -886,14 +828,13 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/{+resource}:getIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/{+resource}:getIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GetIamPolicyRequest})
 
 (defn projects-regions-workflowTemplates-instantiate
   "Instantiates a template and begins execution.The returned Operation can be used to track execution of workflow by polling operations.get. The Operation will complete when entire workflow is finished.The running workflow can be aborted via operations.cancel. This will cause any inflight jobs to be cancelled and workflow-owned clusters to be deleted.The Operation.metadata will be WorkflowMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata). Also see Using WorkflowMetadata (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On successful completion, Operation.response will be Empty.
@@ -903,14 +844,13 @@ name <>
 InstantiateWorkflowTemplateRequest:
 InstantiateWorkflowTemplateRequest"
   [name InstantiateWorkflowTemplateRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/{+name}:instantiate",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body InstantiateWorkflowTemplateRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/{+name}:instantiate",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body InstantiateWorkflowTemplateRequest})
 
 (defn projects-regions-workflowTemplates-create
   "Creates new workflow template.
@@ -920,14 +860,13 @@ parent <>
 WorkflowTemplate:
 WorkflowTemplate"
   [parent WorkflowTemplate]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/{+parent}/workflowTemplates",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body WorkflowTemplate}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/{+parent}/workflowTemplates",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body WorkflowTemplate})
 
 (defn projects-regions-workflowTemplates-get
   "Retrieves the latest workflow template.Can retrieve previously instantiated template by specifying optional version parameter.
@@ -939,12 +878,11 @@ optional:
 version <integer> Optional. The version of workflow template to retrieve. Only previously instantiated versions can be retrieved.If unspecified, retrieves the current version."
   ([name] (projects-regions-workflowTemplates-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template "https://dataproc.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://dataproc.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-regions-workflowTemplates-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -954,14 +892,13 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-locations-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns UNIMPLEMENTED.
@@ -974,12 +911,11 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template "https://dataproc.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://dataproc.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -987,12 +923,11 @@ https://cloud.google.com/dataproc/v1/reference/rest/v1/projects/locations/operat
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dataproc.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dataproc.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED.
@@ -1000,12 +935,11 @@ https://cloud.google.com/dataproc/v1/reference/rest/v1/projects/locations/operat
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dataproc.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dataproc.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED.
@@ -1013,12 +947,11 @@ https://cloud.google.com/dataproc/v1/reference/rest/v1/projects/locations/operat
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template "https://dataproc.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://dataproc.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-batches-analyze
   "Analyze a Batch for possible recommendations and insights.
@@ -1028,14 +961,12 @@ name <>
 AnalyzeBatchRequest:
 AnalyzeBatchRequest"
   [name AnalyzeBatchRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/{+name}:analyze",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body AnalyzeBatchRequest}))
+  {:method :post,
+   :uri-template "https://dataproc.googleapis.com/v1/{+name}:analyze",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body AnalyzeBatchRequest})
 
 (defn projects-locations-batches-create
   "Creates a batch workload that executes asynchronously.
@@ -1050,14 +981,13 @@ batchId <string> Optional. The ID to use for the batch, which will become the fi
 requestId <string> Optional. A unique ID used to identify the request. If the service receives two CreateBatchRequest (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.CreateBatchRequest)s with the same request_id, the second request is ignored and the Operation that corresponds to the first Batch created and stored in the backend is returned.Recommendation: Set this value to a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The value must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters."
   ([parent Batch] (projects-locations-batches-create parent Batch nil))
   ([parent Batch optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://dataproc.googleapis.com/v1/{+parent}/batches",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Batch})))
+    {:method :post,
+     :uri-template
+     "https://dataproc.googleapis.com/v1/{+parent}/batches",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Batch}))
 
 (defn projects-locations-batches-get
   "Gets the batch workload resource representation.
@@ -1065,12 +995,11 @@ https://cloud.google.com/dataproc/v1/reference/rest/v1/projects/locations/batche
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dataproc.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dataproc.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-batches-list
   "Lists batch workloads.
@@ -1084,13 +1013,12 @@ filter <string> Optional. A filter for the batches to return in the response.A f
 orderBy <string> Optional. Field(s) on which to sort the list of batches.Currently the only supported sort orders are unspecified (empty) and create_time desc to sort by most recently created batches first.See https://google.aip.dev/132#ordering for more details."
   ([parent] (projects-locations-batches-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dataproc.googleapis.com/v1/{+parent}/batches",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dataproc.googleapis.com/v1/{+parent}/batches",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-batches-delete
   "Deletes the batch workload resource. If the batch is not in a CANCELLED, SUCCEEDED or FAILED State, the delete operation fails and the response returns FAILED_PRECONDITION.
@@ -1098,12 +1026,11 @@ https://cloud.google.com/dataproc/v1/reference/rest/v1/projects/locations/batche
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dataproc.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dataproc.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-autoscalingPolicies-create
   "Creates new autoscaling policy.
@@ -1113,14 +1040,13 @@ parent <>
 AutoscalingPolicy:
 AutoscalingPolicy"
   [parent AutoscalingPolicy]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/{+parent}/autoscalingPolicies",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body AutoscalingPolicy}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/{+parent}/autoscalingPolicies",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body AutoscalingPolicy})
 
 (defn projects-locations-autoscalingPolicies-update
   "Updates (replaces) autoscaling policy.Disabled check for update_mask, because all updates will be full replacements.
@@ -1130,13 +1056,12 @@ name <>
 AutoscalingPolicy:
 AutoscalingPolicy"
   [name AutoscalingPolicy]
-  (client/*api-request*
-    {:method :put,
-     :uri-template "https://dataproc.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body AutoscalingPolicy}))
+  {:method :put,
+   :uri-template "https://dataproc.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body AutoscalingPolicy})
 
 (defn projects-locations-autoscalingPolicies-get
   "Retrieves autoscaling policy.
@@ -1144,12 +1069,11 @@ https://cloud.google.com/dataproc/v1/reference/rest/v1/projects/locations/autosc
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dataproc.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dataproc.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-autoscalingPolicies-list
   "Lists autoscaling policies in the project.
@@ -1161,13 +1085,12 @@ optional:
 pageSize <integer> Optional. The maximum number of results to return in each response. Must be less than or equal to 1000. Defaults to 100."
   ([parent] (projects-locations-autoscalingPolicies-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dataproc.googleapis.com/v1/{+parent}/autoscalingPolicies",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dataproc.googleapis.com/v1/{+parent}/autoscalingPolicies",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-autoscalingPolicies-delete
   "Deletes an autoscaling policy. It is an error to delete an autoscaling policy that is in use by one or more clusters.
@@ -1175,12 +1098,11 @@ https://cloud.google.com/dataproc/v1/reference/rest/v1/projects/locations/autosc
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dataproc.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dataproc.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-autoscalingPolicies-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors.
@@ -1190,14 +1112,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-autoscalingPolicies-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -1207,14 +1128,13 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/{+resource}:getIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/{+resource}:getIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GetIamPolicyRequest})
 
 (defn projects-locations-autoscalingPolicies-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -1224,14 +1144,13 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-locations-sessions-create
   "Create an interactive session asynchronously.
@@ -1247,14 +1166,13 @@ requestId <string> Optional. A unique ID used to identify the request. If the se
   ([parent Session]
     (projects-locations-sessions-create parent Session nil))
   ([parent Session optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://dataproc.googleapis.com/v1/{+parent}/sessions",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Session})))
+    {:method :post,
+     :uri-template
+     "https://dataproc.googleapis.com/v1/{+parent}/sessions",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Session}))
 
 (defn projects-locations-sessions-get
   "Gets the resource representation for an interactive session.
@@ -1262,12 +1180,11 @@ https://cloud.google.com/dataproc/v1/reference/rest/v1/projects/locations/sessio
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dataproc.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dataproc.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-sessions-list
   "Lists interactive sessions.
@@ -1280,13 +1197,12 @@ pageSize <integer> Optional. The maximum number of sessions to return in each re
 filter <string> Optional. A filter for the sessions to return in the response.A filter is a logical expression constraining the values of various fields in each session resource. Filters are case sensitive, and may contain multiple clauses combined with logical operators (AND, OR). Supported fields are session_id, session_uuid, state, create_time, and labels.Example: state = ACTIVE and create_time < \"2023-01-01T00:00:00Z\" is a filter for sessions in an ACTIVE state that were created before 2023-01-01. state = ACTIVE and labels.environment=production is a filter for sessions in an ACTIVE state that have a production environment label.See https://google.aip.dev/assets/misc/ebnf-filtering.txt for a detailed description of the filter syntax and a list of supported comparators."
   ([parent] (projects-locations-sessions-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dataproc.googleapis.com/v1/{+parent}/sessions",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dataproc.googleapis.com/v1/{+parent}/sessions",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-sessions-terminate
   "Terminates the interactive session.
@@ -1296,14 +1212,13 @@ name <>
 TerminateSessionRequest:
 TerminateSessionRequest"
   [name TerminateSessionRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/{+name}:terminate",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TerminateSessionRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/{+name}:terminate",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TerminateSessionRequest})
 
 (defn projects-locations-sessions-delete
   "Deletes the interactive session resource. If the session is not in terminal state, it is terminated, and then deleted.
@@ -1315,12 +1230,11 @@ optional:
 requestId <string> Optional. A unique ID used to identify the request. If the service receives two DeleteSessionRequest (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.DeleteSessionRequest)s with the same ID, the second request is ignored.Recommendation: Set this value to a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The value must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters."
   ([name] (projects-locations-sessions-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://dataproc.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://dataproc.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-sessionTemplates-create
   "Create a session template synchronously.
@@ -1330,14 +1244,13 @@ parent <>
 SessionTemplate:
 SessionTemplate"
   [parent SessionTemplate]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/{+parent}/sessionTemplates",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SessionTemplate}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/{+parent}/sessionTemplates",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SessionTemplate})
 
 (defn projects-locations-sessionTemplates-patch
   "Updates the session template synchronously.
@@ -1347,13 +1260,12 @@ name <>
 SessionTemplate:
 SessionTemplate"
   [name SessionTemplate]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template "https://dataproc.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SessionTemplate}))
+  {:method :patch,
+   :uri-template "https://dataproc.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SessionTemplate})
 
 (defn projects-locations-sessionTemplates-get
   "Gets the resource representation for a session template.
@@ -1361,12 +1273,11 @@ https://cloud.google.com/dataproc/v1/reference/rest/v1/projects/locations/sessio
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://dataproc.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://dataproc.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-sessionTemplates-list
   "Lists session templates.
@@ -1379,13 +1290,12 @@ pageSize <integer> Optional. The maximum number of sessions to return in each re
 filter <string> Optional. A filter for the session templates to return in the response. Filters are case sensitive and have the following syntax:field = value AND field = value ..."
   ([parent] (projects-locations-sessionTemplates-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dataproc.googleapis.com/v1/{+parent}/sessionTemplates",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dataproc.googleapis.com/v1/{+parent}/sessionTemplates",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-sessionTemplates-delete
   "Deletes a session template.
@@ -1393,12 +1303,11 @@ https://cloud.google.com/dataproc/v1/reference/rest/v1/projects/locations/sessio
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://dataproc.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://dataproc.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-workflowTemplates-list
   "Lists workflows that match the specified filter in the request.
@@ -1410,13 +1319,12 @@ optional:
 pageSize <integer> Optional. The maximum number of results to return in each response."
   ([parent] (projects-locations-workflowTemplates-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dataproc.googleapis.com/v1/{+parent}/workflowTemplates",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://dataproc.googleapis.com/v1/{+parent}/workflowTemplates",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-workflowTemplates-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors.
@@ -1426,14 +1334,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-workflowTemplates-delete
   "Deletes a workflow template. It does not cancel in-progress workflows.
@@ -1445,12 +1352,11 @@ optional:
 version <integer> Optional. The version of workflow template to delete. If specified, will only delete the template if the current server version matches specified version."
   ([name] (projects-locations-workflowTemplates-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://dataproc.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://dataproc.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-workflowTemplates-instantiateInline
   "Instantiates a template and begins execution.This method is equivalent to executing the sequence CreateWorkflowTemplate, InstantiateWorkflowTemplate, DeleteWorkflowTemplate.The returned Operation can be used to track execution of workflow by polling operations.get. The Operation will complete when entire workflow is finished.The running workflow can be aborted via operations.cancel. This will cause any inflight jobs to be cancelled and workflow-owned clusters to be deleted.The Operation.metadata will be WorkflowMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata). Also see Using WorkflowMetadata (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On successful completion, Operation.response will be Empty.
@@ -1468,14 +1374,13 @@ requestId <string> Optional. A tag that prevents multiple concurrent workflow in
       WorkflowTemplate
       nil))
   ([parent WorkflowTemplate optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://dataproc.googleapis.com/v1/{+parent}/workflowTemplates:instantiateInline",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body WorkflowTemplate})))
+    {:method :post,
+     :uri-template
+     "https://dataproc.googleapis.com/v1/{+parent}/workflowTemplates:instantiateInline",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body WorkflowTemplate}))
 
 (defn projects-locations-workflowTemplates-update
   "Updates (replaces) workflow template. The updated template must contain version that matches the current server version.
@@ -1485,13 +1390,12 @@ name <>
 WorkflowTemplate:
 WorkflowTemplate"
   [name WorkflowTemplate]
-  (client/*api-request*
-    {:method :put,
-     :uri-template "https://dataproc.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body WorkflowTemplate}))
+  {:method :put,
+   :uri-template "https://dataproc.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body WorkflowTemplate})
 
 (defn projects-locations-workflowTemplates-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -1501,14 +1405,13 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/{+resource}:getIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/{+resource}:getIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GetIamPolicyRequest})
 
 (defn projects-locations-workflowTemplates-instantiate
   "Instantiates a template and begins execution.The returned Operation can be used to track execution of workflow by polling operations.get. The Operation will complete when entire workflow is finished.The running workflow can be aborted via operations.cancel. This will cause any inflight jobs to be cancelled and workflow-owned clusters to be deleted.The Operation.metadata will be WorkflowMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata). Also see Using WorkflowMetadata (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On successful completion, Operation.response will be Empty.
@@ -1518,14 +1421,13 @@ name <>
 InstantiateWorkflowTemplateRequest:
 InstantiateWorkflowTemplateRequest"
   [name InstantiateWorkflowTemplateRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/{+name}:instantiate",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body InstantiateWorkflowTemplateRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/{+name}:instantiate",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body InstantiateWorkflowTemplateRequest})
 
 (defn projects-locations-workflowTemplates-create
   "Creates new workflow template.
@@ -1535,14 +1437,13 @@ parent <>
 WorkflowTemplate:
 WorkflowTemplate"
   [parent WorkflowTemplate]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/{+parent}/workflowTemplates",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body WorkflowTemplate}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/{+parent}/workflowTemplates",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body WorkflowTemplate})
 
 (defn projects-locations-workflowTemplates-get
   "Retrieves the latest workflow template.Can retrieve previously instantiated template by specifying optional version parameter.
@@ -1554,12 +1455,11 @@ optional:
 version <integer> Optional. The version of workflow template to retrieve. Only previously instantiated versions can be retrieved.If unspecified, retrieves the current version."
   ([name] (projects-locations-workflowTemplates-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template "https://dataproc.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://dataproc.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-workflowTemplates-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -1569,11 +1469,10 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dataproc.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://dataproc.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})

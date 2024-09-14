@@ -1,8 +1,7 @@
 (ns happyapi.google.gkeonprem-v1
   "GDC Virtual API
 
-See: https://cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs"
-  (:require [happyapi.providers.google :as client]))
+See: https://cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs")
 
 (defn projects-locations-list
   "Lists information about the supported locations for this service.
@@ -15,13 +14,12 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+name}/locations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+name}/locations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-get
   "Gets information about a location.
@@ -29,12 +27,11 @@ https://cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/v1/refe
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -47,13 +44,12 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -61,12 +57,11 @@ https://cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/v1/refe
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -74,12 +69,11 @@ https://cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/v1/refe
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -89,14 +83,12 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gkeonprem.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body CancelOperationRequest}))
+  {:method :post,
+   :uri-template "https://gkeonprem.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body CancelOperationRequest})
 
 (defn projects-locations-bareMetalClusters-list
   "Lists bare metal clusters in a given project and location.
@@ -111,13 +103,12 @@ view <string> View for bare metal Clusters. When `BASIC` is specified, only the 
 allowMissing <boolean> Optional. If true, return list of BareMetal Clusters including the ones that only exists in RMS."
   ([parent] (projects-locations-bareMetalClusters-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalClusters",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalClusters",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-bareMetalClusters-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -127,14 +118,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gkeonprem.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://gkeonprem.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-bareMetalClusters-delete
   "Deletes a single bare metal Cluster.
@@ -150,12 +140,11 @@ force <boolean> If set to true, any node pools from the cluster will also be del
 ignoreErrors <boolean> If set to true, the deletion of a bare metal user cluster resource will succeed even if errors occur during deletion. This parameter can be used when you want to delete GCP's cluster resource and the on-prem admin cluster that hosts your user cluster is disconnected / unreachable or deleted. WARNING: Using this parameter when your user cluster still exists may result in a deleted GCP user cluster but an existing on-prem user cluster."
   ([name] (projects-locations-bareMetalClusters-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-bareMetalClusters-unenroll
   "Unenrolls an existing bare metal user cluster and its node pools from the Anthos On-Prem API within a given project and location. Unenrollment removes the Cloud reference to the cluster without modifying the underlying OnPrem Resources. Clusters and node pools will continue to run; however, they will no longer be accessible through the Anthos On-Prem API or its clients.
@@ -170,13 +159,12 @@ validateOnly <boolean> Validate the request without actually doing any updates.
 force <boolean> This is required if the cluster has any associated node pools. When set, any child node pools will also be unenrolled."
   ([name] (projects-locations-bareMetalClusters-unenroll name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+name}:unenroll",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+name}:unenroll",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-bareMetalClusters-patch
   "Updates the parameters of a single bare metal Cluster.
@@ -196,13 +184,12 @@ validateOnly <boolean> Validate the request without actually doing any updates."
       BareMetalCluster
       nil))
   ([name BareMetalCluster optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body BareMetalCluster})))
+    {:method :patch,
+     :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body BareMetalCluster}))
 
 (defn projects-locations-bareMetalClusters-queryVersionConfig
   "Queries the bare metal user cluster version config.
@@ -219,13 +206,12 @@ upgradeConfig.clusterName <string> The user cluster resource name. This is the f
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalClusters:queryVersionConfig",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalClusters:queryVersionConfig",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-bareMetalClusters-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -238,13 +224,12 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-bareMetalClusters-getIamPolicy resource nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-bareMetalClusters-enroll
   "Enrolls an existing bare metal user cluster and its node pools to the Anthos On-Prem API within a given project and location. Through enrollment, an existing cluster will become Anthos On-Prem API managed. The corresponding GCP resources will be created and all future modifications to the cluster and/or its node pools will be expected to be performed through the API.
@@ -254,14 +239,13 @@ parent <>
 EnrollBareMetalClusterRequest:
 EnrollBareMetalClusterRequest"
   [parent EnrollBareMetalClusterRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalClusters:enroll",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body EnrollBareMetalClusterRequest}))
+  {:method :post,
+   :uri-template
+   "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalClusters:enroll",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body EnrollBareMetalClusterRequest})
 
 (defn projects-locations-bareMetalClusters-create
   "Creates a new bare metal cluster in a given project and location.
@@ -281,14 +265,13 @@ allowPreflightFailure <boolean> Optional. If set to true, CLM will force CCFE to
       BareMetalCluster
       nil))
   ([parent BareMetalCluster optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalClusters",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body BareMetalCluster})))
+    {:method :post,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalClusters",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body BareMetalCluster}))
 
 (defn projects-locations-bareMetalClusters-get
   "Gets details of a single bare metal Cluster.
@@ -301,12 +284,11 @@ view <string> View for bare metal user cluster. When `BASIC` is specified, only 
 allowMissing <boolean> Optional. If true, return BareMetal Cluster including the one that only exists in RMS."
   ([name] (projects-locations-bareMetalClusters-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-bareMetalClusters-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -316,14 +298,13 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gkeonprem.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://gkeonprem.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-locations-bareMetalClusters-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -337,13 +318,12 @@ pageSize <integer> The standard list page size."
   ([name]
     (projects-locations-bareMetalClusters-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-bareMetalClusters-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -351,12 +331,11 @@ https://cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/v1/refe
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-bareMetalClusters-bareMetalNodePools-list
   "Lists bare metal node pools in a given project, location and bare metal cluster.
@@ -372,13 +351,12 @@ view <string> View for bare metal node pools. When `BASIC` is specified, only th
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalNodePools",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalNodePools",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-bareMetalClusters-bareMetalNodePools-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -388,14 +366,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gkeonprem.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://gkeonprem.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-bareMetalClusters-bareMetalNodePools-delete
   "Deletes a single bare metal node pool.
@@ -413,12 +390,11 @@ ignoreErrors <boolean> If set to true, the deletion of a bare metal node pool re
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-bareMetalClusters-bareMetalNodePools-unenroll
   "Unenrolls a bare metal node pool from Anthos On-Prem API.
@@ -435,13 +411,12 @@ validateOnly <boolean> If set, only validate the request, but do not actually un
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+name}:unenroll",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+name}:unenroll",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-bareMetalClusters-bareMetalNodePools-patch
   "Updates the parameters of a single bare metal node pool.
@@ -461,13 +436,12 @@ validateOnly <boolean> Validate the request without actually doing any updates."
       BareMetalNodePool
       nil))
   ([name BareMetalNodePool optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body BareMetalNodePool})))
+    {:method :patch,
+     :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body BareMetalNodePool}))
 
 (defn projects-locations-bareMetalClusters-bareMetalNodePools-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -482,13 +456,12 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-bareMetalClusters-bareMetalNodePools-enroll
   "Enrolls an existing bare metal node pool to the Anthos On-Prem API within a given project and location. Through enrollment, an existing node pool will become Anthos On-Prem API managed. The corresponding GCP resources will be created.
@@ -498,14 +471,13 @@ parent <>
 EnrollBareMetalNodePoolRequest:
 EnrollBareMetalNodePoolRequest"
   [parent EnrollBareMetalNodePoolRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalNodePools:enroll",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body EnrollBareMetalNodePoolRequest}))
+  {:method :post,
+   :uri-template
+   "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalNodePools:enroll",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body EnrollBareMetalNodePoolRequest})
 
 (defn projects-locations-bareMetalClusters-bareMetalNodePools-create
   "Creates a new bare metal node pool in a given project, location and Bare Metal cluster.
@@ -524,14 +496,13 @@ validateOnly <boolean> If set, only validate the request, but do not actually cr
       BareMetalNodePool
       nil))
   ([parent BareMetalNodePool optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalNodePools",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body BareMetalNodePool})))
+    {:method :post,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalNodePools",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body BareMetalNodePool}))
 
 (defn projects-locations-bareMetalClusters-bareMetalNodePools-get
   "Gets details of a single bare metal node pool.
@@ -546,12 +517,11 @@ view <string> View for bare metal node pool. When `BASIC` is specified, only the
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-bareMetalClusters-bareMetalNodePools-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -561,14 +531,13 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gkeonprem.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://gkeonprem.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-locations-bareMetalClusters-bareMetalNodePools-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -584,13 +553,12 @@ pageSize <integer> The standard list page size."
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-bareMetalClusters-bareMetalNodePools-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -598,12 +566,11 @@ https://cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/v1/refe
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-vmwareClusters-list
   "Lists VMware Clusters in a given project and location.
@@ -618,13 +585,12 @@ view <string> View for VMware clusters. When `BASIC` is specified, only the clus
 allowMissing <boolean> Optional. If true, return list of Vmware Clusters including the ones that only exists in RMS."
   ([parent] (projects-locations-vmwareClusters-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+parent}/vmwareClusters",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+parent}/vmwareClusters",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-vmwareClusters-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -634,14 +600,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gkeonprem.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://gkeonprem.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-vmwareClusters-delete
   "Deletes a single VMware Cluster.
@@ -657,12 +622,11 @@ force <boolean> If set to true, any node pools from the cluster will also be del
 ignoreErrors <boolean> If set to true, the deletion of a VMware user cluster resource will succeed even if errors occur during deletion. This parameter can be used when you want to delete GCP's cluster resource and the on-prem admin cluster that hosts your user cluster is disconnected / unreachable or deleted. WARNING: Using this parameter when your user cluster still exists may result in a deleted GCP user cluster but an existing on-prem user cluster."
   ([name] (projects-locations-vmwareClusters-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-vmwareClusters-unenroll
   "Unenrolls an existing VMware user cluster and its node pools from the Anthos On-Prem API within a given project and location. Unenrollment removes the Cloud reference to the cluster without modifying the underlying OnPrem Resources. Clusters and node pools will continue to run; however, they will no longer be accessible through the Anthos On-Prem API or UI.
@@ -677,13 +641,12 @@ validateOnly <boolean> Validate the request without actually doing any updates.
 force <boolean> This is required if the cluster has any associated node pools. When set, any child node pools will also be unenrolled."
   ([name] (projects-locations-vmwareClusters-unenroll name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+name}:unenroll",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+name}:unenroll",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-vmwareClusters-patch
   "Updates the parameters of a single VMware cluster.
@@ -699,13 +662,12 @@ validateOnly <boolean> Validate the request without actually doing any updates."
   ([name VmwareCluster]
     (projects-locations-vmwareClusters-patch name VmwareCluster nil))
   ([name VmwareCluster optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body VmwareCluster})))
+    {:method :patch,
+     :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body VmwareCluster}))
 
 (defn projects-locations-vmwareClusters-queryVersionConfig
   "Queries the VMware user cluster version config.
@@ -720,13 +682,12 @@ upgradeConfig.clusterName <string> The user cluster resource name. This is the f
   ([parent]
     (projects-locations-vmwareClusters-queryVersionConfig parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+parent}/vmwareClusters:queryVersionConfig",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+parent}/vmwareClusters:queryVersionConfig",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-vmwareClusters-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -739,13 +700,12 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-vmwareClusters-getIamPolicy resource nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-vmwareClusters-enroll
   "Enrolls an existing VMware user cluster and its node pools to the Anthos On-Prem API within a given project and location. Through enrollment, an existing cluster will become Anthos On-Prem API managed. The corresponding GCP resources will be created and all future modifications to the cluster and/or its node pools will be expected to be performed through the API.
@@ -755,14 +715,13 @@ parent <>
 EnrollVmwareClusterRequest:
 EnrollVmwareClusterRequest"
   [parent EnrollVmwareClusterRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gkeonprem.googleapis.com/v1/{+parent}/vmwareClusters:enroll",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body EnrollVmwareClusterRequest}))
+  {:method :post,
+   :uri-template
+   "https://gkeonprem.googleapis.com/v1/{+parent}/vmwareClusters:enroll",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body EnrollVmwareClusterRequest})
 
 (defn projects-locations-vmwareClusters-create
   "Creates a new VMware user cluster in a given project and location.
@@ -782,14 +741,13 @@ allowPreflightFailure <boolean> Optional. If set to true, CLM will force CCFE to
       VmwareCluster
       nil))
   ([parent VmwareCluster optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+parent}/vmwareClusters",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body VmwareCluster})))
+    {:method :post,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+parent}/vmwareClusters",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body VmwareCluster}))
 
 (defn projects-locations-vmwareClusters-get
   "Gets details of a single VMware Cluster.
@@ -802,12 +760,11 @@ view <string> View for VMware user cluster. When `BASIC` is specified, only the 
 allowMissing <boolean> Optional. If true, return Vmware Cluster including the one that only exists in RMS."
   ([name] (projects-locations-vmwareClusters-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-vmwareClusters-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -817,14 +774,13 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gkeonprem.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://gkeonprem.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-locations-vmwareClusters-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -837,13 +793,12 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-vmwareClusters-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-vmwareClusters-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -851,12 +806,11 @@ https://cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/v1/refe
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-vmwareClusters-vmwareNodePools-list
   "Lists VMware node pools in a given project, location and VMWare cluster.
@@ -872,13 +826,12 @@ view <string> View for VMware node pools. When `BASIC` is specified, only the no
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+parent}/vmwareNodePools",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+parent}/vmwareNodePools",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-vmwareClusters-vmwareNodePools-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -888,14 +841,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gkeonprem.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://gkeonprem.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-vmwareClusters-vmwareNodePools-delete
   "Deletes a single VMware node pool.
@@ -913,12 +865,11 @@ ignoreErrors <boolean> If set to true, the deletion of a VMware node pool resour
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-vmwareClusters-vmwareNodePools-unenroll
   "Unenrolls a VMware node pool to Anthos On-Prem API
@@ -935,13 +886,12 @@ validateOnly <boolean> If set, only validate the request, but do not actually un
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+name}:unenroll",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+name}:unenroll",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-vmwareClusters-vmwareNodePools-patch
   "Updates the parameters of a single VMware node pool.
@@ -960,13 +910,12 @@ validateOnly <boolean> Validate the request without actually doing any updates."
       VmwareNodePool
       nil))
   ([name VmwareNodePool optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body VmwareNodePool})))
+    {:method :patch,
+     :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body VmwareNodePool}))
 
 (defn projects-locations-vmwareClusters-vmwareNodePools-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -981,13 +930,12 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-vmwareClusters-vmwareNodePools-enroll
   "Enrolls a VMware node pool to Anthos On-Prem API
@@ -997,14 +945,13 @@ parent <>
 EnrollVmwareNodePoolRequest:
 EnrollVmwareNodePoolRequest"
   [parent EnrollVmwareNodePoolRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gkeonprem.googleapis.com/v1/{+parent}/vmwareNodePools:enroll",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body EnrollVmwareNodePoolRequest}))
+  {:method :post,
+   :uri-template
+   "https://gkeonprem.googleapis.com/v1/{+parent}/vmwareNodePools:enroll",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body EnrollVmwareNodePoolRequest})
 
 (defn projects-locations-vmwareClusters-vmwareNodePools-create
   "Creates a new VMware node pool in a given project, location and VMWare cluster.
@@ -1023,14 +970,13 @@ validateOnly <boolean> If set, only validate the request, but do not actually cr
       VmwareNodePool
       nil))
   ([parent VmwareNodePool optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+parent}/vmwareNodePools",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body VmwareNodePool})))
+    {:method :post,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+parent}/vmwareNodePools",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body VmwareNodePool}))
 
 (defn projects-locations-vmwareClusters-vmwareNodePools-get
   "Gets details of a single VMware node pool.
@@ -1043,12 +989,11 @@ view <string> View for VMware node pool. When `BASIC` is specified, only the nod
   ([name]
     (projects-locations-vmwareClusters-vmwareNodePools-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-vmwareClusters-vmwareNodePools-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -1058,14 +1003,13 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gkeonprem.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://gkeonprem.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-locations-vmwareClusters-vmwareNodePools-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -1081,13 +1025,12 @@ pageSize <integer> The standard list page size."
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-vmwareClusters-vmwareNodePools-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -1095,12 +1038,11 @@ https://cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/v1/refe
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-vmwareAdminClusters-list
   "Lists VMware admin clusters in a given project and location.
@@ -1114,13 +1056,12 @@ view <string> View for VMware admin clusters. When `BASIC` is specified, only th
 allowMissing <boolean> Optional. If true, return list of Vmware Admin Clusters including the ones that only exists in RMS."
   ([parent] (projects-locations-vmwareAdminClusters-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+parent}/vmwareAdminClusters",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+parent}/vmwareAdminClusters",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-vmwareAdminClusters-get
   "Gets details of a single VMware admin cluster.
@@ -1133,12 +1074,11 @@ view <string> View for VMware admin cluster. When `BASIC` is specified, only the
 allowMissing <boolean> Optional. If true, return Vmware Admin Cluster including the one that only exists in RMS."
   ([name] (projects-locations-vmwareAdminClusters-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-vmwareAdminClusters-enroll
   "Enrolls an existing VMware admin cluster to the Anthos On-Prem API within a given project and location. Through enrollment, an existing admin cluster will become Anthos On-Prem API managed. The corresponding GCP resources will be created and all future modifications to the cluster will be expected to be performed through the API.
@@ -1148,14 +1088,13 @@ parent <>
 EnrollVmwareAdminClusterRequest:
 EnrollVmwareAdminClusterRequest"
   [parent EnrollVmwareAdminClusterRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gkeonprem.googleapis.com/v1/{+parent}/vmwareAdminClusters:enroll",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body EnrollVmwareAdminClusterRequest}))
+  {:method :post,
+   :uri-template
+   "https://gkeonprem.googleapis.com/v1/{+parent}/vmwareAdminClusters:enroll",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body EnrollVmwareAdminClusterRequest})
 
 (defn projects-locations-vmwareAdminClusters-unenroll
   "Unenrolls an existing VMware admin cluster from the Anthos On-Prem API within a given project and location. Unenrollment removes the Cloud reference to the cluster without modifying the underlying OnPrem Resources. Clusters will continue to run; however, they will no longer be accessible through the Anthos On-Prem API or its clients.
@@ -1169,13 +1108,12 @@ allowMissing <boolean> If set to true, and the VMware admin cluster is not found
 validateOnly <boolean> Validate the request without actually doing any updates."
   ([name] (projects-locations-vmwareAdminClusters-unenroll name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+name}:unenroll",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+name}:unenroll",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-vmwareAdminClusters-patch
   "Updates the parameters of a single VMware admin cluster.
@@ -1194,13 +1132,12 @@ validateOnly <boolean> Validate the request without actually doing any updates."
       VmwareAdminCluster
       nil))
   ([name VmwareAdminCluster optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body VmwareAdminCluster})))
+    {:method :patch,
+     :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body VmwareAdminCluster}))
 
 (defn projects-locations-vmwareAdminClusters-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -1210,14 +1147,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gkeonprem.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://gkeonprem.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-vmwareAdminClusters-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -1230,13 +1166,12 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-vmwareAdminClusters-getIamPolicy resource nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-vmwareAdminClusters-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -1246,14 +1181,13 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gkeonprem.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://gkeonprem.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-locations-vmwareAdminClusters-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -1267,13 +1201,12 @@ pageSize <integer> The standard list page size."
   ([name]
     (projects-locations-vmwareAdminClusters-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-vmwareAdminClusters-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -1281,12 +1214,11 @@ https://cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/v1/refe
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-bareMetalAdminClusters-list
   "Lists bare metal admin clusters in a given project and location.
@@ -1301,13 +1233,12 @@ allowMissing <boolean> Optional. If true, return list of BareMetal Admin Cluster
   ([parent]
     (projects-locations-bareMetalAdminClusters-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalAdminClusters",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalAdminClusters",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-bareMetalAdminClusters-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -1317,14 +1248,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gkeonprem.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://gkeonprem.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-bareMetalAdminClusters-unenroll
   "Unenrolls an existing bare metal admin cluster from the Anthos On-Prem API within a given project and location. Unenrollment removes the Cloud reference to the cluster without modifying the underlying OnPrem Resources. Clusters will continue to run; however, they will no longer be accessible through the Anthos On-Prem API or its clients.
@@ -1340,13 +1270,12 @@ ignoreErrors <boolean> If set to true, the unenrollment of a bare metal admin cl
   ([name]
     (projects-locations-bareMetalAdminClusters-unenroll name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+name}:unenroll",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+name}:unenroll",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-bareMetalAdminClusters-patch
   "Updates the parameters of a single bare metal admin cluster.
@@ -1365,13 +1294,12 @@ validateOnly <boolean> Validate the request without actually doing any updates."
       BareMetalAdminCluster
       nil))
   ([name BareMetalAdminCluster optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body BareMetalAdminCluster})))
+    {:method :patch,
+     :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body BareMetalAdminCluster}))
 
 (defn projects-locations-bareMetalAdminClusters-queryVersionConfig
   "Queries the bare metal admin cluster version config.
@@ -1386,13 +1314,12 @@ upgradeConfig.clusterName <string> The admin cluster resource name. This is the 
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalAdminClusters:queryVersionConfig",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalAdminClusters:queryVersionConfig",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-bareMetalAdminClusters-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -1407,13 +1334,12 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-bareMetalAdminClusters-enroll
   "Enrolls an existing bare metal admin cluster to the Anthos On-Prem API within a given project and location. Through enrollment, an existing admin cluster will become Anthos On-Prem API managed. The corresponding GCP resources will be created and all future modifications to the cluster will be expected to be performed through the API.
@@ -1423,14 +1349,13 @@ parent <>
 EnrollBareMetalAdminClusterRequest:
 EnrollBareMetalAdminClusterRequest"
   [parent EnrollBareMetalAdminClusterRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalAdminClusters:enroll",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body EnrollBareMetalAdminClusterRequest}))
+  {:method :post,
+   :uri-template
+   "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalAdminClusters:enroll",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body EnrollBareMetalAdminClusterRequest})
 
 (defn projects-locations-bareMetalAdminClusters-create
   "Creates a new bare metal admin cluster in a given project and location. The API needs to be combined with creating a bootstrap cluster to work. See: https://cloud.google.com/anthos/clusters/docs/bare-metal/latest/installing/creating-clusters/create-admin-cluster-api#prepare_bootstrap_environment
@@ -1450,14 +1375,13 @@ allowPreflightFailure <boolean> Optional. If set to true, CLM will force CCFE to
       BareMetalAdminCluster
       nil))
   ([parent BareMetalAdminCluster optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalAdminClusters",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body BareMetalAdminCluster})))
+    {:method :post,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+parent}/bareMetalAdminClusters",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body BareMetalAdminCluster}))
 
 (defn projects-locations-bareMetalAdminClusters-get
   "Gets details of a single bare metal admin cluster.
@@ -1470,12 +1394,11 @@ view <string> View for bare metal admin cluster. When `BASIC` is specified, only
 allowMissing <boolean> Optional. If true, return BareMetal Admin Cluster including the one that only exists in RMS."
   ([name] (projects-locations-bareMetalAdminClusters-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-bareMetalAdminClusters-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -1485,14 +1408,13 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gkeonprem.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://gkeonprem.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-locations-bareMetalAdminClusters-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -1508,13 +1430,12 @@ pageSize <integer> The standard list page size."
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkeonprem.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkeonprem.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-bareMetalAdminClusters-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -1522,9 +1443,8 @@ https://cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/v1/refe
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://gkeonprem.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})

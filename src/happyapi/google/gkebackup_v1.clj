@@ -1,8 +1,7 @@
 (ns happyapi.google.gkebackup-v1
   "Backup for GKE API
 Backup for GKE is a managed Kubernetes workload backup and restore service for GKE clusters.
-See: https://cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke"
-  (:require [happyapi.providers.google :as client]))
+See: https://cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke")
 
 (defn projects-locations-list
   "Lists information about the supported locations for this service.
@@ -15,13 +14,12 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkebackup.googleapis.com/v1/{+name}/locations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkebackup.googleapis.com/v1/{+name}/locations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-get
   "Gets information about a location.
@@ -29,12 +27,11 @@ https://cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/v1/referen
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -47,13 +44,12 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkebackup.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkebackup.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -61,12 +57,11 @@ https://cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/v1/referen
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -74,12 +69,11 @@ https://cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/v1/referen
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -89,14 +83,12 @@ name <>
 GoogleLongrunningCancelOperationRequest:
 GoogleLongrunningCancelOperationRequest"
   [name GoogleLongrunningCancelOperationRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gkebackup.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleLongrunningCancelOperationRequest}))
+  {:method :post,
+   :uri-template "https://gkebackup.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleLongrunningCancelOperationRequest})
 
 (defn projects-locations-backupPlans-create
   "Creates a new BackupPlan in a given location.
@@ -111,14 +103,13 @@ backupPlanId <string> Required. The client-provided short name for the BackupPla
   ([parent BackupPlan]
     (projects-locations-backupPlans-create parent BackupPlan nil))
   ([parent BackupPlan optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://gkebackup.googleapis.com/v1/{+parent}/backupPlans",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body BackupPlan})))
+    {:method :post,
+     :uri-template
+     "https://gkebackup.googleapis.com/v1/{+parent}/backupPlans",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body BackupPlan}))
 
 (defn projects-locations-backupPlans-list
   "Lists BackupPlans in a given location.
@@ -132,13 +123,12 @@ filter <string> Optional. Field match expression used to filter the results.
 orderBy <string> Optional. Field by which to sort the results."
   ([parent] (projects-locations-backupPlans-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkebackup.googleapis.com/v1/{+parent}/backupPlans",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkebackup.googleapis.com/v1/{+parent}/backupPlans",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-backupPlans-get
   "Retrieve the details of a single BackupPlan.
@@ -146,12 +136,11 @@ https://cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/v1/referen
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-backupPlans-patch
   "Update a BackupPlan.
@@ -166,13 +155,12 @@ updateMask <string> Optional. This is used to specify the fields to be overwritt
   ([name BackupPlan]
     (projects-locations-backupPlans-patch name BackupPlan nil))
   ([name BackupPlan optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body BackupPlan})))
+    {:method :patch,
+     :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body BackupPlan}))
 
 (defn projects-locations-backupPlans-delete
   "Deletes an existing BackupPlan.
@@ -184,12 +172,11 @@ optional:
 etag <string> Optional. If provided, this value must match the current value of the target BackupPlan's etag field or the request is rejected."
   ([name] (projects-locations-backupPlans-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-backupPlans-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -199,14 +186,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gkebackup.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://gkebackup.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-backupPlans-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -219,13 +205,12 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-backupPlans-getIamPolicy resource nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkebackup.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkebackup.googleapis.com/v1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-backupPlans-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -235,14 +220,13 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gkebackup.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://gkebackup.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-locations-backupPlans-backups-list
   "Lists the Backups for a given BackupPlan.
@@ -256,13 +240,12 @@ filter <string> Optional. Field match expression used to filter the results.
 orderBy <string> Optional. Field by which to sort the results."
   ([parent] (projects-locations-backupPlans-backups-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkebackup.googleapis.com/v1/{+parent}/backups",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkebackup.googleapis.com/v1/{+parent}/backups",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-backupPlans-backups-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -272,14 +255,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gkebackup.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://gkebackup.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-backupPlans-backups-delete
   "Deletes an existing Backup.
@@ -292,12 +274,11 @@ etag <string> Optional. If provided, this value must match the current value of 
 force <boolean> Optional. If set to true, any VolumeBackups below this Backup will also be deleted. Otherwise, the request will only succeed if the Backup has no VolumeBackups."
   ([name] (projects-locations-backupPlans-backups-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-backupPlans-backups-patch
   "Update a Backup.
@@ -312,13 +293,12 @@ updateMask <string> Optional. This is used to specify the fields to be overwritt
   ([name Backup]
     (projects-locations-backupPlans-backups-patch name Backup nil))
   ([name Backup optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Backup})))
+    {:method :patch,
+     :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Backup}))
 
 (defn projects-locations-backupPlans-backups-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -331,13 +311,12 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-backupPlans-backups-getIamPolicy resource nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkebackup.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkebackup.googleapis.com/v1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-backupPlans-backups-getBackupIndexDownloadUrl
   "Retrieve the link to the backupIndex.
@@ -345,13 +324,12 @@ https://cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/v1/referen
 
 backup <> "
   [backup]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://gkebackup.googleapis.com/v1/{+backup}:getBackupIndexDownloadUrl",
-     :uri-template-args {"backup" backup},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template
+   "https://gkebackup.googleapis.com/v1/{+backup}:getBackupIndexDownloadUrl",
+   :uri-template-args {"backup" backup},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-backupPlans-backups-create
   "Creates a Backup for the given BackupPlan.
@@ -366,14 +344,13 @@ backupId <string> Optional. The client-provided short name for the Backup resour
   ([parent Backup]
     (projects-locations-backupPlans-backups-create parent Backup nil))
   ([parent Backup optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://gkebackup.googleapis.com/v1/{+parent}/backups",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Backup})))
+    {:method :post,
+     :uri-template
+     "https://gkebackup.googleapis.com/v1/{+parent}/backups",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Backup}))
 
 (defn projects-locations-backupPlans-backups-get
   "Retrieve the details of a single Backup.
@@ -381,12 +358,11 @@ https://cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/v1/referen
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-backupPlans-backups-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -396,14 +372,13 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gkebackup.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://gkebackup.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-locations-backupPlans-backups-volumeBackups-list
   "Lists the VolumeBackups for a given Backup.
@@ -420,13 +395,12 @@ orderBy <string> Optional. Field by which to sort the results."
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkebackup.googleapis.com/v1/{+parent}/volumeBackups",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkebackup.googleapis.com/v1/{+parent}/volumeBackups",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-backupPlans-backups-volumeBackups-get
   "Retrieve the details of a single VolumeBackup.
@@ -434,12 +408,11 @@ https://cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/v1/referen
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-backupPlans-backups-volumeBackups-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -449,14 +422,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gkebackup.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://gkebackup.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-backupPlans-backups-volumeBackups-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -471,13 +443,12 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkebackup.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkebackup.googleapis.com/v1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-backupPlans-backups-volumeBackups-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -487,14 +458,13 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gkebackup.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://gkebackup.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-locations-restorePlans-create
   "Creates a new RestorePlan in a given location.
@@ -509,14 +479,13 @@ restorePlanId <string> Required. The client-provided short name for the RestoreP
   ([parent RestorePlan]
     (projects-locations-restorePlans-create parent RestorePlan nil))
   ([parent RestorePlan optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://gkebackup.googleapis.com/v1/{+parent}/restorePlans",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body RestorePlan})))
+    {:method :post,
+     :uri-template
+     "https://gkebackup.googleapis.com/v1/{+parent}/restorePlans",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body RestorePlan}))
 
 (defn projects-locations-restorePlans-list
   "Lists RestorePlans in a given location.
@@ -530,13 +499,12 @@ filter <string> Optional. Field match expression used to filter the results.
 orderBy <string> Optional. Field by which to sort the results."
   ([parent] (projects-locations-restorePlans-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkebackup.googleapis.com/v1/{+parent}/restorePlans",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkebackup.googleapis.com/v1/{+parent}/restorePlans",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-restorePlans-get
   "Retrieve the details of a single RestorePlan.
@@ -544,12 +512,11 @@ https://cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/v1/referen
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-restorePlans-patch
   "Update a RestorePlan.
@@ -564,13 +531,12 @@ updateMask <string> Optional. This is used to specify the fields to be overwritt
   ([name RestorePlan]
     (projects-locations-restorePlans-patch name RestorePlan nil))
   ([name RestorePlan optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body RestorePlan})))
+    {:method :patch,
+     :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body RestorePlan}))
 
 (defn projects-locations-restorePlans-delete
   "Deletes an existing RestorePlan.
@@ -583,12 +549,11 @@ etag <string> Optional. If provided, this value must match the current value of 
 force <boolean> Optional. If set to true, any Restores below this RestorePlan will also be deleted. Otherwise, the request will only succeed if the RestorePlan has no Restores."
   ([name] (projects-locations-restorePlans-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-restorePlans-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -598,14 +563,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gkebackup.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://gkebackup.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-restorePlans-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -618,13 +582,12 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-restorePlans-getIamPolicy resource nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkebackup.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkebackup.googleapis.com/v1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-restorePlans-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -634,14 +597,13 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gkebackup.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://gkebackup.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-locations-restorePlans-restores-create
   "Creates a new Restore for the given RestorePlan.
@@ -659,14 +621,13 @@ restoreId <string> Required. The client-provided short name for the Restore reso
       Restore
       nil))
   ([parent Restore optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://gkebackup.googleapis.com/v1/{+parent}/restores",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Restore})))
+    {:method :post,
+     :uri-template
+     "https://gkebackup.googleapis.com/v1/{+parent}/restores",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Restore}))
 
 (defn projects-locations-restorePlans-restores-list
   "Lists the Restores for a given RestorePlan.
@@ -680,13 +641,12 @@ filter <string> Optional. Field match expression used to filter the results.
 orderBy <string> Optional. Field by which to sort the results."
   ([parent] (projects-locations-restorePlans-restores-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkebackup.googleapis.com/v1/{+parent}/restores",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkebackup.googleapis.com/v1/{+parent}/restores",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-restorePlans-restores-get
   "Retrieves the details of a single Restore.
@@ -694,12 +654,11 @@ https://cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/v1/referen
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-restorePlans-restores-patch
   "Update a Restore.
@@ -714,13 +673,12 @@ updateMask <string> Optional. This is used to specify the fields to be overwritt
   ([name Restore]
     (projects-locations-restorePlans-restores-patch name Restore nil))
   ([name Restore optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Restore})))
+    {:method :patch,
+     :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Restore}))
 
 (defn projects-locations-restorePlans-restores-delete
   "Deletes an existing Restore.
@@ -733,12 +691,11 @@ etag <string> Optional. If provided, this value must match the current value of 
 force <boolean> Optional. If set to true, any VolumeRestores below this restore will also be deleted. Otherwise, the request will only succeed if the restore has no VolumeRestores."
   ([name] (projects-locations-restorePlans-restores-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-restorePlans-restores-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -748,14 +705,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gkebackup.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://gkebackup.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-restorePlans-restores-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -770,13 +726,12 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkebackup.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkebackup.googleapis.com/v1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-restorePlans-restores-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -786,14 +741,13 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gkebackup.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://gkebackup.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-locations-restorePlans-restores-volumeRestores-list
   "Lists the VolumeRestores for a given Restore.
@@ -810,13 +764,12 @@ orderBy <string> Optional. Field by which to sort the results."
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkebackup.googleapis.com/v1/{+parent}/volumeRestores",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkebackup.googleapis.com/v1/{+parent}/volumeRestores",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-restorePlans-restores-volumeRestores-get
   "Retrieve the details of a single VolumeRestore.
@@ -824,12 +777,11 @@ https://cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/v1/referen
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://gkebackup.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-restorePlans-restores-volumeRestores-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -839,14 +791,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gkebackup.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://gkebackup.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-restorePlans-restores-volumeRestores-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -861,13 +812,12 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gkebackup.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://gkebackup.googleapis.com/v1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-restorePlans-restores-volumeRestores-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -877,11 +827,10 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gkebackup.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://gkebackup.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})

@@ -1,8 +1,7 @@
 (ns happyapi.google.gamesConfiguration-v1configuration
   "Google Play Game Services Publishing API
 The Google Play Game Services Publishing API allows developers to configure their games in Game Services.
-See: https://games.withgoogle.com/"
-  (:require [happyapi.providers.google :as client]))
+See: https://games.withgoogle.com/")
 
 (defn achievementConfigurations-delete
   "Delete the achievement configuration with the given ID.
@@ -10,13 +9,12 @@ https://games.withgoogle.com/v1configuration/reference/rest/v1configuration/achi
 
 achievementId <> "
   [achievementId]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://gamesconfiguration.googleapis.com/games/v1configuration/achievements/{achievementId}",
-     :uri-template-args {"achievementId" achievementId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/androidpublisher"]}))
+  {:method :delete,
+   :uri-template
+   "https://gamesconfiguration.googleapis.com/games/v1configuration/achievements/{achievementId}",
+   :uri-template-args {"achievementId" achievementId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/androidpublisher"]})
 
 (defn achievementConfigurations-get
   "Retrieves the metadata of the achievement configuration with the given ID.
@@ -24,13 +22,12 @@ https://games.withgoogle.com/v1configuration/reference/rest/v1configuration/achi
 
 achievementId <> "
   [achievementId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://gamesconfiguration.googleapis.com/games/v1configuration/achievements/{achievementId}",
-     :uri-template-args {"achievementId" achievementId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/androidpublisher"]}))
+  {:method :get,
+   :uri-template
+   "https://gamesconfiguration.googleapis.com/games/v1configuration/achievements/{achievementId}",
+   :uri-template-args {"achievementId" achievementId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/androidpublisher"]})
 
 (defn achievementConfigurations-insert
   "Insert a new achievement configuration in this application.
@@ -40,14 +37,13 @@ applicationId <>
 AchievementConfiguration:
 AchievementConfiguration"
   [applicationId AchievementConfiguration]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gamesconfiguration.googleapis.com/games/v1configuration/applications/{applicationId}/achievements",
-     :uri-template-args {"applicationId" applicationId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/androidpublisher"],
-     :body AchievementConfiguration}))
+  {:method :post,
+   :uri-template
+   "https://gamesconfiguration.googleapis.com/games/v1configuration/applications/{applicationId}/achievements",
+   :uri-template-args {"applicationId" applicationId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/androidpublisher"],
+   :body AchievementConfiguration})
 
 (defn achievementConfigurations-list
   "Returns a list of the achievement configurations in this application.
@@ -59,13 +55,12 @@ optional:
 maxResults <integer> The maximum number of resource configurations to return in the response, used for paging. For any response, the actual number of resources returned may be less than the specified `maxResults`."
   ([applicationId] (achievementConfigurations-list applicationId nil))
   ([applicationId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gamesconfiguration.googleapis.com/games/v1configuration/applications/{applicationId}/achievements",
-       :uri-template-args {"applicationId" applicationId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/androidpublisher"]})))
+    {:method :get,
+     :uri-template
+     "https://gamesconfiguration.googleapis.com/games/v1configuration/applications/{applicationId}/achievements",
+     :uri-template-args {"applicationId" applicationId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/androidpublisher"]}))
 
 (defn achievementConfigurations-update
   "Update the metadata of the achievement configuration with the given ID.
@@ -75,14 +70,13 @@ achievementId <>
 AchievementConfiguration:
 AchievementConfiguration"
   [achievementId AchievementConfiguration]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://gamesconfiguration.googleapis.com/games/v1configuration/achievements/{achievementId}",
-     :uri-template-args {"achievementId" achievementId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/androidpublisher"],
-     :body AchievementConfiguration}))
+  {:method :put,
+   :uri-template
+   "https://gamesconfiguration.googleapis.com/games/v1configuration/achievements/{achievementId}",
+   :uri-template-args {"achievementId" achievementId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/androidpublisher"],
+   :body AchievementConfiguration})
 
 (defn leaderboardConfigurations-delete
   "Delete the leaderboard configuration with the given ID.
@@ -90,13 +84,12 @@ https://games.withgoogle.com/v1configuration/reference/rest/v1configuration/lead
 
 leaderboardId <> "
   [leaderboardId]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://gamesconfiguration.googleapis.com/games/v1configuration/leaderboards/{leaderboardId}",
-     :uri-template-args {"leaderboardId" leaderboardId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/androidpublisher"]}))
+  {:method :delete,
+   :uri-template
+   "https://gamesconfiguration.googleapis.com/games/v1configuration/leaderboards/{leaderboardId}",
+   :uri-template-args {"leaderboardId" leaderboardId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/androidpublisher"]})
 
 (defn leaderboardConfigurations-get
   "Retrieves the metadata of the leaderboard configuration with the given ID.
@@ -104,13 +97,12 @@ https://games.withgoogle.com/v1configuration/reference/rest/v1configuration/lead
 
 leaderboardId <> "
   [leaderboardId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://gamesconfiguration.googleapis.com/games/v1configuration/leaderboards/{leaderboardId}",
-     :uri-template-args {"leaderboardId" leaderboardId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/androidpublisher"]}))
+  {:method :get,
+   :uri-template
+   "https://gamesconfiguration.googleapis.com/games/v1configuration/leaderboards/{leaderboardId}",
+   :uri-template-args {"leaderboardId" leaderboardId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/androidpublisher"]})
 
 (defn leaderboardConfigurations-insert
   "Insert a new leaderboard configuration in this application.
@@ -120,14 +112,13 @@ applicationId <>
 LeaderboardConfiguration:
 LeaderboardConfiguration"
   [applicationId LeaderboardConfiguration]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://gamesconfiguration.googleapis.com/games/v1configuration/applications/{applicationId}/leaderboards",
-     :uri-template-args {"applicationId" applicationId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/androidpublisher"],
-     :body LeaderboardConfiguration}))
+  {:method :post,
+   :uri-template
+   "https://gamesconfiguration.googleapis.com/games/v1configuration/applications/{applicationId}/leaderboards",
+   :uri-template-args {"applicationId" applicationId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/androidpublisher"],
+   :body LeaderboardConfiguration})
 
 (defn leaderboardConfigurations-list
   "Returns a list of the leaderboard configurations in this application.
@@ -139,13 +130,12 @@ optional:
 maxResults <integer> The maximum number of resource configurations to return in the response, used for paging. For any response, the actual number of resources returned may be less than the specified `maxResults`."
   ([applicationId] (leaderboardConfigurations-list applicationId nil))
   ([applicationId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://gamesconfiguration.googleapis.com/games/v1configuration/applications/{applicationId}/leaderboards",
-       :uri-template-args {"applicationId" applicationId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/androidpublisher"]})))
+    {:method :get,
+     :uri-template
+     "https://gamesconfiguration.googleapis.com/games/v1configuration/applications/{applicationId}/leaderboards",
+     :uri-template-args {"applicationId" applicationId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/androidpublisher"]}))
 
 (defn leaderboardConfigurations-update
   "Update the metadata of the leaderboard configuration with the given ID.
@@ -155,11 +145,10 @@ leaderboardId <>
 LeaderboardConfiguration:
 LeaderboardConfiguration"
   [leaderboardId LeaderboardConfiguration]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://gamesconfiguration.googleapis.com/games/v1configuration/leaderboards/{leaderboardId}",
-     :uri-template-args {"leaderboardId" leaderboardId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/androidpublisher"],
-     :body LeaderboardConfiguration}))
+  {:method :put,
+   :uri-template
+   "https://gamesconfiguration.googleapis.com/games/v1configuration/leaderboards/{leaderboardId}",
+   :uri-template-args {"leaderboardId" leaderboardId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/androidpublisher"],
+   :body LeaderboardConfiguration})

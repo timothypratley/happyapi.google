@@ -1,8 +1,7 @@
 (ns happyapi.google.analyticshub-v1
   "Analytics Hub API
 Exchange data and analytics assets securely and efficiently.
-See: https://cloud.google.com/bigquery/docs/analytics-hub-introduction"
-  (:require [happyapi.providers.google :as client]))
+See: https://cloud.google.com/bigquery/docs/analytics-hub-introduction")
 
 (defn projects-locations-dataExchanges-list
   "Lists all data exchanges in a given project and location.
@@ -14,15 +13,14 @@ optional:
 pageSize <integer> The maximum number of results to return in a single response page. Leverage the page tokens to iterate through the entire collection."
   ([parent] (projects-locations-dataExchanges-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://analyticshub.googleapis.com/v1/{+parent}/dataExchanges",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/bigquery"
-        "https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://analyticshub.googleapis.com/v1/{+parent}/dataExchanges",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/bigquery"
+      "https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-dataExchanges-setIamPolicy
   "Sets the IAM policy.
@@ -32,16 +30,15 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://analyticshub.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://analyticshub.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-dataExchanges-delete
   "Deletes an existing data exchange.
@@ -49,14 +46,13 @@ https://cloud.google.com/bigquery/docs/analytics-hub-introduction/v1/reference/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://analyticshub.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://analyticshub.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-dataExchanges-patch
   "Updates an existing data exchange.
@@ -71,15 +67,14 @@ updateMask <string> Required. Field mask specifies the fields to update in the d
   ([name DataExchange]
     (projects-locations-dataExchanges-patch name DataExchange nil))
   ([name DataExchange optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://analyticshub.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/bigquery"
-        "https://www.googleapis.com/auth/cloud-platform"],
-       :body DataExchange})))
+    {:method :patch,
+     :uri-template "https://analyticshub.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/bigquery"
+      "https://www.googleapis.com/auth/cloud-platform"],
+     :body DataExchange}))
 
 (defn projects-locations-dataExchanges-getIamPolicy
   "Gets the IAM policy.
@@ -89,16 +84,15 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://analyticshub.googleapis.com/v1/{+resource}:getIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"],
-     :body GetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://analyticshub.googleapis.com/v1/{+resource}:getIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"],
+   :body GetIamPolicyRequest})
 
 (defn projects-locations-dataExchanges-create
   "Creates a new data exchange.
@@ -113,16 +107,15 @@ dataExchangeId <string> Required. The ID of the data exchange. Must contain only
   ([parent DataExchange]
     (projects-locations-dataExchanges-create parent DataExchange nil))
   ([parent DataExchange optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://analyticshub.googleapis.com/v1/{+parent}/dataExchanges",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/bigquery"
-        "https://www.googleapis.com/auth/cloud-platform"],
-       :body DataExchange})))
+    {:method :post,
+     :uri-template
+     "https://analyticshub.googleapis.com/v1/{+parent}/dataExchanges",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/bigquery"
+      "https://www.googleapis.com/auth/cloud-platform"],
+     :body DataExchange}))
 
 (defn projects-locations-dataExchanges-subscribe
   "Creates a Subscription to a Data Clean Room. This is a long-running operation as it will create one or more linked datasets.
@@ -132,16 +125,15 @@ name <>
 SubscribeDataExchangeRequest:
 SubscribeDataExchangeRequest"
   [name SubscribeDataExchangeRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://analyticshub.googleapis.com/v1/{+name}:subscribe",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"],
-     :body SubscribeDataExchangeRequest}))
+  {:method :post,
+   :uri-template
+   "https://analyticshub.googleapis.com/v1/{+name}:subscribe",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"],
+   :body SubscribeDataExchangeRequest})
 
 (defn projects-locations-dataExchanges-get
   "Gets the details of a data exchange.
@@ -149,14 +141,13 @@ https://cloud.google.com/bigquery/docs/analytics-hub-introduction/v1/reference/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://analyticshub.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://analyticshub.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-dataExchanges-testIamPermissions
   "Returns the permissions that a caller has.
@@ -166,16 +157,15 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://analyticshub.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://analyticshub.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-locations-dataExchanges-listSubscriptions
   "Lists all subscriptions on a given Data Exchange or Listing.
@@ -189,15 +179,14 @@ pageSize <integer> The maximum number of results to return in a single response 
   ([resource]
     (projects-locations-dataExchanges-listSubscriptions resource nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://analyticshub.googleapis.com/v1/{+resource}:listSubscriptions",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/bigquery"
-        "https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://analyticshub.googleapis.com/v1/{+resource}:listSubscriptions",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/bigquery"
+      "https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-dataExchanges-listings-list
   "Lists all listings in a given project and location.
@@ -210,15 +199,14 @@ pageSize <integer> The maximum number of results to return in a single response 
   ([parent]
     (projects-locations-dataExchanges-listings-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://analyticshub.googleapis.com/v1/{+parent}/listings",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/bigquery"
-        "https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://analyticshub.googleapis.com/v1/{+parent}/listings",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/bigquery"
+      "https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-dataExchanges-listings-setIamPolicy
   "Sets the IAM policy.
@@ -228,16 +216,15 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://analyticshub.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://analyticshub.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-dataExchanges-listings-delete
   "Deletes a listing.
@@ -245,14 +232,13 @@ https://cloud.google.com/bigquery/docs/analytics-hub-introduction/v1/reference/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://analyticshub.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://analyticshub.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-dataExchanges-listings-patch
   "Updates an existing listing.
@@ -267,15 +253,14 @@ updateMask <string> Required. Field mask specifies the fields to update in the l
   ([name Listing]
     (projects-locations-dataExchanges-listings-patch name Listing nil))
   ([name Listing optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://analyticshub.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/bigquery"
-        "https://www.googleapis.com/auth/cloud-platform"],
-       :body Listing})))
+    {:method :patch,
+     :uri-template "https://analyticshub.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/bigquery"
+      "https://www.googleapis.com/auth/cloud-platform"],
+     :body Listing}))
 
 (defn projects-locations-dataExchanges-listings-getIamPolicy
   "Gets the IAM policy.
@@ -285,16 +270,15 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://analyticshub.googleapis.com/v1/{+resource}:getIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"],
-     :body GetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://analyticshub.googleapis.com/v1/{+resource}:getIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"],
+   :body GetIamPolicyRequest})
 
 (defn projects-locations-dataExchanges-listings-create
   "Creates a new listing.
@@ -312,16 +296,15 @@ listingId <string> Required. The ID of the listing to create. Must contain only 
       Listing
       nil))
   ([parent Listing optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://analyticshub.googleapis.com/v1/{+parent}/listings",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/bigquery"
-        "https://www.googleapis.com/auth/cloud-platform"],
-       :body Listing})))
+    {:method :post,
+     :uri-template
+     "https://analyticshub.googleapis.com/v1/{+parent}/listings",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/bigquery"
+      "https://www.googleapis.com/auth/cloud-platform"],
+     :body Listing}))
 
 (defn projects-locations-dataExchanges-listings-subscribe
   "Subscribes to a listing. Currently, with Analytics Hub, you can create listings that reference only BigQuery datasets. Upon subscription to a listing for a BigQuery dataset, Analytics Hub creates a linked dataset in the subscriber's project.
@@ -331,16 +314,15 @@ name <>
 SubscribeListingRequest:
 SubscribeListingRequest"
   [name SubscribeListingRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://analyticshub.googleapis.com/v1/{+name}:subscribe",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"],
-     :body SubscribeListingRequest}))
+  {:method :post,
+   :uri-template
+   "https://analyticshub.googleapis.com/v1/{+name}:subscribe",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"],
+   :body SubscribeListingRequest})
 
 (defn projects-locations-dataExchanges-listings-get
   "Gets the details of a listing.
@@ -348,14 +330,13 @@ https://cloud.google.com/bigquery/docs/analytics-hub-introduction/v1/reference/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://analyticshub.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://analyticshub.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-dataExchanges-listings-testIamPermissions
   "Returns the permissions that a caller has.
@@ -365,16 +346,15 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://analyticshub.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://analyticshub.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-locations-dataExchanges-listings-listSubscriptions
   "Lists all subscriptions on a given Data Exchange or Listing.
@@ -390,15 +370,14 @@ pageSize <integer> The maximum number of results to return in a single response 
       resource
       nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://analyticshub.googleapis.com/v1/{+resource}:listSubscriptions",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/bigquery"
-        "https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://analyticshub.googleapis.com/v1/{+resource}:listSubscriptions",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/bigquery"
+      "https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-subscriptions-refresh
   "Refreshes a Subscription to a Data Exchange. A Data Exchange can become stale when a publisher adds or removes data. This is a long-running operation as it may create many linked datasets.
@@ -408,16 +387,15 @@ name <>
 RefreshSubscriptionRequest:
 RefreshSubscriptionRequest"
   [name RefreshSubscriptionRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://analyticshub.googleapis.com/v1/{+name}:refresh",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"],
-     :body RefreshSubscriptionRequest}))
+  {:method :post,
+   :uri-template
+   "https://analyticshub.googleapis.com/v1/{+name}:refresh",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"],
+   :body RefreshSubscriptionRequest})
 
 (defn projects-locations-subscriptions-get
   "Gets the details of a Subscription.
@@ -425,14 +403,13 @@ https://cloud.google.com/bigquery/docs/analytics-hub-introduction/v1/reference/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://analyticshub.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://analyticshub.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-subscriptions-list
   "Lists all subscriptions in a given project and location.
@@ -445,15 +422,14 @@ filter <string> An expression for filtering the results of the request. Eligible
 pageSize <integer> The maximum number of results to return in a single response page."
   ([parent] (projects-locations-subscriptions-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://analyticshub.googleapis.com/v1/{+parent}/subscriptions",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/bigquery"
-        "https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://analyticshub.googleapis.com/v1/{+parent}/subscriptions",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/bigquery"
+      "https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-subscriptions-revoke
   "Revokes a given subscription.
@@ -463,16 +439,15 @@ name <>
 RevokeSubscriptionRequest:
 RevokeSubscriptionRequest"
   [name RevokeSubscriptionRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://analyticshub.googleapis.com/v1/{+name}:revoke",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"],
-     :body RevokeSubscriptionRequest}))
+  {:method :post,
+   :uri-template
+   "https://analyticshub.googleapis.com/v1/{+name}:revoke",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"],
+   :body RevokeSubscriptionRequest})
 
 (defn projects-locations-subscriptions-delete
   "Deletes a subscription.
@@ -480,14 +455,13 @@ https://cloud.google.com/bigquery/docs/analytics-hub-introduction/v1/reference/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://analyticshub.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://analyticshub.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-subscriptions-getIamPolicy
   "Gets the IAM policy.
@@ -497,16 +471,15 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://analyticshub.googleapis.com/v1/{+resource}:getIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"],
-     :body GetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://analyticshub.googleapis.com/v1/{+resource}:getIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"],
+   :body GetIamPolicyRequest})
 
 (defn projects-locations-subscriptions-setIamPolicy
   "Sets the IAM policy.
@@ -516,16 +489,15 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://analyticshub.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://analyticshub.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn organizations-locations-dataExchanges-list
   "Lists all data exchanges from projects in a given organization and location.
@@ -538,12 +510,11 @@ pageSize <integer> The maximum number of results to return in a single response 
   ([organization]
     (organizations-locations-dataExchanges-list organization nil))
   ([organization optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://analyticshub.googleapis.com/v1/{+organization}/dataExchanges",
-       :uri-template-args {"organization" organization},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/bigquery"
-        "https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://analyticshub.googleapis.com/v1/{+organization}/dataExchanges",
+     :uri-template-args {"organization" organization},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/bigquery"
+      "https://www.googleapis.com/auth/cloud-platform"]}))

@@ -1,8 +1,7 @@
 (ns happyapi.google.calendar-v3
   "Calendar API
 Manipulates events and other calendar data.
-See: https://developers.google.com/calendar"
-  (:require [happyapi.providers.google :as client]))
+See: https://developers.google.com/calendar")
 
 (defn acl-delete
   "Deletes an access control rule.
@@ -11,13 +10,12 @@ https://developers.google.com/calendar/v3/reference/rest/v3/acl/delete
 calendarId <> 
 ruleId <> "
   [calendarId ruleId]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/acl/{ruleId}",
-     :uri-template-args {"calendarId" calendarId, "ruleId" ruleId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/calendar"]}))
+  {:method :delete,
+   :uri-template
+   "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/acl/{ruleId}",
+   :uri-template-args {"calendarId" calendarId, "ruleId" ruleId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/calendar"]})
 
 (defn acl-get
   "Returns an access control rule.
@@ -26,15 +24,14 @@ https://developers.google.com/calendar/v3/reference/rest/v3/acl/get
 calendarId <> 
 ruleId <> "
   [calendarId ruleId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/acl/{ruleId}",
-     :uri-template-args {"calendarId" calendarId, "ruleId" ruleId},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/calendar"
-      "https://www.googleapis.com/auth/calendar.readonly"]}))
+  {:method :get,
+   :uri-template
+   "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/acl/{ruleId}",
+   :uri-template-args {"calendarId" calendarId, "ruleId" ruleId},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/calendar"
+    "https://www.googleapis.com/auth/calendar.readonly"]})
 
 (defn acl-insert
   "Creates an access control rule.
@@ -48,14 +45,13 @@ optional:
 sendNotifications <boolean> Whether to send notifications about the calendar sharing change. Optional. The default is True."
   ([calendarId AclRule] (acl-insert calendarId AclRule nil))
   ([calendarId AclRule optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/acl",
-       :uri-template-args {"calendarId" calendarId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/calendar"],
-       :body AclRule})))
+    {:method :post,
+     :uri-template
+     "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/acl",
+     :uri-template-args {"calendarId" calendarId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/calendar"],
+     :body AclRule}))
 
 (defn acl-list
   "Returns the rules in the access control list for the calendar.
@@ -72,13 +68,12 @@ Learn more about incremental synchronization.
 Optional. The default is to return all entries."
   ([calendarId] (acl-list calendarId nil))
   ([calendarId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/acl",
-       :uri-template-args {"calendarId" calendarId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/calendar"]})))
+    {:method :get,
+     :uri-template
+     "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/acl",
+     :uri-template-args {"calendarId" calendarId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/calendar"]}))
 
 (defn acl-patch
   "Updates an access control rule. This method supports patch semantics.
@@ -94,14 +89,13 @@ sendNotifications <boolean> Whether to send notifications about the calendar sha
   ([calendarId ruleId AclRule]
     (acl-patch calendarId ruleId AclRule nil))
   ([calendarId ruleId AclRule optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/acl/{ruleId}",
-       :uri-template-args {"calendarId" calendarId, "ruleId" ruleId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/calendar"],
-       :body AclRule})))
+    {:method :patch,
+     :uri-template
+     "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/acl/{ruleId}",
+     :uri-template-args {"calendarId" calendarId, "ruleId" ruleId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/calendar"],
+     :body AclRule}))
 
 (defn acl-update
   "Updates an access control rule.
@@ -117,14 +111,13 @@ sendNotifications <boolean> Whether to send notifications about the calendar sha
   ([calendarId ruleId AclRule]
     (acl-update calendarId ruleId AclRule nil))
   ([calendarId ruleId AclRule optional]
-    (client/*api-request*
-      {:method :put,
-       :uri-template
-       "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/acl/{ruleId}",
-       :uri-template-args {"calendarId" calendarId, "ruleId" ruleId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/calendar"],
-       :body AclRule})))
+    {:method :put,
+     :uri-template
+     "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/acl/{ruleId}",
+     :uri-template-args {"calendarId" calendarId, "ruleId" ruleId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/calendar"],
+     :body AclRule}))
 
 (defn acl-watch
   "Watch for changes to ACL resources.
@@ -143,14 +136,13 @@ Learn more about incremental synchronization.
 Optional. The default is to return all entries."
   ([calendarId Channel] (acl-watch calendarId Channel nil))
   ([calendarId Channel optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/acl/watch",
-       :uri-template-args {"calendarId" calendarId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/calendar"],
-       :body Channel})))
+    {:method :post,
+     :uri-template
+     "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/acl/watch",
+     :uri-template-args {"calendarId" calendarId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/calendar"],
+     :body Channel}))
 
 (defn calendarList-delete
   "Removes a calendar from the user's calendar list.
@@ -158,13 +150,12 @@ https://developers.google.com/calendar/v3/reference/rest/v3/calendarList/delete
 
 calendarId <> "
   [calendarId]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://www.googleapis.com/calendar/v3/users/me/calendarList/{calendarId}",
-     :uri-template-args {"calendarId" calendarId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/calendar"]}))
+  {:method :delete,
+   :uri-template
+   "https://www.googleapis.com/calendar/v3/users/me/calendarList/{calendarId}",
+   :uri-template-args {"calendarId" calendarId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/calendar"]})
 
 (defn calendarList-get
   "Returns a calendar from the user's calendar list.
@@ -172,15 +163,14 @@ https://developers.google.com/calendar/v3/reference/rest/v3/calendarList/get
 
 calendarId <> "
   [calendarId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://www.googleapis.com/calendar/v3/users/me/calendarList/{calendarId}",
-     :uri-template-args {"calendarId" calendarId},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/calendar"
-      "https://www.googleapis.com/auth/calendar.readonly"]}))
+  {:method :get,
+   :uri-template
+   "https://www.googleapis.com/calendar/v3/users/me/calendarList/{calendarId}",
+   :uri-template-args {"calendarId" calendarId},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/calendar"
+    "https://www.googleapis.com/auth/calendar.readonly"]})
 
 (defn calendarList-insert
   "Inserts an existing calendar into the user's calendar list.
@@ -193,14 +183,13 @@ optional:
 colorRgbFormat <boolean> Whether to use the foregroundColor and backgroundColor fields to write the calendar colors (RGB). If this feature is used, the index-based colorId field will be set to the best matching option automatically. Optional. The default is False."
   ([CalendarListEntry] (calendarList-insert CalendarListEntry nil))
   ([CalendarListEntry optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://www.googleapis.com/calendar/v3/users/me/calendarList",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/calendar"],
-       :body CalendarListEntry})))
+    {:method :post,
+     :uri-template
+     "https://www.googleapis.com/calendar/v3/users/me/calendarList",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/calendar"],
+     :body CalendarListEntry}))
 
 (defn calendarList-list
   "Returns the calendars on the user's calendar list.
@@ -218,15 +207,14 @@ Learn more about incremental synchronization.
 Optional. The default is to return all entries."
   ([] (calendarList-list nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://www.googleapis.com/calendar/v3/users/me/calendarList",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/calendar"
-        "https://www.googleapis.com/auth/calendar.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://www.googleapis.com/calendar/v3/users/me/calendarList",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/calendar"
+      "https://www.googleapis.com/auth/calendar.readonly"]}))
 
 (defn calendarList-patch
   "Updates an existing calendar on the user's calendar list. This method supports patch semantics.
@@ -241,14 +229,13 @@ colorRgbFormat <boolean> Whether to use the foregroundColor and backgroundColor 
   ([calendarId CalendarListEntry]
     (calendarList-patch calendarId CalendarListEntry nil))
   ([calendarId CalendarListEntry optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://www.googleapis.com/calendar/v3/users/me/calendarList/{calendarId}",
-       :uri-template-args {"calendarId" calendarId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/calendar"],
-       :body CalendarListEntry})))
+    {:method :patch,
+     :uri-template
+     "https://www.googleapis.com/calendar/v3/users/me/calendarList/{calendarId}",
+     :uri-template-args {"calendarId" calendarId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/calendar"],
+     :body CalendarListEntry}))
 
 (defn calendarList-update
   "Updates an existing calendar on the user's calendar list.
@@ -263,14 +250,13 @@ colorRgbFormat <boolean> Whether to use the foregroundColor and backgroundColor 
   ([calendarId CalendarListEntry]
     (calendarList-update calendarId CalendarListEntry nil))
   ([calendarId CalendarListEntry optional]
-    (client/*api-request*
-      {:method :put,
-       :uri-template
-       "https://www.googleapis.com/calendar/v3/users/me/calendarList/{calendarId}",
-       :uri-template-args {"calendarId" calendarId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/calendar"],
-       :body CalendarListEntry})))
+    {:method :put,
+     :uri-template
+     "https://www.googleapis.com/calendar/v3/users/me/calendarList/{calendarId}",
+     :uri-template-args {"calendarId" calendarId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/calendar"],
+     :body CalendarListEntry}))
 
 (defn calendarList-watch
   "Watch for changes to CalendarList resources.
@@ -291,16 +277,15 @@ Learn more about incremental synchronization.
 Optional. The default is to return all entries."
   ([Channel] (calendarList-watch Channel nil))
   ([Channel optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://www.googleapis.com/calendar/v3/users/me/calendarList/watch",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/calendar"
-        "https://www.googleapis.com/auth/calendar.readonly"],
-       :body Channel})))
+    {:method :post,
+     :uri-template
+     "https://www.googleapis.com/calendar/v3/users/me/calendarList/watch",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/calendar"
+      "https://www.googleapis.com/auth/calendar.readonly"],
+     :body Channel}))
 
 (defn calendars-clear
   "Clears a primary calendar. This operation deletes all events associated with the primary calendar of an account.
@@ -308,13 +293,12 @@ https://developers.google.com/calendar/v3/reference/rest/v3/calendars/clear
 
 calendarId <> "
   [calendarId]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/clear",
-     :uri-template-args {"calendarId" calendarId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/calendar"]}))
+  {:method :post,
+   :uri-template
+   "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/clear",
+   :uri-template-args {"calendarId" calendarId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/calendar"]})
 
 (defn calendars-delete
   "Deletes a secondary calendar. Use calendars.clear for clearing all events on primary calendars.
@@ -322,13 +306,12 @@ https://developers.google.com/calendar/v3/reference/rest/v3/calendars/delete
 
 calendarId <> "
   [calendarId]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://www.googleapis.com/calendar/v3/calendars/{calendarId}",
-     :uri-template-args {"calendarId" calendarId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/calendar"]}))
+  {:method :delete,
+   :uri-template
+   "https://www.googleapis.com/calendar/v3/calendars/{calendarId}",
+   :uri-template-args {"calendarId" calendarId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/calendar"]})
 
 (defn calendars-get
   "Returns metadata for a calendar.
@@ -336,15 +319,14 @@ https://developers.google.com/calendar/v3/reference/rest/v3/calendars/get
 
 calendarId <> "
   [calendarId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://www.googleapis.com/calendar/v3/calendars/{calendarId}",
-     :uri-template-args {"calendarId" calendarId},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/calendar"
-      "https://www.googleapis.com/auth/calendar.readonly"]}))
+  {:method :get,
+   :uri-template
+   "https://www.googleapis.com/calendar/v3/calendars/{calendarId}",
+   :uri-template-args {"calendarId" calendarId},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/calendar"
+    "https://www.googleapis.com/auth/calendar.readonly"]})
 
 (defn calendars-insert
   "Creates a secondary calendar.
@@ -353,13 +335,12 @@ https://developers.google.com/calendar/v3/reference/rest/v3/calendars/insert
 Calendar:
 Calendar"
   [Calendar]
-  (client/*api-request*
-    {:method :post,
-     :uri-template "https://www.googleapis.com/calendar/v3/calendars",
-     :uri-template-args {},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/calendar"],
-     :body Calendar}))
+  {:method :post,
+   :uri-template "https://www.googleapis.com/calendar/v3/calendars",
+   :uri-template-args {},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/calendar"],
+   :body Calendar})
 
 (defn calendars-patch
   "Updates metadata for a calendar. This method supports patch semantics.
@@ -369,14 +350,13 @@ calendarId <>
 Calendar:
 Calendar"
   [calendarId Calendar]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template
-     "https://www.googleapis.com/calendar/v3/calendars/{calendarId}",
-     :uri-template-args {"calendarId" calendarId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/calendar"],
-     :body Calendar}))
+  {:method :patch,
+   :uri-template
+   "https://www.googleapis.com/calendar/v3/calendars/{calendarId}",
+   :uri-template-args {"calendarId" calendarId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/calendar"],
+   :body Calendar})
 
 (defn calendars-update
   "Updates metadata for a calendar.
@@ -386,14 +366,13 @@ calendarId <>
 Calendar:
 Calendar"
   [calendarId Calendar]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://www.googleapis.com/calendar/v3/calendars/{calendarId}",
-     :uri-template-args {"calendarId" calendarId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/calendar"],
-     :body Calendar}))
+  {:method :put,
+   :uri-template
+   "https://www.googleapis.com/calendar/v3/calendars/{calendarId}",
+   :uri-template-args {"calendarId" calendarId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/calendar"],
+   :body Calendar})
 
 (defn channels-stop
   "Stop watching resources through this channel
@@ -402,32 +381,30 @@ https://developers.google.com/calendar/v3/reference/rest/v3/channels/stop
 Channel:
 Channel"
   [Channel]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://www.googleapis.com/calendar/v3/channels/stop",
-     :uri-template-args {},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/calendar"
-      "https://www.googleapis.com/auth/calendar.events"
-      "https://www.googleapis.com/auth/calendar.events.readonly"
-      "https://www.googleapis.com/auth/calendar.readonly"
-      "https://www.googleapis.com/auth/calendar.settings.readonly"],
-     :body Channel}))
+  {:method :post,
+   :uri-template
+   "https://www.googleapis.com/calendar/v3/channels/stop",
+   :uri-template-args {},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/calendar"
+    "https://www.googleapis.com/auth/calendar.events"
+    "https://www.googleapis.com/auth/calendar.events.readonly"
+    "https://www.googleapis.com/auth/calendar.readonly"
+    "https://www.googleapis.com/auth/calendar.settings.readonly"],
+   :body Channel})
 
 (defn colors-get
   "Returns the color definitions for calendars and events.
 https://developers.google.com/calendar/v3/reference/rest/v3/colors/get"
   []
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://www.googleapis.com/calendar/v3/colors",
-     :uri-template-args {},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/calendar"
-      "https://www.googleapis.com/auth/calendar.readonly"]}))
+  {:method :get,
+   :uri-template "https://www.googleapis.com/calendar/v3/colors",
+   :uri-template-args {},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/calendar"
+    "https://www.googleapis.com/auth/calendar.readonly"]})
 
 (defn events-list
   "Returns events on the specified calendar.
@@ -481,17 +458,16 @@ showDeleted <boolean> Whether to include deleted events (with status equals \"ca
 showHiddenInvitations <boolean> Whether to include hidden invitations in the result. Optional. The default is False."
   ([calendarId] (events-list calendarId nil))
   ([calendarId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events",
-       :uri-template-args {"calendarId" calendarId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/calendar"
-        "https://www.googleapis.com/auth/calendar.events"
-        "https://www.googleapis.com/auth/calendar.events.readonly"
-        "https://www.googleapis.com/auth/calendar.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events",
+     :uri-template-args {"calendarId" calendarId},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/calendar"
+      "https://www.googleapis.com/auth/calendar.events"
+      "https://www.googleapis.com/auth/calendar.events.readonly"
+      "https://www.googleapis.com/auth/calendar.readonly"]}))
 
 (defn events-delete
   "Deletes an event.
@@ -507,15 +483,14 @@ Whether to send notifications about the deletion of the event. Note that some em
 sendUpdates <string> Guests who should receive notifications about the deletion of the event."
   ([calendarId eventId] (events-delete calendarId eventId nil))
   ([calendarId eventId optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/{eventId}",
-       :uri-template-args {"calendarId" calendarId, "eventId" eventId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/calendar"
-        "https://www.googleapis.com/auth/calendar.events"]})))
+    {:method :delete,
+     :uri-template
+     "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/{eventId}",
+     :uri-template-args {"calendarId" calendarId, "eventId" eventId},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/calendar"
+      "https://www.googleapis.com/auth/calendar.events"]}))
 
 (defn events-update
   "Updates an event.
@@ -538,16 +513,15 @@ supportsAttachments <boolean> Whether API client performing operation supports e
   ([calendarId eventId Event]
     (events-update calendarId eventId Event nil))
   ([calendarId eventId Event optional]
-    (client/*api-request*
-      {:method :put,
-       :uri-template
-       "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/{eventId}",
-       :uri-template-args {"calendarId" calendarId, "eventId" eventId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/calendar"
-        "https://www.googleapis.com/auth/calendar.events"],
-       :body Event})))
+    {:method :put,
+     :uri-template
+     "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/{eventId}",
+     :uri-template-args {"calendarId" calendarId, "eventId" eventId},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/calendar"
+      "https://www.googleapis.com/auth/calendar.events"],
+     :body Event}))
 
 (defn events-watch
   "Watch for changes to Events resources.
@@ -603,18 +577,17 @@ showDeleted <boolean> Whether to include deleted events (with status equals \"ca
 showHiddenInvitations <boolean> Whether to include hidden invitations in the result. Optional. The default is False."
   ([calendarId Channel] (events-watch calendarId Channel nil))
   ([calendarId Channel optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/watch",
-       :uri-template-args {"calendarId" calendarId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/calendar"
-        "https://www.googleapis.com/auth/calendar.events"
-        "https://www.googleapis.com/auth/calendar.events.readonly"
-        "https://www.googleapis.com/auth/calendar.readonly"],
-       :body Channel})))
+    {:method :post,
+     :uri-template
+     "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/watch",
+     :uri-template-args {"calendarId" calendarId},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/calendar"
+      "https://www.googleapis.com/auth/calendar.events"
+      "https://www.googleapis.com/auth/calendar.events.readonly"
+      "https://www.googleapis.com/auth/calendar.readonly"],
+     :body Channel}))
 
 (defn events-import
   "Imports an event. This operation is used to add a private copy of an existing event to a calendar. Only events with an eventType of default may be imported.
@@ -630,16 +603,15 @@ conferenceDataVersion <integer> Version number of conference data supported by t
 supportsAttachments <boolean> Whether API client performing operation supports event attachments. Optional. The default is False."
   ([calendarId Event] (events-import calendarId Event nil))
   ([calendarId Event optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/import",
-       :uri-template-args {"calendarId" calendarId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/calendar"
-        "https://www.googleapis.com/auth/calendar.events"],
-       :body Event})))
+    {:method :post,
+     :uri-template
+     "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/import",
+     :uri-template-args {"calendarId" calendarId},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/calendar"
+      "https://www.googleapis.com/auth/calendar.events"],
+     :body Event}))
 
 (defn events-patch
   "Updates an event. This method supports patch semantics.
@@ -662,16 +634,15 @@ supportsAttachments <boolean> Whether API client performing operation supports e
   ([calendarId eventId Event]
     (events-patch calendarId eventId Event nil))
   ([calendarId eventId Event optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/{eventId}",
-       :uri-template-args {"calendarId" calendarId, "eventId" eventId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/calendar"
-        "https://www.googleapis.com/auth/calendar.events"],
-       :body Event})))
+    {:method :patch,
+     :uri-template
+     "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/{eventId}",
+     :uri-template-args {"calendarId" calendarId, "eventId" eventId},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/calendar"
+      "https://www.googleapis.com/auth/calendar.events"],
+     :body Event}))
 
 (defn events-move
   "Moves an event to another calendar, i.e. changes an event's organizer. Note that only default events can be moved; outOfOffice, focusTime, workingLocation and fromGmail events cannot be moved.
@@ -689,15 +660,14 @@ sendUpdates <string> Guests who should receive notifications about the change of
   ([calendarId eventId destination]
     (events-move calendarId eventId destination nil))
   ([calendarId eventId destination optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/{eventId}/move",
-       :uri-template-args {"calendarId" calendarId, "eventId" eventId},
-       :query-params (merge {"destination" destination} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/calendar"
-        "https://www.googleapis.com/auth/calendar.events"]})))
+    {:method :post,
+     :uri-template
+     "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/{eventId}/move",
+     :uri-template-args {"calendarId" calendarId, "eventId" eventId},
+     :query-params (merge {"destination" destination} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/calendar"
+      "https://www.googleapis.com/auth/calendar.events"]}))
 
 (defn events-insert
   "Creates an event.
@@ -717,16 +687,15 @@ sendUpdates <string> Whether to send notifications about the creation of the new
 supportsAttachments <boolean> Whether API client performing operation supports event attachments. Optional. The default is False."
   ([calendarId Event] (events-insert calendarId Event nil))
   ([calendarId Event optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events",
-       :uri-template-args {"calendarId" calendarId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/calendar"
-        "https://www.googleapis.com/auth/calendar.events"],
-       :body Event})))
+    {:method :post,
+     :uri-template
+     "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events",
+     :uri-template-args {"calendarId" calendarId},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/calendar"
+      "https://www.googleapis.com/auth/calendar.events"],
+     :body Event}))
 
 (defn events-quickAdd
   "Creates an event based on a simple text string.
@@ -742,15 +711,14 @@ Whether to send notifications about the creation of the event. Note that some em
 sendUpdates <string> Guests who should receive notifications about the creation of the new event."
   ([calendarId text] (events-quickAdd calendarId text nil))
   ([calendarId text optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/quickAdd",
-       :uri-template-args {"calendarId" calendarId},
-       :query-params (merge {"text" text} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/calendar"
-        "https://www.googleapis.com/auth/calendar.events"]})))
+    {:method :post,
+     :uri-template
+     "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/quickAdd",
+     :uri-template-args {"calendarId" calendarId},
+     :query-params (merge {"text" text} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/calendar"
+      "https://www.googleapis.com/auth/calendar.events"]}))
 
 (defn events-instances
   "Returns instances of the specified recurring event.
@@ -770,17 +738,16 @@ timeMin <string> Lower bound (inclusive) for an event's end time to filter by. O
 showDeleted <boolean> Whether to include deleted events (with status equals \"cancelled\") in the result. Cancelled instances of recurring events will still be included if singleEvents is False. Optional. The default is False."
   ([calendarId eventId] (events-instances calendarId eventId nil))
   ([calendarId eventId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/{eventId}/instances",
-       :uri-template-args {"calendarId" calendarId, "eventId" eventId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/calendar"
-        "https://www.googleapis.com/auth/calendar.events"
-        "https://www.googleapis.com/auth/calendar.events.readonly"
-        "https://www.googleapis.com/auth/calendar.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/{eventId}/instances",
+     :uri-template-args {"calendarId" calendarId, "eventId" eventId},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/calendar"
+      "https://www.googleapis.com/auth/calendar.events"
+      "https://www.googleapis.com/auth/calendar.events.readonly"
+      "https://www.googleapis.com/auth/calendar.readonly"]}))
 
 (defn events-get
   "Returns an event based on its Google Calendar ID. To retrieve an event using its iCalendar ID, call the events.list method using the iCalUID parameter.
@@ -795,17 +762,16 @@ maxAttendees <integer> The maximum number of attendees to include in the respons
 timeZone <string> Time zone used in the response. Optional. The default is the time zone of the calendar."
   ([calendarId eventId] (events-get calendarId eventId nil))
   ([calendarId eventId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/{eventId}",
-       :uri-template-args {"calendarId" calendarId, "eventId" eventId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/calendar"
-        "https://www.googleapis.com/auth/calendar.events"
-        "https://www.googleapis.com/auth/calendar.events.readonly"
-        "https://www.googleapis.com/auth/calendar.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/{eventId}",
+     :uri-template-args {"calendarId" calendarId, "eventId" eventId},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/calendar"
+      "https://www.googleapis.com/auth/calendar.events"
+      "https://www.googleapis.com/auth/calendar.events.readonly"
+      "https://www.googleapis.com/auth/calendar.readonly"]}))
 
 (defn freebusy-query
   "Returns free/busy information for a set of calendars.
@@ -814,15 +780,14 @@ https://developers.google.com/calendar/v3/reference/rest/v3/freebusy/query
 FreeBusyRequest:
 FreeBusyRequest"
   [FreeBusyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template "https://www.googleapis.com/calendar/v3/freeBusy",
-     :uri-template-args {},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/calendar"
-      "https://www.googleapis.com/auth/calendar.readonly"],
-     :body FreeBusyRequest}))
+  {:method :post,
+   :uri-template "https://www.googleapis.com/calendar/v3/freeBusy",
+   :uri-template-args {},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/calendar"
+    "https://www.googleapis.com/auth/calendar.readonly"],
+   :body FreeBusyRequest})
 
 (defn settings-get
   "Returns a single user setting.
@@ -830,16 +795,15 @@ https://developers.google.com/calendar/v3/reference/rest/v3/settings/get
 
 setting <> "
   [setting]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://www.googleapis.com/calendar/v3/users/me/settings/{setting}",
-     :uri-template-args {"setting" setting},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/calendar"
-      "https://www.googleapis.com/auth/calendar.readonly"
-      "https://www.googleapis.com/auth/calendar.settings.readonly"]}))
+  {:method :get,
+   :uri-template
+   "https://www.googleapis.com/calendar/v3/users/me/settings/{setting}",
+   :uri-template-args {"setting" setting},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/calendar"
+    "https://www.googleapis.com/auth/calendar.readonly"
+    "https://www.googleapis.com/auth/calendar.settings.readonly"]})
 
 (defn settings-list
   "Returns all user settings for the authenticated user.
@@ -853,16 +817,15 @@ Learn more about incremental synchronization.
 Optional. The default is to return all entries."
   ([] (settings-list nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://www.googleapis.com/calendar/v3/users/me/settings",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/calendar"
-        "https://www.googleapis.com/auth/calendar.readonly"
-        "https://www.googleapis.com/auth/calendar.settings.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://www.googleapis.com/calendar/v3/users/me/settings",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/calendar"
+      "https://www.googleapis.com/auth/calendar.readonly"
+      "https://www.googleapis.com/auth/calendar.settings.readonly"]}))
 
 (defn settings-watch
   "Watch for changes to Settings resources.
@@ -879,14 +842,13 @@ Learn more about incremental synchronization.
 Optional. The default is to return all entries."
   ([Channel] (settings-watch Channel nil))
   ([Channel optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://www.googleapis.com/calendar/v3/users/me/settings/watch",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/calendar"
-        "https://www.googleapis.com/auth/calendar.readonly"
-        "https://www.googleapis.com/auth/calendar.settings.readonly"],
-       :body Channel})))
+    {:method :post,
+     :uri-template
+     "https://www.googleapis.com/calendar/v3/users/me/settings/watch",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/calendar"
+      "https://www.googleapis.com/auth/calendar.readonly"
+      "https://www.googleapis.com/auth/calendar.settings.readonly"],
+     :body Channel}))

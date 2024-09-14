@@ -1,8 +1,7 @@
 (ns happyapi.google.youtubeAnalytics-v2
   "YouTube Analytics API
 Retrieves your YouTube Analytics data.
-See: https://developers.google.com/youtube/analytics"
-  (:require [happyapi.providers.google :as client]))
+See: https://developers.google.com/youtube/analytics")
 
 (defn groups-insert
   "Creates a group.
@@ -15,19 +14,17 @@ optional:
 onBehalfOfContentOwner <string> This parameter can only be used in a properly authorized request. **Note:** This parameter is intended exclusively for YouTube content partners that own and manage many different YouTube channels. The `onBehalfOfContentOwner` parameter indicates that the request's authorization credentials identify a YouTube user who is acting on behalf of the content owner specified in the parameter value. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The account that the user authenticates with must be linked to the specified YouTube content owner."
   ([Group] (groups-insert Group nil))
   ([Group optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://youtubeanalytics.googleapis.com/v2/groups",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.readonly"
-        "https://www.googleapis.com/auth/youtubepartner"
-        "https://www.googleapis.com/auth/yt-analytics-monetary.readonly"
-        "https://www.googleapis.com/auth/yt-analytics.readonly"],
-       :body Group})))
+    {:method :post,
+     :uri-template "https://youtubeanalytics.googleapis.com/v2/groups",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.readonly"
+      "https://www.googleapis.com/auth/youtubepartner"
+      "https://www.googleapis.com/auth/yt-analytics-monetary.readonly"
+      "https://www.googleapis.com/auth/yt-analytics.readonly"],
+     :body Group}))
 
 (defn groups-list
   "Returns a collection of groups that match the API request parameters. For example, you can retrieve all groups that the authenticated user owns, or you can retrieve one or more groups by their unique IDs.
@@ -39,18 +36,16 @@ mine <boolean> This parameter can only be used in a properly authorized request.
 onBehalfOfContentOwner <string> This parameter can only be used in a properly authorized request. **Note:** This parameter is intended exclusively for YouTube content partners that own and manage many different YouTube channels. The `onBehalfOfContentOwner` parameter indicates that the request's authorization credentials identify a YouTube user who is acting on behalf of the content owner specified in the parameter value. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The account that the user authenticates with must be linked to the specified YouTube content owner."
   ([] (groups-list nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://youtubeanalytics.googleapis.com/v2/groups",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.readonly"
-        "https://www.googleapis.com/auth/youtubepartner"
-        "https://www.googleapis.com/auth/yt-analytics-monetary.readonly"
-        "https://www.googleapis.com/auth/yt-analytics.readonly"]})))
+    {:method :get,
+     :uri-template "https://youtubeanalytics.googleapis.com/v2/groups",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.readonly"
+      "https://www.googleapis.com/auth/youtubepartner"
+      "https://www.googleapis.com/auth/yt-analytics-monetary.readonly"
+      "https://www.googleapis.com/auth/yt-analytics.readonly"]}))
 
 (defn groups-delete
   "Deletes a group.
@@ -61,18 +56,16 @@ id <string> The `id` parameter specifies the YouTube group ID of the group that 
 onBehalfOfContentOwner <string> This parameter can only be used in a properly authorized request. **Note:** This parameter is intended exclusively for YouTube content partners that own and manage many different YouTube channels. The `onBehalfOfContentOwner` parameter indicates that the request's authorization credentials identify a YouTube user who is acting on behalf of the content owner specified in the parameter value. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The account that the user authenticates with must be linked to the specified YouTube content owner."
   ([] (groups-delete nil))
   ([optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://youtubeanalytics.googleapis.com/v2/groups",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.readonly"
-        "https://www.googleapis.com/auth/youtubepartner"
-        "https://www.googleapis.com/auth/yt-analytics-monetary.readonly"
-        "https://www.googleapis.com/auth/yt-analytics.readonly"]})))
+    {:method :delete,
+     :uri-template "https://youtubeanalytics.googleapis.com/v2/groups",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.readonly"
+      "https://www.googleapis.com/auth/youtubepartner"
+      "https://www.googleapis.com/auth/yt-analytics-monetary.readonly"
+      "https://www.googleapis.com/auth/yt-analytics.readonly"]}))
 
 (defn groups-update
   "Modifies a group. For example, you could change a group's title.
@@ -85,19 +78,17 @@ optional:
 onBehalfOfContentOwner <string> This parameter can only be used in a properly authorized request. **Note:** This parameter is intended exclusively for YouTube content partners that own and manage many different YouTube channels. The `onBehalfOfContentOwner` parameter indicates that the request's authorization credentials identify a YouTube user who is acting on behalf of the content owner specified in the parameter value. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The account that the user authenticates with must be linked to the specified YouTube content owner."
   ([Group] (groups-update Group nil))
   ([Group optional]
-    (client/*api-request*
-      {:method :put,
-       :uri-template
-       "https://youtubeanalytics.googleapis.com/v2/groups",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.readonly"
-        "https://www.googleapis.com/auth/youtubepartner"
-        "https://www.googleapis.com/auth/yt-analytics-monetary.readonly"
-        "https://www.googleapis.com/auth/yt-analytics.readonly"],
-       :body Group})))
+    {:method :put,
+     :uri-template "https://youtubeanalytics.googleapis.com/v2/groups",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.readonly"
+      "https://www.googleapis.com/auth/youtubepartner"
+      "https://www.googleapis.com/auth/yt-analytics-monetary.readonly"
+      "https://www.googleapis.com/auth/yt-analytics.readonly"],
+     :body Group}))
 
 (defn reports-query
   "Retrieve your YouTube Analytics reports.
@@ -117,18 +108,17 @@ metrics <string> A comma-separated list of YouTube Analytics metrics, such as `v
 endDate <string> The end date for fetching YouTube Analytics data. The value should be in `YYYY-MM-DD` format. required: true, pattern: [0-9]{4}-[0-9]{2}-[0-9]{2}"
   ([] (reports-query nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://youtubeanalytics.googleapis.com/v2/reports",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.readonly"
-        "https://www.googleapis.com/auth/youtubepartner"
-        "https://www.googleapis.com/auth/yt-analytics-monetary.readonly"
-        "https://www.googleapis.com/auth/yt-analytics.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://youtubeanalytics.googleapis.com/v2/reports",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.readonly"
+      "https://www.googleapis.com/auth/youtubepartner"
+      "https://www.googleapis.com/auth/yt-analytics-monetary.readonly"
+      "https://www.googleapis.com/auth/yt-analytics.readonly"]}))
 
 (defn groupItems-insert
   "Creates a group item.
@@ -141,19 +131,18 @@ optional:
 onBehalfOfContentOwner <string> This parameter can only be used in a properly authorized request. **Note:** This parameter is intended exclusively for YouTube content partners that own and manage many different YouTube channels. The `onBehalfOfContentOwner` parameter indicates that the request's authorization credentials identify a YouTube user who is acting on behalf of the content owner specified in the parameter value. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The account that the user authenticates with must be linked to the specified YouTube content owner."
   ([GroupItem] (groupItems-insert GroupItem nil))
   ([GroupItem optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://youtubeanalytics.googleapis.com/v2/groupItems",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.readonly"
-        "https://www.googleapis.com/auth/youtubepartner"
-        "https://www.googleapis.com/auth/yt-analytics-monetary.readonly"
-        "https://www.googleapis.com/auth/yt-analytics.readonly"],
-       :body GroupItem})))
+    {:method :post,
+     :uri-template
+     "https://youtubeanalytics.googleapis.com/v2/groupItems",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.readonly"
+      "https://www.googleapis.com/auth/youtubepartner"
+      "https://www.googleapis.com/auth/yt-analytics-monetary.readonly"
+      "https://www.googleapis.com/auth/yt-analytics.readonly"],
+     :body GroupItem}))
 
 (defn groupItems-list
   "Returns a collection of group items that match the API request parameters.
@@ -164,18 +153,17 @@ groupId <string> The `groupId` parameter specifies the unique ID of the group fo
 onBehalfOfContentOwner <string> This parameter can only be used in a properly authorized request. **Note:** This parameter is intended exclusively for YouTube content partners that own and manage many different YouTube channels. The `onBehalfOfContentOwner` parameter indicates that the request's authorization credentials identify a YouTube user who is acting on behalf of the content owner specified in the parameter value. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The account that the user authenticates with must be linked to the specified YouTube content owner."
   ([] (groupItems-list nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://youtubeanalytics.googleapis.com/v2/groupItems",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.readonly"
-        "https://www.googleapis.com/auth/youtubepartner"
-        "https://www.googleapis.com/auth/yt-analytics-monetary.readonly"
-        "https://www.googleapis.com/auth/yt-analytics.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://youtubeanalytics.googleapis.com/v2/groupItems",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.readonly"
+      "https://www.googleapis.com/auth/youtubepartner"
+      "https://www.googleapis.com/auth/yt-analytics-monetary.readonly"
+      "https://www.googleapis.com/auth/yt-analytics.readonly"]}))
 
 (defn groupItems-delete
   "Removes an item from a group.
@@ -186,15 +174,14 @@ onBehalfOfContentOwner <string> This parameter can only be used in a properly au
 id <string> The `id` parameter specifies the YouTube group item ID of the group item that is being deleted."
   ([] (groupItems-delete nil))
   ([optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://youtubeanalytics.googleapis.com/v2/groupItems",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.readonly"
-        "https://www.googleapis.com/auth/youtubepartner"
-        "https://www.googleapis.com/auth/yt-analytics-monetary.readonly"
-        "https://www.googleapis.com/auth/yt-analytics.readonly"]})))
+    {:method :delete,
+     :uri-template
+     "https://youtubeanalytics.googleapis.com/v2/groupItems",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.readonly"
+      "https://www.googleapis.com/auth/youtubepartner"
+      "https://www.googleapis.com/auth/yt-analytics-monetary.readonly"
+      "https://www.googleapis.com/auth/yt-analytics.readonly"]}))

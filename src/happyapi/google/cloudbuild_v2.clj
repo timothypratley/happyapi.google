@@ -1,8 +1,7 @@
 (ns happyapi.google.cloudbuild-v2
   "Cloud Build API
 Creates and manages builds on Google Cloud Platform.
-See: https://cloud.google.com/build/docs"
-  (:require [happyapi.providers.google :as client]))
+See: https://cloud.google.com/build/docs")
 
 (defn projects-locations-get
   "Gets information about a location.
@@ -10,12 +9,11 @@ https://cloud.google.com/build/docs/v2/reference/rest/v2/projects/locations/get
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://cloudbuild.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://cloudbuild.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-list
   "Lists information about the supported locations for this service.
@@ -28,13 +26,12 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudbuild.googleapis.com/v2/{+name}/locations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudbuild.googleapis.com/v2/{+name}/locations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-connections-fetchLinkableRepositories
   "FetchLinkableRepositories get repositories from SCM that are accessible and could be added to the connection.
@@ -49,13 +46,12 @@ pageSize <integer> Number of results to return in the list. Default to 20."
       connection
       nil))
   ([connection optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudbuild.googleapis.com/v2/{+connection}:fetchLinkableRepositories",
-       :uri-template-args {"connection" connection},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudbuild.googleapis.com/v2/{+connection}:fetchLinkableRepositories",
+     :uri-template-args {"connection" connection},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-connections-list
   "Lists Connections in a given project and location.
@@ -67,13 +63,12 @@ optional:
 pageSize <integer> Number of results to return in the list."
   ([parent] (projects-locations-connections-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudbuild.googleapis.com/v2/{+parent}/connections",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudbuild.googleapis.com/v2/{+parent}/connections",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-connections-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -83,14 +78,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudbuild.googleapis.com/v2/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudbuild.googleapis.com/v2/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-connections-delete
   "Deletes a single connection.
@@ -103,12 +97,11 @@ etag <string> The current etag of the connection. If an etag is provided and doe
 validateOnly <boolean> If set, validate the request, but do not actually post it."
   ([name] (projects-locations-connections-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://cloudbuild.googleapis.com/v2/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://cloudbuild.googleapis.com/v2/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-connections-processWebhook
   "ProcessWebhook is called by the external SCM for notifying of events.
@@ -126,14 +119,13 @@ webhookKey <string> Arbitrary additional key to find the maching repository for 
       HttpBody
       nil))
   ([parent HttpBody optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://cloudbuild.googleapis.com/v2/{+parent}/connections:processWebhook",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes nil,
-       :body HttpBody})))
+    {:method :post,
+     :uri-template
+     "https://cloudbuild.googleapis.com/v2/{+parent}/connections:processWebhook",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes nil,
+     :body HttpBody}))
 
 (defn projects-locations-connections-patch
   "Updates a single connection.
@@ -150,13 +142,12 @@ etag <string> The current etag of the connection. If an etag is provided and doe
   ([name Connection]
     (projects-locations-connections-patch name Connection nil))
   ([name Connection optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://cloudbuild.googleapis.com/v2/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Connection})))
+    {:method :patch,
+     :uri-template "https://cloudbuild.googleapis.com/v2/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Connection}))
 
 (defn projects-locations-connections-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -169,13 +160,12 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-connections-getIamPolicy resource nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudbuild.googleapis.com/v2/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudbuild.googleapis.com/v2/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-connections-create
   "Creates a Connection.
@@ -190,14 +180,13 @@ connectionId <string> Required. The ID to use for the Connection, which will bec
   ([parent Connection]
     (projects-locations-connections-create parent Connection nil))
   ([parent Connection optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://cloudbuild.googleapis.com/v2/{+parent}/connections",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Connection})))
+    {:method :post,
+     :uri-template
+     "https://cloudbuild.googleapis.com/v2/{+parent}/connections",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Connection}))
 
 (defn projects-locations-connections-get
   "Gets details of a single connection.
@@ -205,12 +194,11 @@ https://cloud.google.com/build/docs/v2/reference/rest/v2/projects/locations/conn
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://cloudbuild.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://cloudbuild.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-connections-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -220,14 +208,13 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudbuild.googleapis.com/v2/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudbuild.googleapis.com/v2/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-locations-connections-repositories-create
   "Creates a Repository.
@@ -245,14 +232,13 @@ repositoryId <string> Required. The ID to use for the repository, which will bec
       Repository
       nil))
   ([parent Repository optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://cloudbuild.googleapis.com/v2/{+parent}/repositories",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Repository})))
+    {:method :post,
+     :uri-template
+     "https://cloudbuild.googleapis.com/v2/{+parent}/repositories",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Repository}))
 
 (defn projects-locations-connections-repositories-list
   "Lists Repositories in a given connection.
@@ -266,13 +252,12 @@ pageSize <integer> Number of results to return in the list."
   ([parent]
     (projects-locations-connections-repositories-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudbuild.googleapis.com/v2/{+parent}/repositories",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudbuild.googleapis.com/v2/{+parent}/repositories",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-connections-repositories-fetchGitRefs
   "Fetch the list of branches or tags for a given repository.
@@ -288,13 +273,12 @@ pageSize <integer> Optional. Number of results to return in the list. Default to
       repository
       nil))
   ([repository optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudbuild.googleapis.com/v2/{+repository}:fetchGitRefs",
-       :uri-template-args {"repository" repository},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudbuild.googleapis.com/v2/{+repository}:fetchGitRefs",
+     :uri-template-args {"repository" repository},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-connections-repositories-get
   "Gets details of a single repository.
@@ -302,12 +286,11 @@ https://cloud.google.com/build/docs/v2/reference/rest/v2/projects/locations/conn
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://cloudbuild.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://cloudbuild.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-connections-repositories-delete
   "Deletes a single repository.
@@ -321,12 +304,11 @@ etag <string> The current etag of the repository. If an etag is provided and doe
   ([name]
     (projects-locations-connections-repositories-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://cloudbuild.googleapis.com/v2/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://cloudbuild.googleapis.com/v2/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-connections-repositories-accessReadToken
   "Fetches read token of a given repository.
@@ -336,14 +318,13 @@ repository <>
 FetchReadTokenRequest:
 FetchReadTokenRequest"
   [repository FetchReadTokenRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudbuild.googleapis.com/v2/{+repository}:accessReadToken",
-     :uri-template-args {"repository" repository},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body FetchReadTokenRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudbuild.googleapis.com/v2/{+repository}:accessReadToken",
+   :uri-template-args {"repository" repository},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body FetchReadTokenRequest})
 
 (defn projects-locations-connections-repositories-batchCreate
   "Creates multiple repositories inside a connection.
@@ -353,14 +334,13 @@ parent <>
 BatchCreateRepositoriesRequest:
 BatchCreateRepositoriesRequest"
   [parent BatchCreateRepositoriesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudbuild.googleapis.com/v2/{+parent}/repositories:batchCreate",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body BatchCreateRepositoriesRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudbuild.googleapis.com/v2/{+parent}/repositories:batchCreate",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body BatchCreateRepositoriesRequest})
 
 (defn projects-locations-connections-repositories-accessReadWriteToken
   "Fetches read/write token of a given repository.
@@ -370,14 +350,13 @@ repository <>
 FetchReadWriteTokenRequest:
 FetchReadWriteTokenRequest"
   [repository FetchReadWriteTokenRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudbuild.googleapis.com/v2/{+repository}:accessReadWriteToken",
-     :uri-template-args {"repository" repository},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body FetchReadWriteTokenRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudbuild.googleapis.com/v2/{+repository}:accessReadWriteToken",
+   :uri-template-args {"repository" repository},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body FetchReadWriteTokenRequest})
 
 (defn projects-locations-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -387,14 +366,12 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudbuild.googleapis.com/v2/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body CancelOperationRequest}))
+  {:method :post,
+   :uri-template "https://cloudbuild.googleapis.com/v2/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body CancelOperationRequest})
 
 (defn projects-locations-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -402,9 +379,8 @@ https://cloud.google.com/build/docs/v2/reference/rest/v2/projects/locations/oper
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://cloudbuild.googleapis.com/v2/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://cloudbuild.googleapis.com/v2/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})

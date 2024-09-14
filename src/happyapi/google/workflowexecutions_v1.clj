@@ -1,8 +1,7 @@
 (ns happyapi.google.workflowexecutions-v1
   "Workflow Executions API
 Execute workflows created with Workflows API.
-See: https://cloud.google.com/workflows"
-  (:require [happyapi.providers.google :as client]))
+See: https://cloud.google.com/workflows")
 
 (defn projects-locations-workflows-triggerPubsubExecution
   "Triggers a new execution using the latest revision of the given workflow by a Pub/Sub push notification.
@@ -12,14 +11,13 @@ workflow <>
 TriggerPubsubExecutionRequest:
 TriggerPubsubExecutionRequest"
   [workflow TriggerPubsubExecutionRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://workflowexecutions.googleapis.com/v1/{+workflow}:triggerPubsubExecution",
-     :uri-template-args {"workflow" workflow},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TriggerPubsubExecutionRequest}))
+  {:method :post,
+   :uri-template
+   "https://workflowexecutions.googleapis.com/v1/{+workflow}:triggerPubsubExecution",
+   :uri-template-args {"workflow" workflow},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TriggerPubsubExecutionRequest})
 
 (defn projects-locations-workflows-executions-list
   "Returns a list of executions which belong to the workflow with the given name. The method returns executions of all workflow revisions. Returned executions are ordered by their start time (newest first).
@@ -34,13 +32,12 @@ filter <string> Optional. Filters applied to the `[Executions.ListExecutions]` r
 orderBy <string> Optional. Comma-separated list of fields that specify the ordering applied to the `[Executions.ListExecutions]` results. By default the ordering is based on descending `createTime`. The following fields are supported for ordering: `executionId`, `state`, `createTime`, `startTime`, `endTime`, `duration`, and `workflowRevisionId`. For details, see AIP-132."
   ([parent] (projects-locations-workflows-executions-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://workflowexecutions.googleapis.com/v1/{+parent}/executions",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://workflowexecutions.googleapis.com/v1/{+parent}/executions",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-workflows-executions-create
   "Creates a new execution using the latest revision of the given workflow. For more information, see Execute a workflow.
@@ -50,14 +47,13 @@ parent <>
 Execution:
 Execution"
   [parent Execution]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://workflowexecutions.googleapis.com/v1/{+parent}/executions",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body Execution}))
+  {:method :post,
+   :uri-template
+   "https://workflowexecutions.googleapis.com/v1/{+parent}/executions",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body Execution})
 
 (defn projects-locations-workflows-executions-get
   "Returns an execution of the given name.
@@ -69,13 +65,12 @@ optional:
 view <string> Optional. A view defining which fields should be filled in the returned execution. The API will default to the FULL view."
   ([name] (projects-locations-workflows-executions-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://workflowexecutions.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://workflowexecutions.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-workflows-executions-cancel
   "Cancels an execution of the given name.
@@ -85,14 +80,13 @@ name <>
 CancelExecutionRequest:
 CancelExecutionRequest"
   [name CancelExecutionRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://workflowexecutions.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body CancelExecutionRequest}))
+  {:method :post,
+   :uri-template
+   "https://workflowexecutions.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body CancelExecutionRequest})
 
 (defn projects-locations-workflows-executions-exportData
   "Returns all metadata stored about an execution, excluding most data that is already accessible using other API methods.
@@ -100,13 +94,12 @@ https://cloud.google.com/workflows/v1/reference/rest/v1/projects/locations/workf
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://workflowexecutions.googleapis.com/v1/{+name}:exportData",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template
+   "https://workflowexecutions.googleapis.com/v1/{+name}:exportData",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-workflows-executions-deleteExecutionHistory
   "Deletes all step entries for an execution.
@@ -116,14 +109,13 @@ name <>
 DeleteExecutionHistoryRequest:
 DeleteExecutionHistoryRequest"
   [name DeleteExecutionHistoryRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://workflowexecutions.googleapis.com/v1/{+name}:deleteExecutionHistory",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body DeleteExecutionHistoryRequest}))
+  {:method :post,
+   :uri-template
+   "https://workflowexecutions.googleapis.com/v1/{+name}:deleteExecutionHistory",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body DeleteExecutionHistoryRequest})
 
 (defn projects-locations-workflows-executions-callbacks-list
   "Returns a list of active callbacks that belong to the execution with the given name. The returned callbacks are ordered by callback ID.
@@ -138,13 +130,12 @@ pageSize <integer> Maximum number of callbacks to return per call. The default v
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://workflowexecutions.googleapis.com/v1/{+parent}/callbacks",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://workflowexecutions.googleapis.com/v1/{+parent}/callbacks",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-workflows-executions-stepEntries-list
   "Lists step entries for the corresponding workflow execution. Returned entries are ordered by their create_time.
@@ -163,13 +154,12 @@ view <string> Deprecated field."
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://workflowexecutions.googleapis.com/v1/{+parent}/stepEntries",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://workflowexecutions.googleapis.com/v1/{+parent}/stepEntries",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-workflows-executions-stepEntries-get
   "Gets a step entry.
@@ -182,10 +172,9 @@ view <string> Deprecated field."
   ([name]
     (projects-locations-workflows-executions-stepEntries-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://workflowexecutions.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://workflowexecutions.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))

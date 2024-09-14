@@ -1,8 +1,7 @@
 (ns happyapi.google.civicinfo-v2
   "Google Civic Information API
 Provides polling places, early vote locations, contest data, election officials, and government representatives for U.S. residential addresses.
-See: https://developers.google.com/civic-information/"
-  (:require [happyapi.providers.google :as client]))
+See: https://developers.google.com/civic-information/")
 
 (defn elections-voterInfoQuery
   "Looks up information relevant to a voter based on the voter's registered address.
@@ -16,13 +15,12 @@ returnAllAvailableData <boolean> If set to true, the query will return the succe
 productionDataOnly <boolean> Whether to include data that has not been vetted yet. Should only be made available to internal IPs or trusted partners. This is a non-discoverable parameter in the One Platform API config."
   ([] (elections-voterInfoQuery nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://civicinfo.googleapis.com/civicinfo/v2/voterinfo",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes nil})))
+    {:method :get,
+     :uri-template
+     "https://civicinfo.googleapis.com/civicinfo/v2/voterinfo",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes nil}))
 
 (defn elections-electionQuery
   "List of available elections to query.
@@ -32,13 +30,12 @@ optional:
 productionDataOnly <boolean> Whether to include data that has not been allowlisted yet"
   ([] (elections-electionQuery nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://civicinfo.googleapis.com/civicinfo/v2/elections",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes nil})))
+    {:method :get,
+     :uri-template
+     "https://civicinfo.googleapis.com/civicinfo/v2/elections",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes nil}))
 
 (defn representatives-representativeInfoByDivision
   "Looks up representative information for a single geographic division.
@@ -52,13 +49,12 @@ roles <string> A list of office roles to filter by. Only offices fulfilling one 
 levels <string> A list of office levels to filter by. Only offices that serve at least one of these levels will be returned. Divisions that don't contain a matching office will not be returned."
   ([ocdId] (representatives-representativeInfoByDivision ocdId nil))
   ([ocdId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://civicinfo.googleapis.com/civicinfo/v2/representatives/{ocdId}",
-       :uri-template-args {"ocdId" ocdId},
-       :query-params (merge {} optional),
-       :scopes nil})))
+    {:method :get,
+     :uri-template
+     "https://civicinfo.googleapis.com/civicinfo/v2/representatives/{ocdId}",
+     :uri-template-args {"ocdId" ocdId},
+     :query-params (merge {} optional),
+     :scopes nil}))
 
 (defn representatives-representativeInfoByAddress
   "Looks up political geography and representative information for a single address.
@@ -71,13 +67,12 @@ levels <string> A list of office levels to filter by. Only offices that serve at
 includeOffices <boolean> Whether to return information about offices and officials. If false, only the top-level district information will be returned."
   ([] (representatives-representativeInfoByAddress nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://civicinfo.googleapis.com/civicinfo/v2/representatives",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes nil})))
+    {:method :get,
+     :uri-template
+     "https://civicinfo.googleapis.com/civicinfo/v2/representatives",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes nil}))
 
 (defn divisions-search
   "Searches for political divisions by their natural name or OCD ID.
@@ -87,10 +82,9 @@ optional:
 query <string> The search query. Queries can cover any parts of a OCD ID or a human readable division name. All words given in the query are treated as required patterns. In addition to that, most query operators of the Apache Lucene library are supported. See http://lucene.apache.org/core/2_9_4/queryparsersyntax.html"
   ([] (divisions-search nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://civicinfo.googleapis.com/civicinfo/v2/divisions",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes nil})))
+    {:method :get,
+     :uri-template
+     "https://civicinfo.googleapis.com/civicinfo/v2/divisions",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes nil}))

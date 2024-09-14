@@ -1,8 +1,7 @@
 (ns happyapi.google.monitoring-v3
   "Cloud Monitoring API
 Manages your Cloud Monitoring data and configurations.
-See: https://cloud.google.com/monitoring/api/v3"
-  (:require [happyapi.providers.google :as client]))
+See: https://cloud.google.com/monitoring/api/v3")
 
 (defn projects-collectdTimeSeries-create
   "Cloud Monitoring Agent only: Creates a new time series.This method is only for use by the Cloud Monitoring Agent. Use projects.timeSeries.create instead.
@@ -12,17 +11,16 @@ name <>
 CreateCollectdTimeSeriesRequest:
 CreateCollectdTimeSeriesRequest"
   [name CreateCollectdTimeSeriesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://monitoring.googleapis.com/v3/{+name}/collectdTimeSeries",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/monitoring"
-      "https://www.googleapis.com/auth/monitoring.write"],
-     :body CreateCollectdTimeSeriesRequest}))
+  {:method :post,
+   :uri-template
+   "https://monitoring.googleapis.com/v3/{+name}/collectdTimeSeries",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/monitoring"
+    "https://www.googleapis.com/auth/monitoring.write"],
+   :body CreateCollectdTimeSeriesRequest})
 
 (defn projects-timeSeries-list
   "Lists time series that match a filter.
@@ -47,16 +45,15 @@ view <string> Required. Specifies which information is returned about the time s
 aggregation.groupByFields <string> The set of fields to preserve when cross_series_reducer is specified. The group_by_fields determine how the time series are partitioned into subsets prior to applying the aggregation operation. Each subset contains time series that have the same value for each of the grouping fields. Each individual time series is a member of exactly one subset. The cross_series_reducer is applied to each subset of time series. It is not possible to reduce across different resource types, so this field implicitly contains resource.type. Fields not specified in group_by_fields are aggregated away. If group_by_fields is not specified and all the time series have the same resource type, then the time series are aggregated into a single output time series. If cross_series_reducer is not defined, this field is ignored."
   ([name] (projects-timeSeries-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://monitoring.googleapis.com/v3/{+name}/timeSeries",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/monitoring"
-        "https://www.googleapis.com/auth/monitoring.read"]})))
+    {:method :get,
+     :uri-template
+     "https://monitoring.googleapis.com/v3/{+name}/timeSeries",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/monitoring"
+      "https://www.googleapis.com/auth/monitoring.read"]}))
 
 (defn projects-timeSeries-create
   "Creates or adds data to one or more time series. The response is empty if all time series in the request were written. If any time series could not be written, a corresponding failure message is included in the error response. This method does not support resource locations constraint of an organization policy (https://cloud.google.com/resource-manager/docs/organization-policy/defining-locations#setting_the_organization_policy).
@@ -66,17 +63,16 @@ name <>
 CreateTimeSeriesRequest:
 CreateTimeSeriesRequest"
   [name CreateTimeSeriesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://monitoring.googleapis.com/v3/{+name}/timeSeries",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/monitoring"
-      "https://www.googleapis.com/auth/monitoring.write"],
-     :body CreateTimeSeriesRequest}))
+  {:method :post,
+   :uri-template
+   "https://monitoring.googleapis.com/v3/{+name}/timeSeries",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/monitoring"
+    "https://www.googleapis.com/auth/monitoring.write"],
+   :body CreateTimeSeriesRequest})
 
 (defn projects-timeSeries-createService
   "Creates or adds data to one or more service time series. A service time series is a time series for a metric from a Google Cloud service. The response is empty if all time series in the request were written. If any time series could not be written, a corresponding failure message is included in the error response. This endpoint rejects writes to user-defined metrics. This method is only for use by Google Cloud services. Use projects.timeSeries.create instead.
@@ -86,17 +82,16 @@ name <>
 CreateTimeSeriesRequest:
 CreateTimeSeriesRequest"
   [name CreateTimeSeriesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://monitoring.googleapis.com/v3/{+name}/timeSeries:createService",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/monitoring"
-      "https://www.googleapis.com/auth/monitoring.write"],
-     :body CreateTimeSeriesRequest}))
+  {:method :post,
+   :uri-template
+   "https://monitoring.googleapis.com/v3/{+name}/timeSeries:createService",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/monitoring"
+    "https://www.googleapis.com/auth/monitoring.write"],
+   :body CreateTimeSeriesRequest})
 
 (defn projects-timeSeries-query
   "Queries time series using Monitoring Query Language.
@@ -106,17 +101,16 @@ name <>
 QueryTimeSeriesRequest:
 QueryTimeSeriesRequest"
   [name QueryTimeSeriesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://monitoring.googleapis.com/v3/{+name}/timeSeries:query",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/monitoring"
-      "https://www.googleapis.com/auth/monitoring.read"],
-     :body QueryTimeSeriesRequest}))
+  {:method :post,
+   :uri-template
+   "https://monitoring.googleapis.com/v3/{+name}/timeSeries:query",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/monitoring"
+    "https://www.googleapis.com/auth/monitoring.read"],
+   :body QueryTimeSeriesRequest})
 
 (defn projects-metricDescriptors-list
   "Lists metric descriptors that match a filter.
@@ -129,17 +123,16 @@ filter <string> If this field is empty, all custom and system-defined metric des
 pageSize <integer> A positive number that is the maximum number of results to return. The default and maximum value is 10,000. If a page_size <= 0 or > 10,000 is submitted, will instead return a maximum of 10,000 results."
   ([name] (projects-metricDescriptors-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://monitoring.googleapis.com/v3/{+name}/metricDescriptors",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/monitoring"
-        "https://www.googleapis.com/auth/monitoring.read"
-        "https://www.googleapis.com/auth/monitoring.write"]})))
+    {:method :get,
+     :uri-template
+     "https://monitoring.googleapis.com/v3/{+name}/metricDescriptors",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/monitoring"
+      "https://www.googleapis.com/auth/monitoring.read"
+      "https://www.googleapis.com/auth/monitoring.write"]}))
 
 (defn projects-metricDescriptors-get
   "Gets a single metric descriptor.
@@ -147,16 +140,15 @@ https://cloud.google.com/monitoring/api/v3/v3/reference/rest/v3/projects/metricD
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://monitoring.googleapis.com/v3/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/monitoring"
-      "https://www.googleapis.com/auth/monitoring.read"
-      "https://www.googleapis.com/auth/monitoring.write"]}))
+  {:method :get,
+   :uri-template "https://monitoring.googleapis.com/v3/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/monitoring"
+    "https://www.googleapis.com/auth/monitoring.read"
+    "https://www.googleapis.com/auth/monitoring.write"]})
 
 (defn projects-metricDescriptors-create
   "Creates a new metric descriptor. The creation is executed asynchronously. User-created metric descriptors define custom metrics (https://cloud.google.com/monitoring/custom-metrics). The metric descriptor is updated if it already exists, except that metric labels are never removed.
@@ -166,17 +158,16 @@ name <>
 MetricDescriptor:
 MetricDescriptor"
   [name MetricDescriptor]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://monitoring.googleapis.com/v3/{+name}/metricDescriptors",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/monitoring"
-      "https://www.googleapis.com/auth/monitoring.write"],
-     :body MetricDescriptor}))
+  {:method :post,
+   :uri-template
+   "https://monitoring.googleapis.com/v3/{+name}/metricDescriptors",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/monitoring"
+    "https://www.googleapis.com/auth/monitoring.write"],
+   :body MetricDescriptor})
 
 (defn projects-metricDescriptors-delete
   "Deletes a metric descriptor. Only user-created custom metrics (https://cloud.google.com/monitoring/custom-metrics) can be deleted.
@@ -184,14 +175,13 @@ https://cloud.google.com/monitoring/api/v3/v3/reference/rest/v3/projects/metricD
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://monitoring.googleapis.com/v3/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/monitoring"]}))
+  {:method :delete,
+   :uri-template "https://monitoring.googleapis.com/v3/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/monitoring"]})
 
 (defn projects-monitoredResourceDescriptors-list
   "Lists monitored resource descriptors that match a filter.
@@ -204,17 +194,16 @@ filter <string> An optional filter (https://cloud.google.com/monitoring/api/v3/f
 pageSize <integer> A positive number that is the maximum number of results to return."
   ([name] (projects-monitoredResourceDescriptors-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://monitoring.googleapis.com/v3/{+name}/monitoredResourceDescriptors",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/monitoring"
-        "https://www.googleapis.com/auth/monitoring.read"
-        "https://www.googleapis.com/auth/monitoring.write"]})))
+    {:method :get,
+     :uri-template
+     "https://monitoring.googleapis.com/v3/{+name}/monitoredResourceDescriptors",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/monitoring"
+      "https://www.googleapis.com/auth/monitoring.read"
+      "https://www.googleapis.com/auth/monitoring.write"]}))
 
 (defn projects-monitoredResourceDescriptors-get
   "Gets a single monitored resource descriptor.
@@ -222,16 +211,15 @@ https://cloud.google.com/monitoring/api/v3/v3/reference/rest/v3/projects/monitor
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://monitoring.googleapis.com/v3/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/monitoring"
-      "https://www.googleapis.com/auth/monitoring.read"
-      "https://www.googleapis.com/auth/monitoring.write"]}))
+  {:method :get,
+   :uri-template "https://monitoring.googleapis.com/v3/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/monitoring"
+    "https://www.googleapis.com/auth/monitoring.read"
+    "https://www.googleapis.com/auth/monitoring.write"]})
 
 (defn projects-snoozes-create
   "Creates a Snooze that will prevent alerts, which match the provided criteria, from being opened. The Snooze applies for a specific time interval.
@@ -241,16 +229,15 @@ parent <>
 Snooze:
 Snooze"
   [parent Snooze]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://monitoring.googleapis.com/v3/{+parent}/snoozes",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/monitoring"],
-     :body Snooze}))
+  {:method :post,
+   :uri-template
+   "https://monitoring.googleapis.com/v3/{+parent}/snoozes",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/monitoring"],
+   :body Snooze})
 
 (defn projects-snoozes-list
   "Lists the Snoozes associated with a project. Can optionally pass in filter, which specifies predicates to match Snoozes.
@@ -263,16 +250,15 @@ filter <string> Optional. Optional filter to restrict results to the given crite
 pageSize <integer> Optional. The maximum number of results to return for a single query. The server may further constrain the maximum number of results returned in a single page. The value should be in the range 1, 1000. If the value given is outside this range, the server will decide the number of results to be returned."
   ([parent] (projects-snoozes-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://monitoring.googleapis.com/v3/{+parent}/snoozes",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/monitoring"
-        "https://www.googleapis.com/auth/monitoring.read"]})))
+    {:method :get,
+     :uri-template
+     "https://monitoring.googleapis.com/v3/{+parent}/snoozes",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/monitoring"
+      "https://www.googleapis.com/auth/monitoring.read"]}))
 
 (defn projects-snoozes-get
   "Retrieves a Snooze by name.
@@ -280,15 +266,14 @@ https://cloud.google.com/monitoring/api/v3/v3/reference/rest/v3/projects/snoozes
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://monitoring.googleapis.com/v3/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/monitoring"
-      "https://www.googleapis.com/auth/monitoring.read"]}))
+  {:method :get,
+   :uri-template "https://monitoring.googleapis.com/v3/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/monitoring"
+    "https://www.googleapis.com/auth/monitoring.read"]})
 
 (defn projects-snoozes-patch
   "Updates a Snooze, identified by its name, with the parameters in the given Snooze object.
@@ -302,15 +287,14 @@ optional:
 updateMask <string> Required. The fields to update.For each field listed in update_mask: If the Snooze object supplied in the UpdateSnoozeRequest has a value for that field, the value of the field in the existing Snooze will be set to the value of the field in the supplied Snooze. If the field does not have a value in the supplied Snooze, the field in the existing Snooze is set to its default value.Fields not listed retain their existing value.The following are the field names that are accepted in update_mask: display_name interval.start_time interval.end_timeThat said, the start time and end time of the Snooze determines which fields can legally be updated. Before attempting an update, users should consult the documentation for UpdateSnoozeRequest, which talks about which fields can be updated."
   ([name Snooze] (projects-snoozes-patch name Snooze nil))
   ([name Snooze optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://monitoring.googleapis.com/v3/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/monitoring"],
-       :body Snooze})))
+    {:method :patch,
+     :uri-template "https://monitoring.googleapis.com/v3/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/monitoring"],
+     :body Snooze}))
 
 (defn projects-notificationChannels-list
   "Lists the notification channels that have been created for the project. To list the types of notification channels that are supported, use the ListNotificationChannelDescriptors method.
@@ -324,16 +308,15 @@ orderBy <string> Optional. A comma-separated list of fields by which to sort the
 pageSize <integer> Optional. The maximum number of results to return in a single response. If not set to a positive number, a reasonable value will be chosen by the service."
   ([name] (projects-notificationChannels-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://monitoring.googleapis.com/v3/{+name}/notificationChannels",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/monitoring"
-        "https://www.googleapis.com/auth/monitoring.read"]})))
+    {:method :get,
+     :uri-template
+     "https://monitoring.googleapis.com/v3/{+name}/notificationChannels",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/monitoring"
+      "https://www.googleapis.com/auth/monitoring.read"]}))
 
 (defn projects-notificationChannels-get
   "Gets a single notification channel. The channel includes the relevant configuration details with which the channel was created. However, the response may truncate or omit passwords, API keys, or other private key matter and thus the response may not be 100% identical to the information that was supplied in the call to the create method.
@@ -341,15 +324,14 @@ https://cloud.google.com/monitoring/api/v3/v3/reference/rest/v3/projects/notific
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://monitoring.googleapis.com/v3/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/monitoring"
-      "https://www.googleapis.com/auth/monitoring.read"]}))
+  {:method :get,
+   :uri-template "https://monitoring.googleapis.com/v3/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/monitoring"
+    "https://www.googleapis.com/auth/monitoring.read"]})
 
 (defn projects-notificationChannels-create
   "Creates a new notification channel, representing a single notification endpoint such as an email address, SMS number, or PagerDuty service.Design your application to single-thread API calls that modify the state of notification channels in a single project. This includes calls to CreateNotificationChannel, DeleteNotificationChannel and UpdateNotificationChannel.
@@ -359,16 +341,15 @@ name <>
 NotificationChannel:
 NotificationChannel"
   [name NotificationChannel]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://monitoring.googleapis.com/v3/{+name}/notificationChannels",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/monitoring"],
-     :body NotificationChannel}))
+  {:method :post,
+   :uri-template
+   "https://monitoring.googleapis.com/v3/{+name}/notificationChannels",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/monitoring"],
+   :body NotificationChannel})
 
 (defn projects-notificationChannels-patch
   "Updates a notification channel. Fields not specified in the field mask remain unchanged.Design your application to single-thread API calls that modify the state of notification channels in a single project. This includes calls to CreateNotificationChannel, DeleteNotificationChannel and UpdateNotificationChannel.
@@ -383,15 +364,14 @@ updateMask <string> Optional. The fields to update."
   ([name NotificationChannel]
     (projects-notificationChannels-patch name NotificationChannel nil))
   ([name NotificationChannel optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://monitoring.googleapis.com/v3/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/monitoring"],
-       :body NotificationChannel})))
+    {:method :patch,
+     :uri-template "https://monitoring.googleapis.com/v3/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/monitoring"],
+     :body NotificationChannel}))
 
 (defn projects-notificationChannels-delete
   "Deletes a notification channel.Design your application to single-thread API calls that modify the state of notification channels in a single project. This includes calls to CreateNotificationChannel, DeleteNotificationChannel and UpdateNotificationChannel.
@@ -403,14 +383,13 @@ optional:
 force <boolean> If true, the notification channel will be deleted regardless of its use in alert policies (the policies will be updated to remove the channel). If false, channels that are still referenced by an existing alerting policy will fail to be deleted in a delete operation."
   ([name] (projects-notificationChannels-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://monitoring.googleapis.com/v3/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/monitoring"]})))
+    {:method :delete,
+     :uri-template "https://monitoring.googleapis.com/v3/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/monitoring"]}))
 
 (defn projects-notificationChannels-sendVerificationCode
   "Causes a verification code to be delivered to the channel. The code can then be supplied in VerifyNotificationChannel to verify the channel.
@@ -420,16 +399,15 @@ name <>
 SendNotificationChannelVerificationCodeRequest:
 SendNotificationChannelVerificationCodeRequest"
   [name SendNotificationChannelVerificationCodeRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://monitoring.googleapis.com/v3/{+name}:sendVerificationCode",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/monitoring"],
-     :body SendNotificationChannelVerificationCodeRequest}))
+  {:method :post,
+   :uri-template
+   "https://monitoring.googleapis.com/v3/{+name}:sendVerificationCode",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/monitoring"],
+   :body SendNotificationChannelVerificationCodeRequest})
 
 (defn projects-notificationChannels-getVerificationCode
   "Requests a verification code for an already verified channel that can then be used in a call to VerifyNotificationChannel() on a different channel with an equivalent identity in the same or in a different project. This makes it possible to copy a channel between projects without requiring manual reverification of the channel. If the channel is not in the verified state, this method will fail (in other words, this may only be used if the SendNotificationChannelVerificationCode and VerifyNotificationChannel paths have already been used to put the given channel into the verified state).There is no guarantee that the verification codes returned by this method will be of a similar structure or form as the ones that are delivered to the channel via SendNotificationChannelVerificationCode; while VerifyNotificationChannel() will recognize both the codes delivered via SendNotificationChannelVerificationCode() and returned from GetNotificationChannelVerificationCode(), it is typically the case that the verification codes delivered via SendNotificationChannelVerificationCode() will be shorter and also have a shorter expiration (e.g. codes such as \"G-123456\") whereas GetVerificationCode() will typically return a much longer, websafe base 64 encoded string that has a longer expiration time.
@@ -439,16 +417,15 @@ name <>
 GetNotificationChannelVerificationCodeRequest:
 GetNotificationChannelVerificationCodeRequest"
   [name GetNotificationChannelVerificationCodeRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://monitoring.googleapis.com/v3/{+name}:getVerificationCode",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/monitoring"],
-     :body GetNotificationChannelVerificationCodeRequest}))
+  {:method :post,
+   :uri-template
+   "https://monitoring.googleapis.com/v3/{+name}:getVerificationCode",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/monitoring"],
+   :body GetNotificationChannelVerificationCodeRequest})
 
 (defn projects-notificationChannels-verify
   "Verifies a NotificationChannel by proving receipt of the code delivered to the channel as a result of calling SendNotificationChannelVerificationCode.
@@ -458,16 +435,14 @@ name <>
 VerifyNotificationChannelRequest:
 VerifyNotificationChannelRequest"
   [name VerifyNotificationChannelRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://monitoring.googleapis.com/v3/{+name}:verify",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/monitoring"],
-     :body VerifyNotificationChannelRequest}))
+  {:method :post,
+   :uri-template "https://monitoring.googleapis.com/v3/{+name}:verify",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/monitoring"],
+   :body VerifyNotificationChannelRequest})
 
 (defn projects-alertPolicies-list
   "Lists the existing alerting policies for the workspace.
@@ -481,16 +456,15 @@ orderBy <string> Optional. A comma-separated list of fields by which to sort the
 pageSize <integer> Optional. The maximum number of results to return in a single response."
   ([name] (projects-alertPolicies-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://monitoring.googleapis.com/v3/{+name}/alertPolicies",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/monitoring"
-        "https://www.googleapis.com/auth/monitoring.read"]})))
+    {:method :get,
+     :uri-template
+     "https://monitoring.googleapis.com/v3/{+name}/alertPolicies",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/monitoring"
+      "https://www.googleapis.com/auth/monitoring.read"]}))
 
 (defn projects-alertPolicies-get
   "Gets a single alerting policy.
@@ -498,15 +472,14 @@ https://cloud.google.com/monitoring/api/v3/v3/reference/rest/v3/projects/alertPo
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://monitoring.googleapis.com/v3/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/monitoring"
-      "https://www.googleapis.com/auth/monitoring.read"]}))
+  {:method :get,
+   :uri-template "https://monitoring.googleapis.com/v3/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/monitoring"
+    "https://www.googleapis.com/auth/monitoring.read"]})
 
 (defn projects-alertPolicies-create
   "Creates a new alerting policy.Design your application to single-thread API calls that modify the state of alerting policies in a single project. This includes calls to CreateAlertPolicy, DeleteAlertPolicy and UpdateAlertPolicy.
@@ -516,16 +489,15 @@ name <>
 AlertPolicy:
 AlertPolicy"
   [name AlertPolicy]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://monitoring.googleapis.com/v3/{+name}/alertPolicies",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/monitoring"],
-     :body AlertPolicy}))
+  {:method :post,
+   :uri-template
+   "https://monitoring.googleapis.com/v3/{+name}/alertPolicies",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/monitoring"],
+   :body AlertPolicy})
 
 (defn projects-alertPolicies-delete
   "Deletes an alerting policy.Design your application to single-thread API calls that modify the state of alerting policies in a single project. This includes calls to CreateAlertPolicy, DeleteAlertPolicy and UpdateAlertPolicy.
@@ -533,14 +505,13 @@ https://cloud.google.com/monitoring/api/v3/v3/reference/rest/v3/projects/alertPo
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://monitoring.googleapis.com/v3/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/monitoring"]}))
+  {:method :delete,
+   :uri-template "https://monitoring.googleapis.com/v3/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/monitoring"]})
 
 (defn projects-alertPolicies-patch
   "Updates an alerting policy. You can either replace the entire policy with a new one or replace only certain fields in the current alerting policy by specifying the fields to be updated via updateMask. Returns the updated alerting policy.Design your application to single-thread API calls that modify the state of alerting policies in a single project. This includes calls to CreateAlertPolicy, DeleteAlertPolicy and UpdateAlertPolicy.
@@ -555,15 +526,14 @@ updateMask <string> Optional. A list of alerting policy field names. If this fie
   ([name AlertPolicy]
     (projects-alertPolicies-patch name AlertPolicy nil))
   ([name AlertPolicy optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://monitoring.googleapis.com/v3/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/monitoring"],
-       :body AlertPolicy})))
+    {:method :patch,
+     :uri-template "https://monitoring.googleapis.com/v3/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/monitoring"],
+     :body AlertPolicy}))
 
 (defn projects-notificationChannelDescriptors-list
   "Lists the descriptors for supported channel types. The use of descriptors makes it possible for new channel types to be dynamically added.
@@ -575,16 +545,15 @@ optional:
 pageSize <integer> The maximum number of results to return in a single response. If not set to a positive number, a reasonable value will be chosen by the service."
   ([name] (projects-notificationChannelDescriptors-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://monitoring.googleapis.com/v3/{+name}/notificationChannelDescriptors",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/monitoring"
-        "https://www.googleapis.com/auth/monitoring.read"]})))
+    {:method :get,
+     :uri-template
+     "https://monitoring.googleapis.com/v3/{+name}/notificationChannelDescriptors",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/monitoring"
+      "https://www.googleapis.com/auth/monitoring.read"]}))
 
 (defn projects-notificationChannelDescriptors-get
   "Gets a single channel descriptor. The descriptor indicates which fields are expected / permitted for a notification channel of the given type.
@@ -592,15 +561,14 @@ https://cloud.google.com/monitoring/api/v3/v3/reference/rest/v3/projects/notific
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://monitoring.googleapis.com/v3/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/monitoring"
-      "https://www.googleapis.com/auth/monitoring.read"]}))
+  {:method :get,
+   :uri-template "https://monitoring.googleapis.com/v3/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/monitoring"
+    "https://www.googleapis.com/auth/monitoring.read"]})
 
 (defn projects-uptimeCheckConfigs-list
   "Lists the existing valid Uptime check configurations for the project (leaving out any invalid configurations).
@@ -613,16 +581,15 @@ filter <string> If provided, this field specifies the criteria that must be met 
 pageSize <integer> The maximum number of results to return in a single response. The server may further constrain the maximum number of results returned in a single page. If the page_size is <=0, the server will decide the number of results to be returned."
   ([parent] (projects-uptimeCheckConfigs-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://monitoring.googleapis.com/v3/{+parent}/uptimeCheckConfigs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/monitoring"
-        "https://www.googleapis.com/auth/monitoring.read"]})))
+    {:method :get,
+     :uri-template
+     "https://monitoring.googleapis.com/v3/{+parent}/uptimeCheckConfigs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/monitoring"
+      "https://www.googleapis.com/auth/monitoring.read"]}))
 
 (defn projects-uptimeCheckConfigs-get
   "Gets a single Uptime check configuration.
@@ -630,15 +597,14 @@ https://cloud.google.com/monitoring/api/v3/v3/reference/rest/v3/projects/uptimeC
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://monitoring.googleapis.com/v3/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/monitoring"
-      "https://www.googleapis.com/auth/monitoring.read"]}))
+  {:method :get,
+   :uri-template "https://monitoring.googleapis.com/v3/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/monitoring"
+    "https://www.googleapis.com/auth/monitoring.read"]})
 
 (defn projects-uptimeCheckConfigs-create
   "Creates a new Uptime check configuration.
@@ -648,16 +614,15 @@ parent <>
 UptimeCheckConfig:
 UptimeCheckConfig"
   [parent UptimeCheckConfig]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://monitoring.googleapis.com/v3/{+parent}/uptimeCheckConfigs",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/monitoring"],
-     :body UptimeCheckConfig}))
+  {:method :post,
+   :uri-template
+   "https://monitoring.googleapis.com/v3/{+parent}/uptimeCheckConfigs",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/monitoring"],
+   :body UptimeCheckConfig})
 
 (defn projects-uptimeCheckConfigs-patch
   "Updates an Uptime check configuration. You can either replace the entire configuration with a new one or replace only certain fields in the current configuration by specifying the fields to be updated via updateMask. Returns the updated configuration.
@@ -672,15 +637,14 @@ updateMask <string> Optional. If present, only the listed fields in the current 
   ([name UptimeCheckConfig]
     (projects-uptimeCheckConfigs-patch name UptimeCheckConfig nil))
   ([name UptimeCheckConfig optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://monitoring.googleapis.com/v3/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/monitoring"],
-       :body UptimeCheckConfig})))
+    {:method :patch,
+     :uri-template "https://monitoring.googleapis.com/v3/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/monitoring"],
+     :body UptimeCheckConfig}))
 
 (defn projects-uptimeCheckConfigs-delete
   "Deletes an Uptime check configuration. Note that this method will fail if the Uptime check configuration is referenced by an alert policy or other dependent configs that would be rendered invalid by the deletion.
@@ -688,14 +652,13 @@ https://cloud.google.com/monitoring/api/v3/v3/reference/rest/v3/projects/uptimeC
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://monitoring.googleapis.com/v3/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/monitoring"]}))
+  {:method :delete,
+   :uri-template "https://monitoring.googleapis.com/v3/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/monitoring"]})
 
 (defn projects-groups-list
   "Lists the existing groups.
@@ -710,16 +673,15 @@ descendantsOfGroup <string> A group name. The format is: projects/[PROJECT_ID_OR
 pageSize <integer> A positive number that is the maximum number of results to return."
   ([name] (projects-groups-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://monitoring.googleapis.com/v3/{+name}/groups",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/monitoring"
-        "https://www.googleapis.com/auth/monitoring.read"]})))
+    {:method :get,
+     :uri-template
+     "https://monitoring.googleapis.com/v3/{+name}/groups",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/monitoring"
+      "https://www.googleapis.com/auth/monitoring.read"]}))
 
 (defn projects-groups-get
   "Gets a single group.
@@ -727,15 +689,14 @@ https://cloud.google.com/monitoring/api/v3/v3/reference/rest/v3/projects/groups/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://monitoring.googleapis.com/v3/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/monitoring"
-      "https://www.googleapis.com/auth/monitoring.read"]}))
+  {:method :get,
+   :uri-template "https://monitoring.googleapis.com/v3/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/monitoring"
+    "https://www.googleapis.com/auth/monitoring.read"]})
 
 (defn projects-groups-create
   "Creates a new group.
@@ -749,16 +710,15 @@ optional:
 validateOnly <boolean> If true, validate this request but do not create the group."
   ([name Group] (projects-groups-create name Group nil))
   ([name Group optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://monitoring.googleapis.com/v3/{+name}/groups",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/monitoring"],
-       :body Group})))
+    {:method :post,
+     :uri-template
+     "https://monitoring.googleapis.com/v3/{+name}/groups",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/monitoring"],
+     :body Group}))
 
 (defn projects-groups-update
   "Updates an existing group. You can change any group attributes except name.
@@ -772,15 +732,14 @@ optional:
 validateOnly <boolean> If true, validate this request but do not update the existing group."
   ([name Group] (projects-groups-update name Group nil))
   ([name Group optional]
-    (client/*api-request*
-      {:method :put,
-       :uri-template "https://monitoring.googleapis.com/v3/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/monitoring"],
-       :body Group})))
+    {:method :put,
+     :uri-template "https://monitoring.googleapis.com/v3/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/monitoring"],
+     :body Group}))
 
 (defn projects-groups-delete
   "Deletes an existing group.
@@ -792,14 +751,13 @@ optional:
 recursive <boolean> If this field is true, then the request means to delete a group with all its descendants. Otherwise, the request means to delete a group only when it has no descendants. The default value is false."
   ([name] (projects-groups-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://monitoring.googleapis.com/v3/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/monitoring"]})))
+    {:method :delete,
+     :uri-template "https://monitoring.googleapis.com/v3/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/monitoring"]}))
 
 (defn projects-groups-members-list
   "Lists the monitored resources that are members of a group.
@@ -814,16 +772,15 @@ interval.endTime <string> Required. The end of the time interval.
 interval.startTime <string> Optional. The beginning of the time interval. The default value for the start time is the end time. The start time must not be later than the end time."
   ([name] (projects-groups-members-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://monitoring.googleapis.com/v3/{+name}/members",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/monitoring"
-        "https://www.googleapis.com/auth/monitoring.read"]})))
+    {:method :get,
+     :uri-template
+     "https://monitoring.googleapis.com/v3/{+name}/members",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/monitoring"
+      "https://www.googleapis.com/auth/monitoring.read"]}))
 
 (defn organizations-timeSeries-list
   "Lists time series that match a filter.
@@ -848,16 +805,15 @@ view <string> Required. Specifies which information is returned about the time s
 aggregation.groupByFields <string> The set of fields to preserve when cross_series_reducer is specified. The group_by_fields determine how the time series are partitioned into subsets prior to applying the aggregation operation. Each subset contains time series that have the same value for each of the grouping fields. Each individual time series is a member of exactly one subset. The cross_series_reducer is applied to each subset of time series. It is not possible to reduce across different resource types, so this field implicitly contains resource.type. Fields not specified in group_by_fields are aggregated away. If group_by_fields is not specified and all the time series have the same resource type, then the time series are aggregated into a single output time series. If cross_series_reducer is not defined, this field is ignored."
   ([name] (organizations-timeSeries-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://monitoring.googleapis.com/v3/{+name}/timeSeries",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/monitoring"
-        "https://www.googleapis.com/auth/monitoring.read"]})))
+    {:method :get,
+     :uri-template
+     "https://monitoring.googleapis.com/v3/{+name}/timeSeries",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/monitoring"
+      "https://www.googleapis.com/auth/monitoring.read"]}))
 
 (defn folders-timeSeries-list
   "Lists time series that match a filter.
@@ -882,16 +838,15 @@ view <string> Required. Specifies which information is returned about the time s
 aggregation.groupByFields <string> The set of fields to preserve when cross_series_reducer is specified. The group_by_fields determine how the time series are partitioned into subsets prior to applying the aggregation operation. Each subset contains time series that have the same value for each of the grouping fields. Each individual time series is a member of exactly one subset. The cross_series_reducer is applied to each subset of time series. It is not possible to reduce across different resource types, so this field implicitly contains resource.type. Fields not specified in group_by_fields are aggregated away. If group_by_fields is not specified and all the time series have the same resource type, then the time series are aggregated into a single output time series. If cross_series_reducer is not defined, this field is ignored."
   ([name] (folders-timeSeries-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://monitoring.googleapis.com/v3/{+name}/timeSeries",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/monitoring"
-        "https://www.googleapis.com/auth/monitoring.read"]})))
+    {:method :get,
+     :uri-template
+     "https://monitoring.googleapis.com/v3/{+name}/timeSeries",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/monitoring"
+      "https://www.googleapis.com/auth/monitoring.read"]}))
 
 (defn services-create
   "Create a Service.
@@ -905,16 +860,15 @@ optional:
 serviceId <string> Optional. The Service id to use for this Service. If omitted, an id will be generated instead. Must match the pattern [a-z0-9\\-]+"
   ([parent Service] (services-create parent Service nil))
   ([parent Service optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://monitoring.googleapis.com/v3/{+parent}/services",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/monitoring"],
-       :body Service})))
+    {:method :post,
+     :uri-template
+     "https://monitoring.googleapis.com/v3/{+parent}/services",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/monitoring"],
+     :body Service}))
 
 (defn services-get
   "Get the named Service.
@@ -922,15 +876,14 @@ https://cloud.google.com/monitoring/api/v3/v3/reference/rest/v3/services/get
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://monitoring.googleapis.com/v3/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/monitoring"
-      "https://www.googleapis.com/auth/monitoring.read"]}))
+  {:method :get,
+   :uri-template "https://monitoring.googleapis.com/v3/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/monitoring"
+    "https://www.googleapis.com/auth/monitoring.read"]})
 
 (defn services-list
   "List Services for this Metrics Scope.
@@ -943,16 +896,15 @@ filter <string> A filter specifying what Services to return. The filter supports
 pageSize <integer> A non-negative number that is the maximum number of results to return. When 0, use default page size."
   ([parent] (services-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://monitoring.googleapis.com/v3/{+parent}/services",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/monitoring"
-        "https://www.googleapis.com/auth/monitoring.read"]})))
+    {:method :get,
+     :uri-template
+     "https://monitoring.googleapis.com/v3/{+parent}/services",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/monitoring"
+      "https://www.googleapis.com/auth/monitoring.read"]}))
 
 (defn services-patch
   "Update this Service.
@@ -966,15 +918,14 @@ optional:
 updateMask <string> A set of field paths defining which fields to use for the update."
   ([name Service] (services-patch name Service nil))
   ([name Service optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://monitoring.googleapis.com/v3/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/monitoring"],
-       :body Service})))
+    {:method :patch,
+     :uri-template "https://monitoring.googleapis.com/v3/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/monitoring"],
+     :body Service}))
 
 (defn services-delete
   "Soft delete this Service.
@@ -982,14 +933,13 @@ https://cloud.google.com/monitoring/api/v3/v3/reference/rest/v3/services/delete
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://monitoring.googleapis.com/v3/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/monitoring"]}))
+  {:method :delete,
+   :uri-template "https://monitoring.googleapis.com/v3/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/monitoring"]})
 
 (defn services-serviceLevelObjectives-create
   "Create a ServiceLevelObjective for the given Service.
@@ -1007,16 +957,15 @@ serviceLevelObjectiveId <string> Optional. The ServiceLevelObjective id to use f
       ServiceLevelObjective
       nil))
   ([parent ServiceLevelObjective optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://monitoring.googleapis.com/v3/{+parent}/serviceLevelObjectives",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/monitoring"],
-       :body ServiceLevelObjective})))
+    {:method :post,
+     :uri-template
+     "https://monitoring.googleapis.com/v3/{+parent}/serviceLevelObjectives",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/monitoring"],
+     :body ServiceLevelObjective}))
 
 (defn services-serviceLevelObjectives-get
   "Get a ServiceLevelObjective by name.
@@ -1028,15 +977,14 @@ optional:
 view <string> View of the ServiceLevelObjective to return. If DEFAULT, return the ServiceLevelObjective as originally defined. If EXPLICIT and the ServiceLevelObjective is defined in terms of a BasicSli, replace the BasicSli with a RequestBasedSli spelling out how the SLI is computed."
   ([name] (services-serviceLevelObjectives-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template "https://monitoring.googleapis.com/v3/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/monitoring"
-        "https://www.googleapis.com/auth/monitoring.read"]})))
+    {:method :get,
+     :uri-template "https://monitoring.googleapis.com/v3/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/monitoring"
+      "https://www.googleapis.com/auth/monitoring.read"]}))
 
 (defn services-serviceLevelObjectives-list
   "List the ServiceLevelObjectives for the given Service.
@@ -1050,16 +998,15 @@ pageSize <integer> A non-negative number that is the maximum number of results t
 view <string> View of the ServiceLevelObjectives to return. If DEFAULT, return each ServiceLevelObjective as originally defined. If EXPLICIT and the ServiceLevelObjective is defined in terms of a BasicSli, replace the BasicSli with a RequestBasedSli spelling out how the SLI is computed."
   ([parent] (services-serviceLevelObjectives-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://monitoring.googleapis.com/v3/{+parent}/serviceLevelObjectives",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/monitoring"
-        "https://www.googleapis.com/auth/monitoring.read"]})))
+    {:method :get,
+     :uri-template
+     "https://monitoring.googleapis.com/v3/{+parent}/serviceLevelObjectives",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/monitoring"
+      "https://www.googleapis.com/auth/monitoring.read"]}))
 
 (defn services-serviceLevelObjectives-patch
   "Update the given ServiceLevelObjective.
@@ -1077,15 +1024,14 @@ updateMask <string> A set of field paths defining which fields to use for the up
       ServiceLevelObjective
       nil))
   ([name ServiceLevelObjective optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://monitoring.googleapis.com/v3/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/monitoring"],
-       :body ServiceLevelObjective})))
+    {:method :patch,
+     :uri-template "https://monitoring.googleapis.com/v3/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/monitoring"],
+     :body ServiceLevelObjective}))
 
 (defn services-serviceLevelObjectives-delete
   "Delete the given ServiceLevelObjective.
@@ -1093,14 +1039,13 @@ https://cloud.google.com/monitoring/api/v3/v3/reference/rest/v3/services/service
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://monitoring.googleapis.com/v3/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/monitoring"]}))
+  {:method :delete,
+   :uri-template "https://monitoring.googleapis.com/v3/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/monitoring"]})
 
 (defn uptimeCheckIps-list
   "Returns the list of IP addresses that checkers run from.
@@ -1110,13 +1055,12 @@ optional:
 pageSize <integer> The maximum number of results to return in a single response. The server may further constrain the maximum number of results returned in a single page. If the page_size is <=0, the server will decide the number of results to be returned. NOTE: this field is not yet implemented"
   ([] (uptimeCheckIps-list nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://monitoring.googleapis.com/v3/uptimeCheckIps",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/monitoring"
-        "https://www.googleapis.com/auth/monitoring.read"]})))
+    {:method :get,
+     :uri-template
+     "https://monitoring.googleapis.com/v3/uptimeCheckIps",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/monitoring"
+      "https://www.googleapis.com/auth/monitoring.read"]}))

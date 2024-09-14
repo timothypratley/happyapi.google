@@ -1,8 +1,7 @@
 (ns happyapi.google.servicedirectory-v1
   "Service Directory API
 Service Directory is a platform for discovering, publishing, and connecting services. 
-See: https://cloud.google.com/service-directory"
-  (:require [happyapi.providers.google :as client]))
+See: https://cloud.google.com/service-directory")
 
 (defn projects-locations-list
   "Lists information about the supported locations for this service.
@@ -15,13 +14,12 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://servicedirectory.googleapis.com/v1/{+name}/locations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://servicedirectory.googleapis.com/v1/{+name}/locations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-get
   "Gets information about a location.
@@ -29,13 +27,11 @@ https://cloud.google.com/service-directory/v1/reference/rest/v1/projects/locatio
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://servicedirectory.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://servicedirectory.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-namespaces-create
   "Creates a namespace, and returns the new namespace.
@@ -50,14 +46,13 @@ namespaceId <string> Required. The Resource ID must be 1-63 characters long, and
   ([parent Namespace]
     (projects-locations-namespaces-create parent Namespace nil))
   ([parent Namespace optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://servicedirectory.googleapis.com/v1/{+parent}/namespaces",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Namespace})))
+    {:method :post,
+     :uri-template
+     "https://servicedirectory.googleapis.com/v1/{+parent}/namespaces",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Namespace}))
 
 (defn projects-locations-namespaces-list
   "Lists all namespaces.
@@ -71,13 +66,12 @@ filter <string> Optional. The filter to list results by. General `filter` string
 orderBy <string> Optional. The order to list results by. General `order_by` string syntax: ` () (,)` * `` allows value: `name` * `` ascending or descending order by ``. If this is left blank, `asc` is used Note that an empty `order_by` string results in default order, which is order by `name` in ascending order."
   ([parent] (projects-locations-namespaces-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://servicedirectory.googleapis.com/v1/{+parent}/namespaces",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://servicedirectory.googleapis.com/v1/{+parent}/namespaces",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-namespaces-get
   "Gets a namespace.
@@ -85,13 +79,11 @@ https://cloud.google.com/service-directory/v1/reference/rest/v1/projects/locatio
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://servicedirectory.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://servicedirectory.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-namespaces-patch
   "Updates a namespace.
@@ -106,14 +98,13 @@ updateMask <string> Required. List of fields to be updated in this request."
   ([name Namespace]
     (projects-locations-namespaces-patch name Namespace nil))
   ([name Namespace optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://servicedirectory.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Namespace})))
+    {:method :patch,
+     :uri-template
+     "https://servicedirectory.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Namespace}))
 
 (defn projects-locations-namespaces-delete
   "Deletes a namespace. This also deletes all services and endpoints in the namespace.
@@ -121,13 +112,11 @@ https://cloud.google.com/service-directory/v1/reference/rest/v1/projects/locatio
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://servicedirectory.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://servicedirectory.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-namespaces-getIamPolicy
   "Gets the IAM Policy for a resource (namespace or service only).
@@ -137,14 +126,13 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://servicedirectory.googleapis.com/v1/{+resource}:getIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://servicedirectory.googleapis.com/v1/{+resource}:getIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GetIamPolicyRequest})
 
 (defn projects-locations-namespaces-setIamPolicy
   "Sets the IAM Policy for a resource (namespace or service only).
@@ -154,14 +142,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://servicedirectory.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://servicedirectory.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-namespaces-testIamPermissions
   "Tests IAM permissions for a resource (namespace or service only).
@@ -171,14 +158,13 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://servicedirectory.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://servicedirectory.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-locations-namespaces-services-list
   "Lists all services belonging to a namespace.
@@ -192,13 +178,12 @@ filter <string> Optional. The filter to list results by. General `filter` string
 orderBy <string> Optional. The order to list results by. General `order_by` string syntax: ` () (,)` * `` allows value: `name` * `` ascending or descending order by ``. If this is left blank, `asc` is used Note that an empty `order_by` string results in default order, which is order by `name` in ascending order."
   ([parent] (projects-locations-namespaces-services-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://servicedirectory.googleapis.com/v1/{+parent}/services",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://servicedirectory.googleapis.com/v1/{+parent}/services",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-namespaces-services-setIamPolicy
   "Sets the IAM Policy for a resource (namespace or service only).
@@ -208,14 +193,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://servicedirectory.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://servicedirectory.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-namespaces-services-resolve
   "Returns a service and its associated endpoints. Resolving a service is not considered an active developer method.
@@ -225,14 +209,13 @@ name <>
 ResolveServiceRequest:
 ResolveServiceRequest"
   [name ResolveServiceRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://servicedirectory.googleapis.com/v1/{+name}:resolve",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body ResolveServiceRequest}))
+  {:method :post,
+   :uri-template
+   "https://servicedirectory.googleapis.com/v1/{+name}:resolve",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body ResolveServiceRequest})
 
 (defn projects-locations-namespaces-services-delete
   "Deletes a service. This also deletes all endpoints associated with the service.
@@ -240,13 +223,11 @@ https://cloud.google.com/service-directory/v1/reference/rest/v1/projects/locatio
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://servicedirectory.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://servicedirectory.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-namespaces-services-patch
   "Updates a service.
@@ -261,14 +242,13 @@ updateMask <string> Required. List of fields to be updated in this request."
   ([name Service]
     (projects-locations-namespaces-services-patch name Service nil))
   ([name Service optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://servicedirectory.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Service})))
+    {:method :patch,
+     :uri-template
+     "https://servicedirectory.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Service}))
 
 (defn projects-locations-namespaces-services-getIamPolicy
   "Gets the IAM Policy for a resource (namespace or service only).
@@ -278,14 +258,13 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://servicedirectory.googleapis.com/v1/{+resource}:getIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://servicedirectory.googleapis.com/v1/{+resource}:getIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GetIamPolicyRequest})
 
 (defn projects-locations-namespaces-services-create
   "Creates a service, and returns the new service.
@@ -300,14 +279,13 @@ serviceId <string> Required. The Resource ID must be 1-63 characters long, and c
   ([parent Service]
     (projects-locations-namespaces-services-create parent Service nil))
   ([parent Service optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://servicedirectory.googleapis.com/v1/{+parent}/services",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Service})))
+    {:method :post,
+     :uri-template
+     "https://servicedirectory.googleapis.com/v1/{+parent}/services",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Service}))
 
 (defn projects-locations-namespaces-services-get
   "Gets a service.
@@ -315,13 +293,11 @@ https://cloud.google.com/service-directory/v1/reference/rest/v1/projects/locatio
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://servicedirectory.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://servicedirectory.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-namespaces-services-testIamPermissions
   "Tests IAM permissions for a resource (namespace or service only).
@@ -331,14 +307,13 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://servicedirectory.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://servicedirectory.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-locations-namespaces-services-endpoints-create
   "Creates an endpoint, and returns the new endpoint.
@@ -356,14 +331,13 @@ endpointId <string> Required. The Resource ID must be 1-63 characters long, and 
       Endpoint
       nil))
   ([parent Endpoint optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://servicedirectory.googleapis.com/v1/{+parent}/endpoints",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Endpoint})))
+    {:method :post,
+     :uri-template
+     "https://servicedirectory.googleapis.com/v1/{+parent}/endpoints",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Endpoint}))
 
 (defn projects-locations-namespaces-services-endpoints-list
   "Lists all endpoints.
@@ -378,13 +352,12 @@ orderBy <string> Optional. The order to list results by. General `order_by` stri
   ([parent]
     (projects-locations-namespaces-services-endpoints-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://servicedirectory.googleapis.com/v1/{+parent}/endpoints",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://servicedirectory.googleapis.com/v1/{+parent}/endpoints",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-namespaces-services-endpoints-get
   "Gets an endpoint.
@@ -392,13 +365,11 @@ https://cloud.google.com/service-directory/v1/reference/rest/v1/projects/locatio
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://servicedirectory.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://servicedirectory.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-namespaces-services-endpoints-patch
   "Updates an endpoint.
@@ -416,14 +387,13 @@ updateMask <string> Required. List of fields to be updated in this request."
       Endpoint
       nil))
   ([name Endpoint optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://servicedirectory.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Endpoint})))
+    {:method :patch,
+     :uri-template
+     "https://servicedirectory.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Endpoint}))
 
 (defn projects-locations-namespaces-services-endpoints-delete
   "Deletes an endpoint.
@@ -431,10 +401,8 @@ https://cloud.google.com/service-directory/v1/reference/rest/v1/projects/locatio
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://servicedirectory.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://servicedirectory.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})

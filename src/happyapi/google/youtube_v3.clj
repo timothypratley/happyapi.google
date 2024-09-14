@@ -1,8 +1,7 @@
 (ns happyapi.google.youtube-v3
   "YouTube Data API v3
 The YouTube Data API v3 is an API that provides access to YouTube data, such as videos, playlists, and channels.
-See: https://developers.google.com/youtube/"
-  (:require [happyapi.providers.google :as client]))
+See: https://developers.google.com/youtube/")
 
 (defn youtube-v3-updateCommentThreads
   "Updates an existing resource.
@@ -15,14 +14,13 @@ optional:
 part <string> The *part* parameter specifies a comma-separated list of commentThread resource properties that the API response will include. You must at least include the snippet part in the parameter value since that part contains all of the properties that the API request can update."
   ([CommentThread] (youtube-v3-updateCommentThreads CommentThread nil))
   ([CommentThread optional]
-    (client/*api-request*
-      {:method :put,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/commentThreads",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes nil,
-       :body CommentThread})))
+    {:method :put,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/commentThreads",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes nil,
+     :body CommentThread}))
 
 (defn commentThreads-insert
   "Inserts a new resource into this collection.
@@ -32,14 +30,13 @@ part <>
 CommentThread:
 CommentThread"
   [part CommentThread]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://youtube.googleapis.com/youtube/v3/commentThreads",
-     :uri-template-args {},
-     :query-params {"part" part},
-     :scopes ["https://www.googleapis.com/auth/youtube.force-ssl"],
-     :body CommentThread}))
+  {:method :post,
+   :uri-template
+   "https://youtube.googleapis.com/youtube/v3/commentThreads",
+   :uri-template-args {},
+   :query-params {"part" part},
+   :scopes ["https://www.googleapis.com/auth/youtube.force-ssl"],
+   :body CommentThread})
 
 (defn commentThreads-list
   "Retrieves a list of resources, possibly filtered.
@@ -59,13 +56,12 @@ order <string>
 moderationStatus <string> Limits the returned comment threads to those with the specified moderation status. Not compatible with the 'id' filter. Valid values: published, heldForReview, likelySpam."
   ([part] (commentThreads-list part nil))
   ([part optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/commentThreads",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes ["https://www.googleapis.com/auth/youtube.force-ssl"]})))
+    {:method :get,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/commentThreads",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes ["https://www.googleapis.com/auth/youtube.force-ssl"]}))
 
 (defn captions-download
   "Downloads a caption track.
@@ -80,15 +76,14 @@ tfmt <string> Convert the captions into this format. Supported options are sbv, 
 onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with must be linked to the specified YouTube content owner."
   ([id] (captions-download id nil))
   ([id optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/captions/{id}",
-       :uri-template-args {"id" id},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtubepartner"]})))
+    {:method :get,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/captions/{id}",
+     :uri-template-args {"id" id},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtubepartner"]}))
 
 (defn captions-list
   "Retrieves a list of resources, possibly filtered.
@@ -103,15 +98,14 @@ onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively f
 id <string> Returns the captions with the given IDs for Stubby or Apiary."
   ([part videoId] (captions-list part videoId nil))
   ([part videoId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/captions",
-       :uri-template-args {},
-       :query-params (merge {"part" part, "videoId" videoId} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtubepartner"]})))
+    {:method :get,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/captions",
+     :uri-template-args {},
+     :query-params (merge {"part" part, "videoId" videoId} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtubepartner"]}))
 
 (defn captions-update
   "Updates an existing resource.
@@ -127,16 +121,15 @@ sync <boolean> Extra parameter to allow automatically syncing the uploaded capti
 onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with must be linked to the specified YouTube content owner."
   ([part Caption] (captions-update part Caption nil))
   ([part Caption optional]
-    (client/*api-request*
-      {:method :put,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/captions",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtubepartner"],
-       :body Caption})))
+    {:method :put,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/captions",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtubepartner"],
+     :body Caption}))
 
 (defn captions-delete
   "Deletes a resource.
@@ -149,15 +142,14 @@ onBehalfOf <string> ID of the Google+ Page for the channel that the request is b
 onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with must be linked to the specified YouTube content owner."
   ([id] (captions-delete id nil))
   ([id optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/captions",
-       :uri-template-args {},
-       :query-params (merge {"id" id} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtubepartner"]})))
+    {:method :delete,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/captions",
+     :uri-template-args {},
+     :query-params (merge {"id" id} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtubepartner"]}))
 
 (defn captions-insert
   "Inserts a new resource into this collection.
@@ -173,16 +165,15 @@ onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively f
 sync <boolean> Extra parameter to allow automatically syncing the uploaded caption/transcript with the audio."
   ([part Caption] (captions-insert part Caption nil))
   ([part Caption optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/captions",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtubepartner"],
-       :body Caption})))
+    {:method :post,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/captions",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtubepartner"],
+     :body Caption}))
 
 (defn liveChatModerators-delete
   "Deletes a chat moderator.
@@ -190,15 +181,14 @@ https://developers.google.com/youtube/v3/reference/rest/v3/liveChatModerators/de
 
 id <> "
   [id]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://youtube.googleapis.com/youtube/v3/liveChat/moderators",
-     :uri-template-args {},
-     :query-params {"id" id},
-     :scopes
-     ["https://www.googleapis.com/auth/youtube"
-      "https://www.googleapis.com/auth/youtube.force-ssl"]}))
+  {:method :delete,
+   :uri-template
+   "https://youtube.googleapis.com/youtube/v3/liveChat/moderators",
+   :uri-template-args {},
+   :query-params {"id" id},
+   :scopes
+   ["https://www.googleapis.com/auth/youtube"
+    "https://www.googleapis.com/auth/youtube.force-ssl"]})
 
 (defn liveChatModerators-list
   "Retrieves a list of resources, possibly filtered.
@@ -211,17 +201,16 @@ optional:
 maxResults <integer> The *maxResults* parameter specifies the maximum number of items that should be returned in the result set."
   ([liveChatId part] (liveChatModerators-list liveChatId part nil))
   ([liveChatId part optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/liveChat/moderators",
-       :uri-template-args {},
-       :query-params
-       (merge {"liveChatId" liveChatId, "part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtube.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/liveChat/moderators",
+     :uri-template-args {},
+     :query-params
+     (merge {"liveChatId" liveChatId, "part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtube.readonly"]}))
 
 (defn liveChatModerators-insert
   "Inserts a new resource into this collection.
@@ -231,16 +220,15 @@ part <>
 LiveChatModerator:
 LiveChatModerator"
   [part LiveChatModerator]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://youtube.googleapis.com/youtube/v3/liveChat/moderators",
-     :uri-template-args {},
-     :query-params {"part" part},
-     :scopes
-     ["https://www.googleapis.com/auth/youtube"
-      "https://www.googleapis.com/auth/youtube.force-ssl"],
-     :body LiveChatModerator}))
+  {:method :post,
+   :uri-template
+   "https://youtube.googleapis.com/youtube/v3/liveChat/moderators",
+   :uri-template-args {},
+   :query-params {"part" part},
+   :scopes
+   ["https://www.googleapis.com/auth/youtube"
+    "https://www.googleapis.com/auth/youtube.force-ssl"],
+   :body LiveChatModerator})
 
 (defn members-list
   "Retrieves a list of members that match the request criteria for a channel.
@@ -255,14 +243,12 @@ filterByMemberChannelId <string> Comma separated list of channel IDs. Only data 
 hasAccessToLevel <string> Filter members in the results set to the ones that have access to a level."
   ([part] (members-list part nil))
   ([part optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/members",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube.channel-memberships.creator"]})))
+    {:method :get,
+     :uri-template "https://youtube.googleapis.com/youtube/v3/members",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube.channel-memberships.creator"]}))
 
 (defn thirdPartyLinks-update
   "Updates an existing resource.
@@ -277,14 +263,13 @@ externalChannelId <string> Channel ID to which changes should be applied, for de
   ([part ThirdPartyLink]
     (thirdPartyLinks-update part ThirdPartyLink nil))
   ([part ThirdPartyLink optional]
-    (client/*api-request*
-      {:method :put,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/thirdPartyLinks",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes nil,
-       :body ThirdPartyLink})))
+    {:method :put,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/thirdPartyLinks",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes nil,
+     :body ThirdPartyLink}))
 
 (defn thirdPartyLinks-insert
   "Inserts a new resource into this collection.
@@ -299,14 +284,13 @@ externalChannelId <string> Channel ID to which changes should be applied, for de
   ([part ThirdPartyLink]
     (thirdPartyLinks-insert part ThirdPartyLink nil))
   ([part ThirdPartyLink optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/thirdPartyLinks",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes nil,
-       :body ThirdPartyLink})))
+    {:method :post,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/thirdPartyLinks",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes nil,
+     :body ThirdPartyLink}))
 
 (defn thirdPartyLinks-delete
   "Deletes a resource.
@@ -320,14 +304,13 @@ externalChannelId <string> Channel ID to which changes should be applied, for de
 part <string> Do not use. Required for compatibility."
   ([linkingToken type] (thirdPartyLinks-delete linkingToken type nil))
   ([linkingToken type optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/thirdPartyLinks",
-       :uri-template-args {},
-       :query-params
-       (merge {"type" type, "linkingToken" linkingToken} optional),
-       :scopes nil})))
+    {:method :delete,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/thirdPartyLinks",
+     :uri-template-args {},
+     :query-params
+     (merge {"type" type, "linkingToken" linkingToken} optional),
+     :scopes nil}))
 
 (defn thirdPartyLinks-list
   "Retrieves a list of resources, possibly filtered.
@@ -341,13 +324,12 @@ externalChannelId <string> Channel ID to which changes should be applied, for de
 linkingToken <string> Get a third party link with the given linking token."
   ([part] (thirdPartyLinks-list part nil))
   ([part optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/thirdPartyLinks",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes nil})))
+    {:method :get,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/thirdPartyLinks",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes nil}))
 
 (defn liveStreams-list
   "Retrieve the list of streams associated with the given channel. --
@@ -363,16 +345,15 @@ onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively f
 onBehalfOfContentOwnerChannel <string> This parameter can only be used in a properly authorized request. *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is linked to the content owner that the onBehalfOfContentOwner parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value specifies must be linked to the content owner that the onBehalfOfContentOwner parameter specifies. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and perform actions on behalf of the channel specified in the parameter value, without having to provide authentication credentials for each separate channel."
   ([part] (liveStreams-list part nil))
   ([part optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/liveStreams",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtube.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/liveStreams",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtube.readonly"]}))
 
 (defn liveStreams-insert
   "Inserts a new stream for the authenticated user.
@@ -387,16 +368,15 @@ onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively f
 onBehalfOfContentOwnerChannel <string> This parameter can only be used in a properly authorized request. *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is linked to the content owner that the onBehalfOfContentOwner parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value specifies must be linked to the content owner that the onBehalfOfContentOwner parameter specifies. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and perform actions on behalf of the channel specified in the parameter value, without having to provide authentication credentials for each separate channel."
   ([part LiveStream] (liveStreams-insert part LiveStream nil))
   ([part LiveStream optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/liveStreams",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"],
-       :body LiveStream})))
+    {:method :post,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/liveStreams",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"],
+     :body LiveStream}))
 
 (defn liveStreams-update
   "Updates an existing stream for the authenticated user.
@@ -411,16 +391,15 @@ onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively f
 onBehalfOfContentOwnerChannel <string> This parameter can only be used in a properly authorized request. *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is linked to the content owner that the onBehalfOfContentOwner parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value specifies must be linked to the content owner that the onBehalfOfContentOwner parameter specifies. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and perform actions on behalf of the channel specified in the parameter value, without having to provide authentication credentials for each separate channel."
   ([part LiveStream] (liveStreams-update part LiveStream nil))
   ([part LiveStream optional]
-    (client/*api-request*
-      {:method :put,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/liveStreams",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"],
-       :body LiveStream})))
+    {:method :put,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/liveStreams",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"],
+     :body LiveStream}))
 
 (defn liveStreams-delete
   "Deletes an existing stream for the authenticated user.
@@ -433,15 +412,14 @@ onBehalfOfContentOwnerChannel <string> This parameter can only be used in a prop
 onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner."
   ([id] (liveStreams-delete id nil))
   ([id optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/liveStreams",
-       :uri-template-args {},
-       :query-params (merge {"id" id} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"]})))
+    {:method :delete,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/liveStreams",
+     :uri-template-args {},
+     :query-params (merge {"id" id} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"]}))
 
 (defn thumbnails-set
   "As this is not an insert in a strict sense (it supports uploading/setting of a thumbnail for multiple videos, which doesn't result in creation of a single resource), I use a custom verb here.
@@ -453,17 +431,16 @@ optional:
 onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with must be linked to the specified YouTube content owner."
   ([videoId] (thumbnails-set videoId nil))
   ([videoId optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/thumbnails/set",
-       :uri-template-args {},
-       :query-params (merge {"videoId" videoId} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtube.upload"
-        "https://www.googleapis.com/auth/youtubepartner"]})))
+    {:method :post,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/thumbnails/set",
+     :uri-template-args {},
+     :query-params (merge {"videoId" videoId} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtube.upload"
+      "https://www.googleapis.com/auth/youtubepartner"]}))
 
 (defn membershipsLevels-list
   "Retrieves a list of all pricing levels offered by a creator to the fans.
@@ -471,14 +448,13 @@ https://developers.google.com/youtube/v3/reference/rest/v3/membershipsLevels/lis
 
 part <> "
   [part]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://youtube.googleapis.com/youtube/v3/membershipsLevels",
-     :uri-template-args {},
-     :query-params {"part" part},
-     :scopes
-     ["https://www.googleapis.com/auth/youtube.channel-memberships.creator"]}))
+  {:method :get,
+   :uri-template
+   "https://youtube.googleapis.com/youtube/v3/membershipsLevels",
+   :uri-template-args {},
+   :query-params {"part" part},
+   :scopes
+   ["https://www.googleapis.com/auth/youtube.channel-memberships.creator"]})
 
 (defn channelSections-update
   "Updates an existing resource.
@@ -493,17 +469,16 @@ onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively f
   ([part ChannelSection]
     (channelSections-update part ChannelSection nil))
   ([part ChannelSection optional]
-    (client/*api-request*
-      {:method :put,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/channelSections",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtubepartner"],
-       :body ChannelSection})))
+    {:method :put,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/channelSections",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtubepartner"],
+     :body ChannelSection}))
 
 (defn channelSections-list
   "Retrieves a list of resources, possibly filtered.
@@ -519,17 +494,16 @@ hl <string> Return content in specified language
 onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner."
   ([part] (channelSections-list part nil))
   ([part optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/channelSections",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtube.readonly"
-        "https://www.googleapis.com/auth/youtubepartner"]})))
+    {:method :get,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/channelSections",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtube.readonly"
+      "https://www.googleapis.com/auth/youtubepartner"]}))
 
 (defn channelSections-insert
   "Inserts a new resource into this collection.
@@ -545,17 +519,16 @@ onBehalfOfContentOwnerChannel <string> This parameter can only be used in a prop
   ([part ChannelSection]
     (channelSections-insert part ChannelSection nil))
   ([part ChannelSection optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/channelSections",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtubepartner"],
-       :body ChannelSection})))
+    {:method :post,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/channelSections",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtubepartner"],
+     :body ChannelSection}))
 
 (defn channelSections-delete
   "Deletes a resource.
@@ -567,16 +540,15 @@ optional:
 onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner."
   ([id] (channelSections-delete id nil))
   ([id optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/channelSections",
-       :uri-template-args {},
-       :query-params (merge {"id" id} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtubepartner"]})))
+    {:method :delete,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/channelSections",
+     :uri-template-args {},
+     :query-params (merge {"id" id} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtubepartner"]}))
 
 (defn liveChatMessages-transition
   "Transition a durable chat event.
@@ -587,15 +559,14 @@ status <string> The status to which the chat event is going to transition.
 id <string> The ID that uniquely identify the chat message event to transition."
   ([] (liveChatMessages-transition nil))
   ([optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/liveChat/messages/transition",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"]})))
+    {:method :post,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/liveChat/messages/transition",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"]}))
 
 (defn liveChatMessages-list
   "Retrieves a list of resources, possibly filtered.
@@ -610,17 +581,16 @@ maxResults <integer> The *maxResults* parameter specifies the maximum number of 
 profileImageSize <integer> Specifies the size of the profile image that should be returned for each user."
   ([liveChatId part] (liveChatMessages-list liveChatId part nil))
   ([liveChatId part optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/liveChat/messages",
-       :uri-template-args {},
-       :query-params
-       (merge {"liveChatId" liveChatId, "part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtube.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/liveChat/messages",
+     :uri-template-args {},
+     :query-params
+     (merge {"liveChatId" liveChatId, "part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtube.readonly"]}))
 
 (defn liveChatMessages-insert
   "Inserts a new resource into this collection.
@@ -630,16 +600,15 @@ part <>
 LiveChatMessage:
 LiveChatMessage"
   [part LiveChatMessage]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://youtube.googleapis.com/youtube/v3/liveChat/messages",
-     :uri-template-args {},
-     :query-params {"part" part},
-     :scopes
-     ["https://www.googleapis.com/auth/youtube"
-      "https://www.googleapis.com/auth/youtube.force-ssl"],
-     :body LiveChatMessage}))
+  {:method :post,
+   :uri-template
+   "https://youtube.googleapis.com/youtube/v3/liveChat/messages",
+   :uri-template-args {},
+   :query-params {"part" part},
+   :scopes
+   ["https://www.googleapis.com/auth/youtube"
+    "https://www.googleapis.com/auth/youtube.force-ssl"],
+   :body LiveChatMessage})
 
 (defn liveChatMessages-delete
   "Deletes a chat message.
@@ -647,15 +616,14 @@ https://developers.google.com/youtube/v3/reference/rest/v3/liveChatMessages/dele
 
 id <> "
   [id]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://youtube.googleapis.com/youtube/v3/liveChat/messages",
-     :uri-template-args {},
-     :query-params {"id" id},
-     :scopes
-     ["https://www.googleapis.com/auth/youtube"
-      "https://www.googleapis.com/auth/youtube.force-ssl"]}))
+  {:method :delete,
+   :uri-template
+   "https://youtube.googleapis.com/youtube/v3/liveChat/messages",
+   :uri-template-args {},
+   :query-params {"id" id},
+   :scopes
+   ["https://www.googleapis.com/auth/youtube"
+    "https://www.googleapis.com/auth/youtube.force-ssl"]})
 
 (defn playlistItems-insert
   "Inserts a new resource into this collection.
@@ -669,17 +637,16 @@ optional:
 onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner."
   ([part PlaylistItem] (playlistItems-insert part PlaylistItem nil))
   ([part PlaylistItem optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/playlistItems",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtubepartner"],
-       :body PlaylistItem})))
+    {:method :post,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/playlistItems",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtubepartner"],
+     :body PlaylistItem}))
 
 (defn playlistItems-delete
   "Deletes a resource.
@@ -691,16 +658,15 @@ optional:
 onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner."
   ([id] (playlistItems-delete id nil))
   ([id optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/playlistItems",
-       :uri-template-args {},
-       :query-params (merge {"id" id} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtubepartner"]})))
+    {:method :delete,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/playlistItems",
+     :uri-template-args {},
+     :query-params (merge {"id" id} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtubepartner"]}))
 
 (defn playlistItems-update
   "Updates an existing resource.
@@ -714,17 +680,16 @@ optional:
 onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner."
   ([part PlaylistItem] (playlistItems-update part PlaylistItem nil))
   ([part PlaylistItem optional]
-    (client/*api-request*
-      {:method :put,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/playlistItems",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtubepartner"],
-       :body PlaylistItem})))
+    {:method :put,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/playlistItems",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtubepartner"],
+     :body PlaylistItem}))
 
 (defn playlistItems-list
   "Retrieves a list of resources, possibly filtered.
@@ -740,17 +705,16 @@ maxResults <integer> The *maxResults* parameter specifies the maximum number of 
 videoId <string> Return the playlist items associated with the given video ID."
   ([part] (playlistItems-list part nil))
   ([part optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/playlistItems",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtube.readonly"
-        "https://www.googleapis.com/auth/youtubepartner"]})))
+    {:method :get,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/playlistItems",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtube.readonly"
+      "https://www.googleapis.com/auth/youtubepartner"]}))
 
 (defn playlistImages-list
   "Retrieves a list of resources, possibly filtered.
@@ -764,17 +728,16 @@ part <string> The *part* parameter specifies a comma-separated list of one or mo
 onBehalfOfContentOwnerChannel <string> This parameter can only be used in a properly authorized request. *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is linked to the content owner that the onBehalfOfContentOwner parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value specifies must be linked to the content owner that the onBehalfOfContentOwner parameter specifies. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and perform actions on behalf of the channel specified in the parameter value, without having to provide authentication credentials for each separate channel."
   ([] (playlistImages-list nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/playlistImages",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtube.readonly"
-        "https://www.googleapis.com/auth/youtubepartner"]})))
+    {:method :get,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/playlistImages",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtube.readonly"
+      "https://www.googleapis.com/auth/youtubepartner"]}))
 
 (defn playlistImages-delete
   "Deletes a resource.
@@ -785,16 +748,15 @@ onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively f
 id <string> Id to identify this image. This is returned from by the List method."
   ([] (playlistImages-delete nil))
   ([optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/playlistImages",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtubepartner"]})))
+    {:method :delete,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/playlistImages",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtubepartner"]}))
 
 (defn playlistImages-insert
   "Inserts a new resource into this collection.
@@ -809,17 +771,16 @@ onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively f
 part <string> The *part* parameter specifies the properties that the API response will include."
   ([PlaylistImage] (playlistImages-insert PlaylistImage nil))
   ([PlaylistImage optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/playlistImages",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtubepartner"],
-       :body PlaylistImage})))
+    {:method :post,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/playlistImages",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtubepartner"],
+     :body PlaylistImage}))
 
 (defn playlistImages-update
   "Updates an existing resource.
@@ -833,17 +794,16 @@ onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively f
 part <string> The *part* parameter specifies the properties that the API response will include."
   ([PlaylistImage] (playlistImages-update PlaylistImage nil))
   ([PlaylistImage optional]
-    (client/*api-request*
-      {:method :put,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/playlistImages",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtubepartner"],
-       :body PlaylistImage})))
+    {:method :put,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/playlistImages",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtubepartner"],
+     :body PlaylistImage}))
 
 (defn liveBroadcasts-delete
   "Delete a given broadcast.
@@ -856,15 +816,14 @@ onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively f
 onBehalfOfContentOwnerChannel <string> This parameter can only be used in a properly authorized request. *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is linked to the content owner that the onBehalfOfContentOwner parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value specifies must be linked to the content owner that the onBehalfOfContentOwner parameter specifies. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and perform actions on behalf of the channel specified in the parameter value, without having to provide authentication credentials for each separate channel."
   ([id] (liveBroadcasts-delete id nil))
   ([id optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/liveBroadcasts",
-       :uri-template-args {},
-       :query-params (merge {"id" id} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"]})))
+    {:method :delete,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/liveBroadcasts",
+     :uri-template-args {},
+     :query-params (merge {"id" id} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"]}))
 
 (defn liveBroadcasts-bind
   "Bind a broadcast to a stream.
@@ -879,15 +838,14 @@ onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively f
 onBehalfOfContentOwnerChannel <string> This parameter can only be used in a properly authorized request. *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID of the channel to which a video is being added. This parameter is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it can only be used in conjunction with that parameter. In addition, the request must be authorized using a CMS account that is linked to the content owner that the onBehalfOfContentOwner parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value specifies must be linked to the content owner that the onBehalfOfContentOwner parameter specifies. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and perform actions on behalf of the channel specified in the parameter value, without having to provide authentication credentials for each separate channel."
   ([id part] (liveBroadcasts-bind id part nil))
   ([id part optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/liveBroadcasts/bind",
-       :uri-template-args {},
-       :query-params (merge {"id" id, "part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"]})))
+    {:method :post,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/liveBroadcasts/bind",
+     :uri-template-args {},
+     :query-params (merge {"id" id, "part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"]}))
 
 (defn liveBroadcasts-list
   "Retrieve the list of broadcasts associated with the given channel.
@@ -905,16 +863,15 @@ broadcastType <string> Return only broadcasts with the selected type.
 onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner."
   ([part] (liveBroadcasts-list part nil))
   ([part optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/liveBroadcasts",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtube.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/liveBroadcasts",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtube.readonly"]}))
 
 (defn liveBroadcasts-transition
   "Transition a broadcast to a given status.
@@ -930,18 +887,17 @@ onBehalfOfContentOwnerChannel <string> This parameter can only be used in a prop
   ([broadcastStatus id part]
     (liveBroadcasts-transition broadcastStatus id part nil))
   ([broadcastStatus id part optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/liveBroadcasts/transition",
-       :uri-template-args {},
-       :query-params
-       (merge
-         {"part" part, "id" id, "broadcastStatus" broadcastStatus}
-         optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"]})))
+    {:method :post,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/liveBroadcasts/transition",
+     :uri-template-args {},
+     :query-params
+     (merge
+       {"part" part, "id" id, "broadcastStatus" broadcastStatus}
+       optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"]}))
 
 (defn liveBroadcasts-insertCuepoint
   "Insert cuepoints in a broadcast
@@ -957,17 +913,16 @@ onBehalfOfContentOwnerChannel <string> This parameter can only be used in a prop
 id <string> Broadcast to insert ads to, or equivalently `external_video_id` for internal use."
   ([Cuepoint] (liveBroadcasts-insertCuepoint Cuepoint nil))
   ([Cuepoint optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/liveBroadcasts/cuepoint",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtubepartner"],
-       :body Cuepoint})))
+    {:method :post,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/liveBroadcasts/cuepoint",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtubepartner"],
+     :body Cuepoint}))
 
 (defn liveBroadcasts-insert
   "Inserts a new stream for the authenticated user.
@@ -982,16 +937,15 @@ onBehalfOfContentOwnerChannel <string> This parameter can only be used in a prop
 onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner."
   ([part LiveBroadcast] (liveBroadcasts-insert part LiveBroadcast nil))
   ([part LiveBroadcast optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/liveBroadcasts",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"],
-       :body LiveBroadcast})))
+    {:method :post,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/liveBroadcasts",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"],
+     :body LiveBroadcast}))
 
 (defn liveBroadcasts-update
   "Updates an existing broadcast for the authenticated user.
@@ -1006,16 +960,15 @@ onBehalfOfContentOwnerChannel <string> This parameter can only be used in a prop
 onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner."
   ([part LiveBroadcast] (liveBroadcasts-update part LiveBroadcast nil))
   ([part LiveBroadcast optional]
-    (client/*api-request*
-      {:method :put,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/liveBroadcasts",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"],
-       :body LiveBroadcast})))
+    {:method :put,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/liveBroadcasts",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"],
+     :body LiveBroadcast}))
 
 (defn liveChatBans-delete
   "Deletes a chat ban.
@@ -1023,15 +976,14 @@ https://developers.google.com/youtube/v3/reference/rest/v3/liveChatBans/delete
 
 id <> "
   [id]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://youtube.googleapis.com/youtube/v3/liveChat/bans",
-     :uri-template-args {},
-     :query-params {"id" id},
-     :scopes
-     ["https://www.googleapis.com/auth/youtube"
-      "https://www.googleapis.com/auth/youtube.force-ssl"]}))
+  {:method :delete,
+   :uri-template
+   "https://youtube.googleapis.com/youtube/v3/liveChat/bans",
+   :uri-template-args {},
+   :query-params {"id" id},
+   :scopes
+   ["https://www.googleapis.com/auth/youtube"
+    "https://www.googleapis.com/auth/youtube.force-ssl"]})
 
 (defn liveChatBans-insert
   "Inserts a new resource into this collection.
@@ -1041,16 +993,15 @@ part <>
 LiveChatBan:
 LiveChatBan"
   [part LiveChatBan]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://youtube.googleapis.com/youtube/v3/liveChat/bans",
-     :uri-template-args {},
-     :query-params {"part" part},
-     :scopes
-     ["https://www.googleapis.com/auth/youtube"
-      "https://www.googleapis.com/auth/youtube.force-ssl"],
-     :body LiveChatBan}))
+  {:method :post,
+   :uri-template
+   "https://youtube.googleapis.com/youtube/v3/liveChat/bans",
+   :uri-template-args {},
+   :query-params {"part" part},
+   :scopes
+   ["https://www.googleapis.com/auth/youtube"
+    "https://www.googleapis.com/auth/youtube.force-ssl"],
+   :body LiveChatBan})
 
 (defn activities-list
   "Retrieves a list of resources, possibly filtered.
@@ -1068,16 +1019,15 @@ home <boolean>
 publishedAfter <string> "
   ([part] (activities-list part nil))
   ([part optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/activities",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtube.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/activities",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtube.readonly"]}))
 
 (defn comments-delete
   "Deletes a resource.
@@ -1085,13 +1035,11 @@ https://developers.google.com/youtube/v3/reference/rest/v3/comments/delete
 
 id <> "
   [id]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://youtube.googleapis.com/youtube/v3/comments",
-     :uri-template-args {},
-     :query-params {"id" id},
-     :scopes ["https://www.googleapis.com/auth/youtube.force-ssl"]}))
+  {:method :delete,
+   :uri-template "https://youtube.googleapis.com/youtube/v3/comments",
+   :uri-template-args {},
+   :query-params {"id" id},
+   :scopes ["https://www.googleapis.com/auth/youtube.force-ssl"]})
 
 (defn comments-list
   "Retrieves a list of resources, possibly filtered.
@@ -1106,13 +1054,12 @@ maxResults <integer> The *maxResults* parameter specifies the maximum number of 
 textFormat <string> The requested text format for the returned comments."
   ([part] (comments-list part nil))
   ([part optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/comments",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes ["https://www.googleapis.com/auth/youtube.force-ssl"]})))
+    {:method :get,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/comments",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes ["https://www.googleapis.com/auth/youtube.force-ssl"]}))
 
 (defn comments-update
   "Updates an existing resource.
@@ -1122,14 +1069,12 @@ part <>
 Comment:
 Comment"
   [part Comment]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://youtube.googleapis.com/youtube/v3/comments",
-     :uri-template-args {},
-     :query-params {"part" part},
-     :scopes ["https://www.googleapis.com/auth/youtube.force-ssl"],
-     :body Comment}))
+  {:method :put,
+   :uri-template "https://youtube.googleapis.com/youtube/v3/comments",
+   :uri-template-args {},
+   :query-params {"part" part},
+   :scopes ["https://www.googleapis.com/auth/youtube.force-ssl"],
+   :body Comment})
 
 (defn comments-insert
   "Inserts a new resource into this collection.
@@ -1139,14 +1084,12 @@ part <>
 Comment:
 Comment"
   [part Comment]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://youtube.googleapis.com/youtube/v3/comments",
-     :uri-template-args {},
-     :query-params {"part" part},
-     :scopes ["https://www.googleapis.com/auth/youtube.force-ssl"],
-     :body Comment}))
+  {:method :post,
+   :uri-template "https://youtube.googleapis.com/youtube/v3/comments",
+   :uri-template-args {},
+   :query-params {"part" part},
+   :scopes ["https://www.googleapis.com/auth/youtube.force-ssl"],
+   :body Comment})
 
 (defn comments-setModerationStatus
   "Sets the moderation status of one or more comments.
@@ -1160,14 +1103,13 @@ banAuthor <boolean> If set to true the author of the comment gets added to the b
   ([id moderationStatus]
     (comments-setModerationStatus id moderationStatus nil))
   ([id moderationStatus optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/comments/setModerationStatus",
-       :uri-template-args {},
-       :query-params
-       (merge {"moderationStatus" moderationStatus, "id" id} optional),
-       :scopes ["https://www.googleapis.com/auth/youtube.force-ssl"]})))
+    {:method :post,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/comments/setModerationStatus",
+     :uri-template-args {},
+     :query-params
+     (merge {"moderationStatus" moderationStatus, "id" id} optional),
+     :scopes ["https://www.googleapis.com/auth/youtube.force-ssl"]}))
 
 (defn comments-markAsSpam
   "Expresses the caller's opinion that one or more comments should be flagged as spam.
@@ -1175,13 +1117,12 @@ https://developers.google.com/youtube/v3/reference/rest/v3/comments/markAsSpam
 
 id <> "
   [id]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://youtube.googleapis.com/youtube/v3/comments/markAsSpam",
-     :uri-template-args {},
-     :query-params {"id" id},
-     :scopes ["https://www.googleapis.com/auth/youtube.force-ssl"]}))
+  {:method :post,
+   :uri-template
+   "https://youtube.googleapis.com/youtube/v3/comments/markAsSpam",
+   :uri-template-args {},
+   :query-params {"id" id},
+   :scopes ["https://www.googleapis.com/auth/youtube.force-ssl"]})
 
 (defn tests-insert
   "POST method.
@@ -1195,13 +1136,12 @@ optional:
 externalChannelId <string> "
   ([part TestItem] (tests-insert part TestItem nil))
   ([part TestItem optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template "https://youtube.googleapis.com/youtube/v3/tests",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes ["https://www.googleapis.com/auth/youtube.readonly"],
-       :body TestItem})))
+    {:method :post,
+     :uri-template "https://youtube.googleapis.com/youtube/v3/tests",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes ["https://www.googleapis.com/auth/youtube.readonly"],
+     :body TestItem}))
 
 (defn videoCategories-list
   "Retrieves a list of resources, possibly filtered.
@@ -1215,17 +1155,16 @@ id <string> Returns the video categories with the given IDs for Stubby or Apiary
 hl <string> "
   ([part] (videoCategories-list part nil))
   ([part optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/videoCategories",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtube.readonly"
-        "https://www.googleapis.com/auth/youtubepartner"]})))
+    {:method :get,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/videoCategories",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtube.readonly"
+      "https://www.googleapis.com/auth/youtubepartner"]}))
 
 (defn channelBanners-insert
   "Inserts a new resource into this collection.
@@ -1241,17 +1180,16 @@ onBehalfOfContentOwnerChannel <string> This parameter can only be used in a prop
   ([ChannelBannerResource]
     (channelBanners-insert ChannelBannerResource nil))
   ([ChannelBannerResource optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/channelBanners/insert",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtube.upload"],
-       :body ChannelBannerResource})))
+    {:method :post,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/channelBanners/insert",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtube.upload"],
+     :body ChannelBannerResource}))
 
 (defn i18nRegions-list
   "Retrieves a list of resources, possibly filtered.
@@ -1263,17 +1201,16 @@ optional:
 hl <string> "
   ([part] (i18nRegions-list part nil))
   ([part optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/i18nRegions",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtube.readonly"
-        "https://www.googleapis.com/auth/youtubepartner"]})))
+    {:method :get,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/i18nRegions",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtube.readonly"
+      "https://www.googleapis.com/auth/youtubepartner"]}))
 
 (defn videos-reportAbuse
   "Report abuse for a video.
@@ -1286,17 +1223,16 @@ optional:
 onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner."
   ([VideoAbuseReport] (videos-reportAbuse VideoAbuseReport nil))
   ([VideoAbuseReport optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/videos/reportAbuse",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtubepartner"],
-       :body VideoAbuseReport})))
+    {:method :post,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/videos/reportAbuse",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtubepartner"],
+     :body VideoAbuseReport}))
 
 (defn videos-list
   "Retrieves a list of resources, possibly filtered.
@@ -1318,17 +1254,15 @@ hl <string> Stands for \"host language\". Specifies the localization language of
 onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner."
   ([part] (videos-list part nil))
   ([part optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/videos",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtube.readonly"
-        "https://www.googleapis.com/auth/youtubepartner"]})))
+    {:method :get,
+     :uri-template "https://youtube.googleapis.com/youtube/v3/videos",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtube.readonly"
+      "https://www.googleapis.com/auth/youtubepartner"]}))
 
 (defn videos-rate
   "Adds a like or dislike rating to a video or removes a rating from a video.
@@ -1337,16 +1271,15 @@ https://developers.google.com/youtube/v3/reference/rest/v3/videos/rate
 id <> 
 rating <> "
   [id rating]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://youtube.googleapis.com/youtube/v3/videos/rate",
-     :uri-template-args {},
-     :query-params {"rating" rating, "id" id},
-     :scopes
-     ["https://www.googleapis.com/auth/youtube"
-      "https://www.googleapis.com/auth/youtube.force-ssl"
-      "https://www.googleapis.com/auth/youtubepartner"]}))
+  {:method :post,
+   :uri-template
+   "https://youtube.googleapis.com/youtube/v3/videos/rate",
+   :uri-template-args {},
+   :query-params {"rating" rating, "id" id},
+   :scopes
+   ["https://www.googleapis.com/auth/youtube"
+    "https://www.googleapis.com/auth/youtube.force-ssl"
+    "https://www.googleapis.com/auth/youtubepartner"]})
 
 (defn videos-insert
   "Inserts a new resource into this collection.
@@ -1364,18 +1297,16 @@ onBehalfOfContentOwnerChannel <string> This parameter can only be used in a prop
 stabilize <boolean> Should stabilize be applied to the upload."
   ([part Video] (videos-insert part Video nil))
   ([part Video optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/videos",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtube.upload"
-        "https://www.googleapis.com/auth/youtubepartner"],
-       :body Video})))
+    {:method :post,
+     :uri-template "https://youtube.googleapis.com/youtube/v3/videos",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtube.upload"
+      "https://www.googleapis.com/auth/youtubepartner"],
+     :body Video}))
 
 (defn videos-delete
   "Deletes a resource.
@@ -1387,16 +1318,14 @@ optional:
 onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with must be linked to the specified YouTube content owner."
   ([id] (videos-delete id nil))
   ([id optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/videos",
-       :uri-template-args {},
-       :query-params (merge {"id" id} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtubepartner"]})))
+    {:method :delete,
+     :uri-template "https://youtube.googleapis.com/youtube/v3/videos",
+     :uri-template-args {},
+     :query-params (merge {"id" id} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtubepartner"]}))
 
 (defn videos-update
   "Updates an existing resource.
@@ -1410,17 +1339,15 @@ optional:
 onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with must be linked to the specified YouTube content owner."
   ([part Video] (videos-update part Video nil))
   ([part Video optional]
-    (client/*api-request*
-      {:method :put,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/videos",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtubepartner"],
-       :body Video})))
+    {:method :put,
+     :uri-template "https://youtube.googleapis.com/youtube/v3/videos",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtubepartner"],
+     :body Video}))
 
 (defn videos-getRating
   "Retrieves the ratings that the authorized user gave to a list of specified videos.
@@ -1432,16 +1359,15 @@ optional:
 onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner."
   ([id] (videos-getRating id nil))
   ([id optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/videos/getRating",
-       :uri-template-args {},
-       :query-params (merge {"id" id} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtubepartner"]})))
+    {:method :get,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/videos/getRating",
+     :uri-template-args {},
+     :query-params (merge {"id" id} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtubepartner"]}))
 
 (defn videoAbuseReportReasons-list
   "Retrieves a list of resources, possibly filtered.
@@ -1453,16 +1379,15 @@ optional:
 hl <string> "
   ([part] (videoAbuseReportReasons-list part nil))
   ([part optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/videoAbuseReportReasons",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtube.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/videoAbuseReportReasons",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtube.readonly"]}))
 
 (defn playlists-list
   "Retrieves a list of resources, possibly filtered.
@@ -1480,17 +1405,16 @@ hl <string> Return content in specified language
 onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner."
   ([part] (playlists-list part nil))
   ([part optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/playlists",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtube.readonly"
-        "https://www.googleapis.com/auth/youtubepartner"]})))
+    {:method :get,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/playlists",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtube.readonly"
+      "https://www.googleapis.com/auth/youtubepartner"]}))
 
 (defn playlists-insert
   "Inserts a new resource into this collection.
@@ -1505,17 +1429,16 @@ onBehalfOfContentOwnerChannel <string> This parameter can only be used in a prop
 onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner."
   ([part Playlist] (playlists-insert part Playlist nil))
   ([part Playlist optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/playlists",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtubepartner"],
-       :body Playlist})))
+    {:method :post,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/playlists",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtubepartner"],
+     :body Playlist}))
 
 (defn playlists-delete
   "Deletes a resource.
@@ -1527,16 +1450,15 @@ optional:
 onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner."
   ([id] (playlists-delete id nil))
   ([id optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/playlists",
-       :uri-template-args {},
-       :query-params (merge {"id" id} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtubepartner"]})))
+    {:method :delete,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/playlists",
+     :uri-template-args {},
+     :query-params (merge {"id" id} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtubepartner"]}))
 
 (defn playlists-update
   "Updates an existing resource.
@@ -1550,17 +1472,16 @@ optional:
 onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner."
   ([part Playlist] (playlists-update part Playlist nil))
   ([part Playlist optional]
-    (client/*api-request*
-      {:method :put,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/playlists",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtubepartner"],
-       :body Playlist})))
+    {:method :put,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/playlists",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtubepartner"],
+     :body Playlist}))
 
 (defn search-list
   "Retrieves a list of search resources
@@ -1600,17 +1521,15 @@ publishedAfter <string> Filter on resources published after this date.
 onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner."
   ([part] (search-list part nil))
   ([part optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/search",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtube.readonly"
-        "https://www.googleapis.com/auth/youtubepartner"]})))
+    {:method :get,
+     :uri-template "https://youtube.googleapis.com/youtube/v3/search",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtube.readonly"
+      "https://www.googleapis.com/auth/youtubepartner"]}))
 
 (defn i18nLanguages-list
   "Retrieves a list of resources, possibly filtered.
@@ -1622,17 +1541,16 @@ optional:
 hl <string> "
   ([part] (i18nLanguages-list part nil))
   ([part optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/i18nLanguages",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtube.readonly"
-        "https://www.googleapis.com/auth/youtubepartner"]})))
+    {:method :get,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/i18nLanguages",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtube.readonly"
+      "https://www.googleapis.com/auth/youtubepartner"]}))
 
 (defn abuseReports-insert
   "Inserts a new resource into this collection.
@@ -1642,16 +1560,15 @@ part <>
 AbuseReport:
 AbuseReport"
   [part AbuseReport]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://youtube.googleapis.com/youtube/v3/abuseReports",
-     :uri-template-args {},
-     :query-params {"part" part},
-     :scopes
-     ["https://www.googleapis.com/auth/youtube"
-      "https://www.googleapis.com/auth/youtube.force-ssl"],
-     :body AbuseReport}))
+  {:method :post,
+   :uri-template
+   "https://youtube.googleapis.com/youtube/v3/abuseReports",
+   :uri-template-args {},
+   :query-params {"part" part},
+   :scopes
+   ["https://www.googleapis.com/auth/youtube"
+    "https://www.googleapis.com/auth/youtube.force-ssl"],
+   :body AbuseReport})
 
 (defn subscriptions-list
   "Retrieves a list of resources, possibly filtered.
@@ -1672,17 +1589,16 @@ order <string> The order of the returned subscriptions
 onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner."
   ([part] (subscriptions-list part nil))
   ([part optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/subscriptions",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtube.readonly"
-        "https://www.googleapis.com/auth/youtubepartner"]})))
+    {:method :get,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/subscriptions",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtube.readonly"
+      "https://www.googleapis.com/auth/youtubepartner"]}))
 
 (defn subscriptions-delete
   "Deletes a resource.
@@ -1690,16 +1606,15 @@ https://developers.google.com/youtube/v3/reference/rest/v3/subscriptions/delete
 
 id <> "
   [id]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://youtube.googleapis.com/youtube/v3/subscriptions",
-     :uri-template-args {},
-     :query-params {"id" id},
-     :scopes
-     ["https://www.googleapis.com/auth/youtube"
-      "https://www.googleapis.com/auth/youtube.force-ssl"
-      "https://www.googleapis.com/auth/youtubepartner"]}))
+  {:method :delete,
+   :uri-template
+   "https://youtube.googleapis.com/youtube/v3/subscriptions",
+   :uri-template-args {},
+   :query-params {"id" id},
+   :scopes
+   ["https://www.googleapis.com/auth/youtube"
+    "https://www.googleapis.com/auth/youtube.force-ssl"
+    "https://www.googleapis.com/auth/youtubepartner"]})
 
 (defn subscriptions-insert
   "Inserts a new resource into this collection.
@@ -1709,17 +1624,16 @@ part <>
 Subscription:
 Subscription"
   [part Subscription]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://youtube.googleapis.com/youtube/v3/subscriptions",
-     :uri-template-args {},
-     :query-params {"part" part},
-     :scopes
-     ["https://www.googleapis.com/auth/youtube"
-      "https://www.googleapis.com/auth/youtube.force-ssl"
-      "https://www.googleapis.com/auth/youtubepartner"],
-     :body Subscription}))
+  {:method :post,
+   :uri-template
+   "https://youtube.googleapis.com/youtube/v3/subscriptions",
+   :uri-template-args {},
+   :query-params {"part" part},
+   :scopes
+   ["https://www.googleapis.com/auth/youtube"
+    "https://www.googleapis.com/auth/youtube.force-ssl"
+    "https://www.googleapis.com/auth/youtubepartner"],
+   :body Subscription})
 
 (defn superChatEvents-list
   "Retrieves a list of resources, possibly filtered.
@@ -1732,16 +1646,15 @@ maxResults <integer> The *maxResults* parameter specifies the maximum number of 
 hl <string> Return rendered funding amounts in specified language."
   ([part] (superChatEvents-list part nil))
   ([part optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/superChatEvents",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtube.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/superChatEvents",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtube.readonly"]}))
 
 (defn watermarks-unset
   "Allows removal of channel watermark.
@@ -1753,16 +1666,15 @@ optional:
 onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner."
   ([channelId] (watermarks-unset channelId nil))
   ([channelId optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/watermarks/unset",
-       :uri-template-args {},
-       :query-params (merge {"channelId" channelId} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtubepartner"]})))
+    {:method :post,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/watermarks/unset",
+     :uri-template-args {},
+     :query-params (merge {"channelId" channelId} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtubepartner"]}))
 
 (defn watermarks-set
   "Allows upload of watermark image and setting it for a channel.
@@ -1777,18 +1689,17 @@ onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively f
   ([channelId InvideoBranding]
     (watermarks-set channelId InvideoBranding nil))
   ([channelId InvideoBranding optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/watermarks/set",
-       :uri-template-args {},
-       :query-params (merge {"channelId" channelId} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtube.upload"
-        "https://www.googleapis.com/auth/youtubepartner"],
-       :body InvideoBranding})))
+    {:method :post,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/watermarks/set",
+     :uri-template-args {},
+     :query-params (merge {"channelId" channelId} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtube.upload"
+      "https://www.googleapis.com/auth/youtubepartner"],
+     :body InvideoBranding}))
 
 (defn channels-list
   "Retrieves a list of resources, possibly filtered.
@@ -1809,18 +1720,17 @@ hl <string> Stands for \"host language\". Specifies the localization language of
 onBehalfOfContentOwner <string> *Note:* This parameter is intended exclusively for YouTube content partners. The *onBehalfOfContentOwner* parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner."
   ([part] (channels-list part nil))
   ([part optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/channels",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtube.readonly"
-        "https://www.googleapis.com/auth/youtubepartner"
-        "https://www.googleapis.com/auth/youtubepartner-channel-audit"]})))
+    {:method :get,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/channels",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtube.readonly"
+      "https://www.googleapis.com/auth/youtubepartner"
+      "https://www.googleapis.com/auth/youtubepartner-channel-audit"]}))
 
 (defn channels-update
   "Updates an existing resource.
@@ -1834,14 +1744,13 @@ optional:
 onBehalfOfContentOwner <string> The *onBehalfOfContentOwner* parameter indicates that the authenticated user is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The actual CMS account that the user authenticates with needs to be linked to the specified YouTube content owner."
   ([part Channel] (channels-update part Channel nil))
   ([part Channel optional]
-    (client/*api-request*
-      {:method :put,
-       :uri-template
-       "https://youtube.googleapis.com/youtube/v3/channels",
-       :uri-template-args {},
-       :query-params (merge {"part" part} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/youtube"
-        "https://www.googleapis.com/auth/youtube.force-ssl"
-        "https://www.googleapis.com/auth/youtubepartner"],
-       :body Channel})))
+    {:method :put,
+     :uri-template
+     "https://youtube.googleapis.com/youtube/v3/channels",
+     :uri-template-args {},
+     :query-params (merge {"part" part} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/youtube"
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+      "https://www.googleapis.com/auth/youtubepartner"],
+     :body Channel}))

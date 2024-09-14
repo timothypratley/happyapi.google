@@ -1,8 +1,7 @@
 (ns happyapi.google.policyanalyzer-v1
   "Policy Analyzer API
 
-See: https://www.google.com"
-  (:require [happyapi.providers.google :as client]))
+See: https://www.google.com")
 
 (defn projects-locations-activityTypes-activities-query
   "Queries policy activities on Google Cloud resources.
@@ -16,13 +15,12 @@ filter <string> Optional. Filter expression to restrict the activities returned.
   ([parent]
     (projects-locations-activityTypes-activities-query parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://policyanalyzer.googleapis.com/v1/{+parent}/activities:query",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://policyanalyzer.googleapis.com/v1/{+parent}/activities:query",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn folders-locations-activityTypes-activities-query
   "Queries policy activities on Google Cloud resources.
@@ -36,13 +34,12 @@ pageSize <integer> Optional. The maximum number of results to return from this r
   ([parent]
     (folders-locations-activityTypes-activities-query parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://policyanalyzer.googleapis.com/v1/{+parent}/activities:query",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://policyanalyzer.googleapis.com/v1/{+parent}/activities:query",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-locations-activityTypes-activities-query
   "Queries policy activities on Google Cloud resources.
@@ -58,10 +55,9 @@ filter <string> Optional. Filter expression to restrict the activities returned.
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://policyanalyzer.googleapis.com/v1/{+parent}/activities:query",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://policyanalyzer.googleapis.com/v1/{+parent}/activities:query",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))

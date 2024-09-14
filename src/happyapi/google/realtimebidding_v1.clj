@@ -1,8 +1,7 @@
 (ns happyapi.google.realtimebidding-v1
   "Real-time Bidding API
 Allows external bidders to manage their RTB integration with Google. This includes managing bidder endpoints, QPS quotas, configuring what ad inventory to receive via pretargeting, submitting creatives for verification, and accessing creative metadata such as approval status.
-See: https://developers.google.com/authorized-buyers/apis/realtimebidding/reference/rest/"
-  (:require [happyapi.providers.google :as client]))
+See: https://developers.google.com/authorized-buyers/apis/realtimebidding/reference/rest/")
 
 (defn bidders-get
   "Gets a bidder account by its name.
@@ -10,12 +9,11 @@ https://developers.google.com/authorized-buyers/apis/realtimebidding/reference/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://realtimebidding.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/realtime-bidding"]}))
+  {:method :get,
+   :uri-template "https://realtimebidding.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/realtime-bidding"]})
 
 (defn bidders-list
   "Lists all the bidder accounts that belong to the caller.
@@ -25,13 +23,11 @@ optional:
 pageSize <integer> The maximum number of bidders to return. If unspecified, at most 100 bidders will be returned. The maximum value is 500; values above 500 will be coerced to 500."
   ([] (bidders-list nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://realtimebidding.googleapis.com/v1/bidders",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/realtime-bidding"]})))
+    {:method :get,
+     :uri-template "https://realtimebidding.googleapis.com/v1/bidders",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/realtime-bidding"]}))
 
 (defn bidders-endpoints-get
   "Gets a bidder endpoint by its name.
@@ -39,12 +35,11 @@ https://developers.google.com/authorized-buyers/apis/realtimebidding/reference/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://realtimebidding.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/realtime-bidding"]}))
+  {:method :get,
+   :uri-template "https://realtimebidding.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/realtime-bidding"]})
 
 (defn bidders-endpoints-list
   "Lists all the bidder's endpoints.
@@ -56,13 +51,12 @@ optional:
 pageSize <integer> The maximum number of endpoints to return. If unspecified, at most 100 endpoints will be returned. The maximum value is 500; values above 500 will be coerced to 500."
   ([parent] (bidders-endpoints-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://realtimebidding.googleapis.com/v1/{+parent}/endpoints",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/realtime-bidding"]})))
+    {:method :get,
+     :uri-template
+     "https://realtimebidding.googleapis.com/v1/{+parent}/endpoints",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/realtime-bidding"]}))
 
 (defn bidders-endpoints-patch
   "Updates a bidder's endpoint.
@@ -76,14 +70,12 @@ optional:
 updateMask <string> Field mask to use for partial in-place updates."
   ([name Endpoint] (bidders-endpoints-patch name Endpoint nil))
   ([name Endpoint optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://realtimebidding.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
-       :body Endpoint})))
+    {:method :patch,
+     :uri-template "https://realtimebidding.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
+     :body Endpoint}))
 
 (defn bidders-creatives-list
   "Lists creatives as they are at the time of the initial request. This call may take multiple hours to complete. For large, paginated requests, this method returns a snapshot of creatives at the time of request for the first page. `lastStatusUpdate` and `creativeServingDecision` may be outdated for creatives on sequential pages. We recommend [Google Cloud Pub/Sub](//cloud.google.com/pubsub/docs/overview) to view the latest status.
@@ -97,13 +89,12 @@ filter <string> Query string to filter creatives. If no filter is specified, all
 view <string> Controls the amount of information included in the response. By default only creativeServingDecision is included. To retrieve the entire creative resource (including the declared fields and the creative content) specify the view as \"FULL\"."
   ([parent] (bidders-creatives-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://realtimebidding.googleapis.com/v1/{+parent}/creatives",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/realtime-bidding"]})))
+    {:method :get,
+     :uri-template
+     "https://realtimebidding.googleapis.com/v1/{+parent}/creatives",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/realtime-bidding"]}))
 
 (defn bidders-creatives-watch
   "Watches all creatives pertaining to a bidder. It is sufficient to invoke this endpoint once per bidder. A Pub/Sub topic will be created and notifications will be pushed to the topic when any of the bidder's creatives change status. All of the bidder's service accounts will have access to read from the topic. Subsequent invocations of this method will return the existing Pub/Sub configuration.
@@ -113,14 +104,13 @@ parent <>
 WatchCreativesRequest:
 WatchCreativesRequest"
   [parent WatchCreativesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://realtimebidding.googleapis.com/v1/{+parent}/creatives:watch",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
-     :body WatchCreativesRequest}))
+  {:method :post,
+   :uri-template
+   "https://realtimebidding.googleapis.com/v1/{+parent}/creatives:watch",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
+   :body WatchCreativesRequest})
 
 (defn bidders-pretargetingConfigs-removeTargetedPublishers
   "Removes targeted publishers from the pretargeting config.
@@ -130,14 +120,13 @@ pretargetingConfig <>
 RemoveTargetedPublishersRequest:
 RemoveTargetedPublishersRequest"
   [pretargetingConfig RemoveTargetedPublishersRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://realtimebidding.googleapis.com/v1/{+pretargetingConfig}:removeTargetedPublishers",
-     :uri-template-args {"pretargetingConfig" pretargetingConfig},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
-     :body RemoveTargetedPublishersRequest}))
+  {:method :post,
+   :uri-template
+   "https://realtimebidding.googleapis.com/v1/{+pretargetingConfig}:removeTargetedPublishers",
+   :uri-template-args {"pretargetingConfig" pretargetingConfig},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
+   :body RemoveTargetedPublishersRequest})
 
 (defn bidders-pretargetingConfigs-list
   "Lists all pretargeting configurations for a single bidder.
@@ -149,13 +138,12 @@ optional:
 pageSize <integer> The maximum number of pretargeting configurations to return. If unspecified, at most 10 pretargeting configurations will be returned. The maximum value is 100; values above 100 will be coerced to 100."
   ([parent] (bidders-pretargetingConfigs-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://realtimebidding.googleapis.com/v1/{+parent}/pretargetingConfigs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/realtime-bidding"]})))
+    {:method :get,
+     :uri-template
+     "https://realtimebidding.googleapis.com/v1/{+parent}/pretargetingConfigs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/realtime-bidding"]}))
 
 (defn bidders-pretargetingConfigs-delete
   "Deletes a pretargeting configuration.
@@ -163,12 +151,11 @@ https://developers.google.com/authorized-buyers/apis/realtimebidding/reference/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://realtimebidding.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/realtime-bidding"]}))
+  {:method :delete,
+   :uri-template "https://realtimebidding.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/realtime-bidding"]})
 
 (defn bidders-pretargetingConfigs-addTargetedSites
   "Adds targeted sites to the pretargeting configuration.
@@ -178,14 +165,13 @@ pretargetingConfig <>
 AddTargetedSitesRequest:
 AddTargetedSitesRequest"
   [pretargetingConfig AddTargetedSitesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://realtimebidding.googleapis.com/v1/{+pretargetingConfig}:addTargetedSites",
-     :uri-template-args {"pretargetingConfig" pretargetingConfig},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
-     :body AddTargetedSitesRequest}))
+  {:method :post,
+   :uri-template
+   "https://realtimebidding.googleapis.com/v1/{+pretargetingConfig}:addTargetedSites",
+   :uri-template-args {"pretargetingConfig" pretargetingConfig},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
+   :body AddTargetedSitesRequest})
 
 (defn bidders-pretargetingConfigs-activate
   "Activates a pretargeting configuration.
@@ -195,14 +181,13 @@ name <>
 ActivatePretargetingConfigRequest:
 ActivatePretargetingConfigRequest"
   [name ActivatePretargetingConfigRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://realtimebidding.googleapis.com/v1/{+name}:activate",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
-     :body ActivatePretargetingConfigRequest}))
+  {:method :post,
+   :uri-template
+   "https://realtimebidding.googleapis.com/v1/{+name}:activate",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
+   :body ActivatePretargetingConfigRequest})
 
 (defn bidders-pretargetingConfigs-suspend
   "Suspends a pretargeting configuration.
@@ -212,14 +197,13 @@ name <>
 SuspendPretargetingConfigRequest:
 SuspendPretargetingConfigRequest"
   [name SuspendPretargetingConfigRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://realtimebidding.googleapis.com/v1/{+name}:suspend",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
-     :body SuspendPretargetingConfigRequest}))
+  {:method :post,
+   :uri-template
+   "https://realtimebidding.googleapis.com/v1/{+name}:suspend",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
+   :body SuspendPretargetingConfigRequest})
 
 (defn bidders-pretargetingConfigs-removeTargetedApps
   "Removes targeted apps from the pretargeting configuration.
@@ -229,14 +213,13 @@ pretargetingConfig <>
 RemoveTargetedAppsRequest:
 RemoveTargetedAppsRequest"
   [pretargetingConfig RemoveTargetedAppsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://realtimebidding.googleapis.com/v1/{+pretargetingConfig}:removeTargetedApps",
-     :uri-template-args {"pretargetingConfig" pretargetingConfig},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
-     :body RemoveTargetedAppsRequest}))
+  {:method :post,
+   :uri-template
+   "https://realtimebidding.googleapis.com/v1/{+pretargetingConfig}:removeTargetedApps",
+   :uri-template-args {"pretargetingConfig" pretargetingConfig},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
+   :body RemoveTargetedAppsRequest})
 
 (defn bidders-pretargetingConfigs-addTargetedPublishers
   "Adds targeted publishers to the pretargeting config.
@@ -246,14 +229,13 @@ pretargetingConfig <>
 AddTargetedPublishersRequest:
 AddTargetedPublishersRequest"
   [pretargetingConfig AddTargetedPublishersRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://realtimebidding.googleapis.com/v1/{+pretargetingConfig}:addTargetedPublishers",
-     :uri-template-args {"pretargetingConfig" pretargetingConfig},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
-     :body AddTargetedPublishersRequest}))
+  {:method :post,
+   :uri-template
+   "https://realtimebidding.googleapis.com/v1/{+pretargetingConfig}:addTargetedPublishers",
+   :uri-template-args {"pretargetingConfig" pretargetingConfig},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
+   :body AddTargetedPublishersRequest})
 
 (defn bidders-pretargetingConfigs-removeTargetedSites
   "Removes targeted sites from the pretargeting configuration.
@@ -263,14 +245,13 @@ pretargetingConfig <>
 RemoveTargetedSitesRequest:
 RemoveTargetedSitesRequest"
   [pretargetingConfig RemoveTargetedSitesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://realtimebidding.googleapis.com/v1/{+pretargetingConfig}:removeTargetedSites",
-     :uri-template-args {"pretargetingConfig" pretargetingConfig},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
-     :body RemoveTargetedSitesRequest}))
+  {:method :post,
+   :uri-template
+   "https://realtimebidding.googleapis.com/v1/{+pretargetingConfig}:removeTargetedSites",
+   :uri-template-args {"pretargetingConfig" pretargetingConfig},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
+   :body RemoveTargetedSitesRequest})
 
 (defn bidders-pretargetingConfigs-patch
   "Updates a pretargeting configuration.
@@ -285,14 +266,12 @@ updateMask <string> Field mask to use for partial in-place updates."
   ([name PretargetingConfig]
     (bidders-pretargetingConfigs-patch name PretargetingConfig nil))
   ([name PretargetingConfig optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://realtimebidding.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
-       :body PretargetingConfig})))
+    {:method :patch,
+     :uri-template "https://realtimebidding.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
+     :body PretargetingConfig}))
 
 (defn bidders-pretargetingConfigs-create
   "Creates a pretargeting configuration. A pretargeting configuration's state (PretargetingConfig.state) is active upon creation, and it will start to affect traffic shortly after. A bidder may create a maximum of 10 pretargeting configurations. Attempts to exceed this maximum results in a 400 bad request error.
@@ -302,14 +281,13 @@ parent <>
 PretargetingConfig:
 PretargetingConfig"
   [parent PretargetingConfig]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://realtimebidding.googleapis.com/v1/{+parent}/pretargetingConfigs",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
-     :body PretargetingConfig}))
+  {:method :post,
+   :uri-template
+   "https://realtimebidding.googleapis.com/v1/{+parent}/pretargetingConfigs",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
+   :body PretargetingConfig})
 
 (defn bidders-pretargetingConfigs-addTargetedApps
   "Adds targeted apps to the pretargeting configuration.
@@ -319,14 +297,13 @@ pretargetingConfig <>
 AddTargetedAppsRequest:
 AddTargetedAppsRequest"
   [pretargetingConfig AddTargetedAppsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://realtimebidding.googleapis.com/v1/{+pretargetingConfig}:addTargetedApps",
-     :uri-template-args {"pretargetingConfig" pretargetingConfig},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
-     :body AddTargetedAppsRequest}))
+  {:method :post,
+   :uri-template
+   "https://realtimebidding.googleapis.com/v1/{+pretargetingConfig}:addTargetedApps",
+   :uri-template-args {"pretargetingConfig" pretargetingConfig},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
+   :body AddTargetedAppsRequest})
 
 (defn bidders-pretargetingConfigs-get
   "Gets a pretargeting configuration.
@@ -334,12 +311,11 @@ https://developers.google.com/authorized-buyers/apis/realtimebidding/reference/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://realtimebidding.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/realtime-bidding"]}))
+  {:method :get,
+   :uri-template "https://realtimebidding.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/realtime-bidding"]})
 
 (defn bidders-publisherConnections-list
   "Lists publisher connections for a given bidder.
@@ -353,13 +329,12 @@ filter <string> Query string to filter publisher connections. Connections can be
 orderBy <string> Order specification by which results should be sorted. If no sort order is specified, the results will be returned in alphabetic order based on the publisher's publisher code. Results can be sorted by `createTime`. Example: 'createTime DESC'."
   ([parent] (bidders-publisherConnections-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://realtimebidding.googleapis.com/v1/{+parent}/publisherConnections",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/realtime-bidding"]})))
+    {:method :get,
+     :uri-template
+     "https://realtimebidding.googleapis.com/v1/{+parent}/publisherConnections",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/realtime-bidding"]}))
 
 (defn bidders-publisherConnections-get
   "Gets a publisher connection.
@@ -367,12 +342,11 @@ https://developers.google.com/authorized-buyers/apis/realtimebidding/reference/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://realtimebidding.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/realtime-bidding"]}))
+  {:method :get,
+   :uri-template "https://realtimebidding.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/realtime-bidding"]})
 
 (defn bidders-publisherConnections-batchApprove
   "Batch approves multiple publisher connections.
@@ -382,14 +356,13 @@ parent <>
 BatchApprovePublisherConnectionsRequest:
 BatchApprovePublisherConnectionsRequest"
   [parent BatchApprovePublisherConnectionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://realtimebidding.googleapis.com/v1/{+parent}/publisherConnections:batchApprove",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
-     :body BatchApprovePublisherConnectionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://realtimebidding.googleapis.com/v1/{+parent}/publisherConnections:batchApprove",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
+   :body BatchApprovePublisherConnectionsRequest})
 
 (defn bidders-publisherConnections-batchReject
   "Batch rejects multiple publisher connections.
@@ -399,14 +372,13 @@ parent <>
 BatchRejectPublisherConnectionsRequest:
 BatchRejectPublisherConnectionsRequest"
   [parent BatchRejectPublisherConnectionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://realtimebidding.googleapis.com/v1/{+parent}/publisherConnections:batchReject",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
-     :body BatchRejectPublisherConnectionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://realtimebidding.googleapis.com/v1/{+parent}/publisherConnections:batchReject",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
+   :body BatchRejectPublisherConnectionsRequest})
 
 (defn buyers-get
   "Gets a buyer account by its name.
@@ -414,12 +386,11 @@ https://developers.google.com/authorized-buyers/apis/realtimebidding/reference/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://realtimebidding.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/realtime-bidding"]}))
+  {:method :get,
+   :uri-template "https://realtimebidding.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/realtime-bidding"]})
 
 (defn buyers-list
   "Lists all buyer account information the calling buyer user or service account is permissioned to manage.
@@ -429,13 +400,11 @@ optional:
 pageSize <integer> The maximum number of buyers to return. If unspecified, at most 100 buyers will be returned. The maximum value is 500; values above 500 will be coerced to 500."
   ([] (buyers-list nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://realtimebidding.googleapis.com/v1/buyers",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/realtime-bidding"]})))
+    {:method :get,
+     :uri-template "https://realtimebidding.googleapis.com/v1/buyers",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/realtime-bidding"]}))
 
 (defn buyers-getRemarketingTag
   "This has been sunset as of October 2023, and will return an error response if called. For more information, see the release notes: https://developers.google.com/authorized-buyers/apis/relnotes#real-time-bidding-api Gets remarketing tag for a buyer. A remarketing tag is a piece of JavaScript code that can be placed on a web page. When a user visits a page containing a remarketing tag, Google adds the user to a user list.
@@ -443,13 +412,12 @@ https://developers.google.com/authorized-buyers/apis/realtimebidding/reference/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://realtimebidding.googleapis.com/v1/{+name}:getRemarketingTag",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/realtime-bidding"]}))
+  {:method :get,
+   :uri-template
+   "https://realtimebidding.googleapis.com/v1/{+name}:getRemarketingTag",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/realtime-bidding"]})
 
 (defn buyers-creatives-list
   "Lists creatives as they are at the time of the initial request. This call may take multiple hours to complete. For large, paginated requests, this method returns a snapshot of creatives at the time of request for the first page. `lastStatusUpdate` and `creativeServingDecision` may be outdated for creatives on sequential pages. We recommend [Google Cloud Pub/Sub](//cloud.google.com/pubsub/docs/overview) to view the latest status.
@@ -463,13 +431,12 @@ filter <string> Query string to filter creatives. If no filter is specified, all
 view <string> Controls the amount of information included in the response. By default only creativeServingDecision is included. To retrieve the entire creative resource (including the declared fields and the creative content) specify the view as \"FULL\"."
   ([parent] (buyers-creatives-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://realtimebidding.googleapis.com/v1/{+parent}/creatives",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/realtime-bidding"]})))
+    {:method :get,
+     :uri-template
+     "https://realtimebidding.googleapis.com/v1/{+parent}/creatives",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/realtime-bidding"]}))
 
 (defn buyers-creatives-get
   "Gets a creative.
@@ -481,13 +448,11 @@ optional:
 view <string> Controls the amount of information included in the response. By default only creativeServingDecision is included. To retrieve the entire creative resource (including the declared fields and the creative content) specify the view as \"FULL\"."
   ([name] (buyers-creatives-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://realtimebidding.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/realtime-bidding"]})))
+    {:method :get,
+     :uri-template "https://realtimebidding.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/realtime-bidding"]}))
 
 (defn buyers-creatives-create
   "Creates a creative.
@@ -497,14 +462,13 @@ parent <>
 Creative:
 Creative"
   [parent Creative]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://realtimebidding.googleapis.com/v1/{+parent}/creatives",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
-     :body Creative}))
+  {:method :post,
+   :uri-template
+   "https://realtimebidding.googleapis.com/v1/{+parent}/creatives",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
+   :body Creative})
 
 (defn buyers-creatives-patch
   "Updates a creative.
@@ -518,14 +482,12 @@ optional:
 updateMask <string> Field mask to use for partial in-place updates."
   ([name Creative] (buyers-creatives-patch name Creative nil))
   ([name Creative optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://realtimebidding.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
-       :body Creative})))
+    {:method :patch,
+     :uri-template "https://realtimebidding.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
+     :body Creative}))
 
 (defn buyers-userLists-get
   "Gets a user list by its name.
@@ -533,12 +495,11 @@ https://developers.google.com/authorized-buyers/apis/realtimebidding/reference/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://realtimebidding.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/realtime-bidding"]}))
+  {:method :get,
+   :uri-template "https://realtimebidding.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/realtime-bidding"]})
 
 (defn buyers-userLists-list
   "Lists the user lists visible to the current user.
@@ -550,13 +511,12 @@ optional:
 pageSize <integer> The number of results to return per page."
   ([parent] (buyers-userLists-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://realtimebidding.googleapis.com/v1/{+parent}/userLists",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/realtime-bidding"]})))
+    {:method :get,
+     :uri-template
+     "https://realtimebidding.googleapis.com/v1/{+parent}/userLists",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/realtime-bidding"]}))
 
 (defn buyers-userLists-create
   "Creates a new user list.
@@ -566,14 +526,13 @@ parent <>
 UserList:
 UserList"
   [parent UserList]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://realtimebidding.googleapis.com/v1/{+parent}/userLists",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
-     :body UserList}))
+  {:method :post,
+   :uri-template
+   "https://realtimebidding.googleapis.com/v1/{+parent}/userLists",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
+   :body UserList})
 
 (defn buyers-userLists-update
   "Updates the given user list. Only user lists with URLRestrictions can be updated.
@@ -583,13 +542,12 @@ name <>
 UserList:
 UserList"
   [name UserList]
-  (client/*api-request*
-    {:method :put,
-     :uri-template "https://realtimebidding.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
-     :body UserList}))
+  {:method :put,
+   :uri-template "https://realtimebidding.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
+   :body UserList})
 
 (defn buyers-userLists-open
   "Changes the status of a user list to OPEN. This allows new users to be added to the user list.
@@ -599,14 +557,13 @@ name <>
 OpenUserListRequest:
 OpenUserListRequest"
   [name OpenUserListRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://realtimebidding.googleapis.com/v1/{+name}:open",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
-     :body OpenUserListRequest}))
+  {:method :post,
+   :uri-template
+   "https://realtimebidding.googleapis.com/v1/{+name}:open",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
+   :body OpenUserListRequest})
 
 (defn buyers-userLists-close
   "Changes the status of a user list to CLOSED. This prevents new users from being added to the user list.
@@ -616,14 +573,13 @@ name <>
 CloseUserListRequest:
 CloseUserListRequest"
   [name CloseUserListRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://realtimebidding.googleapis.com/v1/{+name}:close",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
-     :body CloseUserListRequest}))
+  {:method :post,
+   :uri-template
+   "https://realtimebidding.googleapis.com/v1/{+name}:close",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/realtime-bidding"],
+   :body CloseUserListRequest})
 
 (defn buyers-userLists-getRemarketingTag
   "This has been sunset as of October 2023, and will return an error response if called. For more information, see the release notes: https://developers.google.com/authorized-buyers/apis/relnotes#real-time-bidding-api Gets remarketing tag for a buyer. A remarketing tag is a piece of JavaScript code that can be placed on a web page. When a user visits a page containing a remarketing tag, Google adds the user to a user list.
@@ -631,10 +587,9 @@ https://developers.google.com/authorized-buyers/apis/realtimebidding/reference/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://realtimebidding.googleapis.com/v1/{+name}:getRemarketingTag",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/realtime-bidding"]}))
+  {:method :get,
+   :uri-template
+   "https://realtimebidding.googleapis.com/v1/{+name}:getRemarketingTag",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/realtime-bidding"]})

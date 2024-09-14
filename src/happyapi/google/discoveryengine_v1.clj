@@ -1,8 +1,7 @@
 (ns happyapi.google.discoveryengine-v1
   "Discovery Engine API
 Discovery Engine API.
-See: https://cloud.google.com/discovery-engine/media/docs"
-  (:require [happyapi.providers.google :as client]))
+See: https://cloud.google.com/discovery-engine/media/docs")
 
 (defn projects-provision
   "Provisions the project resource. During the process, related systems will get prepared and initialized. Caller must read the [Terms for data use](https://cloud.google.com/retail/data-use-terms), and optionally specify in request to provide consent to that service terms.
@@ -12,14 +11,13 @@ name <>
 GoogleCloudDiscoveryengineV1ProvisionProjectRequest:
 GoogleCloudDiscoveryengineV1ProvisionProjectRequest"
   [name GoogleCloudDiscoveryengineV1ProvisionProjectRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+name}:provision",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1ProvisionProjectRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+name}:provision",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1ProvisionProjectRequest})
 
 (defn projects-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -32,13 +30,12 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -46,12 +43,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -61,14 +57,13 @@ name <>
 GoogleLongrunningCancelOperationRequest:
 GoogleLongrunningCancelOperationRequest"
   [name GoogleLongrunningCancelOperationRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleLongrunningCancelOperationRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleLongrunningCancelOperationRequest})
 
 (defn projects-locations-collections-dataConnector-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -84,13 +79,12 @@ pageSize <integer> The standard list page size."
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-collections-dataConnector-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -98,12 +92,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -116,13 +109,12 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-collections-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-collections-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -130,12 +122,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-dataStores-completeQuery
   "Completes the specified user input with keyword suggestions.
@@ -153,13 +144,12 @@ includeTailSuggestions <boolean> Indicates if tail suggestions should be returne
       dataStore
       nil))
   ([dataStore optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+dataStore}:completeQuery",
-       :uri-template-args {"dataStore" dataStore},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+dataStore}:completeQuery",
+     :uri-template-args {"dataStore" dataStore},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-collections-dataStores-create
   "Creates a DataStore. DataStore is for storing Documents. To serve these documents for Search, or Recommendation use case, an Engine needs to be created separately.
@@ -179,14 +169,13 @@ skipDefaultSchemaCreation <boolean> A boolean flag indicating whether to skip th
       GoogleCloudDiscoveryengineV1DataStore
       nil))
   ([parent GoogleCloudDiscoveryengineV1DataStore optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/dataStores",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudDiscoveryengineV1DataStore})))
+    {:method :post,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/dataStores",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDiscoveryengineV1DataStore}))
 
 (defn projects-locations-collections-dataStores-get
   "Gets a DataStore.
@@ -194,12 +183,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-dataStores-list
   "Lists all the DataStores associated with the project.
@@ -213,13 +201,12 @@ filter <string> Filter by solution type . For example: `filter = 'solution_type:
   ([parent]
     (projects-locations-collections-dataStores-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/dataStores",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/dataStores",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-collections-dataStores-delete
   "Deletes a DataStore.
@@ -227,12 +214,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-dataStores-patch
   "Updates a DataStore
@@ -250,14 +236,12 @@ updateMask <string> Indicates which fields in the provided DataStore to update. 
       GoogleCloudDiscoveryengineV1DataStore
       nil))
   ([name GoogleCloudDiscoveryengineV1DataStore optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudDiscoveryengineV1DataStore})))
+    {:method :patch,
+     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDiscoveryengineV1DataStore}))
 
 (defn projects-locations-collections-dataStores-trainCustomModel
   "Trains a custom model.
@@ -267,14 +251,13 @@ dataStore <>
 GoogleCloudDiscoveryengineV1TrainCustomModelRequest:
 GoogleCloudDiscoveryengineV1TrainCustomModelRequest"
   [dataStore GoogleCloudDiscoveryengineV1TrainCustomModelRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+dataStore}:trainCustomModel",
-     :uri-template-args {"dataStore" dataStore},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1TrainCustomModelRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+dataStore}:trainCustomModel",
+   :uri-template-args {"dataStore" dataStore},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1TrainCustomModelRequest})
 
 (defn projects-locations-collections-dataStores-getSiteSearchEngine
   "Gets the SiteSearchEngine.
@@ -282,12 +265,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-dataStores-branches-batchGetDocumentsMetadata
   "Gets index freshness metadata for Documents. Supported for website search only.
@@ -303,13 +285,12 @@ matcher.fhirMatcher.fhirResources <string> Required. The FHIR resources to match
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/batchGetDocumentsMetadata",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/batchGetDocumentsMetadata",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-collections-dataStores-branches-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -325,13 +306,12 @@ pageSize <integer> The standard list page size."
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-collections-dataStores-branches-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -339,12 +319,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-dataStores-branches-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -354,14 +333,13 @@ name <>
 GoogleLongrunningCancelOperationRequest:
 GoogleLongrunningCancelOperationRequest"
   [name GoogleLongrunningCancelOperationRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleLongrunningCancelOperationRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleLongrunningCancelOperationRequest})
 
 (defn projects-locations-collections-dataStores-branches-documents-get
   "Gets a Document.
@@ -369,12 +347,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-dataStores-branches-documents-list
   "Gets a list of Documents.
@@ -389,13 +366,12 @@ pageSize <integer> Maximum number of Documents to return. If unspecified, defaul
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/documents",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/documents",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-collections-dataStores-branches-documents-create
   "Creates a Document.
@@ -413,14 +389,13 @@ documentId <string> Required. The ID to use for the Document, which becomes the 
       GoogleCloudDiscoveryengineV1Document
       nil))
   ([parent GoogleCloudDiscoveryengineV1Document optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/documents",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudDiscoveryengineV1Document})))
+    {:method :post,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/documents",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDiscoveryengineV1Document}))
 
 (defn projects-locations-collections-dataStores-branches-documents-patch
   "Updates a Document.
@@ -439,14 +414,12 @@ updateMask <string> Indicates which fields in the provided imported 'document' t
       GoogleCloudDiscoveryengineV1Document
       nil))
   ([name GoogleCloudDiscoveryengineV1Document optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudDiscoveryengineV1Document})))
+    {:method :patch,
+     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDiscoveryengineV1Document}))
 
 (defn projects-locations-collections-dataStores-branches-documents-delete
   "Deletes a Document.
@@ -454,12 +427,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-dataStores-branches-documents-import
   "Bulk import of multiple Documents. Request processing may be synchronous. Non-existing items are created. Note: It is possible for a subset of the Documents to be successfully updated.
@@ -469,14 +441,13 @@ parent <>
 GoogleCloudDiscoveryengineV1ImportDocumentsRequest:
 GoogleCloudDiscoveryengineV1ImportDocumentsRequest"
   [parent GoogleCloudDiscoveryengineV1ImportDocumentsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+parent}/documents:import",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1ImportDocumentsRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+parent}/documents:import",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1ImportDocumentsRequest})
 
 (defn projects-locations-collections-dataStores-branches-documents-purge
   "Permanently deletes all selected Documents in a branch. This process is asynchronous. Depending on the number of Documents to be deleted, this operation can take hours to complete. Before the delete operation completes, some Documents might still be returned by DocumentService.GetDocument or DocumentService.ListDocuments. To get a list of the Documents to be deleted, set PurgeDocumentsRequest.force to false.
@@ -486,14 +457,13 @@ parent <>
 GoogleCloudDiscoveryengineV1PurgeDocumentsRequest:
 GoogleCloudDiscoveryengineV1PurgeDocumentsRequest"
   [parent GoogleCloudDiscoveryengineV1PurgeDocumentsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+parent}/documents:purge",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1PurgeDocumentsRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+parent}/documents:purge",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1PurgeDocumentsRequest})
 
 (defn projects-locations-collections-dataStores-completionSuggestions-import
   "Imports CompletionSuggestions for a DataStore.
@@ -504,15 +474,14 @@ GoogleCloudDiscoveryengineV1ImportCompletionSuggestionsRequest:
 GoogleCloudDiscoveryengineV1ImportCompletionSuggestionsRequest"
   [parent
    GoogleCloudDiscoveryengineV1ImportCompletionSuggestionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+parent}/completionSuggestions:import",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body
-     GoogleCloudDiscoveryengineV1ImportCompletionSuggestionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+parent}/completionSuggestions:import",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body
+   GoogleCloudDiscoveryengineV1ImportCompletionSuggestionsRequest})
 
 (defn projects-locations-collections-dataStores-completionSuggestions-purge
   "Permanently deletes all CompletionSuggestions for a DataStore.
@@ -523,15 +492,13 @@ GoogleCloudDiscoveryengineV1PurgeCompletionSuggestionsRequest:
 GoogleCloudDiscoveryengineV1PurgeCompletionSuggestionsRequest"
   [parent
    GoogleCloudDiscoveryengineV1PurgeCompletionSuggestionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+parent}/completionSuggestions:purge",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body
-     GoogleCloudDiscoveryengineV1PurgeCompletionSuggestionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+parent}/completionSuggestions:purge",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1PurgeCompletionSuggestionsRequest})
 
 (defn projects-locations-collections-dataStores-schemas-get
   "Gets a Schema.
@@ -539,12 +506,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-dataStores-schemas-list
   "Gets a list of Schemas.
@@ -559,13 +525,12 @@ pageSize <integer> The maximum number of Schemas to return. The service may retu
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/schemas",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/schemas",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-collections-dataStores-schemas-create
   "Creates a Schema.
@@ -583,14 +548,13 @@ schemaId <string> Required. The ID to use for the Schema, which becomes the fina
       GoogleCloudDiscoveryengineV1Schema
       nil))
   ([parent GoogleCloudDiscoveryengineV1Schema optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/schemas",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudDiscoveryengineV1Schema})))
+    {:method :post,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/schemas",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDiscoveryengineV1Schema}))
 
 (defn projects-locations-collections-dataStores-schemas-patch
   "Updates a Schema.
@@ -608,14 +572,12 @@ allowMissing <boolean> If set to true, and the Schema is not found, a new Schema
       GoogleCloudDiscoveryengineV1Schema
       nil))
   ([name GoogleCloudDiscoveryengineV1Schema optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudDiscoveryengineV1Schema})))
+    {:method :patch,
+     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDiscoveryengineV1Schema}))
 
 (defn projects-locations-collections-dataStores-schemas-delete
   "Deletes a Schema.
@@ -623,12 +585,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-dataStores-schemas-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -644,13 +605,12 @@ pageSize <integer> The standard list page size."
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-collections-dataStores-schemas-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -658,12 +618,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-dataStores-siteSearchEngine-enableAdvancedSiteSearch
   "Upgrade from basic site search to advanced site search.
@@ -674,15 +633,13 @@ GoogleCloudDiscoveryengineV1EnableAdvancedSiteSearchRequest:
 GoogleCloudDiscoveryengineV1EnableAdvancedSiteSearchRequest"
   [siteSearchEngine
    GoogleCloudDiscoveryengineV1EnableAdvancedSiteSearchRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+siteSearchEngine}:enableAdvancedSiteSearch",
-     :uri-template-args {"siteSearchEngine" siteSearchEngine},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body
-     GoogleCloudDiscoveryengineV1EnableAdvancedSiteSearchRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+siteSearchEngine}:enableAdvancedSiteSearch",
+   :uri-template-args {"siteSearchEngine" siteSearchEngine},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1EnableAdvancedSiteSearchRequest})
 
 (defn projects-locations-collections-dataStores-siteSearchEngine-disableAdvancedSiteSearch
   "Downgrade from advanced site search to basic site search.
@@ -693,15 +650,13 @@ GoogleCloudDiscoveryengineV1DisableAdvancedSiteSearchRequest:
 GoogleCloudDiscoveryengineV1DisableAdvancedSiteSearchRequest"
   [siteSearchEngine
    GoogleCloudDiscoveryengineV1DisableAdvancedSiteSearchRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+siteSearchEngine}:disableAdvancedSiteSearch",
-     :uri-template-args {"siteSearchEngine" siteSearchEngine},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body
-     GoogleCloudDiscoveryengineV1DisableAdvancedSiteSearchRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+siteSearchEngine}:disableAdvancedSiteSearch",
+   :uri-template-args {"siteSearchEngine" siteSearchEngine},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1DisableAdvancedSiteSearchRequest})
 
 (defn projects-locations-collections-dataStores-siteSearchEngine-recrawlUris
   "Request on-demand recrawl for a list of URIs.
@@ -711,14 +666,13 @@ siteSearchEngine <>
 GoogleCloudDiscoveryengineV1RecrawlUrisRequest:
 GoogleCloudDiscoveryengineV1RecrawlUrisRequest"
   [siteSearchEngine GoogleCloudDiscoveryengineV1RecrawlUrisRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+siteSearchEngine}:recrawlUris",
-     :uri-template-args {"siteSearchEngine" siteSearchEngine},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1RecrawlUrisRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+siteSearchEngine}:recrawlUris",
+   :uri-template-args {"siteSearchEngine" siteSearchEngine},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1RecrawlUrisRequest})
 
 (defn projects-locations-collections-dataStores-siteSearchEngine-batchVerifyTargetSites
   "Verify target sites' ownership and validity. This API sends all the target sites under site search engine for verification.
@@ -728,14 +682,13 @@ parent <>
 GoogleCloudDiscoveryengineV1BatchVerifyTargetSitesRequest:
 GoogleCloudDiscoveryengineV1BatchVerifyTargetSitesRequest"
   [parent GoogleCloudDiscoveryengineV1BatchVerifyTargetSitesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+parent}:batchVerifyTargetSites",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1BatchVerifyTargetSitesRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+parent}:batchVerifyTargetSites",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1BatchVerifyTargetSitesRequest})
 
 (defn projects-locations-collections-dataStores-siteSearchEngine-fetchDomainVerificationStatus
   "Returns list of target sites with its domain verification status. This method can only be called under data store with BASIC_SITE_SEARCH state at the moment.
@@ -750,13 +703,12 @@ pageSize <integer> Requested page size. Server may return fewer items than reque
       siteSearchEngine
       nil))
   ([siteSearchEngine optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+siteSearchEngine}:fetchDomainVerificationStatus",
-       :uri-template-args {"siteSearchEngine" siteSearchEngine},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+siteSearchEngine}:fetchDomainVerificationStatus",
+     :uri-template-args {"siteSearchEngine" siteSearchEngine},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-collections-dataStores-siteSearchEngine-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -772,13 +724,12 @@ pageSize <integer> The standard list page size."
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-collections-dataStores-siteSearchEngine-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -786,12 +737,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-dataStores-siteSearchEngine-targetSites-create
   "Creates a TargetSite.
@@ -801,14 +751,13 @@ parent <>
 GoogleCloudDiscoveryengineV1TargetSite:
 GoogleCloudDiscoveryengineV1TargetSite"
   [parent GoogleCloudDiscoveryengineV1TargetSite]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+parent}/targetSites",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1TargetSite}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+parent}/targetSites",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1TargetSite})
 
 (defn projects-locations-collections-dataStores-siteSearchEngine-targetSites-batchCreate
   "Creates TargetSite in a batch.
@@ -818,14 +767,13 @@ parent <>
 GoogleCloudDiscoveryengineV1BatchCreateTargetSitesRequest:
 GoogleCloudDiscoveryengineV1BatchCreateTargetSitesRequest"
   [parent GoogleCloudDiscoveryengineV1BatchCreateTargetSitesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+parent}/targetSites:batchCreate",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1BatchCreateTargetSitesRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+parent}/targetSites:batchCreate",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1BatchCreateTargetSitesRequest})
 
 (defn projects-locations-collections-dataStores-siteSearchEngine-targetSites-get
   "Gets a TargetSite.
@@ -833,12 +781,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-dataStores-siteSearchEngine-targetSites-patch
   "Updates a TargetSite.
@@ -848,13 +795,12 @@ name <>
 GoogleCloudDiscoveryengineV1TargetSite:
 GoogleCloudDiscoveryengineV1TargetSite"
   [name GoogleCloudDiscoveryengineV1TargetSite]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1TargetSite}))
+  {:method :patch,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1TargetSite})
 
 (defn projects-locations-collections-dataStores-siteSearchEngine-targetSites-delete
   "Deletes a TargetSite.
@@ -862,12 +808,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-dataStores-siteSearchEngine-targetSites-list
   "Gets a list of TargetSites.
@@ -882,13 +827,12 @@ pageSize <integer> Requested page size. Server may return fewer items than reque
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/targetSites",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/targetSites",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-collections-dataStores-siteSearchEngine-targetSites-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -904,13 +848,12 @@ pageSize <integer> The standard list page size."
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-collections-dataStores-siteSearchEngine-targetSites-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -918,12 +861,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-dataStores-sessions-create
   "Creates a Session. If the Session to create already exists, an ALREADY_EXISTS error is returned.
@@ -933,14 +875,13 @@ parent <>
 GoogleCloudDiscoveryengineV1Session:
 GoogleCloudDiscoveryengineV1Session"
   [parent GoogleCloudDiscoveryengineV1Session]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+parent}/sessions",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1Session}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+parent}/sessions",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1Session})
 
 (defn projects-locations-collections-dataStores-sessions-delete
   "Deletes a Session. If the Session to delete does not exist, a NOT_FOUND error is returned.
@@ -948,12 +889,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-dataStores-sessions-patch
   "Updates a Session. Session action type cannot be changed. If the Session to update does not exist, a NOT_FOUND error is returned.
@@ -971,14 +911,12 @@ updateMask <string> Indicates which fields in the provided Session to update. Th
       GoogleCloudDiscoveryengineV1Session
       nil))
   ([name GoogleCloudDiscoveryengineV1Session optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudDiscoveryengineV1Session})))
+    {:method :patch,
+     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDiscoveryengineV1Session}))
 
 (defn projects-locations-collections-dataStores-sessions-get
   "Gets a Session.
@@ -986,12 +924,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-dataStores-sessions-list
   "Lists all Sessions by their parent DataStore.
@@ -1008,13 +945,12 @@ orderBy <string> A comma-separated list of fields to order by, sorted in ascendi
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/sessions",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/sessions",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-collections-dataStores-sessions-answers-get
   "Gets a Answer.
@@ -1022,12 +958,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-dataStores-servingConfigs-search
   "Performs a search.
@@ -1037,14 +972,13 @@ servingConfig <>
 GoogleCloudDiscoveryengineV1SearchRequest:
 GoogleCloudDiscoveryengineV1SearchRequest"
   [servingConfig GoogleCloudDiscoveryengineV1SearchRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+servingConfig}:search",
-     :uri-template-args {"servingConfig" servingConfig},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1SearchRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+servingConfig}:search",
+   :uri-template-args {"servingConfig" servingConfig},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1SearchRequest})
 
 (defn projects-locations-collections-dataStores-servingConfigs-answer
   "Answer query method.
@@ -1054,14 +988,13 @@ servingConfig <>
 GoogleCloudDiscoveryengineV1AnswerQueryRequest:
 GoogleCloudDiscoveryengineV1AnswerQueryRequest"
   [servingConfig GoogleCloudDiscoveryengineV1AnswerQueryRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+servingConfig}:answer",
-     :uri-template-args {"servingConfig" servingConfig},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1AnswerQueryRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+servingConfig}:answer",
+   :uri-template-args {"servingConfig" servingConfig},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1AnswerQueryRequest})
 
 (defn projects-locations-collections-dataStores-servingConfigs-recommend
   "Makes a recommendation, which requires a contextual user event.
@@ -1071,14 +1004,13 @@ servingConfig <>
 GoogleCloudDiscoveryengineV1RecommendRequest:
 GoogleCloudDiscoveryengineV1RecommendRequest"
   [servingConfig GoogleCloudDiscoveryengineV1RecommendRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+servingConfig}:recommend",
-     :uri-template-args {"servingConfig" servingConfig},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1RecommendRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+servingConfig}:recommend",
+   :uri-template-args {"servingConfig" servingConfig},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1RecommendRequest})
 
 (defn projects-locations-collections-dataStores-suggestionDenyListEntries-import
   "Imports all SuggestionDenyListEntry for a DataStore.
@@ -1089,15 +1021,14 @@ GoogleCloudDiscoveryengineV1ImportSuggestionDenyListEntriesRequest:
 GoogleCloudDiscoveryengineV1ImportSuggestionDenyListEntriesRequest"
   [parent
    GoogleCloudDiscoveryengineV1ImportSuggestionDenyListEntriesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+parent}/suggestionDenyListEntries:import",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body
-     GoogleCloudDiscoveryengineV1ImportSuggestionDenyListEntriesRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+parent}/suggestionDenyListEntries:import",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body
+   GoogleCloudDiscoveryengineV1ImportSuggestionDenyListEntriesRequest})
 
 (defn projects-locations-collections-dataStores-suggestionDenyListEntries-purge
   "Permanently deletes all SuggestionDenyListEntry for a DataStore.
@@ -1108,15 +1039,14 @@ GoogleCloudDiscoveryengineV1PurgeSuggestionDenyListEntriesRequest:
 GoogleCloudDiscoveryengineV1PurgeSuggestionDenyListEntriesRequest"
   [parent
    GoogleCloudDiscoveryengineV1PurgeSuggestionDenyListEntriesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+parent}/suggestionDenyListEntries:purge",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body
-     GoogleCloudDiscoveryengineV1PurgeSuggestionDenyListEntriesRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+parent}/suggestionDenyListEntries:purge",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body
+   GoogleCloudDiscoveryengineV1PurgeSuggestionDenyListEntriesRequest})
 
 (defn projects-locations-collections-dataStores-customModels-list
   "Gets a list of all the custom models.
@@ -1124,13 +1054,12 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 dataStore <> "
   [dataStore]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+dataStore}/customModels",
-     :uri-template-args {"dataStore" dataStore},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+dataStore}/customModels",
+   :uri-template-args {"dataStore" dataStore},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-dataStores-userEvents-write
   "Writes a single user event.
@@ -1148,14 +1077,13 @@ writeAsync <boolean> If set to true, the user event is written asynchronously af
       GoogleCloudDiscoveryengineV1UserEvent
       nil))
   ([parent GoogleCloudDiscoveryengineV1UserEvent optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/userEvents:write",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudDiscoveryengineV1UserEvent})))
+    {:method :post,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/userEvents:write",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDiscoveryengineV1UserEvent}))
 
 (defn projects-locations-collections-dataStores-userEvents-collect
   "Writes a single user event from the browser. This uses a GET request to due to browser restriction of POST-ing to a third-party domain. This method is used only by the Discovery Engine API JavaScript pixel and Google Tag Manager. Users should not call this method directly.
@@ -1172,13 +1100,12 @@ ets <string> The event timestamp in milliseconds. This prevents browser caching 
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/userEvents:collect",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/userEvents:collect",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-collections-dataStores-userEvents-purge
   "Deletes permanently all user events specified by the filter provided. Depending on the number of events specified by the filter, this operation could take hours or days to complete. To test a filter, use the list command first.
@@ -1188,14 +1115,13 @@ parent <>
 GoogleCloudDiscoveryengineV1PurgeUserEventsRequest:
 GoogleCloudDiscoveryengineV1PurgeUserEventsRequest"
   [parent GoogleCloudDiscoveryengineV1PurgeUserEventsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+parent}/userEvents:purge",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1PurgeUserEventsRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+parent}/userEvents:purge",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1PurgeUserEventsRequest})
 
 (defn projects-locations-collections-dataStores-userEvents-import
   "Bulk import of user events. Request processing might be synchronous. Events that already exist are skipped. Use this method for backfilling historical user events. Operation.response is of type ImportResponse. Note that it is possible for a subset of the items to be successfully inserted. Operation.metadata is of type ImportMetadata.
@@ -1205,14 +1131,13 @@ parent <>
 GoogleCloudDiscoveryengineV1ImportUserEventsRequest:
 GoogleCloudDiscoveryengineV1ImportUserEventsRequest"
   [parent GoogleCloudDiscoveryengineV1ImportUserEventsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+parent}/userEvents:import",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1ImportUserEventsRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+parent}/userEvents:import",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1ImportUserEventsRequest})
 
 (defn projects-locations-collections-dataStores-controls-create
   "Creates a Control. By default 1000 controls are allowed for a data store. A request can be submitted to adjust this limit. If the Control to create already exists, an ALREADY_EXISTS error is returned.
@@ -1230,14 +1155,13 @@ controlId <string> Required. The ID to use for the Control, which will become th
       GoogleCloudDiscoveryengineV1Control
       nil))
   ([parent GoogleCloudDiscoveryengineV1Control optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/controls",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudDiscoveryengineV1Control})))
+    {:method :post,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/controls",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDiscoveryengineV1Control}))
 
 (defn projects-locations-collections-dataStores-controls-delete
   "Deletes a Control. If the Control to delete does not exist, a NOT_FOUND error is returned.
@@ -1245,12 +1169,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-dataStores-controls-patch
   "Updates a Control. Control action type cannot be changed. If the Control to update does not exist, a NOT_FOUND error is returned.
@@ -1268,14 +1191,12 @@ updateMask <string> Optional. Indicates which fields in the provided Control to 
       GoogleCloudDiscoveryengineV1Control
       nil))
   ([name GoogleCloudDiscoveryengineV1Control optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudDiscoveryengineV1Control})))
+    {:method :patch,
+     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDiscoveryengineV1Control}))
 
 (defn projects-locations-collections-dataStores-controls-get
   "Gets a Control.
@@ -1283,12 +1204,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-dataStores-controls-list
   "Lists all Controls by their parent DataStore.
@@ -1304,13 +1224,12 @@ filter <string> Optional. A filter to apply on the list results. Supported featu
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/controls",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/controls",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-collections-dataStores-conversations-converse
   "Converses a conversation.
@@ -1320,14 +1239,13 @@ name <>
 GoogleCloudDiscoveryengineV1ConverseConversationRequest:
 GoogleCloudDiscoveryengineV1ConverseConversationRequest"
   [name GoogleCloudDiscoveryengineV1ConverseConversationRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+name}:converse",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1ConverseConversationRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+name}:converse",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1ConverseConversationRequest})
 
 (defn projects-locations-collections-dataStores-conversations-create
   "Creates a Conversation. If the Conversation to create already exists, an ALREADY_EXISTS error is returned.
@@ -1337,14 +1255,13 @@ parent <>
 GoogleCloudDiscoveryengineV1Conversation:
 GoogleCloudDiscoveryengineV1Conversation"
   [parent GoogleCloudDiscoveryengineV1Conversation]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+parent}/conversations",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1Conversation}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+parent}/conversations",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1Conversation})
 
 (defn projects-locations-collections-dataStores-conversations-delete
   "Deletes a Conversation. If the Conversation to delete does not exist, a NOT_FOUND error is returned.
@@ -1352,12 +1269,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-dataStores-conversations-patch
   "Updates a Conversation. Conversation action type cannot be changed. If the Conversation to update does not exist, a NOT_FOUND error is returned.
@@ -1375,14 +1291,12 @@ updateMask <string> Indicates which fields in the provided Conversation to updat
       GoogleCloudDiscoveryengineV1Conversation
       nil))
   ([name GoogleCloudDiscoveryengineV1Conversation optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudDiscoveryengineV1Conversation})))
+    {:method :patch,
+     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDiscoveryengineV1Conversation}))
 
 (defn projects-locations-collections-dataStores-conversations-get
   "Gets a Conversation.
@@ -1390,12 +1304,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-dataStores-conversations-list
   "Lists all Conversations by their parent DataStore.
@@ -1412,13 +1325,12 @@ orderBy <string> A comma-separated list of fields to order by, sorted in ascendi
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/conversations",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/conversations",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-collections-dataStores-models-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -1434,13 +1346,12 @@ pageSize <integer> The standard list page size."
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-collections-dataStores-models-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -1448,12 +1359,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-dataStores-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -1469,13 +1379,12 @@ pageSize <integer> The standard list page size."
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-collections-dataStores-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -1483,12 +1392,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-engines-create
   "Creates a Engine.
@@ -1506,14 +1414,13 @@ engineId <string> Required. The ID to use for the Engine, which will become the 
       GoogleCloudDiscoveryengineV1Engine
       nil))
   ([parent GoogleCloudDiscoveryengineV1Engine optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/engines",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudDiscoveryengineV1Engine})))
+    {:method :post,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/engines",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDiscoveryengineV1Engine}))
 
 (defn projects-locations-collections-engines-delete
   "Deletes a Engine.
@@ -1521,12 +1428,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-engines-patch
   "Updates an Engine
@@ -1544,14 +1450,12 @@ updateMask <string> Indicates which fields in the provided Engine to update. If 
       GoogleCloudDiscoveryengineV1Engine
       nil))
   ([name GoogleCloudDiscoveryengineV1Engine optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudDiscoveryengineV1Engine})))
+    {:method :patch,
+     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDiscoveryengineV1Engine}))
 
 (defn projects-locations-collections-engines-get
   "Gets a Engine.
@@ -1559,12 +1463,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-engines-list
   "Lists all the Engines associated with the project.
@@ -1577,13 +1480,12 @@ pageSize <integer> Optional. Not supported.
 filter <string> Optional. Filter by solution type. For example: solution_type=SOLUTION_TYPE_SEARCH"
   ([parent] (projects-locations-collections-engines-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/engines",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/engines",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-collections-engines-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -1597,13 +1499,12 @@ pageSize <integer> The standard list page size."
   ([name]
     (projects-locations-collections-engines-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-collections-engines-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -1611,12 +1512,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-engines-controls-create
   "Creates a Control. By default 1000 controls are allowed for a data store. A request can be submitted to adjust this limit. If the Control to create already exists, an ALREADY_EXISTS error is returned.
@@ -1634,14 +1534,13 @@ controlId <string> Required. The ID to use for the Control, which will become th
       GoogleCloudDiscoveryengineV1Control
       nil))
   ([parent GoogleCloudDiscoveryengineV1Control optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/controls",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudDiscoveryengineV1Control})))
+    {:method :post,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/controls",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDiscoveryengineV1Control}))
 
 (defn projects-locations-collections-engines-controls-delete
   "Deletes a Control. If the Control to delete does not exist, a NOT_FOUND error is returned.
@@ -1649,12 +1548,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-engines-controls-patch
   "Updates a Control. Control action type cannot be changed. If the Control to update does not exist, a NOT_FOUND error is returned.
@@ -1672,14 +1570,12 @@ updateMask <string> Optional. Indicates which fields in the provided Control to 
       GoogleCloudDiscoveryengineV1Control
       nil))
   ([name GoogleCloudDiscoveryengineV1Control optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudDiscoveryengineV1Control})))
+    {:method :patch,
+     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDiscoveryengineV1Control}))
 
 (defn projects-locations-collections-engines-controls-get
   "Gets a Control.
@@ -1687,12 +1583,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-engines-controls-list
   "Lists all Controls by their parent DataStore.
@@ -1706,13 +1601,12 @@ filter <string> Optional. A filter to apply on the list results. Supported featu
   ([parent]
     (projects-locations-collections-engines-controls-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/controls",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/controls",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-collections-engines-servingConfigs-search
   "Performs a search.
@@ -1722,14 +1616,13 @@ servingConfig <>
 GoogleCloudDiscoveryengineV1SearchRequest:
 GoogleCloudDiscoveryengineV1SearchRequest"
   [servingConfig GoogleCloudDiscoveryengineV1SearchRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+servingConfig}:search",
-     :uri-template-args {"servingConfig" servingConfig},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1SearchRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+servingConfig}:search",
+   :uri-template-args {"servingConfig" servingConfig},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1SearchRequest})
 
 (defn projects-locations-collections-engines-servingConfigs-answer
   "Answer query method.
@@ -1739,14 +1632,13 @@ servingConfig <>
 GoogleCloudDiscoveryengineV1AnswerQueryRequest:
 GoogleCloudDiscoveryengineV1AnswerQueryRequest"
   [servingConfig GoogleCloudDiscoveryengineV1AnswerQueryRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+servingConfig}:answer",
-     :uri-template-args {"servingConfig" servingConfig},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1AnswerQueryRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+servingConfig}:answer",
+   :uri-template-args {"servingConfig" servingConfig},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1AnswerQueryRequest})
 
 (defn projects-locations-collections-engines-servingConfigs-recommend
   "Makes a recommendation, which requires a contextual user event.
@@ -1756,14 +1648,13 @@ servingConfig <>
 GoogleCloudDiscoveryengineV1RecommendRequest:
 GoogleCloudDiscoveryengineV1RecommendRequest"
   [servingConfig GoogleCloudDiscoveryengineV1RecommendRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+servingConfig}:recommend",
-     :uri-template-args {"servingConfig" servingConfig},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1RecommendRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+servingConfig}:recommend",
+   :uri-template-args {"servingConfig" servingConfig},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1RecommendRequest})
 
 (defn projects-locations-collections-engines-conversations-converse
   "Converses a conversation.
@@ -1773,14 +1664,13 @@ name <>
 GoogleCloudDiscoveryengineV1ConverseConversationRequest:
 GoogleCloudDiscoveryengineV1ConverseConversationRequest"
   [name GoogleCloudDiscoveryengineV1ConverseConversationRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+name}:converse",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1ConverseConversationRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+name}:converse",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1ConverseConversationRequest})
 
 (defn projects-locations-collections-engines-conversations-create
   "Creates a Conversation. If the Conversation to create already exists, an ALREADY_EXISTS error is returned.
@@ -1790,14 +1680,13 @@ parent <>
 GoogleCloudDiscoveryengineV1Conversation:
 GoogleCloudDiscoveryengineV1Conversation"
   [parent GoogleCloudDiscoveryengineV1Conversation]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+parent}/conversations",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1Conversation}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+parent}/conversations",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1Conversation})
 
 (defn projects-locations-collections-engines-conversations-delete
   "Deletes a Conversation. If the Conversation to delete does not exist, a NOT_FOUND error is returned.
@@ -1805,12 +1694,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-engines-conversations-patch
   "Updates a Conversation. Conversation action type cannot be changed. If the Conversation to update does not exist, a NOT_FOUND error is returned.
@@ -1828,14 +1716,12 @@ updateMask <string> Indicates which fields in the provided Conversation to updat
       GoogleCloudDiscoveryengineV1Conversation
       nil))
   ([name GoogleCloudDiscoveryengineV1Conversation optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudDiscoveryengineV1Conversation})))
+    {:method :patch,
+     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDiscoveryengineV1Conversation}))
 
 (defn projects-locations-collections-engines-conversations-get
   "Gets a Conversation.
@@ -1843,12 +1729,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-engines-conversations-list
   "Lists all Conversations by their parent DataStore.
@@ -1865,13 +1750,12 @@ orderBy <string> A comma-separated list of fields to order by, sorted in ascendi
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/conversations",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/conversations",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-collections-engines-sessions-create
   "Creates a Session. If the Session to create already exists, an ALREADY_EXISTS error is returned.
@@ -1881,14 +1765,13 @@ parent <>
 GoogleCloudDiscoveryengineV1Session:
 GoogleCloudDiscoveryengineV1Session"
   [parent GoogleCloudDiscoveryengineV1Session]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+parent}/sessions",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1Session}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+parent}/sessions",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1Session})
 
 (defn projects-locations-collections-engines-sessions-delete
   "Deletes a Session. If the Session to delete does not exist, a NOT_FOUND error is returned.
@@ -1896,12 +1779,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-engines-sessions-patch
   "Updates a Session. Session action type cannot be changed. If the Session to update does not exist, a NOT_FOUND error is returned.
@@ -1919,14 +1801,12 @@ updateMask <string> Indicates which fields in the provided Session to update. Th
       GoogleCloudDiscoveryengineV1Session
       nil))
   ([name GoogleCloudDiscoveryengineV1Session optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudDiscoveryengineV1Session})))
+    {:method :patch,
+     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDiscoveryengineV1Session}))
 
 (defn projects-locations-collections-engines-sessions-get
   "Gets a Session.
@@ -1934,12 +1814,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-collections-engines-sessions-list
   "Lists all Sessions by their parent DataStore.
@@ -1954,13 +1833,12 @@ orderBy <string> A comma-separated list of fields to order by, sorted in ascendi
   ([parent]
     (projects-locations-collections-engines-sessions-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/sessions",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/sessions",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-collections-engines-sessions-answers-get
   "Gets a Answer.
@@ -1968,12 +1846,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-identity_mapping_stores-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -1989,13 +1866,12 @@ pageSize <integer> The standard list page size."
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-identity_mapping_stores-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -2003,12 +1879,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -2021,13 +1896,12 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -2035,12 +1909,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-dataStores-completeQuery
   "Completes the specified user input with keyword suggestions.
@@ -2056,13 +1929,12 @@ includeTailSuggestions <boolean> Indicates if tail suggestions should be returne
   ([dataStore]
     (projects-locations-dataStores-completeQuery dataStore nil))
   ([dataStore optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+dataStore}:completeQuery",
-       :uri-template-args {"dataStore" dataStore},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+dataStore}:completeQuery",
+     :uri-template-args {"dataStore" dataStore},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-dataStores-create
   "Creates a DataStore. DataStore is for storing Documents. To serve these documents for Search, or Recommendation use case, an Engine needs to be created separately.
@@ -2082,14 +1954,13 @@ skipDefaultSchemaCreation <boolean> A boolean flag indicating whether to skip th
       GoogleCloudDiscoveryengineV1DataStore
       nil))
   ([parent GoogleCloudDiscoveryengineV1DataStore optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/dataStores",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudDiscoveryengineV1DataStore})))
+    {:method :post,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/dataStores",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDiscoveryengineV1DataStore}))
 
 (defn projects-locations-dataStores-get
   "Gets a DataStore.
@@ -2097,12 +1968,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-dataStores-list
   "Lists all the DataStores associated with the project.
@@ -2115,13 +1985,12 @@ pageSize <integer> Maximum number of DataStores to return. If unspecified, defau
 filter <string> Filter by solution type . For example: `filter = 'solution_type:SOLUTION_TYPE_SEARCH'`"
   ([parent] (projects-locations-dataStores-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/dataStores",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/dataStores",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-dataStores-delete
   "Deletes a DataStore.
@@ -2129,12 +1998,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-dataStores-patch
   "Updates a DataStore
@@ -2152,14 +2020,12 @@ updateMask <string> Indicates which fields in the provided DataStore to update. 
       GoogleCloudDiscoveryengineV1DataStore
       nil))
   ([name GoogleCloudDiscoveryengineV1DataStore optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudDiscoveryengineV1DataStore})))
+    {:method :patch,
+     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDiscoveryengineV1DataStore}))
 
 (defn projects-locations-dataStores-getSiteSearchEngine
   "Gets the SiteSearchEngine.
@@ -2167,12 +2033,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-dataStores-branches-batchGetDocumentsMetadata
   "Gets index freshness metadata for Documents. Supported for website search only.
@@ -2188,13 +2053,12 @@ matcher.fhirMatcher.fhirResources <string> Required. The FHIR resources to match
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/batchGetDocumentsMetadata",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/batchGetDocumentsMetadata",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-dataStores-branches-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -2208,13 +2072,12 @@ pageSize <integer> The standard list page size."
   ([name]
     (projects-locations-dataStores-branches-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-dataStores-branches-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -2222,12 +2085,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-dataStores-branches-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -2237,14 +2099,13 @@ name <>
 GoogleLongrunningCancelOperationRequest:
 GoogleLongrunningCancelOperationRequest"
   [name GoogleLongrunningCancelOperationRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleLongrunningCancelOperationRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleLongrunningCancelOperationRequest})
 
 (defn projects-locations-dataStores-branches-documents-get
   "Gets a Document.
@@ -2252,12 +2113,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-dataStores-branches-documents-list
   "Gets a list of Documents.
@@ -2270,13 +2130,12 @@ pageSize <integer> Maximum number of Documents to return. If unspecified, defaul
   ([parent]
     (projects-locations-dataStores-branches-documents-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/documents",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/documents",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-dataStores-branches-documents-create
   "Creates a Document.
@@ -2294,14 +2153,13 @@ documentId <string> Required. The ID to use for the Document, which becomes the 
       GoogleCloudDiscoveryengineV1Document
       nil))
   ([parent GoogleCloudDiscoveryengineV1Document optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/documents",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudDiscoveryengineV1Document})))
+    {:method :post,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/documents",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDiscoveryengineV1Document}))
 
 (defn projects-locations-dataStores-branches-documents-patch
   "Updates a Document.
@@ -2320,14 +2178,12 @@ updateMask <string> Indicates which fields in the provided imported 'document' t
       GoogleCloudDiscoveryengineV1Document
       nil))
   ([name GoogleCloudDiscoveryengineV1Document optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudDiscoveryengineV1Document})))
+    {:method :patch,
+     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDiscoveryengineV1Document}))
 
 (defn projects-locations-dataStores-branches-documents-delete
   "Deletes a Document.
@@ -2335,12 +2191,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-dataStores-branches-documents-import
   "Bulk import of multiple Documents. Request processing may be synchronous. Non-existing items are created. Note: It is possible for a subset of the Documents to be successfully updated.
@@ -2350,14 +2205,13 @@ parent <>
 GoogleCloudDiscoveryengineV1ImportDocumentsRequest:
 GoogleCloudDiscoveryengineV1ImportDocumentsRequest"
   [parent GoogleCloudDiscoveryengineV1ImportDocumentsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+parent}/documents:import",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1ImportDocumentsRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+parent}/documents:import",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1ImportDocumentsRequest})
 
 (defn projects-locations-dataStores-branches-documents-purge
   "Permanently deletes all selected Documents in a branch. This process is asynchronous. Depending on the number of Documents to be deleted, this operation can take hours to complete. Before the delete operation completes, some Documents might still be returned by DocumentService.GetDocument or DocumentService.ListDocuments. To get a list of the Documents to be deleted, set PurgeDocumentsRequest.force to false.
@@ -2367,14 +2221,13 @@ parent <>
 GoogleCloudDiscoveryengineV1PurgeDocumentsRequest:
 GoogleCloudDiscoveryengineV1PurgeDocumentsRequest"
   [parent GoogleCloudDiscoveryengineV1PurgeDocumentsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+parent}/documents:purge",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1PurgeDocumentsRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+parent}/documents:purge",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1PurgeDocumentsRequest})
 
 (defn projects-locations-dataStores-completionSuggestions-import
   "Imports CompletionSuggestions for a DataStore.
@@ -2385,15 +2238,14 @@ GoogleCloudDiscoveryengineV1ImportCompletionSuggestionsRequest:
 GoogleCloudDiscoveryengineV1ImportCompletionSuggestionsRequest"
   [parent
    GoogleCloudDiscoveryengineV1ImportCompletionSuggestionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+parent}/completionSuggestions:import",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body
-     GoogleCloudDiscoveryengineV1ImportCompletionSuggestionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+parent}/completionSuggestions:import",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body
+   GoogleCloudDiscoveryengineV1ImportCompletionSuggestionsRequest})
 
 (defn projects-locations-dataStores-completionSuggestions-purge
   "Permanently deletes all CompletionSuggestions for a DataStore.
@@ -2404,15 +2256,13 @@ GoogleCloudDiscoveryengineV1PurgeCompletionSuggestionsRequest:
 GoogleCloudDiscoveryengineV1PurgeCompletionSuggestionsRequest"
   [parent
    GoogleCloudDiscoveryengineV1PurgeCompletionSuggestionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+parent}/completionSuggestions:purge",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body
-     GoogleCloudDiscoveryengineV1PurgeCompletionSuggestionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+parent}/completionSuggestions:purge",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1PurgeCompletionSuggestionsRequest})
 
 (defn projects-locations-dataStores-schemas-get
   "Gets a Schema.
@@ -2420,12 +2270,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-dataStores-schemas-list
   "Gets a list of Schemas.
@@ -2437,13 +2286,12 @@ optional:
 pageSize <integer> The maximum number of Schemas to return. The service may return fewer than this value. If unspecified, at most 100 Schemas are returned. The maximum value is 1000; values above 1000 are set to 1000."
   ([parent] (projects-locations-dataStores-schemas-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/schemas",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/schemas",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-dataStores-schemas-create
   "Creates a Schema.
@@ -2461,14 +2309,13 @@ schemaId <string> Required. The ID to use for the Schema, which becomes the fina
       GoogleCloudDiscoveryengineV1Schema
       nil))
   ([parent GoogleCloudDiscoveryengineV1Schema optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/schemas",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudDiscoveryengineV1Schema})))
+    {:method :post,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/schemas",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDiscoveryengineV1Schema}))
 
 (defn projects-locations-dataStores-schemas-patch
   "Updates a Schema.
@@ -2486,14 +2333,12 @@ allowMissing <boolean> If set to true, and the Schema is not found, a new Schema
       GoogleCloudDiscoveryengineV1Schema
       nil))
   ([name GoogleCloudDiscoveryengineV1Schema optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudDiscoveryengineV1Schema})))
+    {:method :patch,
+     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDiscoveryengineV1Schema}))
 
 (defn projects-locations-dataStores-schemas-delete
   "Deletes a Schema.
@@ -2501,12 +2346,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-dataStores-siteSearchEngine-enableAdvancedSiteSearch
   "Upgrade from basic site search to advanced site search.
@@ -2517,15 +2361,13 @@ GoogleCloudDiscoveryengineV1EnableAdvancedSiteSearchRequest:
 GoogleCloudDiscoveryengineV1EnableAdvancedSiteSearchRequest"
   [siteSearchEngine
    GoogleCloudDiscoveryengineV1EnableAdvancedSiteSearchRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+siteSearchEngine}:enableAdvancedSiteSearch",
-     :uri-template-args {"siteSearchEngine" siteSearchEngine},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body
-     GoogleCloudDiscoveryengineV1EnableAdvancedSiteSearchRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+siteSearchEngine}:enableAdvancedSiteSearch",
+   :uri-template-args {"siteSearchEngine" siteSearchEngine},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1EnableAdvancedSiteSearchRequest})
 
 (defn projects-locations-dataStores-siteSearchEngine-disableAdvancedSiteSearch
   "Downgrade from advanced site search to basic site search.
@@ -2536,15 +2378,13 @@ GoogleCloudDiscoveryengineV1DisableAdvancedSiteSearchRequest:
 GoogleCloudDiscoveryengineV1DisableAdvancedSiteSearchRequest"
   [siteSearchEngine
    GoogleCloudDiscoveryengineV1DisableAdvancedSiteSearchRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+siteSearchEngine}:disableAdvancedSiteSearch",
-     :uri-template-args {"siteSearchEngine" siteSearchEngine},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body
-     GoogleCloudDiscoveryengineV1DisableAdvancedSiteSearchRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+siteSearchEngine}:disableAdvancedSiteSearch",
+   :uri-template-args {"siteSearchEngine" siteSearchEngine},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1DisableAdvancedSiteSearchRequest})
 
 (defn projects-locations-dataStores-siteSearchEngine-recrawlUris
   "Request on-demand recrawl for a list of URIs.
@@ -2554,14 +2394,13 @@ siteSearchEngine <>
 GoogleCloudDiscoveryengineV1RecrawlUrisRequest:
 GoogleCloudDiscoveryengineV1RecrawlUrisRequest"
   [siteSearchEngine GoogleCloudDiscoveryengineV1RecrawlUrisRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+siteSearchEngine}:recrawlUris",
-     :uri-template-args {"siteSearchEngine" siteSearchEngine},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1RecrawlUrisRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+siteSearchEngine}:recrawlUris",
+   :uri-template-args {"siteSearchEngine" siteSearchEngine},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1RecrawlUrisRequest})
 
 (defn projects-locations-dataStores-siteSearchEngine-targetSites-create
   "Creates a TargetSite.
@@ -2571,14 +2410,13 @@ parent <>
 GoogleCloudDiscoveryengineV1TargetSite:
 GoogleCloudDiscoveryengineV1TargetSite"
   [parent GoogleCloudDiscoveryengineV1TargetSite]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+parent}/targetSites",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1TargetSite}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+parent}/targetSites",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1TargetSite})
 
 (defn projects-locations-dataStores-siteSearchEngine-targetSites-batchCreate
   "Creates TargetSite in a batch.
@@ -2588,14 +2426,13 @@ parent <>
 GoogleCloudDiscoveryengineV1BatchCreateTargetSitesRequest:
 GoogleCloudDiscoveryengineV1BatchCreateTargetSitesRequest"
   [parent GoogleCloudDiscoveryengineV1BatchCreateTargetSitesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+parent}/targetSites:batchCreate",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1BatchCreateTargetSitesRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+parent}/targetSites:batchCreate",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1BatchCreateTargetSitesRequest})
 
 (defn projects-locations-dataStores-siteSearchEngine-targetSites-get
   "Gets a TargetSite.
@@ -2603,12 +2440,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-dataStores-siteSearchEngine-targetSites-patch
   "Updates a TargetSite.
@@ -2618,13 +2454,12 @@ name <>
 GoogleCloudDiscoveryengineV1TargetSite:
 GoogleCloudDiscoveryengineV1TargetSite"
   [name GoogleCloudDiscoveryengineV1TargetSite]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1TargetSite}))
+  {:method :patch,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1TargetSite})
 
 (defn projects-locations-dataStores-siteSearchEngine-targetSites-delete
   "Deletes a TargetSite.
@@ -2632,12 +2467,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-dataStores-siteSearchEngine-targetSites-list
   "Gets a list of TargetSites.
@@ -2652,13 +2486,12 @@ pageSize <integer> Requested page size. Server may return fewer items than reque
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/targetSites",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/targetSites",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-dataStores-sessions-create
   "Creates a Session. If the Session to create already exists, an ALREADY_EXISTS error is returned.
@@ -2668,14 +2501,13 @@ parent <>
 GoogleCloudDiscoveryengineV1Session:
 GoogleCloudDiscoveryengineV1Session"
   [parent GoogleCloudDiscoveryengineV1Session]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+parent}/sessions",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1Session}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+parent}/sessions",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1Session})
 
 (defn projects-locations-dataStores-sessions-delete
   "Deletes a Session. If the Session to delete does not exist, a NOT_FOUND error is returned.
@@ -2683,12 +2515,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-dataStores-sessions-patch
   "Updates a Session. Session action type cannot be changed. If the Session to update does not exist, a NOT_FOUND error is returned.
@@ -2706,14 +2537,12 @@ updateMask <string> Indicates which fields in the provided Session to update. Th
       GoogleCloudDiscoveryengineV1Session
       nil))
   ([name GoogleCloudDiscoveryengineV1Session optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudDiscoveryengineV1Session})))
+    {:method :patch,
+     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDiscoveryengineV1Session}))
 
 (defn projects-locations-dataStores-sessions-get
   "Gets a Session.
@@ -2721,12 +2550,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-dataStores-sessions-list
   "Lists all Sessions by their parent DataStore.
@@ -2740,13 +2568,12 @@ filter <string> A filter to apply on the list results. The supported features ar
 orderBy <string> A comma-separated list of fields to order by, sorted in ascending order. Use \"desc\" after a field name for descending. Supported fields: * `update_time` * `create_time` * `session_name` Example: \"update_time desc\" \"create_time\""
   ([parent] (projects-locations-dataStores-sessions-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/sessions",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/sessions",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-dataStores-sessions-answers-get
   "Gets a Answer.
@@ -2754,12 +2581,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-dataStores-servingConfigs-search
   "Performs a search.
@@ -2769,14 +2595,13 @@ servingConfig <>
 GoogleCloudDiscoveryengineV1SearchRequest:
 GoogleCloudDiscoveryengineV1SearchRequest"
   [servingConfig GoogleCloudDiscoveryengineV1SearchRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+servingConfig}:search",
-     :uri-template-args {"servingConfig" servingConfig},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1SearchRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+servingConfig}:search",
+   :uri-template-args {"servingConfig" servingConfig},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1SearchRequest})
 
 (defn projects-locations-dataStores-servingConfigs-answer
   "Answer query method.
@@ -2786,14 +2611,13 @@ servingConfig <>
 GoogleCloudDiscoveryengineV1AnswerQueryRequest:
 GoogleCloudDiscoveryengineV1AnswerQueryRequest"
   [servingConfig GoogleCloudDiscoveryengineV1AnswerQueryRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+servingConfig}:answer",
-     :uri-template-args {"servingConfig" servingConfig},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1AnswerQueryRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+servingConfig}:answer",
+   :uri-template-args {"servingConfig" servingConfig},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1AnswerQueryRequest})
 
 (defn projects-locations-dataStores-servingConfigs-recommend
   "Makes a recommendation, which requires a contextual user event.
@@ -2803,14 +2627,13 @@ servingConfig <>
 GoogleCloudDiscoveryengineV1RecommendRequest:
 GoogleCloudDiscoveryengineV1RecommendRequest"
   [servingConfig GoogleCloudDiscoveryengineV1RecommendRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+servingConfig}:recommend",
-     :uri-template-args {"servingConfig" servingConfig},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1RecommendRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+servingConfig}:recommend",
+   :uri-template-args {"servingConfig" servingConfig},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1RecommendRequest})
 
 (defn projects-locations-dataStores-suggestionDenyListEntries-import
   "Imports all SuggestionDenyListEntry for a DataStore.
@@ -2821,15 +2644,14 @@ GoogleCloudDiscoveryengineV1ImportSuggestionDenyListEntriesRequest:
 GoogleCloudDiscoveryengineV1ImportSuggestionDenyListEntriesRequest"
   [parent
    GoogleCloudDiscoveryengineV1ImportSuggestionDenyListEntriesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+parent}/suggestionDenyListEntries:import",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body
-     GoogleCloudDiscoveryengineV1ImportSuggestionDenyListEntriesRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+parent}/suggestionDenyListEntries:import",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body
+   GoogleCloudDiscoveryengineV1ImportSuggestionDenyListEntriesRequest})
 
 (defn projects-locations-dataStores-suggestionDenyListEntries-purge
   "Permanently deletes all SuggestionDenyListEntry for a DataStore.
@@ -2840,15 +2662,14 @@ GoogleCloudDiscoveryengineV1PurgeSuggestionDenyListEntriesRequest:
 GoogleCloudDiscoveryengineV1PurgeSuggestionDenyListEntriesRequest"
   [parent
    GoogleCloudDiscoveryengineV1PurgeSuggestionDenyListEntriesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+parent}/suggestionDenyListEntries:purge",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body
-     GoogleCloudDiscoveryengineV1PurgeSuggestionDenyListEntriesRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+parent}/suggestionDenyListEntries:purge",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body
+   GoogleCloudDiscoveryengineV1PurgeSuggestionDenyListEntriesRequest})
 
 (defn projects-locations-dataStores-userEvents-write
   "Writes a single user event.
@@ -2866,14 +2687,13 @@ writeAsync <boolean> If set to true, the user event is written asynchronously af
       GoogleCloudDiscoveryengineV1UserEvent
       nil))
   ([parent GoogleCloudDiscoveryengineV1UserEvent optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/userEvents:write",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudDiscoveryengineV1UserEvent})))
+    {:method :post,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/userEvents:write",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDiscoveryengineV1UserEvent}))
 
 (defn projects-locations-dataStores-userEvents-collect
   "Writes a single user event from the browser. This uses a GET request to due to browser restriction of POST-ing to a third-party domain. This method is used only by the Discovery Engine API JavaScript pixel and Google Tag Manager. Users should not call this method directly.
@@ -2888,13 +2708,12 @@ ets <string> The event timestamp in milliseconds. This prevents browser caching 
   ([parent]
     (projects-locations-dataStores-userEvents-collect parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/userEvents:collect",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/userEvents:collect",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-dataStores-userEvents-purge
   "Deletes permanently all user events specified by the filter provided. Depending on the number of events specified by the filter, this operation could take hours or days to complete. To test a filter, use the list command first.
@@ -2904,14 +2723,13 @@ parent <>
 GoogleCloudDiscoveryengineV1PurgeUserEventsRequest:
 GoogleCloudDiscoveryengineV1PurgeUserEventsRequest"
   [parent GoogleCloudDiscoveryengineV1PurgeUserEventsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+parent}/userEvents:purge",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1PurgeUserEventsRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+parent}/userEvents:purge",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1PurgeUserEventsRequest})
 
 (defn projects-locations-dataStores-userEvents-import
   "Bulk import of user events. Request processing might be synchronous. Events that already exist are skipped. Use this method for backfilling historical user events. Operation.response is of type ImportResponse. Note that it is possible for a subset of the items to be successfully inserted. Operation.metadata is of type ImportMetadata.
@@ -2921,14 +2739,13 @@ parent <>
 GoogleCloudDiscoveryengineV1ImportUserEventsRequest:
 GoogleCloudDiscoveryengineV1ImportUserEventsRequest"
   [parent GoogleCloudDiscoveryengineV1ImportUserEventsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+parent}/userEvents:import",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1ImportUserEventsRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+parent}/userEvents:import",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1ImportUserEventsRequest})
 
 (defn projects-locations-dataStores-controls-create
   "Creates a Control. By default 1000 controls are allowed for a data store. A request can be submitted to adjust this limit. If the Control to create already exists, an ALREADY_EXISTS error is returned.
@@ -2946,14 +2763,13 @@ controlId <string> Required. The ID to use for the Control, which will become th
       GoogleCloudDiscoveryengineV1Control
       nil))
   ([parent GoogleCloudDiscoveryengineV1Control optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/controls",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudDiscoveryengineV1Control})))
+    {:method :post,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/controls",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDiscoveryengineV1Control}))
 
 (defn projects-locations-dataStores-controls-delete
   "Deletes a Control. If the Control to delete does not exist, a NOT_FOUND error is returned.
@@ -2961,12 +2777,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-dataStores-controls-patch
   "Updates a Control. Control action type cannot be changed. If the Control to update does not exist, a NOT_FOUND error is returned.
@@ -2984,14 +2799,12 @@ updateMask <string> Optional. Indicates which fields in the provided Control to 
       GoogleCloudDiscoveryengineV1Control
       nil))
   ([name GoogleCloudDiscoveryengineV1Control optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudDiscoveryengineV1Control})))
+    {:method :patch,
+     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDiscoveryengineV1Control}))
 
 (defn projects-locations-dataStores-controls-get
   "Gets a Control.
@@ -2999,12 +2812,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-dataStores-controls-list
   "Lists all Controls by their parent DataStore.
@@ -3017,13 +2829,12 @@ pageSize <integer> Optional. Maximum number of results to return. If unspecified
 filter <string> Optional. A filter to apply on the list results. Supported features: * List all the products under the parent branch if filter is unset. Currently this field is unsupported."
   ([parent] (projects-locations-dataStores-controls-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/controls",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/controls",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-dataStores-conversations-converse
   "Converses a conversation.
@@ -3033,14 +2844,13 @@ name <>
 GoogleCloudDiscoveryengineV1ConverseConversationRequest:
 GoogleCloudDiscoveryengineV1ConverseConversationRequest"
   [name GoogleCloudDiscoveryengineV1ConverseConversationRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+name}:converse",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1ConverseConversationRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+name}:converse",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1ConverseConversationRequest})
 
 (defn projects-locations-dataStores-conversations-create
   "Creates a Conversation. If the Conversation to create already exists, an ALREADY_EXISTS error is returned.
@@ -3050,14 +2860,13 @@ parent <>
 GoogleCloudDiscoveryengineV1Conversation:
 GoogleCloudDiscoveryengineV1Conversation"
   [parent GoogleCloudDiscoveryengineV1Conversation]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+parent}/conversations",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1Conversation}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+parent}/conversations",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1Conversation})
 
 (defn projects-locations-dataStores-conversations-delete
   "Deletes a Conversation. If the Conversation to delete does not exist, a NOT_FOUND error is returned.
@@ -3065,12 +2874,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-dataStores-conversations-patch
   "Updates a Conversation. Conversation action type cannot be changed. If the Conversation to update does not exist, a NOT_FOUND error is returned.
@@ -3088,14 +2896,12 @@ updateMask <string> Indicates which fields in the provided Conversation to updat
       GoogleCloudDiscoveryengineV1Conversation
       nil))
   ([name GoogleCloudDiscoveryengineV1Conversation optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudDiscoveryengineV1Conversation})))
+    {:method :patch,
+     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDiscoveryengineV1Conversation}))
 
 (defn projects-locations-dataStores-conversations-get
   "Gets a Conversation.
@@ -3103,12 +2909,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-dataStores-conversations-list
   "Lists all Conversations by their parent DataStore.
@@ -3123,13 +2928,12 @@ orderBy <string> A comma-separated list of fields to order by, sorted in ascendi
   ([parent]
     (projects-locations-dataStores-conversations-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/conversations",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/conversations",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-dataStores-models-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -3143,13 +2947,12 @@ pageSize <integer> The standard list page size."
   ([name]
     (projects-locations-dataStores-models-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-dataStores-models-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -3157,12 +2960,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-dataStores-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -3175,13 +2977,12 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-dataStores-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-dataStores-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -3189,12 +2990,11 @@ https://cloud.google.com/discovery-engine/media/docs/v1/reference/rest/v1/projec
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://discoveryengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-groundingConfigs-check
   "Performs a grounding check.
@@ -3204,14 +3004,13 @@ groundingConfig <>
 GoogleCloudDiscoveryengineV1CheckGroundingRequest:
 GoogleCloudDiscoveryengineV1CheckGroundingRequest"
   [groundingConfig GoogleCloudDiscoveryengineV1CheckGroundingRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+groundingConfig}:check",
-     :uri-template-args {"groundingConfig" groundingConfig},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1CheckGroundingRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+groundingConfig}:check",
+   :uri-template-args {"groundingConfig" groundingConfig},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1CheckGroundingRequest})
 
 (defn projects-locations-rankingConfigs-rank
   "Ranks a list of text records based on the given input query.
@@ -3221,14 +3020,13 @@ rankingConfig <>
 GoogleCloudDiscoveryengineV1RankRequest:
 GoogleCloudDiscoveryengineV1RankRequest"
   [rankingConfig GoogleCloudDiscoveryengineV1RankRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://discoveryengine.googleapis.com/v1/{+rankingConfig}:rank",
-     :uri-template-args {"rankingConfig" rankingConfig},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudDiscoveryengineV1RankRequest}))
+  {:method :post,
+   :uri-template
+   "https://discoveryengine.googleapis.com/v1/{+rankingConfig}:rank",
+   :uri-template-args {"rankingConfig" rankingConfig},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudDiscoveryengineV1RankRequest})
 
 (defn projects-locations-userEvents-write
   "Writes a single user event.
@@ -3246,14 +3044,13 @@ writeAsync <boolean> If set to true, the user event is written asynchronously af
       GoogleCloudDiscoveryengineV1UserEvent
       nil))
   ([parent GoogleCloudDiscoveryengineV1UserEvent optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/userEvents:write",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudDiscoveryengineV1UserEvent})))
+    {:method :post,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/userEvents:write",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudDiscoveryengineV1UserEvent}))
 
 (defn projects-locations-userEvents-collect
   "Writes a single user event from the browser. This uses a GET request to due to browser restriction of POST-ing to a third-party domain. This method is used only by the Discovery Engine API JavaScript pixel and Google Tag Manager. Users should not call this method directly.
@@ -3267,10 +3064,9 @@ uri <string> The URL including cgi-parameters but excluding the hash fragment wi
 ets <string> The event timestamp in milliseconds. This prevents browser caching of otherwise identical get requests. The name is abbreviated to reduce the payload bytes."
   ([parent] (projects-locations-userEvents-collect parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://discoveryengine.googleapis.com/v1/{+parent}/userEvents:collect",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://discoveryengine.googleapis.com/v1/{+parent}/userEvents:collect",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))

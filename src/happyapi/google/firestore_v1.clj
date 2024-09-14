@@ -1,8 +1,7 @@
 (ns happyapi.google.firestore-v1
   "Cloud Firestore API
 Accesses the NoSQL document database built for automatic scaling, high performance, and ease of application development. 
-See: https://cloud.google.com/firestore"
-  (:require [happyapi.providers.google :as client]))
+See: https://cloud.google.com/firestore")
 
 (defn projects-locations-list
   "Lists information about the supported locations for this service.
@@ -15,15 +14,14 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://firestore.googleapis.com/v1/{+name}/locations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/datastore"]})))
+    {:method :get,
+     :uri-template
+     "https://firestore.googleapis.com/v1/{+name}/locations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/datastore"]}))
 
 (defn projects-locations-get
   "Gets information about a location.
@@ -31,14 +29,13 @@ https://cloud.google.com/firestore/v1/reference/rest/v1/projects/locations/get
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://firestore.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/datastore"]}))
+  {:method :get,
+   :uri-template "https://firestore.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/datastore"]})
 
 (defn projects-locations-backups-get
   "Gets information about a backup.
@@ -46,14 +43,13 @@ https://cloud.google.com/firestore/v1/reference/rest/v1/projects/locations/backu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://firestore.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/datastore"]}))
+  {:method :get,
+   :uri-template "https://firestore.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/datastore"]})
 
 (defn projects-locations-backups-list
   "Lists all the backups.
@@ -61,15 +57,14 @@ https://cloud.google.com/firestore/v1/reference/rest/v1/projects/locations/backu
 
 parent <> "
   [parent]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://firestore.googleapis.com/v1/{+parent}/backups",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/datastore"]}))
+  {:method :get,
+   :uri-template
+   "https://firestore.googleapis.com/v1/{+parent}/backups",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/datastore"]})
 
 (defn projects-locations-backups-delete
   "Deletes a backup.
@@ -77,14 +72,13 @@ https://cloud.google.com/firestore/v1/reference/rest/v1/projects/locations/backu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://firestore.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/datastore"]}))
+  {:method :delete,
+   :uri-template "https://firestore.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/datastore"]})
 
 (defn projects-databases-importDocuments
   "Imports documents into Google Cloud Firestore. Existing documents with the same name are overwritten. The import occurs in the background and its progress can be monitored and managed via the Operation resource that is created. If an ImportDocuments operation is cancelled, it is possible that a subset of the data has already been imported to Cloud Firestore.
@@ -94,16 +88,15 @@ name <>
 GoogleFirestoreAdminV1ImportDocumentsRequest:
 GoogleFirestoreAdminV1ImportDocumentsRequest"
   [name GoogleFirestoreAdminV1ImportDocumentsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://firestore.googleapis.com/v1/{+name}:importDocuments",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/datastore"],
-     :body GoogleFirestoreAdminV1ImportDocumentsRequest}))
+  {:method :post,
+   :uri-template
+   "https://firestore.googleapis.com/v1/{+name}:importDocuments",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/datastore"],
+   :body GoogleFirestoreAdminV1ImportDocumentsRequest})
 
 (defn projects-databases-exportDocuments
   "Exports a copy of all or a subset of documents from Google Cloud Firestore to another storage system, such as Google Cloud Storage. Recent updates to documents may not be reflected in the export. The export occurs in the background and its progress can be monitored and managed via the Operation resource that is created. The output of an export may only be used once the associated operation is done. If an export operation is cancelled before completion it may leave partial data behind in Google Cloud Storage. For more details on export behavior and output format, refer to: https://cloud.google.com/firestore/docs/manage-data/export-import
@@ -113,16 +106,15 @@ name <>
 GoogleFirestoreAdminV1ExportDocumentsRequest:
 GoogleFirestoreAdminV1ExportDocumentsRequest"
   [name GoogleFirestoreAdminV1ExportDocumentsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://firestore.googleapis.com/v1/{+name}:exportDocuments",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/datastore"],
-     :body GoogleFirestoreAdminV1ExportDocumentsRequest}))
+  {:method :post,
+   :uri-template
+   "https://firestore.googleapis.com/v1/{+name}:exportDocuments",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/datastore"],
+   :body GoogleFirestoreAdminV1ExportDocumentsRequest})
 
 (defn projects-databases-list
   "List all the databases in the project.
@@ -134,15 +126,14 @@ optional:
 showDeleted <boolean> If true, also returns deleted resources."
   ([parent] (projects-databases-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://firestore.googleapis.com/v1/{+parent}/databases",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/datastore"]})))
+    {:method :get,
+     :uri-template
+     "https://firestore.googleapis.com/v1/{+parent}/databases",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/datastore"]}))
 
 (defn projects-databases-delete
   "Deletes a database.
@@ -154,14 +145,13 @@ optional:
 etag <string> The current etag of the Database. If an etag is provided and does not match the current etag of the database, deletion will be blocked and a FAILED_PRECONDITION error will be returned."
   ([name] (projects-databases-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://firestore.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/datastore"]})))
+    {:method :delete,
+     :uri-template "https://firestore.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/datastore"]}))
 
 (defn projects-databases-patch
   "Updates a database.
@@ -176,15 +166,14 @@ updateMask <string> The list of fields to be updated."
   ([name GoogleFirestoreAdminV1Database]
     (projects-databases-patch name GoogleFirestoreAdminV1Database nil))
   ([name GoogleFirestoreAdminV1Database optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://firestore.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/datastore"],
-       :body GoogleFirestoreAdminV1Database})))
+    {:method :patch,
+     :uri-template "https://firestore.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/datastore"],
+     :body GoogleFirestoreAdminV1Database}))
 
 (defn projects-databases-bulkDeleteDocuments
   "Bulk deletes a subset of documents from Google Cloud Firestore. Documents created or updated after the underlying system starts to process the request will not be deleted. The bulk delete occurs in the background and its progress can be monitored and managed via the Operation resource that is created. For more details on bulk delete behavior, refer to: https://cloud.google.com/firestore/docs/manage-data/bulk-delete
@@ -194,16 +183,15 @@ name <>
 GoogleFirestoreAdminV1BulkDeleteDocumentsRequest:
 GoogleFirestoreAdminV1BulkDeleteDocumentsRequest"
   [name GoogleFirestoreAdminV1BulkDeleteDocumentsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://firestore.googleapis.com/v1/{+name}:bulkDeleteDocuments",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/datastore"],
-     :body GoogleFirestoreAdminV1BulkDeleteDocumentsRequest}))
+  {:method :post,
+   :uri-template
+   "https://firestore.googleapis.com/v1/{+name}:bulkDeleteDocuments",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/datastore"],
+   :body GoogleFirestoreAdminV1BulkDeleteDocumentsRequest})
 
 (defn projects-databases-create
   "Create a database.
@@ -221,16 +209,15 @@ databaseId <string> Required. The ID to use for the database, which will become 
       GoogleFirestoreAdminV1Database
       nil))
   ([parent GoogleFirestoreAdminV1Database optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://firestore.googleapis.com/v1/{+parent}/databases",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/datastore"],
-       :body GoogleFirestoreAdminV1Database})))
+    {:method :post,
+     :uri-template
+     "https://firestore.googleapis.com/v1/{+parent}/databases",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/datastore"],
+     :body GoogleFirestoreAdminV1Database}))
 
 (defn projects-databases-restore
   "Creates a new database by restoring from an existing backup. The new database must be in the same cloud region or multi-region location as the existing backup. This behaves similar to FirestoreAdmin.CreateDatabase except instead of creating a new empty database, a new database is created with the database type, index configuration, and documents from an existing backup. The long-running operation can be used to track the progress of the restore, with the Operation's metadata field type being the RestoreDatabaseMetadata. The response type is the Database if the restore was successful. The new database is not readable or writeable until the LRO has completed.
@@ -240,16 +227,15 @@ parent <>
 GoogleFirestoreAdminV1RestoreDatabaseRequest:
 GoogleFirestoreAdminV1RestoreDatabaseRequest"
   [parent GoogleFirestoreAdminV1RestoreDatabaseRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://firestore.googleapis.com/v1/{+parent}/databases:restore",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/datastore"],
-     :body GoogleFirestoreAdminV1RestoreDatabaseRequest}))
+  {:method :post,
+   :uri-template
+   "https://firestore.googleapis.com/v1/{+parent}/databases:restore",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/datastore"],
+   :body GoogleFirestoreAdminV1RestoreDatabaseRequest})
 
 (defn projects-databases-get
   "Gets information about a database.
@@ -257,14 +243,13 @@ https://cloud.google.com/firestore/v1/reference/rest/v1/projects/databases/get
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://firestore.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/datastore"]}))
+  {:method :get,
+   :uri-template "https://firestore.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/datastore"]})
 
 (defn projects-databases-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -277,15 +262,14 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-databases-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://firestore.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/datastore"]})))
+    {:method :get,
+     :uri-template
+     "https://firestore.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/datastore"]}))
 
 (defn projects-databases-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -293,14 +277,13 @@ https://cloud.google.com/firestore/v1/reference/rest/v1/projects/databases/opera
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://firestore.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/datastore"]}))
+  {:method :get,
+   :uri-template "https://firestore.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/datastore"]})
 
 (defn projects-databases-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -308,14 +291,13 @@ https://cloud.google.com/firestore/v1/reference/rest/v1/projects/databases/opera
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://firestore.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/datastore"]}))
+  {:method :delete,
+   :uri-template "https://firestore.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/datastore"]})
 
 (defn projects-databases-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -325,16 +307,14 @@ name <>
 GoogleLongrunningCancelOperationRequest:
 GoogleLongrunningCancelOperationRequest"
   [name GoogleLongrunningCancelOperationRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://firestore.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/datastore"],
-     :body GoogleLongrunningCancelOperationRequest}))
+  {:method :post,
+   :uri-template "https://firestore.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/datastore"],
+   :body GoogleLongrunningCancelOperationRequest})
 
 (defn projects-databases-collectionGroups-indexes-create
   "Creates a composite index. This returns a google.longrunning.Operation which may be used to track the status of the creation. The metadata for the operation will be the type IndexOperationMetadata.
@@ -344,16 +324,15 @@ parent <>
 GoogleFirestoreAdminV1Index:
 GoogleFirestoreAdminV1Index"
   [parent GoogleFirestoreAdminV1Index]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://firestore.googleapis.com/v1/{+parent}/indexes",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/datastore"],
-     :body GoogleFirestoreAdminV1Index}))
+  {:method :post,
+   :uri-template
+   "https://firestore.googleapis.com/v1/{+parent}/indexes",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/datastore"],
+   :body GoogleFirestoreAdminV1Index})
 
 (defn projects-databases-collectionGroups-indexes-list
   "Lists composite indexes.
@@ -367,15 +346,14 @@ pageSize <integer> The number of results to return."
   ([parent]
     (projects-databases-collectionGroups-indexes-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://firestore.googleapis.com/v1/{+parent}/indexes",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/datastore"]})))
+    {:method :get,
+     :uri-template
+     "https://firestore.googleapis.com/v1/{+parent}/indexes",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/datastore"]}))
 
 (defn projects-databases-collectionGroups-indexes-get
   "Gets a composite index.
@@ -383,14 +361,13 @@ https://cloud.google.com/firestore/v1/reference/rest/v1/projects/databases/colle
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://firestore.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/datastore"]}))
+  {:method :get,
+   :uri-template "https://firestore.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/datastore"]})
 
 (defn projects-databases-collectionGroups-indexes-delete
   "Deletes a composite index.
@@ -398,14 +375,13 @@ https://cloud.google.com/firestore/v1/reference/rest/v1/projects/databases/colle
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://firestore.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/datastore"]}))
+  {:method :delete,
+   :uri-template "https://firestore.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/datastore"]})
 
 (defn projects-databases-collectionGroups-fields-get
   "Gets the metadata and configuration for a Field.
@@ -413,14 +389,13 @@ https://cloud.google.com/firestore/v1/reference/rest/v1/projects/databases/colle
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://firestore.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/datastore"]}))
+  {:method :get,
+   :uri-template "https://firestore.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/datastore"]})
 
 (defn projects-databases-collectionGroups-fields-patch
   "Updates a field configuration. Currently, field updates apply only to single field index configuration. However, calls to FirestoreAdmin.UpdateField should provide a field mask to avoid changing any configuration that the caller isn't aware of. The field mask should be specified as: `{ paths: \"index_config\" }`. This call returns a google.longrunning.Operation which may be used to track the status of the field update. The metadata for the operation will be the type FieldOperationMetadata. To configure the default field settings for the database, use the special `Field` with resource name: `projects/{project_id}/databases/{database_id}/collectionGroups/__default__/fields/*`.
@@ -438,15 +413,14 @@ updateMask <string> A mask, relative to the field. If specified, only configurat
       GoogleFirestoreAdminV1Field
       nil))
   ([name GoogleFirestoreAdminV1Field optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://firestore.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/datastore"],
-       :body GoogleFirestoreAdminV1Field})))
+    {:method :patch,
+     :uri-template "https://firestore.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/datastore"],
+     :body GoogleFirestoreAdminV1Field}))
 
 (defn projects-databases-collectionGroups-fields-list
   "Lists the field configuration and metadata for this database. Currently, FirestoreAdmin.ListFields only supports listing fields that have been explicitly overridden. To issue this query, call FirestoreAdmin.ListFields with the filter set to `indexConfig.usesAncestorConfig:false` or `ttlConfig:*`.
@@ -460,15 +434,14 @@ pageSize <integer> The number of results to return."
   ([parent]
     (projects-databases-collectionGroups-fields-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://firestore.googleapis.com/v1/{+parent}/fields",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/datastore"]})))
+    {:method :get,
+     :uri-template
+     "https://firestore.googleapis.com/v1/{+parent}/fields",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/datastore"]}))
 
 (defn projects-databases-backupSchedules-create
   "Creates a backup schedule on a database. At most two backup schedules can be configured on a database, one daily backup schedule and one weekly backup schedule.
@@ -478,16 +451,15 @@ parent <>
 GoogleFirestoreAdminV1BackupSchedule:
 GoogleFirestoreAdminV1BackupSchedule"
   [parent GoogleFirestoreAdminV1BackupSchedule]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://firestore.googleapis.com/v1/{+parent}/backupSchedules",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/datastore"],
-     :body GoogleFirestoreAdminV1BackupSchedule}))
+  {:method :post,
+   :uri-template
+   "https://firestore.googleapis.com/v1/{+parent}/backupSchedules",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/datastore"],
+   :body GoogleFirestoreAdminV1BackupSchedule})
 
 (defn projects-databases-backupSchedules-get
   "Gets information about a backup schedule.
@@ -495,14 +467,13 @@ https://cloud.google.com/firestore/v1/reference/rest/v1/projects/databases/backu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://firestore.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/datastore"]}))
+  {:method :get,
+   :uri-template "https://firestore.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/datastore"]})
 
 (defn projects-databases-backupSchedules-list
   "List backup schedules.
@@ -510,15 +481,14 @@ https://cloud.google.com/firestore/v1/reference/rest/v1/projects/databases/backu
 
 parent <> "
   [parent]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://firestore.googleapis.com/v1/{+parent}/backupSchedules",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/datastore"]}))
+  {:method :get,
+   :uri-template
+   "https://firestore.googleapis.com/v1/{+parent}/backupSchedules",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/datastore"]})
 
 (defn projects-databases-backupSchedules-patch
   "Updates a backup schedule.
@@ -536,15 +506,14 @@ updateMask <string> The list of fields to be updated."
       GoogleFirestoreAdminV1BackupSchedule
       nil))
   ([name GoogleFirestoreAdminV1BackupSchedule optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://firestore.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/datastore"],
-       :body GoogleFirestoreAdminV1BackupSchedule})))
+    {:method :patch,
+     :uri-template "https://firestore.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/datastore"],
+     :body GoogleFirestoreAdminV1BackupSchedule}))
 
 (defn projects-databases-backupSchedules-delete
   "Deletes a backup schedule.
@@ -552,14 +521,13 @@ https://cloud.google.com/firestore/v1/reference/rest/v1/projects/databases/backu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://firestore.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/datastore"]}))
+  {:method :delete,
+   :uri-template "https://firestore.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/datastore"]})
 
 (defn projects-databases-documents-listCollectionIds
   "Lists all the collection IDs underneath a document.
@@ -569,16 +537,15 @@ parent <>
 ListCollectionIdsRequest:
 ListCollectionIdsRequest"
   [parent ListCollectionIdsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://firestore.googleapis.com/v1/{+parent}:listCollectionIds",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/datastore"],
-     :body ListCollectionIdsRequest}))
+  {:method :post,
+   :uri-template
+   "https://firestore.googleapis.com/v1/{+parent}:listCollectionIds",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/datastore"],
+   :body ListCollectionIdsRequest})
 
 (defn projects-databases-documents-runAggregationQuery
   "Runs an aggregation query. Rather than producing Document results like Firestore.RunQuery, this API allows running an aggregation to produce a series of AggregationResult server-side. High-Level Example: ``` -- Return the number of documents in table given a filter. SELECT COUNT(*) FROM ( SELECT * FROM k where a = true ); ```
@@ -588,16 +555,15 @@ parent <>
 RunAggregationQueryRequest:
 RunAggregationQueryRequest"
   [parent RunAggregationQueryRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://firestore.googleapis.com/v1/{+parent}:runAggregationQuery",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/datastore"],
-     :body RunAggregationQueryRequest}))
+  {:method :post,
+   :uri-template
+   "https://firestore.googleapis.com/v1/{+parent}:runAggregationQuery",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/datastore"],
+   :body RunAggregationQueryRequest})
 
 (defn projects-databases-documents-list
   "Lists documents.
@@ -616,16 +582,14 @@ readTime <string> Perform the read at the provided time. This must be a microsec
   ([parent collectionId]
     (projects-databases-documents-list parent collectionId nil))
   ([parent collectionId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://firestore.googleapis.com/v1/{+parent}/{collectionId}",
-       :uri-template-args
-       {"collectionId" collectionId, "parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/datastore"]})))
+    {:method :get,
+     :uri-template
+     "https://firestore.googleapis.com/v1/{+parent}/{collectionId}",
+     :uri-template-args {"collectionId" collectionId, "parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/datastore"]}))
 
 (defn projects-databases-documents-delete
   "Deletes a document.
@@ -638,14 +602,13 @@ currentDocument.exists <boolean> When set to `true`, the target document must ex
 currentDocument.updateTime <string> When set, the target document must exist and have been last updated at that time. Timestamp must be microsecond aligned."
   ([name] (projects-databases-documents-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://firestore.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/datastore"]})))
+    {:method :delete,
+     :uri-template "https://firestore.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/datastore"]}))
 
 (defn projects-databases-documents-createDocument
   "Creates a new document.
@@ -666,17 +629,15 @@ mask.fieldPaths <string> The list of field paths in the mask. See Document.field
       Document
       nil))
   ([parent collectionId Document optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://firestore.googleapis.com/v1/{+parent}/{collectionId}",
-       :uri-template-args
-       {"parent" parent, "collectionId" collectionId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/datastore"],
-       :body Document})))
+    {:method :post,
+     :uri-template
+     "https://firestore.googleapis.com/v1/{+parent}/{collectionId}",
+     :uri-template-args {"parent" parent, "collectionId" collectionId},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/datastore"],
+     :body Document}))
 
 (defn projects-databases-documents-commit
   "Commits a transaction, while optionally updating documents.
@@ -686,16 +647,15 @@ database <>
 CommitRequest:
 CommitRequest"
   [database CommitRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://firestore.googleapis.com/v1/{+database}/documents:commit",
-     :uri-template-args {"database" database},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/datastore"],
-     :body CommitRequest}))
+  {:method :post,
+   :uri-template
+   "https://firestore.googleapis.com/v1/{+database}/documents:commit",
+   :uri-template-args {"database" database},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/datastore"],
+   :body CommitRequest})
 
 (defn projects-databases-documents-listen
   "Listens to changes. This method is only available via gRPC or WebChannel (not REST).
@@ -705,16 +665,15 @@ database <>
 ListenRequest:
 ListenRequest"
   [database ListenRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://firestore.googleapis.com/v1/{+database}/documents:listen",
-     :uri-template-args {"database" database},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/datastore"],
-     :body ListenRequest}))
+  {:method :post,
+   :uri-template
+   "https://firestore.googleapis.com/v1/{+database}/documents:listen",
+   :uri-template-args {"database" database},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/datastore"],
+   :body ListenRequest})
 
 (defn projects-databases-documents-batchWrite
   "Applies a batch of write operations. The BatchWrite method does not apply the write operations atomically and can apply them out of order. Method does not allow more than one write per document. Each write succeeds or fails independently. See the BatchWriteResponse for the success status of each write. If you require an atomically applied set of writes, use Commit instead.
@@ -724,16 +683,15 @@ database <>
 BatchWriteRequest:
 BatchWriteRequest"
   [database BatchWriteRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://firestore.googleapis.com/v1/{+database}/documents:batchWrite",
-     :uri-template-args {"database" database},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/datastore"],
-     :body BatchWriteRequest}))
+  {:method :post,
+   :uri-template
+   "https://firestore.googleapis.com/v1/{+database}/documents:batchWrite",
+   :uri-template-args {"database" database},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/datastore"],
+   :body BatchWriteRequest})
 
 (defn projects-databases-documents-patch
   "Updates or inserts a document.
@@ -751,15 +709,14 @@ currentDocument.updateTime <string> When set, the target document must exist and
   ([name Document]
     (projects-databases-documents-patch name Document nil))
   ([name Document optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://firestore.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/datastore"],
-       :body Document})))
+    {:method :patch,
+     :uri-template "https://firestore.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/datastore"],
+     :body Document}))
 
 (defn projects-databases-documents-partitionQuery
   "Partitions a query by returning partition cursors that can be used to run the query in parallel. The returned partition cursors are split points that can be used by RunQuery as starting/end points for the query results.
@@ -769,16 +726,15 @@ parent <>
 PartitionQueryRequest:
 PartitionQueryRequest"
   [parent PartitionQueryRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://firestore.googleapis.com/v1/{+parent}:partitionQuery",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/datastore"],
-     :body PartitionQueryRequest}))
+  {:method :post,
+   :uri-template
+   "https://firestore.googleapis.com/v1/{+parent}:partitionQuery",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/datastore"],
+   :body PartitionQueryRequest})
 
 (defn projects-databases-documents-listDocuments
   "Lists documents.
@@ -800,16 +756,14 @@ readTime <string> Perform the read at the provided time. This must be a microsec
       collectionId
       nil))
   ([parent collectionId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://firestore.googleapis.com/v1/{+parent}/{collectionId}",
-       :uri-template-args
-       {"collectionId" collectionId, "parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/datastore"]})))
+    {:method :get,
+     :uri-template
+     "https://firestore.googleapis.com/v1/{+parent}/{collectionId}",
+     :uri-template-args {"collectionId" collectionId, "parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/datastore"]}))
 
 (defn projects-databases-documents-batchGet
   "Gets multiple documents. Documents returned by this method are not guaranteed to be returned in the same order that they were requested.
@@ -819,16 +773,15 @@ database <>
 BatchGetDocumentsRequest:
 BatchGetDocumentsRequest"
   [database BatchGetDocumentsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://firestore.googleapis.com/v1/{+database}/documents:batchGet",
-     :uri-template-args {"database" database},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/datastore"],
-     :body BatchGetDocumentsRequest}))
+  {:method :post,
+   :uri-template
+   "https://firestore.googleapis.com/v1/{+database}/documents:batchGet",
+   :uri-template-args {"database" database},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/datastore"],
+   :body BatchGetDocumentsRequest})
 
 (defn projects-databases-documents-rollback
   "Rolls back a transaction.
@@ -838,16 +791,15 @@ database <>
 RollbackRequest:
 RollbackRequest"
   [database RollbackRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://firestore.googleapis.com/v1/{+database}/documents:rollback",
-     :uri-template-args {"database" database},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/datastore"],
-     :body RollbackRequest}))
+  {:method :post,
+   :uri-template
+   "https://firestore.googleapis.com/v1/{+database}/documents:rollback",
+   :uri-template-args {"database" database},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/datastore"],
+   :body RollbackRequest})
 
 (defn projects-databases-documents-beginTransaction
   "Starts a new transaction.
@@ -857,16 +809,15 @@ database <>
 BeginTransactionRequest:
 BeginTransactionRequest"
   [database BeginTransactionRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://firestore.googleapis.com/v1/{+database}/documents:beginTransaction",
-     :uri-template-args {"database" database},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/datastore"],
-     :body BeginTransactionRequest}))
+  {:method :post,
+   :uri-template
+   "https://firestore.googleapis.com/v1/{+database}/documents:beginTransaction",
+   :uri-template-args {"database" database},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/datastore"],
+   :body BeginTransactionRequest})
 
 (defn projects-databases-documents-runQuery
   "Runs a query.
@@ -876,16 +827,15 @@ parent <>
 RunQueryRequest:
 RunQueryRequest"
   [parent RunQueryRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://firestore.googleapis.com/v1/{+parent}:runQuery",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/datastore"],
-     :body RunQueryRequest}))
+  {:method :post,
+   :uri-template
+   "https://firestore.googleapis.com/v1/{+parent}:runQuery",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/datastore"],
+   :body RunQueryRequest})
 
 (defn projects-databases-documents-write
   "Streams batches of document updates and deletes, in order. This method is only available via gRPC or WebChannel (not REST).
@@ -895,16 +845,15 @@ database <>
 WriteRequest:
 WriteRequest"
   [database WriteRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://firestore.googleapis.com/v1/{+database}/documents:write",
-     :uri-template-args {"database" database},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/datastore"],
-     :body WriteRequest}))
+  {:method :post,
+   :uri-template
+   "https://firestore.googleapis.com/v1/{+database}/documents:write",
+   :uri-template-args {"database" database},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/datastore"],
+   :body WriteRequest})
 
 (defn projects-databases-documents-get
   "Gets a single document.
@@ -918,11 +867,10 @@ transaction <string> Reads the document in a transaction.
 readTime <string> Reads the version of the document at the given time. This must be a microsecond precision timestamp within the past one hour, or if Point-in-Time Recovery is enabled, can additionally be a whole minute timestamp within the past 7 days."
   ([name] (projects-databases-documents-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template "https://firestore.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/datastore"]})))
+    {:method :get,
+     :uri-template "https://firestore.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/datastore"]}))

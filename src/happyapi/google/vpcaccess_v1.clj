@@ -1,8 +1,7 @@
 (ns happyapi.google.vpcaccess-v1
   "Serverless VPC Access API
 API for managing VPC access connectors.
-See: https://cloud.google.com/vpc/docs/configure-serverless-vpc-access"
-  (:require [happyapi.providers.google :as client]))
+See: https://cloud.google.com/vpc/docs/configure-serverless-vpc-access")
 
 (defn projects-locations-list
   "Lists information about the supported locations for this service.
@@ -15,13 +14,12 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://vpcaccess.googleapis.com/v1/{+name}/locations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://vpcaccess.googleapis.com/v1/{+name}/locations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -34,13 +32,12 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://vpcaccess.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://vpcaccess.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -48,12 +45,11 @@ https://cloud.google.com/vpc/docs/configure-serverless-vpc-access/v1/reference/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://vpcaccess.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://vpcaccess.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-connectors-create
   "Creates a Serverless VPC Access connector, returns an operation.
@@ -68,14 +64,13 @@ connectorId <string> Required. The ID to use for this connector."
   ([parent Connector]
     (projects-locations-connectors-create parent Connector nil))
   ([parent Connector optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://vpcaccess.googleapis.com/v1/{+parent}/connectors",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Connector})))
+    {:method :post,
+     :uri-template
+     "https://vpcaccess.googleapis.com/v1/{+parent}/connectors",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Connector}))
 
 (defn projects-locations-connectors-patch
   "Updates a Serverless VPC Access connector, returns an operation.
@@ -90,13 +85,12 @@ updateMask <string> The fields to update on the entry group. If absent or empty,
   ([name Connector]
     (projects-locations-connectors-patch name Connector nil))
   ([name Connector optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://vpcaccess.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Connector})))
+    {:method :patch,
+     :uri-template "https://vpcaccess.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Connector}))
 
 (defn projects-locations-connectors-get
   "Gets a Serverless VPC Access connector. Returns NOT_FOUND if the resource does not exist.
@@ -104,12 +98,11 @@ https://cloud.google.com/vpc/docs/configure-serverless-vpc-access/v1/reference/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://vpcaccess.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://vpcaccess.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-connectors-list
   "Lists Serverless VPC Access connectors.
@@ -121,13 +114,12 @@ optional:
 pageSize <integer> Maximum number of functions to return per call."
   ([parent] (projects-locations-connectors-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://vpcaccess.googleapis.com/v1/{+parent}/connectors",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://vpcaccess.googleapis.com/v1/{+parent}/connectors",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-connectors-delete
   "Deletes a Serverless VPC Access connector. Returns NOT_FOUND if the resource does not exist.
@@ -135,9 +127,8 @@ https://cloud.google.com/vpc/docs/configure-serverless-vpc-access/v1/reference/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://vpcaccess.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://vpcaccess.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})

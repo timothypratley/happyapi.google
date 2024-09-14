@@ -1,8 +1,7 @@
 (ns happyapi.google.airquality-v1
   "Air Quality API
 The Air Quality API.
-See: https://developers.google.com/maps/documentation/air-quality"
-  (:require [happyapi.providers.google :as client]))
+See: https://developers.google.com/maps/documentation/air-quality")
 
 (defn history-lookup
   "Returns air quality history for a specific location for a given time range.
@@ -11,14 +10,12 @@ https://developers.google.com/maps/documentation/air-quality/v1/reference/rest/v
 LookupHistoryRequest:
 LookupHistoryRequest"
   [LookupHistoryRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://airquality.googleapis.com/v1/history:lookup",
-     :uri-template-args {},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body LookupHistoryRequest}))
+  {:method :post,
+   :uri-template "https://airquality.googleapis.com/v1/history:lookup",
+   :uri-template-args {},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body LookupHistoryRequest})
 
 (defn forecast-lookup
   "Returns air quality forecast for a specific location for a given time range.
@@ -27,14 +24,13 @@ https://developers.google.com/maps/documentation/air-quality/v1/reference/rest/v
 LookupForecastRequest:
 LookupForecastRequest"
   [LookupForecastRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://airquality.googleapis.com/v1/forecast:lookup",
-     :uri-template-args {},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body LookupForecastRequest}))
+  {:method :post,
+   :uri-template
+   "https://airquality.googleapis.com/v1/forecast:lookup",
+   :uri-template-args {},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body LookupForecastRequest})
 
 (defn mapTypes-heatmapTiles-lookupHeatmapTile
   "Returns a bytes array containing the data of the tile PNG image.
@@ -45,13 +41,12 @@ zoom <>
 x <> 
 y <> "
   [mapType zoom x y]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://airquality.googleapis.com/v1/mapTypes/{mapType}/heatmapTiles/{zoom}/{x}/{y}",
-     :uri-template-args {"zoom" zoom, "mapType" mapType, "x" x, "y" y},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template
+   "https://airquality.googleapis.com/v1/mapTypes/{mapType}/heatmapTiles/{zoom}/{x}/{y}",
+   :uri-template-args {"zoom" zoom, "mapType" mapType, "x" x, "y" y},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn currentConditions-lookup
   "The Current Conditions endpoint provides hourly air quality information in more than 100 countries, up to a 500 x 500 meters resolution. Includes over 70 local indexes and global air quality index and categories.
@@ -60,11 +55,10 @@ https://developers.google.com/maps/documentation/air-quality/v1/reference/rest/v
 LookupCurrentConditionsRequest:
 LookupCurrentConditionsRequest"
   [LookupCurrentConditionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://airquality.googleapis.com/v1/currentConditions:lookup",
-     :uri-template-args {},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body LookupCurrentConditionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://airquality.googleapis.com/v1/currentConditions:lookup",
+   :uri-template-args {},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body LookupCurrentConditionsRequest})

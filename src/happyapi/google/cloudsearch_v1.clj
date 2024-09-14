@@ -1,8 +1,7 @@
 (ns happyapi.google.cloudsearch-v1
   "Cloud Search API
 Cloud Search provides cloud-based search capabilities over Google Workspace data. The Cloud Search API allows indexing of non-Google Workspace data into Cloud Search.
-See: https://developers.google.com/cloud-search/docs/guides/"
-  (:require [happyapi.providers.google :as client]))
+See: https://developers.google.com/cloud-search/docs/guides/")
 
 (defn operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -10,18 +9,17 @@ https://developers.google.com/cloud-search/docs/guides/v1/reference/rest/v1/oper
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://cloudsearch.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud_search"
-      "https://www.googleapis.com/auth/cloud_search.debug"
-      "https://www.googleapis.com/auth/cloud_search.indexing"
-      "https://www.googleapis.com/auth/cloud_search.settings"
-      "https://www.googleapis.com/auth/cloud_search.settings.indexing"
-      "https://www.googleapis.com/auth/cloud_search.settings.query"]}))
+  {:method :get,
+   :uri-template "https://cloudsearch.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud_search"
+    "https://www.googleapis.com/auth/cloud_search.debug"
+    "https://www.googleapis.com/auth/cloud_search.indexing"
+    "https://www.googleapis.com/auth/cloud_search.settings"
+    "https://www.googleapis.com/auth/cloud_search.settings.indexing"
+    "https://www.googleapis.com/auth/cloud_search.settings.query"]})
 
 (defn operations-lro-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -34,19 +32,17 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (operations-lro-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudsearch.googleapis.com/v1/{+name}/lro",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud_search"
-        "https://www.googleapis.com/auth/cloud_search.debug"
-        "https://www.googleapis.com/auth/cloud_search.indexing"
-        "https://www.googleapis.com/auth/cloud_search.settings"
-        "https://www.googleapis.com/auth/cloud_search.settings.indexing"
-        "https://www.googleapis.com/auth/cloud_search.settings.query"]})))
+    {:method :get,
+     :uri-template "https://cloudsearch.googleapis.com/v1/{+name}/lro",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud_search"
+      "https://www.googleapis.com/auth/cloud_search.debug"
+      "https://www.googleapis.com/auth/cloud_search.indexing"
+      "https://www.googleapis.com/auth/cloud_search.settings"
+      "https://www.googleapis.com/auth/cloud_search.settings.indexing"
+      "https://www.googleapis.com/auth/cloud_search.settings.query"]}))
 
 (defn debug-datasources-items-checkAccess
   "Checks whether an item is accessible by specified principal. Principal must be a user; groups and domain values aren't supported. **Note:** This API requires an admin account to execute.
@@ -61,16 +57,15 @@ debugOptions.enableDebugging <boolean> If you are asked by Google to help with d
   ([name Principal]
     (debug-datasources-items-checkAccess name Principal nil))
   ([name Principal optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://cloudsearch.googleapis.com/v1/debug/{+name}:checkAccess",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud_search"
-        "https://www.googleapis.com/auth/cloud_search.debug"],
-       :body Principal})))
+    {:method :post,
+     :uri-template
+     "https://cloudsearch.googleapis.com/v1/debug/{+name}:checkAccess",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud_search"
+      "https://www.googleapis.com/auth/cloud_search.debug"],
+     :body Principal}))
 
 (defn debug-datasources-items-searchByViewUrl
   "Fetches the item whose viewUrl exactly matches that of the URL provided in the request. **Note:** This API requires an admin account to execute.
@@ -80,16 +75,15 @@ name <>
 SearchItemsByViewUrlRequest:
 SearchItemsByViewUrlRequest"
   [name SearchItemsByViewUrlRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudsearch.googleapis.com/v1/debug/{+name}/items:searchByViewUrl",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud_search"
-      "https://www.googleapis.com/auth/cloud_search.debug"],
-     :body SearchItemsByViewUrlRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudsearch.googleapis.com/v1/debug/{+name}/items:searchByViewUrl",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud_search"
+    "https://www.googleapis.com/auth/cloud_search.debug"],
+   :body SearchItemsByViewUrlRequest})
 
 (defn debug-datasources-items-unmappedids-list
   "List all unmapped identities for a specific item. **Note:** This API requires an admin account to execute.
@@ -102,15 +96,14 @@ pageSize <integer> Maximum number of items to fetch in a request. Defaults to 10
 debugOptions.enableDebugging <boolean> If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field."
   ([parent] (debug-datasources-items-unmappedids-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudsearch.googleapis.com/v1/debug/{+parent}/unmappedids",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud_search"
-        "https://www.googleapis.com/auth/cloud_search.debug"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudsearch.googleapis.com/v1/debug/{+parent}/unmappedids",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud_search"
+      "https://www.googleapis.com/auth/cloud_search.debug"]}))
 
 (defn debug-identitysources-unmappedids-list
   "Lists unmapped user identities for an identity source. **Note:** This API requires an admin account to execute.
@@ -124,15 +117,14 @@ pageSize <integer> Maximum number of items to fetch in a request. Defaults to 10
 debugOptions.enableDebugging <boolean> If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field."
   ([parent] (debug-identitysources-unmappedids-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudsearch.googleapis.com/v1/debug/{+parent}/unmappedids",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud_search"
-        "https://www.googleapis.com/auth/cloud_search.debug"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudsearch.googleapis.com/v1/debug/{+parent}/unmappedids",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud_search"
+      "https://www.googleapis.com/auth/cloud_search.debug"]}))
 
 (defn debug-identitysources-items-listForunmappedidentity
   "Lists names of items associated with an unmapped identity. **Note:** This API requires an admin account to execute.
@@ -148,30 +140,28 @@ debugOptions.enableDebugging <boolean> If you are asked by Google to help with d
   ([parent]
     (debug-identitysources-items-listForunmappedidentity parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudsearch.googleapis.com/v1/debug/{+parent}/items:forunmappedidentity",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud_search"
-        "https://www.googleapis.com/auth/cloud_search.debug"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudsearch.googleapis.com/v1/debug/{+parent}/items:forunmappedidentity",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud_search"
+      "https://www.googleapis.com/auth/cloud_search.debug"]}))
 
 (defn settings-getCustomer
   "Get customer settings. **Note:** This API requires an admin account to execute.
 https://developers.google.com/cloud-search/docs/guides/v1/reference/rest/v1/settings/getCustomer"
   []
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://cloudsearch.googleapis.com/v1/settings/customer",
-     :uri-template-args {},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud_search"
-      "https://www.googleapis.com/auth/cloud_search.settings"
-      "https://www.googleapis.com/auth/cloud_search.settings.indexing"]}))
+  {:method :get,
+   :uri-template
+   "https://cloudsearch.googleapis.com/v1/settings/customer",
+   :uri-template-args {},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud_search"
+    "https://www.googleapis.com/auth/cloud_search.settings"
+    "https://www.googleapis.com/auth/cloud_search.settings.indexing"]})
 
 (defn settings-updateCustomer
   "Update customer settings. **Note:** This API requires an admin account to execute.
@@ -184,17 +174,16 @@ optional:
 updateMask <string> Update mask to control which fields get updated. If you specify a field in the update_mask but don't specify its value here, that field will be cleared. If the mask is not present or empty, all fields will be updated. Currently supported field paths: vpc_settings and audit_logging_settings"
   ([CustomerSettings] (settings-updateCustomer CustomerSettings nil))
   ([CustomerSettings optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://cloudsearch.googleapis.com/v1/settings/customer",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud_search"
-        "https://www.googleapis.com/auth/cloud_search.settings"
-        "https://www.googleapis.com/auth/cloud_search.settings.indexing"],
-       :body CustomerSettings})))
+    {:method :patch,
+     :uri-template
+     "https://cloudsearch.googleapis.com/v1/settings/customer",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud_search"
+      "https://www.googleapis.com/auth/cloud_search.settings"
+      "https://www.googleapis.com/auth/cloud_search.settings.indexing"],
+     :body CustomerSettings}))
 
 (defn settings-searchapplications-list
   "Lists all search applications. **Note:** This API requires an admin account to execute.
@@ -205,16 +194,15 @@ pageSize <integer> The maximum number of items to return.
 debugOptions.enableDebugging <boolean> If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field."
   ([] (settings-searchapplications-list nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudsearch.googleapis.com/v1/settings/searchapplications",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud_search"
-        "https://www.googleapis.com/auth/cloud_search.settings"
-        "https://www.googleapis.com/auth/cloud_search.settings.query"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudsearch.googleapis.com/v1/settings/searchapplications",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud_search"
+      "https://www.googleapis.com/auth/cloud_search.settings"
+      "https://www.googleapis.com/auth/cloud_search.settings.query"]}))
 
 (defn settings-searchapplications-get
   "Gets the specified search application. **Note:** This API requires an admin account to execute.
@@ -226,16 +214,15 @@ optional:
 debugOptions.enableDebugging <boolean> If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field."
   ([name] (settings-searchapplications-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudsearch.googleapis.com/v1/settings/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud_search"
-        "https://www.googleapis.com/auth/cloud_search.settings"
-        "https://www.googleapis.com/auth/cloud_search.settings.query"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudsearch.googleapis.com/v1/settings/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud_search"
+      "https://www.googleapis.com/auth/cloud_search.settings"
+      "https://www.googleapis.com/auth/cloud_search.settings.query"]}))
 
 (defn settings-searchapplications-create
   "Creates a search application. **Note:** This API requires an admin account to execute.
@@ -244,17 +231,16 @@ https://developers.google.com/cloud-search/docs/guides/v1/reference/rest/v1/sett
 SearchApplication:
 SearchApplication"
   [SearchApplication]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudsearch.googleapis.com/v1/settings/searchapplications",
-     :uri-template-args {},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud_search"
-      "https://www.googleapis.com/auth/cloud_search.settings"
-      "https://www.googleapis.com/auth/cloud_search.settings.query"],
-     :body SearchApplication}))
+  {:method :post,
+   :uri-template
+   "https://cloudsearch.googleapis.com/v1/settings/searchapplications",
+   :uri-template-args {},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud_search"
+    "https://www.googleapis.com/auth/cloud_search.settings"
+    "https://www.googleapis.com/auth/cloud_search.settings.query"],
+   :body SearchApplication})
 
 (defn settings-searchapplications-update
   "Updates a search application. **Note:** This API requires an admin account to execute.
@@ -269,17 +255,16 @@ updateMask <string> Only applies to [`settings.searchapplications.patch`](https:
   ([name SearchApplication]
     (settings-searchapplications-update name SearchApplication nil))
   ([name SearchApplication optional]
-    (client/*api-request*
-      {:method :put,
-       :uri-template
-       "https://cloudsearch.googleapis.com/v1/settings/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud_search"
-        "https://www.googleapis.com/auth/cloud_search.settings"
-        "https://www.googleapis.com/auth/cloud_search.settings.query"],
-       :body SearchApplication})))
+    {:method :put,
+     :uri-template
+     "https://cloudsearch.googleapis.com/v1/settings/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud_search"
+      "https://www.googleapis.com/auth/cloud_search.settings"
+      "https://www.googleapis.com/auth/cloud_search.settings.query"],
+     :body SearchApplication}))
 
 (defn settings-searchapplications-patch
   "Updates a search application. **Note:** This API requires an admin account to execute.
@@ -294,17 +279,16 @@ updateMask <string> Only applies to [`settings.searchapplications.patch`](https:
   ([name SearchApplication]
     (settings-searchapplications-patch name SearchApplication nil))
   ([name SearchApplication optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://cloudsearch.googleapis.com/v1/settings/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud_search"
-        "https://www.googleapis.com/auth/cloud_search.settings"
-        "https://www.googleapis.com/auth/cloud_search.settings.query"],
-       :body SearchApplication})))
+    {:method :patch,
+     :uri-template
+     "https://cloudsearch.googleapis.com/v1/settings/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud_search"
+      "https://www.googleapis.com/auth/cloud_search.settings"
+      "https://www.googleapis.com/auth/cloud_search.settings.query"],
+     :body SearchApplication}))
 
 (defn settings-searchapplications-delete
   "Deletes a search application. **Note:** This API requires an admin account to execute.
@@ -316,16 +300,15 @@ optional:
 debugOptions.enableDebugging <boolean> If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field."
   ([name] (settings-searchapplications-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://cloudsearch.googleapis.com/v1/settings/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud_search"
-        "https://www.googleapis.com/auth/cloud_search.settings"
-        "https://www.googleapis.com/auth/cloud_search.settings.query"]})))
+    {:method :delete,
+     :uri-template
+     "https://cloudsearch.googleapis.com/v1/settings/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud_search"
+      "https://www.googleapis.com/auth/cloud_search.settings"
+      "https://www.googleapis.com/auth/cloud_search.settings.query"]}))
 
 (defn settings-searchapplications-reset
   "Resets a search application to default settings. This will return an empty response. **Note:** This API requires an admin account to execute.
@@ -335,17 +318,16 @@ name <>
 ResetSearchApplicationRequest:
 ResetSearchApplicationRequest"
   [name ResetSearchApplicationRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudsearch.googleapis.com/v1/settings/{+name}:reset",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud_search"
-      "https://www.googleapis.com/auth/cloud_search.settings"
-      "https://www.googleapis.com/auth/cloud_search.settings.query"],
-     :body ResetSearchApplicationRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudsearch.googleapis.com/v1/settings/{+name}:reset",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud_search"
+    "https://www.googleapis.com/auth/cloud_search.settings"
+    "https://www.googleapis.com/auth/cloud_search.settings.query"],
+   :body ResetSearchApplicationRequest})
 
 (defn settings-datasources-create
   "Creates a datasource. **Note:** This API requires an admin account to execute.
@@ -354,17 +336,16 @@ https://developers.google.com/cloud-search/docs/guides/v1/reference/rest/v1/sett
 DataSource:
 DataSource"
   [DataSource]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudsearch.googleapis.com/v1/settings/datasources",
-     :uri-template-args {},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud_search"
-      "https://www.googleapis.com/auth/cloud_search.settings"
-      "https://www.googleapis.com/auth/cloud_search.settings.indexing"],
-     :body DataSource}))
+  {:method :post,
+   :uri-template
+   "https://cloudsearch.googleapis.com/v1/settings/datasources",
+   :uri-template-args {},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud_search"
+    "https://www.googleapis.com/auth/cloud_search.settings"
+    "https://www.googleapis.com/auth/cloud_search.settings.indexing"],
+   :body DataSource})
 
 (defn settings-datasources-delete
   "Deletes a datasource. **Note:** This API requires an admin account to execute.
@@ -376,16 +357,15 @@ optional:
 debugOptions.enableDebugging <boolean> If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field."
   ([name] (settings-datasources-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://cloudsearch.googleapis.com/v1/settings/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud_search"
-        "https://www.googleapis.com/auth/cloud_search.settings"
-        "https://www.googleapis.com/auth/cloud_search.settings.indexing"]})))
+    {:method :delete,
+     :uri-template
+     "https://cloudsearch.googleapis.com/v1/settings/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud_search"
+      "https://www.googleapis.com/auth/cloud_search.settings"
+      "https://www.googleapis.com/auth/cloud_search.settings.indexing"]}))
 
 (defn settings-datasources-get
   "Gets a datasource. **Note:** This API requires an admin account to execute.
@@ -397,16 +377,15 @@ optional:
 debugOptions.enableDebugging <boolean> If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field."
   ([name] (settings-datasources-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudsearch.googleapis.com/v1/settings/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud_search"
-        "https://www.googleapis.com/auth/cloud_search.settings"
-        "https://www.googleapis.com/auth/cloud_search.settings.indexing"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudsearch.googleapis.com/v1/settings/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud_search"
+      "https://www.googleapis.com/auth/cloud_search.settings"
+      "https://www.googleapis.com/auth/cloud_search.settings.indexing"]}))
 
 (defn settings-datasources-update
   "Updates a datasource. **Note:** This API requires an admin account to execute.
@@ -416,17 +395,16 @@ name <>
 UpdateDataSourceRequest:
 UpdateDataSourceRequest"
   [name UpdateDataSourceRequest]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://cloudsearch.googleapis.com/v1/settings/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud_search"
-      "https://www.googleapis.com/auth/cloud_search.settings"
-      "https://www.googleapis.com/auth/cloud_search.settings.indexing"],
-     :body UpdateDataSourceRequest}))
+  {:method :put,
+   :uri-template
+   "https://cloudsearch.googleapis.com/v1/settings/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud_search"
+    "https://www.googleapis.com/auth/cloud_search.settings"
+    "https://www.googleapis.com/auth/cloud_search.settings.indexing"],
+   :body UpdateDataSourceRequest})
 
 (defn settings-datasources-patch
   "Updates a datasource. **Note:** This API requires an admin account to execute.
@@ -441,17 +419,16 @@ debugOptions.enableDebugging <boolean> If you are asked by Google to help with d
 updateMask <string> Only applies to [`settings.datasources.patch`](https://developers.google.com/cloud-search/docs/reference/rest/v1/settings.datasources/patch). Update mask to control which fields to update. Example field paths: `name`, `displayName`. * If `update_mask` is non-empty, then only the fields specified in the `update_mask` are updated. * If you specify a field in the `update_mask`, but don't specify its value in the source, that field is cleared. * If the `update_mask` is not present or empty or has the value `*`, then all fields are updated."
   ([name DataSource] (settings-datasources-patch name DataSource nil))
   ([name DataSource optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://cloudsearch.googleapis.com/v1/settings/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud_search"
-        "https://www.googleapis.com/auth/cloud_search.settings"
-        "https://www.googleapis.com/auth/cloud_search.settings.indexing"],
-       :body DataSource})))
+    {:method :patch,
+     :uri-template
+     "https://cloudsearch.googleapis.com/v1/settings/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud_search"
+      "https://www.googleapis.com/auth/cloud_search.settings"
+      "https://www.googleapis.com/auth/cloud_search.settings.indexing"],
+     :body DataSource}))
 
 (defn settings-datasources-list
   "Lists datasources. **Note:** This API requires an admin account to execute.
@@ -462,16 +439,15 @@ pageSize <integer> Maximum number of datasources to fetch in a request. The max 
 debugOptions.enableDebugging <boolean> If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field."
   ([] (settings-datasources-list nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudsearch.googleapis.com/v1/settings/datasources",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud_search"
-        "https://www.googleapis.com/auth/cloud_search.settings"
-        "https://www.googleapis.com/auth/cloud_search.settings.indexing"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudsearch.googleapis.com/v1/settings/datasources",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud_search"
+      "https://www.googleapis.com/auth/cloud_search.settings"
+      "https://www.googleapis.com/auth/cloud_search.settings.indexing"]}))
 
 (defn initializeCustomer
   "Enables `third party` support in Google Cloud Search. **Note:** This API requires an admin account to execute.
@@ -480,17 +456,16 @@ https://developers.google.com/cloud-search/docs/guides/v1/reference/rest/v1/init
 InitializeCustomerRequest:
 InitializeCustomerRequest"
   [InitializeCustomerRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudsearch.googleapis.com/v1:initializeCustomer",
-     :uri-template-args {},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud_search"
-      "https://www.googleapis.com/auth/cloud_search.settings"
-      "https://www.googleapis.com/auth/cloud_search.settings.indexing"],
-     :body InitializeCustomerRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudsearch.googleapis.com/v1:initializeCustomer",
+   :uri-template-args {},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud_search"
+    "https://www.googleapis.com/auth/cloud_search.settings"
+    "https://www.googleapis.com/auth/cloud_search.settings.indexing"],
+   :body InitializeCustomerRequest})
 
 (defn indexing-datasources-updateSchema
   "Updates the schema of a data source. This method does not perform incremental updates to the schema. Instead, this method updates the schema by overwriting the entire schema. **Note:** This API requires an admin or service account to execute.
@@ -500,17 +475,16 @@ name <>
 UpdateSchemaRequest:
 UpdateSchemaRequest"
   [name UpdateSchemaRequest]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://cloudsearch.googleapis.com/v1/indexing/{+name}/schema",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud_search"
-      "https://www.googleapis.com/auth/cloud_search.settings"
-      "https://www.googleapis.com/auth/cloud_search.settings.indexing"],
-     :body UpdateSchemaRequest}))
+  {:method :put,
+   :uri-template
+   "https://cloudsearch.googleapis.com/v1/indexing/{+name}/schema",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud_search"
+    "https://www.googleapis.com/auth/cloud_search.settings"
+    "https://www.googleapis.com/auth/cloud_search.settings.indexing"],
+   :body UpdateSchemaRequest})
 
 (defn indexing-datasources-getSchema
   "Gets the schema of a data source. **Note:** This API requires an admin or service account to execute.
@@ -522,16 +496,15 @@ optional:
 debugOptions.enableDebugging <boolean> If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field."
   ([name] (indexing-datasources-getSchema name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudsearch.googleapis.com/v1/indexing/{+name}/schema",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud_search"
-        "https://www.googleapis.com/auth/cloud_search.settings"
-        "https://www.googleapis.com/auth/cloud_search.settings.indexing"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudsearch.googleapis.com/v1/indexing/{+name}/schema",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud_search"
+      "https://www.googleapis.com/auth/cloud_search.settings"
+      "https://www.googleapis.com/auth/cloud_search.settings.indexing"]}))
 
 (defn indexing-datasources-deleteSchema
   "Deletes the schema of a data source. **Note:** This API requires an admin or service account to execute.
@@ -543,16 +516,15 @@ optional:
 debugOptions.enableDebugging <boolean> If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field."
   ([name] (indexing-datasources-deleteSchema name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://cloudsearch.googleapis.com/v1/indexing/{+name}/schema",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud_search"
-        "https://www.googleapis.com/auth/cloud_search.settings"
-        "https://www.googleapis.com/auth/cloud_search.settings.indexing"]})))
+    {:method :delete,
+     :uri-template
+     "https://cloudsearch.googleapis.com/v1/indexing/{+name}/schema",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud_search"
+      "https://www.googleapis.com/auth/cloud_search.settings"
+      "https://www.googleapis.com/auth/cloud_search.settings.indexing"]}))
 
 (defn indexing-datasources-items-list
   "Lists all or a subset of Item resources. This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data source.
@@ -567,15 +539,14 @@ pageSize <integer> Maximum number of items to fetch in a request. The max value 
 debugOptions.enableDebugging <boolean> If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field."
   ([name] (indexing-datasources-items-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudsearch.googleapis.com/v1/indexing/{+name}/items",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud_search"
-        "https://www.googleapis.com/auth/cloud_search.indexing"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudsearch.googleapis.com/v1/indexing/{+name}/items",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud_search"
+      "https://www.googleapis.com/auth/cloud_search.indexing"]}))
 
 (defn indexing-datasources-items-index
   "Updates Item ACL, metadata, and content. It will insert the Item if it does not exist. This method does not support partial updates. Fields with no provided values are cleared out in the Cloud Search index. This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data source.
@@ -585,16 +556,15 @@ name <>
 IndexItemRequest:
 IndexItemRequest"
   [name IndexItemRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudsearch.googleapis.com/v1/indexing/{+name}:index",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud_search"
-      "https://www.googleapis.com/auth/cloud_search.indexing"],
-     :body IndexItemRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudsearch.googleapis.com/v1/indexing/{+name}:index",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud_search"
+    "https://www.googleapis.com/auth/cloud_search.indexing"],
+   :body IndexItemRequest})
 
 (defn indexing-datasources-items-deleteQueueItems
   "Deletes all items in a queue. This method is useful for deleting stale items. This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data source.
@@ -604,16 +574,15 @@ name <>
 DeleteQueueItemsRequest:
 DeleteQueueItemsRequest"
   [name DeleteQueueItemsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudsearch.googleapis.com/v1/indexing/{+name}/items:deleteQueueItems",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud_search"
-      "https://www.googleapis.com/auth/cloud_search.indexing"],
-     :body DeleteQueueItemsRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudsearch.googleapis.com/v1/indexing/{+name}/items:deleteQueueItems",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud_search"
+    "https://www.googleapis.com/auth/cloud_search.indexing"],
+   :body DeleteQueueItemsRequest})
 
 (defn indexing-datasources-items-unreserve
   "Unreserves all items from a queue, making them all eligible to be polled. This method is useful for resetting the indexing queue after a connector has been restarted. This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data source.
@@ -623,16 +592,15 @@ name <>
 UnreserveItemsRequest:
 UnreserveItemsRequest"
   [name UnreserveItemsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudsearch.googleapis.com/v1/indexing/{+name}/items:unreserve",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud_search"
-      "https://www.googleapis.com/auth/cloud_search.indexing"],
-     :body UnreserveItemsRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudsearch.googleapis.com/v1/indexing/{+name}/items:unreserve",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud_search"
+    "https://www.googleapis.com/auth/cloud_search.indexing"],
+   :body UnreserveItemsRequest})
 
 (defn indexing-datasources-items-delete
   "Deletes Item resource for the specified resource name. This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data source.
@@ -647,15 +615,14 @@ mode <string> Required. The RequestMode for this request.
 debugOptions.enableDebugging <boolean> If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field."
   ([name] (indexing-datasources-items-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://cloudsearch.googleapis.com/v1/indexing/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud_search"
-        "https://www.googleapis.com/auth/cloud_search.indexing"]})))
+    {:method :delete,
+     :uri-template
+     "https://cloudsearch.googleapis.com/v1/indexing/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud_search"
+      "https://www.googleapis.com/auth/cloud_search.indexing"]}))
 
 (defn indexing-datasources-items-upload
   "Creates an upload session for uploading item content. For items smaller than 100 KB, it's easier to embed the content inline within an index request. This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data source.
@@ -665,16 +632,15 @@ name <>
 StartUploadItemRequest:
 StartUploadItemRequest"
   [name StartUploadItemRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudsearch.googleapis.com/v1/indexing/{+name}:upload",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud_search"
-      "https://www.googleapis.com/auth/cloud_search.indexing"],
-     :body StartUploadItemRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudsearch.googleapis.com/v1/indexing/{+name}:upload",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud_search"
+    "https://www.googleapis.com/auth/cloud_search.indexing"],
+   :body StartUploadItemRequest})
 
 (defn indexing-datasources-items-push
   "Pushes an item onto a queue for later polling and updating. This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data source.
@@ -684,16 +650,15 @@ name <>
 PushItemRequest:
 PushItemRequest"
   [name PushItemRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudsearch.googleapis.com/v1/indexing/{+name}:push",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud_search"
-      "https://www.googleapis.com/auth/cloud_search.indexing"],
-     :body PushItemRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudsearch.googleapis.com/v1/indexing/{+name}:push",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud_search"
+    "https://www.googleapis.com/auth/cloud_search.indexing"],
+   :body PushItemRequest})
 
 (defn indexing-datasources-items-poll
   "Polls for unreserved items from the indexing queue and marks a set as reserved, starting with items that have the oldest timestamp from the highest priority ItemStatus. The priority order is as follows: ERROR MODIFIED NEW_ITEM ACCEPTED Reserving items ensures that polling from other threads cannot create overlapping sets. After handling the reserved items, the client should put items back into the unreserved state, either by calling index, or by calling push with the type REQUEUE. Items automatically become available (unreserved) after 4 hours even if no update or push method is called. This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data source.
@@ -703,16 +668,15 @@ name <>
 PollItemsRequest:
 PollItemsRequest"
   [name PollItemsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudsearch.googleapis.com/v1/indexing/{+name}/items:poll",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud_search"
-      "https://www.googleapis.com/auth/cloud_search.indexing"],
-     :body PollItemsRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudsearch.googleapis.com/v1/indexing/{+name}/items:poll",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud_search"
+    "https://www.googleapis.com/auth/cloud_search.indexing"],
+   :body PollItemsRequest})
 
 (defn indexing-datasources-items-get
   "Gets Item resource by item name. This API requires an admin or service account to execute. The service account used is the one whitelisted in the corresponding data source.
@@ -725,15 +689,14 @@ connectorName <string> The name of connector making this call. Format: datasourc
 debugOptions.enableDebugging <boolean> If you are asked by Google to help with debugging, set this field. Otherwise, ignore this field."
   ([name] (indexing-datasources-items-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudsearch.googleapis.com/v1/indexing/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud_search"
-        "https://www.googleapis.com/auth/cloud_search.indexing"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudsearch.googleapis.com/v1/indexing/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud_search"
+      "https://www.googleapis.com/auth/cloud_search.indexing"]}))
 
 (defn query-suggest
   "Provides suggestions for autocompleting the query. **Note:** This API requires a standard end user account to execute. A service account can't perform Query API requests directly; to use a service account to perform queries, set up [Google Workspace domain-wide delegation of authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
@@ -742,16 +705,14 @@ https://developers.google.com/cloud-search/docs/guides/v1/reference/rest/v1/quer
 SuggestRequest:
 SuggestRequest"
   [SuggestRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudsearch.googleapis.com/v1/query/suggest",
-     :uri-template-args {},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud_search"
-      "https://www.googleapis.com/auth/cloud_search.query"],
-     :body SuggestRequest}))
+  {:method :post,
+   :uri-template "https://cloudsearch.googleapis.com/v1/query/suggest",
+   :uri-template-args {},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud_search"
+    "https://www.googleapis.com/auth/cloud_search.query"],
+   :body SuggestRequest})
 
 (defn query-search
   "The Cloud Search Query API provides the search method, which returns the most relevant results from a user query. The results can come from Google Workspace apps, such as Gmail or Google Drive, or they can come from data that you have indexed from a third party. **Note:** This API requires a standard end user account to execute. A service account can't perform Query API requests directly; to use a service account to perform queries, set up [Google Workspace domain-wide delegation of authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
@@ -760,16 +721,14 @@ https://developers.google.com/cloud-search/docs/guides/v1/reference/rest/v1/quer
 SearchRequest:
 SearchRequest"
   [SearchRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudsearch.googleapis.com/v1/query/search",
-     :uri-template-args {},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud_search"
-      "https://www.googleapis.com/auth/cloud_search.query"],
-     :body SearchRequest}))
+  {:method :post,
+   :uri-template "https://cloudsearch.googleapis.com/v1/query/search",
+   :uri-template-args {},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud_search"
+    "https://www.googleapis.com/auth/cloud_search.query"],
+   :body SearchRequest})
 
 (defn query-removeActivity
   "Provides functionality to remove logged activity for a user. Currently to be used only for Chat 1p clients **Note:** This API requires a standard end user account to execute. A service account can't perform Remove Activity requests directly; to use a service account to perform queries, set up [Google Workspace domain-wide delegation of authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
@@ -778,16 +737,15 @@ https://developers.google.com/cloud-search/docs/guides/v1/reference/rest/v1/quer
 RemoveActivityRequest:
 RemoveActivityRequest"
   [RemoveActivityRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudsearch.googleapis.com/v1/query:removeActivity",
-     :uri-template-args {},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud_search"
-      "https://www.googleapis.com/auth/cloud_search.query"],
-     :body RemoveActivityRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudsearch.googleapis.com/v1/query:removeActivity",
+   :uri-template-args {},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud_search"
+    "https://www.googleapis.com/auth/cloud_search.query"],
+   :body RemoveActivityRequest})
 
 (defn query-debugSearch
   "Returns Debug information for Cloud Search Query API provides the search method. **Note:** This API requires a standard end user account to execute. A service account can't perform Query API requests directly; to use a service account to perform queries, set up [Google Workspace domain-wide delegation of authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
@@ -796,16 +754,15 @@ https://developers.google.com/cloud-search/docs/guides/v1/reference/rest/v1/quer
 SearchRequest:
 SearchRequest"
   [SearchRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudsearch.googleapis.com/v1/query:debugSearch",
-     :uri-template-args {},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud_search"
-      "https://www.googleapis.com/auth/cloud_search.query"],
-     :body SearchRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudsearch.googleapis.com/v1/query:debugSearch",
+   :uri-template-args {},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud_search"
+    "https://www.googleapis.com/auth/cloud_search.query"],
+   :body SearchRequest})
 
 (defn query-sources-list
   "Returns list of sources that user can use for Search and Suggest APIs. **Note:** This API requires a standard end user account to execute. A service account can't perform Query API requests directly; to use a service account to perform queries, set up [Google Workspace domain-wide delegation of authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
@@ -818,15 +775,14 @@ requestOptions.timeZone <string> Current user's time zone id, such as \"America/
 requestOptions.searchApplicationId <string> The ID generated when you create a search application using the [admin console](https://support.google.com/a/answer/9043922)."
   ([] (query-sources-list nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudsearch.googleapis.com/v1/query/sources",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud_search"
-        "https://www.googleapis.com/auth/cloud_search.query"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudsearch.googleapis.com/v1/query/sources",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud_search"
+      "https://www.googleapis.com/auth/cloud_search.query"]}))
 
 (defn stats-getIndex
   "Gets indexed item statistics aggreggated across all data sources. This API only returns statistics for previous dates; it doesn't return statistics for the current day. **Note:** This API requires a standard end user account to execute.
@@ -841,16 +797,14 @@ toDate.month <integer> Month of date. Must be from 1 to 12.
 toDate.day <integer> Day of month. Must be from 1 to 31 and valid for the year and month."
   ([] (stats-getIndex nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudsearch.googleapis.com/v1/stats/index",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud_search"
-        "https://www.googleapis.com/auth/cloud_search.stats"
-        "https://www.googleapis.com/auth/cloud_search.stats.indexing"]})))
+    {:method :get,
+     :uri-template "https://cloudsearch.googleapis.com/v1/stats/index",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud_search"
+      "https://www.googleapis.com/auth/cloud_search.stats"
+      "https://www.googleapis.com/auth/cloud_search.stats.indexing"]}))
 
 (defn stats-getQuery
   "Get the query statistics for customer. **Note:** This API requires a standard end user account to execute.
@@ -865,16 +819,14 @@ toDate.month <integer> Month of date. Must be from 1 to 12.
 toDate.day <integer> Day of month. Must be from 1 to 31 and valid for the year and month."
   ([] (stats-getQuery nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudsearch.googleapis.com/v1/stats/query",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud_search"
-        "https://www.googleapis.com/auth/cloud_search.stats"
-        "https://www.googleapis.com/auth/cloud_search.stats.indexing"]})))
+    {:method :get,
+     :uri-template "https://cloudsearch.googleapis.com/v1/stats/query",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud_search"
+      "https://www.googleapis.com/auth/cloud_search.stats"
+      "https://www.googleapis.com/auth/cloud_search.stats.indexing"]}))
 
 (defn stats-getUser
   "Get the users statistics for customer. **Note:** This API requires a standard end user account to execute.
@@ -889,16 +841,14 @@ toDate.month <integer> Month of date. Must be from 1 to 12.
 toDate.day <integer> Day of month. Must be from 1 to 31 and valid for the year and month."
   ([] (stats-getUser nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudsearch.googleapis.com/v1/stats/user",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud_search"
-        "https://www.googleapis.com/auth/cloud_search.stats"
-        "https://www.googleapis.com/auth/cloud_search.stats.indexing"]})))
+    {:method :get,
+     :uri-template "https://cloudsearch.googleapis.com/v1/stats/user",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud_search"
+      "https://www.googleapis.com/auth/cloud_search.stats"
+      "https://www.googleapis.com/auth/cloud_search.stats.indexing"]}))
 
 (defn stats-getSession
   "Get the # of search sessions, % of successful sessions with a click query statistics for customer. **Note:** This API requires a standard end user account to execute.
@@ -913,16 +863,15 @@ toDate.month <integer> Month of date. Must be from 1 to 12.
 toDate.day <integer> Day of month. Must be from 1 to 31 and valid for the year and month."
   ([] (stats-getSession nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudsearch.googleapis.com/v1/stats/session",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud_search"
-        "https://www.googleapis.com/auth/cloud_search.stats"
-        "https://www.googleapis.com/auth/cloud_search.stats.indexing"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudsearch.googleapis.com/v1/stats/session",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud_search"
+      "https://www.googleapis.com/auth/cloud_search.stats"
+      "https://www.googleapis.com/auth/cloud_search.stats.indexing"]}))
 
 (defn stats-getSearchapplication
   "Get search application stats for customer. **Note:** This API requires a standard end user account to execute.
@@ -937,16 +886,15 @@ endDate.month <integer> Month of date. Must be from 1 to 12.
 endDate.day <integer> Day of month. Must be from 1 to 31 and valid for the year and month."
   ([] (stats-getSearchapplication nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudsearch.googleapis.com/v1/stats/searchapplication",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud_search"
-        "https://www.googleapis.com/auth/cloud_search.stats"
-        "https://www.googleapis.com/auth/cloud_search.stats.indexing"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudsearch.googleapis.com/v1/stats/searchapplication",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud_search"
+      "https://www.googleapis.com/auth/cloud_search.stats"
+      "https://www.googleapis.com/auth/cloud_search.stats.indexing"]}))
 
 (defn stats-index-datasources-get
   "Gets indexed item statistics for a single data source. **Note:** This API requires a standard end user account to execute.
@@ -963,16 +911,15 @@ toDate.month <integer> Month of date. Must be from 1 to 12.
 toDate.day <integer> Day of month. Must be from 1 to 31 and valid for the year and month."
   ([name] (stats-index-datasources-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudsearch.googleapis.com/v1/stats/index/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud_search"
-        "https://www.googleapis.com/auth/cloud_search.stats"
-        "https://www.googleapis.com/auth/cloud_search.stats.indexing"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudsearch.googleapis.com/v1/stats/index/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud_search"
+      "https://www.googleapis.com/auth/cloud_search.stats"
+      "https://www.googleapis.com/auth/cloud_search.stats.indexing"]}))
 
 (defn stats-query-searchapplications-get
   "Get the query statistics for search application. **Note:** This API requires a standard end user account to execute.
@@ -989,16 +936,15 @@ toDate.month <integer> Month of date. Must be from 1 to 12.
 toDate.day <integer> Day of month. Must be from 1 to 31 and valid for the year and month."
   ([name] (stats-query-searchapplications-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudsearch.googleapis.com/v1/stats/query/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud_search"
-        "https://www.googleapis.com/auth/cloud_search.stats"
-        "https://www.googleapis.com/auth/cloud_search.stats.indexing"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudsearch.googleapis.com/v1/stats/query/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud_search"
+      "https://www.googleapis.com/auth/cloud_search.stats"
+      "https://www.googleapis.com/auth/cloud_search.stats.indexing"]}))
 
 (defn stats-user-searchapplications-get
   "Get the users statistics for search application. **Note:** This API requires a standard end user account to execute.
@@ -1015,16 +961,15 @@ toDate.month <integer> Month of date. Must be from 1 to 12.
 toDate.day <integer> Day of month. Must be from 1 to 31 and valid for the year and month."
   ([name] (stats-user-searchapplications-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudsearch.googleapis.com/v1/stats/user/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud_search"
-        "https://www.googleapis.com/auth/cloud_search.stats"
-        "https://www.googleapis.com/auth/cloud_search.stats.indexing"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudsearch.googleapis.com/v1/stats/user/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud_search"
+      "https://www.googleapis.com/auth/cloud_search.stats"
+      "https://www.googleapis.com/auth/cloud_search.stats.indexing"]}))
 
 (defn stats-session-searchapplications-get
   "Get the # of search sessions, % of successful sessions with a click query statistics for search application. **Note:** This API requires a standard end user account to execute.
@@ -1041,16 +986,15 @@ toDate.month <integer> Month of date. Must be from 1 to 12.
 toDate.day <integer> Day of month. Must be from 1 to 31 and valid for the year and month."
   ([name] (stats-session-searchapplications-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudsearch.googleapis.com/v1/stats/session/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud_search"
-        "https://www.googleapis.com/auth/cloud_search.stats"
-        "https://www.googleapis.com/auth/cloud_search.stats.indexing"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudsearch.googleapis.com/v1/stats/session/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud_search"
+      "https://www.googleapis.com/auth/cloud_search.stats"
+      "https://www.googleapis.com/auth/cloud_search.stats.indexing"]}))
 
 (defn media-upload
   "Uploads media for indexing. The upload endpoint supports direct and resumable upload protocols and is intended for large items that can not be [inlined during index requests](https://developers.google.com/cloud-search/docs/reference/rest/v1/indexing.datasources.items#itemcontent). To index large content: 1. Call indexing.datasources.items.upload with the item name to begin an upload session and retrieve the UploadItemRef. 1. Call media.upload to upload the content, as a streaming request, using the same resource name from the UploadItemRef from step 1. 1. Call indexing.datasources.items.index to index the item. Populate the [ItemContent](/cloud-search/docs/reference/rest/v1/indexing.datasources.items#ItemContent) with the UploadItemRef from step 1. For additional information, see [Create a content connector using the REST API](https://developers.google.com/cloud-search/docs/guides/content-connector#rest). **Note:** This API requires a service account to execute.
@@ -1060,13 +1004,12 @@ resourceName <>
 Media:
 Media"
   [resourceName Media]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudsearch.googleapis.com/v1/media/{+resourceName}",
-     :uri-template-args {"resourceName" resourceName},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud_search"
-      "https://www.googleapis.com/auth/cloud_search.indexing"],
-     :body Media}))
+  {:method :post,
+   :uri-template
+   "https://cloudsearch.googleapis.com/v1/media/{+resourceName}",
+   :uri-template-args {"resourceName" resourceName},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud_search"
+    "https://www.googleapis.com/auth/cloud_search.indexing"],
+   :body Media})

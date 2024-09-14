@@ -1,8 +1,7 @@
 (ns happyapi.google.pollen-v1
   "Pollen API
 The Pollen API. 
-See: https://developers.google.com/maps/documentation/pollen"
-  (:require [happyapi.providers.google :as client]))
+See: https://developers.google.com/maps/documentation/pollen")
 
 (defn mapTypes-heatmapTiles-lookupHeatmapTile
   "Returns a byte array containing the data of the tile PNG image.
@@ -13,13 +12,12 @@ zoom <>
 x <> 
 y <> "
   [mapType zoom x y]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://pollen.googleapis.com/v1/mapTypes/{mapType}/heatmapTiles/{zoom}/{x}/{y}",
-     :uri-template-args {"zoom" zoom, "y" y, "x" x, "mapType" mapType},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template
+   "https://pollen.googleapis.com/v1/mapTypes/{mapType}/heatmapTiles/{zoom}/{x}/{y}",
+   :uri-template-args {"zoom" zoom, "y" y, "x" x, "mapType" mapType},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn forecast-lookup
   "Returns up to 5 days of daily pollen information in more than 65 countries, up to 1km resolution.
@@ -34,10 +32,8 @@ languageCode <string> Optional. Allows the client to choose the language for the
 days <integer> Required. A number that indicates how many forecast days to request (minimum value 1, maximum value is 5)."
   ([] (forecast-lookup nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://pollen.googleapis.com/v1/forecast:lookup",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://pollen.googleapis.com/v1/forecast:lookup",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))

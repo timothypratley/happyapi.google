@@ -1,8 +1,7 @@
 (ns happyapi.google.factchecktools-v1alpha1
   "Fact Check Tools API
 
-See: https://developers.google.com/fact-check/tools/api/"
-  (:require [happyapi.providers.google :as client]))
+See: https://developers.google.com/fact-check/tools/api/")
 
 (defn claims-imageSearch
   "Search through fact-checked claims using an image as the query.
@@ -15,13 +14,12 @@ offset <integer> Optional. An integer that specifies the current offset (that is
 languageCode <string> Optional. The BCP-47 language code, such as \"en-US\" or \"sr-Latn\". Can be used to restrict results by language, though we do not currently consider the region."
   ([] (claims-imageSearch nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://factchecktools.googleapis.com/v1alpha1/claims:imageSearch",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes nil})))
+    {:method :get,
+     :uri-template
+     "https://factchecktools.googleapis.com/v1alpha1/claims:imageSearch",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes nil}))
 
 (defn claims-search
   "Search through fact-checked claims.
@@ -36,13 +34,12 @@ offset <integer> An integer that specifies the current offset (that is, starting
 maxAgeDays <integer> The maximum age of the returned search results, in days. Age is determined by either claim date or review date, whichever is newer."
   ([] (claims-search nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://factchecktools.googleapis.com/v1alpha1/claims:search",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes nil})))
+    {:method :get,
+     :uri-template
+     "https://factchecktools.googleapis.com/v1alpha1/claims:search",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes nil}))
 
 (defn pages-get
   "Get all `ClaimReview` markup on a page.
@@ -50,15 +47,14 @@ https://developers.google.com/fact-check/tools/api/v1alpha1/reference/rest/v1alp
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://factchecktools.googleapis.com/v1alpha1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/factchecktools"
-      "https://www.googleapis.com/auth/userinfo.email"]}))
+  {:method :get,
+   :uri-template
+   "https://factchecktools.googleapis.com/v1alpha1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/factchecktools"
+    "https://www.googleapis.com/auth/userinfo.email"]})
 
 (defn pages-update
   "Update for all `ClaimReview` markup on a page Note that this is a full update. To retain the existing `ClaimReview` markup on a page, first perform a Get operation, then modify the returned markup, and finally call Update with the entire `ClaimReview` markup as the body.
@@ -68,17 +64,15 @@ name <>
 GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage:
 GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage"
   [name GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://factchecktools.googleapis.com/v1alpha1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/factchecktools"
-      "https://www.googleapis.com/auth/userinfo.email"],
-     :body
-     GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage}))
+  {:method :put,
+   :uri-template
+   "https://factchecktools.googleapis.com/v1alpha1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/factchecktools"
+    "https://www.googleapis.com/auth/userinfo.email"],
+   :body GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage})
 
 (defn pages-list
   "List the `ClaimReview` markup pages for a specific URL or for an organization.
@@ -91,15 +85,14 @@ offset <integer> An integer that specifies the current offset (that is, starting
 organization <string> The organization for which we want to fetch markups for. For instance, \"site.com\". Cannot be specified along with an URL."
   ([] (pages-list nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://factchecktools.googleapis.com/v1alpha1/pages",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/factchecktools"
-        "https://www.googleapis.com/auth/userinfo.email"]})))
+    {:method :get,
+     :uri-template
+     "https://factchecktools.googleapis.com/v1alpha1/pages",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/factchecktools"
+      "https://www.googleapis.com/auth/userinfo.email"]}))
 
 (defn pages-delete
   "Delete all `ClaimReview` markup on a page.
@@ -107,15 +100,14 @@ https://developers.google.com/fact-check/tools/api/v1alpha1/reference/rest/v1alp
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://factchecktools.googleapis.com/v1alpha1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/factchecktools"
-      "https://www.googleapis.com/auth/userinfo.email"]}))
+  {:method :delete,
+   :uri-template
+   "https://factchecktools.googleapis.com/v1alpha1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/factchecktools"
+    "https://www.googleapis.com/auth/userinfo.email"]})
 
 (defn pages-create
   "Create `ClaimReview` markup on a page.
@@ -124,14 +116,12 @@ https://developers.google.com/fact-check/tools/api/v1alpha1/reference/rest/v1alp
 GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage:
 GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage"
   [GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://factchecktools.googleapis.com/v1alpha1/pages",
-     :uri-template-args {},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/factchecktools"
-      "https://www.googleapis.com/auth/userinfo.email"],
-     :body
-     GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage}))
+  {:method :post,
+   :uri-template
+   "https://factchecktools.googleapis.com/v1alpha1/pages",
+   :uri-template-args {},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/factchecktools"
+    "https://www.googleapis.com/auth/userinfo.email"],
+   :body GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage})

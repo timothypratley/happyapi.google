@@ -1,8 +1,7 @@
 (ns happyapi.google.apigateway-v1
   "API Gateway API
 
-See: https://cloud.google.com/api-gateway/docs"
-  (:require [happyapi.providers.google :as client]))
+See: https://cloud.google.com/api-gateway/docs")
 
 (defn projects-locations-list
   "Lists information about the supported locations for this service.
@@ -15,13 +14,12 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://apigateway.googleapis.com/v1/{+name}/locations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://apigateway.googleapis.com/v1/{+name}/locations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-get
   "Gets information about a location.
@@ -29,12 +27,11 @@ https://cloud.google.com/api-gateway/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://apigateway.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://apigateway.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -47,13 +44,12 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://apigateway.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://apigateway.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -61,12 +57,11 @@ https://cloud.google.com/api-gateway/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://apigateway.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://apigateway.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -74,12 +69,11 @@ https://cloud.google.com/api-gateway/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://apigateway.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://apigateway.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -89,14 +83,12 @@ name <>
 ApigatewayCancelOperationRequest:
 ApigatewayCancelOperationRequest"
   [name ApigatewayCancelOperationRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://apigateway.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body ApigatewayCancelOperationRequest}))
+  {:method :post,
+   :uri-template "https://apigateway.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body ApigatewayCancelOperationRequest})
 
 (defn projects-locations-gateways-list
   "Lists Gateways in a given project and location.
@@ -110,13 +102,12 @@ filter <string> Filter.
 orderBy <string> Order by parameters."
   ([parent] (projects-locations-gateways-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://apigateway.googleapis.com/v1/{+parent}/gateways",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://apigateway.googleapis.com/v1/{+parent}/gateways",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-gateways-get
   "Gets details of a single Gateway.
@@ -124,12 +115,11 @@ https://cloud.google.com/api-gateway/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://apigateway.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://apigateway.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-gateways-create
   "Creates a new Gateway in a given project and location.
@@ -144,14 +134,13 @@ gatewayId <string> Required. Identifier to assign to the Gateway. Must be unique
   ([parent ApigatewayGateway]
     (projects-locations-gateways-create parent ApigatewayGateway nil))
   ([parent ApigatewayGateway optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://apigateway.googleapis.com/v1/{+parent}/gateways",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body ApigatewayGateway})))
+    {:method :post,
+     :uri-template
+     "https://apigateway.googleapis.com/v1/{+parent}/gateways",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body ApigatewayGateway}))
 
 (defn projects-locations-gateways-patch
   "Updates the parameters of a single Gateway.
@@ -166,13 +155,12 @@ updateMask <string> Field mask is used to specify the fields to be overwritten i
   ([name ApigatewayGateway]
     (projects-locations-gateways-patch name ApigatewayGateway nil))
   ([name ApigatewayGateway optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://apigateway.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body ApigatewayGateway})))
+    {:method :patch,
+     :uri-template "https://apigateway.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body ApigatewayGateway}))
 
 (defn projects-locations-gateways-delete
   "Deletes a single Gateway.
@@ -180,12 +168,11 @@ https://cloud.google.com/api-gateway/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://apigateway.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://apigateway.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-gateways-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -195,14 +182,13 @@ resource <>
 ApigatewaySetIamPolicyRequest:
 ApigatewaySetIamPolicyRequest"
   [resource ApigatewaySetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://apigateway.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body ApigatewaySetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://apigateway.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body ApigatewaySetIamPolicyRequest})
 
 (defn projects-locations-gateways-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -214,13 +200,12 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-locations-gateways-getIamPolicy resource nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://apigateway.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://apigateway.googleapis.com/v1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-gateways-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -230,14 +215,13 @@ resource <>
 ApigatewayTestIamPermissionsRequest:
 ApigatewayTestIamPermissionsRequest"
   [resource ApigatewayTestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://apigateway.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body ApigatewayTestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://apigateway.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body ApigatewayTestIamPermissionsRequest})
 
 (defn projects-locations-apis-list
   "Lists Apis in a given project and location.
@@ -251,13 +235,12 @@ filter <string> Filter.
 orderBy <string> Order by parameters."
   ([parent] (projects-locations-apis-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://apigateway.googleapis.com/v1/{+parent}/apis",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://apigateway.googleapis.com/v1/{+parent}/apis",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-apis-get
   "Gets details of a single Api.
@@ -265,12 +248,11 @@ https://cloud.google.com/api-gateway/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://apigateway.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://apigateway.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-apis-create
   "Creates a new Api in a given project and location.
@@ -285,14 +267,13 @@ apiId <string> Required. Identifier to assign to the API. Must be unique within 
   ([parent ApigatewayApi]
     (projects-locations-apis-create parent ApigatewayApi nil))
   ([parent ApigatewayApi optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://apigateway.googleapis.com/v1/{+parent}/apis",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body ApigatewayApi})))
+    {:method :post,
+     :uri-template
+     "https://apigateway.googleapis.com/v1/{+parent}/apis",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body ApigatewayApi}))
 
 (defn projects-locations-apis-patch
   "Updates the parameters of a single Api.
@@ -307,13 +288,12 @@ updateMask <string> Field mask is used to specify the fields to be overwritten i
   ([name ApigatewayApi]
     (projects-locations-apis-patch name ApigatewayApi nil))
   ([name ApigatewayApi optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://apigateway.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body ApigatewayApi})))
+    {:method :patch,
+     :uri-template "https://apigateway.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body ApigatewayApi}))
 
 (defn projects-locations-apis-delete
   "Deletes a single Api.
@@ -321,12 +301,11 @@ https://cloud.google.com/api-gateway/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://apigateway.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://apigateway.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-apis-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -336,14 +315,13 @@ resource <>
 ApigatewaySetIamPolicyRequest:
 ApigatewaySetIamPolicyRequest"
   [resource ApigatewaySetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://apigateway.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body ApigatewaySetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://apigateway.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body ApigatewaySetIamPolicyRequest})
 
 (defn projects-locations-apis-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -355,13 +333,12 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-locations-apis-getIamPolicy resource nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://apigateway.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://apigateway.googleapis.com/v1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-apis-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -371,14 +348,13 @@ resource <>
 ApigatewayTestIamPermissionsRequest:
 ApigatewayTestIamPermissionsRequest"
   [resource ApigatewayTestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://apigateway.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body ApigatewayTestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://apigateway.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body ApigatewayTestIamPermissionsRequest})
 
 (defn projects-locations-apis-configs-list
   "Lists ApiConfigs in a given project and location.
@@ -392,13 +368,12 @@ filter <string> Filter.
 orderBy <string> Order by parameters."
   ([parent] (projects-locations-apis-configs-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://apigateway.googleapis.com/v1/{+parent}/configs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://apigateway.googleapis.com/v1/{+parent}/configs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-apis-configs-get
   "Gets details of a single ApiConfig.
@@ -410,12 +385,11 @@ optional:
 view <string> Specifies which fields of the API Config are returned in the response. Defaults to `BASIC` view."
   ([name] (projects-locations-apis-configs-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template "https://apigateway.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://apigateway.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-apis-configs-create
   "Creates a new ApiConfig in a given project and location.
@@ -433,14 +407,13 @@ apiConfigId <string> Required. Identifier to assign to the API Config. Must be u
       ApigatewayApiConfig
       nil))
   ([parent ApigatewayApiConfig optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://apigateway.googleapis.com/v1/{+parent}/configs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body ApigatewayApiConfig})))
+    {:method :post,
+     :uri-template
+     "https://apigateway.googleapis.com/v1/{+parent}/configs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body ApigatewayApiConfig}))
 
 (defn projects-locations-apis-configs-patch
   "Updates the parameters of a single ApiConfig.
@@ -458,13 +431,12 @@ updateMask <string> Field mask is used to specify the fields to be overwritten i
       ApigatewayApiConfig
       nil))
   ([name ApigatewayApiConfig optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://apigateway.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body ApigatewayApiConfig})))
+    {:method :patch,
+     :uri-template "https://apigateway.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body ApigatewayApiConfig}))
 
 (defn projects-locations-apis-configs-delete
   "Deletes a single ApiConfig.
@@ -472,12 +444,11 @@ https://cloud.google.com/api-gateway/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://apigateway.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://apigateway.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-apis-configs-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -487,14 +458,13 @@ resource <>
 ApigatewaySetIamPolicyRequest:
 ApigatewaySetIamPolicyRequest"
   [resource ApigatewaySetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://apigateway.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body ApigatewaySetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://apigateway.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body ApigatewaySetIamPolicyRequest})
 
 (defn projects-locations-apis-configs-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -507,13 +477,12 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-apis-configs-getIamPolicy resource nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://apigateway.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://apigateway.googleapis.com/v1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-apis-configs-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -523,11 +492,10 @@ resource <>
 ApigatewayTestIamPermissionsRequest:
 ApigatewayTestIamPermissionsRequest"
   [resource ApigatewayTestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://apigateway.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body ApigatewayTestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://apigateway.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body ApigatewayTestIamPermissionsRequest})

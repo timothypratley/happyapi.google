@@ -1,8 +1,7 @@
 (ns happyapi.google.area120tables-v1alpha1
   "Area120 Tables API
 
-See: https://support.google.com/area120-tables/answer/10011390"
-  (:require [happyapi.providers.google :as client]))
+See: https://support.google.com/area120-tables/answer/10011390")
 
 (defn tables-list
   "Lists tables for the user.
@@ -13,32 +12,11 @@ orderBy <string> Optional. Sorting order for the list of tables on createTime/up
 pageSize <integer> The maximum number of tables to return. The service may return fewer than this value. If unspecified, at most 20 tables are returned. The maximum value is 100; values above 100 are coerced to 100."
   ([] (tables-list nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://area120tables.googleapis.com/v1alpha1/tables",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/drive"
-        "https://www.googleapis.com/auth/drive.file"
-        "https://www.googleapis.com/auth/drive.readonly"
-        "https://www.googleapis.com/auth/spreadsheets"
-        "https://www.googleapis.com/auth/spreadsheets.readonly"
-        "https://www.googleapis.com/auth/tables"]})))
-
-(defn tables-get
-  "Gets a table. Returns NOT_FOUND if the table does not exist.
-https://support.google.com/area120-tables/answer/10011390/v1alpha1/reference/rest/v1alpha1/tables/get
-
-name <> "
-  [name]
-  (client/*api-request*
     {:method :get,
      :uri-template
-     "https://area120tables.googleapis.com/v1alpha1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
+     "https://area120tables.googleapis.com/v1alpha1/tables",
+     :uri-template-args {},
+     :query-params (merge {} optional),
      :scopes
      ["https://www.googleapis.com/auth/drive"
       "https://www.googleapis.com/auth/drive.file"
@@ -46,6 +24,25 @@ name <> "
       "https://www.googleapis.com/auth/spreadsheets"
       "https://www.googleapis.com/auth/spreadsheets.readonly"
       "https://www.googleapis.com/auth/tables"]}))
+
+(defn tables-get
+  "Gets a table. Returns NOT_FOUND if the table does not exist.
+https://support.google.com/area120-tables/answer/10011390/v1alpha1/reference/rest/v1alpha1/tables/get
+
+name <> "
+  [name]
+  {:method :get,
+   :uri-template
+   "https://area120tables.googleapis.com/v1alpha1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/drive"
+    "https://www.googleapis.com/auth/drive.file"
+    "https://www.googleapis.com/auth/drive.readonly"
+    "https://www.googleapis.com/auth/spreadsheets"
+    "https://www.googleapis.com/auth/spreadsheets.readonly"
+    "https://www.googleapis.com/auth/tables"]})
 
 (defn tables-rows-list
   "Lists rows in a table. Returns NOT_FOUND if the table does not exist.
@@ -60,19 +57,18 @@ pageSize <integer> The maximum number of rows to return. The service may return 
 orderBy <string> Optional. Sorting order for the list of rows on createTime/updateTime."
   ([parent] (tables-rows-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://area120tables.googleapis.com/v1alpha1/{+parent}/rows",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/drive"
-        "https://www.googleapis.com/auth/drive.file"
-        "https://www.googleapis.com/auth/drive.readonly"
-        "https://www.googleapis.com/auth/spreadsheets"
-        "https://www.googleapis.com/auth/spreadsheets.readonly"
-        "https://www.googleapis.com/auth/tables"]})))
+    {:method :get,
+     :uri-template
+     "https://area120tables.googleapis.com/v1alpha1/{+parent}/rows",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/drive"
+      "https://www.googleapis.com/auth/drive.file"
+      "https://www.googleapis.com/auth/drive.readonly"
+      "https://www.googleapis.com/auth/spreadsheets"
+      "https://www.googleapis.com/auth/spreadsheets.readonly"
+      "https://www.googleapis.com/auth/tables"]}))
 
 (defn tables-rows-batchDelete
   "Deletes multiple rows.
@@ -82,18 +78,17 @@ parent <>
 BatchDeleteRowsRequest:
 BatchDeleteRowsRequest"
   [parent BatchDeleteRowsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://area120tables.googleapis.com/v1alpha1/{+parent}/rows:batchDelete",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/drive"
-      "https://www.googleapis.com/auth/drive.file"
-      "https://www.googleapis.com/auth/spreadsheets"
-      "https://www.googleapis.com/auth/tables"],
-     :body BatchDeleteRowsRequest}))
+  {:method :post,
+   :uri-template
+   "https://area120tables.googleapis.com/v1alpha1/{+parent}/rows:batchDelete",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/drive"
+    "https://www.googleapis.com/auth/drive.file"
+    "https://www.googleapis.com/auth/spreadsheets"
+    "https://www.googleapis.com/auth/tables"],
+   :body BatchDeleteRowsRequest})
 
 (defn tables-rows-delete
   "Deletes a row.
@@ -101,17 +96,16 @@ https://support.google.com/area120-tables/answer/10011390/v1alpha1/reference/res
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://area120tables.googleapis.com/v1alpha1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/drive"
-      "https://www.googleapis.com/auth/drive.file"
-      "https://www.googleapis.com/auth/spreadsheets"
-      "https://www.googleapis.com/auth/tables"]}))
+  {:method :delete,
+   :uri-template
+   "https://area120tables.googleapis.com/v1alpha1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/drive"
+    "https://www.googleapis.com/auth/drive.file"
+    "https://www.googleapis.com/auth/spreadsheets"
+    "https://www.googleapis.com/auth/tables"]})
 
 (defn tables-rows-batchUpdate
   "Updates multiple rows.
@@ -121,18 +115,17 @@ parent <>
 BatchUpdateRowsRequest:
 BatchUpdateRowsRequest"
   [parent BatchUpdateRowsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://area120tables.googleapis.com/v1alpha1/{+parent}/rows:batchUpdate",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/drive"
-      "https://www.googleapis.com/auth/drive.file"
-      "https://www.googleapis.com/auth/spreadsheets"
-      "https://www.googleapis.com/auth/tables"],
-     :body BatchUpdateRowsRequest}))
+  {:method :post,
+   :uri-template
+   "https://area120tables.googleapis.com/v1alpha1/{+parent}/rows:batchUpdate",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/drive"
+    "https://www.googleapis.com/auth/drive.file"
+    "https://www.googleapis.com/auth/spreadsheets"
+    "https://www.googleapis.com/auth/tables"],
+   :body BatchUpdateRowsRequest})
 
 (defn tables-rows-batchCreate
   "Creates multiple rows.
@@ -142,18 +135,17 @@ parent <>
 BatchCreateRowsRequest:
 BatchCreateRowsRequest"
   [parent BatchCreateRowsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://area120tables.googleapis.com/v1alpha1/{+parent}/rows:batchCreate",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/drive"
-      "https://www.googleapis.com/auth/drive.file"
-      "https://www.googleapis.com/auth/spreadsheets"
-      "https://www.googleapis.com/auth/tables"],
-     :body BatchCreateRowsRequest}))
+  {:method :post,
+   :uri-template
+   "https://area120tables.googleapis.com/v1alpha1/{+parent}/rows:batchCreate",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/drive"
+    "https://www.googleapis.com/auth/drive.file"
+    "https://www.googleapis.com/auth/spreadsheets"
+    "https://www.googleapis.com/auth/tables"],
+   :body BatchCreateRowsRequest})
 
 (defn tables-rows-create
   "Creates a row.
@@ -167,18 +159,17 @@ optional:
 view <string> Optional. Column key to use for values in the row. Defaults to user entered name."
   ([parent Row] (tables-rows-create parent Row nil))
   ([parent Row optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://area120tables.googleapis.com/v1alpha1/{+parent}/rows",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/drive"
-        "https://www.googleapis.com/auth/drive.file"
-        "https://www.googleapis.com/auth/spreadsheets"
-        "https://www.googleapis.com/auth/tables"],
-       :body Row})))
+    {:method :post,
+     :uri-template
+     "https://area120tables.googleapis.com/v1alpha1/{+parent}/rows",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/drive"
+      "https://www.googleapis.com/auth/drive.file"
+      "https://www.googleapis.com/auth/spreadsheets"
+      "https://www.googleapis.com/auth/tables"],
+     :body Row}))
 
 (defn tables-rows-patch
   "Updates a row.
@@ -193,18 +184,17 @@ updateMask <string> The list of fields to update.
 view <string> Optional. Column key to use for values in the row. Defaults to user entered name."
   ([name Row] (tables-rows-patch name Row nil))
   ([name Row optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://area120tables.googleapis.com/v1alpha1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/drive"
-        "https://www.googleapis.com/auth/drive.file"
-        "https://www.googleapis.com/auth/spreadsheets"
-        "https://www.googleapis.com/auth/tables"],
-       :body Row})))
+    {:method :patch,
+     :uri-template
+     "https://area120tables.googleapis.com/v1alpha1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/drive"
+      "https://www.googleapis.com/auth/drive.file"
+      "https://www.googleapis.com/auth/spreadsheets"
+      "https://www.googleapis.com/auth/tables"],
+     :body Row}))
 
 (defn tables-rows-get
   "Gets a row. Returns NOT_FOUND if the row does not exist in the table.
@@ -216,32 +206,11 @@ optional:
 view <string> Optional. Column key to use for values in the row. Defaults to user entered name."
   ([name] (tables-rows-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://area120tables.googleapis.com/v1alpha1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/drive"
-        "https://www.googleapis.com/auth/drive.file"
-        "https://www.googleapis.com/auth/drive.readonly"
-        "https://www.googleapis.com/auth/spreadsheets"
-        "https://www.googleapis.com/auth/spreadsheets.readonly"
-        "https://www.googleapis.com/auth/tables"]})))
-
-(defn workspaces-get
-  "Gets a workspace. Returns NOT_FOUND if the workspace does not exist.
-https://support.google.com/area120-tables/answer/10011390/v1alpha1/reference/rest/v1alpha1/workspaces/get
-
-name <> "
-  [name]
-  (client/*api-request*
     {:method :get,
      :uri-template
      "https://area120tables.googleapis.com/v1alpha1/{+name}",
      :uri-template-args {"name" name},
-     :query-params {},
+     :query-params (merge {} optional),
      :scopes
      ["https://www.googleapis.com/auth/drive"
       "https://www.googleapis.com/auth/drive.file"
@@ -249,6 +218,25 @@ name <> "
       "https://www.googleapis.com/auth/spreadsheets"
       "https://www.googleapis.com/auth/spreadsheets.readonly"
       "https://www.googleapis.com/auth/tables"]}))
+
+(defn workspaces-get
+  "Gets a workspace. Returns NOT_FOUND if the workspace does not exist.
+https://support.google.com/area120-tables/answer/10011390/v1alpha1/reference/rest/v1alpha1/workspaces/get
+
+name <> "
+  [name]
+  {:method :get,
+   :uri-template
+   "https://area120tables.googleapis.com/v1alpha1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/drive"
+    "https://www.googleapis.com/auth/drive.file"
+    "https://www.googleapis.com/auth/drive.readonly"
+    "https://www.googleapis.com/auth/spreadsheets"
+    "https://www.googleapis.com/auth/spreadsheets.readonly"
+    "https://www.googleapis.com/auth/tables"]})
 
 (defn workspaces-list
   "Lists workspaces for the user.
@@ -258,16 +246,15 @@ optional:
 pageSize <integer> The maximum number of workspaces to return. The service may return fewer than this value. If unspecified, at most 10 workspaces are returned. The maximum value is 25; values above 25 are coerced to 25."
   ([] (workspaces-list nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://area120tables.googleapis.com/v1alpha1/workspaces",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/drive"
-        "https://www.googleapis.com/auth/drive.file"
-        "https://www.googleapis.com/auth/drive.readonly"
-        "https://www.googleapis.com/auth/spreadsheets"
-        "https://www.googleapis.com/auth/spreadsheets.readonly"
-        "https://www.googleapis.com/auth/tables"]})))
+    {:method :get,
+     :uri-template
+     "https://area120tables.googleapis.com/v1alpha1/workspaces",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/drive"
+      "https://www.googleapis.com/auth/drive.file"
+      "https://www.googleapis.com/auth/drive.readonly"
+      "https://www.googleapis.com/auth/spreadsheets"
+      "https://www.googleapis.com/auth/spreadsheets.readonly"
+      "https://www.googleapis.com/auth/tables"]}))

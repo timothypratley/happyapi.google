@@ -1,8 +1,7 @@
 (ns happyapi.google.bigquery-v2
   "BigQuery API
 A data platform for customers to create, manage, share and query data.
-See: https://cloud.google.com/bigquery/"
-  (:require [happyapi.providers.google :as client]))
+See: https://cloud.google.com/bigquery/")
 
 (defn datasets-delete
   "Deletes the dataset specified by the datasetId value. Before you can delete a dataset, you must delete all its tables, either manually or by specifying deleteContents. Immediately after deletion, you can create another dataset with the same name.
@@ -15,16 +14,14 @@ optional:
 deleteContents <boolean> If True, delete all the tables in the dataset. If False and the dataset contains tables, the request will fail. Default is False"
   ([projectId datasetId] (datasets-delete projectId datasetId nil))
   ([projectId datasetId optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}",
-       :uri-template-args
-       {"datasetId" datasetId, "projectId" projectId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/bigquery"
-        "https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template
+     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}",
+     :uri-template-args {"datasetId" datasetId, "projectId" projectId},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/bigquery"
+      "https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn datasets-get
   "Returns the dataset specified by datasetID.
@@ -37,17 +34,15 @@ optional:
 datasetView <string> Optional. Specifies the view that determines which dataset information is returned. By default, metadata and ACL information are returned."
   ([projectId datasetId] (datasets-get projectId datasetId nil))
   ([projectId datasetId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}",
-       :uri-template-args
-       {"datasetId" datasetId, "projectId" projectId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/bigquery"
-        "https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"]})))
+    {:method :get,
+     :uri-template
+     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}",
+     :uri-template-args {"datasetId" datasetId, "projectId" projectId},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/bigquery"
+      "https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"]}))
 
 (defn datasets-insert
   "Creates a new empty dataset.
@@ -57,16 +52,15 @@ projectId <>
 Dataset:
 Dataset"
   [projectId Dataset]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets",
-     :uri-template-args {"projectId" projectId},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"],
-     :body Dataset}))
+  {:method :post,
+   :uri-template
+   "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets",
+   :uri-template-args {"projectId" projectId},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"],
+   :body Dataset})
 
 (defn datasets-list
   "Lists all datasets in the specified project to which the user has been granted the READER dataset role.
@@ -80,16 +74,15 @@ filter <string> An expression for filtering the results of the request by label.
 maxResults <integer> The maximum number of results to return in a single response page. Leverage the page tokens to iterate through the entire collection."
   ([projectId] (datasets-list projectId nil))
   ([projectId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets",
-       :uri-template-args {"projectId" projectId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/bigquery"
-        "https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"]})))
+    {:method :get,
+     :uri-template
+     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets",
+     :uri-template-args {"projectId" projectId},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/bigquery"
+      "https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"]}))
 
 (defn datasets-patch
   "Updates information in an existing dataset. The update method replaces the entire dataset resource, whereas the patch method only replaces fields that are provided in the submitted dataset resource. This method supports RFC5789 patch semantics.
@@ -100,16 +93,15 @@ datasetId <>
 Dataset:
 Dataset"
   [projectId datasetId Dataset]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template
-     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}",
-     :uri-template-args {"datasetId" datasetId, "projectId" projectId},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"],
-     :body Dataset}))
+  {:method :patch,
+   :uri-template
+   "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}",
+   :uri-template-args {"datasetId" datasetId, "projectId" projectId},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"],
+   :body Dataset})
 
 (defn datasets-undelete
   "Undeletes a dataset which is within time travel window based on datasetId. If a time is specified, the dataset version deleted at that time is undeleted, else the last live version is undeleted.
@@ -120,16 +112,15 @@ datasetId <>
 UndeleteDatasetRequest:
 UndeleteDatasetRequest"
   [projectId datasetId UndeleteDatasetRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}:undelete",
-     :uri-template-args {"datasetId" datasetId, "projectId" projectId},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"],
-     :body UndeleteDatasetRequest}))
+  {:method :post,
+   :uri-template
+   "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}:undelete",
+   :uri-template-args {"datasetId" datasetId, "projectId" projectId},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"],
+   :body UndeleteDatasetRequest})
 
 (defn datasets-update
   "Updates information in an existing dataset. The update method replaces the entire dataset resource, whereas the patch method only replaces fields that are provided in the submitted dataset resource.
@@ -140,16 +131,15 @@ datasetId <>
 Dataset:
 Dataset"
   [projectId datasetId Dataset]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}",
-     :uri-template-args {"datasetId" datasetId, "projectId" projectId},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"],
-     :body Dataset}))
+  {:method :put,
+   :uri-template
+   "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}",
+   :uri-template-args {"datasetId" datasetId, "projectId" projectId},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"],
+   :body Dataset})
 
 (defn jobs-cancel
   "Requests that a job be cancelled. This call will return immediately, and the client will need to poll for the job status to see if the cancel completed successfully. Cancelled jobs may still incur costs.
@@ -162,15 +152,14 @@ optional:
 location <string> The geographic location of the job. You must specify the location to run the job for the following scenarios: * If the location to run a job is not in the `us` or the `eu` multi-regional location * If the job's location is in a single region (for example, `us-central1`) For more information, see https://cloud.google.com/bigquery/docs/locations#specifying_your_location."
   ([projectId jobId] (jobs-cancel projectId jobId nil))
   ([projectId jobId optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/jobs/{+jobId}/cancel",
-       :uri-template-args {"jobId" jobId, "projectId" projectId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/bigquery"
-        "https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template
+     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/jobs/{+jobId}/cancel",
+     :uri-template-args {"jobId" jobId, "projectId" projectId},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/bigquery"
+      "https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn jobs-delete
   "Requests the deletion of the metadata of a job. This call returns when the job's metadata is deleted.
@@ -183,15 +172,14 @@ optional:
 location <string> The geographic location of the job. Required. See details at: https://cloud.google.com/bigquery/docs/locations#specifying_your_location."
   ([projectId jobId] (jobs-delete projectId jobId nil))
   ([projectId jobId optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/jobs/{+jobId}/delete",
-       :uri-template-args {"jobId" jobId, "projectId" projectId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/bigquery"
-        "https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template
+     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/jobs/{+jobId}/delete",
+     :uri-template-args {"jobId" jobId, "projectId" projectId},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/bigquery"
+      "https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn jobs-get
   "Returns information about a specific job. Job information is available for a six month period after creation. Requires that you're the person who ran the job, or have the Is Owner project role.
@@ -204,16 +192,15 @@ optional:
 location <string> The geographic location of the job. You must specify the location to run the job for the following scenarios: * If the location to run a job is not in the `us` or the `eu` multi-regional location * If the job's location is in a single region (for example, `us-central1`) For more information, see https://cloud.google.com/bigquery/docs/locations#specifying_your_location."
   ([projectId jobId] (jobs-get projectId jobId nil))
   ([projectId jobId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/jobs/{+jobId}",
-       :uri-template-args {"jobId" jobId, "projectId" projectId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/bigquery"
-        "https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"]})))
+    {:method :get,
+     :uri-template
+     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/jobs/{+jobId}",
+     :uri-template-args {"jobId" jobId, "projectId" projectId},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/bigquery"
+      "https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"]}))
 
 (defn jobs-getQueryResults
   "RPC to get the results of a query job.
@@ -230,16 +217,15 @@ startIndex <string> Zero-based index of the starting row.
 timeoutMs <integer> Optional: Specifies the maximum amount of time, in milliseconds, that the client is willing to wait for the query to complete. By default, this limit is 10 seconds (10,000 milliseconds). If the query is complete, the jobComplete field in the response is true. If the query has not yet completed, jobComplete is false. You can request a longer timeout period in the timeoutMs field. However, the call is not guaranteed to wait for the specified timeout; it typically returns after around 200 seconds (200,000 milliseconds), even if the query is not complete. If jobComplete is false, you can continue to wait for the query to complete by calling the getQueryResults method until the jobComplete field in the getQueryResults response is true."
   ([projectId jobId] (jobs-getQueryResults projectId jobId nil))
   ([projectId jobId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/queries/{+jobId}",
-       :uri-template-args {"jobId" jobId, "projectId" projectId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/bigquery"
-        "https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"]})))
+    {:method :get,
+     :uri-template
+     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/queries/{+jobId}",
+     :uri-template-args {"jobId" jobId, "projectId" projectId},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/bigquery"
+      "https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"]}))
 
 (defn jobs-insert
   "Starts a new asynchronous job. This API has two different kinds of endpoint URIs, as this method supports a variety of use cases. * The *Metadata* URI is used for most interactions, as it accepts the job configuration directly. * The *Upload* URI is ONLY for the case when you're sending both a load job configuration and a data stream together. In this case, the Upload URI accepts the job configuration and the data as two distinct multipart MIME parts.
@@ -249,19 +235,18 @@ projectId <>
 Job:
 Job"
   [projectId Job]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/jobs",
-     :uri-template-args {"projectId" projectId},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/devstorage.full_control"
-      "https://www.googleapis.com/auth/devstorage.read_only"
-      "https://www.googleapis.com/auth/devstorage.read_write"],
-     :body Job}))
+  {:method :post,
+   :uri-template
+   "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/jobs",
+   :uri-template-args {"projectId" projectId},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/devstorage.full_control"
+    "https://www.googleapis.com/auth/devstorage.read_only"
+    "https://www.googleapis.com/auth/devstorage.read_write"],
+   :body Job})
 
 (defn jobs-list
   "Lists all jobs that you started in the specified project. Job information is available for a six month period after creation. The job list is sorted in reverse chronological order, by job creation time. Requires the Can View project role, or the Is Owner project role if you set the allUsers property.
@@ -279,16 +264,15 @@ stateFilter <string> Filter for job state
 minCreationTime <string> Min value for job creation time, in milliseconds since the POSIX epoch. If set, only jobs created after or at this timestamp are returned."
   ([projectId] (jobs-list projectId nil))
   ([projectId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/jobs",
-       :uri-template-args {"projectId" projectId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/bigquery"
-        "https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"]})))
+    {:method :get,
+     :uri-template
+     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/jobs",
+     :uri-template-args {"projectId" projectId},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/bigquery"
+      "https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"]}))
 
 (defn jobs-query
   "Runs a BigQuery SQL query synchronously and returns query results if the query completes within a specified timeout.
@@ -298,17 +282,16 @@ projectId <>
 QueryRequest:
 QueryRequest"
   [projectId QueryRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/queries",
-     :uri-template-args {"projectId" projectId},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"],
-     :body QueryRequest}))
+  {:method :post,
+   :uri-template
+   "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/queries",
+   :uri-template-args {"projectId" projectId},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"],
+   :body QueryRequest})
 
 (defn models-delete
   "Deletes the model specified by modelId from the dataset.
@@ -318,16 +301,15 @@ projectId <>
 datasetId <> 
 modelId <> "
   [projectId datasetId modelId]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/models/{+modelId}",
-     :uri-template-args
-     {"datasetId" datasetId, "modelId" modelId, "projectId" projectId},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template
+   "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/models/{+modelId}",
+   :uri-template-args
+   {"datasetId" datasetId, "modelId" modelId, "projectId" projectId},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn models-get
   "Gets the specified model resource by model ID.
@@ -337,17 +319,16 @@ projectId <>
 datasetId <> 
 modelId <> "
   [projectId datasetId modelId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/models/{+modelId}",
-     :uri-template-args
-     {"datasetId" datasetId, "modelId" modelId, "projectId" projectId},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"]}))
+  {:method :get,
+   :uri-template
+   "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/models/{+modelId}",
+   :uri-template-args
+   {"datasetId" datasetId, "modelId" modelId, "projectId" projectId},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"]})
 
 (defn models-list
   "Lists all models in the specified dataset. Requires the READER dataset role. After retrieving the list of models, you can get information about a particular model by calling the models.get method.
@@ -360,17 +341,15 @@ optional:
 maxResults <integer> The maximum number of results to return in a single response page. Leverage the page tokens to iterate through the entire collection."
   ([projectId datasetId] (models-list projectId datasetId nil))
   ([projectId datasetId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/models",
-       :uri-template-args
-       {"datasetId" datasetId, "projectId" projectId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/bigquery"
-        "https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"]})))
+    {:method :get,
+     :uri-template
+     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/models",
+     :uri-template-args {"datasetId" datasetId, "projectId" projectId},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/bigquery"
+      "https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"]}))
 
 (defn models-patch
   "Patch specific fields in the specified model.
@@ -382,17 +361,16 @@ modelId <>
 Model:
 Model"
   [projectId datasetId modelId Model]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template
-     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/models/{+modelId}",
-     :uri-template-args
-     {"datasetId" datasetId, "modelId" modelId, "projectId" projectId},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"],
-     :body Model}))
+  {:method :patch,
+   :uri-template
+   "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/models/{+modelId}",
+   :uri-template-args
+   {"datasetId" datasetId, "modelId" modelId, "projectId" projectId},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"],
+   :body Model})
 
 (defn projects-getServiceAccount
   "RPC to get the service account for a project used for interactions with Google Cloud KMS
@@ -400,16 +378,15 @@ https://cloud.google.com/bigquery/v2/reference/rest/v2/projects/getServiceAccoun
 
 projectId <> "
   [projectId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/serviceAccount",
-     :uri-template-args {"projectId" projectId},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"]}))
+  {:method :get,
+   :uri-template
+   "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/serviceAccount",
+   :uri-template-args {"projectId" projectId},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"]})
 
 (defn projects-list
   "RPC to list projects to which the user has been granted any project role. Users of this method are encouraged to consider the [Resource Manager](https://cloud.google.com/resource-manager/docs/) API, which provides the underlying data for this method and has more capabilities.
@@ -419,16 +396,15 @@ optional:
 maxResults <integer> `maxResults` unset returns all results, up to 50 per page. Additionally, the number of projects in a page may be fewer than `maxResults` because projects are retrieved and then filtered to only projects with the BigQuery API enabled."
   ([] (projects-list nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://bigquery.googleapis.com/bigquery/v2/projects",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/bigquery"
-        "https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"]})))
+    {:method :get,
+     :uri-template
+     "https://bigquery.googleapis.com/bigquery/v2/projects",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/bigquery"
+      "https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"]}))
 
 (defn routines-delete
   "Deletes the routine specified by routineId from the dataset.
@@ -438,18 +414,17 @@ projectId <>
 datasetId <> 
 routineId <> "
   [projectId datasetId routineId]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/routines/{+routineId}",
-     :uri-template-args
-     {"datasetId" datasetId,
-      "projectId" projectId,
-      "routineId" routineId},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template
+   "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/routines/{+routineId}",
+   :uri-template-args
+   {"datasetId" datasetId,
+    "projectId" projectId,
+    "routineId" routineId},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn routines-get
   "Gets the specified routine resource by routine ID.
@@ -464,19 +439,18 @@ readMask <string> If set, only the Routine fields in the field mask are returned
   ([projectId datasetId routineId]
     (routines-get projectId datasetId routineId nil))
   ([projectId datasetId routineId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/routines/{+routineId}",
-       :uri-template-args
-       {"datasetId" datasetId,
-        "projectId" projectId,
-        "routineId" routineId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/bigquery"
-        "https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"]})))
+    {:method :get,
+     :uri-template
+     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/routines/{+routineId}",
+     :uri-template-args
+     {"datasetId" datasetId,
+      "projectId" projectId,
+      "routineId" routineId},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/bigquery"
+      "https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"]}))
 
 (defn routines-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -486,17 +460,16 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://bigquery.googleapis.com/bigquery/v2/{+resource}:getIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"],
-     :body GetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://bigquery.googleapis.com/bigquery/v2/{+resource}:getIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"],
+   :body GetIamPolicyRequest})
 
 (defn routines-insert
   "Creates a new routine in the dataset.
@@ -507,16 +480,15 @@ datasetId <>
 Routine:
 Routine"
   [projectId datasetId Routine]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/routines",
-     :uri-template-args {"datasetId" datasetId, "projectId" projectId},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"],
-     :body Routine}))
+  {:method :post,
+   :uri-template
+   "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/routines",
+   :uri-template-args {"datasetId" datasetId, "projectId" projectId},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"],
+   :body Routine})
 
 (defn routines-list
   "Lists all routines in the specified dataset. Requires the READER dataset role.
@@ -531,17 +503,15 @@ maxResults <integer> The maximum number of results to return in a single respons
 readMask <string> If set, then only the Routine fields in the field mask, as well as project_id, dataset_id and routine_id, are returned in the response. If unset, then the following Routine fields are returned: etag, project_id, dataset_id, routine_id, routine_type, creation_time, last_modified_time, and language."
   ([projectId datasetId] (routines-list projectId datasetId nil))
   ([projectId datasetId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/routines",
-       :uri-template-args
-       {"datasetId" datasetId, "projectId" projectId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/bigquery"
-        "https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"]})))
+    {:method :get,
+     :uri-template
+     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/routines",
+     :uri-template-args {"datasetId" datasetId, "projectId" projectId},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/bigquery"
+      "https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"]}))
 
 (defn routines-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -551,16 +521,15 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://bigquery.googleapis.com/bigquery/v2/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://bigquery.googleapis.com/bigquery/v2/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn routines-update
   "Updates information in an existing routine. The update method replaces the entire Routine resource.
@@ -572,19 +541,18 @@ routineId <>
 Routine:
 Routine"
   [projectId datasetId routineId Routine]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/routines/{+routineId}",
-     :uri-template-args
-     {"datasetId" datasetId,
-      "projectId" projectId,
-      "routineId" routineId},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"],
-     :body Routine}))
+  {:method :put,
+   :uri-template
+   "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/routines/{+routineId}",
+   :uri-template-args
+   {"datasetId" datasetId,
+    "projectId" projectId,
+    "routineId" routineId},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"],
+   :body Routine})
 
 (defn rowAccessPolicies-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -594,17 +562,16 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://bigquery.googleapis.com/bigquery/v2/{+resource}:getIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"],
-     :body GetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://bigquery.googleapis.com/bigquery/v2/{+resource}:getIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"],
+   :body GetIamPolicyRequest})
 
 (defn rowAccessPolicies-list
   "Lists all row access policies on the specified table.
@@ -619,19 +586,16 @@ pageSize <integer> The maximum number of results to return in a single response 
   ([projectId datasetId tableId]
     (rowAccessPolicies-list projectId datasetId tableId nil))
   ([projectId datasetId tableId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}/rowAccessPolicies",
-       :uri-template-args
-       {"datasetId" datasetId,
-        "projectId" projectId,
-        "tableId" tableId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/bigquery"
-        "https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"]})))
+    {:method :get,
+     :uri-template
+     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}/rowAccessPolicies",
+     :uri-template-args
+     {"datasetId" datasetId, "projectId" projectId, "tableId" tableId},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/bigquery"
+      "https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"]}))
 
 (defn rowAccessPolicies-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -641,17 +605,16 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://bigquery.googleapis.com/bigquery/v2/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://bigquery.googleapis.com/bigquery/v2/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"],
+   :body TestIamPermissionsRequest})
 
 (defn tabledata-insertAll
   "Streams data into BigQuery one record at a time without needing to run a load job.
@@ -663,18 +626,17 @@ tableId <>
 TableDataInsertAllRequest:
 TableDataInsertAllRequest"
   [projectId datasetId tableId TableDataInsertAllRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}/insertAll",
-     :uri-template-args
-     {"datasetId" datasetId, "projectId" projectId, "tableId" tableId},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/bigquery.insertdata"
-      "https://www.googleapis.com/auth/cloud-platform"],
-     :body TableDataInsertAllRequest}))
+  {:method :post,
+   :uri-template
+   "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}/insertAll",
+   :uri-template-args
+   {"datasetId" datasetId, "projectId" projectId, "tableId" tableId},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/bigquery.insertdata"
+    "https://www.googleapis.com/auth/cloud-platform"],
+   :body TableDataInsertAllRequest})
 
 (defn tabledata-list
   "List the content of a table in rows.
@@ -692,19 +654,16 @@ startIndex <string> Start row index of the table."
   ([projectId datasetId tableId]
     (tabledata-list projectId datasetId tableId nil))
   ([projectId datasetId tableId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}/data",
-       :uri-template-args
-       {"datasetId" datasetId,
-        "projectId" projectId,
-        "tableId" tableId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/bigquery"
-        "https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"]})))
+    {:method :get,
+     :uri-template
+     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}/data",
+     :uri-template-args
+     {"datasetId" datasetId, "projectId" projectId, "tableId" tableId},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/bigquery"
+      "https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"]}))
 
 (defn tables-list
   "Lists all tables in the specified dataset. Requires the READER dataset role.
@@ -717,17 +676,15 @@ optional:
 maxResults <integer> The maximum number of results to return in a single response page. Leverage the page tokens to iterate through the entire collection."
   ([projectId datasetId] (tables-list projectId datasetId nil))
   ([projectId datasetId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/tables",
-       :uri-template-args
-       {"datasetId" datasetId, "projectId" projectId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/bigquery"
-        "https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"]})))
+    {:method :get,
+     :uri-template
+     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/tables",
+     :uri-template-args {"datasetId" datasetId, "projectId" projectId},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/bigquery"
+      "https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"]}))
 
 (defn tables-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -737,16 +694,15 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://bigquery.googleapis.com/bigquery/v2/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://bigquery.googleapis.com/bigquery/v2/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn tables-delete
   "Deletes the table specified by tableId from the dataset. If the table contains data, all the data will be deleted.
@@ -756,16 +712,15 @@ projectId <>
 datasetId <> 
 tableId <> "
   [projectId datasetId tableId]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}",
-     :uri-template-args
-     {"datasetId" datasetId, "projectId" projectId, "tableId" tableId},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template
+   "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}",
+   :uri-template-args
+   {"datasetId" datasetId, "projectId" projectId, "tableId" tableId},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn tables-update
   "Updates information in an existing table. The update method replaces the entire Table resource, whereas the patch method only replaces fields that are provided in the submitted Table resource.
@@ -782,19 +737,16 @@ autodetect_schema <boolean> Optional.  When true will autodetect schema, else wi
   ([projectId datasetId tableId Table]
     (tables-update projectId datasetId tableId Table nil))
   ([projectId datasetId tableId Table optional]
-    (client/*api-request*
-      {:method :put,
-       :uri-template
-       "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}",
-       :uri-template-args
-       {"datasetId" datasetId,
-        "projectId" projectId,
-        "tableId" tableId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/bigquery"
-        "https://www.googleapis.com/auth/cloud-platform"],
-       :body Table})))
+    {:method :put,
+     :uri-template
+     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}",
+     :uri-template-args
+     {"datasetId" datasetId, "projectId" projectId, "tableId" tableId},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/bigquery"
+      "https://www.googleapis.com/auth/cloud-platform"],
+     :body Table}))
 
 (defn tables-patch
   "Updates information in an existing table. The update method replaces the entire table resource, whereas the patch method only replaces fields that are provided in the submitted table resource. This method supports RFC5789 patch semantics.
@@ -811,19 +763,16 @@ autodetect_schema <boolean> Optional.  When true will autodetect schema, else wi
   ([projectId datasetId tableId Table]
     (tables-patch projectId datasetId tableId Table nil))
   ([projectId datasetId tableId Table optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}",
-       :uri-template-args
-       {"datasetId" datasetId,
-        "projectId" projectId,
-        "tableId" tableId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/bigquery"
-        "https://www.googleapis.com/auth/cloud-platform"],
-       :body Table})))
+    {:method :patch,
+     :uri-template
+     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}",
+     :uri-template-args
+     {"datasetId" datasetId, "projectId" projectId, "tableId" tableId},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/bigquery"
+      "https://www.googleapis.com/auth/cloud-platform"],
+     :body Table}))
 
 (defn tables-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -833,17 +782,16 @@ resource <>
 GetIamPolicyRequest:
 GetIamPolicyRequest"
   [resource GetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://bigquery.googleapis.com/bigquery/v2/{+resource}:getIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"],
-     :body GetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://bigquery.googleapis.com/bigquery/v2/{+resource}:getIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"],
+   :body GetIamPolicyRequest})
 
 (defn tables-insert
   "Creates a new, empty table in the dataset.
@@ -854,16 +802,15 @@ datasetId <>
 Table:
 Table"
   [projectId datasetId Table]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/tables",
-     :uri-template-args {"datasetId" datasetId, "projectId" projectId},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"],
-     :body Table}))
+  {:method :post,
+   :uri-template
+   "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/tables",
+   :uri-template-args {"datasetId" datasetId, "projectId" projectId},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"],
+   :body Table})
 
 (defn tables-get
   "Gets the specified table resource by table ID. This method does not return the data in the table, it only returns the table resource, which describes the structure of this table.
@@ -879,19 +826,16 @@ view <string> Optional. Specifies the view that determines which table informati
   ([projectId datasetId tableId]
     (tables-get projectId datasetId tableId nil))
   ([projectId datasetId tableId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}",
-       :uri-template-args
-       {"datasetId" datasetId,
-        "projectId" projectId,
-        "tableId" tableId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/bigquery"
-        "https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"]})))
+    {:method :get,
+     :uri-template
+     "https://bigquery.googleapis.com/bigquery/v2/projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}",
+     :uri-template-args
+     {"datasetId" datasetId, "projectId" projectId, "tableId" tableId},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/bigquery"
+      "https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"]}))
 
 (defn tables-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -901,14 +845,13 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://bigquery.googleapis.com/bigquery/v2/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/bigquery"
-      "https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://bigquery.googleapis.com/bigquery/v2/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/bigquery"
+    "https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"],
+   :body TestIamPermissionsRequest})

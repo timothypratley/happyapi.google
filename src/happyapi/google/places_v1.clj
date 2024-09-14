@@ -1,8 +1,7 @@
 (ns happyapi.google.places-v1
   "Places API (New)
 
-See: https://mapsplatform.google.com/maps-products/#places-section"
-  (:require [happyapi.providers.google :as client]))
+See: https://mapsplatform.google.com/maps-products/#places-section")
 
 (defn places-get
   "Get the details of a place based on its resource name, which is a string in the `places/{place_id}` format.
@@ -16,15 +15,14 @@ regionCode <string> Optional. The Unicode country/region code (CLDR) of the loca
 languageCode <string> Optional. Place details will be displayed with the preferred language if available. Current list of supported languages: https://developers.google.com/maps/faq#languagesupport."
   ([name] (places-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template "https://places.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/maps-platform.places"
-        "https://www.googleapis.com/auth/maps-platform.places.details"]})))
+    {:method :get,
+     :uri-template "https://places.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/maps-platform.places"
+      "https://www.googleapis.com/auth/maps-platform.places.details"]}))
 
 (defn places-searchNearby
   "Search for places near locations.
@@ -33,17 +31,16 @@ https://mapsplatform.google.com/maps-products/#places-section/v1/reference/rest/
 GoogleMapsPlacesV1SearchNearbyRequest:
 GoogleMapsPlacesV1SearchNearbyRequest"
   [GoogleMapsPlacesV1SearchNearbyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://places.googleapis.com/v1/places:searchNearby",
-     :uri-template-args {},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/maps-platform.places"
-      "https://www.googleapis.com/auth/maps-platform.places.nearbysearch"],
-     :body GoogleMapsPlacesV1SearchNearbyRequest}))
+  {:method :post,
+   :uri-template
+   "https://places.googleapis.com/v1/places:searchNearby",
+   :uri-template-args {},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/maps-platform.places"
+    "https://www.googleapis.com/auth/maps-platform.places.nearbysearch"],
+   :body GoogleMapsPlacesV1SearchNearbyRequest})
 
 (defn places-searchText
   "Text query based place search.
@@ -52,17 +49,15 @@ https://mapsplatform.google.com/maps-products/#places-section/v1/reference/rest/
 GoogleMapsPlacesV1SearchTextRequest:
 GoogleMapsPlacesV1SearchTextRequest"
   [GoogleMapsPlacesV1SearchTextRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://places.googleapis.com/v1/places:searchText",
-     :uri-template-args {},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/maps-platform.places"
-      "https://www.googleapis.com/auth/maps-platform.places.textsearch"],
-     :body GoogleMapsPlacesV1SearchTextRequest}))
+  {:method :post,
+   :uri-template "https://places.googleapis.com/v1/places:searchText",
+   :uri-template-args {},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/maps-platform.places"
+    "https://www.googleapis.com/auth/maps-platform.places.textsearch"],
+   :body GoogleMapsPlacesV1SearchTextRequest})
 
 (defn places-autocomplete
   "Returns predictions for the given input.
@@ -71,17 +66,16 @@ https://mapsplatform.google.com/maps-products/#places-section/v1/reference/rest/
 GoogleMapsPlacesV1AutocompletePlacesRequest:
 GoogleMapsPlacesV1AutocompletePlacesRequest"
   [GoogleMapsPlacesV1AutocompletePlacesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://places.googleapis.com/v1/places:autocomplete",
-     :uri-template-args {},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/maps-platform.places"
-      "https://www.googleapis.com/auth/maps-platform.places.autocomplete"],
-     :body GoogleMapsPlacesV1AutocompletePlacesRequest}))
+  {:method :post,
+   :uri-template
+   "https://places.googleapis.com/v1/places:autocomplete",
+   :uri-template-args {},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/maps-platform.places"
+    "https://www.googleapis.com/auth/maps-platform.places.autocomplete"],
+   :body GoogleMapsPlacesV1AutocompletePlacesRequest})
 
 (defn places-photos-getMedia
   "Get a photo media with a photo reference string.
@@ -95,11 +89,10 @@ maxHeightPx <integer> Optional. Specifies the maximum desired height, in pixels,
 maxWidthPx <integer> Optional. Specifies the maximum desired width, in pixels, of the image. If the image is smaller than the values specified, the original image will be returned. If the image is larger in either dimension, it will be scaled to match the smaller of the two dimensions, restricted to its original aspect ratio. Both the max_height_px and max_width_px properties accept an integer between 1 and 4800, inclusively. If the value is not within the allowed range, an INVALID_ARGUMENT error will be returned. At least one of max_height_px or max_width_px needs to be specified. If neither max_height_px nor max_width_px is specified, an INVALID_ARGUMENT error will be returned."
   ([name] (places-photos-getMedia name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template "https://places.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/maps-platform.places"]})))
+    {:method :get,
+     :uri-template "https://places.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/maps-platform.places"]}))

@@ -1,8 +1,7 @@
 (ns happyapi.google.workstations-v1
   "Cloud Workstations API
 Allows administrators to create managed developer environments in the cloud. 
-See: https://cloud.google.com/workstations"
-  (:require [happyapi.providers.google :as client]))
+See: https://cloud.google.com/workstations")
 
 (defn projects-locations-list
   "Lists information about the supported locations for this service.
@@ -15,13 +14,12 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://workstations.googleapis.com/v1/{+name}/locations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://workstations.googleapis.com/v1/{+name}/locations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-get
   "Gets information about a location.
@@ -29,12 +27,11 @@ https://cloud.google.com/workstations/v1/reference/rest/v1/projects/locations/ge
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://workstations.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://workstations.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -47,13 +44,12 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://workstations.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://workstations.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -61,12 +57,11 @@ https://cloud.google.com/workstations/v1/reference/rest/v1/projects/locations/op
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://workstations.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://workstations.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -74,12 +69,11 @@ https://cloud.google.com/workstations/v1/reference/rest/v1/projects/locations/op
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://workstations.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://workstations.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -89,14 +83,13 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://workstations.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body CancelOperationRequest}))
+  {:method :post,
+   :uri-template
+   "https://workstations.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body CancelOperationRequest})
 
 (defn projects-locations-workstationClusters-get
   "Returns the requested workstation cluster.
@@ -104,12 +97,11 @@ https://cloud.google.com/workstations/v1/reference/rest/v1/projects/locations/wo
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://workstations.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://workstations.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-workstationClusters-list
   "Returns all workstation clusters in the specified location.
@@ -121,13 +113,12 @@ optional:
 pageSize <integer> Optional. Maximum number of items to return."
   ([parent] (projects-locations-workstationClusters-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://workstations.googleapis.com/v1/{+parent}/workstationClusters",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://workstations.googleapis.com/v1/{+parent}/workstationClusters",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-workstationClusters-create
   "Creates a new workstation cluster.
@@ -146,14 +137,13 @@ validateOnly <boolean> Optional. If set, validate the request and preview the re
       WorkstationCluster
       nil))
   ([parent WorkstationCluster optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://workstations.googleapis.com/v1/{+parent}/workstationClusters",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body WorkstationCluster})))
+    {:method :post,
+     :uri-template
+     "https://workstations.googleapis.com/v1/{+parent}/workstationClusters",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body WorkstationCluster}))
 
 (defn projects-locations-workstationClusters-patch
   "Updates an existing workstation cluster.
@@ -173,13 +163,12 @@ allowMissing <boolean> Optional. If set, and the workstation cluster is not foun
       WorkstationCluster
       nil))
   ([name WorkstationCluster optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://workstations.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body WorkstationCluster})))
+    {:method :patch,
+     :uri-template "https://workstations.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body WorkstationCluster}))
 
 (defn projects-locations-workstationClusters-delete
   "Deletes the specified workstation cluster.
@@ -193,12 +182,11 @@ etag <string> Optional. If set, the request will be rejected if the latest versi
 force <boolean> Optional. If set, any workstation configurations and workstations in the workstation cluster are also deleted. Otherwise, the request only works if the workstation cluster has no configurations or workstations."
   ([name] (projects-locations-workstationClusters-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://workstations.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://workstations.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-workstationClusters-workstationConfigs-list
   "Returns all workstation configurations in the specified cluster.
@@ -213,13 +201,12 @@ pageSize <integer> Optional. Maximum number of items to return."
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://workstations.googleapis.com/v1/{+parent}/workstationConfigs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://workstations.googleapis.com/v1/{+parent}/workstationConfigs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-workstationClusters-workstationConfigs-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -229,14 +216,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://workstations.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://workstations.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-workstationClusters-workstationConfigs-delete
   "Deletes the specified workstation configuration.
@@ -253,12 +239,11 @@ force <boolean> Optional. If set, any workstations in the workstation configurat
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://workstations.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://workstations.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-workstationClusters-workstationConfigs-patch
   "Updates an existing workstation configuration.
@@ -278,13 +263,12 @@ allowMissing <boolean> Optional. If set and the workstation configuration is not
       WorkstationConfig
       nil))
   ([name WorkstationConfig optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://workstations.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body WorkstationConfig})))
+    {:method :patch,
+     :uri-template "https://workstations.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body WorkstationConfig}))
 
 (defn projects-locations-workstationClusters-workstationConfigs-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -299,13 +283,12 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://workstations.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://workstations.googleapis.com/v1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-workstationClusters-workstationConfigs-create
   "Creates a new workstation configuration.
@@ -324,14 +307,13 @@ validateOnly <boolean> Optional. If set, validate the request and preview the re
       WorkstationConfig
       nil))
   ([parent WorkstationConfig optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://workstations.googleapis.com/v1/{+parent}/workstationConfigs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body WorkstationConfig})))
+    {:method :post,
+     :uri-template
+     "https://workstations.googleapis.com/v1/{+parent}/workstationConfigs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body WorkstationConfig}))
 
 (defn projects-locations-workstationClusters-workstationConfigs-get
   "Returns the requested workstation configuration.
@@ -339,12 +321,11 @@ https://cloud.google.com/workstations/v1/reference/rest/v1/projects/locations/wo
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://workstations.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://workstations.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-workstationClusters-workstationConfigs-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -354,14 +335,13 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://workstations.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://workstations.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-locations-workstationClusters-workstationConfigs-listUsable
   "Returns all workstation configurations in the specified cluster on which the caller has the \"workstations.workstation.create\" permission.
@@ -376,13 +356,12 @@ pageSize <integer> Optional. Maximum number of items to return."
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://workstations.googleapis.com/v1/{+parent}/workstationConfigs:listUsable",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://workstations.googleapis.com/v1/{+parent}/workstationConfigs:listUsable",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-workstationClusters-workstationConfigs-workstations-stop
   "Stops running a workstation, reducing costs.
@@ -392,14 +371,12 @@ name <>
 StopWorkstationRequest:
 StopWorkstationRequest"
   [name StopWorkstationRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://workstations.googleapis.com/v1/{+name}:stop",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body StopWorkstationRequest}))
+  {:method :post,
+   :uri-template "https://workstations.googleapis.com/v1/{+name}:stop",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body StopWorkstationRequest})
 
 (defn projects-locations-workstationClusters-workstationConfigs-workstations-list
   "Returns all Workstations using the specified workstation configuration.
@@ -414,13 +391,12 @@ pageSize <integer> Optional. Maximum number of items to return."
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://workstations.googleapis.com/v1/{+parent}/workstations",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://workstations.googleapis.com/v1/{+parent}/workstations",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-workstationClusters-workstationConfigs-workstations-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -430,14 +406,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://workstations.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://workstations.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-workstationClusters-workstationConfigs-workstations-delete
   "Deletes the specified workstation.
@@ -453,12 +428,11 @@ etag <string> Optional. If set, the request will be rejected if the latest versi
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://workstations.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://workstations.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-workstationClusters-workstationConfigs-workstations-generateAccessToken
   "Returns a short-lived credential that can be used to send authenticated and authorized traffic to a workstation.
@@ -468,14 +442,13 @@ workstation <>
 GenerateAccessTokenRequest:
 GenerateAccessTokenRequest"
   [workstation GenerateAccessTokenRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://workstations.googleapis.com/v1/{+workstation}:generateAccessToken",
-     :uri-template-args {"workstation" workstation},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GenerateAccessTokenRequest}))
+  {:method :post,
+   :uri-template
+   "https://workstations.googleapis.com/v1/{+workstation}:generateAccessToken",
+   :uri-template-args {"workstation" workstation},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GenerateAccessTokenRequest})
 
 (defn projects-locations-workstationClusters-workstationConfigs-workstations-start
   "Starts running a workstation so that users can connect to it.
@@ -485,14 +458,13 @@ name <>
 StartWorkstationRequest:
 StartWorkstationRequest"
   [name StartWorkstationRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://workstations.googleapis.com/v1/{+name}:start",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body StartWorkstationRequest}))
+  {:method :post,
+   :uri-template
+   "https://workstations.googleapis.com/v1/{+name}:start",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body StartWorkstationRequest})
 
 (defn projects-locations-workstationClusters-workstationConfigs-workstations-patch
   "Updates an existing workstation.
@@ -512,13 +484,12 @@ allowMissing <boolean> Optional. If set and the workstation configuration is not
       Workstation
       nil))
   ([name Workstation optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://workstations.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Workstation})))
+    {:method :patch,
+     :uri-template "https://workstations.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Workstation}))
 
 (defn projects-locations-workstationClusters-workstationConfigs-workstations-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -533,13 +504,12 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://workstations.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://workstations.googleapis.com/v1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-workstationClusters-workstationConfigs-workstations-create
   "Creates a new workstation.
@@ -558,14 +528,13 @@ validateOnly <boolean> Optional. If set, validate the request and preview the re
       Workstation
       nil))
   ([parent Workstation optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://workstations.googleapis.com/v1/{+parent}/workstations",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Workstation})))
+    {:method :post,
+     :uri-template
+     "https://workstations.googleapis.com/v1/{+parent}/workstations",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Workstation}))
 
 (defn projects-locations-workstationClusters-workstationConfigs-workstations-get
   "Returns the requested workstation.
@@ -573,12 +542,11 @@ https://cloud.google.com/workstations/v1/reference/rest/v1/projects/locations/wo
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://workstations.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://workstations.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-workstationClusters-workstationConfigs-workstations-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -588,14 +556,13 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://workstations.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://workstations.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-locations-workstationClusters-workstationConfigs-workstations-listUsable
   "Returns all workstations using the specified workstation configuration on which the caller has the \"workstations.workstations.use\" permission.
@@ -610,10 +577,9 @@ pageSize <integer> Optional. Maximum number of items to return."
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://workstations.googleapis.com/v1/{+parent}/workstations:listUsable",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://workstations.googleapis.com/v1/{+parent}/workstations:listUsable",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))

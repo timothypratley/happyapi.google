@@ -1,8 +1,7 @@
 (ns happyapi.google.dfareporting-v4
   "Campaign Manager 360 API
 Build applications to efficiently manage large or complex trafficking, reporting, and attribution workflows for Campaign Manager 360.
-See: https://developers.google.com/doubleclick-advertisers/"
-  (:require [happyapi.providers.google :as client]))
+See: https://developers.google.com/doubleclick-advertisers/")
 
 (defn advertiserGroups-delete
   "Deletes an existing advertiser group.
@@ -11,13 +10,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/adver
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserGroups/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :delete,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserGroups/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn advertiserGroups-get
   "Gets one advertiser group by ID.
@@ -26,13 +24,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/adver
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserGroups/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserGroups/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn advertiserGroups-insert
   "Inserts a new advertiser group.
@@ -42,14 +39,13 @@ profileId <>
 AdvertiserGroup:
 AdvertiserGroup"
   [profileId AdvertiserGroup]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserGroups",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body AdvertiserGroup}))
+  {:method :post,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserGroups",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body AdvertiserGroup})
 
 (defn advertiserGroups-list
   "Retrieves a list of advertiser groups, possibly filtered. This method supports paging.
@@ -65,13 +61,12 @@ sortField <string> Field by which to sort the list.
 sortOrder <string> Order of sorted results."
   ([profileId] (advertiserGroups-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserGroups",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserGroups",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn advertiserGroups-update
   "Updates an existing advertiser group.
@@ -81,14 +76,13 @@ profileId <>
 AdvertiserGroup:
 AdvertiserGroup"
   [profileId AdvertiserGroup]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserGroups",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body AdvertiserGroup}))
+  {:method :put,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserGroups",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body AdvertiserGroup})
 
 (defn advertiserGroups-patch
   "Updates an existing advertiser group. This method supports patch semantics.
@@ -99,14 +93,13 @@ id <>
 AdvertiserGroup:
 AdvertiserGroup"
   [profileId id AdvertiserGroup]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserGroups",
-     :uri-template-args {"profileId" profileId},
-     :query-params {"id" id},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body AdvertiserGroup}))
+  {:method :patch,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserGroups",
+   :uri-template-args {"profileId" profileId},
+   :query-params {"id" id},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body AdvertiserGroup})
 
 (defn campaignCreativeAssociations-insert
   "Associates a creative with the specified campaign. This method creates a default ad with dimensions matching the creative in the campaign if such a default ad does not exist already.
@@ -117,15 +110,13 @@ campaignId <>
 CampaignCreativeAssociation:
 CampaignCreativeAssociation"
   [profileId campaignId CampaignCreativeAssociation]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/campaigns/{+campaignId}/campaignCreativeAssociations",
-     :uri-template-args
-     {"profileId" profileId, "campaignId" campaignId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body CampaignCreativeAssociation}))
+  {:method :post,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/campaigns/{+campaignId}/campaignCreativeAssociations",
+   :uri-template-args {"profileId" profileId, "campaignId" campaignId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body CampaignCreativeAssociation})
 
 (defn campaignCreativeAssociations-list
   "Retrieves the list of creative IDs associated with the specified campaign. This method supports paging.
@@ -140,14 +131,13 @@ sortOrder <string> Order of sorted results."
   ([profileId campaignId]
     (campaignCreativeAssociations-list profileId campaignId nil))
   ([profileId campaignId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/campaigns/{+campaignId}/campaignCreativeAssociations",
-       :uri-template-args
-       {"profileId" profileId, "campaignId" campaignId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/campaigns/{+campaignId}/campaignCreativeAssociations",
+     :uri-template-args
+     {"profileId" profileId, "campaignId" campaignId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn advertisers-get
   "Gets one advertiser by ID.
@@ -156,13 +146,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/adver
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertisers/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertisers/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn advertisers-insert
   "Inserts a new advertiser.
@@ -172,14 +161,13 @@ profileId <>
 Advertiser:
 Advertiser"
   [profileId Advertiser]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertisers",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body Advertiser}))
+  {:method :post,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertisers",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body Advertiser})
 
 (defn advertisers-list
   "Retrieves a list of advertisers, possibly filtered. This method supports paging.
@@ -201,13 +189,12 @@ sortField <string> Field by which to sort the list.
 includeAdvertisersWithoutGroupsOnly <boolean> Select only advertisers which do not belong to any advertiser group."
   ([profileId] (advertisers-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertisers",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertisers",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn advertisers-update
   "Updates an existing advertiser.
@@ -217,14 +204,13 @@ profileId <>
 Advertiser:
 Advertiser"
   [profileId Advertiser]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertisers",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body Advertiser}))
+  {:method :put,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertisers",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body Advertiser})
 
 (defn advertisers-patch
   "Updates an existing advertiser. This method supports patch semantics.
@@ -235,14 +221,13 @@ id <>
 Advertiser:
 Advertiser"
   [profileId id Advertiser]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertisers",
-     :uri-template-args {"profileId" profileId},
-     :query-params {"id" id},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body Advertiser}))
+  {:method :patch,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertisers",
+   :uri-template-args {"profileId" profileId},
+   :query-params {"id" id},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body Advertiser})
 
 (defn targetableRemarketingLists-get
   "Gets one remarketing list by ID.
@@ -251,13 +236,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/targe
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/targetableRemarketingLists/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/targetableRemarketingLists/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn targetableRemarketingLists-list
   "Retrieves a list of targetable remarketing lists, possibly filtered. This method supports paging.
@@ -275,13 +259,12 @@ sortOrder <string> Order of sorted results."
   ([profileId advertiserId]
     (targetableRemarketingLists-list profileId advertiserId nil))
   ([profileId advertiserId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/targetableRemarketingLists",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {"advertiserId" advertiserId} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/targetableRemarketingLists",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {"advertiserId" advertiserId} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn creatives-get
   "Gets one creative by ID.
@@ -290,13 +273,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/creat
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creatives/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creatives/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn creatives-insert
   "Inserts a new creative.
@@ -306,14 +288,13 @@ profileId <>
 Creative:
 Creative"
   [profileId Creative]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creatives",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body Creative}))
+  {:method :post,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creatives",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body Creative})
 
 (defn creatives-list
   "Retrieves a list of creatives, possibly filtered. This method supports paging.
@@ -339,13 +320,12 @@ active <boolean> Select only active creatives. Leave blank to select active and 
 sortField <string> Field by which to sort the list."
   ([profileId] (creatives-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creatives",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creatives",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn creatives-update
   "Updates an existing creative.
@@ -355,14 +335,13 @@ profileId <>
 Creative:
 Creative"
   [profileId Creative]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creatives",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body Creative}))
+  {:method :put,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creatives",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body Creative})
 
 (defn creatives-patch
   "Updates an existing creative. This method supports patch semantics.
@@ -373,14 +352,13 @@ id <>
 Creative:
 Creative"
   [profileId id Creative]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creatives",
-     :uri-template-args {"profileId" profileId},
-     :query-params {"id" id},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body Creative}))
+  {:method :patch,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creatives",
+   :uri-template-args {"profileId" profileId},
+   :query-params {"id" id},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body Creative})
 
 (defn placements-patch
   "Updates an existing placement. This method supports patch semantics.
@@ -391,14 +369,13 @@ id <>
 Placement:
 Placement"
   [profileId id Placement]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placements",
-     :uri-template-args {"profileId" profileId},
-     :query-params {"id" id},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body Placement}))
+  {:method :patch,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placements",
+   :uri-template-args {"profileId" profileId},
+   :query-params {"id" id},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body Placement})
 
 (defn placements-generatetags
   "Generates tags for a placement.
@@ -412,13 +389,12 @@ campaignId <string> Generate placements belonging to this campaign. This is a re
 tagFormats <string> Tag formats to generate for these placements. *Note:* PLACEMENT_TAG_STANDARD can only be generated for 1x1 placements."
   ([profileId] (placements-generatetags profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placements/generatetags",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :post,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placements/generatetags",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn placements-get
   "Gets one placement by ID.
@@ -427,13 +403,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/place
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placements/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placements/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn placements-insert
   "Inserts a new placement.
@@ -443,14 +418,13 @@ profileId <>
 Placement:
 Placement"
   [profileId Placement]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placements",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body Placement}))
+  {:method :post,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placements",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body Placement})
 
 (defn placements-list
   "Retrieves a list of placements, possibly filtered. This method supports paging.
@@ -482,13 +456,12 @@ sortField <string> Field by which to sort the list.
 minEndDate <string> Select only placements or placement groups whose end date is on or after the specified minEndDate. The date should be formatted as \"yyyy-MM-dd\"."
   ([profileId] (placements-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placements",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placements",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn placements-update
   "Updates an existing placement.
@@ -498,14 +471,13 @@ profileId <>
 Placement:
 Placement"
   [profileId Placement]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placements",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body Placement}))
+  {:method :put,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placements",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body Placement})
 
 (defn accountActiveAdSummaries-get
   "Gets the account's active ad summary by account ID.
@@ -514,14 +486,13 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/accou
 profileId <> 
 summaryAccountId <> "
   [profileId summaryAccountId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accountActiveAdSummaries/{+summaryAccountId}",
-     :uri-template-args
-     {"profileId" profileId, "summaryAccountId" summaryAccountId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accountActiveAdSummaries/{+summaryAccountId}",
+   :uri-template-args
+   {"profileId" profileId, "summaryAccountId" summaryAccountId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn contentCategories-delete
   "Deletes an existing content category.
@@ -530,13 +501,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/conte
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/contentCategories/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :delete,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/contentCategories/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn contentCategories-get
   "Gets one content category by ID.
@@ -545,13 +515,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/conte
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/contentCategories/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/contentCategories/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn contentCategories-insert
   "Inserts a new content category.
@@ -561,14 +530,13 @@ profileId <>
 ContentCategory:
 ContentCategory"
   [profileId ContentCategory]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/contentCategories",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body ContentCategory}))
+  {:method :post,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/contentCategories",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body ContentCategory})
 
 (defn contentCategories-list
   "Retrieves a list of content categories, possibly filtered. This method supports paging.
@@ -584,13 +552,12 @@ sortField <string> Field by which to sort the list.
 sortOrder <string> Order of sorted results."
   ([profileId] (contentCategories-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/contentCategories",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/contentCategories",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn contentCategories-update
   "Updates an existing content category.
@@ -600,14 +567,13 @@ profileId <>
 ContentCategory:
 ContentCategory"
   [profileId ContentCategory]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/contentCategories",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body ContentCategory}))
+  {:method :put,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/contentCategories",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body ContentCategory})
 
 (defn contentCategories-patch
   "Updates an existing content category. This method supports patch semantics.
@@ -618,14 +584,13 @@ id <>
 ContentCategory:
 ContentCategory"
   [profileId id ContentCategory]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/contentCategories",
-     :uri-template-args {"profileId" profileId},
-     :query-params {"id" id},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body ContentCategory}))
+  {:method :patch,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/contentCategories",
+   :uri-template-args {"profileId" profileId},
+   :query-params {"id" id},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body ContentCategory})
 
 (defn operatingSystemVersions-get
   "Gets one operating system version by ID.
@@ -634,13 +599,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/opera
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/operatingSystemVersions/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/operatingSystemVersions/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn operatingSystemVersions-list
   "Retrieves a list of operating system versions.
@@ -648,13 +612,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/opera
 
 profileId <> "
   [profileId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/operatingSystemVersions",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/operatingSystemVersions",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn sites-patch
   "Updates an existing site. This method supports patch semantics.
@@ -665,14 +628,13 @@ id <>
 Site:
 Site"
   [profileId id Site]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/sites",
-     :uri-template-args {"profileId" profileId},
-     :query-params {"id" id},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body Site}))
+  {:method :patch,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/sites",
+   :uri-template-args {"profileId" profileId},
+   :query-params {"id" id},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body Site})
 
 (defn sites-get
   "Gets one site by ID.
@@ -681,13 +643,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/sites
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/sites/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/sites/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn sites-insert
   "Inserts a new site.
@@ -697,14 +658,13 @@ profileId <>
 Site:
 Site"
   [profileId Site]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/sites",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body Site}))
+  {:method :post,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/sites",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body Site})
 
 (defn sites-list
   "Retrieves a list of sites, possibly filtered. This method supports paging.
@@ -729,13 +689,12 @@ sortOrder <string> Order of sorted results.
 sortField <string> Field by which to sort the list."
   ([profileId] (sites-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/sites",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/sites",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn sites-update
   "Updates an existing site.
@@ -745,14 +704,13 @@ profileId <>
 Site:
 Site"
   [profileId Site]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/sites",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body Site}))
+  {:method :put,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/sites",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body Site})
 
 (defn remarketingListShares-patch
   "Updates an existing remarketing list share. This method supports patch semantics.
@@ -763,14 +721,13 @@ id <>
 RemarketingListShare:
 RemarketingListShare"
   [profileId id RemarketingListShare]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/remarketingListShares",
-     :uri-template-args {"profileId" profileId},
-     :query-params {"id" id},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body RemarketingListShare}))
+  {:method :patch,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/remarketingListShares",
+   :uri-template-args {"profileId" profileId},
+   :query-params {"id" id},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body RemarketingListShare})
 
 (defn remarketingListShares-get
   "Gets one remarketing list share by remarketing list ID.
@@ -779,14 +736,13 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/remar
 profileId <> 
 remarketingListId <> "
   [profileId remarketingListId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/remarketingListShares/{+remarketingListId}",
-     :uri-template-args
-     {"profileId" profileId, "remarketingListId" remarketingListId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/remarketingListShares/{+remarketingListId}",
+   :uri-template-args
+   {"profileId" profileId, "remarketingListId" remarketingListId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn remarketingListShares-update
   "Updates an existing remarketing list share.
@@ -796,14 +752,13 @@ profileId <>
 RemarketingListShare:
 RemarketingListShare"
   [profileId RemarketingListShare]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/remarketingListShares",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body RemarketingListShare}))
+  {:method :put,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/remarketingListShares",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body RemarketingListShare})
 
 (defn accountPermissionGroups-get
   "Gets one account permission group by ID.
@@ -812,13 +767,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/accou
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accountPermissionGroups/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accountPermissionGroups/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn accountPermissionGroups-list
   "Retrieves the list of account permission groups.
@@ -826,13 +780,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/accou
 
 profileId <> "
   [profileId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accountPermissionGroups",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accountPermissionGroups",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn postalCodes-get
   "Gets one postal code by ID.
@@ -841,13 +794,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/posta
 profileId <> 
 code <> "
   [profileId code]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/postalCodes/{+code}",
-     :uri-template-args {"profileId" profileId, "code" code},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/postalCodes/{+code}",
+   :uri-template-args {"profileId" profileId, "code" code},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn postalCodes-list
   "Retrieves a list of postal codes.
@@ -855,13 +807,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/posta
 
 profileId <> "
   [profileId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/postalCodes",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/postalCodes",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn campaigns-get
   "Gets one campaign by ID.
@@ -870,13 +821,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/campa
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/campaigns/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/campaigns/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn campaigns-insert
   "Inserts a new campaign.
@@ -886,14 +836,13 @@ profileId <>
 Campaign:
 Campaign"
   [profileId Campaign]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/campaigns",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body Campaign}))
+  {:method :post,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/campaigns",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body Campaign})
 
 (defn campaigns-list
   "Retrieves a list of campaigns, possibly filtered. This method supports paging.
@@ -916,13 +865,12 @@ sortOrder <string> Order of sorted results.
 sortField <string> Field by which to sort the list."
   ([profileId] (campaigns-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/campaigns",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/campaigns",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn campaigns-update
   "Updates an existing campaign.
@@ -932,14 +880,13 @@ profileId <>
 Campaign:
 Campaign"
   [profileId Campaign]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/campaigns",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body Campaign}))
+  {:method :put,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/campaigns",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body Campaign})
 
 (defn campaigns-patch
   "Updates an existing campaign. This method supports patch semantics.
@@ -950,14 +897,13 @@ id <>
 Campaign:
 Campaign"
   [profileId id Campaign]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/campaigns",
-     :uri-template-args {"profileId" profileId},
-     :query-params {"id" id},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body Campaign}))
+  {:method :patch,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/campaigns",
+   :uri-template-args {"profileId" profileId},
+   :query-params {"id" id},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body Campaign})
 
 (defn browsers-list
   "Retrieves a list of browsers.
@@ -965,13 +911,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/brows
 
 profileId <> "
   [profileId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/browsers",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/browsers",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn reports-delete
   "Deletes a report by its ID.
@@ -980,13 +925,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/repor
 profileId <> 
 reportId <> "
   [profileId reportId]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/reports/{reportId}",
-     :uri-template-args {"profileId" profileId, "reportId" reportId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfareporting"]}))
+  {:method :delete,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/reports/{reportId}",
+   :uri-template-args {"profileId" profileId, "reportId" reportId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfareporting"]})
 
 (defn reports-get
   "Retrieves a report by its ID.
@@ -995,13 +939,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/repor
 profileId <> 
 reportId <> "
   [profileId reportId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/reports/{reportId}",
-     :uri-template-args {"profileId" profileId, "reportId" reportId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfareporting"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/reports/{reportId}",
+   :uri-template-args {"profileId" profileId, "reportId" reportId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfareporting"]})
 
 (defn reports-insert
   "Creates a report.
@@ -1011,14 +954,13 @@ profileId <>
 Report:
 Report"
   [profileId Report]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/reports",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfareporting"],
-     :body Report}))
+  {:method :post,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/reports",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfareporting"],
+   :body Report})
 
 (defn reports-list
   "Retrieves list of reports.
@@ -1033,13 +975,12 @@ sortField <string> The field by which to sort the list.
 sortOrder <string> Order of sorted results."
   ([profileId] (reports-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/reports",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfareporting"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/reports",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfareporting"]}))
 
 (defn reports-run
   "Runs a report.
@@ -1052,13 +993,12 @@ optional:
 synchronous <boolean> If set and true, tries to run the report synchronously."
   ([profileId reportId] (reports-run profileId reportId nil))
   ([profileId reportId optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/reports/{reportId}/run",
-       :uri-template-args {"profileId" profileId, "reportId" reportId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfareporting"]})))
+    {:method :post,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/reports/{reportId}/run",
+     :uri-template-args {"profileId" profileId, "reportId" reportId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfareporting"]}))
 
 (defn reports-update
   "Updates a report.
@@ -1069,14 +1009,13 @@ reportId <>
 Report:
 Report"
   [profileId reportId Report]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/reports/{reportId}",
-     :uri-template-args {"profileId" profileId, "reportId" reportId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfareporting"],
-     :body Report}))
+  {:method :put,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/reports/{reportId}",
+   :uri-template-args {"profileId" profileId, "reportId" reportId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfareporting"],
+   :body Report})
 
 (defn reports-patch
   "Updates an existing report. This method supports patch semantics.
@@ -1087,14 +1026,13 @@ reportId <>
 Report:
 Report"
   [profileId reportId Report]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/reports/{reportId}",
-     :uri-template-args {"profileId" profileId, "reportId" reportId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfareporting"],
-     :body Report}))
+  {:method :patch,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/reports/{reportId}",
+   :uri-template-args {"profileId" profileId, "reportId" reportId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfareporting"],
+   :body Report})
 
 (defn reports-files-get
   "Retrieves a report file by its report ID and file ID. This method supports media download.
@@ -1104,14 +1042,13 @@ profileId <>
 reportId <> 
 fileId <> "
   [profileId reportId fileId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/reports/{reportId}/files/{fileId}",
-     :uri-template-args
-     {"profileId" profileId, "reportId" reportId, "fileId" fileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfareporting"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/reports/{reportId}/files/{fileId}",
+   :uri-template-args
+   {"profileId" profileId, "reportId" reportId, "fileId" fileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfareporting"]})
 
 (defn reports-files-list
   "Lists files for a report.
@@ -1126,13 +1063,12 @@ sortOrder <string> Order of sorted results.
 maxResults <integer> Maximum number of results to return."
   ([profileId reportId] (reports-files-list profileId reportId nil))
   ([profileId reportId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/reports/{reportId}/files",
-       :uri-template-args {"profileId" profileId, "reportId" reportId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfareporting"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/reports/{reportId}/files",
+     :uri-template-args {"profileId" profileId, "reportId" reportId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfareporting"]}))
 
 (defn reports-compatibleFields-query
   "Returns the fields that are compatible to be selected in the respective sections of a report criteria, given the fields already selected in the input report and user permissions.
@@ -1142,14 +1078,13 @@ profileId <>
 Report:
 Report"
   [profileId Report]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/reports/compatiblefields/query",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfareporting"],
-     :body Report}))
+  {:method :post,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/reports/compatiblefields/query",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfareporting"],
+   :body Report})
 
 (defn metros-list
   "Retrieves a list of metros.
@@ -1157,13 +1092,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/metro
 
 profileId <> "
   [profileId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/metros",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/metros",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn userRolePermissions-get
   "Gets one user role permission by ID.
@@ -1172,13 +1106,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/userR
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/userRolePermissions/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/userRolePermissions/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn userRolePermissions-list
   "Gets a list of user role permissions, possibly filtered.
@@ -1190,13 +1123,12 @@ optional:
 ids <string> Select only user role permissions with these IDs."
   ([profileId] (userRolePermissions-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/userRolePermissions",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/userRolePermissions",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn inventoryItems-get
   "Gets one inventory item by ID.
@@ -1206,14 +1138,13 @@ profileId <>
 projectId <> 
 id <> "
   [profileId projectId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/projects/{projectId}/inventoryItems/{+id}",
-     :uri-template-args
-     {"profileId" profileId, "projectId" projectId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/projects/{projectId}/inventoryItems/{+id}",
+   :uri-template-args
+   {"profileId" profileId, "projectId" projectId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn inventoryItems-list
   "Retrieves a list of inventory items, possibly filtered. This method supports paging.
@@ -1233,14 +1164,12 @@ sortField <string> Field by which to sort the list.
 siteId <string> Select only inventory items that are associated with these sites."
   ([profileId projectId] (inventoryItems-list profileId projectId nil))
   ([profileId projectId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/projects/{projectId}/inventoryItems",
-       :uri-template-args
-       {"projectId" projectId, "profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/projects/{projectId}/inventoryItems",
+     :uri-template-args {"projectId" projectId, "profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn accountPermissions-get
   "Gets one account permission by ID.
@@ -1249,13 +1178,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/accou
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accountPermissions/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accountPermissions/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn accountPermissions-list
   "Retrieves the list of account permissions.
@@ -1263,13 +1191,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/accou
 
 profileId <> "
   [profileId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accountPermissions",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accountPermissions",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn billingProfiles-get
   "Gets one billing profile by ID.
@@ -1278,13 +1205,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/billi
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/billingProfiles/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/billingProfiles/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn billingProfiles-list
   "Retrieves a list of billing profiles, possibly filtered. This method supports paging.
@@ -1304,13 +1230,12 @@ sortField <string> Field by which to sort the list.
 onlySuggestion <boolean> Select only billing profile which is suggested for the currency_code & subaccount_id using the Billing Suggestion API."
   ([profileId] (billingProfiles-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/billingProfiles",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/billingProfiles",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn billingProfiles-update
   "Updates an existing billing profile.
@@ -1320,14 +1245,13 @@ profileId <>
 BillingProfile:
 BillingProfile"
   [profileId BillingProfile]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/billingProfiles",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body BillingProfile}))
+  {:method :put,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/billingProfiles",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body BillingProfile})
 
 (defn files-get
   "Retrieves a report file by its report ID and file ID. This method supports media download.
@@ -1336,13 +1260,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/files
 reportId <> 
 fileId <> "
   [reportId fileId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/reports/{reportId}/files/{fileId}",
-     :uri-template-args {"reportId" reportId, "fileId" fileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfareporting"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/reports/{reportId}/files/{fileId}",
+   :uri-template-args {"reportId" reportId, "fileId" fileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfareporting"]})
 
 (defn files-list
   "Lists files for a user profile.
@@ -1357,13 +1280,12 @@ sortField <string> The field by which to sort the list.
 sortOrder <string> Order of sorted results."
   ([profileId] (files-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/files",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfareporting"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/files",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfareporting"]}))
 
 (defn conversions-batchinsert
   "Inserts conversions.
@@ -1373,14 +1295,13 @@ profileId <>
 ConversionsBatchInsertRequest:
 ConversionsBatchInsertRequest"
   [profileId ConversionsBatchInsertRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/conversions/batchinsert",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/ddmconversions"],
-     :body ConversionsBatchInsertRequest}))
+  {:method :post,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/conversions/batchinsert",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/ddmconversions"],
+   :body ConversionsBatchInsertRequest})
 
 (defn conversions-batchupdate
   "Updates existing conversions.
@@ -1390,14 +1311,13 @@ profileId <>
 ConversionsBatchUpdateRequest:
 ConversionsBatchUpdateRequest"
   [profileId ConversionsBatchUpdateRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/conversions/batchupdate",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/ddmconversions"],
-     :body ConversionsBatchUpdateRequest}))
+  {:method :post,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/conversions/batchupdate",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/ddmconversions"],
+   :body ConversionsBatchUpdateRequest})
 
 (defn mobileApps-get
   "Gets one mobile app by ID.
@@ -1406,13 +1326,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/mobil
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/mobileApps/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/mobileApps/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn mobileApps-list
   "Retrieves list of available mobile apps.
@@ -1427,13 +1346,12 @@ directories <string> Select only apps from these directories.
 maxResults <integer> Maximum number of results to return."
   ([profileId] (mobileApps-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/mobileApps",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/mobileApps",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn eventTags-delete
   "Deletes an existing event tag.
@@ -1442,13 +1360,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/event
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/eventTags/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :delete,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/eventTags/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn eventTags-get
   "Gets one event tag by ID.
@@ -1457,13 +1374,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/event
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/eventTags/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/eventTags/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn eventTags-insert
   "Inserts a new event tag.
@@ -1473,14 +1389,13 @@ profileId <>
 EventTag:
 EventTag"
   [profileId EventTag]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/eventTags",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body EventTag}))
+  {:method :post,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/eventTags",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body EventTag})
 
 (defn eventTags-list
   "Retrieves a list of event tags, possibly filtered.
@@ -1501,13 +1416,12 @@ sortOrder <string> Order of sorted results.
 sortField <string> Field by which to sort the list."
   ([profileId] (eventTags-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/eventTags",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/eventTags",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn eventTags-update
   "Updates an existing event tag.
@@ -1517,14 +1431,13 @@ profileId <>
 EventTag:
 EventTag"
   [profileId EventTag]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/eventTags",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body EventTag}))
+  {:method :put,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/eventTags",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body EventTag})
 
 (defn eventTags-patch
   "Updates an existing event tag. This method supports patch semantics.
@@ -1535,14 +1448,13 @@ id <>
 EventTag:
 EventTag"
   [profileId id EventTag]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/eventTags",
-     :uri-template-args {"profileId" profileId},
-     :query-params {"id" id},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body EventTag}))
+  {:method :patch,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/eventTags",
+   :uri-template-args {"profileId" profileId},
+   :query-params {"id" id},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body EventTag})
 
 (defn platformTypes-get
   "Gets one platform type by ID.
@@ -1551,13 +1463,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/platf
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/platformTypes/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/platformTypes/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn platformTypes-list
   "Retrieves a list of platform types.
@@ -1565,13 +1476,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/platf
 
 profileId <> "
   [profileId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/platformTypes",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/platformTypes",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn accountUserProfiles-get
   "Gets one account user profile by ID.
@@ -1580,13 +1490,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/accou
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/accountUserProfiles/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/accountUserProfiles/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn accountUserProfiles-insert
   "Inserts a new account user profile.
@@ -1596,14 +1505,13 @@ profileId <>
 AccountUserProfile:
 AccountUserProfile"
   [profileId AccountUserProfile]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accountUserProfiles",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body AccountUserProfile}))
+  {:method :post,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accountUserProfiles",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body AccountUserProfile})
 
 (defn accountUserProfiles-list
   "Retrieves a list of account user profiles, possibly filtered. This method supports paging.
@@ -1622,13 +1530,12 @@ active <boolean> Select only active user profiles.
 sortField <string> Field by which to sort the list."
   ([profileId] (accountUserProfiles-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accountUserProfiles",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accountUserProfiles",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn accountUserProfiles-update
   "Updates an existing account user profile.
@@ -1638,14 +1545,13 @@ profileId <>
 AccountUserProfile:
 AccountUserProfile"
   [profileId AccountUserProfile]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accountUserProfiles",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body AccountUserProfile}))
+  {:method :put,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accountUserProfiles",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body AccountUserProfile})
 
 (defn accountUserProfiles-patch
   "Updates an existing account user profile. This method supports patch semantics.
@@ -1656,14 +1562,13 @@ id <>
 AccountUserProfile:
 AccountUserProfile"
   [profileId id AccountUserProfile]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accountUserProfiles",
-     :uri-template-args {"profileId" profileId},
-     :query-params {"id" id},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body AccountUserProfile}))
+  {:method :patch,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accountUserProfiles",
+   :uri-template-args {"profileId" profileId},
+   :query-params {"id" id},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body AccountUserProfile})
 
 (defn directorySites-get
   "Gets one directory site by ID.
@@ -1672,13 +1577,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/direc
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/directorySites/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/directorySites/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn directorySites-insert
   "Inserts a new directory site.
@@ -1688,14 +1592,13 @@ profileId <>
 DirectorySite:
 DirectorySite"
   [profileId DirectorySite]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/directorySites",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body DirectorySite}))
+  {:method :post,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/directorySites",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body DirectorySite})
 
 (defn directorySites-list
   "Retrieves a list of directory sites, possibly filtered. This method supports paging.
@@ -1716,13 +1619,12 @@ active <boolean> Select only active directory sites. Leave blank to retrieve bot
 sortField <string> Field by which to sort the list."
   ([profileId] (directorySites-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/directorySites",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/directorySites",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn mobileCarriers-get
   "Gets one mobile carrier by ID.
@@ -1731,13 +1633,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/mobil
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/mobileCarriers/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/mobileCarriers/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn mobileCarriers-list
   "Retrieves a list of mobile carriers.
@@ -1745,13 +1646,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/mobil
 
 profileId <> "
   [profileId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/mobileCarriers",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/mobileCarriers",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn operatingSystems-get
   "Gets one operating system by DART ID.
@@ -1760,13 +1660,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/opera
 profileId <> 
 dartId <> "
   [profileId dartId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/operatingSystems/{+dartId}",
-     :uri-template-args {"profileId" profileId, "dartId" dartId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/operatingSystems/{+dartId}",
+   :uri-template-args {"profileId" profileId, "dartId" dartId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn operatingSystems-list
   "Retrieves a list of operating systems.
@@ -1774,13 +1673,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/opera
 
 profileId <> "
   [profileId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/operatingSystems",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/operatingSystems",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn floodlightConfigurations-get
   "Gets one floodlight configuration by ID.
@@ -1789,13 +1687,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/flood
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightConfigurations/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightConfigurations/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn floodlightConfigurations-list
   "Retrieves a list of floodlight configurations, possibly filtered.
@@ -1807,13 +1704,12 @@ optional:
 ids <string> Set of IDs of floodlight configurations to retrieve. Required field; otherwise an empty list will be returned."
   ([profileId] (floodlightConfigurations-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightConfigurations",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightConfigurations",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn floodlightConfigurations-update
   "Updates an existing floodlight configuration.
@@ -1823,14 +1719,13 @@ profileId <>
 FloodlightConfiguration:
 FloodlightConfiguration"
   [profileId FloodlightConfiguration]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightConfigurations",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body FloodlightConfiguration}))
+  {:method :put,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightConfigurations",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body FloodlightConfiguration})
 
 (defn floodlightConfigurations-patch
   "Updates an existing floodlight configuration. This method supports patch semantics.
@@ -1841,14 +1736,13 @@ id <>
 FloodlightConfiguration:
 FloodlightConfiguration"
   [profileId id FloodlightConfiguration]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightConfigurations",
-     :uri-template-args {"profileId" profileId},
-     :query-params {"id" id},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body FloodlightConfiguration}))
+  {:method :patch,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightConfigurations",
+   :uri-template-args {"profileId" profileId},
+   :query-params {"id" id},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body FloodlightConfiguration})
 
 (defn userRoles-patch
   "Updates an existing user role. This method supports patch semantics.
@@ -1859,14 +1753,13 @@ id <>
 UserRole:
 UserRole"
   [profileId id UserRole]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/userRoles",
-     :uri-template-args {"profileId" profileId},
-     :query-params {"id" id},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body UserRole}))
+  {:method :patch,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/userRoles",
+   :uri-template-args {"profileId" profileId},
+   :query-params {"id" id},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body UserRole})
 
 (defn userRoles-get
   "Gets one user role by ID.
@@ -1875,13 +1768,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/userR
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/userRoles/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/userRoles/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn userRoles-insert
   "Inserts a new user role.
@@ -1891,14 +1783,13 @@ profileId <>
 UserRole:
 UserRole"
   [profileId UserRole]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/userRoles",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body UserRole}))
+  {:method :post,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/userRoles",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body UserRole})
 
 (defn userRoles-list
   "Retrieves a list of user roles, possibly filtered. This method supports paging.
@@ -1916,13 +1807,12 @@ sortOrder <string> Order of sorted results.
 sortField <string> Field by which to sort the list."
   ([profileId] (userRoles-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/userRoles",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/userRoles",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn userRoles-update
   "Updates an existing user role.
@@ -1932,14 +1822,13 @@ profileId <>
 UserRole:
 UserRole"
   [profileId UserRole]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/userRoles",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body UserRole}))
+  {:method :put,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/userRoles",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body UserRole})
 
 (defn userRoles-delete
   "Deletes an existing user role.
@@ -1948,13 +1837,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/userR
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/userRoles/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :delete,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/userRoles/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn floodlightActivityGroups-get
   "Gets one floodlight activity group by ID.
@@ -1963,13 +1851,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/flood
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivityGroups/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivityGroups/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn floodlightActivityGroups-insert
   "Inserts a new floodlight activity group.
@@ -1979,14 +1866,13 @@ profileId <>
 FloodlightActivityGroup:
 FloodlightActivityGroup"
   [profileId FloodlightActivityGroup]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivityGroups",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body FloodlightActivityGroup}))
+  {:method :post,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivityGroups",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body FloodlightActivityGroup})
 
 (defn floodlightActivityGroups-list
   "Retrieves a list of floodlight activity groups, possibly filtered. This method supports paging.
@@ -2005,13 +1891,12 @@ sortField <string> Field by which to sort the list.
 floodlightConfigurationId <string> Select only floodlight activity groups with the specified floodlight configuration ID. Must specify either advertiserId, or floodlightConfigurationId for a non-empty result."
   ([profileId] (floodlightActivityGroups-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivityGroups",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivityGroups",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn floodlightActivityGroups-update
   "Updates an existing floodlight activity group.
@@ -2021,14 +1906,13 @@ profileId <>
 FloodlightActivityGroup:
 FloodlightActivityGroup"
   [profileId FloodlightActivityGroup]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivityGroups",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body FloodlightActivityGroup}))
+  {:method :put,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivityGroups",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body FloodlightActivityGroup})
 
 (defn floodlightActivityGroups-patch
   "Updates an existing floodlight activity group. This method supports patch semantics.
@@ -2039,14 +1923,13 @@ id <>
 FloodlightActivityGroup:
 FloodlightActivityGroup"
   [profileId id FloodlightActivityGroup]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivityGroups",
-     :uri-template-args {"profileId" profileId},
-     :query-params {"id" id},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body FloodlightActivityGroup}))
+  {:method :patch,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivityGroups",
+   :uri-template-args {"profileId" profileId},
+   :query-params {"id" id},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body FloodlightActivityGroup})
 
 (defn dynamicTargetingKeys-delete
   "Deletes an existing dynamic targeting key.
@@ -2057,13 +1940,12 @@ objectId <>
 name <> 
 objectType <> "
   [profileId objectId name objectType]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/dynamicTargetingKeys/{+objectId}",
-     :uri-template-args {"profileId" profileId, "objectId" objectId},
-     :query-params {"name" name, "objectType" objectType},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :delete,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/dynamicTargetingKeys/{+objectId}",
+   :uri-template-args {"profileId" profileId, "objectId" objectId},
+   :query-params {"name" name, "objectType" objectType},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn dynamicTargetingKeys-insert
   "Inserts a new dynamic targeting key. Keys must be created at the advertiser level before being assigned to the advertiser's ads, creatives, or placements. There is a maximum of 1000 keys per advertiser, out of which a maximum of 20 keys can be assigned per ad, creative, or placement.
@@ -2073,14 +1955,13 @@ profileId <>
 DynamicTargetingKey:
 DynamicTargetingKey"
   [profileId DynamicTargetingKey]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/dynamicTargetingKeys",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body DynamicTargetingKey}))
+  {:method :post,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/dynamicTargetingKeys",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body DynamicTargetingKey})
 
 (defn dynamicTargetingKeys-list
   "Retrieves a list of dynamic targeting keys.
@@ -2095,13 +1976,12 @@ objectId <string> Select only dynamic targeting keys with this object ID.
 advertiserId <string> Select only dynamic targeting keys whose object has this advertiser ID."
   ([profileId] (dynamicTargetingKeys-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/dynamicTargetingKeys",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/dynamicTargetingKeys",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn advertiserLandingPages-get
   "Gets one landing page by ID.
@@ -2110,13 +1990,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/adver
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserLandingPages/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserLandingPages/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn advertiserLandingPages-insert
   "Inserts a new landing page.
@@ -2126,14 +2005,13 @@ profileId <>
 LandingPage:
 LandingPage"
   [profileId LandingPage]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserLandingPages",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body LandingPage}))
+  {:method :post,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserLandingPages",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body LandingPage})
 
 (defn advertiserLandingPages-list
   "Retrieves a list of landing pages.
@@ -2153,13 +2031,12 @@ sortOrder <string> Order of sorted results.
 sortField <string> Field by which to sort the list."
   ([profileId] (advertiserLandingPages-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserLandingPages",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserLandingPages",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn advertiserLandingPages-update
   "Updates an existing landing page.
@@ -2169,14 +2046,13 @@ profileId <>
 LandingPage:
 LandingPage"
   [profileId LandingPage]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserLandingPages",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body LandingPage}))
+  {:method :put,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserLandingPages",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body LandingPage})
 
 (defn advertiserLandingPages-patch
   "Updates an existing landing page. This method supports patch semantics.
@@ -2187,14 +2063,13 @@ id <>
 LandingPage:
 LandingPage"
   [profileId id LandingPage]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserLandingPages",
-     :uri-template-args {"profileId" profileId},
-     :query-params {"id" id},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body LandingPage}))
+  {:method :patch,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertiserLandingPages",
+   :uri-template-args {"profileId" profileId},
+   :query-params {"id" id},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body LandingPage})
 
 (defn languages-list
   "Retrieves a list of languages.
@@ -2202,13 +2077,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/langu
 
 profileId <> "
   [profileId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/languages",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/languages",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn accounts-get
   "Gets one account by ID.
@@ -2217,13 +2091,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/accou
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accounts/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accounts/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn accounts-list
   "Retrieves the list of accounts, possibly filtered. This method supports paging.
@@ -2240,13 +2113,12 @@ sortField <string> Field by which to sort the list.
 sortOrder <string> Order of sorted results."
   ([profileId] (accounts-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accounts",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accounts",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn accounts-update
   "Updates an existing account.
@@ -2256,14 +2128,13 @@ profileId <>
 Account:
 Account"
   [profileId Account]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accounts",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body Account}))
+  {:method :put,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accounts",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body Account})
 
 (defn accounts-patch
   "Updates an existing account. This method supports patch semantics.
@@ -2274,14 +2145,13 @@ id <>
 Account:
 Account"
   [profileId id Account]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accounts",
-     :uri-template-args {"profileId" profileId},
-     :query-params {"id" id},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body Account}))
+  {:method :patch,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/accounts",
+   :uri-template-args {"profileId" profileId},
+   :query-params {"id" id},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body Account})
 
 (defn countries-get
   "Gets one country by ID.
@@ -2290,13 +2160,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/count
 profileId <> 
 dartId <> "
   [profileId dartId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/countries/{+dartId}",
-     :uri-template-args {"profileId" profileId, "dartId" dartId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/countries/{+dartId}",
+   :uri-template-args {"profileId" profileId, "dartId" dartId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn countries-list
   "Retrieves a list of countries.
@@ -2304,13 +2173,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/count
 
 profileId <> "
   [profileId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/countries",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/countries",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn placementGroups-patch
   "Updates an existing placement group. This method supports patch semantics.
@@ -2321,14 +2189,13 @@ id <>
 PlacementGroup:
 PlacementGroup"
   [profileId id PlacementGroup]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementGroups",
-     :uri-template-args {"profileId" profileId},
-     :query-params {"id" id},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body PlacementGroup}))
+  {:method :patch,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementGroups",
+   :uri-template-args {"profileId" profileId},
+   :query-params {"id" id},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body PlacementGroup})
 
 (defn placementGroups-get
   "Gets one placement group by ID.
@@ -2337,13 +2204,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/place
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementGroups/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementGroups/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn placementGroups-insert
   "Inserts a new placement group.
@@ -2353,14 +2219,13 @@ profileId <>
 PlacementGroup:
 PlacementGroup"
   [profileId PlacementGroup]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementGroups",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body PlacementGroup}))
+  {:method :post,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementGroups",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body PlacementGroup})
 
 (defn placementGroups-list
   "Retrieves a list of placement groups, possibly filtered. This method supports paging.
@@ -2389,13 +2254,12 @@ sortField <string> Field by which to sort the list.
 minEndDate <string> Select only placements or placement groups whose end date is on or after the specified minEndDate. The date should be formatted as \"yyyy-MM-dd\"."
   ([profileId] (placementGroups-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementGroups",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementGroups",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn placementGroups-update
   "Updates an existing placement group.
@@ -2405,14 +2269,13 @@ profileId <>
 PlacementGroup:
 PlacementGroup"
   [profileId PlacementGroup]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementGroups",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body PlacementGroup}))
+  {:method :put,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementGroups",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body PlacementGroup})
 
 (defn advertiserInvoices-list
   "Retrieves a list of invoices for a particular issue month. The api only works if the billing profile invoice level is set to either advertiser or campaign non-consolidated invoice level.
@@ -2427,14 +2290,13 @@ issueMonth <string> Month for which invoices are needed in the format YYYYMM. Re
   ([profileId advertiserId]
     (advertiserInvoices-list profileId advertiserId nil))
   ([profileId advertiserId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertisers/{+advertiserId}/invoices",
-       :uri-template-args
-       {"profileId" profileId, "advertiserId" advertiserId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/advertisers/{+advertiserId}/invoices",
+     :uri-template-args
+     {"profileId" profileId, "advertiserId" advertiserId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn creativeFields-delete
   "Deletes an existing creative field.
@@ -2443,13 +2305,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/creat
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :delete,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn creativeFields-get
   "Gets one creative field by ID.
@@ -2458,13 +2319,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/creat
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn creativeFields-insert
   "Inserts a new creative field.
@@ -2474,14 +2334,13 @@ profileId <>
 CreativeField:
 CreativeField"
   [profileId CreativeField]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body CreativeField}))
+  {:method :post,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body CreativeField})
 
 (defn creativeFields-list
   "Retrieves a list of creative fields, possibly filtered. This method supports paging.
@@ -2498,13 +2357,12 @@ sortField <string> Field by which to sort the list.
 sortOrder <string> Order of sorted results."
   ([profileId] (creativeFields-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn creativeFields-update
   "Updates an existing creative field.
@@ -2514,14 +2372,13 @@ profileId <>
 CreativeField:
 CreativeField"
   [profileId CreativeField]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body CreativeField}))
+  {:method :put,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body CreativeField})
 
 (defn creativeFields-patch
   "Updates an existing creative field. This method supports patch semantics.
@@ -2532,14 +2389,13 @@ id <>
 CreativeField:
 CreativeField"
   [profileId id CreativeField]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields",
-     :uri-template-args {"profileId" profileId},
-     :query-params {"id" id},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body CreativeField}))
+  {:method :patch,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields",
+   :uri-template-args {"profileId" profileId},
+   :query-params {"id" id},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body CreativeField})
 
 (defn regions-list
   "Retrieves a list of regions.
@@ -2547,13 +2403,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/regio
 
 profileId <> "
   [profileId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/regions",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/regions",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn floodlightActivities-delete
   "Deletes an existing floodlight activity.
@@ -2562,13 +2417,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/flood
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivities/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :delete,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivities/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn floodlightActivities-generatetag
   "Generates a tag for a floodlight activity.
@@ -2580,13 +2434,12 @@ optional:
 floodlightActivityId <string> Floodlight activity ID for which we want to generate a tag."
   ([profileId] (floodlightActivities-generatetag profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivities/generatetag",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :post,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivities/generatetag",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn floodlightActivities-get
   "Gets one floodlight activity by ID.
@@ -2595,13 +2448,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/flood
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivities/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivities/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn floodlightActivities-insert
   "Inserts a new floodlight activity.
@@ -2611,14 +2463,13 @@ profileId <>
 FloodlightActivity:
 FloodlightActivity"
   [profileId FloodlightActivity]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivities",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body FloodlightActivity}))
+  {:method :post,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivities",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body FloodlightActivity})
 
 (defn floodlightActivities-list
   "Retrieves a list of floodlight activities, possibly filtered. This method supports paging.
@@ -2641,13 +2492,12 @@ sortField <string> Field by which to sort the list.
 floodlightConfigurationId <string> Select only floodlight activities for the specified floodlight configuration ID. Must specify either ids, advertiserId, or floodlightConfigurationId for a non-empty result."
   ([profileId] (floodlightActivities-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivities",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivities",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn floodlightActivities-update
   "Updates an existing floodlight activity.
@@ -2657,14 +2507,13 @@ profileId <>
 FloodlightActivity:
 FloodlightActivity"
   [profileId FloodlightActivity]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivities",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body FloodlightActivity}))
+  {:method :put,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivities",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body FloodlightActivity})
 
 (defn floodlightActivities-patch
   "Updates an existing floodlight activity. This method supports patch semantics.
@@ -2675,14 +2524,13 @@ id <>
 FloodlightActivity:
 FloodlightActivity"
   [profileId id FloodlightActivity]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivities",
-     :uri-template-args {"profileId" profileId},
-     :query-params {"id" id},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body FloodlightActivity}))
+  {:method :patch,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/floodlightActivities",
+   :uri-template-args {"profileId" profileId},
+   :query-params {"id" id},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body FloodlightActivity})
 
 (defn userRolePermissionGroups-get
   "Gets one user role permission group by ID.
@@ -2691,13 +2539,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/userR
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/userRolePermissionGroups/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/userRolePermissionGroups/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn userRolePermissionGroups-list
   "Gets a list of all supported user role permission groups.
@@ -2705,13 +2552,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/userR
 
 profileId <> "
   [profileId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/userRolePermissionGroups",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/userRolePermissionGroups",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn targetingTemplates-patch
   "Updates an existing targeting template. This method supports patch semantics.
@@ -2722,14 +2568,13 @@ id <>
 TargetingTemplate:
 TargetingTemplate"
   [profileId id TargetingTemplate]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/targetingTemplates",
-     :uri-template-args {"profileId" profileId},
-     :query-params {"id" id},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body TargetingTemplate}))
+  {:method :patch,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/targetingTemplates",
+   :uri-template-args {"profileId" profileId},
+   :query-params {"id" id},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body TargetingTemplate})
 
 (defn targetingTemplates-get
   "Gets one targeting template by ID.
@@ -2738,13 +2583,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/targe
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/targetingTemplates/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/targetingTemplates/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn targetingTemplates-insert
   "Inserts a new targeting template.
@@ -2754,14 +2598,13 @@ profileId <>
 TargetingTemplate:
 TargetingTemplate"
   [profileId TargetingTemplate]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/targetingTemplates",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body TargetingTemplate}))
+  {:method :post,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/targetingTemplates",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body TargetingTemplate})
 
 (defn targetingTemplates-list
   "Retrieves a list of targeting templates, optionally filtered. This method supports paging.
@@ -2778,13 +2621,12 @@ sortField <string> Field by which to sort the list.
 sortOrder <string> Order of sorted results."
   ([profileId] (targetingTemplates-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/targetingTemplates",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/targetingTemplates",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn targetingTemplates-update
   "Updates an existing targeting template.
@@ -2794,14 +2636,13 @@ profileId <>
 TargetingTemplate:
 TargetingTemplate"
   [profileId TargetingTemplate]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/targetingTemplates",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body TargetingTemplate}))
+  {:method :put,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/targetingTemplates",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body TargetingTemplate})
 
 (defn billingAssignments-insert
   "Inserts a new billing assignment and returns the new assignment. Only one of advertiser_id or campaign_id is support per request. If the new assignment has no effect (assigning a campaign to the parent advertiser billing profile or assigning an advertiser to the account billing profile), no assignment will be returned.
@@ -2812,15 +2653,14 @@ billingProfileId <>
 BillingAssignment:
 BillingAssignment"
   [profileId billingProfileId BillingAssignment]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/billingProfiles/{+billingProfileId}/billingAssignments",
-     :uri-template-args
-     {"profileId" profileId, "billingProfileId" billingProfileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body BillingAssignment}))
+  {:method :post,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/billingProfiles/{+billingProfileId}/billingAssignments",
+   :uri-template-args
+   {"profileId" profileId, "billingProfileId" billingProfileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body BillingAssignment})
 
 (defn billingAssignments-list
   "Retrieves a list of billing assignments.
@@ -2829,14 +2669,13 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/billi
 profileId <> 
 billingProfileId <> "
   [profileId billingProfileId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/billingProfiles/{+billingProfileId}/billingAssignments",
-     :uri-template-args
-     {"profileId" profileId, "billingProfileId" billingProfileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/billingProfiles/{+billingProfileId}/billingAssignments",
+   :uri-template-args
+   {"profileId" profileId, "billingProfileId" billingProfileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn remarketingLists-patch
   "Updates an existing remarketing list. This method supports patch semantics.
@@ -2847,14 +2686,13 @@ id <>
 RemarketingList:
 RemarketingList"
   [profileId id RemarketingList]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/remarketingLists",
-     :uri-template-args {"profileId" profileId},
-     :query-params {"id" id},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body RemarketingList}))
+  {:method :patch,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/remarketingLists",
+   :uri-template-args {"profileId" profileId},
+   :query-params {"id" id},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body RemarketingList})
 
 (defn remarketingLists-get
   "Gets one remarketing list by ID.
@@ -2863,13 +2701,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/remar
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/remarketingLists/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/remarketingLists/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn remarketingLists-insert
   "Inserts a new remarketing list.
@@ -2879,14 +2716,13 @@ profileId <>
 RemarketingList:
 RemarketingList"
   [profileId RemarketingList]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/remarketingLists",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body RemarketingList}))
+  {:method :post,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/remarketingLists",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body RemarketingList})
 
 (defn remarketingLists-list
   "Retrieves a list of remarketing lists, possibly filtered. This method supports paging.
@@ -2905,13 +2741,12 @@ sortField <string> Field by which to sort the list."
   ([profileId advertiserId]
     (remarketingLists-list profileId advertiserId nil))
   ([profileId advertiserId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/remarketingLists",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {"advertiserId" advertiserId} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/remarketingLists",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {"advertiserId" advertiserId} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn remarketingLists-update
   "Updates an existing remarketing list.
@@ -2921,14 +2756,13 @@ profileId <>
 RemarketingList:
 RemarketingList"
   [profileId RemarketingList]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/remarketingLists",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body RemarketingList}))
+  {:method :put,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/remarketingLists",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body RemarketingList})
 
 (defn projects-get
   "Gets one project by ID.
@@ -2937,13 +2771,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/proje
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/projects/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/projects/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn projects-list
   "Retrieves a list of projects, possibly filtered. This method supports paging .
@@ -2960,13 +2793,12 @@ sortField <string> Field by which to sort the list.
 sortOrder <string> Order of sorted results."
   ([profileId] (projects-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/projects",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/projects",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn sizes-get
   "Gets one size by ID.
@@ -2975,13 +2807,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/sizes
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/sizes/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/sizes/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn sizes-insert
   "Inserts a new size.
@@ -2991,14 +2822,13 @@ profileId <>
 Size:
 Size"
   [profileId Size]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/sizes",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body Size}))
+  {:method :post,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/sizes",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body Size})
 
 (defn sizes-list
   "Retrieves a list of sizes, possibly filtered. Retrieved sizes are globally unique and may include values not currently in use by your account. Due to this, the list of sizes returned by this method may differ from the list seen in the Trafficking UI.
@@ -3013,13 +2843,12 @@ iabStandard <boolean> Select only IAB standard sizes.
 width <integer> Select only sizes with this width."
   ([profileId] (sizes-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/sizes",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/sizes",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn billingRates-list
   "Retrieves a list of billing rates. This method supports paging.
@@ -3028,14 +2857,13 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/billi
 profileId <> 
 billingProfileId <> "
   [profileId billingProfileId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/billingProfiles/{+billingProfileId}/billingRates",
-     :uri-template-args
-     {"profileId" profileId, "billingProfileId" billingProfileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/billingProfiles/{+billingProfileId}/billingRates",
+   :uri-template-args
+   {"profileId" profileId, "billingProfileId" billingProfileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn changeLogs-get
   "Gets one change log by ID.
@@ -3044,13 +2872,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/chang
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/changeLogs/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/changeLogs/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn changeLogs-list
   "Retrieves a list of change logs. This method supports paging.
@@ -3070,13 +2897,12 @@ action <string> Select only change logs with the specified action.
 objectType <string> Select only change logs with the specified object type."
   ([profileId] (changeLogs-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/changeLogs",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/changeLogs",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn placementStrategies-patch
   "Updates an existing placement strategy. This method supports patch semantics.
@@ -3087,14 +2913,13 @@ id <>
 PlacementStrategy:
 PlacementStrategy"
   [profileId id PlacementStrategy]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementStrategies",
-     :uri-template-args {"profileId" profileId},
-     :query-params {"id" id},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body PlacementStrategy}))
+  {:method :patch,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementStrategies",
+   :uri-template-args {"profileId" profileId},
+   :query-params {"id" id},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body PlacementStrategy})
 
 (defn placementStrategies-delete
   "Deletes an existing placement strategy.
@@ -3103,13 +2928,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/place
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementStrategies/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :delete,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementStrategies/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn placementStrategies-get
   "Gets one placement strategy by ID.
@@ -3118,13 +2942,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/place
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementStrategies/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementStrategies/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn placementStrategies-insert
   "Inserts a new placement strategy.
@@ -3134,14 +2957,13 @@ profileId <>
 PlacementStrategy:
 PlacementStrategy"
   [profileId PlacementStrategy]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementStrategies",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body PlacementStrategy}))
+  {:method :post,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementStrategies",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body PlacementStrategy})
 
 (defn placementStrategies-list
   "Retrieves a list of placement strategies, possibly filtered. This method supports paging.
@@ -3157,13 +2979,12 @@ sortField <string> Field by which to sort the list.
 sortOrder <string> Order of sorted results."
   ([profileId] (placementStrategies-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementStrategies",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementStrategies",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn placementStrategies-update
   "Updates an existing placement strategy.
@@ -3173,14 +2994,13 @@ profileId <>
 PlacementStrategy:
 PlacementStrategy"
   [profileId PlacementStrategy]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementStrategies",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body PlacementStrategy}))
+  {:method :put,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/placementStrategies",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body PlacementStrategy})
 
 (defn cities-list
   "Retrieves a list of cities, possibly filtered.
@@ -3195,13 +3015,12 @@ dartIds <string> Select only cities with these DART IDs.
 regionDartIds <string> Select only cities from these regions."
   ([profileId] (cities-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/cities",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/cities",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn dimensionValues-query
   "Retrieves list of report dimension values for a list of filters.
@@ -3216,14 +3035,13 @@ maxResults <integer> Maximum number of results to return."
   ([profileId DimensionValueRequest]
     (dimensionValues-query profileId DimensionValueRequest nil))
   ([profileId DimensionValueRequest optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/dimensionvalues/query",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfareporting"],
-       :body DimensionValueRequest})))
+    {:method :post,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}/dimensionvalues/query",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfareporting"],
+     :body DimensionValueRequest}))
 
 (defn connectionTypes-get
   "Gets one connection type by ID.
@@ -3232,13 +3050,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/conne
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/connectionTypes/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/connectionTypes/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn connectionTypes-list
   "Retrieves a list of connection types.
@@ -3246,13 +3063,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/conne
 
 profileId <> "
   [profileId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/connectionTypes",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/connectionTypes",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn creativeFieldValues-delete
   "Deletes an existing creative field value.
@@ -3262,16 +3078,13 @@ profileId <>
 creativeFieldId <> 
 id <> "
   [profileId creativeFieldId id]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields/{+creativeFieldId}/creativeFieldValues/{+id}",
-     :uri-template-args
-     {"profileId" profileId,
-      "creativeFieldId" creativeFieldId,
-      "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :delete,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields/{+creativeFieldId}/creativeFieldValues/{+id}",
+   :uri-template-args
+   {"profileId" profileId, "creativeFieldId" creativeFieldId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn creativeFieldValues-get
   "Gets one creative field value by ID.
@@ -3281,16 +3094,13 @@ profileId <>
 creativeFieldId <> 
 id <> "
   [profileId creativeFieldId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields/{+creativeFieldId}/creativeFieldValues/{+id}",
-     :uri-template-args
-     {"profileId" profileId,
-      "creativeFieldId" creativeFieldId,
-      "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields/{+creativeFieldId}/creativeFieldValues/{+id}",
+   :uri-template-args
+   {"profileId" profileId, "creativeFieldId" creativeFieldId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn creativeFieldValues-insert
   "Inserts a new creative field value.
@@ -3301,15 +3111,14 @@ creativeFieldId <>
 CreativeFieldValue:
 CreativeFieldValue"
   [profileId creativeFieldId CreativeFieldValue]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields/{+creativeFieldId}/creativeFieldValues",
-     :uri-template-args
-     {"profileId" profileId, "creativeFieldId" creativeFieldId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body CreativeFieldValue}))
+  {:method :post,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields/{+creativeFieldId}/creativeFieldValues",
+   :uri-template-args
+   {"profileId" profileId, "creativeFieldId" creativeFieldId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body CreativeFieldValue})
 
 (defn creativeFieldValues-list
   "Retrieves a list of creative field values, possibly filtered. This method supports paging.
@@ -3327,14 +3136,13 @@ sortOrder <string> Order of sorted results."
   ([profileId creativeFieldId]
     (creativeFieldValues-list profileId creativeFieldId nil))
   ([profileId creativeFieldId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields/{+creativeFieldId}/creativeFieldValues",
-       :uri-template-args
-       {"profileId" profileId, "creativeFieldId" creativeFieldId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields/{+creativeFieldId}/creativeFieldValues",
+     :uri-template-args
+     {"profileId" profileId, "creativeFieldId" creativeFieldId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn creativeFieldValues-update
   "Updates an existing creative field value.
@@ -3345,15 +3153,14 @@ creativeFieldId <>
 CreativeFieldValue:
 CreativeFieldValue"
   [profileId creativeFieldId CreativeFieldValue]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields/{+creativeFieldId}/creativeFieldValues",
-     :uri-template-args
-     {"profileId" profileId, "creativeFieldId" creativeFieldId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body CreativeFieldValue}))
+  {:method :put,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields/{+creativeFieldId}/creativeFieldValues",
+   :uri-template-args
+   {"profileId" profileId, "creativeFieldId" creativeFieldId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body CreativeFieldValue})
 
 (defn creativeFieldValues-patch
   "Updates an existing creative field value. This method supports patch semantics.
@@ -3365,15 +3172,14 @@ id <>
 CreativeFieldValue:
 CreativeFieldValue"
   [profileId creativeFieldId id CreativeFieldValue]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields/{+creativeFieldId}/creativeFieldValues",
-     :uri-template-args
-     {"profileId" profileId, "creativeFieldId" creativeFieldId},
-     :query-params {"id" id},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body CreativeFieldValue}))
+  {:method :patch,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeFields/{+creativeFieldId}/creativeFieldValues",
+   :uri-template-args
+   {"profileId" profileId, "creativeFieldId" creativeFieldId},
+   :query-params {"id" id},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body CreativeFieldValue})
 
 (defn ads-get
   "Gets one ad by ID.
@@ -3382,13 +3188,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/ads/g
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/ads/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/ads/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn ads-insert
   "Inserts a new ad.
@@ -3398,14 +3203,13 @@ profileId <>
 Ad:
 Ad"
   [profileId Ad]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/ads",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body Ad}))
+  {:method :post,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/ads",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body Ad})
 
 (defn ads-list
   "Retrieves a list of ads, possibly filtered. This method supports paging.
@@ -3438,13 +3242,12 @@ sortField <string> Field by which to sort the list.
 creativeOptimizationConfigurationIds <string> Select only ads with these creative optimization configuration IDs."
   ([profileId] (ads-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/ads",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/ads",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn ads-update
   "Updates an existing ad.
@@ -3454,14 +3257,13 @@ profileId <>
 Ad:
 Ad"
   [profileId Ad]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/ads",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body Ad}))
+  {:method :put,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/ads",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body Ad})
 
 (defn ads-patch
   "Updates an existing ad. This method supports patch semantics.
@@ -3472,14 +3274,13 @@ id <>
 Ad:
 Ad"
   [profileId id Ad]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/ads",
-     :uri-template-args {"profileId" profileId},
-     :query-params {"id" id},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body Ad}))
+  {:method :patch,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/ads",
+   :uri-template-args {"profileId" profileId},
+   :query-params {"id" id},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body Ad})
 
 (defn subaccounts-patch
   "Updates an existing subaccount. This method supports patch semantics.
@@ -3490,14 +3291,13 @@ id <>
 Subaccount:
 Subaccount"
   [profileId id Subaccount]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/subaccounts",
-     :uri-template-args {"profileId" profileId},
-     :query-params {"id" id},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body Subaccount}))
+  {:method :patch,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/subaccounts",
+   :uri-template-args {"profileId" profileId},
+   :query-params {"id" id},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body Subaccount})
 
 (defn subaccounts-get
   "Gets one subaccount by ID.
@@ -3506,13 +3306,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/subac
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/subaccounts/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/subaccounts/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn subaccounts-insert
   "Inserts a new subaccount.
@@ -3522,14 +3321,13 @@ profileId <>
 Subaccount:
 Subaccount"
   [profileId Subaccount]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/subaccounts",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body Subaccount}))
+  {:method :post,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/subaccounts",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body Subaccount})
 
 (defn subaccounts-list
   "Gets a list of subaccounts, possibly filtered. This method supports paging.
@@ -3545,13 +3343,12 @@ sortField <string> Field by which to sort the list.
 sortOrder <string> Order of sorted results."
   ([profileId] (subaccounts-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/subaccounts",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/subaccounts",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn subaccounts-update
   "Updates an existing subaccount.
@@ -3561,14 +3358,13 @@ profileId <>
 Subaccount:
 Subaccount"
   [profileId Subaccount]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/subaccounts",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body Subaccount}))
+  {:method :put,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/subaccounts",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body Subaccount})
 
 (defn orders-get
   "Gets one order by ID.
@@ -3578,14 +3374,13 @@ profileId <>
 projectId <> 
 id <> "
   [profileId projectId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/projects/{projectId}/orders/{+id}",
-     :uri-template-args
-     {"profileId" profileId, "projectId" projectId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/projects/{projectId}/orders/{+id}",
+   :uri-template-args
+   {"profileId" profileId, "projectId" projectId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn orders-list
   "Retrieves a list of orders, possibly filtered. This method supports paging.
@@ -3603,14 +3398,12 @@ sortField <string> Field by which to sort the list.
 siteId <string> Select only orders that are associated with these site IDs."
   ([profileId projectId] (orders-list profileId projectId nil))
   ([profileId projectId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/projects/{projectId}/orders",
-       :uri-template-args
-       {"projectId" projectId, "profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/projects/{projectId}/orders",
+     :uri-template-args {"projectId" projectId, "profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn creativeAssets-insert
   "Inserts a new creative asset.
@@ -3621,15 +3414,14 @@ advertiserId <>
 CreativeAssetMetadata:
 CreativeAssetMetadata"
   [profileId advertiserId CreativeAssetMetadata]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeAssets/{+advertiserId}/creativeAssets",
-     :uri-template-args
-     {"profileId" profileId, "advertiserId" advertiserId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body CreativeAssetMetadata}))
+  {:method :post,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeAssets/{+advertiserId}/creativeAssets",
+   :uri-template-args
+   {"profileId" profileId, "advertiserId" advertiserId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body CreativeAssetMetadata})
 
 (defn videoFormats-get
   "Gets one video format by ID.
@@ -3638,13 +3430,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/video
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/videoFormats/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/videoFormats/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn videoFormats-list
   "Lists available video formats.
@@ -3652,13 +3443,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/video
 
 profileId <> "
   [profileId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/videoFormats",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/videoFormats",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn creativeGroups-get
   "Gets one creative group by ID.
@@ -3667,13 +3457,12 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/creat
 profileId <> 
 id <> "
   [profileId id]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeGroups/{+id}",
-     :uri-template-args {"profileId" profileId, "id" id},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeGroups/{+id}",
+   :uri-template-args {"profileId" profileId, "id" id},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn creativeGroups-insert
   "Inserts a new creative group.
@@ -3683,14 +3472,13 @@ profileId <>
 CreativeGroup:
 CreativeGroup"
   [profileId CreativeGroup]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeGroups",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body CreativeGroup}))
+  {:method :post,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeGroups",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body CreativeGroup})
 
 (defn creativeGroups-list
   "Retrieves a list of creative groups, possibly filtered. This method supports paging.
@@ -3708,13 +3496,12 @@ sortField <string> Field by which to sort the list.
 groupNumber <integer> Select only creative groups that belong to this subgroup."
   ([profileId] (creativeGroups-list profileId nil))
   ([profileId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeGroups",
-       :uri-template-args {"profileId" profileId},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/dfatrafficking"]})))
+    {:method :get,
+     :uri-template
+     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeGroups",
+     :uri-template-args {"profileId" profileId},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/dfatrafficking"]}))
 
 (defn creativeGroups-update
   "Updates an existing creative group.
@@ -3724,14 +3511,13 @@ profileId <>
 CreativeGroup:
 CreativeGroup"
   [profileId CreativeGroup]
-  (client/*api-request*
-    {:method :put,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeGroups",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body CreativeGroup}))
+  {:method :put,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeGroups",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body CreativeGroup})
 
 (defn creativeGroups-patch
   "Updates an existing creative group. This method supports patch semantics.
@@ -3742,14 +3528,13 @@ id <>
 CreativeGroup:
 CreativeGroup"
   [profileId id CreativeGroup]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeGroups",
-     :uri-template-args {"profileId" profileId},
-     :query-params {"id" id},
-     :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
-     :body CreativeGroup}))
+  {:method :patch,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{+profileId}/creativeGroups",
+   :uri-template-args {"profileId" profileId},
+   :query-params {"id" id},
+   :scopes ["https://www.googleapis.com/auth/dfatrafficking"],
+   :body CreativeGroup})
 
 (defn userProfiles-get
   "Gets one user profile by ID.
@@ -3757,28 +3542,26 @@ https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/userP
 
 profileId <> "
   [profileId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}",
-     :uri-template-args {"profileId" profileId},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/ddmconversions"
-      "https://www.googleapis.com/auth/dfareporting"
-      "https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles/{profileId}",
+   :uri-template-args {"profileId" profileId},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/ddmconversions"
+    "https://www.googleapis.com/auth/dfareporting"
+    "https://www.googleapis.com/auth/dfatrafficking"]})
 
 (defn userProfiles-list
   "Retrieves list of user profiles for a user.
 https://developers.google.com/doubleclick-advertisers/v4/reference/rest/v4/userProfiles/list"
   []
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles",
-     :uri-template-args {},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/ddmconversions"
-      "https://www.googleapis.com/auth/dfareporting"
-      "https://www.googleapis.com/auth/dfatrafficking"]}))
+  {:method :get,
+   :uri-template
+   "https://dfareporting.googleapis.com/dfareporting/v4/userprofiles",
+   :uri-template-args {},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/ddmconversions"
+    "https://www.googleapis.com/auth/dfareporting"
+    "https://www.googleapis.com/auth/dfatrafficking"]})

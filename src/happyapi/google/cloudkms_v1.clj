@@ -1,8 +1,7 @@
 (ns happyapi.google.cloudkms-v1
   "Cloud Key Management Service (KMS) API
 Manages keys and performs cryptographic operations in a central cloud service, for direct use by other cloud resources and applications. 
-See: https://cloud.google.com/security/products/security-key-management"
-  (:require [happyapi.providers.google :as client]))
+See: https://cloud.google.com/security/products/security-key-management")
 
 (defn folders-updateAutokeyConfig
   "Updates the AutokeyConfig for a folder. The caller must have both `cloudkms.autokeyConfigs.update` permission on the parent folder and `cloudkms.cryptoKeys.setIamPolicy` permission on the provided key project. A KeyHandle creation in the folder's descendant projects will use this configuration to determine where to create the resulting CryptoKey.
@@ -17,15 +16,14 @@ updateMask <string> Required. Masks which fields of the AutokeyConfig to update,
   ([name AutokeyConfig]
     (folders-updateAutokeyConfig name AutokeyConfig nil))
   ([name AutokeyConfig optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloudkms"],
-       :body AutokeyConfig})))
+    {:method :patch,
+     :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloudkms"],
+     :body AutokeyConfig}))
 
 (defn folders-getAutokeyConfig
   "Returns the AutokeyConfig for a folder.
@@ -33,14 +31,13 @@ https://cloud.google.com/security/products/security-key-management/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"]}))
+  {:method :get,
+   :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"]})
 
 (defn projects-showEffectiveAutokeyConfig
   "Returns the effective Cloud KMS Autokey configuration for a given project.
@@ -48,15 +45,14 @@ https://cloud.google.com/security/products/security-key-management/v1/reference/
 
 parent <> "
   [parent]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://cloudkms.googleapis.com/v1/{+parent}:showEffectiveAutokeyConfig",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"]}))
+  {:method :get,
+   :uri-template
+   "https://cloudkms.googleapis.com/v1/{+parent}:showEffectiveAutokeyConfig",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"]})
 
 (defn projects-locations-getEkmConfig
   "Returns the EkmConfig singleton resource for a given project and location.
@@ -64,14 +60,13 @@ https://cloud.google.com/security/products/security-key-management/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"]}))
+  {:method :get,
+   :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"]})
 
 (defn projects-locations-updateEkmConfig
   "Updates the EkmConfig singleton resource for a given project and location.
@@ -86,15 +81,14 @@ updateMask <string> Required. List of fields to be updated in this request."
   ([name EkmConfig]
     (projects-locations-updateEkmConfig name EkmConfig nil))
   ([name EkmConfig optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloudkms"],
-       :body EkmConfig})))
+    {:method :patch,
+     :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloudkms"],
+     :body EkmConfig}))
 
 (defn projects-locations-generateRandomBytes
   "Generate random bytes using the Cloud KMS randomness source in the provided location.
@@ -104,16 +98,15 @@ location <>
 GenerateRandomBytesRequest:
 GenerateRandomBytesRequest"
   [location GenerateRandomBytesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudkms.googleapis.com/v1/{+location}:generateRandomBytes",
-     :uri-template-args {"location" location},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"],
-     :body GenerateRandomBytesRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudkms.googleapis.com/v1/{+location}:generateRandomBytes",
+   :uri-template-args {"location" location},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"],
+   :body GenerateRandomBytesRequest})
 
 (defn projects-locations-list
   "Lists information about the supported locations for this service.
@@ -126,15 +119,14 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudkms.googleapis.com/v1/{+name}/locations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloudkms"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudkms.googleapis.com/v1/{+name}/locations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloudkms"]}))
 
 (defn projects-locations-get
   "Gets information about a location.
@@ -142,14 +134,13 @@ https://cloud.google.com/security/products/security-key-management/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"]}))
+  {:method :get,
+   :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"]})
 
 (defn projects-locations-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -157,14 +148,13 @@ https://cloud.google.com/security/products/security-key-management/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"]}))
+  {:method :get,
+   :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"]})
 
 (defn projects-locations-keyHandles-create
   "Creates a new KeyHandle, triggering the provisioning of a new CryptoKey for CMEK use with the given resource type in the configured key project and the same location. GetOperation should be used to resolve the resulting long-running operation and get the resulting KeyHandle and CryptoKey.
@@ -179,16 +169,15 @@ keyHandleId <string> Optional. Id of the KeyHandle. Must be unique to the resour
   ([parent KeyHandle]
     (projects-locations-keyHandles-create parent KeyHandle nil))
   ([parent KeyHandle optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://cloudkms.googleapis.com/v1/{+parent}/keyHandles",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloudkms"],
-       :body KeyHandle})))
+    {:method :post,
+     :uri-template
+     "https://cloudkms.googleapis.com/v1/{+parent}/keyHandles",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloudkms"],
+     :body KeyHandle}))
 
 (defn projects-locations-keyHandles-get
   "Returns the KeyHandle.
@@ -196,14 +185,13 @@ https://cloud.google.com/security/products/security-key-management/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"]}))
+  {:method :get,
+   :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"]})
 
 (defn projects-locations-keyHandles-list
   "Lists KeyHandles.
@@ -216,15 +204,14 @@ pageSize <integer> Optional. Optional limit on the number of KeyHandles to inclu
 filter <string> Optional. Filter to apply when listing KeyHandles, e.g. `resource_type_selector=\"{SERVICE}.googleapis.com/{TYPE}\"`."
   ([parent] (projects-locations-keyHandles-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudkms.googleapis.com/v1/{+parent}/keyHandles",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloudkms"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudkms.googleapis.com/v1/{+parent}/keyHandles",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloudkms"]}))
 
 (defn projects-locations-ekmConnections-list
   "Lists EkmConnections.
@@ -238,15 +225,14 @@ filter <string> Optional. Only include resources that match the filter in the re
 orderBy <string> Optional. Specify how the results should be sorted. If not specified, the results will be sorted in the default order. For more information, see [Sorting and filtering list results](https://cloud.google.com/kms/docs/sorting-and-filtering)."
   ([parent] (projects-locations-ekmConnections-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudkms.googleapis.com/v1/{+parent}/ekmConnections",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloudkms"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudkms.googleapis.com/v1/{+parent}/ekmConnections",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloudkms"]}))
 
 (defn projects-locations-ekmConnections-get
   "Returns metadata for a given EkmConnection.
@@ -254,14 +240,13 @@ https://cloud.google.com/security/products/security-key-management/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"]}))
+  {:method :get,
+   :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"]})
 
 (defn projects-locations-ekmConnections-create
   "Creates a new EkmConnection in a given Project and Location.
@@ -279,16 +264,15 @@ ekmConnectionId <string> Required. It must be unique within a location and match
       EkmConnection
       nil))
   ([parent EkmConnection optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://cloudkms.googleapis.com/v1/{+parent}/ekmConnections",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloudkms"],
-       :body EkmConnection})))
+    {:method :post,
+     :uri-template
+     "https://cloudkms.googleapis.com/v1/{+parent}/ekmConnections",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloudkms"],
+     :body EkmConnection}))
 
 (defn projects-locations-ekmConnections-patch
   "Updates an EkmConnection's metadata.
@@ -303,15 +287,14 @@ updateMask <string> Required. List of fields to be updated in this request."
   ([name EkmConnection]
     (projects-locations-ekmConnections-patch name EkmConnection nil))
   ([name EkmConnection optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloudkms"],
-       :body EkmConnection})))
+    {:method :patch,
+     :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloudkms"],
+     :body EkmConnection}))
 
 (defn projects-locations-ekmConnections-verifyConnectivity
   "Verifies that Cloud KMS can successfully connect to the external key manager specified by an EkmConnection. If there is an error connecting to the EKM, this method returns a FAILED_PRECONDITION status containing structured information as described at https://cloud.google.com/kms/docs/reference/ekm_errors.
@@ -319,15 +302,14 @@ https://cloud.google.com/security/products/security-key-management/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://cloudkms.googleapis.com/v1/{+name}:verifyConnectivity",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"]}))
+  {:method :get,
+   :uri-template
+   "https://cloudkms.googleapis.com/v1/{+name}:verifyConnectivity",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"]})
 
 (defn projects-locations-ekmConnections-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -337,16 +319,15 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudkms.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudkms.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-ekmConnections-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -359,15 +340,14 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-ekmConnections-getIamPolicy resource nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudkms.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloudkms"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudkms.googleapis.com/v1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloudkms"]}))
 
 (defn projects-locations-ekmConnections-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -377,16 +357,15 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudkms.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudkms.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-locations-keyRings-list
   "Lists KeyRings.
@@ -400,15 +379,14 @@ filter <string> Optional. Only include resources that match the filter in the re
 orderBy <string> Optional. Specify how the results should be sorted. If not specified, the results will be sorted in the default order. For more information, see [Sorting and filtering list results](https://cloud.google.com/kms/docs/sorting-and-filtering)."
   ([parent] (projects-locations-keyRings-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudkms.googleapis.com/v1/{+parent}/keyRings",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloudkms"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudkms.googleapis.com/v1/{+parent}/keyRings",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloudkms"]}))
 
 (defn projects-locations-keyRings-get
   "Returns metadata for a given KeyRing.
@@ -416,14 +394,13 @@ https://cloud.google.com/security/products/security-key-management/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"]}))
+  {:method :get,
+   :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"]})
 
 (defn projects-locations-keyRings-create
   "Create a new KeyRing in a given Project and Location.
@@ -438,16 +415,15 @@ keyRingId <string> Required. It must be unique within a location and match the r
   ([parent KeyRing]
     (projects-locations-keyRings-create parent KeyRing nil))
   ([parent KeyRing optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://cloudkms.googleapis.com/v1/{+parent}/keyRings",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloudkms"],
-       :body KeyRing})))
+    {:method :post,
+     :uri-template
+     "https://cloudkms.googleapis.com/v1/{+parent}/keyRings",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloudkms"],
+     :body KeyRing}))
 
 (defn projects-locations-keyRings-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -457,16 +433,15 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudkms.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudkms.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-keyRings-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -478,15 +453,14 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-locations-keyRings-getIamPolicy resource nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudkms.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloudkms"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudkms.googleapis.com/v1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloudkms"]}))
 
 (defn projects-locations-keyRings-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -496,16 +470,15 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudkms.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudkms.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-locations-keyRings-cryptoKeys-encrypt
   "Encrypts data, so that it can only be recovered by a call to Decrypt. The CryptoKey.purpose must be ENCRYPT_DECRYPT.
@@ -515,16 +488,14 @@ name <>
 EncryptRequest:
 EncryptRequest"
   [name EncryptRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudkms.googleapis.com/v1/{+name}:encrypt",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"],
-     :body EncryptRequest}))
+  {:method :post,
+   :uri-template "https://cloudkms.googleapis.com/v1/{+name}:encrypt",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"],
+   :body EncryptRequest})
 
 (defn projects-locations-keyRings-cryptoKeys-list
   "Lists CryptoKeys.
@@ -539,15 +510,14 @@ filter <string> Optional. Only include resources that match the filter in the re
 orderBy <string> Optional. Specify how the results should be sorted. If not specified, the results will be sorted in the default order. For more information, see [Sorting and filtering list results](https://cloud.google.com/kms/docs/sorting-and-filtering)."
   ([parent] (projects-locations-keyRings-cryptoKeys-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudkms.googleapis.com/v1/{+parent}/cryptoKeys",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloudkms"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudkms.googleapis.com/v1/{+parent}/cryptoKeys",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloudkms"]}))
 
 (defn projects-locations-keyRings-cryptoKeys-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -557,16 +527,15 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudkms.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudkms.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-keyRings-cryptoKeys-updatePrimaryVersion
   "Update the version of a CryptoKey that will be used in Encrypt. Returns an error if called on a key whose purpose is not ENCRYPT_DECRYPT.
@@ -576,16 +545,15 @@ name <>
 UpdateCryptoKeyPrimaryVersionRequest:
 UpdateCryptoKeyPrimaryVersionRequest"
   [name UpdateCryptoKeyPrimaryVersionRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudkms.googleapis.com/v1/{+name}:updatePrimaryVersion",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"],
-     :body UpdateCryptoKeyPrimaryVersionRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudkms.googleapis.com/v1/{+name}:updatePrimaryVersion",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"],
+   :body UpdateCryptoKeyPrimaryVersionRequest})
 
 (defn projects-locations-keyRings-cryptoKeys-patch
   "Update a CryptoKey.
@@ -600,15 +568,14 @@ updateMask <string> Required. List of fields to be updated in this request."
   ([name CryptoKey]
     (projects-locations-keyRings-cryptoKeys-patch name CryptoKey nil))
   ([name CryptoKey optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloudkms"],
-       :body CryptoKey})))
+    {:method :patch,
+     :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloudkms"],
+     :body CryptoKey}))
 
 (defn projects-locations-keyRings-cryptoKeys-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -621,15 +588,14 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-keyRings-cryptoKeys-getIamPolicy resource nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudkms.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloudkms"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudkms.googleapis.com/v1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloudkms"]}))
 
 (defn projects-locations-keyRings-cryptoKeys-decrypt
   "Decrypts data that was protected by Encrypt. The CryptoKey.purpose must be ENCRYPT_DECRYPT.
@@ -639,16 +605,14 @@ name <>
 DecryptRequest:
 DecryptRequest"
   [name DecryptRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudkms.googleapis.com/v1/{+name}:decrypt",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"],
-     :body DecryptRequest}))
+  {:method :post,
+   :uri-template "https://cloudkms.googleapis.com/v1/{+name}:decrypt",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"],
+   :body DecryptRequest})
 
 (defn projects-locations-keyRings-cryptoKeys-create
   "Create a new CryptoKey within a KeyRing. CryptoKey.purpose and CryptoKey.version_template.algorithm are required.
@@ -667,16 +631,15 @@ skipInitialVersionCreation <boolean> If set to true, the request will create a C
       CryptoKey
       nil))
   ([parent CryptoKey optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://cloudkms.googleapis.com/v1/{+parent}/cryptoKeys",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloudkms"],
-       :body CryptoKey})))
+    {:method :post,
+     :uri-template
+     "https://cloudkms.googleapis.com/v1/{+parent}/cryptoKeys",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloudkms"],
+     :body CryptoKey}))
 
 (defn projects-locations-keyRings-cryptoKeys-get
   "Returns metadata for a given CryptoKey, as well as its primary CryptoKeyVersion.
@@ -684,14 +647,13 @@ https://cloud.google.com/security/products/security-key-management/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"]}))
+  {:method :get,
+   :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"]})
 
 (defn projects-locations-keyRings-cryptoKeys-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -701,16 +663,15 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudkms.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudkms.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-locations-keyRings-cryptoKeys-cryptoKeyVersions-list
   "Lists CryptoKeyVersions.
@@ -728,15 +689,14 @@ orderBy <string> Optional. Specify how the results should be sorted. If not spec
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudkms.googleapis.com/v1/{+parent}/cryptoKeyVersions",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloudkms"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudkms.googleapis.com/v1/{+parent}/cryptoKeyVersions",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloudkms"]}))
 
 (defn projects-locations-keyRings-cryptoKeys-cryptoKeyVersions-macVerify
   "Verifies MAC tag using a CryptoKeyVersion with CryptoKey.purpose MAC, and returns a response that indicates whether or not the verification was successful.
@@ -746,16 +706,15 @@ name <>
 MacVerifyRequest:
 MacVerifyRequest"
   [name MacVerifyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudkms.googleapis.com/v1/{+name}:macVerify",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"],
-     :body MacVerifyRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudkms.googleapis.com/v1/{+name}:macVerify",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"],
+   :body MacVerifyRequest})
 
 (defn projects-locations-keyRings-cryptoKeys-cryptoKeyVersions-asymmetricDecrypt
   "Decrypts data that was encrypted with a public key retrieved from GetPublicKey corresponding to a CryptoKeyVersion with CryptoKey.purpose ASYMMETRIC_DECRYPT.
@@ -765,16 +724,15 @@ name <>
 AsymmetricDecryptRequest:
 AsymmetricDecryptRequest"
   [name AsymmetricDecryptRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudkms.googleapis.com/v1/{+name}:asymmetricDecrypt",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"],
-     :body AsymmetricDecryptRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudkms.googleapis.com/v1/{+name}:asymmetricDecrypt",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"],
+   :body AsymmetricDecryptRequest})
 
 (defn projects-locations-keyRings-cryptoKeys-cryptoKeyVersions-macSign
   "Signs data using a CryptoKeyVersion with CryptoKey.purpose MAC, producing a tag that can be verified by another source with the same key.
@@ -784,16 +742,14 @@ name <>
 MacSignRequest:
 MacSignRequest"
   [name MacSignRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudkms.googleapis.com/v1/{+name}:macSign",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"],
-     :body MacSignRequest}))
+  {:method :post,
+   :uri-template "https://cloudkms.googleapis.com/v1/{+name}:macSign",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"],
+   :body MacSignRequest})
 
 (defn projects-locations-keyRings-cryptoKeys-cryptoKeyVersions-rawDecrypt
   "Decrypts data that was originally encrypted using a raw cryptographic mechanism. The CryptoKey.purpose must be RAW_ENCRYPT_DECRYPT.
@@ -803,16 +759,15 @@ name <>
 RawDecryptRequest:
 RawDecryptRequest"
   [name RawDecryptRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudkms.googleapis.com/v1/{+name}:rawDecrypt",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"],
-     :body RawDecryptRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudkms.googleapis.com/v1/{+name}:rawDecrypt",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"],
+   :body RawDecryptRequest})
 
 (defn projects-locations-keyRings-cryptoKeys-cryptoKeyVersions-destroy
   "Schedule a CryptoKeyVersion for destruction. Upon calling this method, CryptoKeyVersion.state will be set to DESTROY_SCHEDULED, and destroy_time will be set to the time destroy_scheduled_duration in the future. At that time, the state will automatically change to DESTROYED, and the key material will be irrevocably destroyed. Before the destroy_time is reached, RestoreCryptoKeyVersion may be called to reverse the process.
@@ -822,16 +777,14 @@ name <>
 DestroyCryptoKeyVersionRequest:
 DestroyCryptoKeyVersionRequest"
   [name DestroyCryptoKeyVersionRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudkms.googleapis.com/v1/{+name}:destroy",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"],
-     :body DestroyCryptoKeyVersionRequest}))
+  {:method :post,
+   :uri-template "https://cloudkms.googleapis.com/v1/{+name}:destroy",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"],
+   :body DestroyCryptoKeyVersionRequest})
 
 (defn projects-locations-keyRings-cryptoKeys-cryptoKeyVersions-import
   "Import wrapped key material into a CryptoKeyVersion. All requests must specify a CryptoKey. If a CryptoKeyVersion is additionally specified in the request, key material will be reimported into that version. Otherwise, a new version will be created, and will be assigned the next sequential id within the CryptoKey.
@@ -841,16 +794,15 @@ parent <>
 ImportCryptoKeyVersionRequest:
 ImportCryptoKeyVersionRequest"
   [parent ImportCryptoKeyVersionRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudkms.googleapis.com/v1/{+parent}/cryptoKeyVersions:import",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"],
-     :body ImportCryptoKeyVersionRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudkms.googleapis.com/v1/{+parent}/cryptoKeyVersions:import",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"],
+   :body ImportCryptoKeyVersionRequest})
 
 (defn projects-locations-keyRings-cryptoKeys-cryptoKeyVersions-patch
   "Update a CryptoKeyVersion's metadata. state may be changed between ENABLED and DISABLED using this method. See DestroyCryptoKeyVersion and RestoreCryptoKeyVersion to move between other states.
@@ -868,15 +820,14 @@ updateMask <string> Required. List of fields to be updated in this request."
       CryptoKeyVersion
       nil))
   ([name CryptoKeyVersion optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloudkms"],
-       :body CryptoKeyVersion})))
+    {:method :patch,
+     :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloudkms"],
+     :body CryptoKeyVersion}))
 
 (defn projects-locations-keyRings-cryptoKeys-cryptoKeyVersions-getPublicKey
   "Returns the public key for the given CryptoKeyVersion. The CryptoKey.purpose must be ASYMMETRIC_SIGN or ASYMMETRIC_DECRYPT.
@@ -884,15 +835,14 @@ https://cloud.google.com/security/products/security-key-management/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://cloudkms.googleapis.com/v1/{+name}/publicKey",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"]}))
+  {:method :get,
+   :uri-template
+   "https://cloudkms.googleapis.com/v1/{+name}/publicKey",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"]})
 
 (defn projects-locations-keyRings-cryptoKeys-cryptoKeyVersions-rawEncrypt
   "Encrypts data using portable cryptographic primitives. Most users should choose Encrypt and Decrypt rather than their raw counterparts. The CryptoKey.purpose must be RAW_ENCRYPT_DECRYPT.
@@ -902,16 +852,15 @@ name <>
 RawEncryptRequest:
 RawEncryptRequest"
   [name RawEncryptRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudkms.googleapis.com/v1/{+name}:rawEncrypt",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"],
-     :body RawEncryptRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudkms.googleapis.com/v1/{+name}:rawEncrypt",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"],
+   :body RawEncryptRequest})
 
 (defn projects-locations-keyRings-cryptoKeys-cryptoKeyVersions-asymmetricSign
   "Signs data using a CryptoKeyVersion with CryptoKey.purpose ASYMMETRIC_SIGN, producing a signature that can be verified with the public key retrieved from GetPublicKey.
@@ -921,16 +870,15 @@ name <>
 AsymmetricSignRequest:
 AsymmetricSignRequest"
   [name AsymmetricSignRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudkms.googleapis.com/v1/{+name}:asymmetricSign",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"],
-     :body AsymmetricSignRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudkms.googleapis.com/v1/{+name}:asymmetricSign",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"],
+   :body AsymmetricSignRequest})
 
 (defn projects-locations-keyRings-cryptoKeys-cryptoKeyVersions-create
   "Create a new CryptoKeyVersion in a CryptoKey. The server will assign the next sequential id. If unset, state will be set to ENABLED.
@@ -940,16 +888,15 @@ parent <>
 CryptoKeyVersion:
 CryptoKeyVersion"
   [parent CryptoKeyVersion]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudkms.googleapis.com/v1/{+parent}/cryptoKeyVersions",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"],
-     :body CryptoKeyVersion}))
+  {:method :post,
+   :uri-template
+   "https://cloudkms.googleapis.com/v1/{+parent}/cryptoKeyVersions",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"],
+   :body CryptoKeyVersion})
 
 (defn projects-locations-keyRings-cryptoKeys-cryptoKeyVersions-restore
   "Restore a CryptoKeyVersion in the DESTROY_SCHEDULED state. Upon restoration of the CryptoKeyVersion, state will be set to DISABLED, and destroy_time will be cleared.
@@ -959,16 +906,14 @@ name <>
 RestoreCryptoKeyVersionRequest:
 RestoreCryptoKeyVersionRequest"
   [name RestoreCryptoKeyVersionRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudkms.googleapis.com/v1/{+name}:restore",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"],
-     :body RestoreCryptoKeyVersionRequest}))
+  {:method :post,
+   :uri-template "https://cloudkms.googleapis.com/v1/{+name}:restore",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"],
+   :body RestoreCryptoKeyVersionRequest})
 
 (defn projects-locations-keyRings-cryptoKeys-cryptoKeyVersions-get
   "Returns metadata for a given CryptoKeyVersion.
@@ -976,14 +921,13 @@ https://cloud.google.com/security/products/security-key-management/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"]}))
+  {:method :get,
+   :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"]})
 
 (defn projects-locations-keyRings-importJobs-list
   "Lists ImportJobs.
@@ -997,15 +941,14 @@ filter <string> Optional. Only include resources that match the filter in the re
 orderBy <string> Optional. Specify how the results should be sorted. If not specified, the results will be sorted in the default order. For more information, see [Sorting and filtering list results](https://cloud.google.com/kms/docs/sorting-and-filtering)."
   ([parent] (projects-locations-keyRings-importJobs-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudkms.googleapis.com/v1/{+parent}/importJobs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloudkms"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudkms.googleapis.com/v1/{+parent}/importJobs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloudkms"]}))
 
 (defn projects-locations-keyRings-importJobs-get
   "Returns metadata for a given ImportJob.
@@ -1013,14 +956,13 @@ https://cloud.google.com/security/products/security-key-management/v1/reference/
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"]}))
+  {:method :get,
+   :uri-template "https://cloudkms.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"]})
 
 (defn projects-locations-keyRings-importJobs-create
   "Create a new ImportJob within a KeyRing. ImportJob.import_method is required.
@@ -1038,16 +980,15 @@ importJobId <string> Required. It must be unique within a KeyRing and match the 
       ImportJob
       nil))
   ([parent ImportJob optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://cloudkms.googleapis.com/v1/{+parent}/importJobs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloudkms"],
-       :body ImportJob})))
+    {:method :post,
+     :uri-template
+     "https://cloudkms.googleapis.com/v1/{+parent}/importJobs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloudkms"],
+     :body ImportJob}))
 
 (defn projects-locations-keyRings-importJobs-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -1057,16 +998,15 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudkms.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudkms.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-keyRings-importJobs-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -1079,15 +1019,14 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-keyRings-importJobs-getIamPolicy resource nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudkms.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloudkms"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudkms.googleapis.com/v1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloudkms"]}))
 
 (defn projects-locations-keyRings-importJobs-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -1097,16 +1036,15 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudkms.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudkms.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-locations-ekmConfig-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -1116,16 +1054,15 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudkms.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudkms.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-ekmConfig-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -1137,15 +1074,14 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-locations-ekmConfig-getIamPolicy resource nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://cloudkms.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloudkms"]})))
+    {:method :get,
+     :uri-template
+     "https://cloudkms.googleapis.com/v1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloudkms"]}))
 
 (defn projects-locations-ekmConfig-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -1155,13 +1091,12 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://cloudkms.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloudkms"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://cloudkms.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloudkms"],
+   :body TestIamPermissionsRequest})

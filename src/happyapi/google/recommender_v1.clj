@@ -1,8 +1,7 @@
 (ns happyapi.google.recommender-v1
   "Recommender API
 
-See: https://cloud.google.com/recommender/docs/"
-  (:require [happyapi.providers.google :as client]))
+See: https://cloud.google.com/recommender/docs/")
 
 (defn folders-locations-insightTypes-insights-markAccepted
   "Marks the Insight State as Accepted. Users can use this method to indicate to the Recommender API that they have applied some action based on the insight. This stops the insight content from being updated. MarkInsightAccepted can be applied to insights in ACTIVE state. Requires the recommender.*.update IAM permission for the specified insight.
@@ -12,14 +11,13 @@ name <>
 GoogleCloudRecommenderV1MarkInsightAcceptedRequest:
 GoogleCloudRecommenderV1MarkInsightAcceptedRequest"
   [name GoogleCloudRecommenderV1MarkInsightAcceptedRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://recommender.googleapis.com/v1/{+name}:markAccepted",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudRecommenderV1MarkInsightAcceptedRequest}))
+  {:method :post,
+   :uri-template
+   "https://recommender.googleapis.com/v1/{+name}:markAccepted",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudRecommenderV1MarkInsightAcceptedRequest})
 
 (defn folders-locations-insightTypes-insights-list
   "Lists insights for the specified Cloud Resource. Requires the recommender.*.list IAM permission for the specified insight type.
@@ -32,13 +30,12 @@ pageSize <integer> Optional. The maximum number of results to return from this r
 filter <string> Optional. Filter expression to restrict the insights returned. Supported filter fields: * `stateInfo.state` * `insightSubtype` * `severity` * `targetResources` Examples: * `stateInfo.state = ACTIVE OR stateInfo.state = DISMISSED` * `insightSubtype = PERMISSIONS_USAGE` * `severity = CRITICAL OR severity = HIGH` * `targetResources : //compute.googleapis.com/projects/1234/zones/us-central1-a/instances/instance-1` * `stateInfo.state = ACTIVE AND (severity = CRITICAL OR severity = HIGH)` The max allowed filter length is 500 characters. (These expressions are based on the filter language described at https://google.aip.dev/160)"
   ([parent] (folders-locations-insightTypes-insights-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://recommender.googleapis.com/v1/{+parent}/insights",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://recommender.googleapis.com/v1/{+parent}/insights",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn folders-locations-insightTypes-insights-get
   "Gets the requested insight. Requires the recommender.*.get IAM permission for the specified insight type.
@@ -46,12 +43,11 @@ https://cloud.google.com/recommender/docs/v1/reference/rest/v1/folders/locations
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://recommender.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://recommender.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn folders-locations-recommenders-recommendations-get
   "Gets the requested recommendation. Requires the recommender.*.get IAM permission for the specified recommender.
@@ -59,12 +55,11 @@ https://cloud.google.com/recommender/docs/v1/reference/rest/v1/folders/locations
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://recommender.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://recommender.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn folders-locations-recommenders-recommendations-markSucceeded
   "Marks the Recommendation State as Succeeded. Users can use this method to indicate to the Recommender API that they have applied the recommendation themselves, and the operation was successful. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationSucceeded can be applied to recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the recommender.*.update IAM permission for the specified recommender.
@@ -74,14 +69,13 @@ name <>
 GoogleCloudRecommenderV1MarkRecommendationSucceededRequest:
 GoogleCloudRecommenderV1MarkRecommendationSucceededRequest"
   [name GoogleCloudRecommenderV1MarkRecommendationSucceededRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://recommender.googleapis.com/v1/{+name}:markSucceeded",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudRecommenderV1MarkRecommendationSucceededRequest}))
+  {:method :post,
+   :uri-template
+   "https://recommender.googleapis.com/v1/{+name}:markSucceeded",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudRecommenderV1MarkRecommendationSucceededRequest})
 
 (defn folders-locations-recommenders-recommendations-markDismissed
   "Mark the Recommendation State as Dismissed. Users can use this method to indicate to the Recommender API that an ACTIVE recommendation has to be marked back as DISMISSED. MarkRecommendationDismissed can be applied to recommendations in ACTIVE state. Requires the recommender.*.update IAM permission for the specified recommender.
@@ -91,14 +85,13 @@ name <>
 GoogleCloudRecommenderV1MarkRecommendationDismissedRequest:
 GoogleCloudRecommenderV1MarkRecommendationDismissedRequest"
   [name GoogleCloudRecommenderV1MarkRecommendationDismissedRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://recommender.googleapis.com/v1/{+name}:markDismissed",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudRecommenderV1MarkRecommendationDismissedRequest}))
+  {:method :post,
+   :uri-template
+   "https://recommender.googleapis.com/v1/{+name}:markDismissed",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudRecommenderV1MarkRecommendationDismissedRequest})
 
 (defn folders-locations-recommenders-recommendations-list
   "Lists recommendations for the specified Cloud Resource. Requires the recommender.*.list IAM permission for the specified recommender.
@@ -112,13 +105,12 @@ filter <string> Filter expression to restrict the recommendations returned. Supp
   ([parent]
     (folders-locations-recommenders-recommendations-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://recommender.googleapis.com/v1/{+parent}/recommendations",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://recommender.googleapis.com/v1/{+parent}/recommendations",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn folders-locations-recommenders-recommendations-markClaimed
   "Marks the Recommendation State as Claimed. Users can use this method to indicate to the Recommender API that they are starting to apply the recommendation themselves. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationClaimed can be applied to recommendations in CLAIMED, SUCCEEDED, FAILED, or ACTIVE state. Requires the recommender.*.update IAM permission for the specified recommender.
@@ -128,14 +120,13 @@ name <>
 GoogleCloudRecommenderV1MarkRecommendationClaimedRequest:
 GoogleCloudRecommenderV1MarkRecommendationClaimedRequest"
   [name GoogleCloudRecommenderV1MarkRecommendationClaimedRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://recommender.googleapis.com/v1/{+name}:markClaimed",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudRecommenderV1MarkRecommendationClaimedRequest}))
+  {:method :post,
+   :uri-template
+   "https://recommender.googleapis.com/v1/{+name}:markClaimed",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudRecommenderV1MarkRecommendationClaimedRequest})
 
 (defn folders-locations-recommenders-recommendations-markFailed
   "Marks the Recommendation State as Failed. Users can use this method to indicate to the Recommender API that they have applied the recommendation themselves, and the operation failed. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationFailed can be applied to recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the recommender.*.update IAM permission for the specified recommender.
@@ -145,14 +136,13 @@ name <>
 GoogleCloudRecommenderV1MarkRecommendationFailedRequest:
 GoogleCloudRecommenderV1MarkRecommendationFailedRequest"
   [name GoogleCloudRecommenderV1MarkRecommendationFailedRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://recommender.googleapis.com/v1/{+name}:markFailed",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudRecommenderV1MarkRecommendationFailedRequest}))
+  {:method :post,
+   :uri-template
+   "https://recommender.googleapis.com/v1/{+name}:markFailed",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudRecommenderV1MarkRecommendationFailedRequest})
 
 (defn billingAccounts-locations-insightTypes-getConfig
   "Gets the requested InsightTypeConfig. There is only one instance of the config for each InsightType.
@@ -160,12 +150,11 @@ https://cloud.google.com/recommender/docs/v1/reference/rest/v1/billingAccounts/l
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://recommender.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://recommender.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn billingAccounts-locations-insightTypes-updateConfig
   "Updates an InsightTypeConfig change. This will create a new revision of the config.
@@ -184,13 +173,12 @@ validateOnly <boolean> If true, validate the request and preview the change, but
       GoogleCloudRecommenderV1InsightTypeConfig
       nil))
   ([name GoogleCloudRecommenderV1InsightTypeConfig optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://recommender.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudRecommenderV1InsightTypeConfig})))
+    {:method :patch,
+     :uri-template "https://recommender.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudRecommenderV1InsightTypeConfig}))
 
 (defn billingAccounts-locations-insightTypes-insights-get
   "Gets the requested insight. Requires the recommender.*.get IAM permission for the specified insight type.
@@ -198,12 +186,11 @@ https://cloud.google.com/recommender/docs/v1/reference/rest/v1/billingAccounts/l
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://recommender.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://recommender.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn billingAccounts-locations-insightTypes-insights-markAccepted
   "Marks the Insight State as Accepted. Users can use this method to indicate to the Recommender API that they have applied some action based on the insight. This stops the insight content from being updated. MarkInsightAccepted can be applied to insights in ACTIVE state. Requires the recommender.*.update IAM permission for the specified insight.
@@ -213,14 +200,13 @@ name <>
 GoogleCloudRecommenderV1MarkInsightAcceptedRequest:
 GoogleCloudRecommenderV1MarkInsightAcceptedRequest"
   [name GoogleCloudRecommenderV1MarkInsightAcceptedRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://recommender.googleapis.com/v1/{+name}:markAccepted",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudRecommenderV1MarkInsightAcceptedRequest}))
+  {:method :post,
+   :uri-template
+   "https://recommender.googleapis.com/v1/{+name}:markAccepted",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudRecommenderV1MarkInsightAcceptedRequest})
 
 (defn billingAccounts-locations-insightTypes-insights-list
   "Lists insights for the specified Cloud Resource. Requires the recommender.*.list IAM permission for the specified insight type.
@@ -234,13 +220,12 @@ filter <string> Optional. Filter expression to restrict the insights returned. S
   ([parent]
     (billingAccounts-locations-insightTypes-insights-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://recommender.googleapis.com/v1/{+parent}/insights",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://recommender.googleapis.com/v1/{+parent}/insights",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn billingAccounts-locations-recommenders-getConfig
   "Gets the requested Recommender Config. There is only one instance of the config for each Recommender.
@@ -248,12 +233,11 @@ https://cloud.google.com/recommender/docs/v1/reference/rest/v1/billingAccounts/l
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://recommender.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://recommender.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn billingAccounts-locations-recommenders-updateConfig
   "Updates a Recommender Config. This will create a new revision of the config.
@@ -272,13 +256,12 @@ updateMask <string> The list of fields to be updated."
       GoogleCloudRecommenderV1RecommenderConfig
       nil))
   ([name GoogleCloudRecommenderV1RecommenderConfig optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://recommender.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudRecommenderV1RecommenderConfig})))
+    {:method :patch,
+     :uri-template "https://recommender.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudRecommenderV1RecommenderConfig}))
 
 (defn billingAccounts-locations-recommenders-recommendations-markClaimed
   "Marks the Recommendation State as Claimed. Users can use this method to indicate to the Recommender API that they are starting to apply the recommendation themselves. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationClaimed can be applied to recommendations in CLAIMED, SUCCEEDED, FAILED, or ACTIVE state. Requires the recommender.*.update IAM permission for the specified recommender.
@@ -288,14 +271,13 @@ name <>
 GoogleCloudRecommenderV1MarkRecommendationClaimedRequest:
 GoogleCloudRecommenderV1MarkRecommendationClaimedRequest"
   [name GoogleCloudRecommenderV1MarkRecommendationClaimedRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://recommender.googleapis.com/v1/{+name}:markClaimed",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudRecommenderV1MarkRecommendationClaimedRequest}))
+  {:method :post,
+   :uri-template
+   "https://recommender.googleapis.com/v1/{+name}:markClaimed",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudRecommenderV1MarkRecommendationClaimedRequest})
 
 (defn billingAccounts-locations-recommenders-recommendations-markFailed
   "Marks the Recommendation State as Failed. Users can use this method to indicate to the Recommender API that they have applied the recommendation themselves, and the operation failed. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationFailed can be applied to recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the recommender.*.update IAM permission for the specified recommender.
@@ -305,14 +287,13 @@ name <>
 GoogleCloudRecommenderV1MarkRecommendationFailedRequest:
 GoogleCloudRecommenderV1MarkRecommendationFailedRequest"
   [name GoogleCloudRecommenderV1MarkRecommendationFailedRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://recommender.googleapis.com/v1/{+name}:markFailed",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudRecommenderV1MarkRecommendationFailedRequest}))
+  {:method :post,
+   :uri-template
+   "https://recommender.googleapis.com/v1/{+name}:markFailed",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudRecommenderV1MarkRecommendationFailedRequest})
 
 (defn billingAccounts-locations-recommenders-recommendations-markSucceeded
   "Marks the Recommendation State as Succeeded. Users can use this method to indicate to the Recommender API that they have applied the recommendation themselves, and the operation was successful. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationSucceeded can be applied to recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the recommender.*.update IAM permission for the specified recommender.
@@ -322,14 +303,13 @@ name <>
 GoogleCloudRecommenderV1MarkRecommendationSucceededRequest:
 GoogleCloudRecommenderV1MarkRecommendationSucceededRequest"
   [name GoogleCloudRecommenderV1MarkRecommendationSucceededRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://recommender.googleapis.com/v1/{+name}:markSucceeded",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudRecommenderV1MarkRecommendationSucceededRequest}))
+  {:method :post,
+   :uri-template
+   "https://recommender.googleapis.com/v1/{+name}:markSucceeded",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudRecommenderV1MarkRecommendationSucceededRequest})
 
 (defn billingAccounts-locations-recommenders-recommendations-markDismissed
   "Mark the Recommendation State as Dismissed. Users can use this method to indicate to the Recommender API that an ACTIVE recommendation has to be marked back as DISMISSED. MarkRecommendationDismissed can be applied to recommendations in ACTIVE state. Requires the recommender.*.update IAM permission for the specified recommender.
@@ -339,14 +319,13 @@ name <>
 GoogleCloudRecommenderV1MarkRecommendationDismissedRequest:
 GoogleCloudRecommenderV1MarkRecommendationDismissedRequest"
   [name GoogleCloudRecommenderV1MarkRecommendationDismissedRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://recommender.googleapis.com/v1/{+name}:markDismissed",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudRecommenderV1MarkRecommendationDismissedRequest}))
+  {:method :post,
+   :uri-template
+   "https://recommender.googleapis.com/v1/{+name}:markDismissed",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudRecommenderV1MarkRecommendationDismissedRequest})
 
 (defn billingAccounts-locations-recommenders-recommendations-get
   "Gets the requested recommendation. Requires the recommender.*.get IAM permission for the specified recommender.
@@ -354,12 +333,11 @@ https://cloud.google.com/recommender/docs/v1/reference/rest/v1/billingAccounts/l
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://recommender.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://recommender.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn billingAccounts-locations-recommenders-recommendations-list
   "Lists recommendations for the specified Cloud Resource. Requires the recommender.*.list IAM permission for the specified recommender.
@@ -375,13 +353,12 @@ pageSize <integer> Optional. The maximum number of results to return from this r
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://recommender.googleapis.com/v1/{+parent}/recommendations",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://recommender.googleapis.com/v1/{+parent}/recommendations",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-recommenders-updateConfig
   "Updates a Recommender Config. This will create a new revision of the config.
@@ -400,13 +377,12 @@ validateOnly <boolean> If true, validate the request and preview the change, but
       GoogleCloudRecommenderV1RecommenderConfig
       nil))
   ([name GoogleCloudRecommenderV1RecommenderConfig optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://recommender.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudRecommenderV1RecommenderConfig})))
+    {:method :patch,
+     :uri-template "https://recommender.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudRecommenderV1RecommenderConfig}))
 
 (defn projects-locations-recommenders-getConfig
   "Gets the requested Recommender Config. There is only one instance of the config for each Recommender.
@@ -414,12 +390,11 @@ https://cloud.google.com/recommender/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://recommender.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://recommender.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-recommenders-recommendations-markFailed
   "Marks the Recommendation State as Failed. Users can use this method to indicate to the Recommender API that they have applied the recommendation themselves, and the operation failed. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationFailed can be applied to recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the recommender.*.update IAM permission for the specified recommender.
@@ -429,14 +404,13 @@ name <>
 GoogleCloudRecommenderV1MarkRecommendationFailedRequest:
 GoogleCloudRecommenderV1MarkRecommendationFailedRequest"
   [name GoogleCloudRecommenderV1MarkRecommendationFailedRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://recommender.googleapis.com/v1/{+name}:markFailed",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudRecommenderV1MarkRecommendationFailedRequest}))
+  {:method :post,
+   :uri-template
+   "https://recommender.googleapis.com/v1/{+name}:markFailed",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudRecommenderV1MarkRecommendationFailedRequest})
 
 (defn projects-locations-recommenders-recommendations-list
   "Lists recommendations for the specified Cloud Resource. Requires the recommender.*.list IAM permission for the specified recommender.
@@ -450,13 +424,12 @@ filter <string> Filter expression to restrict the recommendations returned. Supp
   ([parent]
     (projects-locations-recommenders-recommendations-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://recommender.googleapis.com/v1/{+parent}/recommendations",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://recommender.googleapis.com/v1/{+parent}/recommendations",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-recommenders-recommendations-get
   "Gets the requested recommendation. Requires the recommender.*.get IAM permission for the specified recommender.
@@ -464,12 +437,11 @@ https://cloud.google.com/recommender/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://recommender.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://recommender.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-recommenders-recommendations-markClaimed
   "Marks the Recommendation State as Claimed. Users can use this method to indicate to the Recommender API that they are starting to apply the recommendation themselves. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationClaimed can be applied to recommendations in CLAIMED, SUCCEEDED, FAILED, or ACTIVE state. Requires the recommender.*.update IAM permission for the specified recommender.
@@ -479,14 +451,13 @@ name <>
 GoogleCloudRecommenderV1MarkRecommendationClaimedRequest:
 GoogleCloudRecommenderV1MarkRecommendationClaimedRequest"
   [name GoogleCloudRecommenderV1MarkRecommendationClaimedRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://recommender.googleapis.com/v1/{+name}:markClaimed",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudRecommenderV1MarkRecommendationClaimedRequest}))
+  {:method :post,
+   :uri-template
+   "https://recommender.googleapis.com/v1/{+name}:markClaimed",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudRecommenderV1MarkRecommendationClaimedRequest})
 
 (defn projects-locations-recommenders-recommendations-markDismissed
   "Mark the Recommendation State as Dismissed. Users can use this method to indicate to the Recommender API that an ACTIVE recommendation has to be marked back as DISMISSED. MarkRecommendationDismissed can be applied to recommendations in ACTIVE state. Requires the recommender.*.update IAM permission for the specified recommender.
@@ -496,14 +467,13 @@ name <>
 GoogleCloudRecommenderV1MarkRecommendationDismissedRequest:
 GoogleCloudRecommenderV1MarkRecommendationDismissedRequest"
   [name GoogleCloudRecommenderV1MarkRecommendationDismissedRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://recommender.googleapis.com/v1/{+name}:markDismissed",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudRecommenderV1MarkRecommendationDismissedRequest}))
+  {:method :post,
+   :uri-template
+   "https://recommender.googleapis.com/v1/{+name}:markDismissed",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudRecommenderV1MarkRecommendationDismissedRequest})
 
 (defn projects-locations-recommenders-recommendations-markSucceeded
   "Marks the Recommendation State as Succeeded. Users can use this method to indicate to the Recommender API that they have applied the recommendation themselves, and the operation was successful. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationSucceeded can be applied to recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the recommender.*.update IAM permission for the specified recommender.
@@ -513,14 +483,13 @@ name <>
 GoogleCloudRecommenderV1MarkRecommendationSucceededRequest:
 GoogleCloudRecommenderV1MarkRecommendationSucceededRequest"
   [name GoogleCloudRecommenderV1MarkRecommendationSucceededRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://recommender.googleapis.com/v1/{+name}:markSucceeded",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudRecommenderV1MarkRecommendationSucceededRequest}))
+  {:method :post,
+   :uri-template
+   "https://recommender.googleapis.com/v1/{+name}:markSucceeded",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudRecommenderV1MarkRecommendationSucceededRequest})
 
 (defn projects-locations-insightTypes-updateConfig
   "Updates an InsightTypeConfig change. This will create a new revision of the config.
@@ -539,13 +508,12 @@ updateMask <string> The list of fields to be updated."
       GoogleCloudRecommenderV1InsightTypeConfig
       nil))
   ([name GoogleCloudRecommenderV1InsightTypeConfig optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://recommender.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudRecommenderV1InsightTypeConfig})))
+    {:method :patch,
+     :uri-template "https://recommender.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudRecommenderV1InsightTypeConfig}))
 
 (defn projects-locations-insightTypes-getConfig
   "Gets the requested InsightTypeConfig. There is only one instance of the config for each InsightType.
@@ -553,12 +521,11 @@ https://cloud.google.com/recommender/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://recommender.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://recommender.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-insightTypes-insights-list
   "Lists insights for the specified Cloud Resource. Requires the recommender.*.list IAM permission for the specified insight type.
@@ -571,13 +538,12 @@ pageSize <integer> Optional. The maximum number of results to return from this r
 filter <string> Optional. Filter expression to restrict the insights returned. Supported filter fields: * `stateInfo.state` * `insightSubtype` * `severity` * `targetResources` Examples: * `stateInfo.state = ACTIVE OR stateInfo.state = DISMISSED` * `insightSubtype = PERMISSIONS_USAGE` * `severity = CRITICAL OR severity = HIGH` * `targetResources : //compute.googleapis.com/projects/1234/zones/us-central1-a/instances/instance-1` * `stateInfo.state = ACTIVE AND (severity = CRITICAL OR severity = HIGH)` The max allowed filter length is 500 characters. (These expressions are based on the filter language described at https://google.aip.dev/160)"
   ([parent] (projects-locations-insightTypes-insights-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://recommender.googleapis.com/v1/{+parent}/insights",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://recommender.googleapis.com/v1/{+parent}/insights",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-insightTypes-insights-markAccepted
   "Marks the Insight State as Accepted. Users can use this method to indicate to the Recommender API that they have applied some action based on the insight. This stops the insight content from being updated. MarkInsightAccepted can be applied to insights in ACTIVE state. Requires the recommender.*.update IAM permission for the specified insight.
@@ -587,14 +553,13 @@ name <>
 GoogleCloudRecommenderV1MarkInsightAcceptedRequest:
 GoogleCloudRecommenderV1MarkInsightAcceptedRequest"
   [name GoogleCloudRecommenderV1MarkInsightAcceptedRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://recommender.googleapis.com/v1/{+name}:markAccepted",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudRecommenderV1MarkInsightAcceptedRequest}))
+  {:method :post,
+   :uri-template
+   "https://recommender.googleapis.com/v1/{+name}:markAccepted",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudRecommenderV1MarkInsightAcceptedRequest})
 
 (defn projects-locations-insightTypes-insights-get
   "Gets the requested insight. Requires the recommender.*.get IAM permission for the specified insight type.
@@ -602,12 +567,11 @@ https://cloud.google.com/recommender/docs/v1/reference/rest/v1/projects/location
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://recommender.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://recommender.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-locations-insightTypes-updateConfig
   "Updates an InsightTypeConfig change. This will create a new revision of the config.
@@ -626,13 +590,12 @@ updateMask <string> The list of fields to be updated."
       GoogleCloudRecommenderV1InsightTypeConfig
       nil))
   ([name GoogleCloudRecommenderV1InsightTypeConfig optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://recommender.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudRecommenderV1InsightTypeConfig})))
+    {:method :patch,
+     :uri-template "https://recommender.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudRecommenderV1InsightTypeConfig}))
 
 (defn organizations-locations-insightTypes-getConfig
   "Gets the requested InsightTypeConfig. There is only one instance of the config for each InsightType.
@@ -640,12 +603,11 @@ https://cloud.google.com/recommender/docs/v1/reference/rest/v1/organizations/loc
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://recommender.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://recommender.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-locations-insightTypes-insights-get
   "Gets the requested insight. Requires the recommender.*.get IAM permission for the specified insight type.
@@ -653,12 +615,11 @@ https://cloud.google.com/recommender/docs/v1/reference/rest/v1/organizations/loc
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://recommender.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://recommender.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-locations-insightTypes-insights-markAccepted
   "Marks the Insight State as Accepted. Users can use this method to indicate to the Recommender API that they have applied some action based on the insight. This stops the insight content from being updated. MarkInsightAccepted can be applied to insights in ACTIVE state. Requires the recommender.*.update IAM permission for the specified insight.
@@ -668,14 +629,13 @@ name <>
 GoogleCloudRecommenderV1MarkInsightAcceptedRequest:
 GoogleCloudRecommenderV1MarkInsightAcceptedRequest"
   [name GoogleCloudRecommenderV1MarkInsightAcceptedRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://recommender.googleapis.com/v1/{+name}:markAccepted",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudRecommenderV1MarkInsightAcceptedRequest}))
+  {:method :post,
+   :uri-template
+   "https://recommender.googleapis.com/v1/{+name}:markAccepted",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudRecommenderV1MarkInsightAcceptedRequest})
 
 (defn organizations-locations-insightTypes-insights-list
   "Lists insights for the specified Cloud Resource. Requires the recommender.*.list IAM permission for the specified insight type.
@@ -689,13 +649,12 @@ filter <string> Optional. Filter expression to restrict the insights returned. S
   ([parent]
     (organizations-locations-insightTypes-insights-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://recommender.googleapis.com/v1/{+parent}/insights",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://recommender.googleapis.com/v1/{+parent}/insights",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn organizations-locations-recommenders-updateConfig
   "Updates a Recommender Config. This will create a new revision of the config.
@@ -714,13 +673,12 @@ validateOnly <boolean> If true, validate the request and preview the change, but
       GoogleCloudRecommenderV1RecommenderConfig
       nil))
   ([name GoogleCloudRecommenderV1RecommenderConfig optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://recommender.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudRecommenderV1RecommenderConfig})))
+    {:method :patch,
+     :uri-template "https://recommender.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudRecommenderV1RecommenderConfig}))
 
 (defn organizations-locations-recommenders-getConfig
   "Gets the requested Recommender Config. There is only one instance of the config for each Recommender.
@@ -728,12 +686,11 @@ https://cloud.google.com/recommender/docs/v1/reference/rest/v1/organizations/loc
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://recommender.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://recommender.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-locations-recommenders-recommendations-markClaimed
   "Marks the Recommendation State as Claimed. Users can use this method to indicate to the Recommender API that they are starting to apply the recommendation themselves. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationClaimed can be applied to recommendations in CLAIMED, SUCCEEDED, FAILED, or ACTIVE state. Requires the recommender.*.update IAM permission for the specified recommender.
@@ -743,14 +700,13 @@ name <>
 GoogleCloudRecommenderV1MarkRecommendationClaimedRequest:
 GoogleCloudRecommenderV1MarkRecommendationClaimedRequest"
   [name GoogleCloudRecommenderV1MarkRecommendationClaimedRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://recommender.googleapis.com/v1/{+name}:markClaimed",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudRecommenderV1MarkRecommendationClaimedRequest}))
+  {:method :post,
+   :uri-template
+   "https://recommender.googleapis.com/v1/{+name}:markClaimed",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudRecommenderV1MarkRecommendationClaimedRequest})
 
 (defn organizations-locations-recommenders-recommendations-markDismissed
   "Mark the Recommendation State as Dismissed. Users can use this method to indicate to the Recommender API that an ACTIVE recommendation has to be marked back as DISMISSED. MarkRecommendationDismissed can be applied to recommendations in ACTIVE state. Requires the recommender.*.update IAM permission for the specified recommender.
@@ -760,14 +716,13 @@ name <>
 GoogleCloudRecommenderV1MarkRecommendationDismissedRequest:
 GoogleCloudRecommenderV1MarkRecommendationDismissedRequest"
   [name GoogleCloudRecommenderV1MarkRecommendationDismissedRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://recommender.googleapis.com/v1/{+name}:markDismissed",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudRecommenderV1MarkRecommendationDismissedRequest}))
+  {:method :post,
+   :uri-template
+   "https://recommender.googleapis.com/v1/{+name}:markDismissed",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudRecommenderV1MarkRecommendationDismissedRequest})
 
 (defn organizations-locations-recommenders-recommendations-markSucceeded
   "Marks the Recommendation State as Succeeded. Users can use this method to indicate to the Recommender API that they have applied the recommendation themselves, and the operation was successful. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationSucceeded can be applied to recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the recommender.*.update IAM permission for the specified recommender.
@@ -777,14 +732,13 @@ name <>
 GoogleCloudRecommenderV1MarkRecommendationSucceededRequest:
 GoogleCloudRecommenderV1MarkRecommendationSucceededRequest"
   [name GoogleCloudRecommenderV1MarkRecommendationSucceededRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://recommender.googleapis.com/v1/{+name}:markSucceeded",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudRecommenderV1MarkRecommendationSucceededRequest}))
+  {:method :post,
+   :uri-template
+   "https://recommender.googleapis.com/v1/{+name}:markSucceeded",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudRecommenderV1MarkRecommendationSucceededRequest})
 
 (defn organizations-locations-recommenders-recommendations-get
   "Gets the requested recommendation. Requires the recommender.*.get IAM permission for the specified recommender.
@@ -792,12 +746,11 @@ https://cloud.google.com/recommender/docs/v1/reference/rest/v1/organizations/loc
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://recommender.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://recommender.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn organizations-locations-recommenders-recommendations-markFailed
   "Marks the Recommendation State as Failed. Users can use this method to indicate to the Recommender API that they have applied the recommendation themselves, and the operation failed. This stops the recommendation content from being updated. Associated insights are frozen and placed in the ACCEPTED state. MarkRecommendationFailed can be applied to recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the recommender.*.update IAM permission for the specified recommender.
@@ -807,14 +760,13 @@ name <>
 GoogleCloudRecommenderV1MarkRecommendationFailedRequest:
 GoogleCloudRecommenderV1MarkRecommendationFailedRequest"
   [name GoogleCloudRecommenderV1MarkRecommendationFailedRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://recommender.googleapis.com/v1/{+name}:markFailed",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudRecommenderV1MarkRecommendationFailedRequest}))
+  {:method :post,
+   :uri-template
+   "https://recommender.googleapis.com/v1/{+name}:markFailed",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudRecommenderV1MarkRecommendationFailedRequest})
 
 (defn organizations-locations-recommenders-recommendations-list
   "Lists recommendations for the specified Cloud Resource. Requires the recommender.*.list IAM permission for the specified recommender.
@@ -830,10 +782,9 @@ filter <string> Filter expression to restrict the recommendations returned. Supp
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://recommender.googleapis.com/v1/{+parent}/recommendations",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://recommender.googleapis.com/v1/{+parent}/recommendations",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))

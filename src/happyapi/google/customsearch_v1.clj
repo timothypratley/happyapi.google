@@ -1,8 +1,7 @@
 (ns happyapi.google.customsearch-v1
   "Custom Search API
 Searches over a website or collection of websites
-See: https://developers.google.com/custom-search/v1/introduction"
-  (:require [happyapi.providers.google :as client]))
+See: https://developers.google.com/custom-search/v1/introduction")
 
 (defn cse-list
   "Returns metadata about the search performed, metadata about the engine used for the search, and the search results.
@@ -44,13 +43,12 @@ safe <string> Search safety level. Acceptable values are: * `\"active\"`: Enable
 hl <string> Sets the user interface language. * Explicitly setting this parameter improves the performance and the quality of your search results. * See the [Interface Languages](https://developers.google.com/custom-search/docs/json_api_reference#wsInterfaceLanguages) section of [Internationalizing Queries and Results Presentation](https://developers.google.com/custom-search/docs/json_api_reference#wsInternationalizing) for more information, and [Supported Interface Languages](https://developers.google.com/custom-search/docs/json_api_reference#interfaceLanguages) for a list of supported languages."
   ([] (cse-list nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://customsearch.googleapis.com/customsearch/v1",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes nil})))
+    {:method :get,
+     :uri-template
+     "https://customsearch.googleapis.com/customsearch/v1",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes nil}))
 
 (defn cse-siterestrict-list
   "Returns metadata about the search performed, metadata about the engine used for the search, and the search results. Uses a small set of url patterns.
@@ -92,10 +90,9 @@ safe <string> Search safety level. Acceptable values are: * `\"active\"`: Enable
 hl <string> Sets the user interface language. * Explicitly setting this parameter improves the performance and the quality of your search results. * See the [Interface Languages](https://developers.google.com/custom-search/docs/json_api_reference#wsInterfaceLanguages) section of [Internationalizing Queries and Results Presentation](https://developers.google.com/custom-search/docs/json_api_reference#wsInternationalizing) for more information, and [Supported Interface Languages](https://developers.google.com/custom-search/docs/json_api_reference#interfaceLanguages) for a list of supported languages."
   ([] (cse-siterestrict-list nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://customsearch.googleapis.com/customsearch/v1/siterestrict",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes nil})))
+    {:method :get,
+     :uri-template
+     "https://customsearch.googleapis.com/customsearch/v1/siterestrict",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes nil}))

@@ -1,8 +1,7 @@
 (ns happyapi.google.storage-v1
   "Cloud Storage JSON API
 Stores and retrieves potentially large, immutable data objects.
-See: https://cloud.google.com/storage/docs/json_api"
-  (:require [happyapi.providers.google :as client]))
+See: https://cloud.google.com/storage/docs/json_api")
 
 (defn defaultObjectAccessControls-delete
   "Permanently deletes the default object ACL entry for the specified entity on the specified bucket.
@@ -16,15 +15,14 @@ userProject <string> The project to be billed for this request. Required for Req
   ([bucket entity]
     (defaultObjectAccessControls-delete bucket entity nil))
   ([bucket entity optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/defaultObjectAcl/{entity}",
-       :uri-template-args {"bucket" bucket, "entity" entity},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"]})))
+    {:method :delete,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/defaultObjectAcl/{entity}",
+     :uri-template-args {"bucket" bucket, "entity" entity},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"]}))
 
 (defn defaultObjectAccessControls-get
   "Returns the default object ACL entry for the specified entity on the specified bucket.
@@ -37,15 +35,14 @@ optional:
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket entity] (defaultObjectAccessControls-get bucket entity nil))
   ([bucket entity optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/defaultObjectAcl/{entity}",
-       :uri-template-args {"bucket" bucket, "entity" entity},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"]})))
+    {:method :get,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/defaultObjectAcl/{entity}",
+     :uri-template-args {"bucket" bucket, "entity" entity},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"]}))
 
 (defn defaultObjectAccessControls-insert
   "Creates a new default object ACL entry on the specified bucket.
@@ -63,16 +60,15 @@ userProject <string> The project to be billed for this request. Required for Req
       ObjectAccessControl
       nil))
   ([bucket ObjectAccessControl optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/defaultObjectAcl",
-       :uri-template-args {"bucket" bucket},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"],
-       :body ObjectAccessControl})))
+    {:method :post,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/defaultObjectAcl",
+     :uri-template-args {"bucket" bucket},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"],
+     :body ObjectAccessControl}))
 
 (defn defaultObjectAccessControls-list
   "Retrieves default object ACL entries on the specified bucket.
@@ -86,15 +82,14 @@ ifMetagenerationNotMatch <string> If present, only return default ACL listing if
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket] (defaultObjectAccessControls-list bucket nil))
   ([bucket optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/defaultObjectAcl",
-       :uri-template-args {"bucket" bucket},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"]})))
+    {:method :get,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/defaultObjectAcl",
+     :uri-template-args {"bucket" bucket},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"]}))
 
 (defn defaultObjectAccessControls-patch
   "Patches a default object ACL entry on the specified bucket.
@@ -114,16 +109,15 @@ userProject <string> The project to be billed for this request. Required for Req
       ObjectAccessControl
       nil))
   ([bucket entity ObjectAccessControl optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/defaultObjectAcl/{entity}",
-       :uri-template-args {"bucket" bucket, "entity" entity},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"],
-       :body ObjectAccessControl})))
+    {:method :patch,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/defaultObjectAcl/{entity}",
+     :uri-template-args {"bucket" bucket, "entity" entity},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"],
+     :body ObjectAccessControl}))
 
 (defn defaultObjectAccessControls-update
   "Updates a default object ACL entry on the specified bucket.
@@ -143,16 +137,15 @@ userProject <string> The project to be billed for this request. Required for Req
       ObjectAccessControl
       nil))
   ([bucket entity ObjectAccessControl optional]
-    (client/*api-request*
-      {:method :put,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/defaultObjectAcl/{entity}",
-       :uri-template-args {"bucket" bucket, "entity" entity},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"],
-       :body ObjectAccessControl})))
+    {:method :put,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/defaultObjectAcl/{entity}",
+     :uri-template-args {"bucket" bucket, "entity" entity},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"],
+     :body ObjectAccessControl}))
 
 (defn notifications-delete
   "Permanently deletes a notification subscription.
@@ -166,17 +159,15 @@ userProject <string> The project to be billed for this request. Required for Req
   ([bucket notification]
     (notifications-delete bucket notification nil))
   ([bucket notification optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/notificationConfigs/{notification}",
-       :uri-template-args
-       {"bucket" bucket, "notification" notification},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_write"]})))
+    {:method :delete,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/notificationConfigs/{notification}",
+     :uri-template-args {"bucket" bucket, "notification" notification},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_write"]}))
 
 (defn notifications-get
   "View a notification configuration.
@@ -189,19 +180,17 @@ optional:
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket notification] (notifications-get bucket notification nil))
   ([bucket notification optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/notificationConfigs/{notification}",
-       :uri-template-args
-       {"bucket" bucket, "notification" notification},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_only"
-        "https://www.googleapis.com/auth/devstorage.read_write"]})))
+    {:method :get,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/notificationConfigs/{notification}",
+     :uri-template-args {"bucket" bucket, "notification" notification},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_only"
+      "https://www.googleapis.com/auth/devstorage.read_write"]}))
 
 (defn notifications-insert
   "Creates a notification subscription for a given bucket.
@@ -216,17 +205,16 @@ userProject <string> The project to be billed for this request. Required for Req
   ([bucket Notification]
     (notifications-insert bucket Notification nil))
   ([bucket Notification optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/notificationConfigs",
-       :uri-template-args {"bucket" bucket},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_write"],
-       :body Notification})))
+    {:method :post,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/notificationConfigs",
+     :uri-template-args {"bucket" bucket},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_write"],
+     :body Notification}))
 
 (defn notifications-list
   "Retrieves a list of notification subscriptions for a given bucket.
@@ -238,18 +226,17 @@ optional:
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket] (notifications-list bucket nil))
   ([bucket optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/notificationConfigs",
-       :uri-template-args {"bucket" bucket},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_only"
-        "https://www.googleapis.com/auth/devstorage.read_write"]})))
+    {:method :get,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/notificationConfigs",
+     :uri-template-args {"bucket" bucket},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_only"
+      "https://www.googleapis.com/auth/devstorage.read_write"]}))
 
 (defn buckets-list
   "Retrieves a list of buckets for a given project.
@@ -265,17 +252,16 @@ projection <string> Set of properties to return. Defaults to noAcl.
 userProject <string> The project to be billed for this request."
   ([project] (buckets-list project nil))
   ([project optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template "https://storage.googleapis.com/storage/v1/b",
-       :uri-template-args {},
-       :query-params (merge {"project" project} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_only"
-        "https://www.googleapis.com/auth/devstorage.read_write"]})))
+    {:method :get,
+     :uri-template "https://storage.googleapis.com/storage/v1/b",
+     :uri-template-args {},
+     :query-params (merge {"project" project} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_only"
+      "https://www.googleapis.com/auth/devstorage.read_write"]}))
 
 (defn buckets-setIamPolicy
   "Updates an IAM policy for the specified bucket.
@@ -289,16 +275,15 @@ optional:
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket Policy] (buckets-setIamPolicy bucket Policy nil))
   ([bucket Policy optional]
-    (client/*api-request*
-      {:method :put,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/iam",
-       :uri-template-args {"bucket" bucket},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"],
-       :body Policy})))
+    {:method :put,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/iam",
+     :uri-template-args {"bucket" bucket},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"],
+     :body Policy}))
 
 (defn buckets-delete
   "Deletes an empty bucket. Deletions are permanent unless soft delete is enabled on the bucket.
@@ -312,16 +297,15 @@ ifMetagenerationNotMatch <string> If set, only deletes the bucket if its metagen
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket] (buckets-delete bucket nil))
   ([bucket optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}",
-       :uri-template-args {"bucket" bucket},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_write"]})))
+    {:method :delete,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}",
+     :uri-template-args {"bucket" bucket},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_write"]}))
 
 (defn buckets-lockRetentionPolicy
   "Locks retention policy on a bucket.
@@ -335,19 +319,16 @@ userProject <string> The project to be billed for this request. Required for Req
   ([bucket ifMetagenerationMatch]
     (buckets-lockRetentionPolicy bucket ifMetagenerationMatch nil))
   ([bucket ifMetagenerationMatch optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/lockRetentionPolicy",
-       :uri-template-args {"bucket" bucket},
-       :query-params
-       (merge
-         {"ifMetagenerationMatch" ifMetagenerationMatch}
-         optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_write"]})))
+    {:method :post,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/lockRetentionPolicy",
+     :uri-template-args {"bucket" bucket},
+     :query-params
+     (merge {"ifMetagenerationMatch" ifMetagenerationMatch} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_write"]}))
 
 (defn buckets-update
   "Updates a bucket. Changes to the bucket will be readable immediately after writing, but configuration changes may take time to propagate.
@@ -366,16 +347,15 @@ projection <string> Set of properties to return. Defaults to full.
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket Bucket] (buckets-update bucket Bucket nil))
   ([bucket Bucket optional]
-    (client/*api-request*
-      {:method :put,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}",
-       :uri-template-args {"bucket" bucket},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"],
-       :body Bucket})))
+    {:method :put,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}",
+     :uri-template-args {"bucket" bucket},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"],
+     :body Bucket}))
 
 (defn buckets-patch
   "Patches a bucket. Changes to the bucket will be readable immediately after writing, but configuration changes may take time to propagate.
@@ -394,16 +374,15 @@ projection <string> Set of properties to return. Defaults to full.
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket Bucket] (buckets-patch bucket Bucket nil))
   ([bucket Bucket optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}",
-       :uri-template-args {"bucket" bucket},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"],
-       :body Bucket})))
+    {:method :patch,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}",
+     :uri-template-args {"bucket" bucket},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"],
+     :body Bucket}))
 
 (defn buckets-getIamPolicy
   "Returns an IAM policy for the specified bucket.
@@ -416,15 +395,14 @@ optionsRequestedPolicyVersion <integer> The IAM policy format version to be retu
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket] (buckets-getIamPolicy bucket nil))
   ([bucket optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/iam",
-       :uri-template-args {"bucket" bucket},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"]})))
+    {:method :get,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/iam",
+     :uri-template-args {"bucket" bucket},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"]}))
 
 (defn buckets-getStorageLayout
   "Returns the storage layout configuration for the specified bucket. Note that this operation requires storage.objects.list permission.
@@ -436,18 +414,17 @@ optional:
 prefix <string> An optional prefix used for permission check. It is useful when the caller only has storage.objects.list permission under a specific prefix."
   ([bucket] (buckets-getStorageLayout bucket nil))
   ([bucket optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/storageLayout",
-       :uri-template-args {"bucket" bucket},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_only"
-        "https://www.googleapis.com/auth/devstorage.read_write"]})))
+    {:method :get,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/storageLayout",
+     :uri-template-args {"bucket" bucket},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_only"
+      "https://www.googleapis.com/auth/devstorage.read_write"]}))
 
 (defn buckets-insert
   "Creates a new bucket.
@@ -465,16 +442,15 @@ userProject <string> The project to be billed for this request.
 enableObjectRetention <boolean> When set to true, object retention is enabled for this bucket."
   ([project Bucket] (buckets-insert project Bucket nil))
   ([project Bucket optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template "https://storage.googleapis.com/storage/v1/b",
-       :uri-template-args {},
-       :query-params (merge {"project" project} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_write"],
-       :body Bucket})))
+    {:method :post,
+     :uri-template "https://storage.googleapis.com/storage/v1/b",
+     :uri-template-args {},
+     :query-params (merge {"project" project} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_write"],
+     :body Bucket}))
 
 (defn buckets-restore
   "Restores a soft-deleted bucket.
@@ -487,16 +463,15 @@ optional:
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket generation] (buckets-restore bucket generation nil))
   ([bucket generation optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/restore",
-       :uri-template-args {"bucket" bucket},
-       :query-params (merge {"generation" generation} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_write"]})))
+    {:method :post,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/restore",
+     :uri-template-args {"bucket" bucket},
+     :query-params (merge {"generation" generation} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_write"]}))
 
 (defn buckets-get
   "Returns metadata for the specified bucket.
@@ -513,18 +488,17 @@ projection <string> Set of properties to return. Defaults to noAcl.
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket] (buckets-get bucket nil))
   ([bucket optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}",
-       :uri-template-args {"bucket" bucket},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_only"
-        "https://www.googleapis.com/auth/devstorage.read_write"]})))
+    {:method :get,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}",
+     :uri-template-args {"bucket" bucket},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_only"
+      "https://www.googleapis.com/auth/devstorage.read_write"]}))
 
 (defn buckets-testIamPermissions
   "Tests a set of permissions on the given bucket to see which, if any, are held by the caller.
@@ -538,18 +512,17 @@ userProject <string> The project to be billed for this request. Required for Req
   ([bucket permissions]
     (buckets-testIamPermissions bucket permissions nil))
   ([bucket permissions optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/iam/testPermissions",
-       :uri-template-args {"bucket" bucket},
-       :query-params (merge {"permissions" permissions} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_only"
-        "https://www.googleapis.com/auth/devstorage.read_write"]})))
+    {:method :get,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/iam/testPermissions",
+     :uri-template-args {"bucket" bucket},
+     :query-params (merge {"permissions" permissions} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_only"
+      "https://www.googleapis.com/auth/devstorage.read_write"]}))
 
 (defn managedFolders-delete
   "Permanently deletes a managed folder.
@@ -565,17 +538,16 @@ allowNonEmpty <boolean> Allows the deletion of a managed folder even if it is no
   ([bucket managedFolder]
     (managedFolders-delete bucket managedFolder nil))
   ([bucket managedFolder optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/managedFolders/{managedFolder}",
-       :uri-template-args
-       {"bucket" bucket, "managedFolder" managedFolder},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_write"]})))
+    {:method :delete,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/managedFolders/{managedFolder}",
+     :uri-template-args
+     {"bucket" bucket, "managedFolder" managedFolder},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_write"]}))
 
 (defn managedFolders-get
   "Returns metadata of the specified managed folder.
@@ -590,19 +562,18 @@ ifMetagenerationNotMatch <string> Makes the return of the managed folder metadat
   ([bucket managedFolder]
     (managedFolders-get bucket managedFolder nil))
   ([bucket managedFolder optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/managedFolders/{managedFolder}",
-       :uri-template-args
-       {"bucket" bucket, "managedFolder" managedFolder},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_only"
-        "https://www.googleapis.com/auth/devstorage.read_write"]})))
+    {:method :get,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/managedFolders/{managedFolder}",
+     :uri-template-args
+     {"bucket" bucket, "managedFolder" managedFolder},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_only"
+      "https://www.googleapis.com/auth/devstorage.read_write"]}))
 
 (defn managedFolders-getIamPolicy
   "Returns an IAM policy for the specified managed folder.
@@ -617,19 +588,18 @@ userProject <string> The project to be billed for this request. Required for Req
   ([bucket managedFolder]
     (managedFolders-getIamPolicy bucket managedFolder nil))
   ([bucket managedFolder optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/managedFolders/{managedFolder}/iam",
-       :uri-template-args
-       {"bucket" bucket, "managedFolder" managedFolder},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_only"
-        "https://www.googleapis.com/auth/devstorage.read_write"]})))
+    {:method :get,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/managedFolders/{managedFolder}/iam",
+     :uri-template-args
+     {"bucket" bucket, "managedFolder" managedFolder},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_only"
+      "https://www.googleapis.com/auth/devstorage.read_write"]}))
 
 (defn managedFolders-insert
   "Creates a new managed folder.
@@ -639,17 +609,16 @@ bucket <>
 ManagedFolder:
 ManagedFolder"
   [bucket ManagedFolder]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://storage.googleapis.com/storage/v1/b/{bucket}/managedFolders",
-     :uri-template-args {"bucket" bucket},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/devstorage.full_control"
-      "https://www.googleapis.com/auth/devstorage.read_write"],
-     :body ManagedFolder}))
+  {:method :post,
+   :uri-template
+   "https://storage.googleapis.com/storage/v1/b/{bucket}/managedFolders",
+   :uri-template-args {"bucket" bucket},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/devstorage.full_control"
+    "https://www.googleapis.com/auth/devstorage.read_write"],
+   :body ManagedFolder})
 
 (defn managedFolders-list
   "Lists managed folders in the given bucket.
@@ -662,18 +631,17 @@ pageSize <integer> Maximum number of items to return in a single page of respons
 prefix <string> The managed folder name/path prefix to filter the output list of results."
   ([bucket] (managedFolders-list bucket nil))
   ([bucket optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/managedFolders",
-       :uri-template-args {"bucket" bucket},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_only"
-        "https://www.googleapis.com/auth/devstorage.read_write"]})))
+    {:method :get,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/managedFolders",
+     :uri-template-args {"bucket" bucket},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_only"
+      "https://www.googleapis.com/auth/devstorage.read_write"]}))
 
 (defn managedFolders-setIamPolicy
   "Updates an IAM policy for the specified managed folder.
@@ -689,17 +657,16 @@ userProject <string> The project to be billed for this request. Required for Req
   ([bucket managedFolder Policy]
     (managedFolders-setIamPolicy bucket managedFolder Policy nil))
   ([bucket managedFolder Policy optional]
-    (client/*api-request*
-      {:method :put,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/managedFolders/{managedFolder}/iam",
-       :uri-template-args
-       {"bucket" bucket, "managedFolder" managedFolder},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"],
-       :body Policy})))
+    {:method :put,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/managedFolders/{managedFolder}/iam",
+     :uri-template-args
+     {"bucket" bucket, "managedFolder" managedFolder},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"],
+     :body Policy}))
 
 (defn managedFolders-testIamPermissions
   "Tests a set of permissions on the given managed folder to see which, if any, are held by the caller.
@@ -718,19 +685,18 @@ userProject <string> The project to be billed for this request. Required for Req
       permissions
       nil))
   ([bucket managedFolder permissions optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/managedFolders/{managedFolder}/iam/testPermissions",
-       :uri-template-args
-       {"bucket" bucket, "managedFolder" managedFolder},
-       :query-params (merge {"permissions" permissions} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_only"
-        "https://www.googleapis.com/auth/devstorage.read_write"]})))
+    {:method :get,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/managedFolders/{managedFolder}/iam/testPermissions",
+     :uri-template-args
+     {"bucket" bucket, "managedFolder" managedFolder},
+     :query-params (merge {"permissions" permissions} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_only"
+      "https://www.googleapis.com/auth/devstorage.read_write"]}))
 
 (defn anywhereCaches-insert
   "Creates an Anywhere Cache instance.
@@ -740,17 +706,16 @@ bucket <>
 AnywhereCache:
 AnywhereCache"
   [bucket AnywhereCache]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://storage.googleapis.com/storage/v1/b/{bucket}/anywhereCaches",
-     :uri-template-args {"bucket" bucket},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/devstorage.full_control"
-      "https://www.googleapis.com/auth/devstorage.read_write"],
-     :body AnywhereCache}))
+  {:method :post,
+   :uri-template
+   "https://storage.googleapis.com/storage/v1/b/{bucket}/anywhereCaches",
+   :uri-template-args {"bucket" bucket},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/devstorage.full_control"
+    "https://www.googleapis.com/auth/devstorage.read_write"],
+   :body AnywhereCache})
 
 (defn anywhereCaches-update
   "Updates the config(ttl and admissionPolicy) of an Anywhere Cache instance.
@@ -761,18 +726,17 @@ anywhereCacheId <>
 AnywhereCache:
 AnywhereCache"
   [bucket anywhereCacheId AnywhereCache]
-  (client/*api-request*
-    {:method :patch,
-     :uri-template
-     "https://storage.googleapis.com/storage/v1/b/{bucket}/anywhereCaches/{anywhereCacheId}",
-     :uri-template-args
-     {"bucket" bucket, "anywhereCacheId" anywhereCacheId},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/devstorage.full_control"
-      "https://www.googleapis.com/auth/devstorage.read_write"],
-     :body AnywhereCache}))
+  {:method :patch,
+   :uri-template
+   "https://storage.googleapis.com/storage/v1/b/{bucket}/anywhereCaches/{anywhereCacheId}",
+   :uri-template-args
+   {"bucket" bucket, "anywhereCacheId" anywhereCacheId},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/devstorage.full_control"
+    "https://www.googleapis.com/auth/devstorage.read_write"],
+   :body AnywhereCache})
 
 (defn anywhereCaches-get
   "Returns the metadata of an Anywhere Cache instance.
@@ -781,19 +745,18 @@ https://cloud.google.com/storage/docs/json_api/v1/reference/rest/v1/anywhereCach
 bucket <> 
 anywhereCacheId <> "
   [bucket anywhereCacheId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://storage.googleapis.com/storage/v1/b/{bucket}/anywhereCaches/{anywhereCacheId}",
-     :uri-template-args
-     {"bucket" bucket, "anywhereCacheId" anywhereCacheId},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"
-      "https://www.googleapis.com/auth/devstorage.full_control"
-      "https://www.googleapis.com/auth/devstorage.read_only"
-      "https://www.googleapis.com/auth/devstorage.read_write"]}))
+  {:method :get,
+   :uri-template
+   "https://storage.googleapis.com/storage/v1/b/{bucket}/anywhereCaches/{anywhereCacheId}",
+   :uri-template-args
+   {"bucket" bucket, "anywhereCacheId" anywhereCacheId},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"
+    "https://www.googleapis.com/auth/devstorage.full_control"
+    "https://www.googleapis.com/auth/devstorage.read_only"
+    "https://www.googleapis.com/auth/devstorage.read_write"]})
 
 (defn anywhereCaches-list
   "Returns a list of Anywhere Cache instances of the bucket matching the criteria.
@@ -805,18 +768,17 @@ optional:
 pageSize <integer> Maximum number of items to return in a single page of responses. Maximum 1000."
   ([bucket] (anywhereCaches-list bucket nil))
   ([bucket optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/anywhereCaches",
-       :uri-template-args {"bucket" bucket},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_only"
-        "https://www.googleapis.com/auth/devstorage.read_write"]})))
+    {:method :get,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/anywhereCaches",
+     :uri-template-args {"bucket" bucket},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_only"
+      "https://www.googleapis.com/auth/devstorage.read_write"]}))
 
 (defn anywhereCaches-pause
   "Pauses an Anywhere Cache instance.
@@ -825,17 +787,16 @@ https://cloud.google.com/storage/docs/json_api/v1/reference/rest/v1/anywhereCach
 bucket <> 
 anywhereCacheId <> "
   [bucket anywhereCacheId]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://storage.googleapis.com/storage/v1/b/{bucket}/anywhereCaches/{anywhereCacheId}/pause",
-     :uri-template-args
-     {"bucket" bucket, "anywhereCacheId" anywhereCacheId},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/devstorage.full_control"
-      "https://www.googleapis.com/auth/devstorage.read_write"]}))
+  {:method :post,
+   :uri-template
+   "https://storage.googleapis.com/storage/v1/b/{bucket}/anywhereCaches/{anywhereCacheId}/pause",
+   :uri-template-args
+   {"bucket" bucket, "anywhereCacheId" anywhereCacheId},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/devstorage.full_control"
+    "https://www.googleapis.com/auth/devstorage.read_write"]})
 
 (defn anywhereCaches-resume
   "Resumes a paused or disabled Anywhere Cache instance.
@@ -844,17 +805,16 @@ https://cloud.google.com/storage/docs/json_api/v1/reference/rest/v1/anywhereCach
 bucket <> 
 anywhereCacheId <> "
   [bucket anywhereCacheId]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://storage.googleapis.com/storage/v1/b/{bucket}/anywhereCaches/{anywhereCacheId}/resume",
-     :uri-template-args
-     {"bucket" bucket, "anywhereCacheId" anywhereCacheId},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/devstorage.full_control"
-      "https://www.googleapis.com/auth/devstorage.read_write"]}))
+  {:method :post,
+   :uri-template
+   "https://storage.googleapis.com/storage/v1/b/{bucket}/anywhereCaches/{anywhereCacheId}/resume",
+   :uri-template-args
+   {"bucket" bucket, "anywhereCacheId" anywhereCacheId},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/devstorage.full_control"
+    "https://www.googleapis.com/auth/devstorage.read_write"]})
 
 (defn anywhereCaches-disable
   "Disables an Anywhere Cache instance.
@@ -863,17 +823,16 @@ https://cloud.google.com/storage/docs/json_api/v1/reference/rest/v1/anywhereCach
 bucket <> 
 anywhereCacheId <> "
   [bucket anywhereCacheId]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://storage.googleapis.com/storage/v1/b/{bucket}/anywhereCaches/{anywhereCacheId}/disable",
-     :uri-template-args
-     {"bucket" bucket, "anywhereCacheId" anywhereCacheId},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/devstorage.full_control"
-      "https://www.googleapis.com/auth/devstorage.read_write"]}))
+  {:method :post,
+   :uri-template
+   "https://storage.googleapis.com/storage/v1/b/{bucket}/anywhereCaches/{anywhereCacheId}/disable",
+   :uri-template-args
+   {"bucket" bucket, "anywhereCacheId" anywhereCacheId},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/devstorage.full_control"
+    "https://www.googleapis.com/auth/devstorage.read_write"]})
 
 (defn objects-list
   "Retrieves a list of objects matching the criteria.
@@ -896,18 +855,17 @@ includeFoldersAsPrefixes <boolean> Only applicable if delimiter is set to '/'. I
 softDeleted <boolean> If true, only soft-deleted object versions will be listed. The default is false. For more information, see [Soft Delete](https://cloud.google.com/storage/docs/soft-delete)."
   ([bucket] (objects-list bucket nil))
   ([bucket optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/o",
-       :uri-template-args {"bucket" bucket},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_only"
-        "https://www.googleapis.com/auth/devstorage.read_write"]})))
+    {:method :get,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/o",
+     :uri-template-args {"bucket" bucket},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_only"
+      "https://www.googleapis.com/auth/devstorage.read_write"]}))
 
 (defn objects-setIamPolicy
   "Updates an IAM policy for the specified object.
@@ -924,17 +882,16 @@ userProject <string> The project to be billed for this request. Required for Req
   ([bucket object Policy]
     (objects-setIamPolicy bucket object Policy nil))
   ([bucket object Policy optional]
-    (client/*api-request*
-      {:method :put,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}/iam",
-       :uri-template-args {"bucket" bucket, "object" object},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_write"],
-       :body Policy})))
+    {:method :put,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}/iam",
+     :uri-template-args {"bucket" bucket, "object" object},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_write"],
+     :body Policy}))
 
 (defn objects-rewrite
   "Rewrites a source object to a destination object. Optionally overrides metadata.
@@ -981,21 +938,20 @@ ifSourceMetagenerationNotMatch <string> Makes the operation conditional on wheth
     destinationObject
     Object
     optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{sourceBucket}/o/{sourceObject}/rewriteTo/b/{destinationBucket}/o/{destinationObject}",
-       :uri-template-args
-       {"destinationBucket" destinationBucket,
-        "destinationObject" destinationObject,
-        "sourceBucket" sourceBucket,
-        "sourceObject" sourceObject},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_write"],
-       :body Object})))
+    {:method :post,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{sourceBucket}/o/{sourceObject}/rewriteTo/b/{destinationBucket}/o/{destinationObject}",
+     :uri-template-args
+     {"destinationBucket" destinationBucket,
+      "destinationObject" destinationObject,
+      "sourceBucket" sourceBucket,
+      "sourceObject" sourceObject},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_write"],
+     :body Object}))
 
 (defn objects-watchAll
   "Watch for changes on all objects in a bucket.
@@ -1017,19 +973,18 @@ delimiter <string> Returns results in a directory-like mode. items will contain 
 projection <string> Set of properties to return. Defaults to noAcl."
   ([bucket Channel] (objects-watchAll bucket Channel nil))
   ([bucket Channel optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/o/watch",
-       :uri-template-args {"bucket" bucket},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_only"
-        "https://www.googleapis.com/auth/devstorage.read_write"],
-       :body Channel})))
+    {:method :post,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/o/watch",
+     :uri-template-args {"bucket" bucket},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_only"
+      "https://www.googleapis.com/auth/devstorage.read_write"],
+     :body Channel}))
 
 (defn objects-copy
   "Copies a source object to a destination object. Optionally overrides metadata.
@@ -1074,21 +1029,20 @@ ifSourceMetagenerationNotMatch <string> Makes the operation conditional on wheth
     destinationObject
     Object
     optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{sourceBucket}/o/{sourceObject}/copyTo/b/{destinationBucket}/o/{destinationObject}",
-       :uri-template-args
-       {"destinationBucket" destinationBucket,
-        "destinationObject" destinationObject,
-        "sourceBucket" sourceBucket,
-        "sourceObject" sourceObject},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_write"],
-       :body Object})))
+    {:method :post,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{sourceBucket}/o/{sourceObject}/copyTo/b/{destinationBucket}/o/{destinationObject}",
+     :uri-template-args
+     {"destinationBucket" destinationBucket,
+      "destinationObject" destinationObject,
+      "sourceBucket" sourceBucket,
+      "sourceObject" sourceObject},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_write"],
+     :body Object}))
 
 (defn objects-delete
   "Deletes an object and its metadata. Deletions are permanent if versioning is not enabled for the bucket, or if the generation parameter is used.
@@ -1106,16 +1060,15 @@ ifMetagenerationNotMatch <string> Makes the operation conditional on whether the
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket object] (objects-delete bucket object nil))
   ([bucket object optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}",
-       :uri-template-args {"bucket" bucket, "object" object},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_write"]})))
+    {:method :delete,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}",
+     :uri-template-args {"bucket" bucket, "object" object},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_write"]}))
 
 (defn objects-update
   "Updates an object's metadata.
@@ -1138,16 +1091,15 @@ projection <string> Set of properties to return. Defaults to full.
 ifMetagenerationMatch <string> Makes the operation conditional on whether the object's current metageneration matches the given value."
   ([bucket object Object] (objects-update bucket object Object nil))
   ([bucket object Object optional]
-    (client/*api-request*
-      {:method :put,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}",
-       :uri-template-args {"object" object, "bucket" bucket},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"],
-       :body Object})))
+    {:method :put,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}",
+     :uri-template-args {"object" object, "bucket" bucket},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"],
+     :body Object}))
 
 (defn objects-patch
   "Patches an object's metadata.
@@ -1170,16 +1122,15 @@ projection <string> Set of properties to return. Defaults to full.
 ifMetagenerationMatch <string> Makes the operation conditional on whether the object's current metageneration matches the given value."
   ([bucket object Object] (objects-patch bucket object Object nil))
   ([bucket object Object optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}",
-       :uri-template-args {"object" object, "bucket" bucket},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"],
-       :body Object})))
+    {:method :patch,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}",
+     :uri-template-args {"object" object, "bucket" bucket},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"],
+     :body Object}))
 
 (defn objects-bulkRestore
   "Initiates a long-running bulk restore operation on the specified bucket.
@@ -1189,17 +1140,16 @@ bucket <>
 BulkRestoreObjectsRequest:
 BulkRestoreObjectsRequest"
   [bucket BulkRestoreObjectsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://storage.googleapis.com/storage/v1/b/{bucket}/o/bulkRestore",
-     :uri-template-args {"bucket" bucket},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/devstorage.full_control"
-      "https://www.googleapis.com/auth/devstorage.read_write"],
-     :body BulkRestoreObjectsRequest}))
+  {:method :post,
+   :uri-template
+   "https://storage.googleapis.com/storage/v1/b/{bucket}/o/bulkRestore",
+   :uri-template-args {"bucket" bucket},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/devstorage.full_control"
+    "https://www.googleapis.com/auth/devstorage.read_write"],
+   :body BulkRestoreObjectsRequest})
 
 (defn objects-compose
   "Concatenates a list of existing objects into a new object in the same bucket.
@@ -1223,19 +1173,18 @@ userProject <string> The project to be billed for this request. Required for Req
       ComposeRequest
       nil))
   ([destinationBucket destinationObject ComposeRequest optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{destinationBucket}/o/{destinationObject}/compose",
-       :uri-template-args
-       {"destinationBucket" destinationBucket,
-        "destinationObject" destinationObject},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_write"],
-       :body ComposeRequest})))
+    {:method :post,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{destinationBucket}/o/{destinationObject}/compose",
+     :uri-template-args
+     {"destinationBucket" destinationBucket,
+      "destinationObject" destinationObject},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_write"],
+     :body ComposeRequest}))
 
 (defn objects-getIamPolicy
   "Returns an IAM policy for the specified object.
@@ -1249,18 +1198,17 @@ generation <string> If present, selects a specific revision of this object (as o
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket object] (objects-getIamPolicy bucket object nil))
   ([bucket object optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}/iam",
-       :uri-template-args {"bucket" bucket, "object" object},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_only"
-        "https://www.googleapis.com/auth/devstorage.read_write"]})))
+    {:method :get,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}/iam",
+     :uri-template-args {"bucket" bucket, "object" object},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_only"
+      "https://www.googleapis.com/auth/devstorage.read_write"]}))
 
 (defn objects-insert
   "Stores a new object and metadata.
@@ -1283,17 +1231,16 @@ kmsKeyName <string> Resource name of the Cloud KMS key, of the form projects/my-
 ifMetagenerationMatch <string> Makes the operation conditional on whether the object's current metageneration matches the given value."
   ([bucket Object] (objects-insert bucket Object nil))
   ([bucket Object optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/o",
-       :uri-template-args {"bucket" bucket},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_write"],
-       :body Object})))
+    {:method :post,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/o",
+     :uri-template-args {"bucket" bucket},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_write"],
+     :body Object}))
 
 (defn objects-restore
   "Restores a soft-deleted object.
@@ -1314,15 +1261,14 @@ ifMetagenerationMatch <string> Makes the operation conditional on whether the ob
   ([bucket object generation]
     (objects-restore bucket object generation nil))
   ([bucket object generation optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}/restore",
-       :uri-template-args {"object" object, "bucket" bucket},
-       :query-params (merge {"generation" generation} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"]})))
+    {:method :post,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}/restore",
+     :uri-template-args {"object" object, "bucket" bucket},
+     :query-params (merge {"generation" generation} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"]}))
 
 (defn objects-get
   "Retrieves an object or its metadata.
@@ -1342,18 +1288,17 @@ softDeleted <boolean> If true, only soft-deleted object versions will be listed.
 ifMetagenerationMatch <string> Makes the operation conditional on whether the object's current metageneration matches the given value."
   ([bucket object] (objects-get bucket object nil))
   ([bucket object optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}",
-       :uri-template-args {"object" object, "bucket" bucket},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_only"
-        "https://www.googleapis.com/auth/devstorage.read_write"]})))
+    {:method :get,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}",
+     :uri-template-args {"object" object, "bucket" bucket},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_only"
+      "https://www.googleapis.com/auth/devstorage.read_write"]}))
 
 (defn objects-testIamPermissions
   "Tests a set of permissions on the given object to see which, if any, are held by the caller.
@@ -1369,18 +1314,17 @@ userProject <string> The project to be billed for this request. Required for Req
   ([bucket object permissions]
     (objects-testIamPermissions bucket object permissions nil))
   ([bucket object permissions optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}/iam/testPermissions",
-       :uri-template-args {"bucket" bucket, "object" object},
-       :query-params (merge {"permissions" permissions} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_only"
-        "https://www.googleapis.com/auth/devstorage.read_write"]})))
+    {:method :get,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}/iam/testPermissions",
+     :uri-template-args {"bucket" bucket, "object" object},
+     :query-params (merge {"permissions" permissions} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_only"
+      "https://www.googleapis.com/auth/devstorage.read_write"]}))
 
 (defn folders-delete
   "Permanently deletes a folder. Only applicable to buckets with hierarchical namespace enabled.
@@ -1394,16 +1338,15 @@ ifMetagenerationMatch <string> If set, only deletes the folder if its metagenera
 ifMetagenerationNotMatch <string> If set, only deletes the folder if its metageneration does not match this value."
   ([bucket folder] (folders-delete bucket folder nil))
   ([bucket folder optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/folders/{folder}",
-       :uri-template-args {"bucket" bucket, "folder" folder},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_write"]})))
+    {:method :delete,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/folders/{folder}",
+     :uri-template-args {"bucket" bucket, "folder" folder},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_write"]}))
 
 (defn folders-get
   "Returns metadata for the specified folder. Only applicable to buckets with hierarchical namespace enabled.
@@ -1417,18 +1360,17 @@ ifMetagenerationMatch <string> Makes the return of the folder metadata condition
 ifMetagenerationNotMatch <string> Makes the return of the folder metadata conditional on whether the folder's current metageneration does not match the given value."
   ([bucket folder] (folders-get bucket folder nil))
   ([bucket folder optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/folders/{folder}",
-       :uri-template-args {"bucket" bucket, "folder" folder},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_only"
-        "https://www.googleapis.com/auth/devstorage.read_write"]})))
+    {:method :get,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/folders/{folder}",
+     :uri-template-args {"bucket" bucket, "folder" folder},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_only"
+      "https://www.googleapis.com/auth/devstorage.read_write"]}))
 
 (defn folders-insert
   "Creates a new folder. Only applicable to buckets with hierarchical namespace enabled.
@@ -1442,17 +1384,16 @@ optional:
 recursive <boolean> If true, any parent folder which doesn’t exist will be created automatically."
   ([bucket Folder] (folders-insert bucket Folder nil))
   ([bucket Folder optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/folders",
-       :uri-template-args {"bucket" bucket},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_write"],
-       :body Folder})))
+    {:method :post,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/folders",
+     :uri-template-args {"bucket" bucket},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_write"],
+     :body Folder}))
 
 (defn folders-list
   "Retrieves a list of folders matching the criteria. Only applicable to buckets with hierarchical namespace enabled.
@@ -1468,18 +1409,17 @@ prefix <string> Filter results to folders whose paths begin with this prefix. If
 startOffset <string> Filter results to folders whose names are lexicographically equal to or after startOffset. If endOffset is also set, the folders listed will have names between startOffset (inclusive) and endOffset (exclusive)."
   ([bucket] (folders-list bucket nil))
   ([bucket optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/folders",
-       :uri-template-args {"bucket" bucket},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_only"
-        "https://www.googleapis.com/auth/devstorage.read_write"]})))
+    {:method :get,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/folders",
+     :uri-template-args {"bucket" bucket},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_only"
+      "https://www.googleapis.com/auth/devstorage.read_write"]}))
 
 (defn folders-rename
   "Renames a source folder to a destination folder. Only applicable to buckets with hierarchical namespace enabled.
@@ -1495,19 +1435,18 @@ ifSourceMetagenerationNotMatch <string> Makes the operation conditional on wheth
   ([bucket sourceFolder destinationFolder]
     (folders-rename bucket sourceFolder destinationFolder nil))
   ([bucket sourceFolder destinationFolder optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/folders/{sourceFolder}/renameTo/folders/{destinationFolder}",
-       :uri-template-args
-       {"bucket" bucket,
-        "destinationFolder" destinationFolder,
-        "sourceFolder" sourceFolder},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_write"]})))
+    {:method :post,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/folders/{sourceFolder}/renameTo/folders/{destinationFolder}",
+     :uri-template-args
+     {"bucket" bucket,
+      "destinationFolder" destinationFolder,
+      "sourceFolder" sourceFolder},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_write"]}))
 
 (defn bucketAccessControls-delete
   "Permanently deletes the ACL entry for the specified entity on the specified bucket.
@@ -1520,15 +1459,14 @@ optional:
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket entity] (bucketAccessControls-delete bucket entity nil))
   ([bucket entity optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/acl/{entity}",
-       :uri-template-args {"bucket" bucket, "entity" entity},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"]})))
+    {:method :delete,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/acl/{entity}",
+     :uri-template-args {"bucket" bucket, "entity" entity},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"]}))
 
 (defn bucketAccessControls-get
   "Returns the ACL entry for the specified entity on the specified bucket.
@@ -1541,15 +1479,14 @@ optional:
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket entity] (bucketAccessControls-get bucket entity nil))
   ([bucket entity optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/acl/{entity}",
-       :uri-template-args {"bucket" bucket, "entity" entity},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"]})))
+    {:method :get,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/acl/{entity}",
+     :uri-template-args {"bucket" bucket, "entity" entity},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"]}))
 
 (defn bucketAccessControls-insert
   "Creates a new ACL entry on the specified bucket.
@@ -1564,16 +1501,15 @@ userProject <string> The project to be billed for this request. Required for Req
   ([bucket BucketAccessControl]
     (bucketAccessControls-insert bucket BucketAccessControl nil))
   ([bucket BucketAccessControl optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/acl",
-       :uri-template-args {"bucket" bucket},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"],
-       :body BucketAccessControl})))
+    {:method :post,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/acl",
+     :uri-template-args {"bucket" bucket},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"],
+     :body BucketAccessControl}))
 
 (defn bucketAccessControls-list
   "Retrieves ACL entries on the specified bucket.
@@ -1585,15 +1521,14 @@ optional:
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket] (bucketAccessControls-list bucket nil))
   ([bucket optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/acl",
-       :uri-template-args {"bucket" bucket},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"]})))
+    {:method :get,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/acl",
+     :uri-template-args {"bucket" bucket},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"]}))
 
 (defn bucketAccessControls-patch
   "Patches an ACL entry on the specified bucket.
@@ -1609,16 +1544,15 @@ userProject <string> The project to be billed for this request. Required for Req
   ([bucket entity BucketAccessControl]
     (bucketAccessControls-patch bucket entity BucketAccessControl nil))
   ([bucket entity BucketAccessControl optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/acl/{entity}",
-       :uri-template-args {"bucket" bucket, "entity" entity},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"],
-       :body BucketAccessControl})))
+    {:method :patch,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/acl/{entity}",
+     :uri-template-args {"bucket" bucket, "entity" entity},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"],
+     :body BucketAccessControl}))
 
 (defn bucketAccessControls-update
   "Updates an ACL entry on the specified bucket.
@@ -1638,16 +1572,15 @@ userProject <string> The project to be billed for this request. Required for Req
       BucketAccessControl
       nil))
   ([bucket entity BucketAccessControl optional]
-    (client/*api-request*
-      {:method :put,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/acl/{entity}",
-       :uri-template-args {"bucket" bucket, "entity" entity},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"],
-       :body BucketAccessControl})))
+    {:method :put,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/acl/{entity}",
+     :uri-template-args {"bucket" bucket, "entity" entity},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"],
+     :body BucketAccessControl}))
 
 (defn projects-hmacKeys-create
   "Creates a new HMAC key for the specified service account.
@@ -1661,16 +1594,15 @@ userProject <string> The project to be billed for this request."
   ([projectId serviceAccountEmail]
     (projects-hmacKeys-create projectId serviceAccountEmail nil))
   ([projectId serviceAccountEmail optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/projects/{projectId}/hmacKeys",
-       :uri-template-args {"projectId" projectId},
-       :query-params
-       (merge {"serviceAccountEmail" serviceAccountEmail} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"]})))
+    {:method :post,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/projects/{projectId}/hmacKeys",
+     :uri-template-args {"projectId" projectId},
+     :query-params
+     (merge {"serviceAccountEmail" serviceAccountEmail} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"]}))
 
 (defn projects-hmacKeys-delete
   "Deletes an HMAC key.
@@ -1684,16 +1616,15 @@ userProject <string> The project to be billed for this request."
   ([projectId accessId]
     (projects-hmacKeys-delete projectId accessId nil))
   ([projectId accessId optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/projects/{projectId}/hmacKeys/{accessId}",
-       :uri-template-args {"accessId" accessId, "projectId" projectId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_write"]})))
+    {:method :delete,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/projects/{projectId}/hmacKeys/{accessId}",
+     :uri-template-args {"accessId" accessId, "projectId" projectId},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_write"]}))
 
 (defn projects-hmacKeys-get
   "Retrieves an HMAC key's metadata
@@ -1706,17 +1637,16 @@ optional:
 userProject <string> The project to be billed for this request."
   ([projectId accessId] (projects-hmacKeys-get projectId accessId nil))
   ([projectId accessId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/projects/{projectId}/hmacKeys/{accessId}",
-       :uri-template-args {"accessId" accessId, "projectId" projectId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_only"]})))
+    {:method :get,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/projects/{projectId}/hmacKeys/{accessId}",
+     :uri-template-args {"accessId" accessId, "projectId" projectId},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_only"]}))
 
 (defn projects-hmacKeys-list
   "Retrieves a list of HMAC keys matching the criteria.
@@ -1731,17 +1661,16 @@ showDeletedKeys <boolean> Whether or not to show keys in the DELETED state.
 userProject <string> The project to be billed for this request."
   ([projectId] (projects-hmacKeys-list projectId nil))
   ([projectId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/projects/{projectId}/hmacKeys",
-       :uri-template-args {"projectId" projectId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_only"]})))
+    {:method :get,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/projects/{projectId}/hmacKeys",
+     :uri-template-args {"projectId" projectId},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_only"]}))
 
 (defn projects-hmacKeys-update
   "Updates the state of an HMAC key. See the [HMAC Key resource descriptor](https://cloud.google.com/storage/docs/json_api/v1/projects/hmacKeys/update#request-body) for valid states.
@@ -1757,16 +1686,15 @@ userProject <string> The project to be billed for this request."
   ([projectId accessId HmacKeyMetadata]
     (projects-hmacKeys-update projectId accessId HmacKeyMetadata nil))
   ([projectId accessId HmacKeyMetadata optional]
-    (client/*api-request*
-      {:method :put,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/projects/{projectId}/hmacKeys/{accessId}",
-       :uri-template-args {"accessId" accessId, "projectId" projectId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"],
-       :body HmacKeyMetadata})))
+    {:method :put,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/projects/{projectId}/hmacKeys/{accessId}",
+     :uri-template-args {"accessId" accessId, "projectId" projectId},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"],
+     :body HmacKeyMetadata}))
 
 (defn projects-serviceAccount-get
   "Get the email address of this project's Google Cloud Storage service account.
@@ -1778,18 +1706,17 @@ optional:
 userProject <string> The project to be billed for this request."
   ([projectId] (projects-serviceAccount-get projectId nil))
   ([projectId optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/projects/{projectId}/serviceAccount",
-       :uri-template-args {"projectId" projectId},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_only"
-        "https://www.googleapis.com/auth/devstorage.read_write"]})))
+    {:method :get,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/projects/{projectId}/serviceAccount",
+     :uri-template-args {"projectId" projectId},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_only"
+      "https://www.googleapis.com/auth/devstorage.read_write"]}))
 
 (defn objectAccessControls-delete
   "Permanently deletes the ACL entry for the specified entity on the specified object.
@@ -1805,16 +1732,15 @@ userProject <string> The project to be billed for this request. Required for Req
   ([bucket object entity]
     (objectAccessControls-delete bucket object entity nil))
   ([bucket object entity optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}/acl/{entity}",
-       :uri-template-args
-       {"bucket" bucket, "entity" entity, "object" object},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"]})))
+    {:method :delete,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}/acl/{entity}",
+     :uri-template-args
+     {"bucket" bucket, "entity" entity, "object" object},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"]}))
 
 (defn objectAccessControls-get
   "Returns the ACL entry for the specified entity on the specified object.
@@ -1830,16 +1756,15 @@ userProject <string> The project to be billed for this request. Required for Req
   ([bucket object entity]
     (objectAccessControls-get bucket object entity nil))
   ([bucket object entity optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}/acl/{entity}",
-       :uri-template-args
-       {"bucket" bucket, "entity" entity, "object" object},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"]})))
+    {:method :get,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}/acl/{entity}",
+     :uri-template-args
+     {"bucket" bucket, "entity" entity, "object" object},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"]}))
 
 (defn objectAccessControls-insert
   "Creates a new ACL entry on the specified object.
@@ -1860,16 +1785,15 @@ userProject <string> The project to be billed for this request. Required for Req
       ObjectAccessControl
       nil))
   ([bucket object ObjectAccessControl optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}/acl",
-       :uri-template-args {"bucket" bucket, "object" object},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"],
-       :body ObjectAccessControl})))
+    {:method :post,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}/acl",
+     :uri-template-args {"bucket" bucket, "object" object},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"],
+     :body ObjectAccessControl}))
 
 (defn objectAccessControls-list
   "Retrieves ACL entries on the specified object.
@@ -1883,15 +1807,14 @@ generation <string> If present, selects a specific revision of this object (as o
 userProject <string> The project to be billed for this request. Required for Requester Pays buckets."
   ([bucket object] (objectAccessControls-list bucket object nil))
   ([bucket object optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}/acl",
-       :uri-template-args {"bucket" bucket, "object" object},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"]})))
+    {:method :get,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}/acl",
+     :uri-template-args {"bucket" bucket, "object" object},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"]}))
 
 (defn objectAccessControls-patch
   "Patches an ACL entry on the specified object.
@@ -1914,17 +1837,16 @@ userProject <string> The project to be billed for this request. Required for Req
       ObjectAccessControl
       nil))
   ([bucket object entity ObjectAccessControl optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}/acl/{entity}",
-       :uri-template-args
-       {"bucket" bucket, "entity" entity, "object" object},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"],
-       :body ObjectAccessControl})))
+    {:method :patch,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}/acl/{entity}",
+     :uri-template-args
+     {"bucket" bucket, "entity" entity, "object" object},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"],
+     :body ObjectAccessControl}))
 
 (defn objectAccessControls-update
   "Updates an ACL entry on the specified object.
@@ -1947,17 +1869,16 @@ userProject <string> The project to be billed for this request. Required for Req
       ObjectAccessControl
       nil))
   ([bucket object entity ObjectAccessControl optional]
-    (client/*api-request*
-      {:method :put,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}/acl/{entity}",
-       :uri-template-args
-       {"bucket" bucket, "entity" entity, "object" object},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/devstorage.full_control"],
-       :body ObjectAccessControl})))
+    {:method :put,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/o/{object}/acl/{entity}",
+     :uri-template-args
+     {"bucket" bucket, "entity" entity, "object" object},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/devstorage.full_control"],
+     :body ObjectAccessControl}))
 
 (defn channels-stop
   "Stop watching resources through this channel
@@ -1966,19 +1887,18 @@ https://cloud.google.com/storage/docs/json_api/v1/reference/rest/v1/channels/sto
 Channel:
 Channel"
   [Channel]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://storage.googleapis.com/storage/v1/channels/stop",
-     :uri-template-args {},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"
-      "https://www.googleapis.com/auth/devstorage.full_control"
-      "https://www.googleapis.com/auth/devstorage.read_only"
-      "https://www.googleapis.com/auth/devstorage.read_write"],
-     :body Channel}))
+  {:method :post,
+   :uri-template
+   "https://storage.googleapis.com/storage/v1/channels/stop",
+   :uri-template-args {},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"
+    "https://www.googleapis.com/auth/devstorage.full_control"
+    "https://www.googleapis.com/auth/devstorage.read_only"
+    "https://www.googleapis.com/auth/devstorage.read_write"],
+   :body Channel})
 
 (defn buckets-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed.
@@ -1987,16 +1907,15 @@ https://cloud.google.com/storage/docs/json_api/v1/reference/rest/v1/buckets/oper
 bucket <> 
 operationId <> "
   [bucket operationId]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://storage.googleapis.com/storage/v1/b/{bucket}/operations/{operationId}/cancel",
-     :uri-template-args {"bucket" bucket, "operationId" operationId},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/devstorage.full_control"
-      "https://www.googleapis.com/auth/devstorage.read_write"]}))
+  {:method :post,
+   :uri-template
+   "https://storage.googleapis.com/storage/v1/b/{bucket}/operations/{operationId}/cancel",
+   :uri-template-args {"bucket" bucket, "operationId" operationId},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/devstorage.full_control"
+    "https://www.googleapis.com/auth/devstorage.read_write"]})
 
 (defn buckets-operations-get
   "Gets the latest state of a long-running operation.
@@ -2005,18 +1924,17 @@ https://cloud.google.com/storage/docs/json_api/v1/reference/rest/v1/buckets/oper
 bucket <> 
 operationId <> "
   [bucket operationId]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://storage.googleapis.com/storage/v1/b/{bucket}/operations/{operationId}",
-     :uri-template-args {"bucket" bucket, "operationId" operationId},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"
-      "https://www.googleapis.com/auth/devstorage.full_control"
-      "https://www.googleapis.com/auth/devstorage.read_only"
-      "https://www.googleapis.com/auth/devstorage.read_write"]}))
+  {:method :get,
+   :uri-template
+   "https://storage.googleapis.com/storage/v1/b/{bucket}/operations/{operationId}",
+   :uri-template-args {"bucket" bucket, "operationId" operationId},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"
+    "https://www.googleapis.com/auth/devstorage.full_control"
+    "https://www.googleapis.com/auth/devstorage.read_only"
+    "https://www.googleapis.com/auth/devstorage.read_write"]})
 
 (defn buckets-operations-list
   "Lists operations that match the specified filter in the request.
@@ -2029,15 +1947,14 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> Maximum number of items to return in a single page of responses. Fewer total results may be returned than requested. The service uses this parameter or 100 items, whichever is smaller."
   ([bucket] (buckets-operations-list bucket nil))
   ([bucket optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://storage.googleapis.com/storage/v1/b/{bucket}/operations",
-       :uri-template-args {"bucket" bucket},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"
-        "https://www.googleapis.com/auth/devstorage.full_control"
-        "https://www.googleapis.com/auth/devstorage.read_only"
-        "https://www.googleapis.com/auth/devstorage.read_write"]})))
+    {:method :get,
+     :uri-template
+     "https://storage.googleapis.com/storage/v1/b/{bucket}/operations",
+     :uri-template-args {"bucket" bucket},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"
+      "https://www.googleapis.com/auth/devstorage.full_control"
+      "https://www.googleapis.com/auth/devstorage.read_only"
+      "https://www.googleapis.com/auth/devstorage.read_write"]}))

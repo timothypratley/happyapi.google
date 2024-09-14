@@ -1,8 +1,7 @@
 (ns happyapi.google.vmwareengine-v1
   "VMware Engine API
 The Google VMware Engine API lets you programmatically manage VMware environments.
-See: https://cloud.google.com/vmware-engine"
-  (:require [happyapi.providers.google :as client]))
+See: https://cloud.google.com/vmware-engine")
 
 (defn projects-locations-getDnsBindPermission
   "Gets all the principals having bind permission on the intranet VPC associated with the consumer project granted by the Grant API. DnsBindPermission is a global resource and location can only be global.
@@ -10,12 +9,11 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/g
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-list
   "Lists information about the supported locations for this service.
@@ -28,13 +26,12 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+name}/locations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+name}/locations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-get
   "Gets information about a location.
@@ -42,12 +39,11 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/g
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -60,13 +56,12 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -74,12 +69,11 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/o
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -87,12 +81,11 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/o
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-privateClouds-list
   "Lists `PrivateCloud` resources in a given project and location.
@@ -106,13 +99,12 @@ filter <string> A filter expression that matches resources returned in the respo
 orderBy <string> Sorts list results by a certain order. By default, returned results are ordered by `name` in ascending order. You can also sort results in descending order based on the `name` value using `orderBy=\"name desc\"`. Currently, only ordering by `name` is supported."
   ([parent] (projects-locations-privateClouds-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+parent}/privateClouds",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+parent}/privateClouds",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-privateClouds-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -122,14 +114,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://vmwareengine.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://vmwareengine.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-privateClouds-delete
   "Schedules a `PrivateCloud` resource for deletion. A `PrivateCloud` resource scheduled for deletion has `PrivateCloud.state` set to `DELETED` and `expireTime` set to the time when deletion is final and can no longer be reversed. The delete operation is marked as done as soon as the `PrivateCloud` is successfully scheduled for deletion (this also applies when `delayHours` is set to zero), and the operation is not kept in pending state until `PrivateCloud` is purged. `PrivateCloud` can be restored using `UndeletePrivateCloud` method before the `expireTime` elapses. When `expireTime` is reached, deletion is final and all private cloud resources are irreversibly removed and billing stops. During the final removal process, `PrivateCloud.state` is set to `PURGING`. `PrivateCloud` can be polled using standard `GET` method for the whole period of deletion and purging. It will not be returned only when it is completely purged.
@@ -143,12 +134,11 @@ force <boolean> Optional. If set to true, cascade delete is enabled and all chil
 delayHours <integer> Optional. Time delay of the deletion specified in hours. The default value is `3`. Specifying a non-zero value for this field changes the value of `PrivateCloud.state` to `DELETED` and sets `expire_time` to the planned deletion time. Deletion can be cancelled before `expire_time` elapses using VmwareEngine.UndeletePrivateCloud. Specifying a value of `0` for this field instead begins the deletion process and ceases billing immediately. During the final deletion process, the value of `PrivateCloud.state` becomes `PURGING`."
   ([name] (projects-locations-privateClouds-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-privateClouds-undelete
   "Restores a private cloud that was previously scheduled for deletion by `DeletePrivateCloud`. A `PrivateCloud` resource scheduled for deletion has `PrivateCloud.state` set to `DELETED` and `PrivateCloud.expireTime` set to the time when deletion can no longer be reversed.
@@ -158,14 +148,13 @@ name <>
 UndeletePrivateCloudRequest:
 UndeletePrivateCloudRequest"
   [name UndeletePrivateCloudRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://vmwareengine.googleapis.com/v1/{+name}:undelete",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body UndeletePrivateCloudRequest}))
+  {:method :post,
+   :uri-template
+   "https://vmwareengine.googleapis.com/v1/{+name}:undelete",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body UndeletePrivateCloudRequest})
 
 (defn projects-locations-privateClouds-getDnsForwarding
   "Gets details of the `DnsForwarding` config.
@@ -173,12 +162,11 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/p
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-privateClouds-resetNsxCredentials
   "Resets credentials of the NSX appliance.
@@ -188,14 +176,13 @@ privateCloud <>
 ResetNsxCredentialsRequest:
 ResetNsxCredentialsRequest"
   [privateCloud ResetNsxCredentialsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://vmwareengine.googleapis.com/v1/{+privateCloud}:resetNsxCredentials",
-     :uri-template-args {"privateCloud" privateCloud},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body ResetNsxCredentialsRequest}))
+  {:method :post,
+   :uri-template
+   "https://vmwareengine.googleapis.com/v1/{+privateCloud}:resetNsxCredentials",
+   :uri-template-args {"privateCloud" privateCloud},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body ResetNsxCredentialsRequest})
 
 (defn projects-locations-privateClouds-patch
   "Modifies a `PrivateCloud` resource. Only the following fields can be updated: `description`. Only fields specified in `updateMask` are applied. During operation processing, the resource is temporarily in the `ACTIVE` state before the operation fully completes. For that period of time, you can't update the resource. Use the operation status to determine when the processing fully completes.
@@ -211,13 +198,12 @@ requestId <string> Optional. The request ID must be a valid UUID with the except
   ([name PrivateCloud]
     (projects-locations-privateClouds-patch name PrivateCloud nil))
   ([name PrivateCloud optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body PrivateCloud})))
+    {:method :patch,
+     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body PrivateCloud}))
 
 (defn projects-locations-privateClouds-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -230,13 +216,12 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-privateClouds-getIamPolicy resource nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-privateClouds-resetVcenterCredentials
   "Resets credentials of the Vcenter appliance.
@@ -246,14 +231,13 @@ privateCloud <>
 ResetVcenterCredentialsRequest:
 ResetVcenterCredentialsRequest"
   [privateCloud ResetVcenterCredentialsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://vmwareengine.googleapis.com/v1/{+privateCloud}:resetVcenterCredentials",
-     :uri-template-args {"privateCloud" privateCloud},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body ResetVcenterCredentialsRequest}))
+  {:method :post,
+   :uri-template
+   "https://vmwareengine.googleapis.com/v1/{+privateCloud}:resetVcenterCredentials",
+   :uri-template-args {"privateCloud" privateCloud},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body ResetVcenterCredentialsRequest})
 
 (defn projects-locations-privateClouds-create
   "Creates a new `PrivateCloud` resource in a given project and location. Private clouds of type `STANDARD` and `TIME_LIMITED` are zonal resources, `STRETCHED` private clouds are regional. Creating a private cloud also creates a [management cluster](https://cloud.google.com/vmware-engine/docs/concepts-vmware-components) for that private cloud.
@@ -270,14 +254,13 @@ validateOnly <boolean> Optional. True if you want the request to be validated an
   ([parent PrivateCloud]
     (projects-locations-privateClouds-create parent PrivateCloud nil))
   ([parent PrivateCloud optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+parent}/privateClouds",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body PrivateCloud})))
+    {:method :post,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+parent}/privateClouds",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body PrivateCloud}))
 
 (defn projects-locations-privateClouds-showVcenterCredentials
   "Gets details of credentials for Vcenter appliance.
@@ -292,13 +275,12 @@ username <string> Optional. The username of the user to be queried for credentia
       privateCloud
       nil))
   ([privateCloud optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+privateCloud}:showVcenterCredentials",
-       :uri-template-args {"privateCloud" privateCloud},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+privateCloud}:showVcenterCredentials",
+     :uri-template-args {"privateCloud" privateCloud},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-privateClouds-showNsxCredentials
   "Gets details of credentials for NSX appliance.
@@ -306,13 +288,12 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/p
 
 privateCloud <> "
   [privateCloud]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://vmwareengine.googleapis.com/v1/{+privateCloud}:showNsxCredentials",
-     :uri-template-args {"privateCloud" privateCloud},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template
+   "https://vmwareengine.googleapis.com/v1/{+privateCloud}:showNsxCredentials",
+   :uri-template-args {"privateCloud" privateCloud},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-privateClouds-get
   "Retrieves a `PrivateCloud` resource by its resource name.
@@ -320,12 +301,11 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/p
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-privateClouds-updateDnsForwarding
   "Updates the parameters of the `DnsForwarding` config, like associated domains. Only fields specified in `update_mask` are applied.
@@ -344,13 +324,12 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       DnsForwarding
       nil))
   ([name DnsForwarding optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body DnsForwarding})))
+    {:method :patch,
+     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body DnsForwarding}))
 
 (defn projects-locations-privateClouds-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -360,14 +339,13 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://vmwareengine.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://vmwareengine.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-locations-privateClouds-clusters-list
   "Lists `Cluster` resources in a given private cloud.
@@ -382,13 +360,12 @@ orderBy <string> Sorts list results by a certain order. By default, returned res
   ([parent]
     (projects-locations-privateClouds-clusters-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+parent}/clusters",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+parent}/clusters",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-privateClouds-clusters-get
   "Retrieves a `Cluster` resource by its resource name.
@@ -396,12 +373,11 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/p
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-privateClouds-clusters-create
   "Creates a new cluster in a given private cloud. Creating a new cluster provides additional nodes for use in the parent private cloud and requires sufficient [node quota](https://cloud.google.com/vmware-engine/quotas).
@@ -421,14 +397,13 @@ validateOnly <boolean> Optional. True if you want the request to be validated an
       Cluster
       nil))
   ([parent Cluster optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+parent}/clusters",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Cluster})))
+    {:method :post,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+parent}/clusters",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Cluster}))
 
 (defn projects-locations-privateClouds-clusters-patch
   "Modifies a `Cluster` resource. Only fields specified in `updateMask` are applied. During operation processing, the resource is temporarily in the `ACTIVE` state before the operation fully completes. For that period of time, you can't update the resource. Use the operation status to determine when the processing fully completes.
@@ -445,13 +420,12 @@ validateOnly <boolean> Optional. True if you want the request to be validated an
   ([name Cluster]
     (projects-locations-privateClouds-clusters-patch name Cluster nil))
   ([name Cluster optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Cluster})))
+    {:method :patch,
+     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Cluster}))
 
 (defn projects-locations-privateClouds-clusters-delete
   "Deletes a `Cluster` resource. To avoid unintended data loss, migrate or gracefully shut down any workloads running on the cluster before deletion. You cannot delete the management cluster of a private cloud using this method.
@@ -463,12 +437,11 @@ optional:
 requestId <string> Optional. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-privateClouds-clusters-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-privateClouds-clusters-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -478,14 +451,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://vmwareengine.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://vmwareengine.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-privateClouds-clusters-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -500,13 +472,12 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-privateClouds-clusters-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -516,14 +487,13 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://vmwareengine.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://vmwareengine.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-locations-privateClouds-clusters-nodes-list
   "Lists nodes in a given cluster.
@@ -536,13 +506,12 @@ pageSize <integer> The maximum number of nodes to return in one page. The servic
   ([parent]
     (projects-locations-privateClouds-clusters-nodes-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+parent}/nodes",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+parent}/nodes",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-privateClouds-clusters-nodes-get
   "Gets details of a single node.
@@ -550,12 +519,11 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/p
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-privateClouds-externalAddresses-list
   "Lists external IP addresses assigned to VMware workload VMs in a given private cloud.
@@ -572,13 +540,12 @@ orderBy <string> Sorts list results by a certain order. By default, returned res
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+parent}/externalAddresses",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+parent}/externalAddresses",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-privateClouds-externalAddresses-get
   "Gets details of a single external IP address.
@@ -586,12 +553,11 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/p
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-privateClouds-externalAddresses-create
   "Creates a new `ExternalAddress` resource in a given private cloud. The network policy that corresponds to the private cloud must have the external IP address network service enabled (`NetworkPolicy.external_ip`).
@@ -610,14 +576,13 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       ExternalAddress
       nil))
   ([parent ExternalAddress optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+parent}/externalAddresses",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body ExternalAddress})))
+    {:method :post,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+parent}/externalAddresses",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body ExternalAddress}))
 
 (defn projects-locations-privateClouds-externalAddresses-patch
   "Updates the parameters of a single external IP address. Only fields specified in `update_mask` are applied. During operation processing, the resource is temporarily in the `ACTIVE` state before the operation fully completes. For that period of time, you can't update the resource. Use the operation status to determine when the processing fully completes.
@@ -636,13 +601,12 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       ExternalAddress
       nil))
   ([name ExternalAddress optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body ExternalAddress})))
+    {:method :patch,
+     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body ExternalAddress}))
 
 (defn projects-locations-privateClouds-externalAddresses-delete
   "Deletes a single external IP address. When you delete an external IP address, connectivity between the external IP address and the corresponding internal IP address is lost.
@@ -657,12 +621,11 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-privateClouds-subnets-list
   "Lists subnets in a given private cloud.
@@ -674,13 +637,12 @@ optional:
 pageSize <integer> The maximum number of subnets to return in one page. The service may return fewer than this value. The maximum value is coerced to 1000. The default value of this field is 500."
   ([parent] (projects-locations-privateClouds-subnets-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+parent}/subnets",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+parent}/subnets",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-privateClouds-subnets-get
   "Gets details of a single subnet.
@@ -688,12 +650,11 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/p
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-privateClouds-subnets-patch
   "Updates the parameters of a single subnet. Only fields specified in `update_mask` are applied. *Note*: This API is synchronous and always returns a successful `google.longrunning.Operation` (LRO). The returned LRO will only have `done` and `response` fields.
@@ -708,13 +669,12 @@ updateMask <string> Required. Field mask is used to specify the fields to be ove
   ([name Subnet]
     (projects-locations-privateClouds-subnets-patch name Subnet nil))
   ([name Subnet optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Subnet})))
+    {:method :patch,
+     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Subnet}))
 
 (defn projects-locations-privateClouds-loggingServers-list
   "Lists logging servers configured for a given private cloud.
@@ -729,13 +689,12 @@ orderBy <string> Sorts list results by a certain order. By default, returned res
   ([parent]
     (projects-locations-privateClouds-loggingServers-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+parent}/loggingServers",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+parent}/loggingServers",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-privateClouds-loggingServers-get
   "Gets details of a logging server.
@@ -743,12 +702,11 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/p
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-privateClouds-loggingServers-create
   "Create a new logging server for a given private cloud.
@@ -767,14 +725,13 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       LoggingServer
       nil))
   ([parent LoggingServer optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+parent}/loggingServers",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body LoggingServer})))
+    {:method :post,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+parent}/loggingServers",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body LoggingServer}))
 
 (defn projects-locations-privateClouds-loggingServers-patch
   "Updates the parameters of a single logging server. Only fields specified in `update_mask` are applied.
@@ -793,13 +750,12 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       LoggingServer
       nil))
   ([name LoggingServer optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body LoggingServer})))
+    {:method :patch,
+     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body LoggingServer}))
 
 (defn projects-locations-privateClouds-loggingServers-delete
   "Deletes a single logging server.
@@ -812,12 +768,11 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
   ([name]
     (projects-locations-privateClouds-loggingServers-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-privateClouds-hcxActivationKeys-create
   "Creates a new HCX activation key in a given private cloud.
@@ -836,14 +791,13 @@ requestId <string> A request ID to identify requests. Specify a unique request I
       HcxActivationKey
       nil))
   ([parent HcxActivationKey optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+parent}/hcxActivationKeys",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body HcxActivationKey})))
+    {:method :post,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+parent}/hcxActivationKeys",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body HcxActivationKey}))
 
 (defn projects-locations-privateClouds-hcxActivationKeys-list
   "Lists `HcxActivationKey` resources in a given private cloud.
@@ -858,13 +812,12 @@ pageSize <integer> The maximum number of HCX activation keys to return in one pa
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+parent}/hcxActivationKeys",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+parent}/hcxActivationKeys",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-privateClouds-hcxActivationKeys-get
   "Retrieves a `HcxActivationKey` resource by its resource name.
@@ -872,12 +825,11 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/p
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-privateClouds-hcxActivationKeys-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -887,14 +839,13 @@ resource <>
 SetIamPolicyRequest:
 SetIamPolicyRequest"
   [resource SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://vmwareengine.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://vmwareengine.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SetIamPolicyRequest})
 
 (defn projects-locations-privateClouds-hcxActivationKeys-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -909,13 +860,12 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-privateClouds-hcxActivationKeys-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -925,14 +875,13 @@ resource <>
 TestIamPermissionsRequest:
 TestIamPermissionsRequest"
   [resource TestIamPermissionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://vmwareengine.googleapis.com/v1/{+resource}:testIamPermissions",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body TestIamPermissionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://vmwareengine.googleapis.com/v1/{+resource}:testIamPermissions",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body TestIamPermissionsRequest})
 
 (defn projects-locations-privateClouds-managementDnsZoneBindings-list
   "Lists Consumer VPCs bound to Management DNS Zone of a given private cloud.
@@ -949,13 +898,12 @@ orderBy <string> Sorts list results by a certain order. By default, returned res
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+parent}/managementDnsZoneBindings",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+parent}/managementDnsZoneBindings",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-privateClouds-managementDnsZoneBindings-get
   "Retrieves a 'ManagementDnsZoneBinding' resource by its resource name.
@@ -963,12 +911,11 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/p
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-privateClouds-managementDnsZoneBindings-create
   "Creates a new `ManagementDnsZoneBinding` resource in a private cloud. This RPC creates the DNS binding and the resource that represents the DNS binding of the consumer VPC network to the management DNS zone. A management DNS zone is the Cloud DNS cross-project binding zone that VMware Engine creates for each private cloud. It contains FQDNs and corresponding IP addresses for the private cloud's ESXi hosts and management VM appliances like vCenter and NSX Manager.
@@ -987,14 +934,13 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       ManagementDnsZoneBinding
       nil))
   ([parent ManagementDnsZoneBinding optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+parent}/managementDnsZoneBindings",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body ManagementDnsZoneBinding})))
+    {:method :post,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+parent}/managementDnsZoneBindings",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body ManagementDnsZoneBinding}))
 
 (defn projects-locations-privateClouds-managementDnsZoneBindings-patch
   "Updates a `ManagementDnsZoneBinding` resource. Only fields specified in `update_mask` are applied.
@@ -1013,13 +959,12 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       ManagementDnsZoneBinding
       nil))
   ([name ManagementDnsZoneBinding optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body ManagementDnsZoneBinding})))
+    {:method :patch,
+     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body ManagementDnsZoneBinding}))
 
 (defn projects-locations-privateClouds-managementDnsZoneBindings-delete
   "Deletes a `ManagementDnsZoneBinding` resource. When a management DNS zone binding is deleted, the corresponding consumer VPC network is no longer bound to the management DNS zone.
@@ -1034,12 +979,11 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-privateClouds-managementDnsZoneBindings-repair
   "Retries to create a `ManagementDnsZoneBinding` resource that is in failed state.
@@ -1049,14 +993,13 @@ name <>
 RepairManagementDnsZoneBindingRequest:
 RepairManagementDnsZoneBindingRequest"
   [name RepairManagementDnsZoneBindingRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://vmwareengine.googleapis.com/v1/{+name}:repair",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body RepairManagementDnsZoneBindingRequest}))
+  {:method :post,
+   :uri-template
+   "https://vmwareengine.googleapis.com/v1/{+name}:repair",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body RepairManagementDnsZoneBindingRequest})
 
 (defn projects-locations-networkPolicies-fetchExternalAddresses
   "Lists external IP addresses assigned to VMware workload VMs within the scope of the given network policy.
@@ -1071,13 +1014,12 @@ pageSize <integer> The maximum number of external IP addresses to return in one 
       networkPolicy
       nil))
   ([networkPolicy optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+networkPolicy}:fetchExternalAddresses",
-       :uri-template-args {"networkPolicy" networkPolicy},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+networkPolicy}:fetchExternalAddresses",
+     :uri-template-args {"networkPolicy" networkPolicy},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-networkPolicies-get
   "Retrieves a `NetworkPolicy` resource by its resource name.
@@ -1085,12 +1027,11 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/n
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-networkPolicies-list
   "Lists `NetworkPolicy` resources in a specified project and location.
@@ -1104,13 +1045,12 @@ filter <string> A filter expression that matches resources returned in the respo
 orderBy <string> Sorts list results by a certain order. By default, returned results are ordered by `name` in ascending order. You can also sort results in descending order based on the `name` value using `orderBy=\"name desc\"`. Currently, only ordering by `name` is supported."
   ([parent] (projects-locations-networkPolicies-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+parent}/networkPolicies",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+parent}/networkPolicies",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-networkPolicies-create
   "Creates a new network policy in a given VMware Engine network of a project and location (region). A new network policy cannot be created if another network policy already exists in the same scope.
@@ -1129,14 +1069,13 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       NetworkPolicy
       nil))
   ([parent NetworkPolicy optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+parent}/networkPolicies",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body NetworkPolicy})))
+    {:method :post,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+parent}/networkPolicies",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body NetworkPolicy}))
 
 (defn projects-locations-networkPolicies-patch
   "Modifies a `NetworkPolicy` resource. Only the following fields can be updated: `internet_access`, `external_ip`, `edge_services_cidr`. Only fields specified in `updateMask` are applied. When updating a network policy, the external IP network service can only be disabled if there are no external IP addresses present in the scope of the policy. Also, a `NetworkService` cannot be updated when `NetworkService.state` is set to `RECONCILING`. During operation processing, the resource is temporarily in the `ACTIVE` state before the operation fully completes. For that period of time, you can't update the resource. Use the operation status to determine when the processing fully completes.
@@ -1152,13 +1091,12 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
   ([name NetworkPolicy]
     (projects-locations-networkPolicies-patch name NetworkPolicy nil))
   ([name NetworkPolicy optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body NetworkPolicy})))
+    {:method :patch,
+     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body NetworkPolicy}))
 
 (defn projects-locations-networkPolicies-delete
   "Deletes a `NetworkPolicy` resource. A network policy cannot be deleted when `NetworkService.state` is set to `RECONCILING` for either its external IP or internet access service.
@@ -1170,12 +1108,11 @@ optional:
 requestId <string> Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server guarantees that a request doesn't result in creation of duplicate commitments for at least 60 minutes. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-networkPolicies-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-networkPolicies-externalAccessRules-list
   "Lists `ExternalAccessRule` resources in the specified network policy.
@@ -1192,13 +1129,12 @@ orderBy <string> Sorts list results by a certain order. By default, returned res
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+parent}/externalAccessRules",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+parent}/externalAccessRules",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-networkPolicies-externalAccessRules-get
   "Gets details of a single external access rule.
@@ -1206,12 +1142,11 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/n
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-networkPolicies-externalAccessRules-create
   "Creates a new external access rule in a given network policy.
@@ -1230,14 +1165,13 @@ requestId <string> A request ID to identify requests. Specify a unique request I
       ExternalAccessRule
       nil))
   ([parent ExternalAccessRule optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+parent}/externalAccessRules",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body ExternalAccessRule})))
+    {:method :post,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+parent}/externalAccessRules",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body ExternalAccessRule}))
 
 (defn projects-locations-networkPolicies-externalAccessRules-patch
   "Updates the parameters of a single external access rule. Only fields specified in `update_mask` are applied.
@@ -1256,13 +1190,12 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       ExternalAccessRule
       nil))
   ([name ExternalAccessRule optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body ExternalAccessRule})))
+    {:method :patch,
+     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body ExternalAccessRule}))
 
 (defn projects-locations-networkPolicies-externalAccessRules-delete
   "Deletes a single external access rule.
@@ -1277,12 +1210,11 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-nodeTypes-list
   "Lists node types
@@ -1295,13 +1227,12 @@ pageSize <integer> The maximum number of node types to return in one page. The s
 filter <string> A filter expression that matches resources returned in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be `=`, `!=`, `>`, or `<`. For example, if you are filtering a list of node types, you can exclude the ones named `standard-72` by specifying `name != \"standard-72\"`. To filter on multiple expressions, provide each separate expression within parentheses. For example: ``` (name = \"standard-72\") (virtual_cpu_count > 2) ``` By default, each expression is an `AND` expression. However, you can include `AND` and `OR` expressions explicitly. For example: ``` (name = \"standard-96\") AND (virtual_cpu_count > 2) OR (name = \"standard-72\") ```"
   ([parent] (projects-locations-nodeTypes-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+parent}/nodeTypes",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+parent}/nodeTypes",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-nodeTypes-get
   "Gets details of a single `NodeType`.
@@ -1309,12 +1240,11 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/n
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-networkPeerings-get
   "Retrieves a `NetworkPeering` resource by its resource name. The resource contains details of the network peering, such as peered networks, import and export custom route configurations, and peering state. NetworkPeering is a global resource and location can only be global.
@@ -1322,12 +1252,11 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/n
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-networkPeerings-list
   "Lists `NetworkPeering` resources in a given project. NetworkPeering is a global resource and location can only be global.
@@ -1341,13 +1270,12 @@ filter <string> A filter expression that matches resources returned in the respo
 orderBy <string> Sorts list results by a certain order. By default, returned results are ordered by `name` in ascending order. You can also sort results in descending order based on the `name` value using `orderBy=\"name desc\"`. Currently, only ordering by `name` is supported."
   ([parent] (projects-locations-networkPeerings-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+parent}/networkPeerings",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+parent}/networkPeerings",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-networkPeerings-create
   "Creates a new network peering between the peer network and VMware Engine network provided in a `NetworkPeering` resource. NetworkPeering is a global resource and location can only be global.
@@ -1366,14 +1294,13 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       NetworkPeering
       nil))
   ([parent NetworkPeering optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+parent}/networkPeerings",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body NetworkPeering})))
+    {:method :post,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+parent}/networkPeerings",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body NetworkPeering}))
 
 (defn projects-locations-networkPeerings-delete
   "Deletes a `NetworkPeering` resource. When a network peering is deleted for a VMware Engine network, the peer network becomes inaccessible to that VMware Engine network. NetworkPeering is a global resource and location can only be global.
@@ -1385,12 +1312,11 @@ optional:
 requestId <string> Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server guarantees that a request doesn't result in creation of duplicate commitments for at least 60 minutes. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-networkPeerings-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-networkPeerings-patch
   "Modifies a `NetworkPeering` resource. Only the `description` field can be updated. Only fields specified in `updateMask` are applied. NetworkPeering is a global resource and location can only be global.
@@ -1406,13 +1332,12 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
   ([name NetworkPeering]
     (projects-locations-networkPeerings-patch name NetworkPeering nil))
   ([name NetworkPeering optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body NetworkPeering})))
+    {:method :patch,
+     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body NetworkPeering}))
 
 (defn projects-locations-networkPeerings-peeringRoutes-list
   "Lists the network peering routes exchanged over a peering connection. NetworkPeering is a global resource and location can only be global.
@@ -1426,13 +1351,12 @@ filter <string> A filter expression that matches resources returned in the respo
   ([parent]
     (projects-locations-networkPeerings-peeringRoutes-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+parent}/peeringRoutes",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+parent}/peeringRoutes",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-vmwareEngineNetworks-create
   "Creates a new VMware Engine network that can be used by a private cloud.
@@ -1451,14 +1375,13 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       VmwareEngineNetwork
       nil))
   ([parent VmwareEngineNetwork optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+parent}/vmwareEngineNetworks",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body VmwareEngineNetwork})))
+    {:method :post,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+parent}/vmwareEngineNetworks",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body VmwareEngineNetwork}))
 
 (defn projects-locations-vmwareEngineNetworks-patch
   "Modifies a VMware Engine network resource. Only the following fields can be updated: `description`. Only fields specified in `updateMask` are applied.
@@ -1477,13 +1400,12 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       VmwareEngineNetwork
       nil))
   ([name VmwareEngineNetwork optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body VmwareEngineNetwork})))
+    {:method :patch,
+     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body VmwareEngineNetwork}))
 
 (defn projects-locations-vmwareEngineNetworks-delete
   "Deletes a `VmwareEngineNetwork` resource. You can only delete a VMware Engine network after all resources that refer to it are deleted. For example, a private cloud, a network peering, and a network policy can all refer to the same VMware Engine network.
@@ -1496,12 +1418,11 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
 etag <string> Optional. Checksum used to ensure that the user-provided value is up to date before the server processes the request. The server compares provided checksum with the current checksum of the resource. If the user-provided value is out of date, this request returns an `ABORTED` error."
   ([name] (projects-locations-vmwareEngineNetworks-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-vmwareEngineNetworks-get
   "Retrieves a `VmwareEngineNetwork` resource by its resource name. The resource contains details of the VMware Engine network, such as its VMware Engine network type, peered networks in a service project, and state (for example, `CREATING`, `ACTIVE`, `DELETING`).
@@ -1509,12 +1430,11 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/v
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-vmwareEngineNetworks-list
   "Lists `VmwareEngineNetwork` resources in a given project and location.
@@ -1528,13 +1448,12 @@ filter <string> A filter expression that matches resources returned in the respo
 orderBy <string> Sorts list results by a certain order. By default, returned results are ordered by `name` in ascending order. You can also sort results in descending order based on the `name` value using `orderBy=\"name desc\"`. Currently, only ordering by `name` is supported."
   ([parent] (projects-locations-vmwareEngineNetworks-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+parent}/vmwareEngineNetworks",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+parent}/vmwareEngineNetworks",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-privateConnections-create
   "Creates a new private connection that can be used for accessing private Clouds.
@@ -1553,14 +1472,13 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       PrivateConnection
       nil))
   ([parent PrivateConnection optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+parent}/privateConnections",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body PrivateConnection})))
+    {:method :post,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+parent}/privateConnections",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body PrivateConnection}))
 
 (defn projects-locations-privateConnections-get
   "Retrieves a `PrivateConnection` resource by its resource name. The resource contains details of the private connection, such as connected network, routing mode and state.
@@ -1568,12 +1486,11 @@ https://cloud.google.com/vmware-engine/v1/reference/rest/v1/projects/locations/p
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-privateConnections-list
   "Lists `PrivateConnection` resources in a given project and location.
@@ -1587,13 +1504,12 @@ filter <string> A filter expression that matches resources returned in the respo
 orderBy <string> Sorts list results by a certain order. By default, returned results are ordered by `name` in ascending order. You can also sort results in descending order based on the `name` value using `orderBy=\"name desc\"`. Currently, only ordering by `name` is supported."
   ([parent] (projects-locations-privateConnections-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+parent}/privateConnections",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+parent}/privateConnections",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-privateConnections-patch
   "Modifies a `PrivateConnection` resource. Only `description` and `routing_mode` fields can be updated. Only fields specified in `updateMask` are applied.
@@ -1612,13 +1528,12 @@ requestId <string> Optional. A request ID to identify requests. Specify a unique
       PrivateConnection
       nil))
   ([name PrivateConnection optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body PrivateConnection})))
+    {:method :patch,
+     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body PrivateConnection}))
 
 (defn projects-locations-privateConnections-delete
   "Deletes a `PrivateConnection` resource. When a private connection is deleted for a VMware Engine network, the connected network becomes inaccessible to that VMware Engine network.
@@ -1630,12 +1545,11 @@ optional:
 requestId <string> Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server guarantees that a request doesn't result in creation of duplicate commitments for at least 60 minutes. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000)."
   ([name] (projects-locations-privateConnections-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://vmwareengine.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-privateConnections-peeringRoutes-list
   "Lists the private connection routes exchanged over a peering connection.
@@ -1650,13 +1564,12 @@ pageSize <integer> The maximum number of peering routes to return in one page. T
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://vmwareengine.googleapis.com/v1/{+parent}/peeringRoutes",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://vmwareengine.googleapis.com/v1/{+parent}/peeringRoutes",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-dnsBindPermission-grant
   "Grants the bind permission to the customer provided principal(user / service account) to bind their DNS zone with the intranet VPC associated with the project. DnsBindPermission is a global resource and location can only be global.
@@ -1666,14 +1579,13 @@ name <>
 GrantDnsBindPermissionRequest:
 GrantDnsBindPermissionRequest"
   [name GrantDnsBindPermissionRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://vmwareengine.googleapis.com/v1/{+name}:grant",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GrantDnsBindPermissionRequest}))
+  {:method :post,
+   :uri-template
+   "https://vmwareengine.googleapis.com/v1/{+name}:grant",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GrantDnsBindPermissionRequest})
 
 (defn projects-locations-dnsBindPermission-revoke
   "Revokes the bind permission from the customer provided principal(user / service account) on the intranet VPC associated with the consumer project. DnsBindPermission is a global resource and location can only be global.
@@ -1683,11 +1595,10 @@ name <>
 RevokeDnsBindPermissionRequest:
 RevokeDnsBindPermissionRequest"
   [name RevokeDnsBindPermissionRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://vmwareengine.googleapis.com/v1/{+name}:revoke",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body RevokeDnsBindPermissionRequest}))
+  {:method :post,
+   :uri-template
+   "https://vmwareengine.googleapis.com/v1/{+name}:revoke",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body RevokeDnsBindPermissionRequest})

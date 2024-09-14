@@ -1,8 +1,7 @@
 (ns happyapi.google.developerconnect-v1
   "Developer Connect API
 Connect third-party source code management to Google
-See: https://cloud.google.com/developer-connect/docs/overview"
-  (:require [happyapi.providers.google :as client]))
+See: https://cloud.google.com/developer-connect/docs/overview")
 
 (defn projects-locations-list
   "Lists information about the supported locations for this service.
@@ -15,13 +14,12 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://developerconnect.googleapis.com/v1/{+name}/locations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://developerconnect.googleapis.com/v1/{+name}/locations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-get
   "Gets information about a location.
@@ -29,13 +27,11 @@ https://cloud.google.com/developer-connect/docs/overview/v1/reference/rest/v1/pr
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://developerconnect.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://developerconnect.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -48,13 +44,12 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://developerconnect.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://developerconnect.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -62,13 +57,11 @@ https://cloud.google.com/developer-connect/docs/overview/v1/reference/rest/v1/pr
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://developerconnect.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://developerconnect.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -76,13 +69,11 @@ https://cloud.google.com/developer-connect/docs/overview/v1/reference/rest/v1/pr
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://developerconnect.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://developerconnect.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -92,14 +83,13 @@ name <>
 CancelOperationRequest:
 CancelOperationRequest"
   [name CancelOperationRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://developerconnect.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body CancelOperationRequest}))
+  {:method :post,
+   :uri-template
+   "https://developerconnect.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body CancelOperationRequest})
 
 (defn projects-locations-connections-list
   "Lists Connections in a given project and location.
@@ -113,13 +103,12 @@ filter <string> Optional. Filtering results
 orderBy <string> Optional. Hint for how to order the results"
   ([parent] (projects-locations-connections-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://developerconnect.googleapis.com/v1/{+parent}/connections",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://developerconnect.googleapis.com/v1/{+parent}/connections",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-connections-get
   "Gets details of a single Connection.
@@ -127,13 +116,11 @@ https://cloud.google.com/developer-connect/docs/overview/v1/reference/rest/v1/pr
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://developerconnect.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://developerconnect.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-connections-create
   "Creates a new Connection in a given project and location.
@@ -150,14 +137,13 @@ validateOnly <boolean> Optional. If set, validate the request, but do not actual
   ([parent Connection]
     (projects-locations-connections-create parent Connection nil))
   ([parent Connection optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://developerconnect.googleapis.com/v1/{+parent}/connections",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Connection})))
+    {:method :post,
+     :uri-template
+     "https://developerconnect.googleapis.com/v1/{+parent}/connections",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Connection}))
 
 (defn projects-locations-connections-patch
   "Updates the parameters of a single Connection.
@@ -175,14 +161,13 @@ validateOnly <boolean> Optional. If set, validate the request, but do not actual
   ([name Connection]
     (projects-locations-connections-patch name Connection nil))
   ([name Connection optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://developerconnect.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Connection})))
+    {:method :patch,
+     :uri-template
+     "https://developerconnect.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Connection}))
 
 (defn projects-locations-connections-delete
   "Deletes a single Connection.
@@ -196,13 +181,12 @@ validateOnly <boolean> Optional. If set, validate the request, but do not actual
 etag <string> Optional. The current etag of the Connection. If an etag is provided and does not match the current etag of the Connection, deletion will be blocked and an ABORTED error will be returned."
   ([name] (projects-locations-connections-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://developerconnect.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template
+     "https://developerconnect.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-connections-fetchLinkableGitRepositories
   "FetchLinkableGitRepositories returns a list of git repositories from an SCM that are available to be added to a Connection.
@@ -217,13 +201,12 @@ pageSize <integer> Optional. Number of results to return in the list. Defaults t
       connection
       nil))
   ([connection optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://developerconnect.googleapis.com/v1/{+connection}:fetchLinkableGitRepositories",
-       :uri-template-args {"connection" connection},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://developerconnect.googleapis.com/v1/{+connection}:fetchLinkableGitRepositories",
+     :uri-template-args {"connection" connection},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-connections-fetchGitHubInstallations
   "FetchGitHubInstallations returns the list of GitHub Installations that are available to be added to a Connection. For github.com, only installations accessible to the authorizer token are returned. For GitHub Enterprise, all installations are returned.
@@ -231,13 +214,12 @@ https://cloud.google.com/developer-connect/docs/overview/v1/reference/rest/v1/pr
 
 connection <> "
   [connection]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://developerconnect.googleapis.com/v1/{+connection}:fetchGitHubInstallations",
-     :uri-template-args {"connection" connection},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template
+   "https://developerconnect.googleapis.com/v1/{+connection}:fetchGitHubInstallations",
+   :uri-template-args {"connection" connection},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-connections-gitRepositoryLinks-create
   "Creates a GitRepositoryLink. Upon linking a Git Repository, Developer Connect will configure the Git Repository to send webhook events to Developer Connect. Connections that use Firebase GitHub Application will have events forwarded to the Firebase service. All other Connections will have events forwarded to Cloud Build.
@@ -257,14 +239,13 @@ validateOnly <boolean> Optional. If set, validate the request, but do not actual
       GitRepositoryLink
       nil))
   ([parent GitRepositoryLink optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://developerconnect.googleapis.com/v1/{+parent}/gitRepositoryLinks",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GitRepositoryLink})))
+    {:method :post,
+     :uri-template
+     "https://developerconnect.googleapis.com/v1/{+parent}/gitRepositoryLinks",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GitRepositoryLink}))
 
 (defn projects-locations-connections-gitRepositoryLinks-delete
   "Deletes a single GitRepositoryLink.
@@ -281,13 +262,12 @@ etag <string> Optional. This checksum is computed by the server based on the val
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template
-       "https://developerconnect.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template
+     "https://developerconnect.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-connections-gitRepositoryLinks-list
   "Lists GitRepositoryLinks in a given project, location, and connection.
@@ -304,13 +284,12 @@ orderBy <string> Optional. Hint for how to order the results"
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://developerconnect.googleapis.com/v1/{+parent}/gitRepositoryLinks",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://developerconnect.googleapis.com/v1/{+parent}/gitRepositoryLinks",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-connections-gitRepositoryLinks-get
   "Gets details of a single GitRepositoryLink.
@@ -318,13 +297,11 @@ https://cloud.google.com/developer-connect/docs/overview/v1/reference/rest/v1/pr
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://developerconnect.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://developerconnect.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-connections-gitRepositoryLinks-fetchReadWriteToken
   "Fetches read/write token of a given gitRepositoryLink.
@@ -334,14 +311,13 @@ gitRepositoryLink <>
 FetchReadWriteTokenRequest:
 FetchReadWriteTokenRequest"
   [gitRepositoryLink FetchReadWriteTokenRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://developerconnect.googleapis.com/v1/{+gitRepositoryLink}:fetchReadWriteToken",
-     :uri-template-args {"gitRepositoryLink" gitRepositoryLink},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body FetchReadWriteTokenRequest}))
+  {:method :post,
+   :uri-template
+   "https://developerconnect.googleapis.com/v1/{+gitRepositoryLink}:fetchReadWriteToken",
+   :uri-template-args {"gitRepositoryLink" gitRepositoryLink},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body FetchReadWriteTokenRequest})
 
 (defn projects-locations-connections-gitRepositoryLinks-fetchReadToken
   "Fetches read token of a given gitRepositoryLink.
@@ -351,14 +327,13 @@ gitRepositoryLink <>
 FetchReadTokenRequest:
 FetchReadTokenRequest"
   [gitRepositoryLink FetchReadTokenRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://developerconnect.googleapis.com/v1/{+gitRepositoryLink}:fetchReadToken",
-     :uri-template-args {"gitRepositoryLink" gitRepositoryLink},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body FetchReadTokenRequest}))
+  {:method :post,
+   :uri-template
+   "https://developerconnect.googleapis.com/v1/{+gitRepositoryLink}:fetchReadToken",
+   :uri-template-args {"gitRepositoryLink" gitRepositoryLink},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body FetchReadTokenRequest})
 
 (defn projects-locations-connections-gitRepositoryLinks-fetchGitRefs
   "Fetch the list of branches or tags for a given repository.
@@ -374,10 +349,9 @@ pageSize <integer> Optional. Number of results to return in the list. Default to
       gitRepositoryLink
       nil))
   ([gitRepositoryLink optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://developerconnect.googleapis.com/v1/{+gitRepositoryLink}:fetchGitRefs",
-       :uri-template-args {"gitRepositoryLink" gitRepositoryLink},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://developerconnect.googleapis.com/v1/{+gitRepositoryLink}:fetchGitRefs",
+     :uri-template-args {"gitRepositoryLink" gitRepositoryLink},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))

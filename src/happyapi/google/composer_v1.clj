@@ -1,8 +1,7 @@
 (ns happyapi.google.composer-v1
   "Cloud Composer API
 Manages Apache Airflow environments on Google Cloud Platform.
-See: https://cloud.google.com/composer/"
-  (:require [happyapi.providers.google :as client]))
+See: https://cloud.google.com/composer/")
 
 (defn projects-locations-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -15,13 +14,12 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://composer.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://composer.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -29,12 +27,11 @@ https://cloud.google.com/composer/v1/reference/rest/v1/projects/locations/operat
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://composer.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://composer.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -42,12 +39,11 @@ https://cloud.google.com/composer/v1/reference/rest/v1/projects/locations/operat
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://composer.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://composer.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-environments-stopAirflowCommand
   "Stops Airflow CLI command execution.
@@ -57,14 +53,13 @@ environment <>
 StopAirflowCommandRequest:
 StopAirflowCommandRequest"
   [environment StopAirflowCommandRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://composer.googleapis.com/v1/{+environment}:stopAirflowCommand",
-     :uri-template-args {"environment" environment},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body StopAirflowCommandRequest}))
+  {:method :post,
+   :uri-template
+   "https://composer.googleapis.com/v1/{+environment}:stopAirflowCommand",
+   :uri-template-args {"environment" environment},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body StopAirflowCommandRequest})
 
 (defn projects-locations-environments-fetchDatabaseProperties
   "Fetches database properties.
@@ -72,13 +67,12 @@ https://cloud.google.com/composer/v1/reference/rest/v1/projects/locations/enviro
 
 environment <> "
   [environment]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://composer.googleapis.com/v1/{+environment}:fetchDatabaseProperties",
-     :uri-template-args {"environment" environment},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template
+   "https://composer.googleapis.com/v1/{+environment}:fetchDatabaseProperties",
+   :uri-template-args {"environment" environment},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-environments-saveSnapshot
   "Creates a snapshots of a Cloud Composer environment. As a result of this operation, snapshot of environment's state is stored in a location specified in the SaveSnapshotRequest.
@@ -88,14 +82,13 @@ environment <>
 SaveSnapshotRequest:
 SaveSnapshotRequest"
   [environment SaveSnapshotRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://composer.googleapis.com/v1/{+environment}:saveSnapshot",
-     :uri-template-args {"environment" environment},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body SaveSnapshotRequest}))
+  {:method :post,
+   :uri-template
+   "https://composer.googleapis.com/v1/{+environment}:saveSnapshot",
+   :uri-template-args {"environment" environment},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body SaveSnapshotRequest})
 
 (defn projects-locations-environments-list
   "List environments.
@@ -107,13 +100,12 @@ optional:
 pageSize <integer> The maximum number of environments to return."
   ([parent] (projects-locations-environments-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://composer.googleapis.com/v1/{+parent}/environments",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://composer.googleapis.com/v1/{+parent}/environments",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-environments-delete
   "Delete an environment.
@@ -121,12 +113,11 @@ https://cloud.google.com/composer/v1/reference/rest/v1/projects/locations/enviro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://composer.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://composer.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-environments-checkUpgrade
   "Check if an upgrade operation on the environment will succeed. In case of problems detailed info can be found in the returned Operation.
@@ -136,14 +127,13 @@ environment <>
 CheckUpgradeRequest:
 CheckUpgradeRequest"
   [environment CheckUpgradeRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://composer.googleapis.com/v1/{+environment}:checkUpgrade",
-     :uri-template-args {"environment" environment},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body CheckUpgradeRequest}))
+  {:method :post,
+   :uri-template
+   "https://composer.googleapis.com/v1/{+environment}:checkUpgrade",
+   :uri-template-args {"environment" environment},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body CheckUpgradeRequest})
 
 (defn projects-locations-environments-patch
   "Update an environment.
@@ -158,13 +148,12 @@ updateMask <string> Required. A comma-separated list of paths, relative to `Envi
   ([name Environment]
     (projects-locations-environments-patch name Environment nil))
   ([name Environment optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://composer.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body Environment})))
+    {:method :patch,
+     :uri-template "https://composer.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body Environment}))
 
 (defn projects-locations-environments-pollAirflowCommand
   "Polls Airflow CLI command execution and fetches logs.
@@ -174,14 +163,13 @@ environment <>
 PollAirflowCommandRequest:
 PollAirflowCommandRequest"
   [environment PollAirflowCommandRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://composer.googleapis.com/v1/{+environment}:pollAirflowCommand",
-     :uri-template-args {"environment" environment},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body PollAirflowCommandRequest}))
+  {:method :post,
+   :uri-template
+   "https://composer.googleapis.com/v1/{+environment}:pollAirflowCommand",
+   :uri-template-args {"environment" environment},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body PollAirflowCommandRequest})
 
 (defn projects-locations-environments-loadSnapshot
   "Loads a snapshot of a Cloud Composer environment. As a result of this operation, a snapshot of environment's specified in LoadSnapshotRequest is loaded into the environment.
@@ -191,14 +179,13 @@ environment <>
 LoadSnapshotRequest:
 LoadSnapshotRequest"
   [environment LoadSnapshotRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://composer.googleapis.com/v1/{+environment}:loadSnapshot",
-     :uri-template-args {"environment" environment},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body LoadSnapshotRequest}))
+  {:method :post,
+   :uri-template
+   "https://composer.googleapis.com/v1/{+environment}:loadSnapshot",
+   :uri-template-args {"environment" environment},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body LoadSnapshotRequest})
 
 (defn projects-locations-environments-databaseFailover
   "Triggers database failover (only for highly resilient environments).
@@ -208,14 +195,13 @@ environment <>
 DatabaseFailoverRequest:
 DatabaseFailoverRequest"
   [environment DatabaseFailoverRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://composer.googleapis.com/v1/{+environment}:databaseFailover",
-     :uri-template-args {"environment" environment},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body DatabaseFailoverRequest}))
+  {:method :post,
+   :uri-template
+   "https://composer.googleapis.com/v1/{+environment}:databaseFailover",
+   :uri-template-args {"environment" environment},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body DatabaseFailoverRequest})
 
 (defn projects-locations-environments-create
   "Create a new environment.
@@ -225,14 +211,13 @@ parent <>
 Environment:
 Environment"
   [parent Environment]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://composer.googleapis.com/v1/{+parent}/environments",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body Environment}))
+  {:method :post,
+   :uri-template
+   "https://composer.googleapis.com/v1/{+parent}/environments",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body Environment})
 
 (defn projects-locations-environments-executeAirflowCommand
   "Executes Airflow CLI command.
@@ -242,14 +227,13 @@ environment <>
 ExecuteAirflowCommandRequest:
 ExecuteAirflowCommandRequest"
   [environment ExecuteAirflowCommandRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://composer.googleapis.com/v1/{+environment}:executeAirflowCommand",
-     :uri-template-args {"environment" environment},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body ExecuteAirflowCommandRequest}))
+  {:method :post,
+   :uri-template
+   "https://composer.googleapis.com/v1/{+environment}:executeAirflowCommand",
+   :uri-template-args {"environment" environment},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body ExecuteAirflowCommandRequest})
 
 (defn projects-locations-environments-get
   "Get an existing environment.
@@ -257,12 +241,11 @@ https://cloud.google.com/composer/v1/reference/rest/v1/projects/locations/enviro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://composer.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://composer.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-environments-workloads-list
   "Lists workloads in a Cloud Composer environment. Workload is a unit that runs a single Composer component. This method is supported for Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and newer.
@@ -276,13 +259,12 @@ filter <string> Optional. The list filter. Currently only supports equality on t
   ([parent]
     (projects-locations-environments-workloads-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://composer.googleapis.com/v1/{+parent}/workloads",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://composer.googleapis.com/v1/{+parent}/workloads",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-environments-userWorkloadsSecrets-create
   "Creates a user workloads Secret. This method is supported for Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and newer.
@@ -292,14 +274,13 @@ parent <>
 UserWorkloadsSecret:
 UserWorkloadsSecret"
   [parent UserWorkloadsSecret]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://composer.googleapis.com/v1/{+parent}/userWorkloadsSecrets",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body UserWorkloadsSecret}))
+  {:method :post,
+   :uri-template
+   "https://composer.googleapis.com/v1/{+parent}/userWorkloadsSecrets",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body UserWorkloadsSecret})
 
 (defn projects-locations-environments-userWorkloadsSecrets-get
   "Gets an existing user workloads Secret. Values of the \"data\" field in the response are cleared. This method is supported for Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and newer.
@@ -307,12 +288,11 @@ https://cloud.google.com/composer/v1/reference/rest/v1/projects/locations/enviro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://composer.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://composer.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-environments-userWorkloadsSecrets-list
   "Lists user workloads Secrets. This method is supported for Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and newer.
@@ -327,13 +307,12 @@ pageSize <integer> Optional. The maximum number of Secrets to return."
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://composer.googleapis.com/v1/{+parent}/userWorkloadsSecrets",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://composer.googleapis.com/v1/{+parent}/userWorkloadsSecrets",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-environments-userWorkloadsSecrets-update
   "Updates a user workloads Secret. This method is supported for Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and newer.
@@ -343,13 +322,12 @@ name <>
 UserWorkloadsSecret:
 UserWorkloadsSecret"
   [name UserWorkloadsSecret]
-  (client/*api-request*
-    {:method :put,
-     :uri-template "https://composer.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body UserWorkloadsSecret}))
+  {:method :put,
+   :uri-template "https://composer.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body UserWorkloadsSecret})
 
 (defn projects-locations-environments-userWorkloadsSecrets-delete
   "Deletes a user workloads Secret. This method is supported for Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and newer.
@@ -357,12 +335,11 @@ https://cloud.google.com/composer/v1/reference/rest/v1/projects/locations/enviro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://composer.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://composer.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-environments-userWorkloadsConfigMaps-create
   "Creates a user workloads ConfigMap. This method is supported for Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and newer.
@@ -372,14 +349,13 @@ parent <>
 UserWorkloadsConfigMap:
 UserWorkloadsConfigMap"
   [parent UserWorkloadsConfigMap]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://composer.googleapis.com/v1/{+parent}/userWorkloadsConfigMaps",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body UserWorkloadsConfigMap}))
+  {:method :post,
+   :uri-template
+   "https://composer.googleapis.com/v1/{+parent}/userWorkloadsConfigMaps",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body UserWorkloadsConfigMap})
 
 (defn projects-locations-environments-userWorkloadsConfigMaps-get
   "Gets an existing user workloads ConfigMap. This method is supported for Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and newer.
@@ -387,12 +363,11 @@ https://cloud.google.com/composer/v1/reference/rest/v1/projects/locations/enviro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://composer.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://composer.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-environments-userWorkloadsConfigMaps-list
   "Lists user workloads ConfigMaps. This method is supported for Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and newer.
@@ -407,13 +382,12 @@ pageSize <integer> Optional. The maximum number of ConfigMaps to return."
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://composer.googleapis.com/v1/{+parent}/userWorkloadsConfigMaps",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://composer.googleapis.com/v1/{+parent}/userWorkloadsConfigMaps",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-environments-userWorkloadsConfigMaps-update
   "Updates a user workloads ConfigMap. This method is supported for Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and newer.
@@ -423,13 +397,12 @@ name <>
 UserWorkloadsConfigMap:
 UserWorkloadsConfigMap"
   [name UserWorkloadsConfigMap]
-  (client/*api-request*
-    {:method :put,
-     :uri-template "https://composer.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body UserWorkloadsConfigMap}))
+  {:method :put,
+   :uri-template "https://composer.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body UserWorkloadsConfigMap})
 
 (defn projects-locations-environments-userWorkloadsConfigMaps-delete
   "Deletes a user workloads ConfigMap. This method is supported for Cloud Composer environments in versions composer-3.*.*-airflow-*.*.* and newer.
@@ -437,12 +410,11 @@ https://cloud.google.com/composer/v1/reference/rest/v1/projects/locations/enviro
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://composer.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://composer.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-imageVersions-list
   "List ImageVersions for provided location.
@@ -455,10 +427,9 @@ pageSize <integer> The maximum number of image_versions to return.
 includePastReleases <boolean> Whether or not image versions from old releases should be included."
   ([parent] (projects-locations-imageVersions-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://composer.googleapis.com/v1/{+parent}/imageVersions",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://composer.googleapis.com/v1/{+parent}/imageVersions",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))

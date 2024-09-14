@@ -1,8 +1,7 @@
 (ns happyapi.google.mybusinessbusinessinformation-v1
   "My Business Business Information API
 The My Business Business Information API provides an interface for managing business information. Note - If you have a quota of 0 after enabling the API, please request for GBP API access.
-See: https://developers.google.com/my-business/"
-  (:require [happyapi.providers.google :as client]))
+See: https://developers.google.com/my-business/")
 
 (defn attributes-list
   "Returns the list of attributes that would be available for a location with the given primary category and country.
@@ -17,13 +16,12 @@ showAll <boolean> Metadata for all available attributes are returned when this f
 pageSize <integer> How many attributes to include per page. Default is 200, minimum is 1."
   ([] (attributes-list nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://mybusinessbusinessinformation.googleapis.com/v1/attributes",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes nil})))
+    {:method :get,
+     :uri-template
+     "https://mybusinessbusinessinformation.googleapis.com/v1/attributes",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes nil}))
 
 (defn locations-updateAttributes
   "Update attributes for a given location.
@@ -37,14 +35,13 @@ optional:
 attributeMask <string> Required. Attribute name of attributes that you'd like to update. Represented by `attributes/{attribute}`. Updates: All attributes provided in the attributes field that you would like to update must be set in the `attribute_mask`. Attributes set in the above list but not in the `attribute_mask` will be ignored. Deletes: If you'd like to delete certain attributes, they must be specified in the `attribute_mask` with no matching entry in the attributes list. If you'd like to delete all attributes set on a location, you should look up all the applicable attributes for the location and then add them to the `attribute_mask` with an empty attributes field."
   ([name Attributes] (locations-updateAttributes name Attributes nil))
   ([name Attributes optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://mybusinessbusinessinformation.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes nil,
-       :body Attributes})))
+    {:method :patch,
+     :uri-template
+     "https://mybusinessbusinessinformation.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes nil,
+     :body Attributes}))
 
 (defn locations-getAttributes
   "Looks up all the attributes set for a given location.
@@ -52,13 +49,12 @@ https://developers.google.com/my-business/v1/reference/rest/v1/locations/getAttr
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://mybusinessbusinessinformation.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes nil}))
+  {:method :get,
+   :uri-template
+   "https://mybusinessbusinessinformation.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes nil})
 
 (defn locations-get
   "Returns the specified location.
@@ -70,13 +66,12 @@ optional:
 readMask <string> Required. Read mask to specify what fields will be returned in the response."
   ([name] (locations-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://mybusinessbusinessinformation.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes nil})))
+    {:method :get,
+     :uri-template
+     "https://mybusinessbusinessinformation.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes nil}))
 
 (defn locations-getGoogleUpdated
   "Gets the Google-updated version of the specified location.
@@ -88,13 +83,12 @@ optional:
 readMask <string> Required. Read mask to specify what fields will be returned in the response."
   ([name] (locations-getGoogleUpdated name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://mybusinessbusinessinformation.googleapis.com/v1/{+name}:getGoogleUpdated",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes nil})))
+    {:method :get,
+     :uri-template
+     "https://mybusinessbusinessinformation.googleapis.com/v1/{+name}:getGoogleUpdated",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes nil}))
 
 (defn locations-patch
   "Updates the specified location.
@@ -109,14 +103,13 @@ updateMask <string> Required. The specific fields to update.
 validateOnly <boolean> Optional. If true, the request is validated without actually updating the location. When this field is set, we will only return validation errors if there were any. The response will be empty if no errors were found."
   ([name Location] (locations-patch name Location nil))
   ([name Location optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://mybusinessbusinessinformation.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes nil,
-       :body Location})))
+    {:method :patch,
+     :uri-template
+     "https://mybusinessbusinessinformation.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes nil,
+     :body Location}))
 
 (defn locations-delete
   "Deletes a location. If this location cannot be deleted using the API and it is marked so in the `google.mybusiness.businessinformation.v1.LocationState`, use the [Google Business Profile](https://business.google.com/manage/) website.
@@ -124,13 +117,12 @@ https://developers.google.com/my-business/v1/reference/rest/v1/locations/delete
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://mybusinessbusinessinformation.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes nil}))
+  {:method :delete,
+   :uri-template
+   "https://mybusinessbusinessinformation.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes nil})
 
 (defn locations-attributes-getGoogleUpdated
   "Gets the Google-updated version of the specified location.
@@ -138,13 +130,12 @@ https://developers.google.com/my-business/v1/reference/rest/v1/locations/attribu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://mybusinessbusinessinformation.googleapis.com/v1/{+name}:getGoogleUpdated",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes nil}))
+  {:method :get,
+   :uri-template
+   "https://mybusinessbusinessinformation.googleapis.com/v1/{+name}:getGoogleUpdated",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes nil})
 
 (defn categories-list
   "Returns a list of business categories. Search will match the category name but not the category ID. Search only matches the front of a category name (that is, 'food' may return 'Food Court' but not 'Fast Food Restaurant').
@@ -158,13 +149,12 @@ pageSize <integer> Optional. How many categories to fetch per page. Default is 1
 view <string> Required. Specifies which parts to the Category resource should be returned in the response."
   ([] (categories-list nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://mybusinessbusinessinformation.googleapis.com/v1/categories",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes nil})))
+    {:method :get,
+     :uri-template
+     "https://mybusinessbusinessinformation.googleapis.com/v1/categories",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes nil}))
 
 (defn categories-batchGet
   "Returns a list of business categories for the provided language and GConcept ids.
@@ -177,13 +167,12 @@ regionCode <string> Optional. The ISO 3166-1 alpha-2 country code used to infer 
 view <string> Required. Specifies which parts to the Category resource should be returned in the response."
   ([] (categories-batchGet nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://mybusinessbusinessinformation.googleapis.com/v1/categories:batchGet",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes nil})))
+    {:method :get,
+     :uri-template
+     "https://mybusinessbusinessinformation.googleapis.com/v1/categories:batchGet",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes nil}))
 
 (defn chains-get
   "Gets the specified chain. Returns `NOT_FOUND` if the chain does not exist.
@@ -191,13 +180,12 @@ https://developers.google.com/my-business/v1/reference/rest/v1/chains/get
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://mybusinessbusinessinformation.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes nil}))
+  {:method :get,
+   :uri-template
+   "https://mybusinessbusinessinformation.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes nil})
 
 (defn chains-search
   "Searches the chain based on chain name.
@@ -208,13 +196,12 @@ chainName <string> Required. Search for a chain by its name. Exact/partial/fuzzy
 pageSize <integer> The maximum number of matched chains to return from this query. The default is 10. The maximum possible value is 500."
   ([] (chains-search nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://mybusinessbusinessinformation.googleapis.com/v1/chains:search",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes nil})))
+    {:method :get,
+     :uri-template
+     "https://mybusinessbusinessinformation.googleapis.com/v1/chains:search",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes nil}))
 
 (defn googleLocations-search
   "Search all of the possible locations that are a match to the specified request.
@@ -223,14 +210,13 @@ https://developers.google.com/my-business/v1/reference/rest/v1/googleLocations/s
 SearchGoogleLocationsRequest:
 SearchGoogleLocationsRequest"
   [SearchGoogleLocationsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://mybusinessbusinessinformation.googleapis.com/v1/googleLocations:search",
-     :uri-template-args {},
-     :query-params {},
-     :scopes nil,
-     :body SearchGoogleLocationsRequest}))
+  {:method :post,
+   :uri-template
+   "https://mybusinessbusinessinformation.googleapis.com/v1/googleLocations:search",
+   :uri-template-args {},
+   :query-params {},
+   :scopes nil,
+   :body SearchGoogleLocationsRequest})
 
 (defn accounts-locations-list
   "Lists the locations for the specified account.
@@ -245,13 +231,12 @@ orderBy <string> Optional. Sorting order for the request. Multiple fields should
 readMask <string> Required. Read mask to specify what fields will be returned in the response."
   ([parent] (accounts-locations-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://mybusinessbusinessinformation.googleapis.com/v1/{+parent}/locations",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes nil})))
+    {:method :get,
+     :uri-template
+     "https://mybusinessbusinessinformation.googleapis.com/v1/{+parent}/locations",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes nil}))
 
 (defn accounts-locations-create
   "Creates a new Location that will be owned by the logged in user.
@@ -266,11 +251,10 @@ validateOnly <boolean> Optional. If true, the request is validated without actua
 requestId <string> Optional. A unique request ID for the server to detect duplicated requests. We recommend using UUIDs. Max length is 50 characters."
   ([parent Location] (accounts-locations-create parent Location nil))
   ([parent Location optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://mybusinessbusinessinformation.googleapis.com/v1/{+parent}/locations",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes nil,
-       :body Location})))
+    {:method :post,
+     :uri-template
+     "https://mybusinessbusinessinformation.googleapis.com/v1/{+parent}/locations",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes nil,
+     :body Location}))

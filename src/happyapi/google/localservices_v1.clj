@@ -1,8 +1,7 @@
 (ns happyapi.google.localservices-v1
   "Local Services API
 
-See: https://ads.google.com/intl/en_us/home/local-services-ads/"
-  (:require [happyapi.providers.google :as client]))
+See: https://ads.google.com/intl/en_us/home/local-services-ads/")
 
 (defn detailedLeadReports-search
   "Get detailed lead reports containing leads that have been received by all linked GLS accounts. Caller needs to provide their manager customer id and the associated auth credential that allows them read permissions on their linked accounts.
@@ -19,13 +18,12 @@ endDate.day <integer> Day of a month. Must be from 1 to 31 and valid for the yea
 startDate.day <integer> Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant."
   ([] (detailedLeadReports-search nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://localservices.googleapis.com/v1/detailedLeadReports:search",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/adwords"]})))
+    {:method :get,
+     :uri-template
+     "https://localservices.googleapis.com/v1/detailedLeadReports:search",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/adwords"]}))
 
 (defn accountReports-search
   "Get account reports containing aggregate account data of all linked GLS accounts. Caller needs to provide their manager customer id and the associated auth credential that allows them read permissions on their linked accounts.
@@ -42,10 +40,9 @@ endDate.day <integer> Day of a month. Must be from 1 to 31 and valid for the yea
 startDate.day <integer> Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant."
   ([] (accountReports-search nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://localservices.googleapis.com/v1/accountReports:search",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/adwords"]})))
+    {:method :get,
+     :uri-template
+     "https://localservices.googleapis.com/v1/accountReports:search",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/adwords"]}))

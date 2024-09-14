@@ -1,8 +1,7 @@
 (ns happyapi.google.pagespeedonline-v5
   "PageSpeed Insights API
 The PageSpeed Insights API lets you analyze the performance of your website with a simple API. It offers tailored suggestions for how you can optimize your site, and lets you easily integrate PageSpeed Insights analysis into your development tools and workflow. 
-See: https://developers.google.com/speed/docs/insights/v5/about"
-  (:require [happyapi.providers.google :as client]))
+See: https://developers.google.com/speed/docs/insights/v5/about")
 
 (defn pagespeedapi-runpagespeed
   "Runs PageSpeed analysis on the page at the specified URL, and returns PageSpeed scores, a list of suggestions to make that page faster, and other information.
@@ -19,10 +18,9 @@ utm_source <string> Campaign source for analytics.
 captchaToken <string> The captcha token passed when filling out a captcha."
   ([url] (pagespeedapi-runpagespeed url nil))
   ([url optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed",
-       :uri-template-args {},
-       :query-params (merge {"url" url} optional),
-       :scopes ["openid"]})))
+    {:method :get,
+     :uri-template
+     "https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed",
+     :uri-template-args {},
+     :query-params (merge {"url" url} optional),
+     :scopes ["openid"]}))

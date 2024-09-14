@@ -1,8 +1,7 @@
 (ns happyapi.google.analyticsadmin-v1beta
   "Google Analytics Admin API
 Manage properties in Google Analytics. Warning: Creating multiple Customer Applications, Accounts, or Projects to simulate or act as a single Customer Application, Account, or Project (respectively) or to circumvent Service-specific usage limits or quotas is a direct violation of Google Cloud Platform Terms of Service as well as Google APIs Terms of Service. These actions can result in immediate termination of your GCP project(s) without any warning.
-See: https://developers.google.com/analytics/devguides/config/admin/v1?csw=1"
-  (:require [happyapi.providers.google :as client]))
+See: https://developers.google.com/analytics/devguides/config/admin/v1?csw=1")
 
 (defn properties-getDataRetentionSettings
   "Returns the singleton data retention settings for this property.
@@ -10,15 +9,14 @@ https://developers.google.com/analytics/devguides/config/admin/v1?csw=1/v1beta/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/analytics.edit"
-      "https://www.googleapis.com/auth/analytics.readonly"]}))
+  {:method :get,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/analytics.edit"
+    "https://www.googleapis.com/auth/analytics.readonly"]})
 
 (defn properties-list
   "Returns child Properties under the specified parent Account. Properties will be excluded if the caller does not have access. Soft-deleted (ie: \"trashed\") properties are excluded by default. Returns an empty list if no relevant properties are found.
@@ -30,15 +28,14 @@ pageSize <integer> The maximum number of resources to return. The service may re
 showDeleted <boolean> Whether to include soft-deleted (ie: \"trashed\") Properties in the results. Properties can be inspected to determine whether they are deleted or not."
   ([] (properties-list nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://analyticsadmin.googleapis.com/v1beta/properties",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/analytics.edit"
-        "https://www.googleapis.com/auth/analytics.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://analyticsadmin.googleapis.com/v1beta/properties",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/analytics.edit"
+      "https://www.googleapis.com/auth/analytics.readonly"]}))
 
 (defn properties-delete
   "Marks target Property as soft-deleted (ie: \"trashed\") and returns it. This API does not have a method to restore soft-deleted properties. However, they can be restored using the Trash Can UI. If the properties are not restored before the expiration time, the Property and all child resources (eg: GoogleAdsLinks, Streams, AccessBindings) will be permanently purged. https://support.google.com/analytics/answer/6154772 Returns an error if the target is not found.
@@ -46,13 +43,12 @@ https://developers.google.com/analytics/devguides/config/admin/v1?csw=1/v1beta/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/analytics.edit"]}))
+  {:method :delete,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/analytics.edit"]})
 
 (defn properties-acknowledgeUserDataCollection
   "Acknowledges the terms of user data collection for the specified property. This acknowledgement must be completed (either in the Google Analytics UI or through this API) before MeasurementProtocolSecret resources may be created.
@@ -63,15 +59,14 @@ GoogleAnalyticsAdminV1betaAcknowledgeUserDataCollectionRequest:
 GoogleAnalyticsAdminV1betaAcknowledgeUserDataCollectionRequest"
   [property
    GoogleAnalyticsAdminV1betaAcknowledgeUserDataCollectionRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/{+property}:acknowledgeUserDataCollection",
-     :uri-template-args {"property" property},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/analytics.edit"],
-     :body
-     GoogleAnalyticsAdminV1betaAcknowledgeUserDataCollectionRequest}))
+  {:method :post,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/{+property}:acknowledgeUserDataCollection",
+   :uri-template-args {"property" property},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/analytics.edit"],
+   :body
+   GoogleAnalyticsAdminV1betaAcknowledgeUserDataCollectionRequest})
 
 (defn properties-updateDataRetentionSettings
   "Updates the singleton data retention settings for this property.
@@ -89,14 +84,13 @@ updateMask <string> Required. The list of fields to be updated. Field names must
       GoogleAnalyticsAdminV1betaDataRetentionSettings
       nil))
   ([name GoogleAnalyticsAdminV1betaDataRetentionSettings optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://analyticsadmin.googleapis.com/v1beta/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/analytics.edit"],
-       :body GoogleAnalyticsAdminV1betaDataRetentionSettings})))
+    {:method :patch,
+     :uri-template
+     "https://analyticsadmin.googleapis.com/v1beta/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/analytics.edit"],
+     :body GoogleAnalyticsAdminV1betaDataRetentionSettings}))
 
 (defn properties-runAccessReport
   "Returns a customized report of data access records. The report provides records of each time a user reads Google Analytics reporting data. Access records are retained for up to 2 years. Data Access Reports can be requested for a property. Reports may be requested for any property, but dimensions that aren't related to quota can only be requested on Google Analytics 360 properties. This method is only available to Administrators. These data access records include GA UI Reporting, GA UI Explorations, GA Data API, and other products like Firebase & Admob that can retrieve data from Google Analytics through a linkage. These records don't include property configuration changes like adding a stream or changing a property's time zone. For configuration change history, see [searchChangeHistoryEvents](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/accounts/searchChangeHistoryEvents).
@@ -106,16 +100,15 @@ entity <>
 GoogleAnalyticsAdminV1betaRunAccessReportRequest:
 GoogleAnalyticsAdminV1betaRunAccessReportRequest"
   [entity GoogleAnalyticsAdminV1betaRunAccessReportRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/{+entity}:runAccessReport",
-     :uri-template-args {"entity" entity},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/analytics.edit"
-      "https://www.googleapis.com/auth/analytics.readonly"],
-     :body GoogleAnalyticsAdminV1betaRunAccessReportRequest}))
+  {:method :post,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/{+entity}:runAccessReport",
+   :uri-template-args {"entity" entity},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/analytics.edit"
+    "https://www.googleapis.com/auth/analytics.readonly"],
+   :body GoogleAnalyticsAdminV1betaRunAccessReportRequest})
 
 (defn properties-patch
   "Updates a property.
@@ -130,14 +123,13 @@ updateMask <string> Required. The list of fields to be updated. Field names must
   ([name GoogleAnalyticsAdminV1betaProperty]
     (properties-patch name GoogleAnalyticsAdminV1betaProperty nil))
   ([name GoogleAnalyticsAdminV1betaProperty optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://analyticsadmin.googleapis.com/v1beta/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/analytics.edit"],
-       :body GoogleAnalyticsAdminV1betaProperty})))
+    {:method :patch,
+     :uri-template
+     "https://analyticsadmin.googleapis.com/v1beta/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/analytics.edit"],
+     :body GoogleAnalyticsAdminV1betaProperty}))
 
 (defn properties-create
   "Creates a Google Analytics property with the specified location and attributes.
@@ -146,14 +138,13 @@ https://developers.google.com/analytics/devguides/config/admin/v1?csw=1/v1beta/r
 GoogleAnalyticsAdminV1betaProperty:
 GoogleAnalyticsAdminV1betaProperty"
   [GoogleAnalyticsAdminV1betaProperty]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/properties",
-     :uri-template-args {},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/analytics.edit"],
-     :body GoogleAnalyticsAdminV1betaProperty}))
+  {:method :post,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/properties",
+   :uri-template-args {},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/analytics.edit"],
+   :body GoogleAnalyticsAdminV1betaProperty})
 
 (defn properties-get
   "Lookup for a single GA Property.
@@ -161,15 +152,14 @@ https://developers.google.com/analytics/devguides/config/admin/v1?csw=1/v1beta/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/analytics.edit"
-      "https://www.googleapis.com/auth/analytics.readonly"]}))
+  {:method :get,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/analytics.edit"
+    "https://www.googleapis.com/auth/analytics.readonly"]})
 
 (defn properties-googleAdsLinks-delete
   "Deletes a GoogleAdsLink on a property
@@ -177,13 +167,12 @@ https://developers.google.com/analytics/devguides/config/admin/v1?csw=1/v1beta/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/analytics.edit"]}))
+  {:method :delete,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/analytics.edit"]})
 
 (defn properties-googleAdsLinks-patch
   "Updates a GoogleAdsLink on a property
@@ -201,14 +190,13 @@ updateMask <string> Required. The list of fields to be updated. Field names must
       GoogleAnalyticsAdminV1betaGoogleAdsLink
       nil))
   ([name GoogleAnalyticsAdminV1betaGoogleAdsLink optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://analyticsadmin.googleapis.com/v1beta/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/analytics.edit"],
-       :body GoogleAnalyticsAdminV1betaGoogleAdsLink})))
+    {:method :patch,
+     :uri-template
+     "https://analyticsadmin.googleapis.com/v1beta/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/analytics.edit"],
+     :body GoogleAnalyticsAdminV1betaGoogleAdsLink}))
 
 (defn properties-googleAdsLinks-list
   "Lists GoogleAdsLinks on a property.
@@ -220,15 +208,14 @@ optional:
 pageSize <integer> The maximum number of resources to return. If unspecified, at most 50 resources will be returned. The maximum value is 200 (higher values will be coerced to the maximum)."
   ([parent] (properties-googleAdsLinks-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://analyticsadmin.googleapis.com/v1beta/{+parent}/googleAdsLinks",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/analytics.edit"
-        "https://www.googleapis.com/auth/analytics.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://analyticsadmin.googleapis.com/v1beta/{+parent}/googleAdsLinks",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/analytics.edit"
+      "https://www.googleapis.com/auth/analytics.readonly"]}))
 
 (defn properties-googleAdsLinks-create
   "Creates a GoogleAdsLink.
@@ -238,14 +225,13 @@ parent <>
 GoogleAnalyticsAdminV1betaGoogleAdsLink:
 GoogleAnalyticsAdminV1betaGoogleAdsLink"
   [parent GoogleAnalyticsAdminV1betaGoogleAdsLink]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/{+parent}/googleAdsLinks",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/analytics.edit"],
-     :body GoogleAnalyticsAdminV1betaGoogleAdsLink}))
+  {:method :post,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/{+parent}/googleAdsLinks",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/analytics.edit"],
+   :body GoogleAnalyticsAdminV1betaGoogleAdsLink})
 
 (defn properties-customMetrics-patch
   "Updates a CustomMetric on a property.
@@ -263,14 +249,13 @@ updateMask <string> Required. The list of fields to be updated. Omitted fields w
       GoogleAnalyticsAdminV1betaCustomMetric
       nil))
   ([name GoogleAnalyticsAdminV1betaCustomMetric optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://analyticsadmin.googleapis.com/v1beta/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/analytics.edit"],
-       :body GoogleAnalyticsAdminV1betaCustomMetric})))
+    {:method :patch,
+     :uri-template
+     "https://analyticsadmin.googleapis.com/v1beta/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/analytics.edit"],
+     :body GoogleAnalyticsAdminV1betaCustomMetric}))
 
 (defn properties-customMetrics-list
   "Lists CustomMetrics on a property.
@@ -282,15 +267,14 @@ optional:
 pageSize <integer> The maximum number of resources to return. If unspecified, at most 50 resources will be returned. The maximum value is 200 (higher values will be coerced to the maximum)."
   ([parent] (properties-customMetrics-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://analyticsadmin.googleapis.com/v1beta/{+parent}/customMetrics",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/analytics.edit"
-        "https://www.googleapis.com/auth/analytics.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://analyticsadmin.googleapis.com/v1beta/{+parent}/customMetrics",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/analytics.edit"
+      "https://www.googleapis.com/auth/analytics.readonly"]}))
 
 (defn properties-customMetrics-create
   "Creates a CustomMetric.
@@ -300,14 +284,13 @@ parent <>
 GoogleAnalyticsAdminV1betaCustomMetric:
 GoogleAnalyticsAdminV1betaCustomMetric"
   [parent GoogleAnalyticsAdminV1betaCustomMetric]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/{+parent}/customMetrics",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/analytics.edit"],
-     :body GoogleAnalyticsAdminV1betaCustomMetric}))
+  {:method :post,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/{+parent}/customMetrics",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/analytics.edit"],
+   :body GoogleAnalyticsAdminV1betaCustomMetric})
 
 (defn properties-customMetrics-get
   "Lookup for a single CustomMetric.
@@ -315,15 +298,14 @@ https://developers.google.com/analytics/devguides/config/admin/v1?csw=1/v1beta/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/analytics.edit"
-      "https://www.googleapis.com/auth/analytics.readonly"]}))
+  {:method :get,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/analytics.edit"
+    "https://www.googleapis.com/auth/analytics.readonly"]})
 
 (defn properties-customMetrics-archive
   "Archives a CustomMetric on a property.
@@ -333,14 +315,13 @@ name <>
 GoogleAnalyticsAdminV1betaArchiveCustomMetricRequest:
 GoogleAnalyticsAdminV1betaArchiveCustomMetricRequest"
   [name GoogleAnalyticsAdminV1betaArchiveCustomMetricRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/{+name}:archive",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/analytics.edit"],
-     :body GoogleAnalyticsAdminV1betaArchiveCustomMetricRequest}))
+  {:method :post,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/{+name}:archive",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/analytics.edit"],
+   :body GoogleAnalyticsAdminV1betaArchiveCustomMetricRequest})
 
 (defn properties-keyEvents-list
   "Returns a list of Key Events in the specified parent property. Returns an empty list if no Key Events are found.
@@ -352,15 +333,14 @@ optional:
 pageSize <integer> The maximum number of resources to return. If unspecified, at most 50 resources will be returned. The maximum value is 200; (higher values will be coerced to the maximum)"
   ([parent] (properties-keyEvents-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://analyticsadmin.googleapis.com/v1beta/{+parent}/keyEvents",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/analytics.edit"
-        "https://www.googleapis.com/auth/analytics.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://analyticsadmin.googleapis.com/v1beta/{+parent}/keyEvents",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/analytics.edit"
+      "https://www.googleapis.com/auth/analytics.readonly"]}))
 
 (defn properties-keyEvents-create
   "Creates a Key Event.
@@ -370,14 +350,13 @@ parent <>
 GoogleAnalyticsAdminV1betaKeyEvent:
 GoogleAnalyticsAdminV1betaKeyEvent"
   [parent GoogleAnalyticsAdminV1betaKeyEvent]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/{+parent}/keyEvents",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/analytics.edit"],
-     :body GoogleAnalyticsAdminV1betaKeyEvent}))
+  {:method :post,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/{+parent}/keyEvents",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/analytics.edit"],
+   :body GoogleAnalyticsAdminV1betaKeyEvent})
 
 (defn properties-keyEvents-delete
   "Deletes a Key Event.
@@ -385,13 +364,12 @@ https://developers.google.com/analytics/devguides/config/admin/v1?csw=1/v1beta/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/analytics.edit"]}))
+  {:method :delete,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/analytics.edit"]})
 
 (defn properties-keyEvents-get
   "Retrieve a single Key Event.
@@ -399,15 +377,14 @@ https://developers.google.com/analytics/devguides/config/admin/v1?csw=1/v1beta/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/analytics.edit"
-      "https://www.googleapis.com/auth/analytics.readonly"]}))
+  {:method :get,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/analytics.edit"
+    "https://www.googleapis.com/auth/analytics.readonly"]})
 
 (defn properties-keyEvents-patch
   "Updates a Key Event.
@@ -425,14 +402,13 @@ updateMask <string> Required. The list of fields to be updated. Field names must
       GoogleAnalyticsAdminV1betaKeyEvent
       nil))
   ([name GoogleAnalyticsAdminV1betaKeyEvent optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://analyticsadmin.googleapis.com/v1beta/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/analytics.edit"],
-       :body GoogleAnalyticsAdminV1betaKeyEvent})))
+    {:method :patch,
+     :uri-template
+     "https://analyticsadmin.googleapis.com/v1beta/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/analytics.edit"],
+     :body GoogleAnalyticsAdminV1betaKeyEvent}))
 
 (defn properties-conversionEvents-create
   "Deprecated: Use `CreateKeyEvent` instead. Creates a conversion event with the specified attributes.
@@ -442,14 +418,13 @@ parent <>
 GoogleAnalyticsAdminV1betaConversionEvent:
 GoogleAnalyticsAdminV1betaConversionEvent"
   [parent GoogleAnalyticsAdminV1betaConversionEvent]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/{+parent}/conversionEvents",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/analytics.edit"],
-     :body GoogleAnalyticsAdminV1betaConversionEvent}))
+  {:method :post,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/{+parent}/conversionEvents",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/analytics.edit"],
+   :body GoogleAnalyticsAdminV1betaConversionEvent})
 
 (defn properties-conversionEvents-patch
   "Deprecated: Use `UpdateKeyEvent` instead. Updates a conversion event with the specified attributes.
@@ -467,14 +442,13 @@ updateMask <string> Required. The list of fields to be updated. Field names must
       GoogleAnalyticsAdminV1betaConversionEvent
       nil))
   ([name GoogleAnalyticsAdminV1betaConversionEvent optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://analyticsadmin.googleapis.com/v1beta/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/analytics.edit"],
-       :body GoogleAnalyticsAdminV1betaConversionEvent})))
+    {:method :patch,
+     :uri-template
+     "https://analyticsadmin.googleapis.com/v1beta/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/analytics.edit"],
+     :body GoogleAnalyticsAdminV1betaConversionEvent}))
 
 (defn properties-conversionEvents-delete
   "Deprecated: Use `DeleteKeyEvent` instead. Deletes a conversion event in a property.
@@ -482,13 +456,12 @@ https://developers.google.com/analytics/devguides/config/admin/v1?csw=1/v1beta/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/analytics.edit"]}))
+  {:method :delete,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/analytics.edit"]})
 
 (defn properties-conversionEvents-list
   "Deprecated: Use `ListKeyEvents` instead. Returns a list of conversion events in the specified parent property. Returns an empty list if no conversion events are found.
@@ -500,15 +473,14 @@ optional:
 pageSize <integer> The maximum number of resources to return. If unspecified, at most 50 resources will be returned. The maximum value is 200; (higher values will be coerced to the maximum)"
   ([parent] (properties-conversionEvents-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://analyticsadmin.googleapis.com/v1beta/{+parent}/conversionEvents",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/analytics.edit"
-        "https://www.googleapis.com/auth/analytics.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://analyticsadmin.googleapis.com/v1beta/{+parent}/conversionEvents",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/analytics.edit"
+      "https://www.googleapis.com/auth/analytics.readonly"]}))
 
 (defn properties-conversionEvents-get
   "Deprecated: Use `GetKeyEvent` instead. Retrieve a single conversion event.
@@ -516,15 +488,14 @@ https://developers.google.com/analytics/devguides/config/admin/v1?csw=1/v1beta/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/analytics.edit"
-      "https://www.googleapis.com/auth/analytics.readonly"]}))
+  {:method :get,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/analytics.edit"
+    "https://www.googleapis.com/auth/analytics.readonly"]})
 
 (defn properties-customDimensions-get
   "Lookup for a single CustomDimension.
@@ -532,15 +503,14 @@ https://developers.google.com/analytics/devguides/config/admin/v1?csw=1/v1beta/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/analytics.edit"
-      "https://www.googleapis.com/auth/analytics.readonly"]}))
+  {:method :get,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/analytics.edit"
+    "https://www.googleapis.com/auth/analytics.readonly"]})
 
 (defn properties-customDimensions-patch
   "Updates a CustomDimension on a property.
@@ -558,14 +528,13 @@ updateMask <string> Required. The list of fields to be updated. Omitted fields w
       GoogleAnalyticsAdminV1betaCustomDimension
       nil))
   ([name GoogleAnalyticsAdminV1betaCustomDimension optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://analyticsadmin.googleapis.com/v1beta/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/analytics.edit"],
-       :body GoogleAnalyticsAdminV1betaCustomDimension})))
+    {:method :patch,
+     :uri-template
+     "https://analyticsadmin.googleapis.com/v1beta/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/analytics.edit"],
+     :body GoogleAnalyticsAdminV1betaCustomDimension}))
 
 (defn properties-customDimensions-archive
   "Archives a CustomDimension on a property.
@@ -575,14 +544,13 @@ name <>
 GoogleAnalyticsAdminV1betaArchiveCustomDimensionRequest:
 GoogleAnalyticsAdminV1betaArchiveCustomDimensionRequest"
   [name GoogleAnalyticsAdminV1betaArchiveCustomDimensionRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/{+name}:archive",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/analytics.edit"],
-     :body GoogleAnalyticsAdminV1betaArchiveCustomDimensionRequest}))
+  {:method :post,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/{+name}:archive",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/analytics.edit"],
+   :body GoogleAnalyticsAdminV1betaArchiveCustomDimensionRequest})
 
 (defn properties-customDimensions-create
   "Creates a CustomDimension.
@@ -592,14 +560,13 @@ parent <>
 GoogleAnalyticsAdminV1betaCustomDimension:
 GoogleAnalyticsAdminV1betaCustomDimension"
   [parent GoogleAnalyticsAdminV1betaCustomDimension]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/{+parent}/customDimensions",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/analytics.edit"],
-     :body GoogleAnalyticsAdminV1betaCustomDimension}))
+  {:method :post,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/{+parent}/customDimensions",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/analytics.edit"],
+   :body GoogleAnalyticsAdminV1betaCustomDimension})
 
 (defn properties-customDimensions-list
   "Lists CustomDimensions on a property.
@@ -611,15 +578,14 @@ optional:
 pageSize <integer> The maximum number of resources to return. If unspecified, at most 50 resources will be returned. The maximum value is 200 (higher values will be coerced to the maximum)."
   ([parent] (properties-customDimensions-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://analyticsadmin.googleapis.com/v1beta/{+parent}/customDimensions",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/analytics.edit"
-        "https://www.googleapis.com/auth/analytics.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://analyticsadmin.googleapis.com/v1beta/{+parent}/customDimensions",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/analytics.edit"
+      "https://www.googleapis.com/auth/analytics.readonly"]}))
 
 (defn properties-firebaseLinks-delete
   "Deletes a FirebaseLink on a property
@@ -627,13 +593,12 @@ https://developers.google.com/analytics/devguides/config/admin/v1?csw=1/v1beta/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/analytics.edit"]}))
+  {:method :delete,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/analytics.edit"]})
 
 (defn properties-firebaseLinks-create
   "Creates a FirebaseLink. Properties can have at most one FirebaseLink.
@@ -643,14 +608,13 @@ parent <>
 GoogleAnalyticsAdminV1betaFirebaseLink:
 GoogleAnalyticsAdminV1betaFirebaseLink"
   [parent GoogleAnalyticsAdminV1betaFirebaseLink]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/{+parent}/firebaseLinks",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/analytics.edit"],
-     :body GoogleAnalyticsAdminV1betaFirebaseLink}))
+  {:method :post,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/{+parent}/firebaseLinks",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/analytics.edit"],
+   :body GoogleAnalyticsAdminV1betaFirebaseLink})
 
 (defn properties-firebaseLinks-list
   "Lists FirebaseLinks on a property. Properties can have at most one FirebaseLink.
@@ -662,15 +626,14 @@ optional:
 pageSize <integer> The maximum number of resources to return. The service may return fewer than this value, even if there are additional pages. If unspecified, at most 50 resources will be returned. The maximum value is 200; (higher values will be coerced to the maximum)"
   ([parent] (properties-firebaseLinks-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://analyticsadmin.googleapis.com/v1beta/{+parent}/firebaseLinks",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/analytics.edit"
-        "https://www.googleapis.com/auth/analytics.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://analyticsadmin.googleapis.com/v1beta/{+parent}/firebaseLinks",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/analytics.edit"
+      "https://www.googleapis.com/auth/analytics.readonly"]}))
 
 (defn properties-dataStreams-delete
   "Deletes a DataStream on a property.
@@ -678,13 +641,12 @@ https://developers.google.com/analytics/devguides/config/admin/v1?csw=1/v1beta/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/analytics.edit"]}))
+  {:method :delete,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/analytics.edit"]})
 
 (defn properties-dataStreams-get
   "Lookup for a single DataStream.
@@ -692,15 +654,14 @@ https://developers.google.com/analytics/devguides/config/admin/v1?csw=1/v1beta/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/analytics.edit"
-      "https://www.googleapis.com/auth/analytics.readonly"]}))
+  {:method :get,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/analytics.edit"
+    "https://www.googleapis.com/auth/analytics.readonly"]})
 
 (defn properties-dataStreams-patch
   "Updates a DataStream on a property.
@@ -718,14 +679,13 @@ updateMask <string> Required. The list of fields to be updated. Omitted fields w
       GoogleAnalyticsAdminV1betaDataStream
       nil))
   ([name GoogleAnalyticsAdminV1betaDataStream optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://analyticsadmin.googleapis.com/v1beta/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/analytics.edit"],
-       :body GoogleAnalyticsAdminV1betaDataStream})))
+    {:method :patch,
+     :uri-template
+     "https://analyticsadmin.googleapis.com/v1beta/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/analytics.edit"],
+     :body GoogleAnalyticsAdminV1betaDataStream}))
 
 (defn properties-dataStreams-list
   "Lists DataStreams on a property.
@@ -737,15 +697,14 @@ optional:
 pageSize <integer> The maximum number of resources to return. If unspecified, at most 50 resources will be returned. The maximum value is 200 (higher values will be coerced to the maximum)."
   ([parent] (properties-dataStreams-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://analyticsadmin.googleapis.com/v1beta/{+parent}/dataStreams",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/analytics.edit"
-        "https://www.googleapis.com/auth/analytics.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://analyticsadmin.googleapis.com/v1beta/{+parent}/dataStreams",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/analytics.edit"
+      "https://www.googleapis.com/auth/analytics.readonly"]}))
 
 (defn properties-dataStreams-create
   "Creates a DataStream.
@@ -755,14 +714,13 @@ parent <>
 GoogleAnalyticsAdminV1betaDataStream:
 GoogleAnalyticsAdminV1betaDataStream"
   [parent GoogleAnalyticsAdminV1betaDataStream]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/{+parent}/dataStreams",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/analytics.edit"],
-     :body GoogleAnalyticsAdminV1betaDataStream}))
+  {:method :post,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/{+parent}/dataStreams",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/analytics.edit"],
+   :body GoogleAnalyticsAdminV1betaDataStream})
 
 (defn properties-dataStreams-measurementProtocolSecrets-patch
   "Updates a measurement protocol secret.
@@ -780,14 +738,13 @@ updateMask <string> Required. The list of fields to be updated. Omitted fields w
       GoogleAnalyticsAdminV1betaMeasurementProtocolSecret
       nil))
   ([name GoogleAnalyticsAdminV1betaMeasurementProtocolSecret optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://analyticsadmin.googleapis.com/v1beta/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/analytics.edit"],
-       :body GoogleAnalyticsAdminV1betaMeasurementProtocolSecret})))
+    {:method :patch,
+     :uri-template
+     "https://analyticsadmin.googleapis.com/v1beta/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/analytics.edit"],
+     :body GoogleAnalyticsAdminV1betaMeasurementProtocolSecret}))
 
 (defn properties-dataStreams-measurementProtocolSecrets-get
   "Lookup for a single MeasurementProtocolSecret.
@@ -795,15 +752,14 @@ https://developers.google.com/analytics/devguides/config/admin/v1?csw=1/v1beta/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/analytics.edit"
-      "https://www.googleapis.com/auth/analytics.readonly"]}))
+  {:method :get,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/analytics.edit"
+    "https://www.googleapis.com/auth/analytics.readonly"]})
 
 (defn properties-dataStreams-measurementProtocolSecrets-list
   "Returns child MeasurementProtocolSecrets under the specified parent Property.
@@ -818,15 +774,14 @@ pageSize <integer> The maximum number of resources to return. If unspecified, at
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://analyticsadmin.googleapis.com/v1beta/{+parent}/measurementProtocolSecrets",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/analytics.edit"
-        "https://www.googleapis.com/auth/analytics.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://analyticsadmin.googleapis.com/v1beta/{+parent}/measurementProtocolSecrets",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/analytics.edit"
+      "https://www.googleapis.com/auth/analytics.readonly"]}))
 
 (defn properties-dataStreams-measurementProtocolSecrets-delete
   "Deletes target MeasurementProtocolSecret.
@@ -834,13 +789,12 @@ https://developers.google.com/analytics/devguides/config/admin/v1?csw=1/v1beta/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/analytics.edit"]}))
+  {:method :delete,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/analytics.edit"]})
 
 (defn properties-dataStreams-measurementProtocolSecrets-create
   "Creates a measurement protocol secret.
@@ -850,14 +804,13 @@ parent <>
 GoogleAnalyticsAdminV1betaMeasurementProtocolSecret:
 GoogleAnalyticsAdminV1betaMeasurementProtocolSecret"
   [parent GoogleAnalyticsAdminV1betaMeasurementProtocolSecret]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/{+parent}/measurementProtocolSecrets",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/analytics.edit"],
-     :body GoogleAnalyticsAdminV1betaMeasurementProtocolSecret}))
+  {:method :post,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/{+parent}/measurementProtocolSecrets",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/analytics.edit"],
+   :body GoogleAnalyticsAdminV1betaMeasurementProtocolSecret})
 
 (defn accountSummaries-list
   "Returns summaries of all accounts accessible by the caller.
@@ -867,15 +820,14 @@ optional:
 pageSize <integer> The maximum number of AccountSummary resources to return. The service may return fewer than this value, even if there are additional pages. If unspecified, at most 50 resources will be returned. The maximum value is 200; (higher values will be coerced to the maximum)"
   ([] (accountSummaries-list nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://analyticsadmin.googleapis.com/v1beta/accountSummaries",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/analytics.edit"
-        "https://www.googleapis.com/auth/analytics.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://analyticsadmin.googleapis.com/v1beta/accountSummaries",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/analytics.edit"
+      "https://www.googleapis.com/auth/analytics.readonly"]}))
 
 (defn accounts-getDataSharingSettings
   "Get data sharing settings on an account. Data sharing settings are singletons.
@@ -883,15 +835,14 @@ https://developers.google.com/analytics/devguides/config/admin/v1?csw=1/v1beta/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/analytics.edit"
-      "https://www.googleapis.com/auth/analytics.readonly"]}))
+  {:method :get,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/analytics.edit"
+    "https://www.googleapis.com/auth/analytics.readonly"]})
 
 (defn accounts-get
   "Lookup for a single Account.
@@ -899,15 +850,14 @@ https://developers.google.com/analytics/devguides/config/admin/v1?csw=1/v1beta/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/analytics.edit"
-      "https://www.googleapis.com/auth/analytics.readonly"]}))
+  {:method :get,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/analytics.edit"
+    "https://www.googleapis.com/auth/analytics.readonly"]})
 
 (defn accounts-searchChangeHistoryEvents
   "Searches through all changes to an account or its children given the specified set of filters.
@@ -917,14 +867,13 @@ account <>
 GoogleAnalyticsAdminV1betaSearchChangeHistoryEventsRequest:
 GoogleAnalyticsAdminV1betaSearchChangeHistoryEventsRequest"
   [account GoogleAnalyticsAdminV1betaSearchChangeHistoryEventsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/{+account}:searchChangeHistoryEvents",
-     :uri-template-args {"account" account},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/analytics.edit"],
-     :body GoogleAnalyticsAdminV1betaSearchChangeHistoryEventsRequest}))
+  {:method :post,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/{+account}:searchChangeHistoryEvents",
+   :uri-template-args {"account" account},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/analytics.edit"],
+   :body GoogleAnalyticsAdminV1betaSearchChangeHistoryEventsRequest})
 
 (defn accounts-patch
   "Updates an account.
@@ -939,14 +888,13 @@ updateMask <string> Required. The list of fields to be updated. Field names must
   ([name GoogleAnalyticsAdminV1betaAccount]
     (accounts-patch name GoogleAnalyticsAdminV1betaAccount nil))
   ([name GoogleAnalyticsAdminV1betaAccount optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template
-       "https://analyticsadmin.googleapis.com/v1beta/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/analytics.edit"],
-       :body GoogleAnalyticsAdminV1betaAccount})))
+    {:method :patch,
+     :uri-template
+     "https://analyticsadmin.googleapis.com/v1beta/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/analytics.edit"],
+     :body GoogleAnalyticsAdminV1betaAccount}))
 
 (defn accounts-delete
   "Marks target Account as soft-deleted (ie: \"trashed\") and returns it. This API does not have a method to restore soft-deleted accounts. However, they can be restored using the Trash Can UI. If the accounts are not restored before the expiration time, the account and all child resources (eg: Properties, GoogleAdsLinks, Streams, AccessBindings) will be permanently purged. https://support.google.com/analytics/answer/6154772 Returns an error if the target is not found.
@@ -954,13 +902,12 @@ https://developers.google.com/analytics/devguides/config/admin/v1?csw=1/v1beta/r
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/analytics.edit"]}))
+  {:method :delete,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/analytics.edit"]})
 
 (defn accounts-list
   "Returns all accounts accessible by the caller. Note that these accounts might not currently have GA properties. Soft-deleted (ie: \"trashed\") accounts are excluded by default. Returns an empty list if no relevant accounts are found.
@@ -971,15 +918,14 @@ showDeleted <boolean> Whether to include soft-deleted (ie: \"trashed\") Accounts
 pageSize <integer> The maximum number of resources to return. The service may return fewer than this value, even if there are additional pages. If unspecified, at most 50 resources will be returned. The maximum value is 200; (higher values will be coerced to the maximum)"
   ([] (accounts-list nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://analyticsadmin.googleapis.com/v1beta/accounts",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/analytics.edit"
-        "https://www.googleapis.com/auth/analytics.readonly"]})))
+    {:method :get,
+     :uri-template
+     "https://analyticsadmin.googleapis.com/v1beta/accounts",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/analytics.edit"
+      "https://www.googleapis.com/auth/analytics.readonly"]}))
 
 (defn accounts-runAccessReport
   "Returns a customized report of data access records. The report provides records of each time a user reads Google Analytics reporting data. Access records are retained for up to 2 years. Data Access Reports can be requested for a property. Reports may be requested for any property, but dimensions that aren't related to quota can only be requested on Google Analytics 360 properties. This method is only available to Administrators. These data access records include GA UI Reporting, GA UI Explorations, GA Data API, and other products like Firebase & Admob that can retrieve data from Google Analytics through a linkage. These records don't include property configuration changes like adding a stream or changing a property's time zone. For configuration change history, see [searchChangeHistoryEvents](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/accounts/searchChangeHistoryEvents).
@@ -989,16 +935,15 @@ entity <>
 GoogleAnalyticsAdminV1betaRunAccessReportRequest:
 GoogleAnalyticsAdminV1betaRunAccessReportRequest"
   [entity GoogleAnalyticsAdminV1betaRunAccessReportRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/{+entity}:runAccessReport",
-     :uri-template-args {"entity" entity},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/analytics.edit"
-      "https://www.googleapis.com/auth/analytics.readonly"],
-     :body GoogleAnalyticsAdminV1betaRunAccessReportRequest}))
+  {:method :post,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/{+entity}:runAccessReport",
+   :uri-template-args {"entity" entity},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/analytics.edit"
+    "https://www.googleapis.com/auth/analytics.readonly"],
+   :body GoogleAnalyticsAdminV1betaRunAccessReportRequest})
 
 (defn accounts-provisionAccountTicket
   "Requests a ticket for creating an account.
@@ -1007,11 +952,10 @@ https://developers.google.com/analytics/devguides/config/admin/v1?csw=1/v1beta/r
 GoogleAnalyticsAdminV1betaProvisionAccountTicketRequest:
 GoogleAnalyticsAdminV1betaProvisionAccountTicketRequest"
   [GoogleAnalyticsAdminV1betaProvisionAccountTicketRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://analyticsadmin.googleapis.com/v1beta/accounts:provisionAccountTicket",
-     :uri-template-args {},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/analytics.edit"],
-     :body GoogleAnalyticsAdminV1betaProvisionAccountTicketRequest}))
+  {:method :post,
+   :uri-template
+   "https://analyticsadmin.googleapis.com/v1beta/accounts:provisionAccountTicket",
+   :uri-template-args {},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/analytics.edit"],
+   :body GoogleAnalyticsAdminV1betaProvisionAccountTicketRequest})

@@ -1,8 +1,7 @@
 (ns happyapi.google.aiplatform-v1
   "Vertex AI API
 Train high-quality custom machine learning models with minimal machine learning expertise and effort.
-See: https://cloud.google.com/vertex-ai/"
-  (:require [happyapi.providers.google :as client]))
+See: https://cloud.google.com/vertex-ai/")
 
 (defn projects-locations-list
   "Lists information about the supported locations for this service.
@@ -15,13 +14,12 @@ filter <string> A filter to narrow down results to a preferred subset. The filte
 pageSize <integer> The maximum number of results to return. If not set, the service selects a default."
   ([name] (projects-locations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/locations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/locations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-evaluateInstances
   "Evaluates instances based on a given metric.
@@ -31,14 +29,13 @@ location <>
 GoogleCloudAiplatformV1EvaluateInstancesRequest:
 GoogleCloudAiplatformV1EvaluateInstancesRequest"
   [location GoogleCloudAiplatformV1EvaluateInstancesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+location}:evaluateInstances",
-     :uri-template-args {"location" location},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1EvaluateInstancesRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+location}:evaluateInstances",
+   :uri-template-args {"location" location},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1EvaluateInstancesRequest})
 
 (defn projects-locations-get
   "Gets information about a location.
@@ -46,12 +43,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/get
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-studies-get
   "Gets a Study by name.
@@ -59,12 +55,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/studi
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-studies-list
   "Lists all the studies in a region for an associated project.
@@ -76,13 +71,12 @@ optional:
 pageSize <integer> Optional. The maximum number of studies to return per \"page\" of results. If unspecified, service will pick an appropriate default."
   ([parent] (projects-locations-studies-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/studies",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/studies",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-studies-create
   "Creates a Study. A resource name will be generated after creation of the Study.
@@ -92,14 +86,13 @@ parent <>
 GoogleCloudAiplatformV1Study:
 GoogleCloudAiplatformV1Study"
   [parent GoogleCloudAiplatformV1Study]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/studies",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1Study}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/studies",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1Study})
 
 (defn projects-locations-studies-delete
   "Deletes a Study.
@@ -107,12 +100,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/studi
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-studies-lookup
   "Looks a study up using the user-defined display_name field instead of the fully qualified resource name.
@@ -122,14 +114,13 @@ parent <>
 GoogleCloudAiplatformV1LookupStudyRequest:
 GoogleCloudAiplatformV1LookupStudyRequest"
   [parent GoogleCloudAiplatformV1LookupStudyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/studies:lookup",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1LookupStudyRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/studies:lookup",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1LookupStudyRequest})
 
 (defn projects-locations-studies-trials-stop
   "Stops a Trial.
@@ -139,13 +130,12 @@ name <>
 GoogleCloudAiplatformV1StopTrialRequest:
 GoogleCloudAiplatformV1StopTrialRequest"
   [name GoogleCloudAiplatformV1StopTrialRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:stop",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1StopTrialRequest}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:stop",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1StopTrialRequest})
 
 (defn projects-locations-studies-trials-list
   "Lists the Trials associated with a Study.
@@ -157,13 +147,12 @@ optional:
 pageSize <integer> Optional. The number of Trials to retrieve per \"page\" of results. If unspecified, the service will pick an appropriate default."
   ([parent] (projects-locations-studies-trials-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/trials",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/trials",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-studies-trials-delete
   "Deletes a Trial.
@@ -171,12 +160,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/studi
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-studies-trials-complete
   "Marks a Trial as complete.
@@ -186,14 +174,13 @@ name <>
 GoogleCloudAiplatformV1CompleteTrialRequest:
 GoogleCloudAiplatformV1CompleteTrialRequest"
   [name GoogleCloudAiplatformV1CompleteTrialRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:complete",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1CompleteTrialRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+name}:complete",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1CompleteTrialRequest})
 
 (defn projects-locations-studies-trials-listOptimalTrials
   "Lists the pareto-optimal Trials for multi-objective Study or the optimal Trials for single-objective Study. The definition of pareto-optimal can be checked in wiki page. https://en.wikipedia.org/wiki/Pareto_efficiency
@@ -203,14 +190,13 @@ parent <>
 GoogleCloudAiplatformV1ListOptimalTrialsRequest:
 GoogleCloudAiplatformV1ListOptimalTrialsRequest"
   [parent GoogleCloudAiplatformV1ListOptimalTrialsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/trials:listOptimalTrials",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1ListOptimalTrialsRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/trials:listOptimalTrials",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1ListOptimalTrialsRequest})
 
 (defn projects-locations-studies-trials-checkTrialEarlyStoppingState
   "Checks whether a Trial should stop or not. Returns a long-running operation. When the operation is successful, it will contain a CheckTrialEarlyStoppingStateResponse.
@@ -221,14 +207,13 @@ GoogleCloudAiplatformV1CheckTrialEarlyStoppingStateRequest:
 GoogleCloudAiplatformV1CheckTrialEarlyStoppingStateRequest"
   [trialName
    GoogleCloudAiplatformV1CheckTrialEarlyStoppingStateRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+trialName}:checkTrialEarlyStoppingState",
-     :uri-template-args {"trialName" trialName},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1CheckTrialEarlyStoppingStateRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+trialName}:checkTrialEarlyStoppingState",
+   :uri-template-args {"trialName" trialName},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1CheckTrialEarlyStoppingStateRequest})
 
 (defn projects-locations-studies-trials-create
   "Adds a user provided Trial to a Study.
@@ -238,14 +223,13 @@ parent <>
 GoogleCloudAiplatformV1Trial:
 GoogleCloudAiplatformV1Trial"
   [parent GoogleCloudAiplatformV1Trial]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/trials",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1Trial}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/trials",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1Trial})
 
 (defn projects-locations-studies-trials-addTrialMeasurement
   "Adds a measurement of the objective metrics to a Trial. This measurement is assumed to have been taken before the Trial is complete.
@@ -255,14 +239,13 @@ trialName <>
 GoogleCloudAiplatformV1AddTrialMeasurementRequest:
 GoogleCloudAiplatformV1AddTrialMeasurementRequest"
   [trialName GoogleCloudAiplatformV1AddTrialMeasurementRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+trialName}:addTrialMeasurement",
-     :uri-template-args {"trialName" trialName},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1AddTrialMeasurementRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+trialName}:addTrialMeasurement",
+   :uri-template-args {"trialName" trialName},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1AddTrialMeasurementRequest})
 
 (defn projects-locations-studies-trials-get
   "Gets a Trial.
@@ -270,12 +253,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/studi
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-studies-trials-suggest
   "Adds one or more Trials to a Study, with parameter values suggested by Vertex AI Vizier. Returns a long-running operation associated with the generation of Trial suggestions. When this long-running operation succeeds, it will contain a SuggestTrialsResponse.
@@ -285,14 +267,13 @@ parent <>
 GoogleCloudAiplatformV1SuggestTrialsRequest:
 GoogleCloudAiplatformV1SuggestTrialsRequest"
   [parent GoogleCloudAiplatformV1SuggestTrialsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/trials:suggest",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1SuggestTrialsRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/trials:suggest",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1SuggestTrialsRequest})
 
 (defn projects-locations-studies-trials-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -304,13 +285,11 @@ optional:
 timeout <string> The maximum duration to wait before timing out. If left blank, the wait will be at most the time permitted by the underlying HTTP/RPC protocol. If RPC context deadline is also specified, the shorter one will be used."
   ([name] (projects-locations-studies-trials-operations-wait name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-studies-trials-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -323,13 +302,12 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-studies-trials-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-studies-trials-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -337,12 +315,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/studi
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-studies-trials-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -350,12 +327,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/studi
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-studies-trials-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -363,13 +339,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/studi
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-studies-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -377,12 +351,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/studi
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-studies-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -390,13 +363,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/studi
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-studies-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -408,13 +379,11 @@ optional:
 timeout <string> The maximum duration to wait before timing out. If left blank, the wait will be at most the time permitted by the underlying HTTP/RPC protocol. If RPC context deadline is also specified, the shorter one will be used."
   ([name] (projects-locations-studies-operations-wait name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-studies-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -427,13 +396,12 @@ pageSize <integer> The standard list page size.
 filter <string> The standard list filter."
   ([name] (projects-locations-studies-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-studies-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -441,12 +409,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/studi
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-migratableResources-batchMigrate
   "Batch migrates resources from ml.googleapis.com, automl.googleapis.com, and datalabeling.googleapis.com to Vertex AI.
@@ -456,14 +423,13 @@ parent <>
 GoogleCloudAiplatformV1BatchMigrateResourcesRequest:
 GoogleCloudAiplatformV1BatchMigrateResourcesRequest"
   [parent GoogleCloudAiplatformV1BatchMigrateResourcesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/migratableResources:batchMigrate",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1BatchMigrateResourcesRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/migratableResources:batchMigrate",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1BatchMigrateResourcesRequest})
 
 (defn projects-locations-migratableResources-search
   "Searches all of the resources in automl.googleapis.com, datalabeling.googleapis.com and ml.googleapis.com that can be migrated to Vertex AI's given location.
@@ -473,14 +439,13 @@ parent <>
 GoogleCloudAiplatformV1SearchMigratableResourcesRequest:
 GoogleCloudAiplatformV1SearchMigratableResourcesRequest"
   [parent GoogleCloudAiplatformV1SearchMigratableResourcesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/migratableResources:search",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1SearchMigratableResourcesRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/migratableResources:search",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1SearchMigratableResourcesRequest})
 
 (defn projects-locations-migratableResources-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -493,13 +458,11 @@ timeout <string> The maximum duration to wait before timing out. If left blank, 
   ([name]
     (projects-locations-migratableResources-operations-wait name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-migratableResources-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -507,12 +470,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/migra
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-migratableResources-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -526,13 +488,12 @@ filter <string> The standard list filter."
   ([name]
     (projects-locations-migratableResources-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-migratableResources-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -540,13 +501,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/migra
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-migratableResources-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -554,12 +513,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/migra
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-indexEndpoints-list
   "Lists IndexEndpoints in a Location.
@@ -573,13 +531,12 @@ filter <string> Optional. An expression for filtering the results of the request
 pageSize <integer> Optional. The standard list page size."
   ([parent] (projects-locations-indexEndpoints-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/indexEndpoints",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/indexEndpoints",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-indexEndpoints-delete
   "Deletes an IndexEndpoint.
@@ -587,12 +544,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/index
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-indexEndpoints-findNeighbors
   "Finds the nearest neighbors of each vector within the request.
@@ -602,14 +558,13 @@ indexEndpoint <>
 GoogleCloudAiplatformV1FindNeighborsRequest:
 GoogleCloudAiplatformV1FindNeighborsRequest"
   [indexEndpoint GoogleCloudAiplatformV1FindNeighborsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+indexEndpoint}:findNeighbors",
-     :uri-template-args {"indexEndpoint" indexEndpoint},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1FindNeighborsRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+indexEndpoint}:findNeighbors",
+   :uri-template-args {"indexEndpoint" indexEndpoint},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1FindNeighborsRequest})
 
 (defn projects-locations-indexEndpoints-undeployIndex
   "Undeploys an Index from an IndexEndpoint, removing a DeployedIndex from it, and freeing all resources it's using.
@@ -619,14 +574,13 @@ indexEndpoint <>
 GoogleCloudAiplatformV1UndeployIndexRequest:
 GoogleCloudAiplatformV1UndeployIndexRequest"
   [indexEndpoint GoogleCloudAiplatformV1UndeployIndexRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+indexEndpoint}:undeployIndex",
-     :uri-template-args {"indexEndpoint" indexEndpoint},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1UndeployIndexRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+indexEndpoint}:undeployIndex",
+   :uri-template-args {"indexEndpoint" indexEndpoint},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1UndeployIndexRequest})
 
 (defn projects-locations-indexEndpoints-mutateDeployedIndex
   "Update an existing DeployedIndex under an IndexEndpoint.
@@ -636,14 +590,13 @@ indexEndpoint <>
 GoogleCloudAiplatformV1DeployedIndex:
 GoogleCloudAiplatformV1DeployedIndex"
   [indexEndpoint GoogleCloudAiplatformV1DeployedIndex]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+indexEndpoint}:mutateDeployedIndex",
-     :uri-template-args {"indexEndpoint" indexEndpoint},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1DeployedIndex}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+indexEndpoint}:mutateDeployedIndex",
+   :uri-template-args {"indexEndpoint" indexEndpoint},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1DeployedIndex})
 
 (defn projects-locations-indexEndpoints-readIndexDatapoints
   "Reads the datapoints/vectors of the given IDs. A maximum of 1000 datapoints can be retrieved in a batch.
@@ -653,14 +606,13 @@ indexEndpoint <>
 GoogleCloudAiplatformV1ReadIndexDatapointsRequest:
 GoogleCloudAiplatformV1ReadIndexDatapointsRequest"
   [indexEndpoint GoogleCloudAiplatformV1ReadIndexDatapointsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+indexEndpoint}:readIndexDatapoints",
-     :uri-template-args {"indexEndpoint" indexEndpoint},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1ReadIndexDatapointsRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+indexEndpoint}:readIndexDatapoints",
+   :uri-template-args {"indexEndpoint" indexEndpoint},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1ReadIndexDatapointsRequest})
 
 (defn projects-locations-indexEndpoints-patch
   "Updates an IndexEndpoint.
@@ -678,13 +630,12 @@ updateMask <string> Required. The update mask applies to the resource. See googl
       GoogleCloudAiplatformV1IndexEndpoint
       nil))
   ([name GoogleCloudAiplatformV1IndexEndpoint optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1IndexEndpoint})))
+    {:method :patch,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1IndexEndpoint}))
 
 (defn projects-locations-indexEndpoints-create
   "Creates an IndexEndpoint.
@@ -694,14 +645,13 @@ parent <>
 GoogleCloudAiplatformV1IndexEndpoint:
 GoogleCloudAiplatformV1IndexEndpoint"
   [parent GoogleCloudAiplatformV1IndexEndpoint]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/indexEndpoints",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1IndexEndpoint}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/indexEndpoints",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1IndexEndpoint})
 
 (defn projects-locations-indexEndpoints-deployIndex
   "Deploys an Index into this IndexEndpoint, creating a DeployedIndex within it. Only non-empty Indexes can be deployed.
@@ -711,14 +661,13 @@ indexEndpoint <>
 GoogleCloudAiplatformV1DeployIndexRequest:
 GoogleCloudAiplatformV1DeployIndexRequest"
   [indexEndpoint GoogleCloudAiplatformV1DeployIndexRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+indexEndpoint}:deployIndex",
-     :uri-template-args {"indexEndpoint" indexEndpoint},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1DeployIndexRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+indexEndpoint}:deployIndex",
+   :uri-template-args {"indexEndpoint" indexEndpoint},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1DeployIndexRequest})
 
 (defn projects-locations-indexEndpoints-get
   "Gets an IndexEndpoint.
@@ -726,12 +675,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/index
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-indexEndpoints-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -744,13 +692,12 @@ pageSize <integer> The standard list page size.
 filter <string> The standard list filter."
   ([name] (projects-locations-indexEndpoints-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-indexEndpoints-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -758,12 +705,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/index
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-indexEndpoints-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -771,13 +717,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/index
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-indexEndpoints-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -789,13 +733,11 @@ optional:
 timeout <string> The maximum duration to wait before timing out. If left blank, the wait will be at most the time permitted by the underlying HTTP/RPC protocol. If RPC context deadline is also specified, the shorter one will be used."
   ([name] (projects-locations-indexEndpoints-operations-wait name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-indexEndpoints-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -803,12 +745,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/index
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-notebookRuntimes-delete
   "Deletes a NotebookRuntime.
@@ -816,12 +757,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/noteb
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-notebookRuntimes-get
   "Gets a NotebookRuntime.
@@ -829,12 +769,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/noteb
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-notebookRuntimes-assign
   "Assigns a NotebookRuntime to a user for a particular Notebook file. This method will either returns an existing assignment or generates a new one.
@@ -844,14 +783,13 @@ parent <>
 GoogleCloudAiplatformV1AssignNotebookRuntimeRequest:
 GoogleCloudAiplatformV1AssignNotebookRuntimeRequest"
   [parent GoogleCloudAiplatformV1AssignNotebookRuntimeRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/notebookRuntimes:assign",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1AssignNotebookRuntimeRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/notebookRuntimes:assign",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1AssignNotebookRuntimeRequest})
 
 (defn projects-locations-notebookRuntimes-list
   "Lists NotebookRuntimes in a Location.
@@ -866,13 +804,12 @@ pageSize <integer> Optional. The standard list page size.
 orderBy <string> Optional. A comma-separated list of fields to order by, sorted in ascending order. Use \"desc\" after a field name for descending. Supported fields: * `display_name` * `create_time` * `update_time` Example: `display_name, create_time desc`."
   ([parent] (projects-locations-notebookRuntimes-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/notebookRuntimes",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/notebookRuntimes",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-notebookRuntimes-start
   "Starts a NotebookRuntime.
@@ -882,14 +819,12 @@ name <>
 GoogleCloudAiplatformV1StartNotebookRuntimeRequest:
 GoogleCloudAiplatformV1StartNotebookRuntimeRequest"
   [name GoogleCloudAiplatformV1StartNotebookRuntimeRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:start",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1StartNotebookRuntimeRequest}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:start",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1StartNotebookRuntimeRequest})
 
 (defn projects-locations-notebookRuntimes-upgrade
   "Upgrades a NotebookRuntime.
@@ -899,14 +834,13 @@ name <>
 GoogleCloudAiplatformV1UpgradeNotebookRuntimeRequest:
 GoogleCloudAiplatformV1UpgradeNotebookRuntimeRequest"
   [name GoogleCloudAiplatformV1UpgradeNotebookRuntimeRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:upgrade",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1UpgradeNotebookRuntimeRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+name}:upgrade",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1UpgradeNotebookRuntimeRequest})
 
 (defn projects-locations-notebookRuntimes-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -919,13 +853,11 @@ timeout <string> The maximum duration to wait before timing out. If left blank, 
   ([name]
     (projects-locations-notebookRuntimes-operations-wait name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-notebookRuntimes-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -933,12 +865,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/noteb
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-notebookRuntimes-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -952,13 +883,12 @@ pageSize <integer> The standard list page size."
   ([name]
     (projects-locations-notebookRuntimes-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-notebookRuntimes-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -966,13 +896,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/noteb
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-notebookRuntimes-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -980,12 +908,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/noteb
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-pipelineJobs-get
   "Gets a PipelineJob.
@@ -993,12 +920,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/pipel
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-pipelineJobs-list
   "Lists PipelineJobs in a Location.
@@ -1013,13 +939,12 @@ pageSize <integer> The standard list page size.
 orderBy <string> A comma-separated list of fields to order by. The default sort order is in ascending order. Use \"desc\" after a field name for descending. You can have multiple order_by fields provided e.g. \"create_time desc, end_time\", \"end_time, start_time, update_time\" For example, using \"create_time desc, end_time\" will order results by create time in descending order, and if there are multiple jobs having the same create time, order them by the end time in ascending order. if order_by is not specified, it will order by default order is create time in descending order. Supported fields: * `create_time` * `update_time` * `end_time` * `start_time`"
   ([parent] (projects-locations-pipelineJobs-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/pipelineJobs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/pipelineJobs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-pipelineJobs-batchCancel
   "Batch cancel PipelineJobs. Firstly the server will check if all the jobs are in non-terminal states, and skip the jobs that are already terminated. If the operation failed, none of the pipeline jobs are cancelled. The server will poll the states of all the pipeline jobs periodically to check the cancellation status. This operation will return an LRO.
@@ -1029,14 +954,13 @@ parent <>
 GoogleCloudAiplatformV1BatchCancelPipelineJobsRequest:
 GoogleCloudAiplatformV1BatchCancelPipelineJobsRequest"
   [parent GoogleCloudAiplatformV1BatchCancelPipelineJobsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/pipelineJobs:batchCancel",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1BatchCancelPipelineJobsRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/pipelineJobs:batchCancel",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1BatchCancelPipelineJobsRequest})
 
 (defn projects-locations-pipelineJobs-delete
   "Deletes a PipelineJob.
@@ -1044,12 +968,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/pipel
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-pipelineJobs-cancel
   "Cancels a PipelineJob. Starts asynchronous cancellation on the PipelineJob. The server makes a best effort to cancel the pipeline, but success is not guaranteed. Clients can use PipelineService.GetPipelineJob or other methods to check whether the cancellation succeeded or whether the pipeline completed despite cancellation. On successful cancellation, the PipelineJob is not deleted; instead it becomes a pipeline with a PipelineJob.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`, and PipelineJob.state is set to `CANCELLED`.
@@ -1059,14 +982,12 @@ name <>
 GoogleCloudAiplatformV1CancelPipelineJobRequest:
 GoogleCloudAiplatformV1CancelPipelineJobRequest"
   [name GoogleCloudAiplatformV1CancelPipelineJobRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1CancelPipelineJobRequest}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1CancelPipelineJobRequest})
 
 (defn projects-locations-pipelineJobs-batchDelete
   "Batch deletes PipelineJobs The Operation is atomic. If it fails, none of the PipelineJobs are deleted. If it succeeds, all of the PipelineJobs are deleted.
@@ -1076,14 +997,13 @@ parent <>
 GoogleCloudAiplatformV1BatchDeletePipelineJobsRequest:
 GoogleCloudAiplatformV1BatchDeletePipelineJobsRequest"
   [parent GoogleCloudAiplatformV1BatchDeletePipelineJobsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/pipelineJobs:batchDelete",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1BatchDeletePipelineJobsRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/pipelineJobs:batchDelete",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1BatchDeletePipelineJobsRequest})
 
 (defn projects-locations-pipelineJobs-create
   "Creates a PipelineJob. A PipelineJob will run immediately when created.
@@ -1101,14 +1021,13 @@ pipelineJobId <string> The ID to use for the PipelineJob, which will become the 
       GoogleCloudAiplatformV1PipelineJob
       nil))
   ([parent GoogleCloudAiplatformV1PipelineJob optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/pipelineJobs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1PipelineJob})))
+    {:method :post,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/pipelineJobs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1PipelineJob}))
 
 (defn projects-locations-pipelineJobs-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -1120,13 +1039,11 @@ optional:
 timeout <string> The maximum duration to wait before timing out. If left blank, the wait will be at most the time permitted by the underlying HTTP/RPC protocol. If RPC context deadline is also specified, the shorter one will be used."
   ([name] (projects-locations-pipelineJobs-operations-wait name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-pipelineJobs-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -1134,12 +1051,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/pipel
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-pipelineJobs-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -1152,13 +1068,12 @@ pageSize <integer> The standard list page size.
 filter <string> The standard list filter."
   ([name] (projects-locations-pipelineJobs-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-pipelineJobs-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -1166,13 +1081,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/pipel
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-pipelineJobs-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -1180,12 +1093,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/pipel
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-dataLabelingJobs-list
   "Lists DataLabelingJobs in a Location.
@@ -1200,13 +1112,12 @@ readMask <string> Mask specifying which fields to read. FieldMask represents a s
 orderBy <string> A comma-separated list of fields to order by, sorted in ascending order by default. Use `desc` after a field name for descending."
   ([parent] (projects-locations-dataLabelingJobs-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/dataLabelingJobs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/dataLabelingJobs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-dataLabelingJobs-get
   "Gets a DataLabelingJob.
@@ -1214,12 +1125,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/dataL
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-dataLabelingJobs-delete
   "Deletes a DataLabelingJob.
@@ -1227,12 +1137,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/dataL
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-dataLabelingJobs-create
   "Creates a DataLabelingJob.
@@ -1242,14 +1151,13 @@ parent <>
 GoogleCloudAiplatformV1DataLabelingJob:
 GoogleCloudAiplatformV1DataLabelingJob"
   [parent GoogleCloudAiplatformV1DataLabelingJob]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/dataLabelingJobs",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1DataLabelingJob}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/dataLabelingJobs",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1DataLabelingJob})
 
 (defn projects-locations-dataLabelingJobs-cancel
   "Cancels a DataLabelingJob. Success of cancellation is not guaranteed.
@@ -1259,14 +1167,12 @@ name <>
 GoogleCloudAiplatformV1CancelDataLabelingJobRequest:
 GoogleCloudAiplatformV1CancelDataLabelingJobRequest"
   [name GoogleCloudAiplatformV1CancelDataLabelingJobRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1CancelDataLabelingJobRequest}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1CancelDataLabelingJobRequest})
 
 (defn projects-locations-dataLabelingJobs-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -1274,13 +1180,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/dataL
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-dataLabelingJobs-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -1294,13 +1198,12 @@ filter <string> The standard list filter."
   ([name]
     (projects-locations-dataLabelingJobs-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-dataLabelingJobs-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -1308,12 +1211,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/dataL
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-dataLabelingJobs-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -1326,13 +1228,11 @@ timeout <string> The maximum duration to wait before timing out. If left blank, 
   ([name]
     (projects-locations-dataLabelingJobs-operations-wait name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-dataLabelingJobs-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -1340,12 +1240,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/dataL
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-featureOnlineStores-list
   "Lists FeatureOnlineStores in a given project and location.
@@ -1359,13 +1258,12 @@ orderBy <string> A comma-separated list of fields to order by, sorted in ascendi
 pageSize <integer> The maximum number of FeatureOnlineStores to return. The service may return fewer than this value. If unspecified, at most 100 FeatureOnlineStores will be returned. The maximum value is 100; any value greater than 100 will be coerced to 100."
   ([parent] (projects-locations-featureOnlineStores-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/featureOnlineStores",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/featureOnlineStores",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-featureOnlineStores-get
   "Gets details of a single FeatureOnlineStore.
@@ -1373,12 +1271,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/featu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-featureOnlineStores-patch
   "Updates the parameters of a single FeatureOnlineStore.
@@ -1396,13 +1293,12 @@ updateMask <string> Field mask is used to specify the fields to be overwritten i
       GoogleCloudAiplatformV1FeatureOnlineStore
       nil))
   ([name GoogleCloudAiplatformV1FeatureOnlineStore optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1FeatureOnlineStore})))
+    {:method :patch,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1FeatureOnlineStore}))
 
 (defn projects-locations-featureOnlineStores-create
   "Creates a new FeatureOnlineStore in a given project and location.
@@ -1420,14 +1316,13 @@ featureOnlineStoreId <string> Required. The ID to use for this FeatureOnlineStor
       GoogleCloudAiplatformV1FeatureOnlineStore
       nil))
   ([parent GoogleCloudAiplatformV1FeatureOnlineStore optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/featureOnlineStores",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1FeatureOnlineStore})))
+    {:method :post,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/featureOnlineStores",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1FeatureOnlineStore}))
 
 (defn projects-locations-featureOnlineStores-delete
   "Deletes a single FeatureOnlineStore. The FeatureOnlineStore must not contain any FeatureViews.
@@ -1439,12 +1334,11 @@ optional:
 force <boolean> If set to true, any FeatureViews and Features for this FeatureOnlineStore will also be deleted. (Otherwise, the request will only work if the FeatureOnlineStore has no FeatureViews.)"
   ([name] (projects-locations-featureOnlineStores-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-featureOnlineStores-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -1457,13 +1351,11 @@ timeout <string> The maximum duration to wait before timing out. If left blank, 
   ([name]
     (projects-locations-featureOnlineStores-operations-wait name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-featureOnlineStores-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -1471,12 +1363,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/featu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-featureOnlineStores-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -1484,12 +1375,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/featu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-featureOnlineStores-operations-listWait
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -1505,13 +1395,11 @@ filter <string> The standard list filter."
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-featureOnlineStores-featureViews-patch
   "Updates the parameters of a single FeatureView.
@@ -1529,13 +1417,12 @@ updateMask <string> Field mask is used to specify the fields to be overwritten i
       GoogleCloudAiplatformV1FeatureView
       nil))
   ([name GoogleCloudAiplatformV1FeatureView optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1FeatureView})))
+    {:method :patch,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1FeatureView}))
 
 (defn projects-locations-featureOnlineStores-featureViews-searchNearestEntities
   "Search the nearest entities under a FeatureView. Search only works for indexable feature view; if a feature view isn't indexable, returns Invalid argument response.
@@ -1545,14 +1432,13 @@ featureView <>
 GoogleCloudAiplatformV1SearchNearestEntitiesRequest:
 GoogleCloudAiplatformV1SearchNearestEntitiesRequest"
   [featureView GoogleCloudAiplatformV1SearchNearestEntitiesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+featureView}:searchNearestEntities",
-     :uri-template-args {"featureView" featureView},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1SearchNearestEntitiesRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+featureView}:searchNearestEntities",
+   :uri-template-args {"featureView" featureView},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1SearchNearestEntitiesRequest})
 
 (defn projects-locations-featureOnlineStores-featureViews-delete
   "Deletes a single FeatureView.
@@ -1560,12 +1446,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/featu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-featureOnlineStores-featureViews-create
   "Creates a new FeatureView in a given FeatureOnlineStore.
@@ -1584,14 +1469,13 @@ featureViewId <string> Required. The ID to use for the FeatureView, which will b
       GoogleCloudAiplatformV1FeatureView
       nil))
   ([parent GoogleCloudAiplatformV1FeatureView optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/featureViews",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1FeatureView})))
+    {:method :post,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/featureViews",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1FeatureView}))
 
 (defn projects-locations-featureOnlineStores-featureViews-get
   "Gets details of a single FeatureView.
@@ -1599,12 +1483,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/featu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-featureOnlineStores-featureViews-sync
   "Triggers on-demand sync for the FeatureView.
@@ -1614,14 +1497,13 @@ featureView <>
 GoogleCloudAiplatformV1SyncFeatureViewRequest:
 GoogleCloudAiplatformV1SyncFeatureViewRequest"
   [featureView GoogleCloudAiplatformV1SyncFeatureViewRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+featureView}:sync",
-     :uri-template-args {"featureView" featureView},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1SyncFeatureViewRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+featureView}:sync",
+   :uri-template-args {"featureView" featureView},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1SyncFeatureViewRequest})
 
 (defn projects-locations-featureOnlineStores-featureViews-fetchFeatureValues
   "Fetch feature values under a FeatureView.
@@ -1631,14 +1513,13 @@ featureView <>
 GoogleCloudAiplatformV1FetchFeatureValuesRequest:
 GoogleCloudAiplatformV1FetchFeatureValuesRequest"
   [featureView GoogleCloudAiplatformV1FetchFeatureValuesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+featureView}:fetchFeatureValues",
-     :uri-template-args {"featureView" featureView},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1FetchFeatureValuesRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+featureView}:fetchFeatureValues",
+   :uri-template-args {"featureView" featureView},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1FetchFeatureValuesRequest})
 
 (defn projects-locations-featureOnlineStores-featureViews-list
   "Lists FeatureViews in a given FeatureOnlineStore.
@@ -1655,13 +1536,12 @@ orderBy <string> A comma-separated list of fields to order by, sorted in ascendi
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/featureViews",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/featureViews",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-featureOnlineStores-featureViews-featureViewSyncs-get
   "Gets details of a single FeatureViewSync.
@@ -1669,12 +1549,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/featu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-featureOnlineStores-featureViews-featureViewSyncs-list
   "Lists FeatureViewSyncs in a given FeatureView.
@@ -1691,13 +1570,12 @@ orderBy <string> A comma-separated list of fields to order by, sorted in ascendi
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/featureViewSyncs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/featureViewSyncs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-featureOnlineStores-featureViews-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -1705,12 +1583,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/featu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-featureOnlineStores-featureViews-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -1718,12 +1595,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/featu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-featureOnlineStores-featureViews-operations-listWait
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -1739,13 +1615,11 @@ pageSize <integer> The standard list page size."
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-featureOnlineStores-featureViews-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -1760,13 +1634,11 @@ timeout <string> The maximum duration to wait before timing out. If left blank, 
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-endpoints-undeployModel
   "Undeploys a Model from an Endpoint, removing a DeployedModel from it, and freeing all resources it's using.
@@ -1776,14 +1648,13 @@ endpoint <>
 GoogleCloudAiplatformV1UndeployModelRequest:
 GoogleCloudAiplatformV1UndeployModelRequest"
   [endpoint GoogleCloudAiplatformV1UndeployModelRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+endpoint}:undeployModel",
-     :uri-template-args {"endpoint" endpoint},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1UndeployModelRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+endpoint}:undeployModel",
+   :uri-template-args {"endpoint" endpoint},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1UndeployModelRequest})
 
 (defn projects-locations-endpoints-predict
   "Perform an online prediction.
@@ -1793,16 +1664,15 @@ endpoint <>
 GoogleCloudAiplatformV1PredictRequest:
 GoogleCloudAiplatformV1PredictRequest"
   [endpoint GoogleCloudAiplatformV1PredictRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+endpoint}:predict",
-     :uri-template-args {"endpoint" endpoint},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"],
-     :body GoogleCloudAiplatformV1PredictRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+endpoint}:predict",
+   :uri-template-args {"endpoint" endpoint},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"],
+   :body GoogleCloudAiplatformV1PredictRequest})
 
 (defn projects-locations-endpoints-list
   "Lists Endpoints in a Location.
@@ -1817,13 +1687,12 @@ filter <string> Optional. An expression for filtering the results of the request
 readMask <string> Optional. Mask specifying which fields to read."
   ([parent] (projects-locations-endpoints-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/endpoints",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/endpoints",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-endpoints-explain
   "Perform an online explanation. If deployed_model_id is specified, the corresponding DeployModel must have explanation_spec populated. If deployed_model_id is not specified, all DeployedModels must have explanation_spec populated.
@@ -1833,16 +1702,15 @@ endpoint <>
 GoogleCloudAiplatformV1ExplainRequest:
 GoogleCloudAiplatformV1ExplainRequest"
   [endpoint GoogleCloudAiplatformV1ExplainRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+endpoint}:explain",
-     :uri-template-args {"endpoint" endpoint},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"],
-     :body GoogleCloudAiplatformV1ExplainRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+endpoint}:explain",
+   :uri-template-args {"endpoint" endpoint},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"],
+   :body GoogleCloudAiplatformV1ExplainRequest})
 
 (defn projects-locations-endpoints-delete
   "Deletes an Endpoint.
@@ -1850,12 +1718,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/endpo
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-endpoints-directRawPredict
   "Perform an unary online prediction request to a gRPC model server for custom containers.
@@ -1865,16 +1732,15 @@ endpoint <>
 GoogleCloudAiplatformV1DirectRawPredictRequest:
 GoogleCloudAiplatformV1DirectRawPredictRequest"
   [endpoint GoogleCloudAiplatformV1DirectRawPredictRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+endpoint}:directRawPredict",
-     :uri-template-args {"endpoint" endpoint},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"],
-     :body GoogleCloudAiplatformV1DirectRawPredictRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+endpoint}:directRawPredict",
+   :uri-template-args {"endpoint" endpoint},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"],
+   :body GoogleCloudAiplatformV1DirectRawPredictRequest})
 
 (defn projects-locations-endpoints-generateContent
   "Generate content with multimodal inputs.
@@ -1884,16 +1750,15 @@ model <>
 GoogleCloudAiplatformV1GenerateContentRequest:
 GoogleCloudAiplatformV1GenerateContentRequest"
   [model GoogleCloudAiplatformV1GenerateContentRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+model}:generateContent",
-     :uri-template-args {"model" model},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"],
-     :body GoogleCloudAiplatformV1GenerateContentRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+model}:generateContent",
+   :uri-template-args {"model" model},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"],
+   :body GoogleCloudAiplatformV1GenerateContentRequest})
 
 (defn projects-locations-endpoints-mutateDeployedModel
   "Updates an existing deployed model. Updatable fields include `min_replica_count`, `max_replica_count`, `autoscaling_metric_specs`, `disable_container_logging` (v1 only), and `enable_container_logging` (v1beta1 only).
@@ -1903,14 +1768,13 @@ endpoint <>
 GoogleCloudAiplatformV1MutateDeployedModelRequest:
 GoogleCloudAiplatformV1MutateDeployedModelRequest"
   [endpoint GoogleCloudAiplatformV1MutateDeployedModelRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+endpoint}:mutateDeployedModel",
-     :uri-template-args {"endpoint" endpoint},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1MutateDeployedModelRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+endpoint}:mutateDeployedModel",
+   :uri-template-args {"endpoint" endpoint},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1MutateDeployedModelRequest})
 
 (defn projects-locations-endpoints-streamRawPredict
   "Perform a streaming online prediction with an arbitrary HTTP payload.
@@ -1920,16 +1784,15 @@ endpoint <>
 GoogleCloudAiplatformV1StreamRawPredictRequest:
 GoogleCloudAiplatformV1StreamRawPredictRequest"
   [endpoint GoogleCloudAiplatformV1StreamRawPredictRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+endpoint}:streamRawPredict",
-     :uri-template-args {"endpoint" endpoint},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"],
-     :body GoogleCloudAiplatformV1StreamRawPredictRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+endpoint}:streamRawPredict",
+   :uri-template-args {"endpoint" endpoint},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"],
+   :body GoogleCloudAiplatformV1StreamRawPredictRequest})
 
 (defn projects-locations-endpoints-rawPredict
   "Perform an online prediction with an arbitrary HTTP payload. The response includes the following HTTP headers: * `X-Vertex-AI-Endpoint-Id`: ID of the Endpoint that served this prediction. * `X-Vertex-AI-Deployed-Model-Id`: ID of the Endpoint's DeployedModel that served this prediction.
@@ -1939,16 +1802,15 @@ endpoint <>
 GoogleCloudAiplatformV1RawPredictRequest:
 GoogleCloudAiplatformV1RawPredictRequest"
   [endpoint GoogleCloudAiplatformV1RawPredictRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+endpoint}:rawPredict",
-     :uri-template-args {"endpoint" endpoint},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"],
-     :body GoogleCloudAiplatformV1RawPredictRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+endpoint}:rawPredict",
+   :uri-template-args {"endpoint" endpoint},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"],
+   :body GoogleCloudAiplatformV1RawPredictRequest})
 
 (defn projects-locations-endpoints-deployModel
   "Deploys a Model into this Endpoint, creating a DeployedModel within it.
@@ -1958,14 +1820,13 @@ endpoint <>
 GoogleCloudAiplatformV1DeployModelRequest:
 GoogleCloudAiplatformV1DeployModelRequest"
   [endpoint GoogleCloudAiplatformV1DeployModelRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+endpoint}:deployModel",
-     :uri-template-args {"endpoint" endpoint},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1DeployModelRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+endpoint}:deployModel",
+   :uri-template-args {"endpoint" endpoint},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1DeployModelRequest})
 
 (defn projects-locations-endpoints-computeTokens
   "Return a list of tokens based on the input text.
@@ -1975,14 +1836,13 @@ endpoint <>
 GoogleCloudAiplatformV1ComputeTokensRequest:
 GoogleCloudAiplatformV1ComputeTokensRequest"
   [endpoint GoogleCloudAiplatformV1ComputeTokensRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+endpoint}:computeTokens",
-     :uri-template-args {"endpoint" endpoint},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1ComputeTokensRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+endpoint}:computeTokens",
+   :uri-template-args {"endpoint" endpoint},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1ComputeTokensRequest})
 
 (defn projects-locations-endpoints-patch
   "Updates an Endpoint.
@@ -2000,13 +1860,12 @@ updateMask <string> Required. The update mask applies to the resource. See googl
       GoogleCloudAiplatformV1Endpoint
       nil))
   ([name GoogleCloudAiplatformV1Endpoint optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1Endpoint})))
+    {:method :patch,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1Endpoint}))
 
 (defn projects-locations-endpoints-serverStreamingPredict
   "Perform a server-side streaming online prediction request for Vertex LLM streaming.
@@ -2016,16 +1875,15 @@ endpoint <>
 GoogleCloudAiplatformV1StreamingPredictRequest:
 GoogleCloudAiplatformV1StreamingPredictRequest"
   [endpoint GoogleCloudAiplatformV1StreamingPredictRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+endpoint}:serverStreamingPredict",
-     :uri-template-args {"endpoint" endpoint},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"],
-     :body GoogleCloudAiplatformV1StreamingPredictRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+endpoint}:serverStreamingPredict",
+   :uri-template-args {"endpoint" endpoint},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"],
+   :body GoogleCloudAiplatformV1StreamingPredictRequest})
 
 (defn projects-locations-endpoints-directPredict
   "Perform an unary online prediction request to a gRPC model server for Vertex first-party products and frameworks.
@@ -2035,16 +1893,15 @@ endpoint <>
 GoogleCloudAiplatformV1DirectPredictRequest:
 GoogleCloudAiplatformV1DirectPredictRequest"
   [endpoint GoogleCloudAiplatformV1DirectPredictRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+endpoint}:directPredict",
-     :uri-template-args {"endpoint" endpoint},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"],
-     :body GoogleCloudAiplatformV1DirectPredictRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+endpoint}:directPredict",
+   :uri-template-args {"endpoint" endpoint},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"],
+   :body GoogleCloudAiplatformV1DirectPredictRequest})
 
 (defn projects-locations-endpoints-create
   "Creates an Endpoint.
@@ -2062,14 +1919,13 @@ endpointId <string> Immutable. The ID to use for endpoint, which will become the
       GoogleCloudAiplatformV1Endpoint
       nil))
   ([parent GoogleCloudAiplatformV1Endpoint optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/endpoints",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1Endpoint})))
+    {:method :post,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/endpoints",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1Endpoint}))
 
 (defn projects-locations-endpoints-streamGenerateContent
   "Generate content with multimodal inputs with streaming support.
@@ -2079,16 +1935,15 @@ model <>
 GoogleCloudAiplatformV1GenerateContentRequest:
 GoogleCloudAiplatformV1GenerateContentRequest"
   [model GoogleCloudAiplatformV1GenerateContentRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+model}:streamGenerateContent",
-     :uri-template-args {"model" model},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"],
-     :body GoogleCloudAiplatformV1GenerateContentRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+model}:streamGenerateContent",
+   :uri-template-args {"model" model},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"],
+   :body GoogleCloudAiplatformV1GenerateContentRequest})
 
 (defn projects-locations-endpoints-countTokens
   "Perform a token counting.
@@ -2098,14 +1953,13 @@ endpoint <>
 GoogleCloudAiplatformV1CountTokensRequest:
 GoogleCloudAiplatformV1CountTokensRequest"
   [endpoint GoogleCloudAiplatformV1CountTokensRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+endpoint}:countTokens",
-     :uri-template-args {"endpoint" endpoint},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1CountTokensRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+endpoint}:countTokens",
+   :uri-template-args {"endpoint" endpoint},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1CountTokensRequest})
 
 (defn projects-locations-endpoints-get
   "Gets an Endpoint.
@@ -2113,12 +1967,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/endpo
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-endpoints-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -2126,12 +1979,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/endpo
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-endpoints-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -2143,13 +1995,11 @@ optional:
 timeout <string> The maximum duration to wait before timing out. If left blank, the wait will be at most the time permitted by the underlying HTTP/RPC protocol. If RPC context deadline is also specified, the shorter one will be used."
   ([name] (projects-locations-endpoints-operations-wait name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-endpoints-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -2162,13 +2012,12 @@ pageSize <integer> The standard list page size.
 filter <string> The standard list filter."
   ([name] (projects-locations-endpoints-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-endpoints-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -2176,12 +2025,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/endpo
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-endpoints-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -2189,13 +2037,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/endpo
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-featurestores-list
   "Lists Featurestores in a given project and location.
@@ -2210,13 +2056,12 @@ filter <string> Lists the featurestores that match the filter expression. The fo
 readMask <string> Mask specifying which fields to read."
   ([parent] (projects-locations-featurestores-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/featurestores",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/featurestores",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-featurestores-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -2226,14 +2071,13 @@ resource <>
 GoogleIamV1SetIamPolicyRequest:
 GoogleIamV1SetIamPolicyRequest"
   [resource GoogleIamV1SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleIamV1SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleIamV1SetIamPolicyRequest})
 
 (defn projects-locations-featurestores-delete
   "Deletes a single Featurestore. The Featurestore must not contain any EntityTypes or `force` must be set to true for the request to succeed.
@@ -2245,12 +2089,11 @@ optional:
 force <boolean> If set to true, any EntityTypes and Features for this Featurestore will also be deleted. (Otherwise, the request will only work if the Featurestore has no EntityTypes.)"
   ([name] (projects-locations-featurestores-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-featurestores-batchReadFeatureValues
   "Batch reads Feature values from a Featurestore. This API enables batch reading Feature values, where each read instance in the batch may read Feature values of entities from one or more EntityTypes. Point-in-time correctness is guaranteed for Feature values of each read instance as of each instance's read timestamp.
@@ -2260,14 +2103,13 @@ featurestore <>
 GoogleCloudAiplatformV1BatchReadFeatureValuesRequest:
 GoogleCloudAiplatformV1BatchReadFeatureValuesRequest"
   [featurestore GoogleCloudAiplatformV1BatchReadFeatureValuesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+featurestore}:batchReadFeatureValues",
-     :uri-template-args {"featurestore" featurestore},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1BatchReadFeatureValuesRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+featurestore}:batchReadFeatureValues",
+   :uri-template-args {"featurestore" featurestore},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1BatchReadFeatureValuesRequest})
 
 (defn projects-locations-featurestores-searchFeatures
   "Searches Features matching a query in a given project.
@@ -2281,13 +2123,12 @@ pageSize <integer> The maximum number of Features to return. The service may ret
   ([location]
     (projects-locations-featurestores-searchFeatures location nil))
   ([location optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+location}/featurestores:searchFeatures",
-       :uri-template-args {"location" location},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+location}/featurestores:searchFeatures",
+     :uri-template-args {"location" location},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-featurestores-patch
   "Updates the parameters of a single Featurestore.
@@ -2305,13 +2146,12 @@ updateMask <string> Field mask is used to specify the fields to be overwritten i
       GoogleCloudAiplatformV1Featurestore
       nil))
   ([name GoogleCloudAiplatformV1Featurestore optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1Featurestore})))
+    {:method :patch,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1Featurestore}))
 
 (defn projects-locations-featurestores-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -2324,13 +2164,12 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
   ([resource]
     (projects-locations-featurestores-getIamPolicy resource nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-featurestores-create
   "Creates a new Featurestore in a given project and location.
@@ -2348,14 +2187,13 @@ featurestoreId <string> Required. The ID to use for this Featurestore, which wil
       GoogleCloudAiplatformV1Featurestore
       nil))
   ([parent GoogleCloudAiplatformV1Featurestore optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/featurestores",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1Featurestore})))
+    {:method :post,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/featurestores",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1Featurestore}))
 
 (defn projects-locations-featurestores-get
   "Gets details of a single Featurestore.
@@ -2363,12 +2201,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/featu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-featurestores-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -2381,13 +2218,12 @@ permissions <string> The set of permissions to check for the `resource`. Permiss
   ([resource]
     (projects-locations-featurestores-testIamPermissions resource nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+resource}:testIamPermissions",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+resource}:testIamPermissions",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-featurestores-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -2395,12 +2231,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/featu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-featurestores-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -2408,13 +2243,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/featu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-featurestores-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -2422,12 +2255,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/featu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-featurestores-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -2439,13 +2271,11 @@ optional:
 timeout <string> The maximum duration to wait before timing out. If left blank, the wait will be at most the time permitted by the underlying HTTP/RPC protocol. If RPC context deadline is also specified, the shorter one will be used."
   ([name] (projects-locations-featurestores-operations-wait name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-featurestores-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -2458,13 +2288,12 @@ pageSize <integer> The standard list page size.
 filter <string> The standard list filter."
   ([name] (projects-locations-featurestores-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-featurestores-entityTypes-list
   "Lists EntityTypes in a given Featurestore.
@@ -2480,13 +2309,12 @@ filter <string> Lists the EntityTypes that match the filter expression. The foll
   ([parent]
     (projects-locations-featurestores-entityTypes-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/entityTypes",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/entityTypes",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-featurestores-entityTypes-readFeatureValues
   "Reads Feature values of a specific entity of an EntityType. For reading feature values of multiple entities of an EntityType, please use StreamingReadFeatureValues.
@@ -2496,14 +2324,13 @@ entityType <>
 GoogleCloudAiplatformV1ReadFeatureValuesRequest:
 GoogleCloudAiplatformV1ReadFeatureValuesRequest"
   [entityType GoogleCloudAiplatformV1ReadFeatureValuesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+entityType}:readFeatureValues",
-     :uri-template-args {"entityType" entityType},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1ReadFeatureValuesRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+entityType}:readFeatureValues",
+   :uri-template-args {"entityType" entityType},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1ReadFeatureValuesRequest})
 
 (defn projects-locations-featurestores-entityTypes-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -2513,14 +2340,13 @@ resource <>
 GoogleIamV1SetIamPolicyRequest:
 GoogleIamV1SetIamPolicyRequest"
   [resource GoogleIamV1SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleIamV1SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleIamV1SetIamPolicyRequest})
 
 (defn projects-locations-featurestores-entityTypes-delete
   "Deletes a single EntityType. The EntityType must not have any Features or `force` must be set to true for the request to succeed.
@@ -2533,12 +2359,11 @@ force <boolean> If set to true, any Features for this EntityType will also be de
   ([name]
     (projects-locations-featurestores-entityTypes-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-featurestores-entityTypes-streamingReadFeatureValues
   "Reads Feature values for multiple entities. Depending on their size, data for different entities may be broken up across multiple responses.
@@ -2548,14 +2373,13 @@ entityType <>
 GoogleCloudAiplatformV1StreamingReadFeatureValuesRequest:
 GoogleCloudAiplatformV1StreamingReadFeatureValuesRequest"
   [entityType GoogleCloudAiplatformV1StreamingReadFeatureValuesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+entityType}:streamingReadFeatureValues",
-     :uri-template-args {"entityType" entityType},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1StreamingReadFeatureValuesRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+entityType}:streamingReadFeatureValues",
+   :uri-template-args {"entityType" entityType},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1StreamingReadFeatureValuesRequest})
 
 (defn projects-locations-featurestores-entityTypes-writeFeatureValues
   "Writes Feature values of one or more entities of an EntityType. The Feature values are merged into existing entities if any. The Feature values to be written must have timestamp within the online storage retention.
@@ -2565,14 +2389,13 @@ entityType <>
 GoogleCloudAiplatformV1WriteFeatureValuesRequest:
 GoogleCloudAiplatformV1WriteFeatureValuesRequest"
   [entityType GoogleCloudAiplatformV1WriteFeatureValuesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+entityType}:writeFeatureValues",
-     :uri-template-args {"entityType" entityType},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1WriteFeatureValuesRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+entityType}:writeFeatureValues",
+   :uri-template-args {"entityType" entityType},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1WriteFeatureValuesRequest})
 
 (defn projects-locations-featurestores-entityTypes-patch
   "Updates the parameters of a single EntityType.
@@ -2590,13 +2413,12 @@ updateMask <string> Field mask is used to specify the fields to be overwritten i
       GoogleCloudAiplatformV1EntityType
       nil))
   ([name GoogleCloudAiplatformV1EntityType optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1EntityType})))
+    {:method :patch,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1EntityType}))
 
 (defn projects-locations-featurestores-entityTypes-deleteFeatureValues
   "Delete Feature values from Featurestore. The progress of the deletion is tracked by the returned operation. The deleted feature values are guaranteed to be invisible to subsequent read operations after the operation is marked as successfully done. If a delete feature values operation fails, the feature values returned from reads and exports may be inconsistent. If consistency is required, the caller must retry the same delete request again and wait till the new operation returned is marked as successfully done.
@@ -2606,14 +2428,13 @@ entityType <>
 GoogleCloudAiplatformV1DeleteFeatureValuesRequest:
 GoogleCloudAiplatformV1DeleteFeatureValuesRequest"
   [entityType GoogleCloudAiplatformV1DeleteFeatureValuesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+entityType}:deleteFeatureValues",
-     :uri-template-args {"entityType" entityType},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1DeleteFeatureValuesRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+entityType}:deleteFeatureValues",
+   :uri-template-args {"entityType" entityType},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1DeleteFeatureValuesRequest})
 
 (defn projects-locations-featurestores-entityTypes-importFeatureValues
   "Imports Feature values into the Featurestore from a source storage. The progress of the import is tracked by the returned operation. The imported features are guaranteed to be visible to subsequent read operations after the operation is marked as successfully done. If an import operation fails, the Feature values returned from reads and exports may be inconsistent. If consistency is required, the caller must retry the same import request again and wait till the new operation returned is marked as successfully done. There are also scenarios where the caller can cause inconsistency. - Source data for import contains multiple distinct Feature values for the same entity ID and timestamp. - Source is modified during an import. This includes adding, updating, or removing source data and/or metadata. Examples of updating metadata include but are not limited to changing storage location, storage class, or retention policy. - Online serving cluster is under-provisioned.
@@ -2623,14 +2444,13 @@ entityType <>
 GoogleCloudAiplatformV1ImportFeatureValuesRequest:
 GoogleCloudAiplatformV1ImportFeatureValuesRequest"
   [entityType GoogleCloudAiplatformV1ImportFeatureValuesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+entityType}:importFeatureValues",
-     :uri-template-args {"entityType" entityType},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1ImportFeatureValuesRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+entityType}:importFeatureValues",
+   :uri-template-args {"entityType" entityType},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1ImportFeatureValuesRequest})
 
 (defn projects-locations-featurestores-entityTypes-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -2645,13 +2465,12 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-featurestores-entityTypes-create
   "Creates a new EntityType in a given Featurestore.
@@ -2669,14 +2488,13 @@ entityTypeId <string> Required. The ID to use for the EntityType, which will bec
       GoogleCloudAiplatformV1EntityType
       nil))
   ([parent GoogleCloudAiplatformV1EntityType optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/entityTypes",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1EntityType})))
+    {:method :post,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/entityTypes",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1EntityType}))
 
 (defn projects-locations-featurestores-entityTypes-exportFeatureValues
   "Exports Feature values from all the entities of a target EntityType.
@@ -2686,14 +2504,13 @@ entityType <>
 GoogleCloudAiplatformV1ExportFeatureValuesRequest:
 GoogleCloudAiplatformV1ExportFeatureValuesRequest"
   [entityType GoogleCloudAiplatformV1ExportFeatureValuesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+entityType}:exportFeatureValues",
-     :uri-template-args {"entityType" entityType},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1ExportFeatureValuesRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+entityType}:exportFeatureValues",
+   :uri-template-args {"entityType" entityType},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1ExportFeatureValuesRequest})
 
 (defn projects-locations-featurestores-entityTypes-get
   "Gets details of a single EntityType.
@@ -2701,12 +2518,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/featu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-featurestores-entityTypes-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -2721,13 +2537,12 @@ permissions <string> The set of permissions to check for the `resource`. Permiss
       resource
       nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+resource}:testIamPermissions",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+resource}:testIamPermissions",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-featurestores-entityTypes-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -2743,13 +2558,12 @@ filter <string> The standard list filter."
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-featurestores-entityTypes-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -2757,12 +2571,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/featu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-featurestores-entityTypes-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -2777,13 +2590,11 @@ timeout <string> The maximum duration to wait before timing out. If left blank, 
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-featurestores-entityTypes-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -2791,13 +2602,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/featu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-featurestores-entityTypes-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -2805,12 +2614,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/featu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-featurestores-entityTypes-features-get
   "Gets details of a single Feature.
@@ -2818,12 +2626,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/featu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-featurestores-entityTypes-features-batchCreate
   "Creates a batch of Features in a given EntityType.
@@ -2833,14 +2640,13 @@ parent <>
 GoogleCloudAiplatformV1BatchCreateFeaturesRequest:
 GoogleCloudAiplatformV1BatchCreateFeaturesRequest"
   [parent GoogleCloudAiplatformV1BatchCreateFeaturesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/features:batchCreate",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1BatchCreateFeaturesRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/features:batchCreate",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1BatchCreateFeaturesRequest})
 
 (defn projects-locations-featurestores-entityTypes-features-create
   "Creates a new Feature in a given EntityType.
@@ -2858,14 +2664,13 @@ featureId <string> Required. The ID to use for the Feature, which will become th
       GoogleCloudAiplatformV1Feature
       nil))
   ([parent GoogleCloudAiplatformV1Feature optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/features",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1Feature})))
+    {:method :post,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/features",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1Feature}))
 
 (defn projects-locations-featurestores-entityTypes-features-delete
   "Deletes a single Feature.
@@ -2873,12 +2678,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/featu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-featurestores-entityTypes-features-list
   "Lists Features in a given EntityType.
@@ -2897,13 +2701,12 @@ latestStatsCount <integer> Only applicable for Vertex AI Feature Store (Legacy).
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/features",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/features",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-featurestores-entityTypes-features-patch
   "Updates the parameters of a single Feature.
@@ -2921,13 +2724,12 @@ updateMask <string> Field mask is used to specify the fields to be overwritten i
       GoogleCloudAiplatformV1Feature
       nil))
   ([name GoogleCloudAiplatformV1Feature optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1Feature})))
+    {:method :patch,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1Feature}))
 
 (defn projects-locations-featurestores-entityTypes-features-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -2943,13 +2745,12 @@ filter <string> The standard list filter."
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-featurestores-entityTypes-features-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -2957,12 +2758,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/featu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-featurestores-entityTypes-features-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -2970,12 +2770,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/featu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-featurestores-entityTypes-features-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -2990,13 +2789,11 @@ timeout <string> The maximum duration to wait before timing out. If left blank, 
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-featurestores-entityTypes-features-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -3004,13 +2801,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/featu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-batchPredictionJobs-cancel
   "Cancels a BatchPredictionJob. Starts asynchronous cancellation on the BatchPredictionJob. The server makes the best effort to cancel the job, but success is not guaranteed. Clients can use JobService.GetBatchPredictionJob or other methods to check whether the cancellation succeeded or whether the job completed despite cancellation. On a successful cancellation, the BatchPredictionJob is not deleted;instead its BatchPredictionJob.state is set to `CANCELLED`. Any files already outputted by the job are not deleted.
@@ -3020,14 +2815,12 @@ name <>
 GoogleCloudAiplatformV1CancelBatchPredictionJobRequest:
 GoogleCloudAiplatformV1CancelBatchPredictionJobRequest"
   [name GoogleCloudAiplatformV1CancelBatchPredictionJobRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1CancelBatchPredictionJobRequest}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1CancelBatchPredictionJobRequest})
 
 (defn projects-locations-batchPredictionJobs-create
   "Creates a BatchPredictionJob. A BatchPredictionJob once created will right away be attempted to start.
@@ -3037,14 +2830,13 @@ parent <>
 GoogleCloudAiplatformV1BatchPredictionJob:
 GoogleCloudAiplatformV1BatchPredictionJob"
   [parent GoogleCloudAiplatformV1BatchPredictionJob]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/batchPredictionJobs",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1BatchPredictionJob}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/batchPredictionJobs",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1BatchPredictionJob})
 
 (defn projects-locations-batchPredictionJobs-delete
   "Deletes a BatchPredictionJob. Can only be called on jobs that already finished.
@@ -3052,12 +2844,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/batch
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-batchPredictionJobs-get
   "Gets a BatchPredictionJob
@@ -3065,12 +2856,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/batch
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-batchPredictionJobs-list
   "Lists BatchPredictionJobs in a Location.
@@ -3084,13 +2874,12 @@ readMask <string> Mask specifying which fields to read.
 filter <string> The standard list filter. Supported fields: * `display_name` supports `=`, `!=` comparisons, and `:` wildcard. * `model_display_name` supports `=`, `!=` comparisons. * `state` supports `=`, `!=` comparisons. * `create_time` supports `=`, `!=`,`<`, `<=`,`>`, `>=` comparisons. `create_time` must be in RFC 3339 format. * `labels` supports general map functions that is: `labels.key=value` - key:value equality `labels.key:* - key existence Some examples of using the filter are: * `state=\"JOB_STATE_SUCCEEDED\" AND display_name:\"my_job_*\"` * `state!=\"JOB_STATE_FAILED\" OR display_name=\"my_job\"` * `NOT display_name=\"my_job\"` * `create_time>\"2021-05-18T00:00:00Z\"` * `labels.keyA=valueA` * `labels.keyB:*`"
   ([parent] (projects-locations-batchPredictionJobs-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/batchPredictionJobs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/batchPredictionJobs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-customJobs-list
   "Lists CustomJobs in a Location.
@@ -3104,13 +2893,12 @@ pageSize <integer> The standard list page size.
 filter <string> The standard list filter. Supported fields: * `display_name` supports `=`, `!=` comparisons, and `:` wildcard. * `state` supports `=`, `!=` comparisons. * `create_time` supports `=`, `!=`,`<`, `<=`,`>`, `>=` comparisons. `create_time` must be in RFC 3339 format. * `labels` supports general map functions that is: `labels.key=value` - key:value equality `labels.key:* - key existence Some examples of using the filter are: * `state=\"JOB_STATE_SUCCEEDED\" AND display_name:\"my_job_*\"` * `state!=\"JOB_STATE_FAILED\" OR display_name=\"my_job\"` * `NOT display_name=\"my_job\"` * `create_time>\"2021-05-18T00:00:00Z\"` * `labels.keyA=valueA` * `labels.keyB:*`"
   ([parent] (projects-locations-customJobs-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/customJobs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/customJobs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-customJobs-get
   "Gets a CustomJob.
@@ -3118,12 +2906,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/custo
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-customJobs-create
   "Creates a CustomJob. A created CustomJob right away will be attempted to be run.
@@ -3133,14 +2920,13 @@ parent <>
 GoogleCloudAiplatformV1CustomJob:
 GoogleCloudAiplatformV1CustomJob"
   [parent GoogleCloudAiplatformV1CustomJob]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/customJobs",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1CustomJob}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/customJobs",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1CustomJob})
 
 (defn projects-locations-customJobs-cancel
   "Cancels a CustomJob. Starts asynchronous cancellation on the CustomJob. The server makes a best effort to cancel the job, but success is not guaranteed. Clients can use JobService.GetCustomJob or other methods to check whether the cancellation succeeded or whether the job completed despite cancellation. On successful cancellation, the CustomJob is not deleted; instead it becomes a job with a CustomJob.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`, and CustomJob.state is set to `CANCELLED`.
@@ -3150,14 +2936,12 @@ name <>
 GoogleCloudAiplatformV1CancelCustomJobRequest:
 GoogleCloudAiplatformV1CancelCustomJobRequest"
   [name GoogleCloudAiplatformV1CancelCustomJobRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1CancelCustomJobRequest}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1CancelCustomJobRequest})
 
 (defn projects-locations-customJobs-delete
   "Deletes a CustomJob.
@@ -3165,12 +2949,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/custo
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-customJobs-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -3178,13 +2961,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/custo
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-customJobs-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -3192,12 +2973,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/custo
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-customJobs-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -3205,12 +2985,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/custo
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-customJobs-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -3223,13 +3002,12 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-customJobs-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-customJobs-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -3241,13 +3019,11 @@ optional:
 timeout <string> The maximum duration to wait before timing out. If left blank, the wait will be at most the time permitted by the underlying HTTP/RPC protocol. If RPC context deadline is also specified, the shorter one will be used."
   ([name] (projects-locations-customJobs-operations-wait name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-notebookRuntimeTemplates-patch
   "Updates a NotebookRuntimeTemplate.
@@ -3265,13 +3041,12 @@ updateMask <string> Required. The update mask applies to the resource. For the `
       GoogleCloudAiplatformV1NotebookRuntimeTemplate
       nil))
   ([name GoogleCloudAiplatformV1NotebookRuntimeTemplate optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1NotebookRuntimeTemplate})))
+    {:method :patch,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1NotebookRuntimeTemplate}))
 
 (defn projects-locations-notebookRuntimeTemplates-list
   "Lists NotebookRuntimeTemplates in a Location.
@@ -3287,13 +3062,12 @@ readMask <string> Optional. Mask specifying which fields to read."
   ([parent]
     (projects-locations-notebookRuntimeTemplates-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/notebookRuntimeTemplates",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/notebookRuntimeTemplates",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-notebookRuntimeTemplates-get
   "Gets a NotebookRuntimeTemplate.
@@ -3301,12 +3075,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/noteb
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-notebookRuntimeTemplates-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -3321,13 +3094,12 @@ options.requestedPolicyVersion <integer> Optional. The maximum policy version th
       resource
       nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-notebookRuntimeTemplates-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -3337,14 +3109,13 @@ resource <>
 GoogleIamV1SetIamPolicyRequest:
 GoogleIamV1SetIamPolicyRequest"
   [resource GoogleIamV1SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleIamV1SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleIamV1SetIamPolicyRequest})
 
 (defn projects-locations-notebookRuntimeTemplates-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -3359,13 +3130,12 @@ permissions <string> The set of permissions to check for the `resource`. Permiss
       resource
       nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+resource}:testIamPermissions",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+resource}:testIamPermissions",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-notebookRuntimeTemplates-create
   "Creates a NotebookRuntimeTemplate.
@@ -3383,14 +3153,13 @@ notebookRuntimeTemplateId <string> Optional. User specified ID for the notebook 
       GoogleCloudAiplatformV1NotebookRuntimeTemplate
       nil))
   ([parent GoogleCloudAiplatformV1NotebookRuntimeTemplate optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/notebookRuntimeTemplates",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1NotebookRuntimeTemplate})))
+    {:method :post,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/notebookRuntimeTemplates",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1NotebookRuntimeTemplate}))
 
 (defn projects-locations-notebookRuntimeTemplates-delete
   "Deletes a NotebookRuntimeTemplate.
@@ -3398,12 +3167,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/noteb
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-notebookRuntimeTemplates-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -3419,13 +3187,12 @@ pageSize <integer> The standard list page size."
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-notebookRuntimeTemplates-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -3433,12 +3200,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/noteb
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-notebookRuntimeTemplates-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -3446,13 +3212,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/noteb
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-notebookRuntimeTemplates-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -3467,13 +3231,11 @@ timeout <string> The maximum duration to wait before timing out. If left blank, 
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-notebookRuntimeTemplates-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -3481,12 +3243,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/noteb
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-modelDeploymentMonitoringJobs-get
   "Gets a ModelDeploymentMonitoringJob.
@@ -3494,12 +3255,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/model
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-modelDeploymentMonitoringJobs-searchModelDeploymentMonitoringStatsAnomalies
   "Searches Model Monitoring Statistics generated within a given time window.
@@ -3510,16 +3270,15 @@ GoogleCloudAiplatformV1SearchModelDeploymentMonitoringStatsAnomaliesRequest:
 GoogleCloudAiplatformV1SearchModelDeploymentMonitoringStatsAnomaliesRequest"
   [modelDeploymentMonitoringJob
    GoogleCloudAiplatformV1SearchModelDeploymentMonitoringStatsAnomaliesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+modelDeploymentMonitoringJob}:searchModelDeploymentMonitoringStatsAnomalies",
-     :uri-template-args
-     {"modelDeploymentMonitoringJob" modelDeploymentMonitoringJob},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body
-     GoogleCloudAiplatformV1SearchModelDeploymentMonitoringStatsAnomaliesRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+modelDeploymentMonitoringJob}:searchModelDeploymentMonitoringStatsAnomalies",
+   :uri-template-args
+   {"modelDeploymentMonitoringJob" modelDeploymentMonitoringJob},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body
+   GoogleCloudAiplatformV1SearchModelDeploymentMonitoringStatsAnomaliesRequest})
 
 (defn projects-locations-modelDeploymentMonitoringJobs-delete
   "Deletes a ModelDeploymentMonitoringJob.
@@ -3527,12 +3286,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/model
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-modelDeploymentMonitoringJobs-create
   "Creates a ModelDeploymentMonitoringJob. It will run periodically on a configured interval.
@@ -3542,14 +3300,13 @@ parent <>
 GoogleCloudAiplatformV1ModelDeploymentMonitoringJob:
 GoogleCloudAiplatformV1ModelDeploymentMonitoringJob"
   [parent GoogleCloudAiplatformV1ModelDeploymentMonitoringJob]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/modelDeploymentMonitoringJobs",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1ModelDeploymentMonitoringJob}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/modelDeploymentMonitoringJobs",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1ModelDeploymentMonitoringJob})
 
 (defn projects-locations-modelDeploymentMonitoringJobs-pause
   "Pauses a ModelDeploymentMonitoringJob. If the job is running, the server makes a best effort to cancel the job. Will mark ModelDeploymentMonitoringJob.state to 'PAUSED'.
@@ -3560,15 +3317,13 @@ GoogleCloudAiplatformV1PauseModelDeploymentMonitoringJobRequest:
 GoogleCloudAiplatformV1PauseModelDeploymentMonitoringJobRequest"
   [name
    GoogleCloudAiplatformV1PauseModelDeploymentMonitoringJobRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:pause",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body
-     GoogleCloudAiplatformV1PauseModelDeploymentMonitoringJobRequest}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:pause",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body
+   GoogleCloudAiplatformV1PauseModelDeploymentMonitoringJobRequest})
 
 (defn projects-locations-modelDeploymentMonitoringJobs-resume
   "Resumes a paused ModelDeploymentMonitoringJob. It will start to run from next scheduled time. A deleted ModelDeploymentMonitoringJob can't be resumed.
@@ -3579,15 +3334,13 @@ GoogleCloudAiplatformV1ResumeModelDeploymentMonitoringJobRequest:
 GoogleCloudAiplatformV1ResumeModelDeploymentMonitoringJobRequest"
   [name
    GoogleCloudAiplatformV1ResumeModelDeploymentMonitoringJobRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:resume",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body
-     GoogleCloudAiplatformV1ResumeModelDeploymentMonitoringJobRequest}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:resume",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body
+   GoogleCloudAiplatformV1ResumeModelDeploymentMonitoringJobRequest})
 
 (defn projects-locations-modelDeploymentMonitoringJobs-patch
   "Updates a ModelDeploymentMonitoringJob.
@@ -3605,13 +3358,12 @@ updateMask <string> Required. The update mask is used to specify the fields to b
       GoogleCloudAiplatformV1ModelDeploymentMonitoringJob
       nil))
   ([name GoogleCloudAiplatformV1ModelDeploymentMonitoringJob optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1ModelDeploymentMonitoringJob})))
+    {:method :patch,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1ModelDeploymentMonitoringJob}))
 
 (defn projects-locations-modelDeploymentMonitoringJobs-list
   "Lists ModelDeploymentMonitoringJobs in a Location.
@@ -3626,13 +3378,12 @@ readMask <string> Mask specifying which fields to read"
   ([parent]
     (projects-locations-modelDeploymentMonitoringJobs-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/modelDeploymentMonitoringJobs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/modelDeploymentMonitoringJobs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-modelDeploymentMonitoringJobs-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -3640,12 +3391,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/model
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-modelDeploymentMonitoringJobs-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -3653,13 +3403,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/model
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-modelDeploymentMonitoringJobs-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -3675,13 +3423,12 @@ filter <string> The standard list filter."
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-modelDeploymentMonitoringJobs-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -3689,12 +3436,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/model
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-modelDeploymentMonitoringJobs-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -3709,13 +3455,11 @@ timeout <string> The maximum duration to wait before timing out. If left blank, 
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-tuningJobs-list
   "Lists TuningJobs in a Location.
@@ -3728,13 +3472,12 @@ filter <string> Optional. The standard list filter.
 pageSize <integer> Optional. The standard list page size."
   ([parent] (projects-locations-tuningJobs-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/tuningJobs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/tuningJobs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-tuningJobs-cancel
   "Cancels a TuningJob. Starts asynchronous cancellation on the TuningJob. The server makes a best effort to cancel the job, but success is not guaranteed. Clients can use GenAiTuningService.GetTuningJob or other methods to check whether the cancellation succeeded or whether the job completed despite cancellation. On successful cancellation, the TuningJob is not deleted; instead it becomes a job with a TuningJob.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`, and TuningJob.state is set to `CANCELLED`.
@@ -3744,14 +3487,12 @@ name <>
 GoogleCloudAiplatformV1CancelTuningJobRequest:
 GoogleCloudAiplatformV1CancelTuningJobRequest"
   [name GoogleCloudAiplatformV1CancelTuningJobRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1CancelTuningJobRequest}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1CancelTuningJobRequest})
 
 (defn projects-locations-tuningJobs-get
   "Gets a TuningJob.
@@ -3759,12 +3500,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/tunin
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-tuningJobs-create
   "Creates a TuningJob. A created TuningJob right away will be attempted to be run.
@@ -3774,14 +3514,13 @@ parent <>
 GoogleCloudAiplatformV1TuningJob:
 GoogleCloudAiplatformV1TuningJob"
   [parent GoogleCloudAiplatformV1TuningJob]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/tuningJobs",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1TuningJob}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/tuningJobs",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1TuningJob})
 
 (defn projects-locations-tuningJobs-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -3794,13 +3533,12 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-tuningJobs-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-tuningJobs-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -3808,13 +3546,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/tunin
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-tuningJobs-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -3822,12 +3558,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/tunin
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-trainingPipelines-create
   "Creates a TrainingPipeline. A created TrainingPipeline right away will be attempted to be run.
@@ -3837,14 +3572,13 @@ parent <>
 GoogleCloudAiplatformV1TrainingPipeline:
 GoogleCloudAiplatformV1TrainingPipeline"
   [parent GoogleCloudAiplatformV1TrainingPipeline]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/trainingPipelines",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1TrainingPipeline}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/trainingPipelines",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1TrainingPipeline})
 
 (defn projects-locations-trainingPipelines-delete
   "Deletes a TrainingPipeline.
@@ -3852,12 +3586,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/train
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-trainingPipelines-list
   "Lists TrainingPipelines in a Location.
@@ -3871,13 +3604,12 @@ readMask <string> Mask specifying which fields to read.
 filter <string> The standard list filter. Supported fields: * `display_name` supports `=`, `!=` comparisons, and `:` wildcard. * `state` supports `=`, `!=` comparisons. * `training_task_definition` `=`, `!=` comparisons, and `:` wildcard. * `create_time` supports `=`, `!=`,`<`, `<=`,`>`, `>=` comparisons. `create_time` must be in RFC 3339 format. * `labels` supports general map functions that is: `labels.key=value` - key:value equality `labels.key:* - key existence Some examples of using the filter are: * `state=\"PIPELINE_STATE_SUCCEEDED\" AND display_name:\"my_pipeline_*\"` * `state!=\"PIPELINE_STATE_FAILED\" OR display_name=\"my_pipeline\"` * `NOT display_name=\"my_pipeline\"` * `create_time>\"2021-05-18T00:00:00Z\"` * `training_task_definition:\"*automl_text_classification*\"`"
   ([parent] (projects-locations-trainingPipelines-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/trainingPipelines",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/trainingPipelines",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-trainingPipelines-cancel
   "Cancels a TrainingPipeline. Starts asynchronous cancellation on the TrainingPipeline. The server makes a best effort to cancel the pipeline, but success is not guaranteed. Clients can use PipelineService.GetTrainingPipeline or other methods to check whether the cancellation succeeded or whether the pipeline completed despite cancellation. On successful cancellation, the TrainingPipeline is not deleted; instead it becomes a pipeline with a TrainingPipeline.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`, and TrainingPipeline.state is set to `CANCELLED`.
@@ -3887,14 +3619,12 @@ name <>
 GoogleCloudAiplatformV1CancelTrainingPipelineRequest:
 GoogleCloudAiplatformV1CancelTrainingPipelineRequest"
   [name GoogleCloudAiplatformV1CancelTrainingPipelineRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1CancelTrainingPipelineRequest}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1CancelTrainingPipelineRequest})
 
 (defn projects-locations-trainingPipelines-get
   "Gets a TrainingPipeline.
@@ -3902,12 +3632,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/train
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-trainingPipelines-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -3921,13 +3650,12 @@ pageSize <integer> The standard list page size."
   ([name]
     (projects-locations-trainingPipelines-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-trainingPipelines-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -3935,13 +3663,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/train
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-trainingPipelines-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -3949,12 +3675,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/train
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-trainingPipelines-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -3967,13 +3692,11 @@ timeout <string> The maximum duration to wait before timing out. If left blank, 
   ([name]
     (projects-locations-trainingPipelines-operations-wait name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-trainingPipelines-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -3981,12 +3704,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/train
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-tensorboards-readUsage
   "Returns a list of monthly active users for a given TensorBoard instance.
@@ -3994,13 +3716,12 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/tenso
 
 tensorboard <> "
   [tensorboard]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+tensorboard}:readUsage",
-     :uri-template-args {"tensorboard" tensorboard},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+tensorboard}:readUsage",
+   :uri-template-args {"tensorboard" tensorboard},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-tensorboards-delete
   "Deletes a Tensorboard.
@@ -4008,12 +3729,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/tenso
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-tensorboards-create
   "Creates a Tensorboard.
@@ -4023,14 +3743,13 @@ parent <>
 GoogleCloudAiplatformV1Tensorboard:
 GoogleCloudAiplatformV1Tensorboard"
   [parent GoogleCloudAiplatformV1Tensorboard]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/tensorboards",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1Tensorboard}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/tensorboards",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1Tensorboard})
 
 (defn projects-locations-tensorboards-get
   "Gets a Tensorboard.
@@ -4038,14 +3757,13 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/tenso
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"]})
 
 (defn projects-locations-tensorboards-readSize
   "Returns the storage size for a given TensorBoard instance.
@@ -4053,13 +3771,12 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/tenso
 
 tensorboard <> "
   [tensorboard]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+tensorboard}:readSize",
-     :uri-template-args {"tensorboard" tensorboard},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+tensorboard}:readSize",
+   :uri-template-args {"tensorboard" tensorboard},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-tensorboards-batchRead
   "Reads multiple TensorboardTimeSeries' data. The data point number limit is 1000 for scalars, 100 for tensors and blob references. If the number of data points stored is less than the limit, all data is returned. Otherwise, the number limit of data points is randomly selected from this time series and returned.
@@ -4072,13 +3789,12 @@ timeSeries <string> Required. The resource names of the TensorboardTimeSeries to
   ([tensorboard]
     (projects-locations-tensorboards-batchRead tensorboard nil))
   ([tensorboard optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+tensorboard}:batchRead",
-       :uri-template-args {"tensorboard" tensorboard},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+tensorboard}:batchRead",
+     :uri-template-args {"tensorboard" tensorboard},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-tensorboards-patch
   "Updates a Tensorboard.
@@ -4096,13 +3812,12 @@ updateMask <string> Required. Field mask is used to specify the fields to be ove
       GoogleCloudAiplatformV1Tensorboard
       nil))
   ([name GoogleCloudAiplatformV1Tensorboard optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1Tensorboard})))
+    {:method :patch,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1Tensorboard}))
 
 (defn projects-locations-tensorboards-list
   "Lists Tensorboards in a Location.
@@ -4117,15 +3832,14 @@ orderBy <string> Field to use to sort the list.
 filter <string> Lists the Tensorboards that match the filter expression."
   ([parent] (projects-locations-tensorboards-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/tensorboards",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/tensorboards",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"]}))
 
 (defn projects-locations-tensorboards-experiments-create
   "Creates a TensorboardExperiment.
@@ -4143,14 +3857,13 @@ tensorboardExperimentId <string> Required. The ID to use for the Tensorboard exp
       GoogleCloudAiplatformV1TensorboardExperiment
       nil))
   ([parent GoogleCloudAiplatformV1TensorboardExperiment optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/experiments",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1TensorboardExperiment})))
+    {:method :post,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/experiments",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1TensorboardExperiment}))
 
 (defn projects-locations-tensorboards-experiments-patch
   "Updates a TensorboardExperiment.
@@ -4168,13 +3881,12 @@ updateMask <string> Required. Field mask is used to specify the fields to be ove
       GoogleCloudAiplatformV1TensorboardExperiment
       nil))
   ([name GoogleCloudAiplatformV1TensorboardExperiment optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1TensorboardExperiment})))
+    {:method :patch,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1TensorboardExperiment}))
 
 (defn projects-locations-tensorboards-experiments-list
   "Lists TensorboardExperiments in a Location.
@@ -4190,15 +3902,14 @@ filter <string> Lists the TensorboardExperiments that match the filter expressio
   ([parent]
     (projects-locations-tensorboards-experiments-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/experiments",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/experiments",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"]}))
 
 (defn projects-locations-tensorboards-experiments-get
   "Gets a TensorboardExperiment.
@@ -4206,14 +3917,13 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/tenso
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"]})
 
 (defn projects-locations-tensorboards-experiments-delete
   "Deletes a TensorboardExperiment.
@@ -4221,12 +3931,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/tenso
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-tensorboards-experiments-write
   "Write time series data points of multiple TensorboardTimeSeries in multiple TensorboardRun's. If any data fail to be ingested, an error is returned.
@@ -4237,16 +3946,13 @@ GoogleCloudAiplatformV1WriteTensorboardExperimentDataRequest:
 GoogleCloudAiplatformV1WriteTensorboardExperimentDataRequest"
   [tensorboardExperiment
    GoogleCloudAiplatformV1WriteTensorboardExperimentDataRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+tensorboardExperiment}:write",
-     :uri-template-args
-     {"tensorboardExperiment" tensorboardExperiment},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body
-     GoogleCloudAiplatformV1WriteTensorboardExperimentDataRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+tensorboardExperiment}:write",
+   :uri-template-args {"tensorboardExperiment" tensorboardExperiment},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1WriteTensorboardExperimentDataRequest})
 
 (defn projects-locations-tensorboards-experiments-batchCreate
   "Batch create TensorboardTimeSeries that belong to a TensorboardExperiment.
@@ -4257,15 +3963,14 @@ GoogleCloudAiplatformV1BatchCreateTensorboardTimeSeriesRequest:
 GoogleCloudAiplatformV1BatchCreateTensorboardTimeSeriesRequest"
   [parent
    GoogleCloudAiplatformV1BatchCreateTensorboardTimeSeriesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}:batchCreate",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body
-     GoogleCloudAiplatformV1BatchCreateTensorboardTimeSeriesRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}:batchCreate",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body
+   GoogleCloudAiplatformV1BatchCreateTensorboardTimeSeriesRequest})
 
 (defn projects-locations-tensorboards-experiments-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -4280,13 +3985,11 @@ timeout <string> The maximum duration to wait before timing out. If left blank, 
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-tensorboards-experiments-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -4294,12 +3997,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/tenso
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-tensorboards-experiments-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -4307,13 +4009,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/tenso
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-tensorboards-experiments-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -4329,13 +4029,12 @@ filter <string> The standard list filter."
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-tensorboards-experiments-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -4343,12 +4042,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/tenso
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-tensorboards-experiments-runs-batchCreate
   "Batch create TensorboardRuns.
@@ -4358,14 +4056,13 @@ parent <>
 GoogleCloudAiplatformV1BatchCreateTensorboardRunsRequest:
 GoogleCloudAiplatformV1BatchCreateTensorboardRunsRequest"
   [parent GoogleCloudAiplatformV1BatchCreateTensorboardRunsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/runs:batchCreate",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1BatchCreateTensorboardRunsRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/runs:batchCreate",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1BatchCreateTensorboardRunsRequest})
 
 (defn projects-locations-tensorboards-experiments-runs-create
   "Creates a TensorboardRun.
@@ -4383,14 +4080,13 @@ tensorboardRunId <string> Required. The ID to use for the Tensorboard run, which
       GoogleCloudAiplatformV1TensorboardRun
       nil))
   ([parent GoogleCloudAiplatformV1TensorboardRun optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/runs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1TensorboardRun})))
+    {:method :post,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/runs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1TensorboardRun}))
 
 (defn projects-locations-tensorboards-experiments-runs-get
   "Gets a TensorboardRun.
@@ -4398,14 +4094,13 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/tenso
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"]})
 
 (defn projects-locations-tensorboards-experiments-runs-list
   "Lists TensorboardRuns in a Location.
@@ -4421,15 +4116,14 @@ filter <string> Lists the TensorboardRuns that match the filter expression."
   ([parent]
     (projects-locations-tensorboards-experiments-runs-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/runs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/runs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"]}))
 
 (defn projects-locations-tensorboards-experiments-runs-delete
   "Deletes a TensorboardRun.
@@ -4437,12 +4131,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/tenso
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-tensorboards-experiments-runs-patch
   "Updates a TensorboardRun.
@@ -4460,13 +4153,12 @@ updateMask <string> Required. Field mask is used to specify the fields to be ove
       GoogleCloudAiplatformV1TensorboardRun
       nil))
   ([name GoogleCloudAiplatformV1TensorboardRun optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1TensorboardRun})))
+    {:method :patch,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1TensorboardRun}))
 
 (defn projects-locations-tensorboards-experiments-runs-write
   "Write time series data points into multiple TensorboardTimeSeries under a TensorboardRun. If any data fail to be ingested, an error is returned.
@@ -4477,14 +4169,13 @@ GoogleCloudAiplatformV1WriteTensorboardRunDataRequest:
 GoogleCloudAiplatformV1WriteTensorboardRunDataRequest"
   [tensorboardRun
    GoogleCloudAiplatformV1WriteTensorboardRunDataRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+tensorboardRun}:write",
-     :uri-template-args {"tensorboardRun" tensorboardRun},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1WriteTensorboardRunDataRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+tensorboardRun}:write",
+   :uri-template-args {"tensorboardRun" tensorboardRun},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1WriteTensorboardRunDataRequest})
 
 (defn projects-locations-tensorboards-experiments-runs-timeSeries-readBlobData
   "Gets bytes of TensorboardBlobs. This is to allow reading blob data stored in consumer project's Cloud Storage bucket without users having to obtain Cloud Storage access permission.
@@ -4499,15 +4190,14 @@ blobIds <string> IDs of the blobs to read."
       timeSeries
       nil))
   ([timeSeries optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+timeSeries}:readBlobData",
-       :uri-template-args {"timeSeries" timeSeries},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+timeSeries}:readBlobData",
+     :uri-template-args {"timeSeries" timeSeries},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"]}))
 
 (defn projects-locations-tensorboards-experiments-runs-timeSeries-get
   "Gets a TensorboardTimeSeries.
@@ -4515,14 +4205,13 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/tenso
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"]})
 
 (defn projects-locations-tensorboards-experiments-runs-timeSeries-exportTensorboardTimeSeries
   "Exports a TensorboardTimeSeries' data. Data is returned in paginated responses.
@@ -4533,16 +4222,13 @@ GoogleCloudAiplatformV1ExportTensorboardTimeSeriesDataRequest:
 GoogleCloudAiplatformV1ExportTensorboardTimeSeriesDataRequest"
   [tensorboardTimeSeries
    GoogleCloudAiplatformV1ExportTensorboardTimeSeriesDataRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+tensorboardTimeSeries}:exportTensorboardTimeSeries",
-     :uri-template-args
-     {"tensorboardTimeSeries" tensorboardTimeSeries},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body
-     GoogleCloudAiplatformV1ExportTensorboardTimeSeriesDataRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+tensorboardTimeSeries}:exportTensorboardTimeSeries",
+   :uri-template-args {"tensorboardTimeSeries" tensorboardTimeSeries},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1ExportTensorboardTimeSeriesDataRequest})
 
 (defn projects-locations-tensorboards-experiments-runs-timeSeries-list
   "Lists TensorboardTimeSeries in a Location.
@@ -4560,15 +4246,14 @@ readMask <string> Mask specifying which fields to read."
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/timeSeries",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/timeSeries",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"]}))
 
 (defn projects-locations-tensorboards-experiments-runs-timeSeries-delete
   "Deletes a TensorboardTimeSeries.
@@ -4576,12 +4261,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/tenso
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-tensorboards-experiments-runs-timeSeries-read
   "Reads a TensorboardTimeSeries' data. By default, if the number of data points stored is less than 1000, all data is returned. Otherwise, 1000 data points is randomly selected from this time series and returned. This value can be changed by changing max_data_points, which can't be greater than 10k.
@@ -4597,16 +4281,15 @@ maxDataPoints <integer> The maximum number of TensorboardTimeSeries' data to ret
       tensorboardTimeSeries
       nil))
   ([tensorboardTimeSeries optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+tensorboardTimeSeries}:read",
-       :uri-template-args
-       {"tensorboardTimeSeries" tensorboardTimeSeries},
-       :query-params (merge {} optional),
-       :scopes
-       ["https://www.googleapis.com/auth/cloud-platform"
-        "https://www.googleapis.com/auth/cloud-platform.read-only"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+tensorboardTimeSeries}:read",
+     :uri-template-args
+     {"tensorboardTimeSeries" tensorboardTimeSeries},
+     :query-params (merge {} optional),
+     :scopes
+     ["https://www.googleapis.com/auth/cloud-platform"
+      "https://www.googleapis.com/auth/cloud-platform.read-only"]}))
 
 (defn projects-locations-tensorboards-experiments-runs-timeSeries-patch
   "Updates a TensorboardTimeSeries.
@@ -4624,13 +4307,12 @@ updateMask <string> Required. Field mask is used to specify the fields to be ove
       GoogleCloudAiplatformV1TensorboardTimeSeries
       nil))
   ([name GoogleCloudAiplatformV1TensorboardTimeSeries optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1TensorboardTimeSeries})))
+    {:method :patch,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1TensorboardTimeSeries}))
 
 (defn projects-locations-tensorboards-experiments-runs-timeSeries-create
   "Creates a TensorboardTimeSeries.
@@ -4648,14 +4330,13 @@ tensorboardTimeSeriesId <string> Optional. The user specified unique ID to use f
       GoogleCloudAiplatformV1TensorboardTimeSeries
       nil))
   ([parent GoogleCloudAiplatformV1TensorboardTimeSeries optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/timeSeries",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1TensorboardTimeSeries})))
+    {:method :post,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/timeSeries",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1TensorboardTimeSeries}))
 
 (defn projects-locations-tensorboards-experiments-runs-timeSeries-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -4671,13 +4352,12 @@ pageSize <integer> The standard list page size."
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-tensorboards-experiments-runs-timeSeries-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -4685,12 +4365,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/tenso
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-tensorboards-experiments-runs-timeSeries-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -4698,12 +4377,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/tenso
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-tensorboards-experiments-runs-timeSeries-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -4718,13 +4396,11 @@ timeout <string> The maximum duration to wait before timing out. If left blank, 
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-tensorboards-experiments-runs-timeSeries-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -4732,13 +4408,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/tenso
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-tensorboards-experiments-runs-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -4753,13 +4427,11 @@ timeout <string> The maximum duration to wait before timing out. If left blank, 
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-tensorboards-experiments-runs-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -4767,12 +4439,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/tenso
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-tensorboards-experiments-runs-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -4780,13 +4451,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/tenso
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-tensorboards-experiments-runs-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -4802,13 +4471,12 @@ filter <string> The standard list filter."
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-tensorboards-experiments-runs-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -4816,12 +4484,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/tenso
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-tensorboards-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -4833,13 +4500,11 @@ optional:
 timeout <string> The maximum duration to wait before timing out. If left blank, the wait will be at most the time permitted by the underlying HTTP/RPC protocol. If RPC context deadline is also specified, the shorter one will be used."
   ([name] (projects-locations-tensorboards-operations-wait name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-tensorboards-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -4847,12 +4512,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/tenso
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-tensorboards-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -4860,13 +4524,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/tenso
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-tensorboards-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -4879,13 +4541,12 @@ pageSize <integer> The standard list page size.
 filter <string> The standard list filter."
   ([name] (projects-locations-tensorboards-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-tensorboards-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -4893,12 +4554,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/tenso
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-nasJobs-create
   "Creates a NasJob
@@ -4908,14 +4568,13 @@ parent <>
 GoogleCloudAiplatformV1NasJob:
 GoogleCloudAiplatformV1NasJob"
   [parent GoogleCloudAiplatformV1NasJob]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/nasJobs",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1NasJob}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/nasJobs",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1NasJob})
 
 (defn projects-locations-nasJobs-delete
   "Deletes a NasJob.
@@ -4923,12 +4582,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/nasJo
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-nasJobs-list
   "Lists NasJobs in a Location.
@@ -4942,13 +4600,12 @@ filter <string> The standard list filter. Supported fields: * `display_name` sup
 pageSize <integer> The standard list page size."
   ([parent] (projects-locations-nasJobs-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/nasJobs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/nasJobs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-nasJobs-get
   "Gets a NasJob
@@ -4956,14 +4613,13 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/nasJo
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"]})
 
 (defn projects-locations-nasJobs-cancel
   "Cancels a NasJob. Starts asynchronous cancellation on the NasJob. The server makes a best effort to cancel the job, but success is not guaranteed. Clients can use JobService.GetNasJob or other methods to check whether the cancellation succeeded or whether the job completed despite cancellation. On successful cancellation, the NasJob is not deleted; instead it becomes a job with a NasJob.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`, and NasJob.state is set to `CANCELLED`.
@@ -4973,14 +4629,12 @@ name <>
 GoogleCloudAiplatformV1CancelNasJobRequest:
 GoogleCloudAiplatformV1CancelNasJobRequest"
   [name GoogleCloudAiplatformV1CancelNasJobRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1CancelNasJobRequest}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1CancelNasJobRequest})
 
 (defn projects-locations-nasJobs-nasTrialDetails-get
   "Gets a NasTrialDetail.
@@ -4988,12 +4642,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/nasJo
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-nasJobs-nasTrialDetails-list
   "List top NasTrialDetails of a NasJob.
@@ -5006,13 +4659,12 @@ pageSize <integer> The standard list page size."
   ([parent]
     (projects-locations-nasJobs-nasTrialDetails-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/nasTrialDetails",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/nasTrialDetails",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-persistentResources-get
   "Gets a PersistentResource.
@@ -5020,12 +4672,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/persi
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-persistentResources-list
   "Lists PersistentResources in a Location.
@@ -5037,13 +4688,12 @@ optional:
 pageSize <integer> Optional. The standard list page size."
   ([parent] (projects-locations-persistentResources-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/persistentResources",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/persistentResources",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-persistentResources-delete
   "Deletes a PersistentResource.
@@ -5051,12 +4701,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/persi
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-persistentResources-patch
   "Updates a PersistentResource.
@@ -5074,13 +4723,12 @@ updateMask <string> Required. Specify the fields to be overwritten in the Persis
       GoogleCloudAiplatformV1PersistentResource
       nil))
   ([name GoogleCloudAiplatformV1PersistentResource optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1PersistentResource})))
+    {:method :patch,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1PersistentResource}))
 
 (defn projects-locations-persistentResources-create
   "Creates a PersistentResource.
@@ -5098,14 +4746,13 @@ persistentResourceId <string> Required. The ID to use for the PersistentResource
       GoogleCloudAiplatformV1PersistentResource
       nil))
   ([parent GoogleCloudAiplatformV1PersistentResource optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/persistentResources",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1PersistentResource})))
+    {:method :post,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/persistentResources",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1PersistentResource}))
 
 (defn projects-locations-persistentResources-reboot
   "Reboots a PersistentResource.
@@ -5115,14 +4762,12 @@ name <>
 GoogleCloudAiplatformV1RebootPersistentResourceRequest:
 GoogleCloudAiplatformV1RebootPersistentResourceRequest"
   [name GoogleCloudAiplatformV1RebootPersistentResourceRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:reboot",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1RebootPersistentResourceRequest}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:reboot",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1RebootPersistentResourceRequest})
 
 (defn projects-locations-persistentResources-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -5130,13 +4775,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/persi
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-persistentResources-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -5149,13 +4792,11 @@ timeout <string> The maximum duration to wait before timing out. If left blank, 
   ([name]
     (projects-locations-persistentResources-operations-wait name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-persistentResources-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -5169,13 +4810,12 @@ pageSize <integer> The standard list page size."
   ([name]
     (projects-locations-persistentResources-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-persistentResources-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -5183,12 +4823,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/persi
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-persistentResources-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -5196,12 +4835,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/persi
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-notebookExecutionJobs-delete
   "Deletes a NotebookExecutionJob.
@@ -5209,12 +4847,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/noteb
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-notebookExecutionJobs-create
   "Creates a NotebookExecutionJob.
@@ -5232,14 +4869,13 @@ notebookExecutionJobId <string> Optional. User specified ID for the NotebookExec
       GoogleCloudAiplatformV1NotebookExecutionJob
       nil))
   ([parent GoogleCloudAiplatformV1NotebookExecutionJob optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/notebookExecutionJobs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1NotebookExecutionJob})))
+    {:method :post,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/notebookExecutionJobs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1NotebookExecutionJob}))
 
 (defn projects-locations-notebookExecutionJobs-list
   "Lists NotebookExecutionJobs in a Location.
@@ -5254,13 +4890,12 @@ filter <string> Optional. An expression for filtering the results of the request
 orderBy <string> Optional. A comma-separated list of fields to order by, sorted in ascending order. Use \"desc\" after a field name for descending. Supported fields: * `display_name` * `create_time` * `update_time` Example: `display_name, create_time desc`."
   ([parent] (projects-locations-notebookExecutionJobs-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/notebookExecutionJobs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/notebookExecutionJobs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-notebookExecutionJobs-get
   "Gets a NotebookExecutionJob.
@@ -5272,12 +4907,11 @@ optional:
 view <string> Optional. The NotebookExecutionJob view. Defaults to BASIC."
   ([name] (projects-locations-notebookExecutionJobs-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-notebookExecutionJobs-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -5285,12 +4919,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/noteb
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-notebookExecutionJobs-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -5306,13 +4939,12 @@ pageSize <integer> The standard list page size."
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-notebookExecutionJobs-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -5320,13 +4952,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/noteb
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-notebookExecutionJobs-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -5341,13 +4971,11 @@ timeout <string> The maximum duration to wait before timing out. If left blank, 
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-notebookExecutionJobs-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -5355,12 +4983,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/noteb
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-hyperparameterTuningJobs-create
   "Creates a HyperparameterTuningJob
@@ -5370,14 +4997,13 @@ parent <>
 GoogleCloudAiplatformV1HyperparameterTuningJob:
 GoogleCloudAiplatformV1HyperparameterTuningJob"
   [parent GoogleCloudAiplatformV1HyperparameterTuningJob]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/hyperparameterTuningJobs",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1HyperparameterTuningJob}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/hyperparameterTuningJobs",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1HyperparameterTuningJob})
 
 (defn projects-locations-hyperparameterTuningJobs-get
   "Gets a HyperparameterTuningJob
@@ -5385,12 +5011,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/hyper
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-hyperparameterTuningJobs-delete
   "Deletes a HyperparameterTuningJob.
@@ -5398,12 +5023,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/hyper
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-hyperparameterTuningJobs-list
   "Lists HyperparameterTuningJobs in a Location.
@@ -5418,13 +5042,12 @@ pageSize <integer> The standard list page size."
   ([parent]
     (projects-locations-hyperparameterTuningJobs-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/hyperparameterTuningJobs",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/hyperparameterTuningJobs",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-hyperparameterTuningJobs-cancel
   "Cancels a HyperparameterTuningJob. Starts asynchronous cancellation on the HyperparameterTuningJob. The server makes a best effort to cancel the job, but success is not guaranteed. Clients can use JobService.GetHyperparameterTuningJob or other methods to check whether the cancellation succeeded or whether the job completed despite cancellation. On successful cancellation, the HyperparameterTuningJob is not deleted; instead it becomes a job with a HyperparameterTuningJob.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`, and HyperparameterTuningJob.state is set to `CANCELLED`.
@@ -5434,15 +5057,12 @@ name <>
 GoogleCloudAiplatformV1CancelHyperparameterTuningJobRequest:
 GoogleCloudAiplatformV1CancelHyperparameterTuningJobRequest"
   [name GoogleCloudAiplatformV1CancelHyperparameterTuningJobRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body
-     GoogleCloudAiplatformV1CancelHyperparameterTuningJobRequest}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1CancelHyperparameterTuningJobRequest})
 
 (defn projects-locations-hyperparameterTuningJobs-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -5457,13 +5077,11 @@ timeout <string> The maximum duration to wait before timing out. If left blank, 
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-hyperparameterTuningJobs-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -5471,12 +5089,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/hyper
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-hyperparameterTuningJobs-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -5484,12 +5101,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/hyper
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-hyperparameterTuningJobs-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -5497,13 +5113,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/hyper
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-hyperparameterTuningJobs-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -5519,13 +5133,12 @@ filter <string> The standard list filter."
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-specialistPools-patch
   "Updates a SpecialistPool.
@@ -5543,13 +5156,12 @@ updateMask <string> Required. The update mask applies to the resource."
       GoogleCloudAiplatformV1SpecialistPool
       nil))
   ([name GoogleCloudAiplatformV1SpecialistPool optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1SpecialistPool})))
+    {:method :patch,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1SpecialistPool}))
 
 (defn projects-locations-specialistPools-list
   "Lists SpecialistPools in a Location.
@@ -5562,13 +5174,12 @@ pageSize <integer> The standard list page size.
 readMask <string> Mask specifying which fields to read. FieldMask represents a set of"
   ([parent] (projects-locations-specialistPools-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/specialistPools",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/specialistPools",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-specialistPools-get
   "Gets a SpecialistPool.
@@ -5576,12 +5187,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/speci
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-specialistPools-create
   "Creates a SpecialistPool.
@@ -5591,14 +5201,13 @@ parent <>
 GoogleCloudAiplatformV1SpecialistPool:
 GoogleCloudAiplatformV1SpecialistPool"
   [parent GoogleCloudAiplatformV1SpecialistPool]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/specialistPools",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1SpecialistPool}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/specialistPools",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1SpecialistPool})
 
 (defn projects-locations-specialistPools-delete
   "Deletes a SpecialistPool as well as all Specialists in the pool.
@@ -5610,12 +5219,11 @@ optional:
 force <boolean> If set to true, any specialist managers in this SpecialistPool will also be deleted. (Otherwise, the request will only work if the SpecialistPool has no specialist managers.)"
   ([name] (projects-locations-specialistPools-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-specialistPools-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -5623,12 +5231,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/speci
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-specialistPools-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -5641,13 +5248,11 @@ timeout <string> The maximum duration to wait before timing out. If left blank, 
   ([name]
     (projects-locations-specialistPools-operations-wait name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-specialistPools-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -5655,13 +5260,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/speci
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-specialistPools-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -5675,13 +5278,12 @@ filter <string> The standard list filter."
   ([name]
     (projects-locations-specialistPools-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-specialistPools-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -5689,12 +5291,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/speci
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-datasets-delete
   "Deletes a Dataset.
@@ -5702,12 +5303,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/datas
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-datasets-import
   "Imports data into a Dataset.
@@ -5717,14 +5317,12 @@ name <>
 GoogleCloudAiplatformV1ImportDataRequest:
 GoogleCloudAiplatformV1ImportDataRequest"
   [name GoogleCloudAiplatformV1ImportDataRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:import",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1ImportDataRequest}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:import",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1ImportDataRequest})
 
 (defn projects-locations-datasets-get
   "Gets a Dataset.
@@ -5736,12 +5334,11 @@ optional:
 readMask <string> Mask specifying which fields to read."
   ([name] (projects-locations-datasets-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-datasets-patch
   "Updates a Dataset.
@@ -5759,13 +5356,12 @@ updateMask <string> Required. The update mask applies to the resource. For the `
       GoogleCloudAiplatformV1Dataset
       nil))
   ([name GoogleCloudAiplatformV1Dataset optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1Dataset})))
+    {:method :patch,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1Dataset}))
 
 (defn projects-locations-datasets-searchDataItems
   "Searches DataItems in a Dataset.
@@ -5788,13 +5384,12 @@ fieldMask <string> Mask specifying which fields of DataItemView to read.
 orderByAnnotation.orderBy <string> A comma-separated list of annotation fields to order by, sorted in ascending order. Use \"desc\" after a field name for descending. Must also specify saved_query."
   ([dataset] (projects-locations-datasets-searchDataItems dataset nil))
   ([dataset optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+dataset}:searchDataItems",
-       :uri-template-args {"dataset" dataset},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+dataset}:searchDataItems",
+     :uri-template-args {"dataset" dataset},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-datasets-create
   "Creates a Dataset.
@@ -5804,14 +5399,13 @@ parent <>
 GoogleCloudAiplatformV1Dataset:
 GoogleCloudAiplatformV1Dataset"
   [parent GoogleCloudAiplatformV1Dataset]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/datasets",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1Dataset}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/datasets",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1Dataset})
 
 (defn projects-locations-datasets-export
   "Exports data from a Dataset.
@@ -5821,14 +5415,12 @@ name <>
 GoogleCloudAiplatformV1ExportDataRequest:
 GoogleCloudAiplatformV1ExportDataRequest"
   [name GoogleCloudAiplatformV1ExportDataRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:export",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1ExportDataRequest}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:export",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1ExportDataRequest})
 
 (defn projects-locations-datasets-list
   "Lists Datasets in a Location.
@@ -5843,13 +5435,12 @@ pageSize <integer> The standard list page size.
 filter <string> An expression for filtering the results of the request. For field names both snake_case and camelCase are supported. * `display_name`: supports = and != * `metadata_schema_uri`: supports = and != * `labels` supports general map functions that is: * `labels.key=value` - key:value equality * `labels.key:* or labels:key - key existence * A key including a space must be quoted. `labels.\"a key\"`. Some examples: * `displayName=\"myDisplayName\"` * `labels.myKey=\"myValue\"`"
   ([parent] (projects-locations-datasets-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/datasets",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/datasets",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-datasets-annotationSpecs-get
   "Gets an AnnotationSpec.
@@ -5861,12 +5452,11 @@ optional:
 readMask <string> Mask specifying which fields to read."
   ([name] (projects-locations-datasets-annotationSpecs-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-datasets-annotationSpecs-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -5874,12 +5464,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/datas
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-datasets-annotationSpecs-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -5887,12 +5476,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/datas
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-datasets-annotationSpecs-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -5908,13 +5496,12 @@ pageSize <integer> The standard list page size."
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-datasets-annotationSpecs-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -5929,13 +5516,11 @@ timeout <string> The maximum duration to wait before timing out. If left blank, 
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-datasets-annotationSpecs-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -5943,13 +5528,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/datas
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-datasets-dataItems-list
   "Lists DataItems in a Dataset.
@@ -5964,13 +5547,12 @@ readMask <string> Mask specifying which fields to read.
 pageSize <integer> The standard list page size."
   ([parent] (projects-locations-datasets-dataItems-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/dataItems",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/dataItems",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-datasets-dataItems-annotations-list
   "Lists Annotations belongs to a dataitem
@@ -5988,13 +5570,12 @@ filter <string> The standard list filter."
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/annotations",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/annotations",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-datasets-dataItems-annotations-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -6002,12 +5583,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/datas
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-datasets-dataItems-annotations-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -6023,13 +5603,12 @@ filter <string> The standard list filter."
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-datasets-dataItems-annotations-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -6037,13 +5616,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/datas
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-datasets-dataItems-annotations-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -6051,12 +5628,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/datas
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-datasets-dataItems-annotations-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -6071,13 +5647,11 @@ timeout <string> The maximum duration to wait before timing out. If left blank, 
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-datasets-dataItems-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -6091,13 +5665,12 @@ filter <string> The standard list filter."
   ([name]
     (projects-locations-datasets-dataItems-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-datasets-dataItems-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -6105,12 +5678,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/datas
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-datasets-dataItems-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -6118,12 +5690,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/datas
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-datasets-dataItems-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -6131,13 +5702,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/datas
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-datasets-dataItems-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -6150,13 +5719,11 @@ timeout <string> The maximum duration to wait before timing out. If left blank, 
   ([name]
     (projects-locations-datasets-dataItems-operations-wait name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-datasets-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -6168,13 +5735,11 @@ optional:
 timeout <string> The maximum duration to wait before timing out. If left blank, the wait will be at most the time permitted by the underlying HTTP/RPC protocol. If RPC context deadline is also specified, the shorter one will be used."
   ([name] (projects-locations-datasets-operations-wait name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-datasets-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -6182,12 +5747,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/datas
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-datasets-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -6200,13 +5764,12 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-datasets-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-datasets-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -6214,12 +5777,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/datas
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-datasets-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -6227,13 +5789,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/datas
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-datasets-datasetVersions-delete
   "Deletes a Dataset version.
@@ -6241,12 +5801,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/datas
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-datasets-datasetVersions-list
   "Lists DatasetVersions in a Dataset.
@@ -6262,13 +5821,12 @@ readMask <string> Optional. Mask specifying which fields to read."
   ([parent]
     (projects-locations-datasets-datasetVersions-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/datasetVersions",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/datasetVersions",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-datasets-datasetVersions-get
   "Gets a Dataset version.
@@ -6280,12 +5838,11 @@ optional:
 readMask <string> Mask specifying which fields to read."
   ([name] (projects-locations-datasets-datasetVersions-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-datasets-datasetVersions-create
   "Create a version from a Dataset.
@@ -6295,14 +5852,13 @@ parent <>
 GoogleCloudAiplatformV1DatasetVersion:
 GoogleCloudAiplatformV1DatasetVersion"
   [parent GoogleCloudAiplatformV1DatasetVersion]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/datasetVersions",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1DatasetVersion}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/datasetVersions",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1DatasetVersion})
 
 (defn projects-locations-datasets-datasetVersions-patch
   "Updates a DatasetVersion.
@@ -6320,13 +5876,12 @@ updateMask <string> Required. The update mask applies to the resource. For the `
       GoogleCloudAiplatformV1DatasetVersion
       nil))
   ([name GoogleCloudAiplatformV1DatasetVersion optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1DatasetVersion})))
+    {:method :patch,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1DatasetVersion}))
 
 (defn projects-locations-datasets-datasetVersions-restore
   "Restores a dataset version.
@@ -6334,13 +5889,12 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/datas
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:restore",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+name}:restore",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-datasets-savedQueries-list
   "Lists SavedQueries in a Dataset.
@@ -6355,13 +5909,12 @@ filter <string> The standard list filter.
 readMask <string> Mask specifying which fields to read."
   ([parent] (projects-locations-datasets-savedQueries-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/savedQueries",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/savedQueries",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-datasets-savedQueries-delete
   "Deletes a SavedQuery.
@@ -6369,12 +5922,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/datas
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-datasets-savedQueries-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -6389,13 +5941,11 @@ timeout <string> The maximum duration to wait before timing out. If left blank, 
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-datasets-savedQueries-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -6403,12 +5953,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/datas
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-datasets-savedQueries-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -6424,13 +5973,12 @@ filter <string> The standard list filter."
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-datasets-savedQueries-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -6438,13 +5986,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/datas
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-datasets-savedQueries-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -6452,12 +5998,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/datas
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-publishers-models-predict
   "Perform an online prediction.
@@ -6467,16 +6012,15 @@ endpoint <>
 GoogleCloudAiplatformV1PredictRequest:
 GoogleCloudAiplatformV1PredictRequest"
   [endpoint GoogleCloudAiplatformV1PredictRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+endpoint}:predict",
-     :uri-template-args {"endpoint" endpoint},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"],
-     :body GoogleCloudAiplatformV1PredictRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+endpoint}:predict",
+   :uri-template-args {"endpoint" endpoint},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"],
+   :body GoogleCloudAiplatformV1PredictRequest})
 
 (defn projects-locations-publishers-models-generateContent
   "Generate content with multimodal inputs.
@@ -6486,16 +6030,15 @@ model <>
 GoogleCloudAiplatformV1GenerateContentRequest:
 GoogleCloudAiplatformV1GenerateContentRequest"
   [model GoogleCloudAiplatformV1GenerateContentRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+model}:generateContent",
-     :uri-template-args {"model" model},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"],
-     :body GoogleCloudAiplatformV1GenerateContentRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+model}:generateContent",
+   :uri-template-args {"model" model},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"],
+   :body GoogleCloudAiplatformV1GenerateContentRequest})
 
 (defn projects-locations-publishers-models-streamRawPredict
   "Perform a streaming online prediction with an arbitrary HTTP payload.
@@ -6505,16 +6048,15 @@ endpoint <>
 GoogleCloudAiplatformV1StreamRawPredictRequest:
 GoogleCloudAiplatformV1StreamRawPredictRequest"
   [endpoint GoogleCloudAiplatformV1StreamRawPredictRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+endpoint}:streamRawPredict",
-     :uri-template-args {"endpoint" endpoint},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"],
-     :body GoogleCloudAiplatformV1StreamRawPredictRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+endpoint}:streamRawPredict",
+   :uri-template-args {"endpoint" endpoint},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"],
+   :body GoogleCloudAiplatformV1StreamRawPredictRequest})
 
 (defn projects-locations-publishers-models-computeTokens
   "Return a list of tokens based on the input text.
@@ -6524,14 +6066,13 @@ endpoint <>
 GoogleCloudAiplatformV1ComputeTokensRequest:
 GoogleCloudAiplatformV1ComputeTokensRequest"
   [endpoint GoogleCloudAiplatformV1ComputeTokensRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+endpoint}:computeTokens",
-     :uri-template-args {"endpoint" endpoint},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1ComputeTokensRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+endpoint}:computeTokens",
+   :uri-template-args {"endpoint" endpoint},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1ComputeTokensRequest})
 
 (defn projects-locations-publishers-models-rawPredict
   "Perform an online prediction with an arbitrary HTTP payload. The response includes the following HTTP headers: * `X-Vertex-AI-Endpoint-Id`: ID of the Endpoint that served this prediction. * `X-Vertex-AI-Deployed-Model-Id`: ID of the Endpoint's DeployedModel that served this prediction.
@@ -6541,16 +6082,15 @@ endpoint <>
 GoogleCloudAiplatformV1RawPredictRequest:
 GoogleCloudAiplatformV1RawPredictRequest"
   [endpoint GoogleCloudAiplatformV1RawPredictRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+endpoint}:rawPredict",
-     :uri-template-args {"endpoint" endpoint},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"],
-     :body GoogleCloudAiplatformV1RawPredictRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+endpoint}:rawPredict",
+   :uri-template-args {"endpoint" endpoint},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"],
+   :body GoogleCloudAiplatformV1RawPredictRequest})
 
 (defn projects-locations-publishers-models-countTokens
   "Perform a token counting.
@@ -6560,14 +6100,13 @@ endpoint <>
 GoogleCloudAiplatformV1CountTokensRequest:
 GoogleCloudAiplatformV1CountTokensRequest"
   [endpoint GoogleCloudAiplatformV1CountTokensRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+endpoint}:countTokens",
-     :uri-template-args {"endpoint" endpoint},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1CountTokensRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+endpoint}:countTokens",
+   :uri-template-args {"endpoint" endpoint},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1CountTokensRequest})
 
 (defn projects-locations-publishers-models-streamGenerateContent
   "Generate content with multimodal inputs with streaming support.
@@ -6577,16 +6116,15 @@ model <>
 GoogleCloudAiplatformV1GenerateContentRequest:
 GoogleCloudAiplatformV1GenerateContentRequest"
   [model GoogleCloudAiplatformV1GenerateContentRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+model}:streamGenerateContent",
-     :uri-template-args {"model" model},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"],
-     :body GoogleCloudAiplatformV1GenerateContentRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+model}:streamGenerateContent",
+   :uri-template-args {"model" model},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"],
+   :body GoogleCloudAiplatformV1GenerateContentRequest})
 
 (defn projects-locations-publishers-models-serverStreamingPredict
   "Perform a server-side streaming online prediction request for Vertex LLM streaming.
@@ -6596,16 +6134,15 @@ endpoint <>
 GoogleCloudAiplatformV1StreamingPredictRequest:
 GoogleCloudAiplatformV1StreamingPredictRequest"
   [endpoint GoogleCloudAiplatformV1StreamingPredictRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+endpoint}:serverStreamingPredict",
-     :uri-template-args {"endpoint" endpoint},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"],
-     :body GoogleCloudAiplatformV1StreamingPredictRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+endpoint}:serverStreamingPredict",
+   :uri-template-args {"endpoint" endpoint},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"],
+   :body GoogleCloudAiplatformV1StreamingPredictRequest})
 
 (defn projects-locations-deploymentResourcePools-delete
   "Delete a DeploymentResourcePool.
@@ -6613,12 +6150,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/deplo
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-deploymentResourcePools-create
   "Create a DeploymentResourcePool.
@@ -6628,14 +6164,13 @@ parent <>
 GoogleCloudAiplatformV1CreateDeploymentResourcePoolRequest:
 GoogleCloudAiplatformV1CreateDeploymentResourcePoolRequest"
   [parent GoogleCloudAiplatformV1CreateDeploymentResourcePoolRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/deploymentResourcePools",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1CreateDeploymentResourcePoolRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/deploymentResourcePools",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1CreateDeploymentResourcePoolRequest})
 
 (defn projects-locations-deploymentResourcePools-list
   "List DeploymentResourcePools in a location.
@@ -6648,13 +6183,12 @@ pageSize <integer> The maximum number of DeploymentResourcePools to return. The 
   ([parent]
     (projects-locations-deploymentResourcePools-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/deploymentResourcePools",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/deploymentResourcePools",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-deploymentResourcePools-queryDeployedModels
   "List DeployedModels that have been deployed on this DeploymentResourcePool.
@@ -6669,14 +6203,13 @@ pageSize <integer> The maximum number of DeployedModels to return. The service m
       deploymentResourcePool
       nil))
   ([deploymentResourcePool optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+deploymentResourcePool}:queryDeployedModels",
-       :uri-template-args
-       {"deploymentResourcePool" deploymentResourcePool},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+deploymentResourcePool}:queryDeployedModels",
+     :uri-template-args
+     {"deploymentResourcePool" deploymentResourcePool},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-deploymentResourcePools-patch
   "Update a DeploymentResourcePool.
@@ -6694,13 +6227,12 @@ updateMask <string> Required. The list of fields to update."
       GoogleCloudAiplatformV1DeploymentResourcePool
       nil))
   ([name GoogleCloudAiplatformV1DeploymentResourcePool optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1DeploymentResourcePool})))
+    {:method :patch,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1DeploymentResourcePool}))
 
 (defn projects-locations-deploymentResourcePools-get
   "Get a DeploymentResourcePool.
@@ -6708,12 +6240,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/deplo
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-deploymentResourcePools-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -6721,13 +6252,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/deplo
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-deploymentResourcePools-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -6735,12 +6264,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/deplo
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-deploymentResourcePools-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -6748,12 +6276,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/deplo
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-deploymentResourcePools-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -6768,13 +6295,11 @@ timeout <string> The maximum duration to wait before timing out. If left blank, 
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-deploymentResourcePools-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -6790,13 +6315,12 @@ pageSize <integer> The standard list page size."
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-indexes-get
   "Gets an Index.
@@ -6804,12 +6328,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/index
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-indexes-upsertDatapoints
   "Add/update Datapoints into an Index.
@@ -6819,14 +6342,13 @@ index <>
 GoogleCloudAiplatformV1UpsertDatapointsRequest:
 GoogleCloudAiplatformV1UpsertDatapointsRequest"
   [index GoogleCloudAiplatformV1UpsertDatapointsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+index}:upsertDatapoints",
-     :uri-template-args {"index" index},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1UpsertDatapointsRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+index}:upsertDatapoints",
+   :uri-template-args {"index" index},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1UpsertDatapointsRequest})
 
 (defn projects-locations-indexes-patch
   "Updates an Index.
@@ -6844,13 +6366,12 @@ updateMask <string> The update mask applies to the resource. For the `FieldMask`
       GoogleCloudAiplatformV1Index
       nil))
   ([name GoogleCloudAiplatformV1Index optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1Index})))
+    {:method :patch,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1Index}))
 
 (defn projects-locations-indexes-delete
   "Deletes an Index. An Index can only be deleted when all its DeployedIndexes had been undeployed.
@@ -6858,12 +6379,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/index
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-indexes-create
   "Creates an Index.
@@ -6873,14 +6393,13 @@ parent <>
 GoogleCloudAiplatformV1Index:
 GoogleCloudAiplatformV1Index"
   [parent GoogleCloudAiplatformV1Index]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/indexes",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1Index}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/indexes",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1Index})
 
 (defn projects-locations-indexes-list
   "Lists Indexes in a Location.
@@ -6894,13 +6413,12 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([parent] (projects-locations-indexes-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/indexes",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/indexes",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-indexes-removeDatapoints
   "Remove Datapoints from an Index.
@@ -6910,14 +6428,13 @@ index <>
 GoogleCloudAiplatformV1RemoveDatapointsRequest:
 GoogleCloudAiplatformV1RemoveDatapointsRequest"
   [index GoogleCloudAiplatformV1RemoveDatapointsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+index}:removeDatapoints",
-     :uri-template-args {"index" index},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1RemoveDatapointsRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+index}:removeDatapoints",
+   :uri-template-args {"index" index},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1RemoveDatapointsRequest})
 
 (defn projects-locations-indexes-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -6925,12 +6442,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/index
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-indexes-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -6938,13 +6454,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/index
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-indexes-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -6957,13 +6471,12 @@ pageSize <integer> The standard list page size.
 filter <string> The standard list filter."
   ([name] (projects-locations-indexes-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-indexes-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -6971,12 +6484,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/index
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-indexes-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -6988,13 +6500,11 @@ optional:
 timeout <string> The maximum duration to wait before timing out. If left blank, the wait will be at most the time permitted by the underlying HTTP/RPC protocol. If RPC context deadline is also specified, the shorter one will be used."
   ([name] (projects-locations-indexes-operations-wait name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-models-list
   "Lists Models in a Location.
@@ -7009,13 +6519,12 @@ readMask <string> Mask specifying which fields to read.
 pageSize <integer> The standard list page size."
   ([parent] (projects-locations-models-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/models",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/models",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-models-setIamPolicy
   "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
@@ -7025,14 +6534,13 @@ resource <>
 GoogleIamV1SetIamPolicyRequest:
 GoogleIamV1SetIamPolicyRequest"
   [resource GoogleIamV1SetIamPolicyRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+resource}:setIamPolicy",
-     :uri-template-args {"resource" resource},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleIamV1SetIamPolicyRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+resource}:setIamPolicy",
+   :uri-template-args {"resource" resource},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleIamV1SetIamPolicyRequest})
 
 (defn projects-locations-models-deleteVersion
   "Deletes a Model version. Model version can only be deleted if there are no DeployedModels created from it. Deleting the only version in the Model is not allowed. Use DeleteModel for deleting the Model instead.
@@ -7040,13 +6548,12 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/model
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:deleteVersion",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+name}:deleteVersion",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-models-copy
   "Copies an already existing Vertex AI Model into the specified Location. The source Model must exist in the same Project. When copying custom Models, the users themselves are responsible for Model.metadata content to be region-agnostic, as well as making sure that any resources (e.g. files) it depends on remain accessible.
@@ -7056,14 +6563,13 @@ parent <>
 GoogleCloudAiplatformV1CopyModelRequest:
 GoogleCloudAiplatformV1CopyModelRequest"
   [parent GoogleCloudAiplatformV1CopyModelRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/models:copy",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1CopyModelRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/models:copy",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1CopyModelRequest})
 
 (defn projects-locations-models-listVersions
   "Lists versions of the specified model.
@@ -7078,13 +6584,12 @@ filter <string> An expression for filtering the results of the request. For fiel
 orderBy <string> A comma-separated list of fields to order by, sorted in ascending order. Use \"desc\" after a field name for descending. Supported fields: * `create_time` * `update_time` Example: `update_time asc, create_time desc`."
   ([name] (projects-locations-models-listVersions name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:listVersions",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}:listVersions",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-models-delete
   "Deletes a Model. A model cannot be deleted if any Endpoint resource has a DeployedModel based on the model in its deployed_models field.
@@ -7092,12 +6597,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/model
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-models-export
   "Exports a trained, exportable Model to a location specified by the user. A Model is considered to be exportable if it has at least one supported export format.
@@ -7107,14 +6611,12 @@ name <>
 GoogleCloudAiplatformV1ExportModelRequest:
 GoogleCloudAiplatformV1ExportModelRequest"
   [name GoogleCloudAiplatformV1ExportModelRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:export",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1ExportModelRequest}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:export",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1ExportModelRequest})
 
 (defn projects-locations-models-updateExplanationDataset
   "Incrementally update the dataset used for an examples model.
@@ -7124,14 +6626,13 @@ model <>
 GoogleCloudAiplatformV1UpdateExplanationDatasetRequest:
 GoogleCloudAiplatformV1UpdateExplanationDatasetRequest"
   [model GoogleCloudAiplatformV1UpdateExplanationDatasetRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+model}:updateExplanationDataset",
-     :uri-template-args {"model" model},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1UpdateExplanationDatasetRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+model}:updateExplanationDataset",
+   :uri-template-args {"model" model},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1UpdateExplanationDatasetRequest})
 
 (defn projects-locations-models-upload
   "Uploads a Model artifact into Vertex AI.
@@ -7141,14 +6642,13 @@ parent <>
 GoogleCloudAiplatformV1UploadModelRequest:
 GoogleCloudAiplatformV1UploadModelRequest"
   [parent GoogleCloudAiplatformV1UploadModelRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/models:upload",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1UploadModelRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/models:upload",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1UploadModelRequest})
 
 (defn projects-locations-models-patch
   "Updates a Model.
@@ -7166,13 +6666,12 @@ updateMask <string> Required. The update mask applies to the resource. For the `
       GoogleCloudAiplatformV1Model
       nil))
   ([name GoogleCloudAiplatformV1Model optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1Model})))
+    {:method :patch,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1Model}))
 
 (defn projects-locations-models-mergeVersionAliases
   "Merges a set of aliases for a Model version.
@@ -7182,14 +6681,13 @@ name <>
 GoogleCloudAiplatformV1MergeVersionAliasesRequest:
 GoogleCloudAiplatformV1MergeVersionAliasesRequest"
   [name GoogleCloudAiplatformV1MergeVersionAliasesRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:mergeVersionAliases",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1MergeVersionAliasesRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+name}:mergeVersionAliases",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1MergeVersionAliasesRequest})
 
 (defn projects-locations-models-getIamPolicy
   "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
@@ -7201,13 +6699,12 @@ optional:
 options.requestedPolicyVersion <integer> Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies)."
   ([resource] (projects-locations-models-getIamPolicy resource nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+resource}:getIamPolicy",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+resource}:getIamPolicy",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-models-get
   "Gets a Model.
@@ -7215,12 +6712,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/model
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-models-testIamPermissions
   "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.
@@ -7233,13 +6729,12 @@ permissions <string> The set of permissions to check for the `resource`. Permiss
   ([resource]
     (projects-locations-models-testIamPermissions resource nil))
   ([resource optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+resource}:testIamPermissions",
-       :uri-template-args {"resource" resource},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+resource}:testIamPermissions",
+     :uri-template-args {"resource" resource},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-models-evaluations-import
   "Imports an externally generated ModelEvaluation.
@@ -7249,14 +6744,13 @@ parent <>
 GoogleCloudAiplatformV1ImportModelEvaluationRequest:
 GoogleCloudAiplatformV1ImportModelEvaluationRequest"
   [parent GoogleCloudAiplatformV1ImportModelEvaluationRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/evaluations:import",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1ImportModelEvaluationRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/evaluations:import",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1ImportModelEvaluationRequest})
 
 (defn projects-locations-models-evaluations-list
   "Lists ModelEvaluations in a Model.
@@ -7270,13 +6764,12 @@ pageSize <integer> The standard list page size.
 readMask <string> Mask specifying which fields to read."
   ([parent] (projects-locations-models-evaluations-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/evaluations",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/evaluations",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-models-evaluations-get
   "Gets a ModelEvaluation.
@@ -7284,12 +6777,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/model
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-models-evaluations-slices-get
   "Gets a ModelEvaluationSlice.
@@ -7297,12 +6789,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/model
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-models-evaluations-slices-batchImport
   "Imports a list of externally generated EvaluatedAnnotations.
@@ -7313,15 +6804,13 @@ GoogleCloudAiplatformV1BatchImportEvaluatedAnnotationsRequest:
 GoogleCloudAiplatformV1BatchImportEvaluatedAnnotationsRequest"
   [parent
    GoogleCloudAiplatformV1BatchImportEvaluatedAnnotationsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}:batchImport",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body
-     GoogleCloudAiplatformV1BatchImportEvaluatedAnnotationsRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}:batchImport",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1BatchImportEvaluatedAnnotationsRequest})
 
 (defn projects-locations-models-evaluations-slices-list
   "Lists ModelEvaluationSlices in a ModelEvaluation.
@@ -7336,13 +6825,12 @@ filter <string> The standard list filter. * `slice.dimension` - for =."
   ([parent]
     (projects-locations-models-evaluations-slices-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/slices",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/slices",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-models-evaluations-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -7350,12 +6838,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/model
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-models-evaluations-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -7368,13 +6855,11 @@ timeout <string> The maximum duration to wait before timing out. If left blank, 
   ([name]
     (projects-locations-models-evaluations-operations-wait name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-models-evaluations-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -7382,13 +6867,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/model
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-models-evaluations-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -7396,12 +6879,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/model
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-models-evaluations-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -7415,13 +6897,12 @@ filter <string> The standard list filter."
   ([name]
     (projects-locations-models-evaluations-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-models-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -7434,13 +6915,12 @@ pageSize <integer> The standard list page size.
 filter <string> The standard list filter."
   ([name] (projects-locations-models-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-models-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -7452,13 +6932,11 @@ optional:
 timeout <string> The maximum duration to wait before timing out. If left blank, the wait will be at most the time permitted by the underlying HTTP/RPC protocol. If RPC context deadline is also specified, the shorter one will be used."
   ([name] (projects-locations-models-operations-wait name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-models-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -7466,12 +6944,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/model
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-models-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -7479,12 +6956,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/model
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-models-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -7492,13 +6968,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/model
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-metadataStores-get
   "Retrieves a specific MetadataStore.
@@ -7506,12 +6980,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/metad
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-metadataStores-delete
   "Deletes a single MetadataStore and all its child resources (Artifacts, Executions, and Contexts).
@@ -7523,12 +6996,11 @@ optional:
 force <boolean> Deprecated: Field is no longer supported."
   ([name] (projects-locations-metadataStores-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-metadataStores-create
   "Initializes a MetadataStore, including allocation of resources.
@@ -7546,14 +7018,13 @@ metadataStoreId <string> The {metadatastore} portion of the resource name with t
       GoogleCloudAiplatformV1MetadataStore
       nil))
   ([parent GoogleCloudAiplatformV1MetadataStore optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/metadataStores",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1MetadataStore})))
+    {:method :post,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/metadataStores",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1MetadataStore}))
 
 (defn projects-locations-metadataStores-list
   "Lists MetadataStores for a Location.
@@ -7565,13 +7036,12 @@ optional:
 pageSize <integer> The maximum number of Metadata Stores to return. The service may return fewer. Must be in range 1-1000, inclusive. Defaults to 100."
   ([parent] (projects-locations-metadataStores-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/metadataStores",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/metadataStores",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-metadataStores-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -7584,13 +7054,12 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-metadataStores-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-metadataStores-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -7598,13 +7067,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/metad
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-metadataStores-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -7612,12 +7079,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/metad
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-metadataStores-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -7629,13 +7095,11 @@ optional:
 timeout <string> The maximum duration to wait before timing out. If left blank, the wait will be at most the time permitted by the underlying HTTP/RPC protocol. If RPC context deadline is also specified, the shorter one will be used."
   ([name] (projects-locations-metadataStores-operations-wait name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-metadataStores-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -7643,12 +7107,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/metad
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-metadataStores-metadataSchemas-create
   "Creates a MetadataSchema.
@@ -7666,14 +7129,13 @@ metadataSchemaId <string> The {metadata_schema} portion of the resource name wit
       GoogleCloudAiplatformV1MetadataSchema
       nil))
   ([parent GoogleCloudAiplatformV1MetadataSchema optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/metadataSchemas",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1MetadataSchema})))
+    {:method :post,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/metadataSchemas",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1MetadataSchema}))
 
 (defn projects-locations-metadataStores-metadataSchemas-list
   "Lists MetadataSchemas.
@@ -7689,13 +7151,12 @@ pageSize <integer> The maximum number of MetadataSchemas to return. The service 
       parent
       nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/metadataSchemas",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/metadataSchemas",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-metadataStores-metadataSchemas-get
   "Retrieves a specific MetadataSchema.
@@ -7703,12 +7164,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/metad
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-metadataStores-contexts-list
   "Lists Contexts on the MetadataStore.
@@ -7723,13 +7183,12 @@ pageSize <integer> The maximum number of Contexts to return. The service may ret
   ([parent]
     (projects-locations-metadataStores-contexts-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/contexts",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/contexts",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-metadataStores-contexts-delete
   "Deletes a stored Context.
@@ -7742,12 +7201,11 @@ force <boolean> The force deletion semantics is still undefined. Users should no
 etag <string> Optional. The etag of the Context to delete. If this is provided, it must match the server's etag. Otherwise, the request will fail with a FAILED_PRECONDITION."
   ([name] (projects-locations-metadataStores-contexts-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-metadataStores-contexts-queryContextLineageSubgraph
   "Retrieves Artifacts and Executions within the specified Context, connected by Event edges and returned as a LineageSubgraph.
@@ -7755,13 +7213,12 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/metad
 
 context <> "
   [context]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+context}:queryContextLineageSubgraph",
-     :uri-template-args {"context" context},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+context}:queryContextLineageSubgraph",
+   :uri-template-args {"context" context},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-metadataStores-contexts-purge
   "Purges Contexts.
@@ -7771,14 +7228,13 @@ parent <>
 GoogleCloudAiplatformV1PurgeContextsRequest:
 GoogleCloudAiplatformV1PurgeContextsRequest"
   [parent GoogleCloudAiplatformV1PurgeContextsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/contexts:purge",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1PurgeContextsRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/contexts:purge",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1PurgeContextsRequest})
 
 (defn projects-locations-metadataStores-contexts-addContextChildren
   "Adds a set of Contexts as children to a parent Context. If any of the child Contexts have already been added to the parent Context, they are simply skipped. If this call would create a cycle or cause any Context to have more than 10 parents, the request will fail with an INVALID_ARGUMENT error.
@@ -7788,14 +7244,13 @@ context <>
 GoogleCloudAiplatformV1AddContextChildrenRequest:
 GoogleCloudAiplatformV1AddContextChildrenRequest"
   [context GoogleCloudAiplatformV1AddContextChildrenRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+context}:addContextChildren",
-     :uri-template-args {"context" context},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1AddContextChildrenRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+context}:addContextChildren",
+   :uri-template-args {"context" context},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1AddContextChildrenRequest})
 
 (defn projects-locations-metadataStores-contexts-patch
   "Updates a stored Context.
@@ -7814,13 +7269,12 @@ allowMissing <boolean> If set to true, and the Context is not found, a new Conte
       GoogleCloudAiplatformV1Context
       nil))
   ([name GoogleCloudAiplatformV1Context optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1Context})))
+    {:method :patch,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1Context}))
 
 (defn projects-locations-metadataStores-contexts-create
   "Creates a Context associated with a MetadataStore.
@@ -7838,14 +7292,13 @@ contextId <string> The {context} portion of the resource name with the format: `
       GoogleCloudAiplatformV1Context
       nil))
   ([parent GoogleCloudAiplatformV1Context optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/contexts",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1Context})))
+    {:method :post,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/contexts",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1Context}))
 
 (defn projects-locations-metadataStores-contexts-addContextArtifactsAndExecutions
   "Adds a set of Artifacts and Executions to a Context. If any of the Artifacts or Executions have already been added to a Context, they are simply skipped.
@@ -7856,15 +7309,14 @@ GoogleCloudAiplatformV1AddContextArtifactsAndExecutionsRequest:
 GoogleCloudAiplatformV1AddContextArtifactsAndExecutionsRequest"
   [context
    GoogleCloudAiplatformV1AddContextArtifactsAndExecutionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+context}:addContextArtifactsAndExecutions",
-     :uri-template-args {"context" context},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body
-     GoogleCloudAiplatformV1AddContextArtifactsAndExecutionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+context}:addContextArtifactsAndExecutions",
+   :uri-template-args {"context" context},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body
+   GoogleCloudAiplatformV1AddContextArtifactsAndExecutionsRequest})
 
 (defn projects-locations-metadataStores-contexts-get
   "Retrieves a specific Context.
@@ -7872,12 +7324,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/metad
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-metadataStores-contexts-removeContextChildren
   "Remove a set of children contexts from a parent Context. If any of the child Contexts were NOT added to the parent Context, they are simply skipped.
@@ -7887,14 +7338,13 @@ context <>
 GoogleCloudAiplatformV1RemoveContextChildrenRequest:
 GoogleCloudAiplatformV1RemoveContextChildrenRequest"
   [context GoogleCloudAiplatformV1RemoveContextChildrenRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+context}:removeContextChildren",
-     :uri-template-args {"context" context},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1RemoveContextChildrenRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+context}:removeContextChildren",
+   :uri-template-args {"context" context},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1RemoveContextChildrenRequest})
 
 (defn projects-locations-metadataStores-contexts-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -7910,13 +7360,12 @@ filter <string> The standard list filter."
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-metadataStores-contexts-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -7924,13 +7373,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/metad
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-metadataStores-contexts-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -7945,13 +7392,11 @@ timeout <string> The maximum duration to wait before timing out. If left blank, 
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-metadataStores-contexts-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -7959,12 +7404,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/metad
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-metadataStores-contexts-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -7972,12 +7416,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/metad
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-metadataStores-executions-patch
   "Updates a stored Execution.
@@ -7996,13 +7439,12 @@ allowMissing <boolean> If set to true, and the Execution is not found, a new Exe
       GoogleCloudAiplatformV1Execution
       nil))
   ([name GoogleCloudAiplatformV1Execution optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1Execution})))
+    {:method :patch,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1Execution}))
 
 (defn projects-locations-metadataStores-executions-get
   "Retrieves a specific Execution.
@@ -8010,12 +7452,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/metad
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-metadataStores-executions-addExecutionEvents
   "Adds Events to the specified Execution. An Event indicates whether an Artifact was used as an input or output for an Execution. If an Event already exists between the Execution and the Artifact, the Event is skipped.
@@ -8025,14 +7466,13 @@ execution <>
 GoogleCloudAiplatformV1AddExecutionEventsRequest:
 GoogleCloudAiplatformV1AddExecutionEventsRequest"
   [execution GoogleCloudAiplatformV1AddExecutionEventsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+execution}:addExecutionEvents",
-     :uri-template-args {"execution" execution},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1AddExecutionEventsRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+execution}:addExecutionEvents",
+   :uri-template-args {"execution" execution},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1AddExecutionEventsRequest})
 
 (defn projects-locations-metadataStores-executions-delete
   "Deletes an Execution.
@@ -8045,12 +7485,11 @@ etag <string> Optional. The etag of the Execution to delete. If this is provided
   ([name]
     (projects-locations-metadataStores-executions-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-metadataStores-executions-queryExecutionInputsAndOutputs
   "Obtains the set of input and output Artifacts for this Execution, in the form of LineageSubgraph that also contains the Execution and connecting Events.
@@ -8058,13 +7497,12 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/metad
 
 execution <> "
   [execution]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+execution}:queryExecutionInputsAndOutputs",
-     :uri-template-args {"execution" execution},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+execution}:queryExecutionInputsAndOutputs",
+   :uri-template-args {"execution" execution},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-metadataStores-executions-list
   "Lists Executions in the MetadataStore.
@@ -8079,13 +7517,12 @@ orderBy <string> How the list of messages is ordered. Specify the values to orde
   ([parent]
     (projects-locations-metadataStores-executions-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/executions",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/executions",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-metadataStores-executions-create
   "Creates an Execution associated with a MetadataStore.
@@ -8103,14 +7540,13 @@ executionId <string> The {execution} portion of the resource name with the forma
       GoogleCloudAiplatformV1Execution
       nil))
   ([parent GoogleCloudAiplatformV1Execution optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/executions",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1Execution})))
+    {:method :post,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/executions",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1Execution}))
 
 (defn projects-locations-metadataStores-executions-purge
   "Purges Executions.
@@ -8120,14 +7556,13 @@ parent <>
 GoogleCloudAiplatformV1PurgeExecutionsRequest:
 GoogleCloudAiplatformV1PurgeExecutionsRequest"
   [parent GoogleCloudAiplatformV1PurgeExecutionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/executions:purge",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1PurgeExecutionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/executions:purge",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1PurgeExecutionsRequest})
 
 (defn projects-locations-metadataStores-executions-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -8143,13 +7578,12 @@ pageSize <integer> The standard list page size."
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-metadataStores-executions-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -8157,12 +7591,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/metad
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-metadataStores-executions-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -8170,12 +7603,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/metad
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-metadataStores-executions-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -8183,13 +7615,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/metad
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-metadataStores-executions-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -8204,13 +7634,11 @@ timeout <string> The maximum duration to wait before timing out. If left blank, 
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-metadataStores-artifacts-get
   "Retrieves a specific Artifact.
@@ -8218,12 +7646,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/metad
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-metadataStores-artifacts-queryArtifactLineageSubgraph
   "Retrieves lineage of an Artifact represented through Artifacts and Executions connected by Event edges and returned as a LineageSubgraph.
@@ -8239,13 +7666,12 @@ maxHops <integer> Specifies the size of the lineage graph in terms of number of 
       artifact
       nil))
   ([artifact optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+artifact}:queryArtifactLineageSubgraph",
-       :uri-template-args {"artifact" artifact},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+artifact}:queryArtifactLineageSubgraph",
+     :uri-template-args {"artifact" artifact},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-metadataStores-artifacts-list
   "Lists Artifacts in the MetadataStore.
@@ -8260,13 +7686,12 @@ pageSize <integer> The maximum number of Artifacts to return. The service may re
   ([parent]
     (projects-locations-metadataStores-artifacts-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/artifacts",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/artifacts",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-metadataStores-artifacts-purge
   "Purges Artifacts.
@@ -8276,14 +7701,13 @@ parent <>
 GoogleCloudAiplatformV1PurgeArtifactsRequest:
 GoogleCloudAiplatformV1PurgeArtifactsRequest"
   [parent GoogleCloudAiplatformV1PurgeArtifactsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/artifacts:purge",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1PurgeArtifactsRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/artifacts:purge",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1PurgeArtifactsRequest})
 
 (defn projects-locations-metadataStores-artifacts-create
   "Creates an Artifact associated with a MetadataStore.
@@ -8301,14 +7725,13 @@ artifactId <string> The {artifact} portion of the resource name with the format:
       GoogleCloudAiplatformV1Artifact
       nil))
   ([parent GoogleCloudAiplatformV1Artifact optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/artifacts",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1Artifact})))
+    {:method :post,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/artifacts",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1Artifact}))
 
 (defn projects-locations-metadataStores-artifacts-patch
   "Updates a stored Artifact.
@@ -8327,13 +7750,12 @@ allowMissing <boolean> If set to true, and the Artifact is not found, a new Arti
       GoogleCloudAiplatformV1Artifact
       nil))
   ([name GoogleCloudAiplatformV1Artifact optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1Artifact})))
+    {:method :patch,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1Artifact}))
 
 (defn projects-locations-metadataStores-artifacts-delete
   "Deletes an Artifact.
@@ -8346,12 +7768,11 @@ etag <string> Optional. The etag of the Artifact to delete. If this is provided,
   ([name]
     (projects-locations-metadataStores-artifacts-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-metadataStores-artifacts-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -8359,12 +7780,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/metad
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-metadataStores-artifacts-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -8380,13 +7800,12 @@ pageSize <integer> The standard list page size."
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-metadataStores-artifacts-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -8394,12 +7813,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/metad
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-metadataStores-artifacts-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -8407,13 +7825,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/metad
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-metadataStores-artifacts-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -8428,13 +7844,11 @@ timeout <string> The maximum duration to wait before timing out. If left blank, 
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-schedules-create
   "Creates a Schedule.
@@ -8444,14 +7858,13 @@ parent <>
 GoogleCloudAiplatformV1Schedule:
 GoogleCloudAiplatformV1Schedule"
   [parent GoogleCloudAiplatformV1Schedule]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/schedules",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1Schedule}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/schedules",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1Schedule})
 
 (defn projects-locations-schedules-get
   "Gets a Schedule.
@@ -8459,12 +7872,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/sched
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-schedules-list
   "Lists Schedules in a Location.
@@ -8478,13 +7890,12 @@ filter <string> Lists the Schedules that match the filter expression. The follow
 orderBy <string> A comma-separated list of fields to order by. The default sort order is in ascending order. Use \"desc\" after a field name for descending. You can have multiple order_by fields provided. For example, using \"create_time desc, end_time\" will order results by create time in descending order, and if there are multiple schedules having the same create time, order them by the end time in ascending order. If order_by is not specified, it will order by default with create_time in descending order. Supported fields: * `create_time` * `start_time` * `end_time` * `next_run_time`"
   ([parent] (projects-locations-schedules-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/schedules",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/schedules",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-schedules-patch
   "Updates an active or paused Schedule. When the Schedule is updated, new runs will be scheduled starting from the updated next execution time after the update time based on the time_specification in the updated Schedule. All unstarted runs before the update time will be skipped while already created runs will NOT be paused or canceled.
@@ -8502,13 +7913,12 @@ updateMask <string> Required. The update mask applies to the resource. See googl
       GoogleCloudAiplatformV1Schedule
       nil))
   ([name GoogleCloudAiplatformV1Schedule optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1Schedule})))
+    {:method :patch,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1Schedule}))
 
 (defn projects-locations-schedules-pause
   "Pauses a Schedule. Will mark Schedule.state to 'PAUSED'. If the schedule is paused, no new runs will be created. Already created runs will NOT be paused or canceled.
@@ -8518,14 +7928,12 @@ name <>
 GoogleCloudAiplatformV1PauseScheduleRequest:
 GoogleCloudAiplatformV1PauseScheduleRequest"
   [name GoogleCloudAiplatformV1PauseScheduleRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:pause",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1PauseScheduleRequest}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:pause",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1PauseScheduleRequest})
 
 (defn projects-locations-schedules-resume
   "Resumes a paused Schedule to start scheduling new runs. Will mark Schedule.state to 'ACTIVE'. Only paused Schedule can be resumed. When the Schedule is resumed, new runs will be scheduled starting from the next execution time after the current time based on the time_specification in the Schedule. If Schedule.catchUp is set up true, all missed runs will be scheduled for backfill first.
@@ -8535,14 +7943,12 @@ name <>
 GoogleCloudAiplatformV1ResumeScheduleRequest:
 GoogleCloudAiplatformV1ResumeScheduleRequest"
   [name GoogleCloudAiplatformV1ResumeScheduleRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:resume",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1ResumeScheduleRequest}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:resume",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1ResumeScheduleRequest})
 
 (defn projects-locations-schedules-delete
   "Deletes a Schedule.
@@ -8550,12 +7956,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/sched
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-schedules-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -8563,13 +7968,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/sched
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-schedules-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -8577,12 +7980,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/sched
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-schedules-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -8594,13 +7996,11 @@ optional:
 timeout <string> The maximum duration to wait before timing out. If left blank, the wait will be at most the time permitted by the underlying HTTP/RPC protocol. If RPC context deadline is also specified, the shorter one will be used."
   ([name] (projects-locations-schedules-operations-wait name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-schedules-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -8608,12 +8008,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/sched
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-schedules-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -8626,13 +8025,12 @@ pageSize <integer> The standard list page size.
 filter <string> The standard list filter."
   ([name] (projects-locations-schedules-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -8644,13 +8042,11 @@ optional:
 timeout <string> The maximum duration to wait before timing out. If left blank, the wait will be at most the time permitted by the underlying HTTP/RPC protocol. If RPC context deadline is also specified, the shorter one will be used."
   ([name] (projects-locations-operations-wait name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -8658,12 +8054,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/opera
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -8671,12 +8066,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/opera
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-cancel
   "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
@@ -8684,13 +8078,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/opera
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:cancel",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :post,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}:cancel",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-operations-list
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -8703,13 +8095,12 @@ filter <string> The standard list filter.
 pageSize <integer> The standard list page size."
   ([name] (projects-locations-operations-list name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}/operations",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+name}/operations",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-featureGroups-create
   "Creates a new FeatureGroup in a given project and location.
@@ -8727,14 +8118,13 @@ featureGroupId <string> Required. The ID to use for this FeatureGroup, which wil
       GoogleCloudAiplatformV1FeatureGroup
       nil))
   ([parent GoogleCloudAiplatformV1FeatureGroup optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/featureGroups",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1FeatureGroup})))
+    {:method :post,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/featureGroups",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1FeatureGroup}))
 
 (defn projects-locations-featureGroups-delete
   "Deletes a single FeatureGroup.
@@ -8746,12 +8136,11 @@ optional:
 force <boolean> If set to true, any Features under this FeatureGroup will also be deleted. (Otherwise, the request will only work if the FeatureGroup has no Features.)"
   ([name] (projects-locations-featureGroups-delete name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :delete,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :delete,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-featureGroups-get
   "Gets details of a single FeatureGroup.
@@ -8759,12 +8148,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/featu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-featureGroups-list
   "Lists FeatureGroups in a given project and location.
@@ -8778,13 +8166,12 @@ orderBy <string> A comma-separated list of fields to order by, sorted in ascendi
 filter <string> Lists the FeatureGroups that match the filter expression. The following fields are supported: * `create_time`: Supports `=`, `!=`, `<`, `>`, `<=`, and `>=` comparisons. Values must be in RFC 3339 format. * `update_time`: Supports `=`, `!=`, `<`, `>`, `<=`, and `>=` comparisons. Values must be in RFC 3339 format. * `labels`: Supports key-value equality and key presence. Examples: * `create_time > \"2020-01-01\" OR update_time > \"2020-01-01\"` FeatureGroups created or updated after 2020-01-01. * `labels.env = \"prod\"` FeatureGroups with label \"env\" set to \"prod\"."
   ([parent] (projects-locations-featureGroups-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/featureGroups",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/featureGroups",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-featureGroups-patch
   "Updates the parameters of a single FeatureGroup.
@@ -8802,13 +8189,12 @@ updateMask <string> Field mask is used to specify the fields to be overwritten i
       GoogleCloudAiplatformV1FeatureGroup
       nil))
   ([name GoogleCloudAiplatformV1FeatureGroup optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1FeatureGroup})))
+    {:method :patch,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1FeatureGroup}))
 
 (defn projects-locations-featureGroups-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -8816,12 +8202,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/featu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-featureGroups-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -8829,12 +8214,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/featu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-featureGroups-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -8846,13 +8230,11 @@ optional:
 timeout <string> The maximum duration to wait before timing out. If left blank, the wait will be at most the time permitted by the underlying HTTP/RPC protocol. If RPC context deadline is also specified, the shorter one will be used."
   ([name] (projects-locations-featureGroups-operations-wait name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-featureGroups-operations-listWait
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -8866,13 +8248,11 @@ pageSize <integer> The standard list page size."
   ([name]
     (projects-locations-featureGroups-operations-listWait name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-featureGroups-features-list
   "Lists Features in a given FeatureGroup.
@@ -8889,13 +8269,12 @@ pageSize <integer> The maximum number of Features to return. The service may ret
   ([parent]
     (projects-locations-featureGroups-features-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/features",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/features",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-featureGroups-features-create
   "Creates a new Feature in a given FeatureGroup.
@@ -8913,14 +8292,13 @@ featureId <string> Required. The ID to use for the Feature, which will become th
       GoogleCloudAiplatformV1Feature
       nil))
   ([parent GoogleCloudAiplatformV1Feature optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/features",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1Feature})))
+    {:method :post,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/features",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1Feature}))
 
 (defn projects-locations-featureGroups-features-patch
   "Updates the parameters of a single Feature.
@@ -8938,13 +8316,12 @@ updateMask <string> Field mask is used to specify the fields to be overwritten i
       GoogleCloudAiplatformV1Feature
       nil))
   ([name GoogleCloudAiplatformV1Feature optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1Feature})))
+    {:method :patch,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1Feature}))
 
 (defn projects-locations-featureGroups-features-get
   "Gets details of a single Feature.
@@ -8952,12 +8329,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/featu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-featureGroups-features-delete
   "Deletes a single Feature.
@@ -8965,12 +8341,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/featu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-featureGroups-features-operations-get
   "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
@@ -8978,12 +8353,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/featu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-featureGroups-features-operations-delete
   "Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
@@ -8991,12 +8365,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/projects/locations/featu
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn projects-locations-featureGroups-features-operations-listWait
   "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
@@ -9012,13 +8385,11 @@ filter <string> The standard list filter."
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn projects-locations-featureGroups-features-operations-wait
   "Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done.
@@ -9033,13 +8404,11 @@ timeout <string> The maximum duration to wait before timing out. If left blank, 
       name
       nil))
   ([name optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+name}:wait",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}:wait",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn datasets-patch
   "Updates a Dataset.
@@ -9054,13 +8423,12 @@ updateMask <string> Required. The update mask applies to the resource. For the `
   ([name GoogleCloudAiplatformV1Dataset]
     (datasets-patch name GoogleCloudAiplatformV1Dataset nil))
   ([name GoogleCloudAiplatformV1Dataset optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1Dataset})))
+    {:method :patch,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1Dataset}))
 
 (defn datasets-get
   "Gets a Dataset.
@@ -9072,12 +8440,11 @@ optional:
 readMask <string> Mask specifying which fields to read."
   ([name] (datasets-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn datasets-list
   "Lists Datasets in a Location.
@@ -9091,12 +8458,11 @@ orderBy <string> A comma-separated list of fields to order by, sorted in ascendi
 pageSize <integer> The standard list page size."
   ([] (datasets-list nil))
   ([optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template "https://aiplatform.googleapis.com/v1/datasets",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://aiplatform.googleapis.com/v1/datasets",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn datasets-delete
   "Deletes a Dataset.
@@ -9104,12 +8470,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/datasets/delete
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn datasets-create
   "Creates a Dataset.
@@ -9123,13 +8488,12 @@ parent <string> Required. The resource name of the Location to create the Datase
   ([GoogleCloudAiplatformV1Dataset]
     (datasets-create GoogleCloudAiplatformV1Dataset nil))
   ([GoogleCloudAiplatformV1Dataset optional]
-    (client/*api-request*
-      {:method :post,
-       :uri-template "https://aiplatform.googleapis.com/v1/datasets",
-       :uri-template-args {},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1Dataset})))
+    {:method :post,
+     :uri-template "https://aiplatform.googleapis.com/v1/datasets",
+     :uri-template-args {},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1Dataset}))
 
 (defn datasets-datasetVersions-patch
   "Updates a DatasetVersion.
@@ -9147,13 +8511,12 @@ updateMask <string> Required. The update mask applies to the resource. For the `
       GoogleCloudAiplatformV1DatasetVersion
       nil))
   ([name GoogleCloudAiplatformV1DatasetVersion optional]
-    (client/*api-request*
-      {:method :patch,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-       :body GoogleCloudAiplatformV1DatasetVersion})))
+    {:method :patch,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+     :body GoogleCloudAiplatformV1DatasetVersion}))
 
 (defn datasets-datasetVersions-list
   "Lists DatasetVersions in a Dataset.
@@ -9168,13 +8531,12 @@ orderBy <string> Optional. A comma-separated list of fields to order by, sorted 
 pageSize <integer> Optional. The standard list page size."
   ([parent] (datasets-datasetVersions-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://aiplatform.googleapis.com/v1/{+parent}/datasetVersions",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template
+     "https://aiplatform.googleapis.com/v1/{+parent}/datasetVersions",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn datasets-datasetVersions-restore
   "Restores a dataset version.
@@ -9182,13 +8544,12 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/datasets/datasetVersions
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+name}:restore",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :get,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+name}:restore",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn datasets-datasetVersions-create
   "Create a version from a Dataset.
@@ -9198,14 +8559,13 @@ parent <>
 GoogleCloudAiplatformV1DatasetVersion:
 GoogleCloudAiplatformV1DatasetVersion"
   [parent GoogleCloudAiplatformV1DatasetVersion]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+parent}/datasetVersions",
-     :uri-template-args {"parent" parent},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1DatasetVersion}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+parent}/datasetVersions",
+   :uri-template-args {"parent" parent},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1DatasetVersion})
 
 (defn datasets-datasetVersions-delete
   "Deletes a Dataset version.
@@ -9213,12 +8573,11 @@ https://cloud.google.com/vertex-ai/v1/reference/rest/v1/datasets/datasetVersions
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :delete,
-     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
+  {:method :delete,
+   :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"]})
 
 (defn datasets-datasetVersions-get
   "Gets a Dataset version.
@@ -9230,12 +8589,11 @@ optional:
 readMask <string> Mask specifying which fields to read."
   ([name] (datasets-datasetVersions-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn endpoints-streamGenerateContent
   "Generate content with multimodal inputs with streaming support.
@@ -9245,16 +8603,15 @@ model <>
 GoogleCloudAiplatformV1GenerateContentRequest:
 GoogleCloudAiplatformV1GenerateContentRequest"
   [model GoogleCloudAiplatformV1GenerateContentRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+model}:streamGenerateContent",
-     :uri-template-args {"model" model},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"],
-     :body GoogleCloudAiplatformV1GenerateContentRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+model}:streamGenerateContent",
+   :uri-template-args {"model" model},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"],
+   :body GoogleCloudAiplatformV1GenerateContentRequest})
 
 (defn endpoints-generateContent
   "Generate content with multimodal inputs.
@@ -9264,16 +8621,15 @@ model <>
 GoogleCloudAiplatformV1GenerateContentRequest:
 GoogleCloudAiplatformV1GenerateContentRequest"
   [model GoogleCloudAiplatformV1GenerateContentRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+model}:generateContent",
-     :uri-template-args {"model" model},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"],
-     :body GoogleCloudAiplatformV1GenerateContentRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+model}:generateContent",
+   :uri-template-args {"model" model},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"],
+   :body GoogleCloudAiplatformV1GenerateContentRequest})
 
 (defn endpoints-countTokens
   "Perform a token counting.
@@ -9283,14 +8639,13 @@ endpoint <>
 GoogleCloudAiplatformV1CountTokensRequest:
 GoogleCloudAiplatformV1CountTokensRequest"
   [endpoint GoogleCloudAiplatformV1CountTokensRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+endpoint}:countTokens",
-     :uri-template-args {"endpoint" endpoint},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1CountTokensRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+endpoint}:countTokens",
+   :uri-template-args {"endpoint" endpoint},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1CountTokensRequest})
 
 (defn endpoints-computeTokens
   "Return a list of tokens based on the input text.
@@ -9300,14 +8655,13 @@ endpoint <>
 GoogleCloudAiplatformV1ComputeTokensRequest:
 GoogleCloudAiplatformV1ComputeTokensRequest"
   [endpoint GoogleCloudAiplatformV1ComputeTokensRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+endpoint}:computeTokens",
-     :uri-template-args {"endpoint" endpoint},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1ComputeTokensRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+endpoint}:computeTokens",
+   :uri-template-args {"endpoint" endpoint},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1ComputeTokensRequest})
 
 (defn publishers-models-generateContent
   "Generate content with multimodal inputs.
@@ -9317,16 +8671,15 @@ model <>
 GoogleCloudAiplatformV1GenerateContentRequest:
 GoogleCloudAiplatformV1GenerateContentRequest"
   [model GoogleCloudAiplatformV1GenerateContentRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+model}:generateContent",
-     :uri-template-args {"model" model},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"],
-     :body GoogleCloudAiplatformV1GenerateContentRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+model}:generateContent",
+   :uri-template-args {"model" model},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"],
+   :body GoogleCloudAiplatformV1GenerateContentRequest})
 
 (defn publishers-models-computeTokens
   "Return a list of tokens based on the input text.
@@ -9336,14 +8689,13 @@ endpoint <>
 GoogleCloudAiplatformV1ComputeTokensRequest:
 GoogleCloudAiplatformV1ComputeTokensRequest"
   [endpoint GoogleCloudAiplatformV1ComputeTokensRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+endpoint}:computeTokens",
-     :uri-template-args {"endpoint" endpoint},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1ComputeTokensRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+endpoint}:computeTokens",
+   :uri-template-args {"endpoint" endpoint},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1ComputeTokensRequest})
 
 (defn publishers-models-countTokens
   "Perform a token counting.
@@ -9353,14 +8705,13 @@ endpoint <>
 GoogleCloudAiplatformV1CountTokensRequest:
 GoogleCloudAiplatformV1CountTokensRequest"
   [endpoint GoogleCloudAiplatformV1CountTokensRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+endpoint}:countTokens",
-     :uri-template-args {"endpoint" endpoint},
-     :query-params {},
-     :scopes ["https://www.googleapis.com/auth/cloud-platform"],
-     :body GoogleCloudAiplatformV1CountTokensRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+endpoint}:countTokens",
+   :uri-template-args {"endpoint" endpoint},
+   :query-params {},
+   :scopes ["https://www.googleapis.com/auth/cloud-platform"],
+   :body GoogleCloudAiplatformV1CountTokensRequest})
 
 (defn publishers-models-get
   "Gets a Model Garden publisher model.
@@ -9375,12 +8726,11 @@ languageCode <string> Optional. The IETF BCP-47 language code representing the l
 isHuggingFaceModel <boolean> Optional. Boolean indicates whether the requested model is a Hugging Face model."
   ([name] (publishers-models-get name nil))
   ([name optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
-       :uri-template-args {"name" name},
-       :query-params (merge {} optional),
-       :scopes ["https://www.googleapis.com/auth/cloud-platform"]})))
+    {:method :get,
+     :uri-template "https://aiplatform.googleapis.com/v1/{+name}",
+     :uri-template-args {"name" name},
+     :query-params (merge {} optional),
+     :scopes ["https://www.googleapis.com/auth/cloud-platform"]}))
 
 (defn publishers-models-streamGenerateContent
   "Generate content with multimodal inputs with streaming support.
@@ -9390,13 +8740,12 @@ model <>
 GoogleCloudAiplatformV1GenerateContentRequest:
 GoogleCloudAiplatformV1GenerateContentRequest"
   [model GoogleCloudAiplatformV1GenerateContentRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://aiplatform.googleapis.com/v1/{+model}:streamGenerateContent",
-     :uri-template-args {"model" model},
-     :query-params {},
-     :scopes
-     ["https://www.googleapis.com/auth/cloud-platform"
-      "https://www.googleapis.com/auth/cloud-platform.read-only"],
-     :body GoogleCloudAiplatformV1GenerateContentRequest}))
+  {:method :post,
+   :uri-template
+   "https://aiplatform.googleapis.com/v1/{+model}:streamGenerateContent",
+   :uri-template-args {"model" model},
+   :query-params {},
+   :scopes
+   ["https://www.googleapis.com/auth/cloud-platform"
+    "https://www.googleapis.com/auth/cloud-platform.read-only"],
+   :body GoogleCloudAiplatformV1GenerateContentRequest})

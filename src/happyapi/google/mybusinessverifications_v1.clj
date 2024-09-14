@@ -1,8 +1,7 @@
 (ns happyapi.google.mybusinessverifications-v1
   "My Business Verifications API
 The My Business Verifications API provides an interface for taking verifications related actions for locations.
-See: https://developers.google.com/my-business/"
-  (:require [happyapi.providers.google :as client]))
+See: https://developers.google.com/my-business/")
 
 (defn locations-getVoiceOfMerchantState
   "Gets the VoiceOfMerchant state.
@@ -10,13 +9,12 @@ https://developers.google.com/my-business/v1/reference/rest/v1/locations/getVoic
 
 name <> "
   [name]
-  (client/*api-request*
-    {:method :get,
-     :uri-template
-     "https://mybusinessverifications.googleapis.com/v1/{+name}/VoiceOfMerchantState",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes nil}))
+  {:method :get,
+   :uri-template
+   "https://mybusinessverifications.googleapis.com/v1/{+name}/VoiceOfMerchantState",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes nil})
 
 (defn locations-fetchVerificationOptions
   "Reports all eligible verification options for a location in a specific language.
@@ -26,14 +24,13 @@ location <>
 FetchVerificationOptionsRequest:
 FetchVerificationOptionsRequest"
   [location FetchVerificationOptionsRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://mybusinessverifications.googleapis.com/v1/{+location}:fetchVerificationOptions",
-     :uri-template-args {"location" location},
-     :query-params {},
-     :scopes nil,
-     :body FetchVerificationOptionsRequest}))
+  {:method :post,
+   :uri-template
+   "https://mybusinessverifications.googleapis.com/v1/{+location}:fetchVerificationOptions",
+   :uri-template-args {"location" location},
+   :query-params {},
+   :scopes nil,
+   :body FetchVerificationOptionsRequest})
 
 (defn locations-verify
   "Starts the verification process for a location.
@@ -43,14 +40,13 @@ name <>
 VerifyLocationRequest:
 VerifyLocationRequest"
   [name VerifyLocationRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://mybusinessverifications.googleapis.com/v1/{+name}:verify",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes nil,
-     :body VerifyLocationRequest}))
+  {:method :post,
+   :uri-template
+   "https://mybusinessverifications.googleapis.com/v1/{+name}:verify",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes nil,
+   :body VerifyLocationRequest})
 
 (defn locations-verifications-complete
   "Completes a `PENDING` verification. It is only necessary for non `AUTO` verification methods. `AUTO` verification request is instantly `VERIFIED` upon creation.
@@ -60,14 +56,13 @@ name <>
 CompleteVerificationRequest:
 CompleteVerificationRequest"
   [name CompleteVerificationRequest]
-  (client/*api-request*
-    {:method :post,
-     :uri-template
-     "https://mybusinessverifications.googleapis.com/v1/{+name}:complete",
-     :uri-template-args {"name" name},
-     :query-params {},
-     :scopes nil,
-     :body CompleteVerificationRequest}))
+  {:method :post,
+   :uri-template
+   "https://mybusinessverifications.googleapis.com/v1/{+name}:complete",
+   :uri-template-args {"name" name},
+   :query-params {},
+   :scopes nil,
+   :body CompleteVerificationRequest})
 
 (defn locations-verifications-list
   "List verifications of a location, ordered by create time.
@@ -79,10 +74,9 @@ optional:
 pageSize <integer> How many verification to include per page. Minimum is 1, and the default and maximum page size is 100."
   ([parent] (locations-verifications-list parent nil))
   ([parent optional]
-    (client/*api-request*
-      {:method :get,
-       :uri-template
-       "https://mybusinessverifications.googleapis.com/v1/{+parent}/verifications",
-       :uri-template-args {"parent" parent},
-       :query-params (merge {} optional),
-       :scopes nil})))
+    {:method :get,
+     :uri-template
+     "https://mybusinessverifications.googleapis.com/v1/{+parent}/verifications",
+     :uri-template-args {"parent" parent},
+     :query-params (merge {} optional),
+     :scopes nil}))
